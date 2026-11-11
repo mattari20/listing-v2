@@ -15,7 +15,9 @@ REQUIRED = [
     "docs/00-foundation/ENGINEERING_STANDARDS.md",
     "docs/00-foundation/DEFINITION_OF_DONE.md",
     "docs/00-foundation/DECISION_REGISTER.md",
+    "docs/00-foundation/REPOSITORY_GOVERNANCE_SETUP.md",
     "docs/04-roadmap/PROJECT_MASTER_ROADMAP.md",
+    "docs/04-roadmap/DOCUMENTATION_CATALOG.md",
     "docs/04-roadmap/MILESTONE_STEP_REGISTER.md",
     "docs/04-roadmap/IMPLEMENTATION_TRACEABILITY_MATRIX.md",
     "docs/04-roadmap/PROJECT_PROGRESS_REPORT.md",
@@ -64,6 +66,11 @@ if "Strict legacy non-interference rule" not in controller:
 audit = (ROOT / "docs/99-reference/LEGACY_REPOSITORY_ISOLATION_AUDIT.md").read_text(encoding="utf-8")
 if "Non-interference guarantee" not in audit:
     fail("Legacy isolation audit must contain its non-interference guarantee.")
+
+catalogue_link = "[Documentation Completion Catalogue](04-roadmap/DOCUMENTATION_CATALOG.md)"
+index = (ROOT / "docs/README.md").read_text(encoding="utf-8")
+if catalogue_link not in index:
+    fail("Documentation index must link the completion catalogue.")
 
 print(f"PASS: {len(REQUIRED)} required control documents exist.")
 print("PASS: all relative Markdown links resolve within the repository.")
