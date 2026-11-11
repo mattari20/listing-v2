@@ -23,8 +23,8 @@ Do not count PRs as progress units. Progress is not acceptance: mandatory gates 
 | M0-S02 | Establish strict legacy non-interference audit | Explicit exclusion policy, metadata-only source inventory, no copied artifacts; audit scope limitations recorded | S01 | In progress |
 | M0-S03 | Establish project controller and planning documents | Controller, roadmap, step register, traceability, progress and next-step rules | S01 | In progress |
 | M0-S04 | Establish engineering and AI governance independently for V2 | Engineering standards, AI protocol, definition of done, authorization boundaries | S01 | In progress |
-| M0-S05 | Configure V2 repository workflow | PR/issue templates, ownership, branch rules, required checks, auto-merge settings | S03-S04 | Not started |
-| M0-S06 | Verify V2 delivery workflow | Test PR demonstrates required checks, merge policy, evidence update and next-step selection | S05 | Not started |
+| M0-S05 | Configure V2 repository workflow | PR/issue templates, validation CI, owner settings, branch rules and required checks | S03-S04 | In progress — owner settings pending |
+| M0-S06 | Verify V2 delivery workflow | Separate test PR demonstrates latest-head checks, review/merge safeguards, evidence update and next-step selection | S05 | Not started |
 | M0-S07 | M0 acceptance and closeout | All mandatory M0 evidence reviewed; controller points to M1-S01 | S01-S06 | Not started |
 
 Initial M0 step weights (planning baseline, to be reviewed): S01 10%, S02 15%, S03 20%, S04 15%, S05 20%, S06 10%, S07 10%.
