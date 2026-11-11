@@ -28,6 +28,7 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [Milestone and Step Register](04-roadmap/MILESTONE_STEP_REGISTER.md)
 - [Traceability Matrix](04-roadmap/IMPLEMENTATION_TRACEABILITY_MATRIX.md)
 - [Progress Report](04-roadmap/PROJECT_PROGRESS_REPORT.md)
+- [Legacy Repository Isolation Audit](99-reference/LEGACY_REPOSITORY_ISOLATION_AUDIT.md)
 
 ## Governance rule
-A proposal in a document is not automatically an approved implementation choice. Record material decisions in the Decision Register. Update the controller, step register, traceability and progress report as work advances.
+A proposal in a document is not automatically an approved implementation choice. Record material decisions in the Decision Register. Update the controller, step register, traceability and progress report as work advances. Legacy repository artifacts are explicitly excluded from V2; see the isolation audit.
