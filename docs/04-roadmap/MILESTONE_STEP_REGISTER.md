@@ -42,7 +42,7 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 ## M1 — Student requirements and independent research
 | Step | Scope | Target / acceptance evidence |
 |---|---|---|
-| M1-S01 | Student/user research and journey | Personas, journey, use cases and measurable acceptance criteria based on V2 owner direction and new research |
+| M1-S01 | Student/user research and journey | Primary research, validated student segments, end-to-end journey, evidence-backed requirements and measurable acceptance criteria; see `../03-research/M1_STUDENT_JOURNEY_RESEARCH.md` |
 | M1-S02 | Institution taxonomy and coverage requirements | Independently researched level/type/sector/geography matrix and inclusion rules |
 | M1-S03 | Official government/regulator provider research | New source register with access, rights, coverage and freshness evidence |
 | M1-S04 | Private provider and institution-source research | New provider inventory and documented gaps |
@@ -52,6 +52,15 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 | M1-S08 | V2 AI data-agent workflow requirements | Source-specific collection, verification, scheduling and human-review requirements |
 | M1-S09 | Comparison, review and trust research | Rating rubric, moderation, privacy and abuse cases |
 | M1-S10 | M1 synthesis and acceptance | Research report, gap register and approved inputs to M2 |
+
+### M1-S01 task breakdown (weights total 100%)
+| Task | Weight | Acceptance evidence | Status |
+|---|---:|---|---|
+| S01-T01 Desk research and evidence register | 20% | Independent source synthesis with limitations and dated references | In progress — initial baseline drafted |
+| S01-T02 Participant segments and research protocol | 20% | Segment hypotheses, recruitment approach, consent and safeguarding plan | Planned |
+| S01-T03 Primary interviews/survey | 25% | Documented, consented participant evidence and sample limitations | Planned |
+| S01-T04 Journey mapping and synthesis | 20% | Validated journey, decision factors, pain points and gaps | Planned |
+| S01-T05 Requirements and acceptance criteria | 15% | Traceable updates to product requirements and owner-reviewed acceptance | Planned |
 
 ## M2–M12 step planning
 Before each milestone starts, create detailed numbered steps, task weights, dependencies, acceptance criteria, PR/test evidence and target dates or duration estimates where supportable. Do not invent calendar commitments without capacity and dependency estimates.
