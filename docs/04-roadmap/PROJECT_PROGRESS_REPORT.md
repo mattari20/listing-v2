@@ -11,9 +11,10 @@
 - GitHub integration access: repository read/write verified.
 - Bootstrap README commit: `f33278a0d10cb97bb1fa045ca41cbf11ad15aa8a`
 - Documentation branch: `docs/m0-founding-documentation`
-- Founding documentation PR: [#1](https://github.com/mattari20/listing-v2/pull/1), open.
-- Latest verified PR head at the time of this report: `ae0aae4f8681cf5845fd70bb496629dee1b3a69a`.
-- CI workflow run [#43048595474](https://github.com/mattari20/listing-v2/actions/runs/43048595474) completed with conclusion `success` on that exact head SHA.
+- Founding documentation PR: [#1](https://github.com/mattari20/listing-v2/pull/1), open and unmerged.
+- Latest PR head verified during this reconciliation: `d00d50b3276fa9078880ac8d22fe95c836707c6f`.
+- CI workflow run [#43048752252](https://github.com/mattari20/listing-v2/actions/runs/43048752252) completed with conclusion `success` on that exact head SHA.
+- The PR is mergeable according to the current PR metadata, but this is not approval to merge.
 
 ## Strict isolation audit
 - Legacy repository main commit observed: `d363fad00c15d6892677e452d5b1f383cbe892de`.
@@ -24,23 +25,27 @@
 
 ## Repository settings findings
 - Pull requests are enabled.
-- Squash, merge-commit and rebase methods are currently enabled.
-- Repository-level automatic merge is disabled (`allow_auto_merge=false`).
-- Main branch protection is disabled (`protected=false`).
-- Branch-protection/ruleset endpoints returned GitHub permission/plan restrictions for this private repository. Do not make the repository public to unlock them.
-- Required owner settings and interim manual safeguards are documented in `00-foundation/REPOSITORY_GOVERNANCE_SETUP.md`.
+- Squash, merge-commit and rebase methods are enabled.
+- Repository-level automatic merge remains disabled (`allow_auto_merge=false`); the Settings checkbox is greyed out.
+- Owner created and saved ruleset `main`, targeting the default branch. GitHub resolves this to one target: `main`.
+- The ruleset bypass list is empty and selected safeguards are recorded in `00-foundation/REPOSITORY_GOVERNANCE_SETUP.md`.
+- Ruleset enforcement remains **Disabled**. GitHub's warning says it will not be enforced on this private repository unless moved to a GitHub Team organization account.
+- No required status check has been added to the ruleset.
+- Do not make the repository public to unlock controls. Until enforcement is active, follow the interim manual safeguards.
 
 ## Current work
-PR #1 contains the founding documentation, strict non-interference policy, PR/issue templates and a dependency-free documentation validation workflow. The workflow passed on the exact head SHA recorded above. Later commits must be checked again before any merge.
+PR #1 contains founding documentation, strict non-interference policy, PR/issue templates and a dependency-free documentation validation workflow. Run #43048752252 passed on exact head SHA `d00d50b3276fa9078880ac8d22fe95c836707c6f`. Any subsequent commit requires a fresh latest-head CI verification before merge.
 
 ## Progress interpretation
 No milestone is accepted. Do not report a numerical completion percentage until step task weights and evidence have been reviewed. PR creation alone is not completion.
 
 ## Blockers / pending verification
-- Re-run validation on the latest PR head after the repository governance documentation updates.
-- Owner must enable auto-merge if available and configure main-branch protections if supported by the current plan.
-- Run a separate end-to-end test PR after repository controls are available.
+- Repository plan/ownership decision: retain current private personal repository with documented manual safeguards, or separately choose a GitHub Team organization arrangement.
+- Active branch protection is not currently available; saved ruleset is disabled.
+- Auto-merge remains unavailable.
+- Identify the actual CI check name from a completed latest-head run before adding it as a required check.
+- Run a separate end-to-end test PR under the available manual process, or after active controls become available.
 - Complete M0 acceptance.
 
 ## Next action
-Finish M0-S05 repository workflow controls, verify the latest-head CI result and document owner-level settings. Continue M0-S06 only after the required settings are confirmed or a formally documented interim process is accepted.
+Record the latest governance configuration in the project controller and continue M0-S05 only within the available private-repository controls. Do not claim branch protection or auto-merge is active. M0-S06 must demonstrate the documented interim PR/CI/review/evidence process unless the owner independently enables enforceable controls.
