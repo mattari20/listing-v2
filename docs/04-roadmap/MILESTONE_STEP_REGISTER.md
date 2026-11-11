@@ -57,7 +57,7 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 | Task | Weight | Acceptance evidence | Status |
 |---|---:|---|---|
 | S01-T01 Desk research and evidence register | 20% | Independent source synthesis with limitations and dated references | In progress — initial baseline drafted |
-| S01-T02 Participant segments and research protocol | 20% | Segment hypotheses, recruitment approach, consent and safeguarding plan | Planned |
+| S01-T02 Participant segments and research protocol | 20% | Segment hypotheses, recruitment approach, consent and safeguarding plan | In progress — draft adult interview/survey kit prepared; owner approval required before fieldwork |
 | S01-T03 Primary interviews/survey | 25% | Documented, consented participant evidence and sample limitations | Planned |
 | S01-T04 Journey mapping and synthesis | 20% | Validated journey, decision factors, pain points and gaps | Planned |
 | S01-T05 Requirements and acceptance criteria | 15% | Traceable updates to product requirements and owner-reviewed acceptance | Planned |
