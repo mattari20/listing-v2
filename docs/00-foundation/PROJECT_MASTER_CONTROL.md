@@ -2,13 +2,14 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0 — founding documentation in progress  
+**Status:** M0 — founding documentation merged; catalogue and acceptance tracking active  
 **Last reconciled:** 2026-11-11
 
 ## Authoritative current position
 - Private V2 repository and GitHub integration access verified.
 - Bootstrap README committed to `main`.
-- Founding documentation PR #1 is open on `docs/m0-founding-documentation`.
+- Founding documentation PR #1 merged into `main` as `0f2165f3d18e43f10cf6d6f717f145d3433769a4`.
+- Documentation Completion Catalogue: `../04-roadmap/DOCUMENTATION_CATALOG.md`; update after every documentation PR update and merge.
 - No application code, database schema or migrations have been approved or started.
 - Legacy repository inspection is read-only and limited to a metadata inventory for explicit exclusion.
 - No connection to legacy production systems or data is permitted.
@@ -16,6 +17,9 @@
 
 ## Project objective
 Build a student-first education discovery, admissions information and comparison platform, initially focused on Pakistan, supported by a lawful, multi-source, continuously refreshed and evidence-based education data catalogue.
+
+## Documentation visibility
+The Documentation Completion Catalogue is the owner-facing inventory of delivered, updated, accepted and planned documents. A merged PR records delivery, not automatic content acceptance. Every documentation PR update and merge must reconcile the catalogue, index, controller, step register, traceability and progress report.
 
 ## Current milestone
 **M0 — Repository, documentation and governance foundation**

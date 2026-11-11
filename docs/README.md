@@ -23,6 +23,9 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [AI Data Agent Requirements](02-data-strategy/AI_DATA_AGENT_REQUIREMENTS.md)
 - [Data Rights and Provenance](02-data-strategy/DATA_RIGHTS_AND_PROVENANCE.md)
 
+## Documentation tracking
+- [Documentation Completion Catalogue](04-roadmap/DOCUMENTATION_CATALOG.md) — owner-facing list of delivered, reviewed, accepted and planned documents; updated after every documentation PR update and merge.
+
 ## Research and delivery
 - [Open-Source Reuse Audit](03-research/OPEN_SOURCE_REUSE_AUDIT.md)
 - [Master Roadmap](04-roadmap/PROJECT_MASTER_ROADMAP.md)

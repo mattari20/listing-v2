@@ -2,50 +2,49 @@
 
 **As of:** 2026-11-11  
 **Current milestone:** M0  
-**Current phase:** Founding documentation, CI validation and repository governance
+**Current phase:** Founding documentation merged; catalogue, content acceptance and delivery-workflow verification
 
 ## Verified V2 repository facts
 - Repository: `mattari20/listing-v2`
-- Visibility: Private; keep private.
+- Visibility: Public (owner changed visibility on 2026-11-11).
 - Default branch: `main`
-- GitHub integration access: repository read/write verified.
 - Bootstrap README commit: `f33278a0d10cb97bb1fa045ca41cbf11ad15aa8a`
-- Documentation branch: `docs/m0-founding-documentation`
-- Founding documentation PR: [#1](https://github.com/mattari20/listing-v2/pull/1), open and unmerged.
-- Latest PR head verified during this reconciliation: `d00d50b3276fa9078880ac8d22fe95c836707c6f`.
-- CI workflow run [#43048752252](https://github.com/mattari20/listing-v2/actions/runs/43048752252) completed with conclusion `success` on that exact head SHA.
-- The PR is mergeable according to the current PR metadata, but this is not approval to merge.
-
-## Strict isolation audit
-- Legacy repository main commit observed: `d363fad00c15d6892677e452d5b1f383cbe892de`.
-- A metadata-only inventory of selected legacy documentation paths and blob SHAs is recorded in `99-reference/LEGACY_REPOSITORY_ISOLATION_AUDIT.md`.
-- No legacy document contents, source code, schema, migrations, workflows, data, configuration or implementation patterns were copied into V2.
-- The legacy repository was accessed read-only for exclusion/audit purposes only.
-- This is a targeted inventory, not an exhaustive enumeration of every legacy file.
-
-## Repository settings findings
-- Pull requests are enabled.
+- Founding documentation PR [#1](https://github.com/mattari20/listing-v2/pull/1) is merged.
+- Merge commit: `0f2165f3d18e43f10cf6d6f717f145d3433769a4`.
+- PR #1 delivered 36 commits and 26 changed files.
+- The required documentation validation check passed on the final PR head `0b559e65edb70fe41bb7b508c7e2af82ecf36e16`; run [#43052576956](https://github.com/mattari20/listing-v2/actions/runs/43052576956).
+- Repository-level auto-merge is enabled (`allow_auto_merge=true`).
 - Squash, merge-commit and rebase methods are enabled.
-- Repository-level automatic merge remains disabled (`allow_auto_merge=false`); the Settings checkbox is greyed out.
-- Owner created and saved ruleset `main`, targeting the default branch. GitHub resolves this to one target: `main`.
-- The ruleset bypass list is empty and selected safeguards are recorded in `00-foundation/REPOSITORY_GOVERNANCE_SETUP.md`.
-- Ruleset enforcement remains **Disabled**. GitHub's warning says it will not be enforced on this private repository unless moved to a GitHub Team organization account.
-- No required status check has been added to the ruleset.
-- Do not make the repository public to unlock controls. Until enforcement is active, follow the interim manual safeguards.
+- Ruleset `main` (ID `27043221`) is active and targets the default branch, resolving to `main`.
+- Ruleset has no bypass actors, requires PRs, conversation resolution, linear history, latest/up-to-date status checks, and blocks deletion and force pushes.
+- Required check configured: `Validate project control documents`.
+- The catalogue `DOCUMENTATION_CATALOG.md` is being introduced to track delivery and acceptance status after every documentation PR update/merge.
 
-## Current work
-PR #1 contains founding documentation, strict non-interference policy, PR/issue templates and a dependency-free documentation validation workflow. Run #43048752252 passed on exact head SHA `d00d50b3276fa9078880ac8d22fe95c836707c6f`. Any subsequent commit requires a fresh latest-head CI verification before merge.
+## Strict legacy non-interference
+- Legacy repository access remains read-only and limited to the existing metadata-only exclusion audit.
+- No legacy code, schema, migrations, data, architecture, workflows, configuration or implementation patterns are to be reused or allowed to influence V2.
+- No legacy production access, modification, deployment or cutover is authorized.
 
-## Progress interpretation
-No milestone is accepted. Do not report a numerical completion percentage until step task weights and evidence have been reviewed. PR creation alone is not completion.
+## Documentation delivery and acceptance
+- PR #1 founding documentation is merged into `main`.
+- The catalogue distinguishes **Delivered — review pending** from **Accepted**. The merge does not imply that all document content is fully researched or accepted.
+- Individual founding documents still require content-level review and evidence-based acceptance.
+- The provider register and independent reuse audit require further source research and evidence.
+- No application code, database schema or migrations have been approved or started.
 
-## Blockers / pending verification
-- Repository plan/ownership decision: retain current private personal repository with documented manual safeguards, or separately choose a GitHub Team organization arrangement.
-- Active branch protection is not currently available; saved ruleset is disabled.
-- Auto-merge remains unavailable.
-- Identify the actual CI check name from a completed latest-head run before adding it as a required check.
-- Run a separate end-to-end test PR under the available manual process, or after active controls become available.
-- Complete M0 acceptance.
+## M0 status
+- M0-S05 repository workflow configuration: Complete based on verified repository settings and active ruleset.
+- M0-S01 through M0-S04: founding artifacts delivered; individual acceptance review remains outstanding.
+- M0-S06: delivery-workflow verification still required.
+- M0-S07: M0 acceptance and closeout not started.
+- No numerical milestone percentage is claimed; acceptance and task weights must be reconciled first.
 
-## Next action
-Record the latest governance configuration in the project controller and continue M0-S05 only within the available private-repository controls. Do not claim branch protection or auto-merge is active. M0-S06 must demonstrate the documented interim PR/CI/review/evidence process unless the owner independently enables enforceable controls.
+## Next actions
+1. Merge and validate the documentation catalogue/index/controller updates through a focused PR.
+2. Review founding documents individually and update their catalogue status only with evidence.
+3. Perform a separate test PR to demonstrate required checks, active branch protection, merge controls and post-merge evidence updates.
+4. Complete M0-S07 only after all mandatory evidence is accepted.
+5. Start M1 independent research after M0 closeout.
+
+## Ongoing reporting rule
+After every documentation PR update and merge, reconcile the documentation catalogue, documentation index, controller, step register, traceability matrix and progress report. Always record the exact PR, head SHA, check result and merge SHA where applicable.
