@@ -18,7 +18,8 @@
 - Ruleset `main` (ID `27043221`) is active and targets the default branch, resolving to `main`.
 - Ruleset has no bypass actors, requires PRs, conversation resolution, linear history, latest/up-to-date status checks, and blocks deletion and force pushes.
 - Required check configured: `Validate project control documents`.
-- The catalogue `DOCUMENTATION_CATALOG.md` is being introduced to track delivery and acceptance status after every documentation PR update/merge.
+- Documentation catalogue `DOCUMENTATION_CATALOG.md` is merged and linked from the index and controller.
+- PR #2 merged as `975cd672378e8d30982d44d54d12e195e9c57d5d`; required check passed on exact head `9ad0d3b361d6641dca2e94c3c9a52ac2fb4d1597` ([run #43057131618](https://github.com/mattari20/listing-v2/actions/runs/43057131618)).
 
 ## Strict legacy non-interference
 - Legacy repository access remains read-only and limited to the existing metadata-only exclusion audit.
@@ -35,16 +36,15 @@
 ## M0 status
 - M0-S05 repository workflow configuration: Complete based on verified repository settings and active ruleset.
 - M0-S01 through M0-S04: founding artifacts delivered; individual acceptance review remains outstanding.
-- M0-S06: delivery-workflow verification still required.
+- M0-S06: Complete based on PR #2's successful latest-head required check, active ruleset enforcement and controlled squash merge. Automatic merge execution itself remains untested.
 - M0-S07: M0 acceptance and closeout not started.
 - No numerical milestone percentage is claimed; acceptance and task weights must be reconciled first.
 
 ## Next actions
-1. Merge and validate the documentation catalogue/index/controller updates through a focused PR.
+1. Reconcile the initial document review findings and correct inconsistent statements without importing legacy material.
 2. Review founding documents individually and update their catalogue status only with evidence.
-3. Perform a separate test PR to demonstrate required checks, active branch protection, merge controls and post-merge evidence updates.
-4. Complete M0-S07 only after all mandatory evidence is accepted.
-5. Start M1 independent research after M0 closeout.
+3. Complete M0-S07 only after all mandatory evidence is accepted.
+4. Start M1 independent research after M0 closeout.
 
 ## Ongoing reporting rule
 After every documentation PR update and merge, reconcile the documentation catalogue, documentation index, controller, step register, traceability matrix and progress report. Always record the exact PR, head SHA, check result and merge SHA where applicable.

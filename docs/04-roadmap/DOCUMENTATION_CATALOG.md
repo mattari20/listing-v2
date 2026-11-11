@@ -42,7 +42,7 @@ For every merge:
 | [Engineering Standards](../00-foundation/ENGINEERING_STANDARDS.md) | V2 engineering quality and delivery standards | Delivered — review pending |
 | [Definition of Done](../00-foundation/DEFINITION_OF_DONE.md) | Completion and acceptance expectations | Delivered — review pending |
 | [Decision Register](../00-foundation/DECISION_REGISTER.md) | Durable record of approved and pending decisions | Delivered — review pending |
-| [Repository Governance Setup](../00-foundation/REPOSITORY_GOVERNANCE_SETUP.md) | PR, branch rules, CI and merge configuration evidence | Updated — review pending in PR #2 |
+| [Repository Governance Setup](../00-foundation/REPOSITORY_GOVERNANCE_SETUP.md) | PR, branch rules, CI and merge configuration evidence | Updated — accepted configuration evidence; content review pending |
 
 ### B. Product requirements
 
@@ -76,7 +76,7 @@ For every merge:
 | [Milestone and Step Register](MILESTONE_STEP_REGISTER.md) | Numbered milestones, steps and acceptance evidence | Updated — review pending in PR #2 |
 | [Implementation Traceability Matrix](IMPLEMENTATION_TRACEABILITY_MATRIX.md) | Requirement-to-delivery traceability | Delivered — review pending |
 | [Project Progress Report](PROJECT_PROGRESS_REPORT.md) | Verified current status, blockers and next actions | Updated — review pending in PR #2 |
-| [Documentation Completion Catalogue](DOCUMENTATION_CATALOG.md) | Owner-facing documentation inventory and PR-by-PR history | New in this PR — review pending |
+| [Documentation Completion Catalogue](DOCUMENTATION_CATALOG.md) | Owner-facing documentation inventory and PR-by-PR history | Delivered — review pending |
 
 ### F. Independence and legacy exclusion
 
@@ -100,7 +100,7 @@ For every merge:
 | PR | Scope | Merge / head evidence | Status |
 |---|---|---|---|
 | [#1](https://github.com/mattari20/listing-v2/pull/1) | Founding documentation, V2 governance, product/data requirements, roadmap, isolation audit and repository templates/CI | Merged as `0f2165f3d18e43f10cf6d6f717f145d3433769a4`; 36 commits; 26 changed files; one required check passed | Merged |
-| [#2](https://github.com/mattari20/listing-v2/pull/2) | Living documentation catalogue, index/controller/roadmap reconciliation, governance and progress updates | Open; current head and required-check evidence are tracked in the PR | In progress — CI passed on initial head; final head verification pending |
+| [#2](https://github.com/mattari20/listing-v2/pull/2) | Living documentation catalogue, index/controller/roadmap reconciliation, governance and progress updates | Merged as `975cd672378e8d30982d44d54d12e195e9c57d5d`; exact head `9ad0d3b361d6641dca2e94c3c9a52ac2fb4d1597`; required check passed ([run #43057131618](https://github.com/mattari20/listing-v2/actions/runs/43057131618)) | Merged |
 
 ## Remaining documentation work
 
@@ -112,6 +112,10 @@ For every merge:
 6. Keep M2 architecture and technology decisions unapproved until M1 research is accepted.
 7. Maintain the strict rule that no legacy implementation, architecture, data, workflows or operating patterns influence V2.
 
+## Initial consistency review findings
+
+The first review identified and corrected three stale or conflicting statements in PR #3: the README's suggestion that legacy historical knowledge could be preserved into V2; the Decision Register's similar allowance; and the controller's outdated private-repository status. The strict V2 non-interference rule remains binding. These corrections do not constitute full acceptance of all founding documents.
+
 ## Current acceptance position
 
-PR #1 establishes the initial documentation set and is merged. The inventory is a delivery record, not a claim that every document is fully researched or accepted. M0 closeout remains subject to M0-S06 delivery-workflow verification and M0-S07 evidence-based acceptance.
+PR #1 establishes the initial documentation set and is merged. The inventory is a delivery record, not a claim that every document is fully researched or accepted. M0-S06 is complete based on PR #2's verified required-check and protected-merge path. M0-S07 evidence-based content acceptance and closeout remain outstanding.
