@@ -1,26 +1,26 @@
 # Project Constitution
 
 ## Mission
-Help students and families make better-informed education decisions by making trustworthy institution, programme, admission and comparison information easier to discover.
+Create a new student-first education discovery and decision-support product from independently documented V2 requirements and research.
 
-## Product principles
-1. Student outcomes and decision usefulness come first.
-2. Government and private providers, and institutions across education levels, should be represented fairly.
-3. Information must show its source, freshness and verification status.
-4. Missing, estimated, disputed and unverified data must never be presented as confirmed fact.
-5. Institutions and campuses are distinct entities; programmes are associated with the campus and applicable academic session where evidence supports that relationship.
-6. Reviews must support honest feedback while protecting users from abuse, manipulation and retaliation.
-7. Accessibility, mobile usability, understandable language and low-bandwidth performance are core requirements.
-8. Search and ranking must be explainable; paid placement must never masquerade as an organic recommendation.
+## Product direction
+The V2 owner has directed that students should be able to find nearby educational institutions, explore what classes and programmes they offer, understand relevant details, compare institutions and share ratings or opinions. These are V2 product goals to be elaborated through new requirements and research.
 
-## Independence
-V2 is a greenfield project in `mattari20/listing-v2`. The legacy repository and live service remain separate and untouched. Reuse of legacy knowledge is limited to reviewed requirements, principles and historical reference material with provenance. No legacy code, schema, migrations, operational secrets or unverified workarounds are adopted as foundations.
+## Independence and non-interference
+V2 is a completely independent greenfield project in `mattari20/listing-v2`. The legacy repository and live service must remain untouched.
 
-## Geographic scope
-Initial product scope is Pakistan, covering provinces and territories: Punjab, Sindh, Khyber Pakhtunkhwa, Balochistan, Islamabad Capital Territory, Azad Jammu and Kashmir, and Gilgit-Baltistan. Any scope expansion must be recorded.
+**No legacy work may influence V2 in any style or form.** Do not copy, adapt, port, import, depend on or use as a template any legacy source code, database schema, migrations, SQL, APIs, data, architecture, domain models, technology choices, UI/UX patterns, tests, CI workflows, deployment configuration, operational procedures, fixes, workarounds, milestone plans or historical status claims.
+
+Legacy repository access is read-only and limited to identifying excluded artifacts. V2 requirements must come from direct V2 owner direction, independent research and V2 validation. Similarity to a legacy concept does not establish approval.
+
+## Independent decision-making
+All V2 architecture, technologies, data models, APIs, user experience, security controls, test strategies, workflows and release processes must be independently researched, specified, decided and validated. Material decisions require V2 decision records.
+
+## Product integrity
+Do not publish invented, stale, unverified or disputed education facts as confirmed. Preserve source provenance and freshness for newly researched V2 data. Keep student safety, privacy, accessibility and transparency in scope from the beginning.
 
 ## Governance
-Requirements, milestones, tasks, decisions, evidence and next actions are maintained in version-controlled documentation. Work is delivered in small steps and focused pull requests.
+Requirements, milestones, tasks, decisions, evidence and next actions are maintained in V2 version-controlled documentation. Work is decomposed into small measurable steps and focused PRs.
 
 ## Production protection
-The existing production website and its data remain protected. Development authority does not imply permission for production access, data changes, deployment or URL cutover. Those actions require separate explicit authorization, backup and restore verification, a reviewed runbook and acceptance evidence.
+The existing production website and its data remain protected. V2 development grants no permission for production access, data changes, deployment or URL cutover. Those actions require separate explicit authorization, backup and restore verification, a reviewed runbook and acceptance evidence.
