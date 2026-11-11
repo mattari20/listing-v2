@@ -6,7 +6,8 @@
 **Last reconciled:** 2026-11-11
 
 ## Authoritative current position
-- Private V2 repository and GitHub integration access verified.
+- Public V2 repository visibility verified; owner selected public visibility on 2026-11-11.
+- Repository auto-merge is enabled; active `main` ruleset requires the documentation validation check.
 - Bootstrap README committed to `main`.
 - Founding documentation PR #1 merged into `main` as `0f2165f3d18e43f10cf6d6f717f145d3433769a4`.
 - Documentation Completion Catalogue: `../04-roadmap/DOCUMENTATION_CATALOG.md`; update after every documentation PR update and merge.
