@@ -4,25 +4,34 @@
 **Current milestone:** M0  
 **Current phase:** Founding documentation and governance
 
-## Verified repository facts
+## Verified V2 repository facts
 - Repository: `mattari20/listing-v2`
 - Visibility: Private
 - Default branch: `main`
-- Repository access through the connected GitHub integration: verified.
+- GitHub integration access: verified with repository read/write permissions.
 - Bootstrap README commit: `f33278a0d10cb97bb1fa045ca41cbf11ad15aa8a`
-- Founding documentation branch: `docs/m0-founding-documentation`
+- Documentation branch: `docs/m0-founding-documentation`
+- Founding documentation PR: [#1](https://github.com/mattari20/listing-v2/pull/1), open.
+- Latest known PR head before this report update: `41adc2bf4d50062da3f68be4d44005fb4b034010`; later documentation commits have advanced the branch and must be checked before merge.
+
+## Strict isolation audit
+- Legacy repository main commit observed: `d363fad00c15d6892677e452d5b1f383cbe892de`.
+- A metadata-only inventory of selected legacy documentation paths and blob SHAs was recorded in `99-reference/LEGACY_REPOSITORY_ISOLATION_AUDIT.md`.
+- No legacy document contents, source code, schema, migrations, workflows, data, configuration or implementation patterns were copied into V2.
+- The legacy repository was accessed read-only for exclusion/audit purposes only.
+- This is a targeted inventory, not a claim of exhaustive enumeration of every legacy file.
 
 ## Current work
-Founding documentation is being prepared on a dedicated branch. The PR and CI status will be recorded after creation.
+PR #1 contains the founding documentation and strict non-interference policy. The PR is open. The earlier workflow-run lookup returned no PR-triggered Actions runs for the initial head SHA; later head commits require fresh check inspection.
 
 ## Progress interpretation
-No milestone is accepted yet. Do not report a numerical completion percentage until the step tasks and weights have been reviewed against actual evidence. The initial M0 weights in the step register are planning weights.
+No milestone is accepted. Do not report a numerical completion percentage until step task weights and evidence have been reviewed. PR creation alone is not completion.
 
 ## Blockers / pending verification
-- Preserve and classify source documentation from the legacy repository with source commit/blob provenance.
+- Review PR #1 on its latest head and confirm no unintended legacy dependency or copied artifact.
 - Configure and verify branch protection, required CI and automatic PR merge.
-- Verify end-to-end test PR workflow.
+- Run an end-to-end test PR for the delivery workflow.
 - Complete M0 acceptance.
 
 ## Next action
-Review the founding documentation PR, then continue M0-S02: legacy documentation inventory and preservation.
+Continue M0-S02 by reviewing the boundary and inventory coverage, then M0-S05 repository controls. Do not import legacy content. Any product requirement used in V2 must be traceable to direct V2 owner direction or independent research.
