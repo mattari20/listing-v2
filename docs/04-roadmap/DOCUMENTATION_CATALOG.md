@@ -42,7 +42,7 @@ For every merge:
 | [Engineering Standards](../00-foundation/ENGINEERING_STANDARDS.md) | V2 engineering quality and delivery standards | Delivered — review pending |
 | [Definition of Done](../00-foundation/DEFINITION_OF_DONE.md) | Completion and acceptance expectations | Delivered — review pending |
 | [Decision Register](../00-foundation/DECISION_REGISTER.md) | Durable record of approved and pending decisions | Delivered — review pending |
-| [Repository Governance Setup](../00-foundation/REPOSITORY_GOVERNANCE_SETUP.md) | PR, branch rules, CI and merge configuration evidence | Delivered — update required after PR #1 merge and public/enforcement changes |
+| [Repository Governance Setup](../00-foundation/REPOSITORY_GOVERNANCE_SETUP.md) | PR, branch rules, CI and merge configuration evidence | Updated — review pending in PR #2 |
 
 ### B. Product requirements
 
@@ -73,9 +73,9 @@ For every merge:
 | Document | Purpose | Status |
 |---|---|---|
 | [Master Roadmap](PROJECT_MASTER_ROADMAP.md) | M0–M12 milestone outcomes and dependencies | Delivered — review pending |
-| [Milestone and Step Register](MILESTONE_STEP_REGISTER.md) | Numbered milestones, steps and acceptance evidence | Delivered — update after catalogue adoption |
+| [Milestone and Step Register](MILESTONE_STEP_REGISTER.md) | Numbered milestones, steps and acceptance evidence | Updated — review pending in PR #2 |
 | [Implementation Traceability Matrix](IMPLEMENTATION_TRACEABILITY_MATRIX.md) | Requirement-to-delivery traceability | Delivered — review pending |
-| [Project Progress Report](PROJECT_PROGRESS_REPORT.md) | Verified current status, blockers and next actions | Delivered — update after this PR |
+| [Project Progress Report](PROJECT_PROGRESS_REPORT.md) | Verified current status, blockers and next actions | Updated — review pending in PR #2 |
 | [Documentation Completion Catalogue](DOCUMENTATION_CATALOG.md) | Owner-facing documentation inventory and PR-by-PR history | New in this PR — review pending |
 
 ### F. Independence and legacy exclusion
@@ -89,7 +89,7 @@ For every merge:
 | File | Purpose | Status |
 |---|---|---|
 | [README](../../README.md) | Repository entry point | Delivered — review pending |
-| [Documentation Index](../README.md) | Navigation across V2 documentation | Delivered — update required to link this catalogue |
+| [Documentation Index](../README.md) | Navigation across V2 documentation | Updated — review pending in PR #2 |
 | [Pull Request Template](../../.github/pull_request_template.md) | Standard PR scope, safety and evidence prompts | Delivered — review pending |
 | [Task Issue Template](../../.github/ISSUE_TEMPLATE/task.yml) | Structured V2 task intake | Delivered — review pending |
 | [Documentation Validation Workflow](../../.github/workflows/project-docs-validation.yml) | Automated documentation validation on PRs | Delivered — passed on PR #1 head |
@@ -99,7 +99,8 @@ For every merge:
 
 | PR | Scope | Merge / head evidence | Status |
 |---|---|---|---|
-| [#1](https://github.com/mattari20/listing-v2/pull/1) | Founding documentation, V2 governance, product/data requirements, roadmap, isolation audit and repository templates/CI | Merged as `0f2165f3d18e43f10cf6d6f717f145d3433769a4`; 36 commits; 26 changed files; one required check passed | Merged — catalogue review still pending |
+| [#1](https://github.com/mattari20/listing-v2/pull/1) | Founding documentation, V2 governance, product/data requirements, roadmap, isolation audit and repository templates/CI | Merged as `0f2165f3d18e43f10cf6d6f717f145d3433769a4`; 36 commits; 26 changed files; one required check passed | Merged |
+| [#2](https://github.com/mattari20/listing-v2/pull/2) | Living documentation catalogue, index/controller/roadmap reconciliation, governance and progress updates | Open; current head and required-check evidence are tracked in the PR | In progress — CI passed on initial head; final head verification pending |
 
 ## Remaining documentation work
 
