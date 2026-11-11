@@ -36,13 +36,13 @@ For every merge:
 
 | Document | Purpose | Status |
 |---|---|---|
-| [Project Master Control](../00-foundation/PROJECT_MASTER_CONTROL.md) | Authoritative project state, boundaries and session operating rules | Delivered — review pending |
-| [Project Constitution](../00-foundation/PROJECT_CONSTITUTION.md) | V2 principles, independence and non-interference commitments | Delivered — review pending |
-| [AI Execution Protocol](../00-foundation/AI_EXECUTION_PROTOCOL.md) | AI autonomy, authorization and execution boundaries | Delivered — review pending |
-| [Engineering Standards](../00-foundation/ENGINEERING_STANDARDS.md) | V2 engineering quality and delivery standards | Delivered — review pending |
-| [Definition of Done](../00-foundation/DEFINITION_OF_DONE.md) | Completion and acceptance expectations | Delivered — review pending |
-| [Decision Register](../00-foundation/DECISION_REGISTER.md) | Durable record of approved and pending decisions | Delivered — review pending |
-| [Repository Governance Setup](../00-foundation/REPOSITORY_GOVERNANCE_SETUP.md) | PR, branch rules, CI and merge configuration evidence | Updated — accepted configuration evidence; content review pending |
+| [Project Master Control](../00-foundation/PROJECT_MASTER_CONTROL.md) | Authoritative project state, boundaries and session operating rules | Accepted — M0 closeout |
+| [Project Constitution](../00-foundation/PROJECT_CONSTITUTION.md) | V2 principles, independence and non-interference commitments | Accepted — M0 closeout |
+| [AI Execution Protocol](../00-foundation/AI_EXECUTION_PROTOCOL.md) | AI autonomy, authorization and execution boundaries | Accepted — M0 closeout |
+| [Engineering Standards](../00-foundation/ENGINEERING_STANDARDS.md) | V2 engineering quality and delivery standards | Accepted — M0 baseline; implementation-specific details remain subject to M2 design |
+| [Definition of Done](../00-foundation/DEFINITION_OF_DONE.md) | Completion and acceptance expectations | Accepted — M0 closeout |
+| [Decision Register](../00-foundation/DECISION_REGISTER.md) | Durable record of approved and pending decisions | Accepted — M0 closeout |
+| [Repository Governance Setup](../00-foundation/REPOSITORY_GOVERNANCE_SETUP.md) | PR, branch rules, CI and merge configuration evidence | Accepted — settings and protected-PR workflow verified; auto-merge execution not independently tested |
 
 ### B. Product requirements
 
@@ -72,11 +72,11 @@ For every merge:
 
 | Document | Purpose | Status |
 |---|---|---|
-| [Master Roadmap](PROJECT_MASTER_ROADMAP.md) | M0–M12 milestone outcomes and dependencies | Delivered — review pending |
-| [Milestone and Step Register](MILESTONE_STEP_REGISTER.md) | Numbered milestones, steps and acceptance evidence | Updated — review pending in PR #2 |
-| [Implementation Traceability Matrix](IMPLEMENTATION_TRACEABILITY_MATRIX.md) | Requirement-to-delivery traceability | Delivered — review pending |
-| [Project Progress Report](PROJECT_PROGRESS_REPORT.md) | Verified current status, blockers and next actions | Updated — review pending in PR #2 |
-| [Documentation Completion Catalogue](DOCUMENTATION_CATALOG.md) | Owner-facing documentation inventory and PR-by-PR history | Delivered — review pending |
+| [Master Roadmap](PROJECT_MASTER_ROADMAP.md) | M0–M12 milestone outcomes and dependencies | Accepted — M0/M1 sequencing baseline |
+| [Milestone and Step Register](MILESTONE_STEP_REGISTER.md) | Numbered milestones, steps and acceptance evidence | Accepted — M0 closeout; M1 step execution pending |
+| [Implementation Traceability Matrix](IMPLEMENTATION_TRACEABILITY_MATRIX.md) | Requirement-to-delivery traceability | Accepted for M0 baseline; M1 requirement evidence pending |
+| [Project Progress Report](PROJECT_PROGRESS_REPORT.md) | Verified current status, blockers and next actions | Accepted — current M0 closeout state |
+| [Documentation Completion Catalogue](DOCUMENTATION_CATALOG.md) | Owner-facing documentation inventory and PR-by-PR history | Accepted — M0 tracking baseline |
 
 ### F. Independence and legacy exclusion
 
@@ -88,12 +88,12 @@ For every merge:
 
 | File | Purpose | Status |
 |---|---|---|
-| [README](../../README.md) | Repository entry point | Delivered — review pending |
-| [Documentation Index](../README.md) | Navigation across V2 documentation | Updated — review pending in PR #2 |
-| [Pull Request Template](../../.github/pull_request_template.md) | Standard PR scope, safety and evidence prompts | Delivered — review pending |
-| [Task Issue Template](../../.github/ISSUE_TEMPLATE/task.yml) | Structured V2 task intake | Delivered — review pending |
-| [Documentation Validation Workflow](../../.github/workflows/project-docs-validation.yml) | Automated documentation validation on PRs | Delivered — passed on PR #1 head |
-| [Documentation Validator](../../scripts/validate_project_docs.py) | Required-file and local-link validation | Delivered — passed on PR #1 head |
+| [README](../../README.md) | Repository entry point | Accepted — corrected and linked to current documentation |
+| [Documentation Index](../README.md) | Navigation across V2 documentation | Accepted — M0 documentation navigation |
+| [Pull Request Template](../../.github/pull_request_template.md) | Standard PR scope, safety and evidence prompts | Accepted — M0 delivery controls |
+| [Task Issue Template](../../.github/ISSUE_TEMPLATE/task.yml) | Structured V2 task intake | Accepted — M0 task intake controls |
+| [Documentation Validation Workflow](../../.github/workflows/project-docs-validation.yml) | Automated documentation validation on PRs | Accepted — required check passed on PRs #1–#3 latest heads |
+| [Documentation Validator](../../scripts/validate_project_docs.py) | Required-file and local-link validation | Updated — PR #4 adds catalogue/governance requirements; pending check |
 
 ## PR delivery history
 
@@ -101,6 +101,8 @@ For every merge:
 |---|---|---|---|
 | [#1](https://github.com/mattari20/listing-v2/pull/1) | Founding documentation, V2 governance, product/data requirements, roadmap, isolation audit and repository templates/CI | Merged as `0f2165f3d18e43f10cf6d6f717f145d3433769a4`; 36 commits; 26 changed files; one required check passed | Merged |
 | [#2](https://github.com/mattari20/listing-v2/pull/2) | Living documentation catalogue, index/controller/roadmap reconciliation, governance and progress updates | Merged as `975cd672378e8d30982d44d54d12e195e9c57d5d`; exact head `9ad0d3b361d6641dca2e94c3c9a52ac2fb4d1597`; required check passed ([run #43057131618](https://github.com/mattari20/listing-v2/actions/runs/43057131618)) | Merged |
+| [#3](https://github.com/mattari20/listing-v2/pull/3) | Correct legacy non-interference wording, repository status and M0 workflow evidence | Merged as `035503a3c0772f7b542d2986b3fa66b3fce970d6`; exact head `6571c678a5fdeff456257a01c6fc38576367a506`; required check passed ([run #43058113045](https://github.com/mattari20/listing-v2/actions/runs/43058113045)) | Merged |
+| [#4](https://github.com/mattari20/listing-v2/pull/4) | M0 acceptance and closeout; M0 statuses and validator coverage reconciliation | This PR; exact head/check/merge SHA to be recorded after verification | In progress |
 
 ## Remaining documentation work
 
@@ -118,4 +120,4 @@ The first review identified and corrected three stale or conflicting statements 
 
 ## Current acceptance position
 
-PR #1 establishes the initial documentation set and is merged. The inventory is a delivery record, not a claim that every document is fully researched or accepted. M0-S06 is complete based on PR #2's verified required-check and protected-merge path. M0-S07 evidence-based content acceptance and closeout remain outstanding.
+M0 founding controls are accepted and closed. Product, provider and open-source research documents remain initial baselines; they are not evidence of completed M1 research or approval of a data source, software dependency, architecture or implementation. The targeted legacy metadata inventory remains explicitly non-exhaustive.
