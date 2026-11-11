@@ -9,6 +9,7 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [Engineering Standards](00-foundation/ENGINEERING_STANDARDS.md)
 - [Definition of Done](00-foundation/DEFINITION_OF_DONE.md)
 - [Decision Register](00-foundation/DECISION_REGISTER.md)
+- [Repository Governance Setup](00-foundation/REPOSITORY_GOVERNANCE_SETUP.md)
 
 ## Product
 - [Product Vision and Student Journey](01-product/PRODUCT_VISION_AND_STUDENT_JOURNEY.md)
