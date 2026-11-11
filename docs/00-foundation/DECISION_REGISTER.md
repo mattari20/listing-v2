@@ -5,15 +5,15 @@ Decisions are recorded with ID, date, status, context, decision, consequences an
 ## V2-DEC-001 — Independent greenfield rebuild
 - **Date:** 2026-11-11
 - **Status:** Adopted as project baseline
-- **Decision:** Develop V2 independently in `mattari20/listing-v2`. Preserve approved legacy knowledge and source provenance, but do not copy legacy application code, database schema, migrations, deployment configuration or undocumented workarounds.
+- **Decision:** Develop V2 independently in `mattari20/listing-v2`. No legacy knowledge, requirements, historical findings, source artifacts or processes may influence V2. V2 must originate only from direct V2 owner requirements, independent research and independently validated V2 decisions.
 - **Consequences:** Architecture, schema, tests, CI and deployment approach are independently designed. Legacy and live production remain untouched.
 
 ## V2-DEC-002 — Automatic PR merge after verified checks
 - **Date:** 2026-11-11
-- **Status:** Policy adopted; repository configuration and end-to-end verification pending
+- **Status:** Policy adopted; repository auto-merge setting enabled; required-check/PR workflow demonstrated by PR #2; automatic merge execution itself not yet independently demonstrated
 - **Decision:** Eligible PRs should merge automatically after all required checks pass on the exact latest head SHA and all branch protection, review, conflict and policy conditions are satisfied.
 - **Exceptions:** Architecture/scope approvals, destructive data operations, production database work, deployment/cutover and security exceptions require separate approval where specified.
-- **Consequence:** Do not claim automation is active until repository settings and a test PR verify it.
+- **Consequence:** Auto-merge is available at repository level, but enable it on individual PRs only after the exact latest-head check and all policy gates pass. Do not claim an automatic merge execution has been proven until a PR actually merges through that mechanism.
 
 ## V2-DEC-003 — Documentation-driven step execution
 - **Date:** 2026-11-11
