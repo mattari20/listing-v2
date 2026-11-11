@@ -43,7 +43,7 @@ At the beginning of every work session, the AI must:
 At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. The next authorized step is M1-S01: student/user research and journey.
 
 ## Completion status
-M0 is not complete until all M0 steps, repository controls, automation verification and acceptance evidence are satisfied.
+M0 is accepted and closed. Future milestones require their own evidence-based acceptance and closeout.
 
 ## Progress rules
 Use weighted step progress as defined in `../04-roadmap/MILESTONE_STEP_REGISTER.md`. Progress percentages are planning indicators, not substitutes for acceptance. A milestone closes only when all mandatory acceptance criteria pass.

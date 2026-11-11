@@ -21,7 +21,7 @@
 - The initial review found and corrected stale README/Decision Register language that could imply legacy knowledge may influence V2, and an outdated private-repository statement.
 - The legacy exclusion audit is explicitly a targeted metadata-only inventory, not an exhaustive scan of the legacy repository.
 - The documentation catalogue is the owner-facing delivery and acceptance register.
-- M0 is accepted and closed by this closeout PR, subject to its required CI passing and merge.
+- M0 closeout PR [#4](https://github.com/mattari20/listing-v2/pull/4) merged as `4d1122d182961f3842803036f917ce39cd11b4c6`; required check passed on exact head `64da261546b034129af3aebfa38fb91f939732b6` ([run #43058607549](https://github.com/mattari20/listing-v2/actions/runs/43058607549)). M0 is accepted and closed.
 
 ## Scope still outstanding (M1 and later)
 - Student/user research and measurable journey requirements.
