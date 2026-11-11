@@ -1,0 +1,39 @@
+name: V2 delivery task
+description: Create a traceable task for the independent V2 project
+title: "[M?-S??] "
+labels: ["v2-task"]
+body:
+  - type: input
+    id: step
+    attributes:
+      label: Milestone and step ID
+      placeholder: "M0-S05"
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Required outcome
+      description: State the measurable result and why it is needed.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: List observable conditions and evidence required to close this task.
+    validations:
+      required: true
+  - type: textarea
+    id: inputs
+    attributes:
+      label: V2-approved inputs
+      description: Link V2 requirements, new research or approved V2 decisions. Legacy artifacts are prohibited inputs.
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies, risks and test expectations
+    validations:
+      required: false
