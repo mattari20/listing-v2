@@ -4,6 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
+**M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
 **Last reconciled:** 2026-11-11
 
 ## Purpose and maintenance rule
@@ -82,7 +83,7 @@ For every merge:
 
 | Document | Purpose | Status |
 |---|---|---|
-| [Legacy Repository Isolation Audit](../99-reference/LEGACY_REPOSITORY_ISOLATION_AUDIT.md) | Records the V2 exclusion boundary and limited metadata-only audit scope | Delivered — review pending |
+| [Legacy Repository Isolation Audit](../99-reference/LEGACY_REPOSITORY_ISOLATION_AUDIT.md) | Records the V2 exclusion boundary and limited metadata-only audit scope | Accepted — targeted metadata-only scope; non-exhaustive limitation explicit |
 
 ### G. Repository-level delivery support
 
@@ -93,7 +94,7 @@ For every merge:
 | [Pull Request Template](../../.github/pull_request_template.md) | Standard PR scope, safety and evidence prompts | Accepted — M0 delivery controls |
 | [Task Issue Template](../../.github/ISSUE_TEMPLATE/task.yml) | Structured V2 task intake | Accepted — M0 task intake controls |
 | [Documentation Validation Workflow](../../.github/workflows/project-docs-validation.yml) | Automated documentation validation on PRs | Accepted — required check passed on PRs #1–#3 latest heads |
-| [Documentation Validator](../../scripts/validate_project_docs.py) | Required-file and local-link validation | Updated — PR #4 adds catalogue/governance requirements; pending check |
+| [Documentation Validator](../../scripts/validate_project_docs.py) | Required-file and local-link validation | Accepted — PR #4 required-check success on exact head; catalogue and governance files required |
 
 ## PR delivery history
 
@@ -102,7 +103,7 @@ For every merge:
 | [#1](https://github.com/mattari20/listing-v2/pull/1) | Founding documentation, V2 governance, product/data requirements, roadmap, isolation audit and repository templates/CI | Merged as `0f2165f3d18e43f10cf6d6f717f145d3433769a4`; 36 commits; 26 changed files; one required check passed | Merged |
 | [#2](https://github.com/mattari20/listing-v2/pull/2) | Living documentation catalogue, index/controller/roadmap reconciliation, governance and progress updates | Merged as `975cd672378e8d30982d44d54d12e195e9c57d5d`; exact head `9ad0d3b361d6641dca2e94c3c9a52ac2fb4d1597`; required check passed ([run #43057131618](https://github.com/mattari20/listing-v2/actions/runs/43057131618)) | Merged |
 | [#3](https://github.com/mattari20/listing-v2/pull/3) | Correct legacy non-interference wording, repository status and M0 workflow evidence | Merged as `035503a3c0772f7b542d2986b3fa66b3fce970d6`; exact head `6571c678a5fdeff456257a01c6fc38576367a506`; required check passed ([run #43058113045](https://github.com/mattari20/listing-v2/actions/runs/43058113045)) | Merged |
-| [#4](https://github.com/mattari20/listing-v2/pull/4) | M0 acceptance and closeout; M0 statuses and validator coverage reconciliation | This PR; exact head/check/merge SHA to be recorded after verification | In progress |
+| [#4](https://github.com/mattari20/listing-v2/pull/4) | M0 acceptance and closeout; M0 statuses and validator coverage reconciliation | Merged as `4d1122d182961f3842803036f917ce39cd11b4c6`; exact head `64da261546b034129af3aebfa38fb91f939732b6`; required check passed ([run #43058607549](https://github.com/mattari20/listing-v2/actions/runs/43058607549)) | Merged |
 
 ## Remaining documentation work
 
