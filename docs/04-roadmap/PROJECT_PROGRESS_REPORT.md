@@ -14,6 +14,7 @@
 - Repository auto-merge is enabled (`allow_auto_merge=true`).
 - Active `main` ruleset ID `27043221` requires pull requests, conversation resolution, linear history and `Validate project control documents`; bypass list is empty.
 - M0 delivery workflow was demonstrated by PR #2 using the exact-head required check and protected squash merge. Automatic merge execution itself has not yet been independently demonstrated.
+- M0 final evidence reconciliation PR [#5](https://github.com/mattari20/listing-v2/pull/5) merged as `e1a3da011f29f99f546b812f564869cc33d34e05`; required check passed on exact head `3365a2bae83b90b31011fa170bb77ff6389fc91c` ([run #43058850736](https://github.com/mattari20/listing-v2/actions/runs/43058850736)).
 
 ## M0 acceptance
 - M0-S01 through M0-S07 are recorded as accepted/complete in the step register.
@@ -36,8 +37,11 @@
 ## Strict legacy non-interference
 No legacy source code, schema, data, architecture, requirements, historical findings, workflows, configuration or operational patterns may influence V2. Legacy production access or modification remains prohibited. V2 inputs must come from direct V2 owner requirements, independent research and independently validated V2 decisions.
 
+## M1-S01 status
+M1-S01 has started. The initial desk-research synthesis and primary-research protocol are being added in `docs/03-research/M1_STUDENT_JOURNEY_RESEARCH.md`. No primary interviews or surveys have yet been conducted. Student segments and journey stages remain hypotheses until validated.
+
 ## Next authorized step
-**M1-S01 — Student/user research and journey.** Establish a research plan and evidence register before changing product requirements. Do not begin architecture or technology selection before M1 acceptance.
+Continue M1-S01 by finalizing participant recruitment and safeguarding, then conduct primary research. Do not begin architecture or technology selection before M1 acceptance.
 
 ## Reporting rule
 After every documentation PR update and merge, reconcile the documentation catalogue, index, controller, step register, traceability matrix and progress report. Record exact PR, head SHA, required check and merge SHA. Never infer acceptance from a merge alone.

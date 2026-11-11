@@ -40,7 +40,7 @@ At the beginning of every work session, the AI must:
 5. Work only within the step's documented scope.
 6. Confirm all task inputs comply with the strict legacy non-interference rule.
 
-At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. The next authorized step is M1-S01: student/user research and journey.
+At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. M1-S01 is in progress. Its initial desk-research synthesis and primary-research protocol are tracked in `../03-research/M1_STUDENT_JOURNEY_RESEARCH.md`. Primary participant research remains outstanding.
 
 ## Completion status
 M0 is accepted and closed. Future milestones require their own evidence-based acceptance and closeout.
