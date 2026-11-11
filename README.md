@@ -5,10 +5,10 @@ An independent, greenfield education discovery and decision-support platform for
 ## Project status
 
 - **Repository:** `mattari20/listing-v2`
-- **Project phase:** M0 — Founding documentation and governance
+- **Project phase:** M0 — Founding documentation merged; acceptance and workflow verification
 - **Application implementation:** Not started
 - **Production connection or deployment:** Not authorized
-- **Governing documentation:** Being established in `docs/`
+- **Governing documentation:** Established in `docs/`; see the Documentation Index and Completion Catalogue
 
 ## Purpose
 
@@ -18,10 +18,10 @@ The platform will also maintain a continuously refreshed, evidence-based educati
 
 ## Start here
 
-The project controller and detailed governance documents will be added in the first documentation pull request. Until then, this README is only the repository bootstrap.
+Start with [`docs/README.md`](docs/README.md), then read [`PROJECT_MASTER_CONTROL.md`](docs/00-foundation/PROJECT_MASTER_CONTROL.md). The [`Documentation Completion Catalogue`](docs/04-roadmap/DOCUMENTATION_CATALOG.md) tracks delivery, review and acceptance.
 
 ## Independence and safety
 
-This is a new project. The legacy `mattari20/estudent-listing` repository and the live eStudent.pk website must remain untouched by V2 development. Do not copy legacy application code, database schemas, migrations, deployment configuration, or undocumented workarounds. Preserve approved requirements and historical knowledge through reviewed documentation with source provenance.
+This is a new project. The legacy `mattari20/estudent-listing` repository and the live eStudent.pk website must remain untouched by V2 development. No legacy requirements, knowledge, historical findings, implementation, data, architecture, workflows or processes may influence V2. Legacy material is excluded; V2 inputs must originate only from direct V2 owner requirements, independent research and independently validated V2 decisions.
 
 No production database operation, production deployment, public URL cutover, or replacement of the live service is authorized by ordinary development work. Each requires separate explicit approval and verified backup/recovery safeguards.
