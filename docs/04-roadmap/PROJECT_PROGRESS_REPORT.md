@@ -17,6 +17,7 @@
 - M0 final evidence reconciliation PR [#5](https://github.com/mattari20/listing-v2/pull/5) merged as `e1a3da011f29f99f546b812f564869cc33d34e05`; required check passed on exact head `3365a2bae83b90b31011fa170bb77ff6389fc91c` ([run #43058850736](https://github.com/mattari20/listing-v2/actions/runs/43058850736)).
 - M1-S01 desk-research PR [#6](https://github.com/mattari20/listing-v2/pull/6) merged as `94936177012f924efe36fe29cf0dba3cba094081`; required check passed on exact head `4f29050a234dbc6c4eed0968408fe89805526476` ([run #43059386299](https://github.com/mattari20/listing-v2/actions/runs/43059386299)).
 - Adult research instrument PR [#7](https://github.com/mattari20/listing-v2/pull/7) merged as `bf3e1ef0054b337466884fb5a731141ce03d3ec0`; required check passed on exact head `943766fee66e7dfcda46ebdd5a3d3049d02ddbba` ([run #43059725757](https://github.com/mattari20/listing-v2/actions/runs/43059725757)).
+- PR [#8](https://github.com/mattari20/listing-v2/pull/8) reconciled the instrument merge and M1-S01 status; merged as `612a4edfdcd43721407e01e26e79569631684c12`; required check passed on exact head `552e3f60722d35a96c6d353661b561838d68b4ae` ([run #43059961030](https://github.com/mattari20/listing-v2/actions/runs/43059961030)).
 
 ## M0 acceptance
 - M0-S01 through M0-S07 are recorded as accepted/complete in the step register.
