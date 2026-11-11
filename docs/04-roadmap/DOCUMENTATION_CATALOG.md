@@ -69,7 +69,7 @@ For every merge:
 |---|---|---|
 | [Open-Source Reuse Audit](../03-research/OPEN_SOURCE_REUSE_AUDIT.md) | Independent evaluation framework for external software and datasets | Delivered — candidate research pending |
 | [M1 Student Journey Research](../03-research/M1_STUDENT_JOURNEY_RESEARCH.md) | Desk-research synthesis, student segment hypotheses, journey and primary-research protocol | Accepted as initial desk-research baseline; primary research pending |
-| [M1 Student Research Instruments](../03-research/M1_STUDENT_RESEARCH_INSTRUMENTS.md) | Draft adult interview guide, consent script and survey instrument | New in PR #7 — preparation only; owner approval required before fieldwork |
+| [M1 Student Research Instruments](../03-research/M1_STUDENT_RESEARCH_INSTRUMENTS.md) | Draft adult interview guide, consent script and survey instrument | Delivered — preparation only; owner approval required before fieldwork |
 
 ### E. Roadmap, traceability and progress
 
@@ -109,6 +109,7 @@ For every merge:
  
 | [#5](https://github.com/mattari20/listing-v2/pull/5) | Final M0 closeout merge evidence reconciliation | Merged as `e1a3da011f29f99f546b812f564869cc33d34e05`; required check passed on exact head `3365a2bae83b90b31011fa170bb77ff6389fc91c` ([run #43058850736](https://github.com/mattari20/listing-v2/actions/runs/43058850736)) | Merged |
 | [#6](https://github.com/mattari20/listing-v2/pull/6) | M1-S01 desk-research synthesis, provisional student segments, journey and research protocol | Merged as `94936177012f924efe36fe29cf0dba3cba094081`; exact head `4f29050a234dbc6c4eed0968408fe89805526476`; required check passed ([run #43059386299](https://github.com/mattari20/listing-v2/actions/runs/43059386299)) | Merged |
+| [#7](https://github.com/mattari20/listing-v2/pull/7) | Draft adult participant interview guide, consent script and survey; research evidence reconciliation | Merged as `bf3e1ef0054b337466884fb5a731141ce03d3ec0`; exact head `943766fee66e7dfcda46ebdd5a3d3049d02ddbba`; required check passed ([run #43059725757](https://github.com/mattari20/listing-v2/actions/runs/43059725757)) | Merged — instruments remain draft and require owner approval before fieldwork |
 
 ## Remaining documentation work
 
