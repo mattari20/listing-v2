@@ -6,11 +6,12 @@
 **Last reconciled:** 2026-11-11
 
 ## Authoritative current position
-- New, independent repository established.
-- Initial README bootstrap committed to `main`.
-- M0 founding-documentation PR is being prepared.
-- No application code or database schema has been approved or started.
-- No connection to the legacy production database is permitted.
+- Private V2 repository and GitHub integration access verified.
+- Bootstrap README committed to `main`.
+- Founding documentation PR #1 is open on `docs/m0-founding-documentation`.
+- No application code, database schema or migrations have been approved or started.
+- Legacy repository inspection is read-only and limited to a metadata inventory for explicit exclusion.
+- No connection to legacy production systems or data is permitted.
 - No production deployment, URL cutover or replacement is authorized.
 
 ## Project objective
@@ -19,27 +20,31 @@ Build a student-first education discovery, admissions information and comparison
 ## Current milestone
 **M0 — Repository, documentation and governance foundation**
 
+## Strict legacy non-interference rule
+Legacy work must not influence V2 in any style or form: no code, schema, migrations, APIs, data, architecture, technology choices, UI patterns, workflows, tests, fixes, deployment practices, historical statuses or operational workarounds may be copied, adapted, ported, treated as templates or used as implicit design inputs. Legacy access is read-only for exclusion/audit purposes. V2 decisions must originate from V2 owner requirements, independent research and V2 validation. See `../99-reference/LEGACY_REPOSITORY_ISOLATION_AUDIT.md`.
+
 ## Next-step operating rule
 At the beginning of every work session, the AI must:
 1. Read this file and the current milestone/step register.
-2. Inspect repository state, open PRs, latest main commit and relevant CI.
-3. Identify the first eligible, incomplete step whose dependencies are satisfied.
-4. Continue existing work rather than restart or duplicate it.
+2. Inspect V2 repository state, open PRs, latest main commit and relevant CI.
+3. Identify the first eligible, incomplete V2 step whose dependencies are satisfied.
+4. Continue existing V2 work rather than restart or duplicate it.
 5. Work only within the step's documented scope.
+6. Confirm all task inputs comply with the strict legacy non-interference rule.
 
-At the end of each step, update this controller with status, evidence, progress and the exact next authorized step.
+At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step.
 
 ## Completion status
-The founding documentation is being proposed in the current PR. M0 is not complete until all M0 steps, repository controls, automation verification and acceptance evidence are satisfied.
+M0 is not complete until all M0 steps, repository controls, automation verification and acceptance evidence are satisfied.
 
 ## Progress rules
 Use weighted step progress as defined in `../04-roadmap/MILESTONE_STEP_REGISTER.md`. Progress percentages are planning indicators, not substitutes for acceptance. A milestone closes only when all mandatory acceptance criteria pass.
 
 ## Safety boundaries
-- Keep `mattari20/estudent-listing` and the live `https://estudent.pk/institutes/` untouched during V2 development.
-- Do not port legacy application code, migrations, schema or deployment configuration.
+- Do not modify `mattari20/estudent-listing`, its databases, hosting, credentials, workflows or the live `https://estudent.pk/institutes/` service.
+- Do not transfer legacy artifacts or patterns into V2.
 - No production reads requiring credentials, production writes, migrations, backfills, deployment or cutover without separate explicit authorization and documented safeguards.
 - Never expose secrets, private student data or credentials in issues, PRs or logs.
 
 ## Change control
-Only this controller and approved decision records define the current V2 plan. Chat conversation, old reports and unapproved proposals do not silently override repository documentation.
+Only this controller and approved V2 decision records define the current V2 plan. Legacy documentation, historical reports and implementation results are excluded and do not silently override V2 requirements.
