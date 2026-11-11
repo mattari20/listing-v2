@@ -68,6 +68,7 @@ For every merge:
 | Document | Purpose | Status |
 |---|---|---|
 | [Open-Source Reuse Audit](../03-research/OPEN_SOURCE_REUSE_AUDIT.md) | Independent evaluation framework for external software and datasets | Delivered — candidate research pending |
+| [M1 Student Journey Research](../03-research/M1_STUDENT_JOURNEY_RESEARCH.md) | Desk-research synthesis, student segment hypotheses, journey and primary-research protocol | New in PR #6 — desk research baseline; primary research pending |
 
 ### E. Roadmap, traceability and progress
 
@@ -104,6 +105,12 @@ For every merge:
 | [#2](https://github.com/mattari20/listing-v2/pull/2) | Living documentation catalogue, index/controller/roadmap reconciliation, governance and progress updates | Merged as `975cd672378e8d30982d44d54d12e195e9c57d5d`; exact head `9ad0d3b361d6641dca2e94c3c9a52ac2fb4d1597`; required check passed ([run #43057131618](https://github.com/mattari20/listing-v2/actions/runs/43057131618)) | Merged |
 | [#3](https://github.com/mattari20/listing-v2/pull/3) | Correct legacy non-interference wording, repository status and M0 workflow evidence | Merged as `035503a3c0772f7b542d2986b3fa66b3fce970d6`; exact head `6571c678a5fdeff456257a01c6fc38576367a506`; required check passed ([run #43058113045](https://github.com/mattari20/listing-v2/actions/runs/43058113045)) | Merged |
 | [#4](https://github.com/mattari20/listing-v2/pull/4) | M0 acceptance and closeout; M0 statuses and validator coverage reconciliation | Merged as `4d1122d182961f3842803036f917ce39cd11b4c6`; exact head `64da261546b034129af3aebfa38fb91f939732b6`; required check passed ([run #43058607549](https://github.com/mattari20/listing-v2/actions/runs/43058607549)) | Merged |
+
+## PR delivery history
+
+| PR | Scope | Merge / head evidence | Status |
+|---|---|---|---|
+| [#5](https://github.com/mattari20/listing-v2/pull/5) | Final M0 closeout merge evidence reconciliation | Merged as `e1a3da011f29f99f546b812f564869cc33d34e05`; required check passed on exact head `3365a2bae83b90b31011fa170bb77ff6389fc91c` ([run #43058850736](https://github.com/mattari20/listing-v2/actions/runs/43058850736)) | Merged |
 
 ## Remaining documentation work
 
