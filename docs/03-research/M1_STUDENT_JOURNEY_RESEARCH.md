@@ -146,7 +146,7 @@ Do not claim statistical representation from a small qualitative sample. Define 
 | M1S01-E04 | Delavande & Zafar (2014) | Financial constraints and non-pecuniary factors in university choice | Older study; not current prevalence | Reviewed |
 | M1S01-E05 | HEC Annual Report 2023–24 | Higher-education qualification terminology | Not a comprehensive student-facing pathway guide | Reviewed |
 
-Primary interviews, surveys and usability evidence: **not yet collected**.
+Primary interviews, surveys and usability evidence: **not yet collected**. Draft adult-only research instruments are maintained separately in [M1 Student Research Instruments](M1_STUDENT_RESEARCH_INSTRUMENTS.md); they are not approved for distribution.
 
 ## 8. Initial product implications to validate
 
