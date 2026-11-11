@@ -2,7 +2,7 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0 — founding documentation merged; catalogue and acceptance tracking active  
+**Status:** M0 — accepted and closed; M1-S01 is the next authorized step  
 **Last reconciled:** 2026-11-11
 
 ## Authoritative current position
@@ -23,7 +23,10 @@ Build a student-first education discovery, admissions information and comparison
 The Documentation Completion Catalogue is the owner-facing inventory of delivered, updated, accepted and planned documents. A merged PR records delivery, not automatic content acceptance. Every documentation PR update and merge must reconcile the catalogue, index, controller, step register, traceability and progress report.
 
 ## Current milestone
-**M0 — Repository, documentation and governance foundation**
+**M1 — Student requirements and independent research**
+
+## M0 closeout
+M0 was accepted after review of the founding controls, strict legacy non-interference boundary, project planning records, repository rules and the PR delivery workflow. Evidence is recorded in `../04-roadmap/DOCUMENTATION_CATALOG.md`, `../04-roadmap/PROJECT_PROGRESS_REPORT.md` and `../04-roadmap/IMPLEMENTATION_TRACEABILITY_MATRIX.md`. M0-S02 acceptance is limited to the documented metadata-only exclusion audit; it is not an exhaustive inventory of the legacy repository. Repository auto-merge is enabled, but automatic merge execution has not yet been independently demonstrated. Production access, deployment and cutover remain unauthorized.
 
 ## Strict legacy non-interference rule
 Legacy work must not influence V2 in any style or form: no code, schema, migrations, APIs, data, architecture, technology choices, UI patterns, workflows, tests, fixes, deployment practices, historical statuses or operational workarounds may be copied, adapted, ported, treated as templates or used as implicit design inputs. Legacy access is read-only for exclusion/audit purposes. V2 decisions must originate from V2 owner requirements, independent research and V2 validation. See `../99-reference/LEGACY_REPOSITORY_ISOLATION_AUDIT.md`.
@@ -37,7 +40,7 @@ At the beginning of every work session, the AI must:
 5. Work only within the step's documented scope.
 6. Confirm all task inputs comply with the strict legacy non-interference rule.
 
-At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step.
+At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. The next authorized step is M1-S01: student/user research and journey.
 
 ## Completion status
 M0 is not complete until all M0 steps, repository controls, automation verification and acceptance evidence are satisfied.

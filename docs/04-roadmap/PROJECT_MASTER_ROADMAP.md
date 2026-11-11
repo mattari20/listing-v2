@@ -4,8 +4,8 @@ All milestones are planned outcomes. Step-level scope and acceptance criteria ar
 
 | Milestone | Outcome | Status |
 |---|---|---|
-| M0 | Independent repository, documentation, governance and delivery controls | In progress |
-| M1 | Student requirements, provider discovery, data rights and open-source research | Planned |
+| M0 | Independent repository, documentation, governance and delivery controls | Accepted — PR #4 closeout |
+| M1 | Student requirements, provider discovery, data rights and open-source research | In progress — M1-S01 next |
 | M2 | Architecture, domain model, technology evaluation, security and data design | Planned |
 | M3 | Application foundation, environments, CI, identity and authorization | Planned |
 | M4 | Institution, campus and programme management | Planned |
