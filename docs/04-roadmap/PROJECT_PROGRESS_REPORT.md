@@ -108,5 +108,11 @@ A draft national coverage synthesis is being added at `docs/03-research/M1_NATIO
 ## PR #25 evidence
 PR #25 added `docs/03-research/M1_NATIONAL_INSTITUTION_COVERAGE_SYNTHESIS.md`, linked it from the documentation index, catalogued it and marked S02-C08 in progress. Exact head `703fc553aca6d06e354849a7a0d6a69bc71e53e7` passed required `Project documentation validation` (run #43145378929); merge commit `b06b669627d299ccd5d84416b787274a8e1dac76`.
 
+## PR #26 evidence
+PR #26 reconciled PR #25 merge evidence across the catalogue, traceability, progress report and master controller. Exact head `3af965f161a3d823eb00c9dd2056236056715025` passed required `Project documentation validation` (run #43145461579); merge commit `246c75f66e41dca83202ad555fe7739d7e5cf5a1`.
+
+## M1-S02 expanded official-source verification — 2026-11-12
+Expanded the official-source coverage matrix and rights register with current HEC campus and accreditation-council routes; PM&DC, PNMC, PCP, PEC, NCEAC, NACTE, NBEAC, NTC and NCH programme/status evidence; Punjab public OpenPunjab and private PEPRIS sources; KPPSRA district statuses; Sindh Annual School Census 2024–25; Balochistan EMIS public/private/NFE areas; and updated NAVTTC production-route distinctions. Recorded data-quality cautions including old/irregular PNMC content, apparent PCP geography anomalies, NCH personal principal contact fields and closed entries, staging/test TVET sample data, and the difference between programme and institution accreditation. All sources remain RESEARCH ONLY; no reuse permission or data-collection authorization was established. S02-C01–C08 remain in progress pending remaining coverage/rights work; S02-C09 requires explicit owner approval.
+
 ## Reporting rule
 After every documentation PR update and merge, reconcile the documentation catalogue, index, controller, step register, traceability matrix and progress report. Record exact PR, head SHA, required check and merge SHA. Never infer acceptance from a merge alone.
