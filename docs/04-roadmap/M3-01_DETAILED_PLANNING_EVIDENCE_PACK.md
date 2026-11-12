@@ -182,3 +182,10 @@ Record the finding, preserve safe evidence, do not bypass the gate, and return f
 **NOT ISSUED.** Candidate A remains a planning proposal. No branch/environment has been approved for application implementation. The owner’s general direction to continue M3 is not an implementation-start authorization.
 
 M3-01 can advance through documentation and decision preparation. P03–P05 remain hard blockers until the required human assignments and evidence exist. P07/P08 must remain open until the exact scope and all relevant preconditions are reviewed and the Product Owner issues a separate written authorization or explicitly decides to defer/refuse implementation.
+
+
+## M3-01 AI-era architecture planning update — 2026-11-12
+
+PR #124 added `../05-architecture/M3-01_AI_ERA_ARCHITECTURE_READINESS_REVIEW_2026-11-12.md`, defining AI-ARCH-01–20 and future acceptance tests. This strengthens P04 architecture/stack evidence and adds future security and test obligations to P05/P06. It does **not** select a stack, provider, host, vector database, queue or agent runtime; it does not close P04; and it does not authorize implementation or AI activation.
+
+Required future verification includes provider replacement, AI-off resilience, evidence/citation grounding, bilingual retrieval quality, prompt-injection and tool-permission tests, publication integrity, Deeni Madaris zero-exposure across derived surfaces, privacy/log redaction, cost controls, portability and rollback. None has been executed by the planning review. Candidate A remains offline, synthetic-only and no-spend. P03 remains resolved only for that bounded planning model; P04/P05/P06 evidence and owner decisions remain outstanding; P07/P08 remain not ready. No M3-01 weighted progress is claimed and M3 remains at 5%.
