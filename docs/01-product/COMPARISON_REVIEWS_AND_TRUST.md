@@ -32,3 +32,23 @@ No survey, interview, participant recruitment or outreach will be conducted duri
 
 ## Minors and privacy
 The platform may be used by minors. Before implementation or release of user-generated content, determine applicable age requirements, consent and safeguarding duties, data minimization, retention limits, reporting/escalation procedures and jurisdiction-specific legal requirements. Do not assume that account login alone satisfies these requirements.
+
+
+## M1-S09 comparison, ratings, reviews and trust research — 2026-11-12
+
+The detailed research baseline is documented in [M1-S09 Comparison, Reviews and Trust Research](../03-research/M1_S09_COMPARISON_REVIEWS_TRUST_RESEARCH_2026-11-12.md).
+
+Additional requirements carried forward:
+- Compare like with like: institution, campus, programme or intake must be an explicit comparison unit. Preserve session, provider type, campus and awarding/affiliating authority context.
+- Keep the 3–5 comparison shortlist as a provisional usability target, not a final validated limit.
+- Show source, effective date, last checked date, missing/stale/disputed state and common units for material facts. Unknown is not zero.
+- Do not publish a universal “best institution” score by default. Any future scoring must disclose methodology, weights, normalization, sample size, missing-data handling, dates and sponsorship.
+- Clearly separate paid placements from organic results and objective comparison facts.
+- Login remains mandatory to submit a review, while public browsing remains open. Login alone does not prove a reviewer attended or studied at an institution.
+- Do not use “verified student/alumnus/parent” labels without a proportionate privacy-preserving verification process and evidence.
+- Apply the same moderation standards to positive and negative reviews. Prohibit fake, bought, incentivized, coordinated, conflicted, impersonating and retaliatory reviews.
+- Provide reporting, reasoned moderation, appeal, correction and institution right-of-reply processes; institutions have no unilateral deletion power.
+- Protect minors and reviewer identity; avoid collecting identity/enrollment documents and sensitive attributes by default.
+- Reviews remain a post-launch feature. No pre-launch survey, interview, recruitment or outreach is authorized.
+
+ISO 20488, OECD review guidance, EU comparison-tool principles and Google Maps policies were used as comparative research references, not assumed to be Pakistan law. Pakistan PECA Amendment Act 2025 was identified for counsel review; no legal interpretation is made here. Age eligibility, review scope, rating dimensions, thresholds, moderation service levels and legal procedures remain open for M2/owner decisions.
