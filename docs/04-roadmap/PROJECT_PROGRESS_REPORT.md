@@ -2,7 +2,7 @@
 
 **As of:** 2026-11-12  
 **Current milestone:** M1  
-**Current phase:** M0 accepted; M1-S02 and M1-S03 accepted; awaiting separate authorization for the next M1 step
+**Current phase:** M0 accepted; M1-S02 and M1-S03 accepted; M1-S01 closeout package ready for owner acceptance
 
 ## Verified V2 repository facts
 - Repository: `mattari20/listing-v2`
@@ -31,7 +31,7 @@
 - M0 closeout PR [#4](https://github.com/mattari20/listing-v2/pull/4) merged as `4d1122d182961f3842803036f917ce39cd11b4c6`; required check passed on exact head `64da261546b034129af3aebfa38fb91f939732b6` ([run #43058607549](https://github.com/mattari20/listing-v2/actions/runs/43058607549)). M0 is accepted and closed.
 
 ## Current M1 status
-- M1-S01 desk research and initial journey hypotheses are documented. The interview/survey kit is archived preparation material only. By owner direction, no student survey, interviews, recruitment or outreach will occur during construction. This is deferred, not completed or validated.
+- M1-S01 desk-research closeout package now includes eight evidence items, provisional segments/journey, SR-01–SR-14 requirements and measurable acceptance scenarios. Weighted documentation tasks total 100%; owner acceptance is pending. No participant validation is claimed. The interview/survey kit remains archived and inactive; all fieldwork is deferred during construction.
 - Ratings and written reviews are a post-launch V2 feature; visitors must log in/create an account to submit. Eligibility, moderation, privacy and age-related safeguards remain to be designed.
 - M1-S02 initial taxonomy research is documented in `docs/03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md`; the official source coverage matrix is now documented in `docs/03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md`. Sources identified include HEC, PMDC, PNMC, PCP, Punjab PEPRIS, KP-PSRA, Balochistan SED/EMIS, Sindh SEMIS, ICT-PEIRA, GB EMIS and NAVTTC. AJK official source families have been identified but full public/private coverage remains unverified. BECS/ALP and NFEMIS provide non-formal source leads. Punjab and Sindh special-education directories have been identified; other jurisdictions remain gaps. PEC, NCEAC, NACTE and NCH provide further discipline-specific professional education sources. Source rights, freshness and programme/status scope remain to be verified. A limited dated public-terms review located HEC copyright guidance and Digital Library license restrictions, and public PM&DC/PNMC institutional information; no directory-specific reuse permission was established for HEC, PM&DC, PNMC or PCP. The HEC Digital Library restrictions are not assumed to govern its separate institution directory. All sources remain research-only. This is not a complete national inventory or final taxonomy.
 - Official/private provider research, source rights/freshness, programme/admissions research, independent software/dataset assessment and final data-agent/trust requirements remain outstanding.
@@ -49,7 +49,7 @@ The owner confirmed that ratings and written reviews belong in the V2 product mo
 An initial independent taxonomy baseline is documented in `docs/03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md`; an official source coverage matrix is documented in `docs/03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md`. The matrix identifies HEC, PMDC, PNMC, PCP, Punjab PEPRIS, KP-PSRA, Balochistan SED/EMIS, Sindh SEMIS, ICT-PEIRA, GB EMIS and NAVTTC source families. AJK official source families (E&SE Department and BECS) have been identified, but complete coverage remains unverified. BECS/ALP and NFEMIS are initial non-formal source leads. Punjab and Sindh special-education source families and PEC, NCEAC, NACTE and NCH professional education sources have now been identified; other jurisdictions/councils and source verification remain outstanding. Source access, rights, status semantics and update cadence remain unverified. A source-by-source rights/access evidence register is maintained. Its 2026-11-12 review records initial HEC/PM&DC/PNMC terms findings; PCP terms and source-specific permission remain unresolved. The 2026-11-12 review also checked KP-PSRA, ICT-PEIRA and Sindh RSU/SEMIS: no directory-specific reuse permission was located; ICT-PEIRA states its active list is updated weekly and distinguishes renewal-pending records. No permission requests have been sent; all sources remain research-only. It is not a final taxonomy or comprehensive inventory.
 
 ## Next authorized step
-Continue M1-S02 by completing source-specific rights/access checks, closing jurisdiction and sector gaps, verifying source status/update semantics and preparing a national coverage synthesis. Do not ingest data, activate connectors or begin architecture/technology selection before the relevant approvals and M1 acceptance.
+Immediate gate: owner review and acceptance of M1-S01 closeout. After acceptance, M1-S04 private provider research is the next planned step and requires separate owner authorization before it starts. Do not begin M1-S04, M2, implementation, data ingestion or connector activation without the applicable authorization and approvals.
 
 ## PR #15 evidence
 PR #15 added Punjab/Sindh special-education source families and PEC, NCEAC, NACTE and NCH professional education sources. Its exact head `b85393c22a2768cf6beb56699aeead5a16d13373` passed the required documentation check (run #43139676215) and merged as `df60fbe592801e86c2126554c57f6b21ffae36f7`.
@@ -336,3 +336,8 @@ This is not a claim of complete national provider coverage, legal reuse clearanc
 ## PR #69 — M1-S03 acceptance delivery evidence
 
 PR [#69](https://github.com/mattari20/listing-v2/pull/69) merged as `4c6d076fef9d09a2900ca8e9e265ea6176ed5d6c`. The exact PR head `c6120094139e2f2a7296fd4e59649928c0ddc161` passed required Project documentation validation (run [#43163951606](https://github.com/mattari20/listing-v2/actions/runs/43163951606)). This records the owner's C09 acceptance and closes M1-S03 at 100% weighted task completion as a research/documentation baseline only.
+
+
+## M1-S01 closeout package — 2026-11-12
+
+The closeout package updates the student journey research, Student Discovery Requirements, Product Vision, traceability matrix and project control records. It contains eight evidence items, a provisional end-to-end journey, SR-01–SR-14 and measurable acceptance scenarios. The weighted documentation tasks total 100% (T01 35%, T02 15%, T04 25%, T05 25%); T03 is explicitly owner-deferred at 0% weight. This percentage does not mean participant validation. M1-S01 is ready for owner acceptance, not yet Accepted. The owner review pack is `../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md`.
