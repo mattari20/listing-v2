@@ -46,7 +46,7 @@ DGRE also describes its registration workflow through regional offices and annua
 
 Sources:
 - https://www.dgre.gov.pk/Overview
-- https://dgre.gov.pk/Detail/MTk4MDhlNTAtMmJmZS00ZGFiLTkzN2MtY2Y3OTdmNmY5Yjdi
+- https://dgre.gov.pk/Detail/MTk4MDhlNTAtMGJmZS00YmExLWI0NzEtZGNkOWJjMzI2MDQ1
 - https://www.dgre.gov.pk/Detail/ZWE2YmVlZmEtMGMzZS00NmRhLTg2YjYtNjRmMjcxYzFhM2Nk
 - https://www.dgre.gov.pk/Detail/ZDk0YWE1NjgtN2ZiMS00MTY5LThiMjEtNjcxZmFmZjU3Njc3
 - https://www.dgre.gov.pk/Detail/ZTQwNTcyMDktYzM2NC00YjViLTllYjEtODMyYmUwNmY3
