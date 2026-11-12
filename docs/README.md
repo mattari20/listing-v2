@@ -134,3 +134,10 @@ M2 is 100% complete, owner-accepted and closed. M3 implementation requires separ
 M0, M1 and M2 are accepted and closed. M3-00 is documentation/planning only. Application implementation requires separate explicit authorization after M3-01 readiness review. The M3 Master Step Plan supersedes older high-level M3 sequencing where they differ; it does not reopen M2 or relax any binding control.
 
 **Current status correction:** any earlier text in this index describing M2 as active, in progress, 98.6%, or awaiting owner acceptance is historical and superseded by the [M2 Final Owner Acceptance and Closure Record](05-architecture/M2_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) and [M2 Final Progress and Closeout Report](05-architecture/M2_FINAL_PROGRESS_AND_CLOSEOUT_REPORT_2026-11-12.md).
+
+
+## Current M3 acceptance and next step — 2026-11-12
+- [M3-00 Final Owner Acceptance and Closure Record](04-roadmap/M3-00_FINAL_OWNER_ACCEPTANCE_AND_CLOSURE_RECORD_2026-11-12.md) — owner accepted M3-00 at 100% for bounded planning outputs; substantive gates retained
+- [M3-01 Implementation Planning and Authorization Work Plan](04-roadmap/M3-01_IMPLEMENTATION_PLANNING_AND_AUTHORIZATION_WORK_PLAN.md) — next planning step; implementation authorization NOT ISSUED
+
+Earlier M3-00 open/75% statements in this index are historical and superseded by the final acceptance record. M3 overall weighted progress is 5%.
