@@ -73,6 +73,7 @@ For every merge:
 | [M1 Institution Taxonomy Research](../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md) | Independent desk research on provider types, coverage and recognition relationships | Delivered — initial baseline; owner review and source expansion pending |
 | [M1 Official Institution Source Coverage Matrix](../03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md) | Official source discovery and jurisdiction/sector coverage gaps for institution data | Delivered — independent source-discovery baseline; rights, freshness and coverage verification pending |
 | [M1 National Institution Coverage Synthesis](../03-research/M1_NATIONAL_INSTITUTION_COVERAGE_SYNTHESIS.md) | National synthesis of sector/jurisdiction source families, source quality and unresolved gaps | Delivered — draft synthesis; owner review and S02 acceptance pending |
+| [M1-S02 Owner Acceptance Review](../03-research/M1_S02_OWNER_ACCEPTANCE_REVIEW.md) | Decision-ready S02 closeout recommendation, limitations and owner decision | Delivered — owner decision pending; not an approval record |
 | [M1 Source Rights, Access and Provenance Evidence Register](../03-research/M1_SOURCE_RIGHTS_ACCESS_EVIDENCE_REGISTER.md) | Source-by-source rights, access, privacy and freshness due-diligence requirements | Updated — includes TVET/QAB source rights note; no directory-specific reuse permission established; all sources remain research-only |
 
 ### E. Roadmap, traceability and progress
