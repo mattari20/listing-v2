@@ -547,3 +547,7 @@ GitHub verification confirms PRs #102–#110 are all closed and merged, with req
 
 ## M3-00 T07 current position — 2026-11-12
 The T07 deny-by-default legal, privacy, source-rights and security gate register has been delivered at `../04-roadmap/M3-00_T07_LEGAL_PRIVACY_SOURCE_RIGHTS_SECURITY_GATES.md`. It is a documentation framework only. Qualified reviewer roles remain unassigned; legal/privacy/security/safeguarding assessments are not complete; all external sources, models, connectors, vendors and services remain unapproved. T07 remains Open. No source access, collection, ingestion, procurement, service activation, application implementation or deployment is authorized.
+
+
+## M3-00 T08 current position — 2026-11-12
+The T08 planning framework is delivered at `../04-roadmap/M3-00_T08_IMPLEMENTATION_SCOPE_TEST_RELEASE_AUTHORIZATION_PACK.md`. It defines M3-01 readiness inputs, proposed backlog structure, Definition of Ready, test/evidence contract, CI/review controls, release/rollback governance and an unissued authorization record. T08 remains Open pending detailed scope, T02–T07 decisions/evidence, named human roles and owner acceptance. M3-01 implementation-start authorization has NOT been issued. No application code, technical spike, source/production access, schema/migration, procurement, spend, deployment, pilot or launch is authorized.
