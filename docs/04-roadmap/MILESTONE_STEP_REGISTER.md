@@ -653,3 +653,6 @@ T02/T03 have no partial completion percentage claimed. M3-00 remains 10% weighte
 
 
 T03 clarification: owner availability is demand-led within the confirmed 10–15 hours/week planning baseline; review/approval is arranged around project priorities and decision gates, not a fixed weekly meeting. No unlimited availability or human engineering capacity is assumed.
+
+
+T04 update: the [M3-00 Budget and Cost Scenarios](M3-00_BUDGET_AND_COST_SCENARIOS.md) framework documents cost categories, three planning scenarios, calculation rules and mandatory spend controls. No numeric budget ceiling, dated quote or paid-service permission is assumed. No new spend is authorized. T04 is In progress; no partial completion percentage is claimed.
