@@ -3,7 +3,7 @@
 **Audit date:** 2026-11-12  
 **Repository:** `mattari20/listing-v2`  
 **Scope:** Documentation-only completion audit of M1-S03 — Official Government and Regulator Provider Research.  
-**Status:** 95% weighted task completion; awaiting explicit owner acceptance of C09.
+**Status:** Accepted — 100% weighted task completion; C09 owner acceptance recorded 2026-11-12.
 
 ## 1. Completion rule
 
@@ -23,15 +23,15 @@ No source is approved for ingestion by this audit. S03-C09 is an explicit owner-
 | S03-C06 Deeni Madaris registration and qualification pathways | 8% | DGRE registration mandate/process; IBCC QAB recognition; HEC Deeni Asnad equivalence; PIE historical Wafaq data; Punjab TEVTA/TTB vocational relationships | **Completed — limitations documented.** DGRE's current complete public register and source rights remain open; Wafaq historical statistics are not a current census; QAB recognition does not imply automatic qualification equivalence. Deeni Madaris remain a distinct provider family. |
 | S03-C07 Access, rights, freshness and privacy assessment | 13% | Per-source access classifications, as-of/freshness evidence, license/terms status, privacy exclusions and reuse dispositions in the source register and jurisdiction matrix | **Completed — limitations documented.** No blanket education-directory reuse permission is established. The only scoped permission remains SED Balochistan dashboard headline/district aggregates with attribution and as-of date; school-level records and all other sources remain RESEARCH ONLY. |
 | S03-C08 Consolidated official provider-source register and gap analysis | 10% | 48 GOV source records; jurisdictional school matrix; eight supplemental research notes; source scope, access, freshness, rights, privacy and cross-authority gaps | **Completed — limitations documented.** Register is a consolidated research baseline, not a complete national census or production ingestion specification. Umbrella source-family records are retained as parent context for specific GOV routes. |
-| S03-C09 Owner review and step acceptance | 5% | Owner-reviewed source register, gaps and limitations; explicit acceptance record | **Not started — owner only.** Requires explicit owner review and approval. |
+| S03-C09 Owner review and step acceptance | 5% | Owner-reviewed source register, gaps and limitations; explicit acceptance record | **Accepted — owner approval recorded 2026-11-12.** |
 
 ## 3. Quantified progress
 
 - S03-C01 through S03-C08 meet their stated research/documentation acceptance criteria: **95% weighted task completion**.
-- S03-C09 remains owner-only at 5%.
-- M1-S03 therefore remains **In progress / awaiting owner acceptance**, not accepted or closed.
+- S03-C09 (5%) was explicitly approved by the owner on 2026-11-12.
+- M1-S03 is **Accepted — 100% weighted task completion** as a research baseline only.
 
-The 95% figure is weighted task completion, not provider coverage, legal clearance, data ingestion, implementation progress or a claim of a complete national institution census.
+The 100% figure is weighted task completion, not provider coverage, legal clearance, data ingestion, implementation progress or a claim of a complete national institution census.
 
 ## 4. Principal limitations carried forward
 
@@ -54,9 +54,9 @@ No legacy repository or legacy production data was used. No source scraping, bul
 
 The owner-approved Deeni Madaris requirement remains: included in the underlying provider scope, hidden from public listing by default at launch, with a configurable `Show Deeni Madaris` setting default OFF and controlled through an authorized administration/configuration path. Cross-category visibility for a separately registered TVET provider at a Madrasah location remains an M2 design question.
 
-## 6. Owner acceptance gate
+## 6. Owner acceptance and closeout
 
-The owner must review the consolidated source register and this audit, then explicitly accept or request corrections. Acceptance would close S03-C09 and M1-S03 as a research baseline only. It would not authorize source ingestion/reuse (beyond the existing narrow SED aggregate permission), implementation, production access, M1-S04 or M2.
+The owner explicitly approved the consolidated source register, jurisdictional school matrix, supplemental reviews, this audit and the documented limitations on 2026-11-12. S03-C09 is accepted and M1-S03 is closed at 100% weighted task completion as a research baseline only. This does not authorize source ingestion/reuse beyond the existing narrow SED aggregate permission, implementation, production access, M1-S04 or M2.
 
 Supporting documents:
 - `M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md`
