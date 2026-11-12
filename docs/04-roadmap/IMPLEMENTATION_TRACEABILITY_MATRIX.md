@@ -52,6 +52,9 @@ PR #18 merged as `8aebd2df27de2a3bedfddb9b83bf32241e4d7135`; exact head `1655c9f
 ## PR #21 documentation evidence reconciliation
 PR #21 merged as `56530e2e6b6ad562cad961ca0675f77ad5bb0e0b`; exact head `013b17c2080d9ca9b787ba55190af287f2c1b148`; required `Project documentation validation` check passed (run #43144752274). It reconciled the catalogue, progress report and traceability records for PRs #18–#20.
 
+
+## PR #22 NAVTTC source clarification evidence
+PR #22 merged as `2faeba2ba7637a6b4972079d5de3be2b56a7a5dd`; exact head `773c4c20165f51098ba8f01a24dd0c06ede44b57`; required `Project documentation validation` check passed (run #43145057750). It distinguished NAVTTC production TIS/NSIS/NVQF routes, institute registration and NAC-TVS accreditation; recorded published accreditation validity/renewal/score criteria; excluded staging/test directory evidence; and preserved research-only rights and privacy boundaries.
 ## 2026-11-12 NAVTTC registration/accreditation clarification
 The production NAVTTC site links TIS, NSIS and NVQF Registry; separate official pages describe institute registration and NAC-TVS accreditation. NAVTTC's accreditation process page states three-year validity, renewal application at least six months before expiry and a 700/1000 minimum assessment score. These are distinct claims and must not be collapsed into a single provider-recognition status. The registration workflow requests sensitive institutional/individual documentation; such material is excluded from public institution discovery. Punjab TEVTA's RTI page is an access-to-information route, not a blanket reuse license. No directory-specific reuse permission was established; all sources remain research-only. Sources: https://navttc.gov.pk/; https://navttc.gov.pk/accreditation-process/; https://reg.navttc.gov.pk/; https://tms.navttc.gov.pk/nsis/institute_help/info; https://tevta.gop.pk/right-to-information/.
 
