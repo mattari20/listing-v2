@@ -470,3 +470,39 @@ This acceptance does not authorize M2; M2 requires separate explicit owner autho
 PR [#83](https://github.com/mattari20/listing-v2/pull/83) recorded final owner acceptance of M1-S10 and formal M1 closeout. Exact PR head `30d5c7ecfc929cd680c3da8d076774904ec2d67a` passed required **Project documentation validation** (run [#43175799695](https://github.com/mattari20/listing-v2/actions/runs/43175799695)); the `Validate project control documents` job and all steps completed successfully. PR #83 was squash-merged as `af88a88693e66e9fb0a459d14ba1028e5fd3f97d`.
 
 S10-T10 is accepted; S10 is 100%. M1-S01 through M1-S10 are all Accepted and Closed. M1 is formally **Accepted and Closed** as a research/documentation milestone. M2 remains Planned and requires separate explicit owner authorization; no application implementation is authorized.
+
+
+## M2 — Architecture and Design
+
+**Milestone status:** In Progress — owner authorized 2026-11-12.  
+**Scope:** Architecture research and documentation only. No application implementation, production access, source ingestion, connector activation, procurement or deployment.  
+**Governing plan:** `../05-architecture/M2_STEP_PLAN.md`.  
+**Charter:** `../05-architecture/M2_ARCHITECTURE_DESIGN_CHARTER.md`.
+
+M2 step weights total 100%: S00 5%, S01 8%, S02 12%, S03 12%, S04 10%, S05 12%, S06 8%, S07 10%, S08 10%, S09 6%, S10 7%.
+
+| Step | Scope | Weight | Dependencies | Status |
+|---|---|---:|---|---|
+| M2-S00 | Baseline reconciliation and architecture documentation controls | 5% | M1 accepted | In progress — delivery branch prepared; validation pending |
+| M2-S01 | System requirements and architecture boundaries | 8% | S00 | Not started |
+| M2-S02 | Core domain and conceptual information model | 12% | S01 | Not started |
+| M2-S03 | Overall application and integration architecture | 12% | S01-S02 | Not started |
+| M2-S04 | Technology stack evaluation | 10% | S01-S03 | Not started |
+| M2-S05 | Data architecture, provenance and publication governance | 12% | S02-S04 | Not started |
+| M2-S06 | Search, discovery and geography architecture | 8% | S02-S04 | Not started |
+| M2-S07 | AI data-agent technical architecture | 10% | S03-S05 | Not started |
+| M2-S08 | Identity, authorization, reviews, privacy and security | 10% | S01-S07 | Not started |
+| M2-S09 | Performance, operations, hosting and recovery design | 6% | S03-S08 | Not started |
+| M2-S10 | Architecture validation, final synthesis and owner acceptance | 7% | S00-S09 | Not started |
+
+### M2-S00 task breakdown (weights total 100%)
+
+| Task | Weight | Acceptance evidence | Status |
+|---|---:|---|---|
+| S00-T01 Verify repository, M1 acceptance and scope boundaries | 20% | Current main SHA, open PR state, owner acceptance record and restrictions verified | Complete |
+| S00-T02 Reconcile contradictory/stale current-status references | 20% | README, controller, roadmap and M1 synthesis point consistently to M1 closed / M2 active | In progress |
+| S00-T03 Publish M2 charter, step plan and weighted acceptance framework | 20% | Charter and 11-step plan committed | In progress |
+| S00-T04 Establish architecture documentation, ADR, diagram and traceability structure | 20% | Architecture index, decision-record conventions and traceability template committed | In progress |
+| S00-T05 Validate documentation and reconcile PR/merge evidence | 20% | Required CI passes on exact PR head; merge and catalogue evidence recorded | Pending |
+
+The detailed task breakdowns and acceptance evidence for M2-S01 through M2-S10 are maintained in the governing M2 Step Plan. Do not duplicate or independently alter their weights here; reconcile this register if the plan changes.
