@@ -148,3 +148,12 @@ HEC Institutional Affiliation Policy 2024 applies to affiliated colleges and app
 ## PR #40 delivery evidence — 2026-11-12
 
 PR #40 merged the examination-board, PMF, DGRE jurisdiction and HEC affiliation/study-centre review as `c92d96613dcb510762be5a0a615a73e856861f9b`; final exact head `cc2cc7eaa615e4fe762f808e51918b6b10b5e235` passed required Project documentation validation (run #43154387281). S02-C01/C02/C03/C05/C07/C08 remain in progress pending specific acceptance evidence; S02-C09 remains owner-only.
+
+
+## M1-S02 data-rights and privacy research note — 2026-11-12
+
+MoITT's official registers identify the National Data Governance Policy 2026 and Personal Data Protection Bill May 2023 as Draft; RTI access does not confer blanket reuse rights; copyright compilation and underlying data/material require separate review; and PBS's open license is limited to PBS products/tiers. No blanket education-directory reuse permission is established. See `docs/03-research/M1_S02_DATA_RIGHTS_PRIVACY_FRAMEWORK_REVIEW_2026-11-12.md`. S02-C07/C08 remain In progress; S02-C09 remains owner-only.
+
+## PR #41 reconciliation evidence — 2026-11-12
+
+PR #41 reconciled PR #40 and merged as `c56200bdf66a5fdf615de0da6281495e50c39f92`; exact head `2c11bfc7fe74da6bed4dc04d17c4c80a664990b0` passed required Project documentation validation (run #43154481312). No task status, weight or owner gate was changed.
