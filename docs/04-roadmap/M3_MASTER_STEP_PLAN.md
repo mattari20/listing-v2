@@ -173,3 +173,8 @@ T02 and T03 are In progress; no partial task percentages are claimed because nam
 ## M3-00 T04 supporting budget framework
 
 The [M3-00 Budget and Cost Scenarios](M3-00_BUDGET_AND_COST_SCENARIOS.md) document defines comparable cost categories, no-new-spend/open-source/managed-service planning scenarios, calculation rules and mandatory spend controls. No numeric budget ceiling or paid-service permission is approved. T04 remains in progress pending owner decisions and dated cost evidence. No procurement or spend is authorized.
+
+
+## M3-00 T05 supporting technology framework
+
+The [M3-00 Technology Stack Decision Framework](M3-00_TECHNOLOGY_STACK_DECISION_FRAMEWORK.md) compares candidate backend, frontend, database, search, geography and background-processing approaches against common criteria. It preserves the M2 conditional baseline but selects no technology. Named implementer/maintainer skill fit, support/security evidence, cost and hosting fit remain dependencies. No technical spike, installation or implementation is authorized.
