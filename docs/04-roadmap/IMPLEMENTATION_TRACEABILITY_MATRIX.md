@@ -82,6 +82,12 @@ PR #27 merged as `180a6cc19195362caabc3a029dc54c4cc5fc01da`; exact head `8890198
 ## M1-S02 owner acceptance evidence
 `docs/03-research/M1_S02_OWNER_ACCEPTANCE_REVIEW.md` is a decision-ready review pack, not an approval record. It sets out a recommended limited research-baseline closeout and the alternative of keeping S02 open. Owner decision remains pending. Additional PBC and PVMC source-family evidence is documented; PCATP, NCT, NAEAC and AHPC remain verification gaps. No source-use permission is implied.
 
+## PR #28 evidence reconciliation
+PR #28 merged as `2254d52f8799c137ad64e0c28502913453e6d218`; exact head `bbf694ed0d7e372b3e8d4c754b29e3773adbb9c4`; required `Project documentation validation` passed (run #43147548460). It added PBC/PVMC professional-source evidence and the M1-S02 owner acceptance review pack, and reconciled PR #27.
+
+## M1-S02 owner acceptance gate
+The current S02 research/documentation package is ready for owner review. S02-C09 remains pending; the AI must not self-approve the taxonomy or close the step without the owner's explicit choice. All sources remain research-only and no collection/reuse is authorized.
+
 ## Documentation catalogue maintenance
 
 `DOCUMENTATION_CATALOG.md` is the owner-facing inventory for documentation delivery and acceptance. Reconcile it on every documentation PR update and merge. Keep delivery status separate from content acceptance; update PR/head/check/merge evidence and links.
