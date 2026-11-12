@@ -166,3 +166,8 @@ M0 founding controls are accepted and closed. Product, provider and open-source 
 ## Supplemental M1-S02 document
 
 - [M1-S02 Supplemental Official-Source Coverage Review](../03-research/M1_S02_SUPPLEMENTAL_SOURCE_COVERAGE_REVIEW_2026-11-12.md) — dated AJK, Balochistan, NFEMIS, GB EMIS, HEC qualification/NOC and special-education evidence; delivered as research-only, with source rights, completeness and S02 acceptance still pending.
+
+
+## PR #33 supplemental source-coverage delivery
+
+PR [#33](https://github.com/mattari20/listing-v2/pull/33) added the 2026-11-12 supplemental official-source coverage review and reconciled the source matrix, rights register, national synthesis, owner review pack, step register, traceability, progress report, controller and documentation index. Exact head `09a3051043bf47825360cf03ea220c11eff121f7` passed the required **Project documentation validation** check (run [#43151991943](https://github.com/mattari20/listing-v2/actions/runs/43151991943)); PR #33 merged as `f6c22c70d4128784b2e3b76cd4115113ad7e5329`. The merge records delivery only: S02-C04/C06/C07/C08 remain in progress, S02-C09 remains an owner-only decision, and all source families remain research-only.
