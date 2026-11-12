@@ -1,6 +1,6 @@
 # M1-S05 — Programme and Admissions Information Research
 
-**Status:** Initial research and documentation baseline delivered; prepared for owner acceptance.  
+**Status:** Initial research and documentation baseline delivered and merged by PR [#75](https://github.com/mattari20/listing-v2/pull/75); owner acceptance pending. Merge commit `cb3adbfef07c49d61f2532026e51a817f3e43afb`; exact PR head `164744a948d33c3484cc1e611901e3902718fe7b` passed required Project documentation validation (run [#43170713563](https://github.com/actions/runs/43170713563)).  
 **Prepared / checked:** 2026-11-12  
 **Repository:** `mattari20/listing-v2`  
 **Independence:** Research conducted for Listing V2; no legacy repository, dataset, implementation or production environment used.
@@ -161,3 +161,8 @@ Public official routes were checked on 2026-11-12. Representative current source
 ## 9. Conclusion
 
 M1-S05 establishes that programme and admissions information must be assembled from a federated, time-aware set of regulatory, admitting-authority, institution, examination/equivalence and scholarship sources. The most important design requirement is to keep programme offer, campus, admission cycle, eligibility, fees and scholarship evidence separately scoped and versioned. This research is not a complete national programme catalogue, does not establish that any admission is currently open, and does not grant reuse rights or authorize collection/ingestion.
+
+
+## Delivery evidence
+
+PR [#75](https://github.com/mattari20/listing-v2/pull/75) merged as `cb3adbfef07c49d61f2532026e51a817f3e43afb`. Exact PR head `164744a948d33c3484cc1e611901e3902718fe7b` passed required Project documentation validation (run [#43170713563](https://github.com/actions/runs/43170713563)). This confirms delivery and document validation only; M1-S05 owner acceptance remains pending. All source families remain RESEARCH ONLY.
