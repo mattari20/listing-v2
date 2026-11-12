@@ -168,3 +168,8 @@ S02-C03/C06/C07 remain in progress; S02-C09 remains an owner-only gate. No sourc
 ## PR #35 — final PR #34 evidence reconciliation
 
 PR [#35](https://github.com/mattari20/listing-v2/pull/35) merged as `0cb1c8cf1dba9fb0b90b1fa8bda16123d57c65f6`; exact head `48626561f492c03baab9ce72fb79e7a24a01640f` passed required Project documentation validation (run #43152199340). It reconciled PR #34 merge evidence. No task status, task weight, source-use authorization or owner decision changed.
+
+
+## PR #36 — professional-council and special-education evidence
+
+PR [#36](https://github.com/mattari20/listing-v2/pull/36) merged as `c0a5e0cc743336610b0eef5d5e56fde5406d92db`; exact head `fb629563b395a29b4d02df443acaa63c4cd38f01` passed required Project documentation validation (run #43152421589). The supplement clarified programme status semantics and identified additional current-register gaps. It does not establish legal reuse permission or complete national coverage. M1-S02 remains in progress pending evidence closure and owner acceptance.
