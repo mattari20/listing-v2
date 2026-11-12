@@ -579,3 +579,8 @@ P03 is resolved for the synthetic/offline Candidate A planning model. This does 
 PR #124 added the AI-era architecture readiness review and merged it as `4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5`. The review is a proposed planning supplement with 20 requirements (AI-ARCH-01–20), not a stack selection, implementation approval, legal/security clearance or AI activation.
 
 The project now tracks these requirements in both architecture and implementation traceability, with linked future tests and risk controls. AI remains optional and provider-independent; Candidate A remains offline/synthetic-only; no external service, model, agent, vector store, queue, MCP server, source access, database change or spend is authorized. P04 is strengthened but not closed; P04–P08 remain open; M3 remains 5%; implementation authorization NOT ISSUED.
+
+
+## M3-01 P04 stack and hosting decision dossier — 2026-11-12
+
+The [P04 Stack, Hosting and Cost Decision Dossier](../04-roadmap/M3-01_P04_STACK_HOSTING_COST_DECISION_DOSSIER_2026-11-12.md) is delivered for owner review. It reconciles the existing stack comparison with the AI-era architecture requirements, evaluates Laravel/PHP, Django/Python and NestJS/TypeScript, identifies PostgreSQL 18/PostGIS as the leading database candidate, and defines hosting/cost/restore/portability gates. No framework, host, region, vendor, model or spend is selected. P04 remains open pending founder skill evidence and owner decision.
