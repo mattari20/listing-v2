@@ -311,3 +311,10 @@ PR [#44](https://github.com/mattari20/listing-v2/pull/44) delivered KPPSRA/Sindh
 
 - [M1-S03 Professional Regulator Source Review](../03-research/M1_S03_PROFESSIONAL_REGULATOR_SOURCE_REVIEW_2026-11-12.md) — PMDC, PCP, PNMC, NCEAC, NACTE, PEC, NTC, PVMC and PBC official routes, status semantics and source limitations; **Delivered — review pending; M1-S03 in progress.**
 - [M1-S03 Official Government and Regulator Provider Source Register](../03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md) — updated with GOV-20 to GOV-28 regulator records; **Updated — review pending.**
+
+
+## M1-S03 AJK education source review — 2026-11-12
+
+AJK E&SE currently publishes a homepage aggregate of 6,019 schools, but no as-of date or public record-level register was verified. Its private-institution list announcement dated 5 November 2025 links to a Google Drive file that prompts sign-in; EMIS and PEIRA are authenticated routes. AJK HED publishes separate degree, inter and education college lists, while its functions and overview pages report 180 versus 178 colleges. These differences remain unresolved. Full details: `docs/03-research/M1_S03_AJK_EDUCATION_SOURCE_REVIEW_2026-11-12.md`.
+
+S03-C02 remains in progress. No login, access bypass, download, source-owner contact, permission request, scraping, ingestion, implementation or production access is authorized.
