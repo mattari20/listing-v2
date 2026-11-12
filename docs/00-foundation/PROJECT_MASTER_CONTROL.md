@@ -2,7 +2,7 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0 accepted and closed; M1-S01 through M1-S07 accepted; M1-S08/S09 research merged, owner acceptance pending  
+**Status:** M0 accepted and closed; M1-S01 through M1-S10 accepted and closed; M2 authorized and in progress  
 **Last reconciled:** 2026-11-12
 
 ## Authoritative current position
@@ -336,3 +336,18 @@ M2 architecture/design is **Planned, not started**. It requires separate explici
 PR [#83](https://github.com/mattari20/listing-v2/pull/83) recorded final owner acceptance of M1-S10 and formal M1 closeout. Exact PR head `30d5c7ecfc929cd680c3da8d076774904ec2d67a` passed required **Project documentation validation** (run [#43175799695](https://github.com/mattari20/listing-v2/actions/runs/43175799695)); the `Validate project control documents` job and all steps completed successfully. PR #83 was squash-merged as `af88a88693e66e9fb0a459d14ba1028e5fd3f97d`.
 
 S10-T10 is accepted; S10 is 100%. M1-S01 through M1-S10 are all Accepted and Closed. M1 is formally **Accepted and Closed** as a research/documentation milestone. M2 remains Planned and requires separate explicit owner authorization; no application implementation is authorized.
+
+
+## Authoritative M2 current position — 2026-11-12
+
+The owner explicitly authorized M2 architecture/design on 2026-11-12. M0 is accepted and closed. M1-S01 through M1-S10 are all accepted and closed; the formal owner acceptance record is `../03-research/M1_S10_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`, and the final synthesis is `../03-research/M1_S10_FINAL_SYNTHESIS_CLOSEOUT_REVIEW_2026-11-12.md`.
+
+**Current milestone: M2 — Architecture and Design.** M2 is authorized and active, with M2-S00 (baseline reconciliation and architecture documentation controls) as the first step. The governing charter and step plan are `../05-architecture/M2_ARCHITECTURE_DESIGN_CHARTER.md` and `../05-architecture/M2_STEP_PLAN.md`.
+
+This current-position section supersedes older chronological entries in this controller that say M1 acceptance was pending or M2 was unauthorized/planned. Those entries are retained as historical delivery records, not current status.
+
+M2 authorizes research, analysis and documentation only. Application implementation, physical database/schema design or migrations, production access, source retrieval/ingestion, connector/agent activation, procurement/new spend, deployment and URL cutover remain unauthorized. No legacy V1 artifacts or practices may be used as design inputs.
+
+All M1 G01-G20 limitations and owner decisions remain in force. In particular, V2-DEC-006 requires Deeni Madaris to remain in underlying provider scope with public visibility default OFF; while OFF, exclude the category from public search, browse, maps, recommendations, counts, sitemaps, exports and public APIs, without deleting records or exposing sect/maslak attributes. All unapproved source families and third-party software/data remain RESEARCH ONLY. Primary participant research remains deferred during construction; reviews remain post-launch.
+
+The next eligible step after M2-S00 is M2-S01 — System Requirements and Architecture Boundaries. M3 implementation remains gated until the complete M2 architecture package is separately accepted by the owner.
