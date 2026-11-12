@@ -209,3 +209,8 @@ The M1-S03 official-source register has been expanded with NFEMIS, DGSE, Sindh D
 ## M1-S03 professional regulator research update — 2026-11-12
 
 The official-source register now includes professional regulator routes for PMDC, PCP, PNMC, NCEAC, NACTE, PEC, NTC, PVMC and PBC. New findings reinforce programme/batch-specific approval, time-bounded accreditation, admissions stoppage, under-discussion and zero/interim distinctions; some public pages have stale/inconsistent fields or unclear reuse terms. See `../03-research/M1_S03_PROFESSIONAL_REGULATOR_SOURCE_REVIEW_2026-11-12.md`. S03-C03 remains in progress. No source reuse, ingestion, scraping, source-owner contact, permission request or implementation is authorized.
+
+
+## M1-S03 AJK education source update — 2026-11-12
+
+The AJK E&SE/EMIS/PEIRA and HED college routes have been verified and added to the official provider source register. The 6,019-school homepage aggregate lacks a clear as-of date; the private register announcement links to a sign-in-gated file; HED public pages report 180 versus 178 colleges. See `../03-research/M1_S03_AJK_EDUCATION_SOURCE_REVIEW_2026-11-12.md`. S03-C02 remains in progress; no source reuse, access bypass or ingestion is authorized.
