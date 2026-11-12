@@ -116,6 +116,7 @@ For every merge:
 | [#9](https://github.com/mattari20/listing-v2/pull/9) | Reconcile PR #8 merge evidence and documentation status | Merged as `2747509824d32eacf41e96f725834ac53d68b8d2` | Merged |
 | [#10](https://github.com/mattari20/listing-v2/pull/10) | Record owner research timing, post-launch account-based reviews and initial independent institution taxonomy research | Merged as `11bb356f678e8559e9cd17940a68ab35dcf131b5`; exact head `a9929ead88c5592f9ce64f0f7ed8e83005b14329`; required check passed ([run #43132829648](https://github.com/mattari20/listing-v2/actions/runs/43132829648)) | Merged |
 | [#11](https://github.com/mattari20/listing-v2/pull/11) | Reconcile PR #10 evidence and M1-S02 documentation status | Merged as `e39137e14f152fa82fe2acb284a631cb84438998`; exact head `b11e03020a46269d9b04674822182933c569082e`; required check passed ([run #43136568996](https://github.com/mattari20/listing-v2/actions/runs/43136568996)) | Merged |
+| [#12](https://github.com/mattari20/listing-v2/pull/12) | Add official institution source coverage matrix, weighted M1-S02 tasks and reconcile PR #11 evidence | Merged as `6646889954e20bab95a33d92f6bb2abab266ec59`; exact head `ca5f28e2edeb3ccd6088d4cdacad8a5440aaea90`; required check passed ([run #43138431960](https://github.com/mattari20/listing-v2/actions/runs/43138431960)) | Merged |
 
 ## PR #10 merged documentation update
 PR #10 updated the master controller, comparison/reviews requirements, research instrument status, roadmap, step register, traceability matrix, progress report, catalogue and documentation index. It added the initial independent M1-S02 institution taxonomy research. The owner decision to defer all pre-launch student surveys/interviews/recruitment is recorded; account-based ratings/reviews are specified as post-launch functionality.
@@ -123,7 +124,7 @@ PR #10 updated the master controller, comparison/reviews requirements, research 
 ## Remaining documentation work
 
 1. Review every delivered founding document against V2 owner requirements and its own acceptance criteria; record accepted items individually.
-2. Complete M1-S02 by verifying the official-source coverage matrix, jurisdiction gaps, status semantics, update cadence and rights; pre-launch participant research remains deferred by owner.
+2. Complete M1-S02 by verifying the official-source coverage matrix, remaining AJK gap, status semantics, update cadence and rights; pre-launch participant research remains deferred by owner.
 3. Expand the provider register with verifiable source access, coverage, update cadence, data rights and provenance evidence.
 4. Complete independent candidate research and license/security assessment before approving reuse.
 5. Refine M1 acceptance and task weights only after research scope and evidence are clear.
