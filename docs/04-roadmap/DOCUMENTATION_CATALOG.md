@@ -446,3 +446,16 @@ S08 and S09 are accepted and closed at 100% weighted task completion each. S10 i
 PR [#83](https://github.com/mattari20/listing-v2/pull/83) recorded final owner acceptance of M1-S10 and formal M1 closeout. Exact PR head `30d5c7ecfc929cd680c3da8d076774904ec2d67a` passed required **Project documentation validation** (run [#43175799695](https://github.com/mattari20/listing-v2/actions/runs/43175799695)); the `Validate project control documents` job and all steps completed successfully. PR #83 was squash-merged as `af88a88693e66e9fb0a459d14ba1028e5fd3f97d`.
 
 S10-T10 is accepted; S10 is 100%. M1-S01 through M1-S10 are all Accepted and Closed. M1 is formally **Accepted and Closed** as a research/documentation milestone. M2 remains Planned and requires separate explicit owner authorization; no application implementation is authorized.
+
+
+## M2 architecture and design documentation — initiated 2026-11-12
+
+- [M2 Architecture Documentation Index](../05-architecture/README.md) — architecture artifact inventory and maintenance rules.
+- [M2 Architecture and Design Charter](../05-architecture/M2_ARCHITECTURE_DESIGN_CHARTER.md) — authorized scope, non-goals, hard boundaries, methods and M2 acceptance gate.
+- [M2 Step Plan](../05-architecture/M2_STEP_PLAN.md) — 11-step M2 sequence, 100% milestone weighting, task-level acceptance criteria and operating method.
+- [M2 Architecture Documentation Plan](../05-architecture/M2_ARCHITECTURE_DOCUMENTATION_PLAN.md) — planned views, documentation structure and quality rules.
+- [M2 Requirements-to-Architecture Traceability](../05-architecture/M2_REQUIREMENTS_ARCHITECTURE_TRACEABILITY.md) — initial requirement/design/decision/risk/verification scaffold.
+- [M2 Architecture Decision Register](../05-architecture/M2_ARCHITECTURE_DECISION_REGISTER.md) — consequential decision inventory and status.
+- [ADR Template](../05-architecture/decisions/ADR_TEMPLATE.md) and [Diagram Conventions](../05-architecture/diagrams/README.md) — repeatable decision and diagram standards.
+
+These are M2 baseline/control deliverables. Their existence does not imply that the application stack, database, hosting, integrations or deployment architecture has been selected.
