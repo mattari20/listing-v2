@@ -83,7 +83,7 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 
 | Task | Weight | Acceptance evidence | Status |
 |---|---:|---|---|
-| S03-C01 Federal education governance and national data authorities | 12% | Verified authority/mandate map for MoFEPT, PIE/NEMIS, federal education bodies and national source routes, with scope and limitations | In progress — initial MoFEPT and PIE/NEMIS official routes verified; national source coverage and freshness review continues |
+| S03-C01 Federal education governance and national data authorities | 12% | Verified authority/mandate map for MoFEPT, PIE/NEMIS, federal education bodies and national source routes, with scope and limitations | In progress — PIE/NEMIS mandate, Pakistan Education Statistics 2024 methodology, historical Wafaq-reported Madaris statistics and FBISE affiliation register reviewed; source-year and completeness limitations remain |
 | S03-C02 Provincial and territorial school authorities/EMIS | 18% | Source-by-source official authority, public/private scope, route, visible fields, geography, update date and access constraints for all jurisdictions | In progress — AJK E&SE/EMIS/PEIRA and HED college routes now verified; 6,019 aggregate lacks an as-of date, private-list file prompts sign-in, and HED 178/180 totals conflict; GB private coverage remains open |
 | S03-C03 Higher education and professional regulators | 14% | Verified source register for HEC and relevant professional councils/accreditation bodies, including exact approval scope and status semantics | In progress — PMDC, PCP, PNMC, NCEAC, NACTE, PEC, NTC, PVMC and PBC routes reviewed; programme/batch scope, current validity, stale records and source rights remain under verification |
 | S03-C04 TVET, technical boards and qualification-awarding bodies | 12% | Verified NAVTTC registration, QAB, provincial board and accreditation routes with provider-versus-awarder distinctions | In progress — NAVTTC 14-entry production QAB route and Punjab TEVTA/PSDA/TTB, Sindh STEVTA, KPTEVTA, B-TEVTA/BSIS routes reviewed; source counts and directory scopes remain unresolved |
@@ -254,3 +254,14 @@ The AJK source review identifies E&SE's public 6,019-school aggregate, login-onl
 ## M1-S03 TVET and QAB source verification — 2026-11-12
 
 The TVET/QAB review adds GOV-31 to GOV-35 for NAVTTC, Punjab TEVTA/PSDA/TTB, Sindh STEVTA, KPTEVTA and B-TEVTA/BSIS. It records separate training-provider, QAB, regulator, assessment and certification relationships, plus B-TEVTA six-versus-16 and BSIS 413-versus-112 displayed-count discrepancies. Punjab TTB/TEVTA pages also list Deeni Madaris vocational training relationships; the owner-approved default-hidden Madaris rule remains unchanged, while separate vocational-provider visibility is an M2 design question. Full note: `../03-research/M1_S03_TVET_QAB_SOURCE_REVIEW_2026-11-12.md`.
+
+
+## M1-S03 federal statistics and FBISE review — 2026-11-12
+
+The federal-source review adds FBISE's affiliated-institution directory (3,315 displayed rows) and PIE's Pakistan Education Statistics 2024 methodology. The 2024 report states that private-college data are not maintained by most provincial/regional departments except Punjab and KP. The historical 2021–22 report says Deeni Madaris statistics came from Wafaqs and some non-reporting Wafaqs had repeated data. These are source-lineage limitations, not current provider counts. S03-C01 remains in progress. Full note: `../03-research/M1_S03_FEDERAL_DATA_FBISE_SOURCE_REVIEW_2026-11-12.md`.
+
+
+## M1-S03 federal data and FBISE source review
+
+- [M1-S03 Federal Data and FBISE Source Review](../03-research/M1_S03_FEDERAL_DATA_FBISE_SOURCE_REVIEW_2026-11-12.md) — PIE/NEMIS mandate, private-college data gaps, historical Wafaq reporting and FBISE affiliated-institution register; **Delivered — review pending; M1-S03 in progress.**
+- [M1-S03 Official Government and Regulator Provider Source Register](../03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md) — updated with GOV-36 and GOV-37; **Updated — review pending.**

@@ -221,3 +221,8 @@ The AJK E&SE/EMIS/PEIRA and HED college routes have been verified and added to t
 The official-source register now includes NAVTTC's 14 production QAB routes, Punjab TEVTA/PSDA/TTB, Sindh STEVTA, KPTEVTA and B-TEVTA/BSIS. Key findings: QABs assess/certify and are not necessarily providers; Punjab TTB has separate TEVTA, non-TEVTA, Deeni Madaris and jail-centre lists; Sindh STEVTA is filter-driven; KPTEVTA tables combine institutes and courses; B-TEVTA's six-versus-16 counts and BSIS 413-versus-112 categories remain unreconciled. Some Deeni Madaris are listed in vocational training arrangements, but this does not change their hidden-by-default requirement. Cross-category visibility of a separately registered TVET provider at a Madrasah location is deferred to M2 design. Full note: `docs/03-research/M1_S03_TVET_QAB_SOURCE_REVIEW_2026-11-12.md`.
 
 S03-C04 remains in progress. All sources remain RESEARCH ONLY; no scraping, bulk download, source-owner contact, permission request, ingestion, implementation, database/schema changes or production access is authorized.
+
+
+## M1-S03 federal data source update — 2026-11-12
+
+PIE's official mandate confirms federal coordination and support to provincial/regional EMIS units. Pakistan Education Statistics 2024 states that private-college data are not maintained by most jurisdictions except Punjab and KP. The 2021–22 report records Wafaq-based Madaris aggregates and repeated data for some non-reporting Wafaqs. FBISE's public affiliated-institution table displayed 3,315 records across multiple jurisdictions and overseas locations; this is examination affiliation, not institutional recognition. See `../03-research/M1_S03_FEDERAL_DATA_FBISE_SOURCE_REVIEW_2026-11-12.md`. S03-C01 remains in progress.

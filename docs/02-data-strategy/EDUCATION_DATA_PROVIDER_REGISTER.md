@@ -68,3 +68,8 @@ AJK E&SE and HED routes are now included in the official source register. The E&
 ## Deeni Madaris and TVET source relationship — design note
 
 Punjab TEVTA and TTB Punjab publicly list some Deeni Madaris as vocational-training centres or as partners attached to TEVTA institutes. These are training/assessment relationships and do not establish general academic recognition. Preserve the Madrasah provider, separate vocational provider/site (if independently established), programme/trade, TEVTA/TTB affiliation and QAB as distinct entities/relationships. The owner's default-hidden Deeni Madaris rule remains unchanged; public visibility of a separately registered vocational entity sharing the same address is an open M2 design question, not a decision inferred from source data.
+
+
+## M1-S03 federal education statistics and examination-board sources
+
+PIE/NEMIS source lineage, Pakistan Education Statistics 2024 coverage caveats, historical Deeni Madaris Wafaq-reporting limitations and FBISE's SSC/HSSC affiliated-institution register are recorded in `../03-research/M1_S03_FEDERAL_DATA_FBISE_SOURCE_REVIEW_2026-11-12.md`. FBISE affiliation is not institutional recognition or accreditation; historical Wafaq statistics are not a current Madaris register.
