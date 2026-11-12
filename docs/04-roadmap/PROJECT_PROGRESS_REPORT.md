@@ -78,5 +78,14 @@ PR #17 recorded the initial dated public-terms review for HEC, PM&DC and PNMC an
 ## PR #16 evidence
 PR #16 added the source rights, access and provenance evidence register. Its exact head `902d0af180152b78c42f1bb816545617afcd6b37` passed the required documentation validation check (run #43139966390); it merged as `fdcfb6bd26bc3f0cd1b7467e4f506c7ca40bf2c4`.
 
+## PR #20 evidence
+PR #20 mapped NAVTTC's QAB relationships and official institute-directory leads for Sindh STEVTA, Punjab TEVTA and B-TEVTA, while distinguishing provider registration, QAB affiliation, assessment/certification authority and quality accreditation. Exact head `01262d6df0dedf1593487d3df39b5151e041ca9d` passed required documentation validation (run #43144611231) and merged as `3d66f643cc06054d3caeb2d004da4217b3d86e9d`.
+
+## PR #19 evidence
+PR #19 recorded school-source rights/freshness findings for KP-PSRA, ICT-PEIRA and Sindh RSU/SEMIS. Exact head `01567f2a4c597b1a3a136fe14f5fc82249a767b1` passed required documentation validation (run #43144376429) and merged as `b1a38aab46822d3d877a720e04cb19a6164a623b`.
+
+## PR #18 evidence
+PR #18 reconciled the catalogue and evidence records for PRs #16–#17. Exact head `1655c9fdd75777b6106e3c4dbcdf4cb68b4b94f6` passed required documentation validation (run #43143898130) and merged as `8aebd2df27de2a3bedfddb9b83bf32241e4d7135`.
+
 ## Reporting rule
 After every documentation PR update and merge, reconcile the documentation catalogue, index, controller, step register, traceability matrix and progress report. Record exact PR, head SHA, required check and merge SHA. Never infer acceptance from a merge alone.
