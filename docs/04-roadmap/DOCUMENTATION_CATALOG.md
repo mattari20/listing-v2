@@ -581,6 +581,7 @@ M2 is owner-accepted and closed. M3 implementation requires separate authorizati
 | Document | Purpose | Status |
 |---|---|---|
 | [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) | Authoritative M3 sequence, weights, dependencies, task/acceptance criteria and authorization boundaries | Delivered — current planning baseline; owner acceptance pending |
-| [M3-00 Mobilization and Decision Closure](M3-00_MOBILIZATION_AND_DECISION_CLOSURE.md) | Current-step baseline, task register, open owner inputs, decision gates and exit criteria | Delivered — planning started; task completion 0%; owner acceptance pending |
+| [M3-00 Mobilization and Decision Closure](M3-00_MOBILIZATION_AND_DECISION_CLOSURE.md) | Current-step baseline, task register, open owner inputs, decision gates and exit criteria | Delivered — T01 complete; M3-00 at 10%; owner acceptance pending |
+| [M3-00 Owner Decision Pack](M3-00_OWNER_DECISION_PACK.md) | Role/skills, capacity, budget, stack, hosting and legal/privacy/security decision worksheets | Delivered — awaiting owner/team inputs and explicit decisions |
 
 M0/M1/M2 are accepted and closed. M3-00 is documentation/planning only. The M3 Master Step Plan supersedes earlier high-level M3 sequencing where inconsistent. No application implementation or separately gated activity is authorized.
