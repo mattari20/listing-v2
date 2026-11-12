@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-12 — M1-S01 through M1-S05 accepted; M1-S06/S07 research packages merged, owner acceptance pending
+**Last reconciled:** 2026-11-12 — M1-S01 through M1-S07 accepted; M1-S08/S09 research packages delivered, owner acceptance pending
 
 ## Purpose and maintenance rule
 
@@ -52,7 +52,7 @@ For every merge:
 | [Product Vision and Student Journey](../01-product/PRODUCT_VISION_AND_STUDENT_JOURNEY.md) | Product purpose and provisional student journey | Accepted — M1-S01 owner acceptance 2026-11-12 |
 | [Student Discovery Requirements](../01-product/STUDENT_DISCOVERY_REQUIREMENTS.md) | SR-01–SR-14 student discovery requirements and acceptance scenarios | Accepted — M1-S01 owner acceptance 2026-11-12 |
 | [Institution and Programme Requirements](../01-product/INSTITUTION_AND_PROGRAMME_REQUIREMENTS.md) | Institution, campus and programme information requirements | Delivered — review pending |
-| [Comparison, Reviews and Trust](../01-product/COMPARISON_REVIEWS_AND_TRUST.md) | Comparison and post-launch account-based ratings/reviews requirements | Updated — owner direction recorded; detailed design pending |
+| [Comparison, Reviews and Trust](../01-product/COMPARISON_REVIEWS_AND_TRUST.md) | Comparison and post-launch account-based ratings/reviews requirements | Updated — aligned with M1-S09 research; owner acceptance pending |
 
 ### C. Data strategy and rights
 
@@ -60,7 +60,7 @@ For every merge:
 |---|---|---|
 | [Education Data Strategy](../02-data-strategy/EDUCATION_DATA_STRATEGY.md) | V2 education data approach | Delivered — review pending |
 | [Education Data Provider Register](../02-data-strategy/EDUCATION_DATA_PROVIDER_REGISTER.md) | Candidate data-source/provider register | Delivered — research and evidence expansion pending |
-| [AI Data Agent Requirements](../02-data-strategy/AI_DATA_AGENT_REQUIREMENTS.md) | Requirements for AI-assisted data collection and verification | Delivered — review pending |
+| [AI Data Agent Requirements](../02-data-strategy/AI_DATA_AGENT_REQUIREMENTS.md) | Requirements for AI-assisted data collection and verification | Updated — aligned with M1-S08 research; owner acceptance pending |
 | [Data Rights and Provenance](../02-data-strategy/DATA_RIGHTS_AND_PROVENANCE.md) | Source permissions, provenance and data handling principles | Delivered — review pending |
 
 ### D. Independent research and reuse
@@ -74,8 +74,11 @@ For every merge:
 | [M1-S04 Owner Acceptance Record](../03-research/M1_S04_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) | Formal owner acceptance of S04 private-provider source research, coverage gaps and research-only restrictions | Accepted — 2026-11-12 |
 | [M1-S05 Programme and Admissions Research](../03-research/M1_S05_PROGRAMME_ADMISSIONS_SOURCE_RESEARCH_2026-11-12.md) | 22 source families, federated programme/admissions evidence model, eligibility, fees, scholarships and freshness rules | Accepted — owner acceptance 2026-11-12; 100% research baseline; all sources remain RESEARCH ONLY |
 | [M1-S05 Owner Acceptance Record](../03-research/M1_S05_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) | Formal owner acceptance of the programme/admissions research baseline and its limitations | Accepted — 2026-11-12 |
-| [M1-S06 GitHub Software and Dataset Discovery](../03-research/M1_S06_GITHUB_SOFTWARE_DATASET_DISCOVERY_2026-11-12.md) | Independent software/dataset candidate inventory, Pakistan relevance, transferability, exclusions and quality caveats | Delivered — S06 T01–T06 complete (90%); owner acceptance pending; no import or execution |
-| [M1-S07 Source Rights and Security Assessment](../03-research/M1_S07_SOURCE_RIGHTS_SECURITY_ASSESSMENT_2026-11-12.md) | Candidate-specific rights dispositions, Pakistan legal/policy context, privacy safeguards and software supply-chain review gates | Delivered — S07 T01–T06 complete (90%); owner acceptance pending; no source approved for ingestion |
+| [M1-S06 GitHub Software and Dataset Discovery](../03-research/M1_S06_GITHUB_SOFTWARE_DATASET_DISCOVERY_2026-11-12.md) | Independent software/dataset candidate inventory, Pakistan relevance, transferability, exclusions and quality caveats | Accepted — 2026-11-12; research baseline only, no import or execution |
+| [M1-S07 Source Rights and Security Assessment](../03-research/M1_S07_SOURCE_RIGHTS_SECURITY_ASSESSMENT_2026-11-12.md) | Candidate-specific rights dispositions, Pakistan legal/policy context, privacy safeguards and software supply-chain review gates | Accepted — 2026-11-12; no source approved for ingestion |
+| [M1-S06/S07 Owner Acceptance Record](../03-research/M1_S06_S07_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) | Formal acceptance of independent software/dataset discovery and deny-by-default rights/security research | Accepted — 2026-11-12 |
+| [M1-S08 AI Data-Agent Workflow Research](../03-research/M1_S08_AI_DATA_AGENT_WORKFLOW_RESEARCH_2026-11-12.md) | Rights-first AI data workflow, provenance, validation, human review, security, freshness and publication requirements | Delivered — S08 T01–T07 complete (95%); owner acceptance pending; no agent or source activated |
+| [M1-S09 Comparison, Reviews and Trust Research](../03-research/M1_S09_COMPARISON_REVIEWS_TRUST_RESEARCH_2026-11-12.md) | Fair comparison, ranking transparency, authenticated reviews, moderation, appeals, privacy and safeguarding | Delivered — S09 T01–T08 complete (95%); owner acceptance pending; reviews remain post-launch |
 | [M1-S01 Owner Acceptance Record](../03-research/M1_S01_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) | Formal owner acceptance of S01 scope, limitations and research deferral | Accepted — 2026-11-12 |
 | [M1-S04 Private Provider Source Register](../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md) | 21 private/non-state provider source families, seven-jurisdiction coverage assessment, source caveats and gaps | Accepted — S04 owner acceptance 2026-11-12; 100% research baseline |
 | [M1 Institution Taxonomy Research](../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md) | Independent desk research on provider types, coverage and recognition relationships | Delivered — initial baseline; owner review and source expansion pending |
@@ -407,3 +410,8 @@ S06 and S07 research files have been delivered on the documentation branch for o
 ## PR #77 merge and exact-head validation evidence — 2026-11-12
 
 PR [#77](https://github.com/mattari20/listing-v2/pull/77) merged into `main` as `71e71ce74a57b854724027a1b106befe826b14fa`. The final PR head `deef364831cf4f0d902128ce9933897b17f9649c` passed the required **Project documentation validation** check (run [#43171586968](https://github.com/mattari20/listing-v2/actions/runs/43171586968)); the job completed successfully. The merge delivered the S05 owner-acceptance record and S06/S07 research packages, plus reconciled project-control documents. S06 and S07 remain owner-acceptance pending at 90% weighted completion each. This delivery does not authorize source collection, code/data import, reuse, ingestion, connector activation or implementation.
+
+
+## M1-S08/S09 joint research package — 2026-11-12
+
+S08 and S09 research packages have been delivered on the documentation branch. Each step is 95% weighted complete with owner acceptance pending. The existing AI Data Agent Requirements and Comparison, Reviews and Trust documents were aligned to the research. No implementation, live source access, connector activation, review collection or pre-launch participant research occurred.
