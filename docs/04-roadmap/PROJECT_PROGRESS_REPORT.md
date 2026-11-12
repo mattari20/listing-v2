@@ -18,7 +18,7 @@
 | T04 Budget and cost ceiling | **In progress** | Cost categories, scenarios, calculation rules and no-spend controls documented | Numeric ceilings or explicit deferral, dated quotes, tax/FX basis and paid-service policy |
 | T05 Technology stack | **In progress** | Candidate comparison framework and conditional M2 baseline documented | Named implementer skill fit, support/security lifecycle, hosting/cost evidence and owner selection/deferment |
 | T06 Hosting and operations | **In progress** | Provider-region research and operating-model framework documented | Exact service/region support, current quotes, measured Pakistan latency, data terms, recovery evidence and named operations owner |
-| T07 Legal, privacy, source-rights and security | **Open** | Existing M1/M2 controls remain binding | M3-specific gate evidence and qualified review ownership |
+| T07 Legal, privacy, source-rights and security | **Open** | Twelve-gate deny-by-default register drafted; source-specific approval template, reviewer roles, no-go conditions and reassessment triggers documented | Qualified legal/privacy/security/safeguarding reviewers, applicable evidence and owner decisions; no source/vendor/service approved |
 | T08 Scope, test/release and authorization pack | **Open** | High-level M3 roadmap and acceptance gates exist | Detailed M3-01 backlog, test strategy, release/rollback plan and separate implementation-start authorization |
 
 PR merges and CI establish documentation delivery/validation, not owner acceptance of T02–T08. No partial task percentages are claimed. The 10% M3-00 and 0.5% M3 figures remain unchanged because T01 is the only fully complete weighted task.
@@ -641,3 +641,8 @@ The [M3-00 Hosting and Operations Decision Framework](M3-00_HOSTING_AND_OPERATIO
 PR [#109](https://github.com/mattari20/listing-v2/pull/109) delivered the M3-00 T06 Hosting and Operations Decision Framework. Exact head `746cc0f89df2716fd5a2170bf17d95697f471ff2` passed required **Project documentation validation** (run [#43199827073](https://github.com/mattari20/listing-v2/actions/runs/43199827073)); job `Validate project control documents` and all steps completed successfully. PR #109 was squash-merged as `5e55f1fe69dce25d0ab2357fef050b9120002579`.
 
 T06 is In progress: official region research and operating-model criteria are documented, but exact service/region support, current quotes, Pakistan latency measurements, data terms, recovery evidence and a named human operations owner remain unresolved. No provider is selected and no account, trial, procurement, spend or deployment is authorized. M3-00 remains 10%; no partial T06 percentage is claimed.
+
+
+## T07 documentation update — 2026-11-12
+
+Delivered [M3-00 T07 Legal, Privacy, Source-Rights and Security Gate Register](M3-00_T07_LEGAL_PRIVACY_SOURCE_RIGHTS_SECURITY_GATES.md). The register defines twelve gates and explicit no-go/reassessment rules. T07 remains **Open**: reviewer assignments and qualified assessments have not occurred. No legal compliance, privacy assessment, security certification, source permission or service approval is claimed. M3-00 remains 10% and M3 overall remains 0.5%; a drafted framework does not earn weighted task completion. All documentation-only and no-spend/no-access boundaries remain in force.
