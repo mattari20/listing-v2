@@ -2,7 +2,7 @@
 
 **As of:** 2026-11-12  
 **Current milestone:** M1  
-**Current phase:** M0 accepted; M1-S02 accepted; M1-S03 official government/regulator provider research active
+**Current phase:** M0 accepted; M1-S02 and M1-S03 accepted; awaiting separate authorization for the next M1 step
 
 ## Verified V2 repository facts
 - Repository: `mattari20/listing-v2`
@@ -324,3 +324,10 @@ S03-C03 remains in progress pending task audit. All sources remain RESEARCH ONLY
 ## M1-S03 task acceptance evidence audit
 
 - [M1-S03 Task Acceptance Evidence Audit](../03-research/M1_S03_TASK_ACCEPTANCE_EVIDENCE_AUDIT_2026-11-12.md) — evidence-based audit of C01–C08, unresolved source/rights/coverage limitations and owner-only C09 gate; **Delivered — owner review pending; 95% weighted completion.**
+
+
+## M1-S03 owner acceptance and closeout — 2026-11-12
+
+The owner explicitly approved the consolidated official government/regulator provider-source register, seven-jurisdiction school-source matrix, eight supplemental reviews, task acceptance audit and documented limitations. C09 is accepted; C01–C08 were already complete with limitations documented. M1-S03 is **Accepted — 100% weighted task completion** as a research/documentation baseline only.
+
+This is not a claim of complete national provider coverage, legal reuse clearance or production-ready data. The narrow SED Balochistan headline/district aggregate permission remains the only previously documented reuse exception. All other sources remain RESEARCH ONLY. Deeni Madaris remain in underlying scope but hidden from public discovery by default, controlled by the authorized `Show Deeni Madaris` setting. No implementation, database/schema work, source ingestion, production access, deployment, M1-S04 or M2 work is authorized by this acceptance. A separate owner instruction is required before the next step begins.
