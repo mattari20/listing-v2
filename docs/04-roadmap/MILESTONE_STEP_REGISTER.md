@@ -117,3 +117,8 @@ PR #35 reconciled PR #34 and merged as `0cb1c8cf1dba9fb0b90b1fa8bda16123d57c65f6
 ## PR #36 delivery evidence — 2026-11-12
 
 PR #36 merged the professional-council and special-education supplement as `c0a5e0cc743336610b0eef5d5e56fde5406d92db`; exact head `fb629563b395a29b4d02df443acaa63c4cd38f01` passed required Project documentation validation (run #43152421589). S02-C03/C06/C07 remain In progress; S02-C09 remains Not started pending explicit owner approval. Task weights are unchanged.
+
+
+## M1-S02 deep jurisdiction and TVET evidence note — 2026-11-12
+
+The deep review strengthens S02-C04/C05/C06 with Punjab/Sindh/GB special-education source leads, KP-TEVTA's 33-institute aggregate, STEVTA's district/region filter-driven list, Punjab TEVTA's 2024 institute PDF and B-TEVTA's 16-record directory versus NAVTTC's 80+ overview estimate. It records the GB location discrepancy, Balochistan proposed-versus-operational distinction, privacy exclusions and explicit exclusion of NAVTTC staging/sample directory data. Full evidence is in `docs/03-research/M1_S02_DEEP_JURISDICTION_SPECIAL_ED_TVET_REVIEW_2026-11-12.md`. S02-C04/C05/C06/C07/C08 remain In progress; S02-C09 remains Not started pending owner approval. Task weights unchanged.

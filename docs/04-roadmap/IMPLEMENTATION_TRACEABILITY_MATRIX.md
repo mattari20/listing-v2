@@ -129,3 +129,8 @@ PR #35 merged as `0cb1c8cf1dba9fb0b90b1fa8bda16123d57c65f6`; exact head `4862656
 ## PR #36 council/special-education evidence
 
 PR #36 merged as `c0a5e0cc743336610b0eef5d5e56fde5406d92db`; exact head `fb629563b395a29b4d02df443acaa63c4cd38f01` passed required Project documentation validation (run #43152421589). TAX-001 remains in progress; application-versus-approval and zero/interim-versus-final-accreditation distinctions are now explicit in the research supplement.
+
+
+## M1-S02 deep jurisdiction and TVET evidence — 2026-11-12
+
+The new review strengthens TAX-001 source-family discovery for special education and TVET, including Punjab/Sindh/GB facility leads, KP-TEVTA's 33-institute aggregate, STEVTA region/district filters, Punjab TEVTA's 2024 list and B-TEVTA/NAVTTC scope discrepancy. It records staging/sample-data exclusion, source-status limitations and privacy minimization. It does not establish a complete provider census, rights clearance or owner acceptance. S02-C04/C05/C06/C07/C08 and TAX-001 remain in progress.

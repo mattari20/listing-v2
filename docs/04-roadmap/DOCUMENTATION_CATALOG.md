@@ -191,3 +191,8 @@ PR [#35](https://github.com/mattari20/listing-v2/pull/35) reconciled PR #34 deli
 ## PR #36 professional-council/special-education review delivery
 
 PR [#36](https://github.com/mattari20/listing-v2/pull/36) added the PCATP, NCT, AHPC, NTC, NAEAC and ICT/KP special-education review and reconciled PR #35 evidence. Exact head `fb629563b395a29b4d02df443acaa63c4cd38f01` passed required **Project documentation validation** (run [#43152421589](https://github.com/mattari20/listing-v2/actions/runs/43152421589)); PR #36 merged as `c0a5e0cc743336610b0eef5d5e56fde5406d92db`. S02-C03/C06/C07 remain in progress; S02-C09 remains owner-only.
+
+
+## Supplemental M1-S02 deep jurisdiction review
+
+- [M1-S02 Deep Jurisdiction, Special-Education and TVET Review](../03-research/M1_S02_DEEP_JURISDICTION_SPECIAL_ED_TVET_REVIEW_2026-11-12.md) — additional official facility and TVET institute source evidence, scope discrepancies, staging-data exclusions and privacy/rights limitations; research-only.

@@ -114,3 +114,8 @@ PR #35 reconciled PR #34 merge evidence and merged as `0cb1c8cf1dba9fb0b90b1fa8b
 ## PR #36 latest research delivery — 2026-11-12
 
 PR #36 merged the professional-council and special-education supplement as `c0a5e0cc743336610b0eef5d5e56fde5406d92db`; exact head `fb629563b395a29b4d02df443acaa63c4cd38f01` passed required Project documentation validation (run #43152421589). M1-S02 remains active; source families remain research-only, and S02-C09 requires the owner's explicit decision.
+
+
+## M1-S02 deep jurisdiction and TVET research — 2026-11-12
+
+A further documentation-only pass adds Punjab/Sindh/GB special-education source leads; Balochistan proposed-versus-operational facility distinction; KP-TEVTA, STEVTA, Punjab TEVTA and B-TEVTA institute evidence; and excludes NAVTTC's staging/sample directory from evidence. HEC Digital Library and PASTIC are discovery leads only. Full findings are in `../03-research/M1_S02_DEEP_JURISDICTION_SPECIAL_ED_TVET_REVIEW_2026-11-12.md`. S02-C04/C05/C06/C07/C08 remain active; S02-C09 remains owner-only. No source reuse or collection is authorized.
