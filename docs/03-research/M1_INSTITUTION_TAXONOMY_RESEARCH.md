@@ -126,3 +126,7 @@ Add Deeni Madaris as a distinct provider family, with a separate provider-regist
 ## Supplemental relationship taxonomy — examination boards and medical-faculty affiliation
 
 Add explicit relationship types for examination/assessment-board jurisdiction and institution affiliation to a technical/secondary board. These relationships are not institution ownership, provider registration, programme accreditation or HEC recognition. Add Punjab Medical Faculty as a provincial allied-health/paramedical affiliation authority; its affiliated institute lists are distinct from HEC-recognized universities and professional registration of individuals. See `M1_S02_EXAMINATION_BOARDS_PMF_DGRE_JURISDICTION_REVIEW_2026-11-12.md`.
+
+## Supplemental taxonomy clarification — affiliation and study-centre scope
+
+HEC Institutional Affiliation Policy 2024 applies to recognized public-sector HEI affiliated colleges and approved study centres where regular classes are conducted, including centres operated under MoUs. Represent the relationship with a time-bounded affiliation/approval record linked to the affiliating DAI, college/campus/study centre and programme. Do not infer current affiliation from parent-university recognition. Preserve separate campus recognition, affiliated-college continuation, study-centre approval and programme accreditation states.
