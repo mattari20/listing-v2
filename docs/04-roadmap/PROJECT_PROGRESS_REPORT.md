@@ -251,3 +251,7 @@ PR #43 merged as `a8dfd8018fa33588a4d35166c953b18f89e39c43`; final exact head `5
 ## M1-S02 KP, ICT and AJK public-sector coverage review — 2026-11-12
 
 Further research confirmed KP public-school iEMIS is role-based and does not establish public unauthenticated access; FDE's ICT portal reports 432 institutions but is not a record-level public school/college directory; and AJK HED publishes category-specific college lists while its official pages disagree between 178 and 180 total colleges. The count discrepancy and category overlap are unresolved. These are explicit public-sector coverage gaps, not claims that no institutions exist. Details are in docs/03-research/M1_S02_KP_ICT_AJK_COLLEGE_COVERAGE_REVIEW_2026-11-12.md.
+
+## PR #44 — school regulator status and source terms
+
+PR #44 merged as `11ee337d823731d71a9c0ca00782728ad1994398`; exact head `0b5fe6429a1f6bc8bb383d1db1278d632ae04f08` passed required Project documentation validation (run #43155204020). It clarified KPPSRA/Sindh DIRPIS status semantics, HEC Digital Library terms scope and NAVTTC aggregate count distinctions. No reuse permission is inferred.
