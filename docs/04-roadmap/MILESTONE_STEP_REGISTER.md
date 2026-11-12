@@ -56,11 +56,17 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 ### M1-S01 task breakdown (weights total 100%; primary research deferred by owner)
 | Task | Weight | Acceptance evidence | Status |
 |---|---:|---|---|
-| S01-T01 Desk research and evidence register | 35% | Independent source synthesis with limitations and dated references | Delivered — initial desk-research baseline in PR #6 |
-| S01-T02 Participant segments and research protocol | 15% | Clearly labeled segment hypotheses and research safeguards; no recruitment during construction | Delivered as draft preparation only — PR #7; owner deferred fieldwork |
-| S01-T03 Primary interviews/survey | 0% | No pre-launch survey or interview under current owner direction | Deferred — not part of construction scope |
-| S01-T04 Journey mapping and synthesis | 25% | Desk-research journey and explicit evidence gaps, without claiming participant validation | In progress — provisional baseline only |
-| S01-T05 Requirements and acceptance criteria | 25% | Traceable product requirements and owner decisions; unresolved assumptions identified | In progress — continue alongside M1 work |
+| S01-T01 Desk research and evidence register | 35% | Independent dated source synthesis; claim-to-source mapping and limitations | **Completed** — eight evidence items across official statistics, official admission/equivalence routes and published Pakistan-focused choice research; primary sources and limitations recorded |
+| S01-T02 Participant segments and research protocol | 15% | Provisional segments and documented research safeguards; no recruitment during construction | **Completed for preparation scope** — hypotheses and safeguards documented; adult instrument archived and inactive; owner deferred fieldwork |
+| S01-T03 Primary interviews/survey | 0% | No pre-launch survey or interview under current owner direction | **Deferred by owner** — 0% weight; no fieldwork, recruitment or outreach during construction |
+| S01-T04 Journey mapping and synthesis | 25% | Desk-research journey with actors, stages, questions, decision points, evidence needs and gaps; no validation claim | **Completed** — end-to-end provisional desk-research journey and deferred-validation backlog documented |
+| S01-T05 Requirements and acceptance criteria | 25% | Stable requirement IDs, traceability, measurable acceptance scenarios and unresolved assumptions | **Completed** — SR-01–SR-14 documented; product vision and traceability reconciled; implementation-neutral tests and open questions recorded |
+
+**M1-S01 weighted documentation completion:** 100% (T01 35% + T02 15% + T04 25% + T05 25%). T03 is an explicitly owner-deferred zero-weight activity and is not represented as completed. The step is **ready for owner acceptance**; it is not marked Accepted until the owner reviews the closeout package. Primary participant validation remains outstanding and is not implied by this percentage.
+
+### M1-S01 owner acceptance gate
+
+The closeout package is `../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md`. Owner acceptance must confirm the desk-research baseline, provisional nature of segments/journey, 14 student discovery requirements, explicit deferral of primary research and carried-forward limitations. Acceptance closes only the construction-stage documentation baseline.
 
 ### M1-S02 task breakdown (weights total 100%)
 | Task | Weight | Acceptance evidence | Status |
