@@ -426,3 +426,10 @@ PR [#79](https://github.com/mattari20/listing-v2/pull/79) merged into `main` as 
 
 - [M1-S08/S09 Owner Acceptance Record](../03-research/M1_S08_S09_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) — formal owner acceptance of the AI data-agent workflow and comparison/reviews/trust research baselines; **Accepted and Closed at 100% each**. Open product/policy decisions and rights limitations remain carried forward.
 - [M1-S10 Final Synthesis, Traceability and Closeout Review](../03-research/M1_S10_FINAL_SYNTHESIS_CLOSEOUT_REVIEW_2026-11-12.md) — final step disposition, cross-step traceability, G01–G20 gap/decision register, M2 entry requirements, exclusions and owner acceptance checklist; **Delivered — owner acceptance pending; S10 at 95% weighted completion**.
+
+
+## PR #81 delivery and exact-head validation evidence — 2026-11-12
+
+PR [#81](https://github.com/mattari20/listing-v2/pull/81) delivered the S08/S09 owner-acceptance record and M1-S10 final synthesis package. Exact PR head `5d421241b2e643fb8291ff9f183aaa3205005a89` passed required **Project documentation validation** (run [#43175231085](https://github.com/mattari20/listing-v2/actions/runs/43175231085)); the `Validate project control documents` job and all steps completed successfully. PR #81 was squash-merged as `8ab22c7b2ca759db741660fbafd6a0c36edcce6d`.
+
+S08 and S09 are accepted and closed at 100% weighted task completion each. S10 is delivered at 95%; its final 5% owner-acceptance task remains pending. M1 is therefore **Ready for final owner acceptance, not yet formally closed**. No M2 work or implementation is authorized by this merge.
