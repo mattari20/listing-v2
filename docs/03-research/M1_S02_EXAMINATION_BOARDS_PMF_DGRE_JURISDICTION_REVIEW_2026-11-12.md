@@ -73,3 +73,28 @@ Sources:
 - **S02-C09:** remains owner-only; this supplement does not approve S02.
 
 All sources remain RESEARCH ONLY.
+
+
+## 6. HEC affiliated-college and study-centre policy — important 2024 clarification
+
+HEC's Institutional Affiliation Policy 2024 states that continuation of affiliation for public-sector university/DAI affiliated colleges is to be notified by the respective affiliating DAI after the HEC desk-review process. The policy also applies to approved study centres where regular classes are conducted and centres operated under MoUs with public/private institutions. HEC's Accreditation Section separately lists recognized affiliated colleges of public-sector HEIs, recognized campuses, NOCs, fake/illegal/unrecognized institutions and unaccredited institutions. These must be separate evidence/status categories.
+
+The HEC recognized-affiliate-college PDF is extensive (the surfaced document is 158 pages) and the retrieved rows contain apparent duplicates and spelling/punctuation variants. A listed affiliate-college relationship must therefore be tied to the affiliating university/DAI, the relevant programme, current continuation notification, campus/study-centre identity and effective period. A parent university's HEC recognition does not by itself prove that every affiliated college or study centre has current approval.
+
+Sources:
+- https://www.hec.gov.pk/english/services/universities/Documents/AFFILIATION%20CRITERIA.pdf
+- https://www.hec.gov.pk/english/universities/Pages/Accreditation.aspx
+- https://www.hec.gov.pk/english/universities/Documents/List%20of%20the%20Recognized%20Affiliate%20College%20of%20Public%20Sector-HEIs.pdf
+
+## 7. Current programme-status examples in health education
+
+PM&DC's current public/private medical-college lists include seat allocations and explicit court-order notes permitting admissions for specified 2026–27 sessions at particular institutions. PCP's Pharm-D list separately uses statuses such as Active and Stoppage of Admissions. These examples confirm that institution presence, programme approval, seat allocation, admission permission and admission stoppage are distinct facts. The applicable session and legal/authority basis must be retained; a generic active/inactive institution flag is inadequate.
+
+Sources:
+- https://pmdc.pk/Colleges/PublicMedicalColleges
+- https://www.pmdc.pk/Colleges/PrivateMedicalColleges
+- https://www.pcpisb.gov.pk/institutions?type=Recognized
+
+## 8. Nursing register freshness warning
+
+PNMC's recognized-institutes page exposes institution, province, city, sector and programme details, but the search-indexed record sequence reaches at least 608 entries while the page's search freshness metadata is old. Some programme cells contain closed/irregular entries. Treat it as a source-family lead only until the council confirms the current register version, active programme/intake scope and update date. Do not infer current approval solely from a row's presence.
