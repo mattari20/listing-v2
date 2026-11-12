@@ -46,9 +46,9 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 | M1-S02 | Institution taxonomy and coverage requirements | Independent level/type/sector/geography matrix, recognition/affiliation distinctions and inclusion rules; see `../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md` and `../03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md` |
 | M1-S03 | Official government/regulator provider research | New source register with access, rights, coverage and freshness evidence |
 | M1-S04 | Private provider and institution-source research | `../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md` — 21 source families, seven-jurisdiction coverage assessment and documented gaps |
-| M1-S05 | Programme/admissions information research | `../03-research/M1_S05_PROGRAMME_ADMISSIONS_SOURCE_RESEARCH_2026-11-12.md` — 22 source families, federated programme/admissions evidence model and documented gaps |
-| M1-S06 | Independent GitHub software and dataset discovery | Candidate inventory across crawler, data, search, geo, workflow and education-data categories |
-| M1-S07 | License, data-rights and security assessment | Per-candidate evidence and independent reuse decision |
+| M1-S05 | Programme/admissions information research | 22-source-family federated programme/admissions evidence model; formal owner acceptance record `../03-research/M1_S05_OWNER_ACCEPTANCE_RECORD_2026-11-12.md` | **Accepted and Closed — 2026-11-12** |
+| M1-S06 | Independent GitHub software and dataset discovery | `../03-research/M1_S06_GITHUB_SOFTWARE_DATASET_DISCOVERY_2026-11-12.md` — independent software/dataset candidate register, transferability and exclusions | **Research delivered — owner acceptance pending** |
+| M1-S07 | License, data-rights and security assessment | `../03-research/M1_S07_SOURCE_RIGHTS_SECURITY_ASSESSMENT_2026-11-12.md` — source/asset rights, privacy, security gates and candidate dispositions | **Research delivered — owner acceptance pending** |
 | M1-S08 | V2 AI data-agent workflow requirements | Source-specific collection, verification, scheduling and human-review requirements |
 | M1-S09 | Comparison, review and trust research | Rating rubric, moderation, privacy and abuse cases |
 | M1-S10 | M1 synthesis and acceptance | Research report, gap register and approved inputs to M2 |
@@ -101,13 +101,41 @@ Review `../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md` an
 | S05-T07 TVET, professional and specialist programme routes | 10% | NAVTTC/NVQF and relevant professional-regulator programme/admission distinctions | **Completed with limitations** — NAVTTC student/programme routes and S02/S03 regulator cross-references documented; batch/campus/session approval requires exact verification |
 | S05-T08 Freshness, provenance, privacy and conflict rules | 5% | Source hierarchy, notice revisions, deadline precision, privacy and stale-record handling | **Completed** — versioned evidence, status and conflict rules documented; no applicant data copied |
 | S05-T09 Consolidated source register, gaps and product implications | 5% | Research synthesis, 22 source families and actionable open-gap list | **Completed** — 22 source families, federated model, data/evidence requirements and 10 follow-up gaps documented |
-| S05-T10 Owner review and step acceptance | 5% | Owner-reviewed research register and explicit acceptance record | **Pending owner acceptance** |
+| S05-T10 Owner review and step acceptance | 5% | Owner-reviewed research register and explicit acceptance record | **Accepted — owner approval recorded 2026-11-12** |
 
-**M1-S05 weighted research/documentation completion:** 95% (T01–T09 complete at their stated research-baseline scope; T10 5% pending owner review). This is not a national programme catalogue, current admissions inventory, legal clearance or source-reuse approval. No applicant data was collected, no source was scraped/bulk-downloaded and no records were ingested.
+**M1-S05 weighted research/documentation completion:** 100% (T01–T09 complete and T10 accepted by owner on 2026-11-12). This is not a national programme catalogue, current admissions inventory, legal clearance or source-reuse approval. No applicant data was collected, no source was scraped/bulk-downloaded and no records were ingested.
 
-### M1-S05 owner acceptance gate
+### M1-S05 owner acceptance evidence
 
-Review `../03-research/M1_S05_PROGRAMME_ADMISSIONS_SOURCE_RESEARCH_2026-11-12.md`. PR [#75](https://github.com/mattari20/listing-v2/pull/75) merged as `cb3adbfef07c49d61f2532026e51a817f3e43afb`. Exact PR head `164744a948d33c3484cc1e611901e3902718fe7b` passed required Project documentation validation (run [#43170713563](https://github.com/actions/runs/43170713563)). Acceptance should confirm the 22-source-family research baseline, federated source model, programme/admission/eligibility/fee/scholarship distinctions, freshness and conflict controls, jurisdictional gaps and RESEARCH ONLY boundary. No source collection, reuse, ingestion or connector activation is implied.
+The owner explicitly accepted the 22-source-family programme/admissions research baseline, federated evidence model, documented gaps and RESEARCH ONLY boundary on 2026-11-12. See `../03-research/M1_S05_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. Acceptance closes S05 as a research baseline only; it does not authorize source collection, reuse, ingestion or connector activation.
+
+### M1-S06 task breakdown (weights total 100%)
+
+| Task | Weight | Acceptance evidence | Status |
+|---|---:|---|---|
+| S06-T01 Define discovery categories and screening criteria | 10% | Scope and relevance categories documented | Completed |
+| S06-T02 Discover institution-directory and search software | 20% | Independent public repository candidates screened | Completed — metadata/README level only |
+| S06-T03 Discover datasets and geography/statistics references | 20% | Independent dataset candidates screened | Completed — metadata/README level only |
+| S06-T04 Assess Pakistan relevance and transferability | 15% | Pakistan-specific and comparative-only uses distinguished | Completed |
+| S06-T05 Record provenance, quality and coverage caveats | 15% | Candidate source claims and limitations documented | Completed |
+| S06-T06 Rank candidates and document exclusions | 10% | Candidate dispositions and review conditions recorded | Completed |
+| S06-T07 Owner review and step acceptance | 10% | Owner acceptance of candidate inventory and limitations | Pending owner acceptance |
+
+**M1-S06 weighted research/documentation completion:** 90%; T01–T06 complete, T07 owner acceptance pending. No candidate code or data has been imported or executed.
+
+### M1-S07 task breakdown (weights total 100%)
+
+| Task | Weight | Acceptance evidence | Status |
+|---|---:|---|---|
+| S07-T01 Rights, access and asset taxonomy | 15% | Code/data/upstream/media/personal-data distinctions | Completed |
+| S07-T02 Pakistan legal and policy context | 15% | Copyright, PBS and ODP references with scope caveats | Completed — desk research only |
+| S07-T03 Candidate license and upstream rights review | 20% | Candidate-specific rights evidence and HOLD dispositions | Completed — no blanket permission inferred |
+| S07-T04 Source-by-source rights evidence record | 15% | Required metadata and approval fields specified | Completed |
+| S07-T05 Software supply-chain/security review framework | 15% | OpenSSF/Scorecard/GitHub controls documented | Completed — no code audit performed |
+| S07-T06 Privacy and sensitive-data controls | 10% | Data minimization, sensitive location and Deeni Madaris restrictions reaffirmed | Completed |
+| S07-T07 Owner review and step acceptance | 10% | Owner acceptance of rights/security framework and dispositions | Pending owner acceptance |
+
+**M1-S07 weighted research/documentation completion:** 90%; T01–T06 complete, T07 owner acceptance pending. No source is approved for collection, ingestion, redistribution or commercial reuse.
 
 
 
