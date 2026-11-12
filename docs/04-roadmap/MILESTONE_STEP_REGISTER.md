@@ -179,3 +179,7 @@ PR #42 merged the national data-rights and privacy review as `a6b35abcb091965f90
 ## M1-S02 school regulator status and terms note — 2026-11-12
 
 KPPSRA registration/renewal and BISE affiliation must be separate; Sindh DIRPIS 2026 safety notices are not a complete register; HEC Digital Library publisher licenses do not govern HEC institution directories; NAVTTC aggregate claims have distinct scopes. See `docs/03-research/M1_S02_SCHOOL_REGULATOR_STATUS_TERMS_REVIEW_2026-11-12.md`. S02-C04/C05/C07/C08 remain in progress; S02-C09 owner-only.
+
+## PR #43 delivery evidence — 2026-11-12
+
+PR #43 merged the AJK/GB/Sindh/Punjab school-source review as `a8dfd8018fa33588a4d35166c953b18f89e39c43`; final exact head `56923aca98123dce6b8a574e0cf9f9c244b036b4` passed required Project documentation validation (run #43155004215). S02-C04/C06 remain in progress; C07/C08 and owner C09 remain open.
