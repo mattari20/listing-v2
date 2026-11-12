@@ -43,3 +43,15 @@ Decisions are recorded with ID, date, status, context, decision, consequences an
 ## M1-S03 TVET and QAB source verification
 
 Official source routes for NAVTTC QABs, Punjab TEVTA/PSDA/TTB, Sindh STEVTA, KPTEVTA and B-TEVTA/BSIS are recorded in `../03-research/M1_S03_TVET_QAB_SOURCE_REVIEW_2026-11-12.md`. The review also notes TTB/TEVTA vocational training links involving some Deeni Madaris. This does not change the owner's default-hidden public listing requirement; visibility of separately registered vocational entities at a Madrasah location remains an M2 design question.
+
+
+## M2-PLAN-001 — Architecture documentation and decision-record method
+
+- **Date:** 2026-11-12
+- **Status:** Adopted for M2 documentation process only; not an application architecture or technology selection
+- **Context:** M2 needs a consistent, reviewable way to communicate system boundaries, containers, complex components, runtime flows, quality attributes, risks and consequential decisions without producing excessive documentation.
+- **Working method:** Use C4 views for context/container and selected component/runtime views; organize the narrative using an arc42-inspired structure tailored to the system; store diagrams as text in Git; record consequential choices as individual ADRs; maintain requirement-to-architecture-to-verification traceability.
+- **Rationale:** This combines stakeholder-oriented views, a structured documentation home and explicit decision history while keeping artifacts diffable and maintainable.
+- **Scope boundary:** This decision governs documentation only. It does not select a language, framework, database, hosting provider, search engine, map service, AI model, connector or deployment topology.
+- **References:** arc42 documentation and docs-as-code guidance (https://arc42.org/documentation/); C4 model (https://c4model.com/); ADR project/template (https://architecture-decision-record.github.io/en-001/); iSAQB architecture documentation curriculum (https://public.isaqb.org/curriculum-adoc/curriculum-adoc-en.pdf).
+- **Review trigger:** Revisit if the selected diagram/documentation format proves difficult to maintain or fails stakeholder review.
