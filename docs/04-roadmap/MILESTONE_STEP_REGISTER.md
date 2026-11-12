@@ -37,7 +37,7 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 - M0-S02 acceptance is limited to the documented metadata-only exclusion audit; it does not claim exhaustive inspection of the legacy repository.
 - Repository auto-merge setting is enabled, but automatic merge execution itself remains untested.
 - No application implementation, database schema/migrations, production access, deployment or URL cutover is authorized by M0 acceptance.
-- M0 closeout next step was M1-S01; current authorized work is M1-S02 official institution taxonomy and source-coverage research.
+- M0 closeout next step was M1-S01; current authorized work is M1-S03 official government and regulator provider research.
 
 ## M1 — Student requirements and independent research
 | Step | Scope | Target / acceptance evidence |
@@ -76,6 +76,24 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 | S02-C09 Owner review and step acceptance | 5% | Owner-reviewed taxonomy and coverage acceptance record; no ingestion implied | **Accepted — owner approval recorded 2026-11-12**; acceptance is limited to the documented research baseline and does not authorize ingestion or reuse |
 
 **Progress rule:** Completion is based on each task's stated research/documentation acceptance evidence, not PR count or document volume. C02–C08 are complete with limitations documented; C01 and C09 were owner-approved on 2026-11-12. M1-S02 is therefore **Accepted (100% weighted task completion)** as a research baseline only. Acceptance does not establish a complete national census, source reuse permission, or authorization to ingest data.
+
+
+
+### M1-S03 task breakdown (weights total 100%)
+
+| Task | Weight | Acceptance evidence | Status |
+|---|---:|---|---|
+| S03-C01 Federal education governance and national data authorities | 12% | Verified authority/mandate map for MoFEPT, PIE/NEMIS, federal education bodies and national source routes, with scope and limitations | In progress — initial MoFEPT and PIE/NEMIS official routes verified; national source coverage and freshness review continues |
+| S03-C02 Provincial and territorial school authorities/EMIS | 18% | Source-by-source official authority, public/private scope, route, visible fields, geography, update date and access constraints for all jurisdictions | In progress — first-pass Punjab, Sindh, KP, ICT and Balochistan routes recorded; AJK/GB and remaining register-level evidence require verification |
+| S03-C03 Higher education and professional regulators | 14% | Verified source register for HEC and relevant professional councils/accreditation bodies, including exact approval scope and status semantics | In progress — HEC routes rechecked; professional-council evidence requires source-specific freshness/authority reconciliation |
+| S03-C04 TVET, technical boards and qualification-awarding bodies | 12% | Verified NAVTTC registration, QAB, provincial board and accreditation routes with provider-versus-awarder distinctions | In progress — NAVTTC registration, affiliation/QAB and NAC-TVS accreditation routes recorded; provincial QAB follow-up continues |
+| S03-C05 Non-formal and special-education authorities | 8% | Official authority/source inventory, coverage level, operational-status and privacy limitations | Not started — S02 source leads retained as inputs; S03 authority-level verification outstanding |
+| S03-C06 Deeni Madaris registration and qualification pathways | 8% | Verified DGRE registration, IBCC QAB and HEC equivalence distinctions; provider and qualification statuses separated | In progress — DGRE, IBCC and HEC official routes verified; current public DGRE register completeness and source rights remain open |
+| S03-C07 Access, rights, freshness and privacy assessment | 13% | Per-source access class, source terms/license evidence, last checked/as-of date, privacy exclusions and reuse decision | In progress — no blanket rights inferred; source-specific checks and access classification continue |
+| S03-C08 Consolidated official provider-source register and gap analysis | 10% | Deduplicated source register with evidence, jurisdiction/sector coverage, limitations and unresolved gaps | In progress — initial register delivered as research draft; not yet complete or accepted |
+| S03-C09 Owner review and step acceptance | 5% | Owner-reviewed official source register, gaps and limitations; explicit acceptance record | Not started — owner-only acceptance gate |
+
+**Progress rule:** M1-S03 progress is evidence-based. The initial source register is a draft delivery and does not complete any task by itself. Do not count source pages or PRs as progress units. All sources remain RESEARCH ONLY unless a specific reuse permission is recorded. No source collection, ingestion or implementation is implied.
 
 ## Owner-approved research timing
 No student survey, interviews, recruitment or outreach will occur during platform construction. The existing adult interview/survey kit is an unapproved draft retained for record only. Ratings and reviews are a post-launch authenticated product feature.
@@ -209,3 +227,10 @@ The owner explicitly approved the proposed institution taxonomy and accepted the
 **Authorization boundary:** This owner acceptance closes M1-S02 documentation/research only. It does not authorize source ingestion, scraping, bulk download, source-owner contact, permission requests, application implementation, database/schema changes, production access, deployment, legacy-repository interaction, M1-S03 or M2. Any next step requires separate owner authorization.
 
 **Decision record:** `docs/03-research/M1_S02_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`.
+
+
+## M1-S03 authorization and Deeni Madaris visibility requirement — 2026-11-12
+
+The owner authorized moving forward after M1-S02 acceptance. M1-S03 is now active, limited to official government/regulator provider-source research and documentation. Its weighted task breakdown is recorded above. No ingestion, scraping, source-owner contact, permission request, implementation, database/schema change, production access, deployment, legacy-repository interaction, M1-S04 or M2 work is authorized.
+
+The owner also directed that Deeni Madaris remain in V2's underlying provider scope but be hidden from the public listing by default at initial launch. A configurable `Show Deeni Madaris` setting is required, default OFF, with changes through an authorized administration/configuration path. The setting's UI and roles remain for M2 design. See V2-DEC-006 and the institution/programme requirements. This is not implementation authorization.
