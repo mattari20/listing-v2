@@ -187,3 +187,8 @@ Sindh DIRPIS/SPEI-EMIS and KPPSRA district registers strengthen S02-C04 private-
 ## PR #42 data-rights/privacy delivery evidence
 
 PR #42 merged as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a42418ee0176f3fad6ad63e0220f1978c8b` passed required Project documentation validation (run #43154673045). It improves S02-C07 evidence but does not establish source-specific legal clearance.
+
+
+## M1-S02 regulator/status and source-terms evidence — 2026-11-12
+
+The latest review strengthens private-school registration and board-affiliation semantics for KP/Sindh and clarifies HEC/NAVTTC source scope. It does not establish source-specific reuse rights or full coverage.
