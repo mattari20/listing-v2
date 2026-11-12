@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-12 — M1-S01 through M1-S07 accepted; M1-S08/S09 research packages merged, owner acceptance pending
+**Last reconciled:** 2026-11-12 — M0/M1 closed; M2-S00 through S03 accepted/closed; S04-S06 delivered, owner review pending
 
 ## Purpose and maintenance rule
 
@@ -529,3 +529,10 @@ S01 is Accepted and Closed at 100%. S02 is delivered at 80% draft task completio
 - [M2-S04/S05/S06 Joint Validation and Owner Review](../05-architecture/M2-S04-S06_JOINT_VALIDATION_AND_OWNER_REVIEW.md) — separate task evidence, cross-step consistency and owner review checklist.
 
 S04 is 80%, S05 85%, S06 85% drafted. Owner review and S04 consequential choice decisions remain pending. No stack, vendor, source access, procurement, implementation or deployment is approved.
+
+
+## PR #93 exact-head validation and merge evidence — 2026-11-12
+
+PR [#93](https://github.com/mattari20/listing-v2/pull/93) recorded the owner's acceptance and closure of S02/S03 and delivered the coordinated S04/S05/S06 architecture documentation. Exact PR head `17a77885eca53fd1a8c8d3d516f26741d10fc39a` passed required **Project documentation validation** (workflow run [#43189688854](https://github.com/mattari20/listing-v2/actions/runs/43189688854)); job `Validate project control documents` and all steps completed successfully. PR #93 was squash-merged as `4a100030a2ea491b0061ac80a543f723b03fdea4`.
+
+S02 and S03 are Accepted and Closed at 100%. S04 remains 80%, S05 85% and S06 85% pending their separate owner-review/decision gates. Weighted M2 progress is 62.0%. CI and merge establish delivery and documentation validation, not owner acceptance of S04-S06.
