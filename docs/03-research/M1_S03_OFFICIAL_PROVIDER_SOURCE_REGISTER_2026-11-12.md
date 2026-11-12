@@ -152,3 +152,10 @@ The full public/private authority matrix for Punjab, Sindh, KP, Balochistan, ICT
 ## M1-S03 additional accreditation-council review — 2026-11-12
 
 GOV-43 to GOV-48 add HEC's council map, NBEAC, NCH, PCATP, AHPC and NAEAC. Detailed scope, status semantics, freshness and privacy findings are in `M1_S03_ADDITIONAL_ACCREDITATION_COUNCIL_REVIEW_2026-11-12.md`. AHPC's published list is applications only, NCH's page exposes personal contacts, and PCATP/NAEAC current complete programme registers remain gaps. All sources remain RESEARCH ONLY.
+
+
+## M1-S03 task acceptance audit — 2026-11-12
+
+The official source research has been audited task by task. S03-C01 to S03-C08 are marked **Completed — limitations documented**, totaling 95% weighted completion. S03-C09 remains owner-only; M1-S03 remains in progress pending explicit owner acceptance. The 48-source register and jurisdictional matrix are research baselines, not a complete national census or production data specification. Full audit: `docs/03-research/M1_S03_TASK_ACCEPTANCE_EVIDENCE_AUDIT_2026-11-12.md`.
+
+The owner-approved Deeni Madaris rule remains unchanged: underlying provider scope included, public listing hidden by default, configurable `Show Deeni Madaris` setting default OFF. Cross-category visibility for separately registered vocational providers at a Madrasah location remains an M2 design question.

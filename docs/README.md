@@ -40,6 +40,7 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [M1-S03 FDE/FGEI Source Review](03-research/M1_S03_FDE_FGEI_SOURCE_REVIEW_2026-11-12.md) — FDE ICT network and FGEI cantonment/garrison schools/colleges as separate federal source families
 - [M1-S03 Jurisdictional School Authority Source Matrix](03-research/M1_S03_JURISDICTIONAL_SCHOOL_SOURCE_MATRIX_2026-11-12.md) — public/private school authority and EMIS/register routes across Punjab, Sindh, KP, Balochistan, ICT, AJK and GB
 - [M1-S03 Additional Accreditation Council Review](03-research/M1_S03_ADDITIONAL_ACCREDITATION_COUNCIL_REVIEW_2026-11-12.md) — HEC council map, NBEAC, NCH, PCATP, AHPC and NAEAC status/freshness limitations
+- [M1-S03 Task Acceptance Evidence Audit](03-research/M1_S03_TASK_ACCEPTANCE_EVIDENCE_AUDIT_2026-11-12.md) — task-by-task completion evidence, remaining limitations and owner-only acceptance gate
 - [M1 Institution Taxonomy Research](03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md)
 - [M1 Official Institution Source Coverage Matrix](03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md)
 - [M1 National Institution Coverage Synthesis](03-research/M1_NATIONAL_INSTITUTION_COVERAGE_SYNTHESIS.md) — draft national sector/jurisdiction coverage, quality assessment and unresolved gaps
