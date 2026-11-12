@@ -40,3 +40,10 @@ PR [#83](https://github.com/mattari20/listing-v2/pull/83) recorded owner accepta
 The owner authorized M2 architecture/design. The milestone is active and governed by `../05-architecture/M2_ARCHITECTURE_DESIGN_CHARTER.md` and `../05-architecture/M2_STEP_PLAN.md`. M2-S00 is first; M2-S01 through S10 follow the documented dependencies and weights.
 
 This authorization covers architecture research and documentation only. M3 implementation remains gated until M2 is complete and separately accepted. Production access, schema changes, source ingestion, connector activation, new spend and deployment require separate approval.
+
+
+## M2 authorization and active delivery — 2026-11-12
+
+The owner authorized M2 architecture/design. The milestone is active and governed by `../05-architecture/M2_ARCHITECTURE_DESIGN_CHARTER.md` and `../05-architecture/M2_STEP_PLAN.md`. M2-S00 is first; M2-S01 through S10 follow the documented dependencies and weights.
+
+This authorization covers architecture research and documentation only. M3 implementation remains gated until M2 is complete and separately accepted. Production access, schema changes, source ingestion, connector activation, new spend and deployment require separate approval.
