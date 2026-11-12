@@ -351,3 +351,12 @@ M2 authorizes research, analysis and documentation only. Application implementat
 All M1 G01-G20 limitations and owner decisions remain in force. In particular, V2-DEC-006 requires Deeni Madaris to remain in underlying provider scope with public visibility default OFF; while OFF, exclude the category from public search, browse, maps, recommendations, counts, sitemaps, exports and public APIs, without deleting records or exposing sect/maslak attributes. All unapproved source families and third-party software/data remain RESEARCH ONLY. Primary participant research remains deferred during construction; reviews remain post-launch.
 
 The next eligible step after M2-S00 is M2-S01 — System Requirements and Architecture Boundaries. M3 implementation remains gated until the complete M2 architecture package is separately accepted by the owner.
+
+
+## M2-S00 completion and PR #85 merge evidence — 2026-11-12
+
+M2-S00 is complete (100% task completion) as a documentation/control step. PR [#85](https://github.com/mattari20/listing-v2/pull/85) merged to `main` as `17a2e3ad43ba1fd5ca3cb7a163670a2f19dd3783`. Exact PR head `650f5dfe11b9f1f76c2c005c3914186a8c41e23b` passed required Project documentation validation, workflow run [#43180488082](https://github.com/mattari20/listing-v2/actions/runs/43180488082), job “Validate project control documents” — success.
+
+The M2 charter, 11-step weighted plan, architecture documentation structure, ADR template/register, diagram conventions and initial traceability scaffold are on main. README, controller, roadmap, step register, progress report, catalogue, documentation index, decision register and M1 synthesis were reconciled. M1 remains Accepted and Closed; M2 is active; no application stack or production architecture has been selected.
+
+**Next eligible step: M2-S01 — System Requirements and Architecture Boundaries.** M2 remains documentation/design only. M3 implementation remains gated until final M2 owner acceptance.
