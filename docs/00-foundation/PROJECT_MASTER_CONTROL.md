@@ -543,3 +543,7 @@ T06 is In progress: official region research and operating-model criteria are do
 ## M3 current-status audit — 2026-11-12 (after PR #110)
 
 GitHub verification confirms PRs #102–#110 are all closed and merged, with required Project documentation validation passing on each exact PR head. PR #110 reconciled the PR #109 hosting framework evidence and merged as `a328a8272b086cac6270dc625d53ea6c3bbc1fa7`. Current M3-00 status is T01 Complete; T02-T06 In progress; T07-T08 Open. T04-T06 frameworks have been delivered, but budget, technology and hosting decisions/evidence remain unresolved. M3-00 remains 10% weighted completion and M3 overall 0.5%. No partial task percentages are claimed. No application implementation, production/source access, schema/migrations, procurement, new spend, deployment or launch is authorized.
+
+
+## M3-00 T07 current position — 2026-11-12
+The T07 deny-by-default legal, privacy, source-rights and security gate register has been delivered at `../04-roadmap/M3-00_T07_LEGAL_PRIVACY_SOURCE_RIGHTS_SECURITY_GATES.md`. It is a documentation framework only. Qualified reviewer roles remain unassigned; legal/privacy/security/safeguarding assessments are not complete; all external sources, models, connectors, vendors and services remain unapproved. T07 remains Open. No source access, collection, ingestion, procurement, service activation, application implementation or deployment is authorized.

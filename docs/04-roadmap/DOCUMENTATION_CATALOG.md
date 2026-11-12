@@ -627,3 +627,12 @@ PR #107 exact head `04c781fb5997d9e56b616e3add2c30f8fd4982da` passed Project doc
 #### PR #109 merge evidence — 2026-11-12
 
 PR #109 exact head `746cc0f89df2716fd5a2170bf17d95697f471ff2` passed Project documentation validation (run #43199827073; all job steps successful) and squash-merged as `5e55f1fe69dce25d0ab2357fef050b9120002579`. T06 remains in progress; no provider or region is selected.
+
+
+## M3-00 T07 delivery — 2026-11-12
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-00 T07 Legal, Privacy, Source-Rights and Security Gate Register](M3-00_T07_LEGAL_PRIVACY_SOURCE_RIGHTS_SECURITY_GATES.md) | Twelve deny-by-default gates covering applicable law, source rights, privacy, minors, security, AI, supply chain, vendors, publication and operations; defines reviewer roles, no-go conditions and completion evidence | Delivered — review pending; no qualified reviewer assigned and no source/vendor/service approved |
+
+This delivery is a control framework only. It is not legal advice, a privacy impact assessment, security certification, source permission or authorization to access/collect data, activate services, procure, implement or deploy.
