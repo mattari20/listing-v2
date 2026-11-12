@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-12 — M1-S01 closeout package prepared; owner acceptance pending
+**Last reconciled:** 2026-11-12 — M1-S01 closeout PR #71 merged; owner acceptance pending
 
 ## Purpose and maintenance rule
 
@@ -49,7 +49,7 @@ For every merge:
 
 | Document | Purpose | Status |
 |---|---|---|
-| [Product Vision and Student Journey](../01-product/PRODUCT_VISION_AND_STUDENT_JOURNEY.md) | Product purpose and provisional student journey | Updated — M1-S01 closeout; owner acceptance pending |
+| [Product Vision and Student Journey](../01-product/PRODUCT_VISION_AND_STUDENT_JOURNEY.md) | Product purpose and provisional student journey | Delivered — M1-S01 closeout PR #71 merged; owner acceptance pending |
 | [Student Discovery Requirements](../01-product/STUDENT_DISCOVERY_REQUIREMENTS.md) | SR-01–SR-14 student discovery requirements and acceptance scenarios | Updated — M1-S01 closeout; owner acceptance pending |
 | [Institution and Programme Requirements](../01-product/INSTITUTION_AND_PROGRAMME_REQUIREMENTS.md) | Institution, campus and programme information requirements | Delivered — review pending |
 | [Comparison, Reviews and Trust](../01-product/COMPARISON_REVIEWS_AND_TRUST.md) | Comparison and post-launch account-based ratings/reviews requirements | Updated — owner direction recorded; detailed design pending |
@@ -68,9 +68,9 @@ For every merge:
 | Document | Purpose | Status |
 |---|---|---|
 | [Open-Source Reuse Audit](../03-research/OPEN_SOURCE_REUSE_AUDIT.md) | Independent evaluation framework for external software and datasets | Delivered — candidate research pending |
-| [M1 Student Journey Research](../03-research/M1_STUDENT_JOURNEY_RESEARCH.md) | Desk-research synthesis, eight evidence items, provisional segments/journey and deferred-validation backlog | Updated — M1-S01 closeout package; owner acceptance pending |
+| [M1 Student Journey Research](../03-research/M1_STUDENT_JOURNEY_RESEARCH.md) | Desk-research synthesis, eight evidence items, provisional segments/journey and deferred-validation backlog | Delivered — M1-S01 closeout PR #71 merged; owner acceptance pending |
 | [M1 Student Research Instruments](../03-research/M1_STUDENT_RESEARCH_INSTRUMENTS.md) | Draft adult interview guide, consent script and survey instrument | Archived preparation only — owner deferred all pre-launch participant research; do not distribute |
-| [M1-S01 Closeout Review](../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md) | Owner review checklist, weighted completion evidence and explicit limitations for S01 | Prepared — owner acceptance pending |
+| [M1-S01 Closeout Review](../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md) | Owner review checklist, weighted completion evidence and explicit limitations for S01 | Delivered — owner acceptance pending |
 | [M1 Institution Taxonomy Research](../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md) | Independent desk research on provider types, coverage and recognition relationships | Delivered — initial baseline; owner review and source expansion pending |
 | [M1 Official Institution Source Coverage Matrix](../03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md) | Official source discovery and jurisdiction/sector coverage gaps for institution data | Delivered — independent source-discovery baseline; rights, freshness and coverage verification pending |
 | [M1 National Institution Coverage Synthesis](../03-research/M1_NATIONAL_INSTITUTION_COVERAGE_SYNTHESIS.md) | National synthesis of sector/jurisdiction source families, source quality and unresolved gaps | Delivered — draft synthesis; owner review and S02 acceptance pending |
@@ -365,4 +365,9 @@ PR [#69](https://github.com/mattari20/listing-v2/pull/69) merged as `4c6d076fef9
 
 ## M1-S01 closeout package — owner review pending
 
-The S01 package updates the student journey research, Product Vision, Student Discovery Requirements, traceability matrix, step register, progress report, master roadmap and controller. The weighted documentation tasks are complete at 100%; primary participant research remains owner-deferred and is not represented as completed. See [M1-S01 Closeout Review](../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md). Do not mark S01 Accepted until the owner explicitly accepts the package.
+The S01 package was merged in PR [#71](https://github.com/mattari20/listing-v2/pull/71) as `64bd568d522e41452b8b46db8652ec8df48a2d8b`. Exact PR head `2982bdf421e09e82c03b76c223adb1b6ecc0b180` passed required Project documentation validation (run [#43166985628](https://github.com/mattari20/listing-v2/actions/runs/43166985628)). The weighted documentation tasks are complete at 100%; primary participant research remains owner-deferred and is not represented as completed. See [M1-S01 Closeout Review](../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md). Do not mark S01 Accepted until the owner explicitly accepts the package.
+
+
+## PR #71 — M1-S01 closeout delivery and validation
+
+PR [#71](https://github.com/mattari20/listing-v2/pull/71) merged as `64bd568d522e41452b8b46db8652ec8df48a2d8b`. Exact PR head `2982bdf421e09e82c03b76c223adb1b6ecc0b180` passed required Project documentation validation (run [#43166985628](https://github.com/mattari20/listing-v2/actions/runs/43166985628)). The step's documentation deliverables are on `main`; owner acceptance is still pending.
