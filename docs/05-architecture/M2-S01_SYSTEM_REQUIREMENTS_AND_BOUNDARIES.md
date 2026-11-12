@@ -148,3 +148,25 @@ S01 can be marked complete when:
 - M1 final acceptance and G01-G20: `../../03-research/M1_S10_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`, `../../03-research/M1_S10_FINAL_SYNTHESIS_CLOSEOUT_REVIEW_2026-11-12.md`.
 
 ISO/IEC and W3C references are design guidance, not a claim of certification or legal compliance.
+
+
+## 11. Explicit SR-to-AR mapping
+
+| Accepted M1 requirement | M2 architecture requirement(s) | Design follow-through |
+|---|---|---|
+| SR-01 Pathway-led or direct discovery | AR-001, AR-002 | S03/S06 |
+| SR-02 Search across entities/localities | AR-003 | S02/S03/S06 |
+| SR-03 Nearby discovery with consent | AR-004, AR-024 | S06/S08 |
+| SR-04 Evidence-backed filters | AR-005, AR-019 | S05/S06 |
+| SR-05 Like-for-like comparison | AR-008, AR-020 | S06 |
+| SR-06 Explain programme/admission facts | AR-006, AR-007 | S02/S05/S07 |
+| SR-07 Distinguish evidence and trust states | AR-005, AR-007, AR-019 | S05/S07 |
+| SR-08 Clear official next action | AR-009 | S03/S06 |
+| SR-09 Shortlist, sharing and optional updates | AR-010 | S03/S06/S08 |
+| SR-10 Corrections and post-launch feedback | AR-011, AR-023 | S05/S08 |
+| SR-11 Constrained digital access | AR-021, AR-024 | S03/S09 |
+| SR-12 Language and accessibility evaluation | AR-022 | S01/S08/S09/M11 |
+| SR-13 Minimize personal data | AR-012 | S08 |
+| SR-14 Discovery without precise location | AR-004, AR-024 | S06/S08 |
+
+This mapping preserves SR-01–SR-14 as the accepted product requirement identifiers. AR identifiers add architecture-level detail; they do not replace or weaken the M1 baseline.
