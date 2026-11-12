@@ -55,3 +55,15 @@ Official source routes for NAVTTC QABs, Punjab TEVTA/PSDA/TTB, Sindh STEVTA, KPT
 - **Scope boundary:** This decision governs documentation only. It does not select a language, framework, database, hosting provider, search engine, map service, AI model, connector or deployment topology.
 - **References:** arc42 documentation and docs-as-code guidance (https://arc42.org/documentation/); C4 model (https://c4model.com/); ADR project/template (https://architecture-decision-record.github.io/en-001/); iSAQB architecture documentation curriculum (https://public.isaqb.org/curriculum-adoc/curriculum-adoc-en.pdf).
 - **Review trigger:** Revisit if the selected diagram/documentation format proves difficult to maintain or fails stakeholder review.
+
+
+## M2-PLAN-001 — Architecture documentation and decision-record method
+
+- **Date:** 2026-11-12
+- **Status:** Adopted for M2 documentation process only; not an application architecture or technology selection
+- **Context:** M2 needs a consistent, reviewable way to communicate system boundaries, containers, complex components, runtime flows, quality attributes and risks without excessive documentation.
+- **Working method:** Use C4 views for context/container and selected component/runtime views; organize narrative using an arc42-inspired structure; store diagrams as text in Git; record consequential choices as individual ADRs; maintain requirement-to-architecture-to-verification traceability.
+- **Rationale:** Stakeholder-oriented views, structured documentation and explicit decision history remain diffable and maintainable.
+- **Scope boundary:** This is a documentation method only. It does not select a language, framework, database, hosting provider, search engine, map service, AI model, connector or deployment topology.
+- **References:** arc42 (https://arc42.org/documentation/); C4 (https://c4model.com/); ADR project (https://architecture-decision-record.github.io/en-001/); iSAQB architecture documentation curriculum (https://public.isaqb.org/curriculum-adoc/curriculum-adoc-en.pdf).
+- **Review trigger:** Revisit if the documentation method proves difficult to maintain or fails stakeholder review.
