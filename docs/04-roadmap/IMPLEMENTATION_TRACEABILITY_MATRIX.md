@@ -70,6 +70,12 @@ PR #24 merged as `1c2004186a834f5fc06af82d75bf883e26900762`; exact head `1995f3c
 ## PR #25 national coverage synthesis evidence
 PR #25 merged as `b06b669627d299ccd5d84416b787274a8e1dac76`; exact head `703fc553aca6d06e354849a7a0d6a69bc71e53e7`; required `Project documentation validation` passed (run #43145378929). It added the draft national institution coverage synthesis, linked/catalogued it and marked S02-C08 in progress. The synthesis is not a final coverage inventory or source-reuse approval.
 
+## PR #26 evidence reconciliation
+PR #26 merged as `246c75f66e41dca83202ad555fe7739d7e5cf5a1`; exact head `3af965f161a3d823eb00c9dd2056236056715025`; required `Project documentation validation` passed (run #43145461579). It reconciled PR #25 evidence across project control documents.
+
+## M1-S02 expanded source-verification evidence
+The coverage matrix, taxonomy, national synthesis and rights register were expanded with professional programme authorities (HEC council map, PM&DC, PNMC, PCP, PEC, NCEAC, NACTE, NBEAC, NTC, NCH), school-source distinctions (Punjab public OpenPunjab vs private PEPRIS, KPPSRA district status, Sindh ASC 2024–25, Balochistan EMIS), TVET production-source semantics and non-formal/special-education gaps. Data-quality, freshness and privacy warnings are recorded. All sources remain research-only; no permission request or ingestion approval exists. S02-C09 remains an explicit owner-approval gate.
+
 ## Documentation catalogue maintenance
 
 `DOCUMENTATION_CATALOG.md` is the owner-facing inventory for documentation delivery and acceptance. Reconcile it on every documentation PR update and merge. Keep delivery status separate from content acceptance; update PR/head/check/merge evidence and links.

@@ -66,19 +66,21 @@ For every source and any future dataset, record:
 
 Do not populate production data or activate a connector as a result of this research document.
 
-## 5. Priority research gaps and next tasks
+## 5. Relationship to the authoritative S02 task register
 
-| Task | Required output | Acceptance evidence | Status |
-|---|---|---|---|
-| S02-C01 | Verify HEC university, campus and affiliated-college source scope | Dated source notes, relationship model and source limitations | In progress |
-| S02-C02 | Verify PMDC, PNMC and PCP programme-level status semantics | Dated source notes; distinguish institution, programme, campus, session and status | In progress |
-| S02-C03 | Complete school-source discovery for Sindh, ICT, AJK and GB | Official source URLs or documented unsuccessful verification attempts and escalation paths | Not started |
-| S02-C04 | Expand provincial school-source coverage beyond Punjab, KP and Balochistan | Public/private scope and district-level coverage matrix | In progress |
-| S02-C05 | Expand TVET provider and awarding-body source register | NAVTTC, provincial TEVTAs, boards and QAB relationship map | In progress |
-| S02-C06 | Research non-formal, adult-learning and special-education source families | Official register/source inventory and inclusion gaps | Not started |
-| S02-C07 | Research remaining professional councils by discipline | Council register, approval granularity and status semantics | Not started |
-| S02-C08 | Verify rights, terms, update cadence and access for each shortlisted source | Completed source-evidence records; no ingestion without a rights decision | Not started |
-| S02-C09 | Synthesize national coverage and unresolved gaps | Reviewed coverage matrix and M1-S02 acceptance recommendation | Not started |
+The weighted task breakdown and acceptance criteria are governed only by `docs/04-roadmap/MILESTONE_STEP_REGISTER.md`. This matrix records supporting evidence; it is not a second or conflicting task register.
+
+| Register task | Evidence in this matrix | Remaining acceptance gate |
+|---|---|---|
+| S02-C01 Taxonomy and entity distinctions | Provisional provider taxonomy, inclusion/exclusion boundaries and distinct recognition/affiliation/assessment/awarding relationships | Owner review and approval |
+| S02-C02 Higher education and campuses | HEC recognized institution, campus, affiliated-college and adverse/unaccredited source routes; campus page count recorded with caveat | Record-level status, freshness, campus/study-centre distinctions and source rights |
+| S02-C03 Professional council sources | HEC council map; PM&DC, PNMC, PCP, PEC, NCEAC, NACTE, NBEAC, NTC and NCH programme/status evidence | Remaining relevant councils and current per-programme/campus/intake status and rights verification |
+| S02-C04 School-source jurisdiction coverage | Punjab public/private, KP private, Sindh ASC, Balochistan EMIS, ICT, AJK and GB source leads | Full district coverage, public/private scope, canonical current datasets and source rights across all jurisdictions |
+| S02-C05 TVET and awarding relationships | NAVTTC production routes, QAB map, provincial TEVTA leads and registration/affiliation/accreditation distinctions | Complete provincial provider coverage, current QAB/trade scope, freshness and rights |
+| S02-C06 Non-formal and special education | BECS/NFEMIS, Balochistan NFE and Punjab/Sindh special-education source leads | Other jurisdictions, current centre/programme status, coverage and privacy/rights review |
+| S02-C07 Source rights and access | Expanded source-by-source public-access, status, privacy and freshness observations; no reuse permission established | Applicable terms/licenses, unresolved owner clarifications, permission where needed and owner/legal review |
+| S02-C08 National coverage synthesis | Draft synthesis updated with expanded sector and jurisdiction evidence | Final gap reconciliation after C02–C07 and owner review |
+| S02-C09 Owner review and step acceptance | Decision-ready taxonomy and gap summary prepared | Explicit owner approval; AI cannot self-approve this gate |
 
 ## 6. Sources consulted
 
@@ -110,10 +112,17 @@ Do not populate production data or activate a connector as a result of this rese
 - NAVTTC, Institute Affiliation: https://navttc.gov.pk/affiliation/
 - Skilling Pakistan, Institutes: https://skillingpakistan.gov.pk/institutes
 
+- Punjab PMIU/OpenPunjab public-school search and census: https://openpunjab.pesrp.edu.pk/schools/
+- PEPRIS private-school valid e-license register and support: https://pepris.pesrp.edu.pk/parent_corner and https://pepris.pesrp.edu.pk/support
+- Sindh Annual School Census profiles: https://rsusindh.gov.pk/asc.php
+- NBEAC accredited business schools: https://nbeac.org.pk/index.php/accredited-business-schools
+- National Technology Council accreditation process: https://www.ntc-hec.org.pk/accreditation.php
+- HEC Accreditation Councils: https://www.hec.gov.pk/english/services/universities/qaa/pages/accreditation-councils.aspx
+
 **Research date:** 2026-11-12. Follow-up research identified additional AJK, non-formal, special-education and professional-programme source families. These are discovery leads, not complete inventories or permission to reuse data. Source interfaces and registers can change; verify each record at the point of any future use.
 
 
-## 5. TVET provider and awarding-body research (2026-11-12)
+## 7. TVET provider and awarding-body research (2026-11-12)
 
 ### 5.1 Provider and regulator discovery
 
@@ -139,7 +148,7 @@ NAVTTC's official affiliation page identifies approved Qualification Awarding Bo
 - B-TEVTA public directory: https://registration.btevta.gob.pk/portal/directory
 - Balochistan skills provider discovery: https://bsis.btevta.gob.pk/institute-list
 
-## 6. Selected source-term and freshness clarifications (2026-11-12)
+## 8. Selected source-term and freshness clarifications (2026-11-12)
 
 - **KP-PSRA:** The KP E&SE Department describes PSRA's statutory/administrative role in registration, regulation and supervision of private schools; the current public portal is a source-discovery route. No directory-specific reuse terms or bulk-access permission were located in the dated review. Public accessibility is not permission.
 - **ICT-PEIRA:** The official site states that the active/valid private-institution list is updated every weekend pending auto-update, and distinguishes institutions whose renewal applications are under process. This cadence is not a per-record timestamp or a guarantee of record freshness. Preserve the distinct status if any later authorized use occurs.
@@ -147,3 +156,61 @@ NAVTTC's official affiliation page identifies approved Qualification Awarding Bo
 - **PBS policy boundary:** PBS's data dissemination policy is relevant only to PBS-produced statistical products within the policy's scope and tier. It is not a blanket license for provincial EMIS or regulator directories.
 
 All source families remain research-only pending source-specific rights, privacy, freshness and owner review.
+
+
+## 9. Expanded official-source verification — 2026-11-12
+
+The following observations are based on official regulator/government pages surfaced in the current independent desk review. They improve source-family coverage but do not certify every listed institution or programme. Directory records must be rechecked at the point of any future authorized use.
+
+### 7.1 Higher education and professional programme authorities
+
+- **HEC institutional recognition and campus scope:** HEC maintains separate recognised university/DAI, recognised campus, affiliated-college, unaccredited and fake/illegal/unrecognised institution routes. Its current campus page reports a combined 151 listed public/private campuses (96 public and 55 private); this is the page's displayed count, not an independently reconciled national campus census. HEC's affiliation policy page says the 2024 policy applies to public-sector universities/DAIs only; do not generalize it to private affiliations. Sources: https://www.hec.gov.pk/english/universities/Pages/DAIs/HEC-recognized-Campuses.aspx and https://www.hec.gov.pk/english/universities/Pages/Accreditation.aspx.
+- **HEC-recognized accreditation/professional bodies:** HEC's Accreditation Councils page names PBC, PCATP, PMDC, PEC, PNMC (shown in some older HEC material as PNC), PCP, PVMC, NCH, NCT and Allied Health Professionals Council, and HEC-established NACTE, NAEAC, NCEAC, NBEAC and NTC. This is a discovery map, not a statement that all councils regulate identical provider types or publish a complete public directory. Source: https://www.hec.gov.pk/english/services/universities/qaa/pages/accreditation-councils.aspx.
+- **PM&DC:** Its official undergraduate college portal publishes separate public/private medical and dental college tables with province, city and seat allocation. These are institution/programme-specific facts; verify session, campus, allowed intake and current recognition separately. Source: https://hospitals-inspections.pmdc.pk/Colleges/PublicDentalColleges.
+- **PNMC:** The recognized-institutes page contains institution, province, city, public/private ownership and programme columns, plus programme abbreviations and a correction contact. The search result is timestamped as an older page (about four years); visible records include legacy/closed programme labels and irregular formatting. Treat it as a candidate register requiring record-level freshness confirmation, not a live current approval assertion. Exclude individual nurse registration data and do not republish personal direct-contact details. Source: https://pnmc.gov.pk/recognized-institutes/.
+- **Pharmacy Council of Pakistan:** The official Pharm-D recognized-institutions route shows institution, province, city, morning/evening seats, programme and status, including Active and Stoppage of Admissions. The broader All Institutions route also includes technician qualifications. Search output showed apparent geography/record anomalies (for example, an institution name/address context that did not align cleanly with the displayed province); resolve source records with the council before treating them as verified. Source: https://www.pcpisb.gov.pk/institutions?type=Recognized and https://pcpisb.gov.pk/institutions.
+- **PEC:** The accreditation section exposes Level-I and Level-II programme lists, allowed intake information, engineering curricula and policy material. PEC's FAQ explains that programme accreditation is a peer-review assessment and distinguishes First Schedule Level-I/II and Second Schedule foreign qualifications. Preserve programme, campus, intake and accreditation level; do not infer whole-university accreditation. Sources: https://www.pec.org.pk/accreditation-new/ and https://www.pec.org.pk/faqs/.
+- **NCEAC:** The council explicitly states computing accreditation is for specific degree programmes, not institutions, and distinguishes accreditation from certification. It describes zero visits for new programmes and accreditation visits for graduating batches; intake change can require a change-of-scope visit. This is a strong reason to model programme/batch/intake scope separately. Source: https://nceac.org.pk/accreditation/NCEAC_Accreditation.
+- **NACTE:** Its public accredited-programmes table exposes institute, programme, shift, level, province, programme code and valid-until date, and currently describes 113 accredited programmes. Treat each programme/shift/validity record as separate evidence; recheck dates and status. Source: https://www.nacte.org.pk/Accreditation/AccreditedPrograms.
+- **NBEAC:** Its accredited-business-schools table exposes institute, department, programmes, session, sector, chartered region and status. The visible categories include accredited, reaccreditation, under process and expired. Do not flatten these into a binary institutional recognition field; retain the exact programme/session and accreditation category. Source: https://nbeac.org.pk/index.php/accredited-business-schools.
+- **NTC:** The National Technology Council describes programme-level accreditation criteria for technology-related degree programmes and a process with an application lead time of at least six months before a new programme or re-accreditation. The current public page is process-focused; a complete current institution/programme directory and source reuse terms remain to be verified. Source: https://www.ntc-hec.org.pk/accreditation.php.
+- **NCH:** The public recognized homoeopathic-colleges page includes college names and addresses, direct principal names/telephone numbers, irregular numbering and explicit closed-college entries; it separately lists degree-awarding institutions. This is not a clean current structured register. Verify active status and legal authority with NCH; exclude personal principal contact data from V2 discovery. Source: https://www.nchpakistan.gov.pk/Colleges.html.
+
+### 7.2 School education — stronger jurisdiction evidence
+
+- **Punjab public schools:** PMIU/OpenPunjab describes a public-school data service as free, open and real-time, searchable by EMIS code, and displays School Census 2024–2025 totals. This is a stronger public-sector discovery route than PEPRIS, which is a separate private-school registration system. Confirm the precise open-data license, allowed reuse, data fields and update semantics before any use. Sources: https://openpunjab.pesrp.edu.pk/schools/ and https://www.pepris.pesrp.edu.pk/parent_corner.
+- **Punjab private schools:** PEPRIS parent-corner publishes a list of private schools with valid e-licenses and fields including level, gender, registration number, validity, district, tehsil and address. PEPRIS support states an e-license validity period of one year (1 January to 31 December) and describes the renewal process. The provider-registration portal requests owner CNIC and mobile details; those fields are not necessary for public institution discovery and must not be collected. Sources: https://pepris.pesrp.edu.pk/parent_corner and https://pepris.pesrp.edu.pk/support.
+- **Khyber Pakhtunkhwa private schools:** KPPSRA's district register exposes school name, level, registration number and status, with observed values including ACTIVE, BLOCKED and DORMANT. District-specific endpoints exist; sample pages show the need to test district coverage and pagination/record completeness rather than assuming one page is exhaustive. Public schools require a separate EMIS/department source. Sources: https://www.psra.gkp.pk/registers and https://www.psra.gkp.pk/district/get-schools?district_id=1.
+- **Sindh public-school census:** RSU's Annual School Census page publishes profiles through 2024–25 and explains that ASC and school profiling data inform education decisions. This provides dated annual-census evidence, but not a blanket assertion that the SEMIS search covers every public/private institution or that underlying data may be reused. Source: https://rsusindh.gov.pk/asc.php.
+- **Balochistan:** Government EMIS exposes a public School Profile Search with BEMIS code, district, tehsil, level, gender, legal status and school status filters; the department portal also exposes separate Private Schools and NFE areas. Keep public, private and NFE sub-registers distinct and verify the exact export/license and record date. Sources: https://emis.gob.pk/views/Reports/Reports/SchoolSearchPublic.aspx and https://emis.gob.pk/.
+- **AJK and Gilgit-Baltistan:** Existing AJK E&SE and GB EMIS leads remain identified, but this review did not establish complete current public/private coverage, an authoritative downloadable inventory or dataset reuse permission. Do not infer absence of schools from missing public records.
+- **ICT:** PEIRA's active/valid private-school list and renewal-under-process category remain separate regulatory states; its weekly publication statement is not a per-record timestamp. Public-sector ICT schools need a distinct FDE/EMIS source.
+
+### 7.3 Non-formal and special education
+
+- **Balochistan NFE:** The Balochistan EMIS portal exposes a distinct NFE navigation area. It is a discovery lead, not yet a verified, current NFE centre register. Confirm dataset owner, fields, geography, active status and update cycle.
+- **Punjab special education:** The department's institute page lists separate institution categories (visual, intellectual, hearing and physical disability service groups) and describes the number and type of institutes. Treat these as institution/service categories, not data about an individual child; verify the underlying directory and current centre status. Source: https://sed.punjab.gov.pk/institutes.
+- **Sindh special education:** The existing DEPD institution list remains a source lead. Distinguish service centres from administrative offices and avoid staff personal contacts. Other provincial/territorial special-education sources remain an open coverage gap.
+- **BECS/NFEMIS:** Federal BECS community-school lists and MoFEPT NFEMIS resource leads remain separate from provincial public-school EMIS and from private-school registration. Verify current programme status, dataset date and coverage before treating them as an active provider inventory.
+
+### 7.4 TVET production-route caution
+
+NAVTTC's current production home page describes institute registration, affiliation to NAVTTC-approved QABs and NAC-TVS quality accreditation as three separate stages. Its public pages link Training Institute Search (TIS), NSIS and the NVQF Registry. A staging/test subdomain exposes a purported accreditation directory with a “representative sample data” disclaimer and conflicting regional labels; it is expressly excluded as authoritative evidence. B-TEVTA's government-hosted public registry is a useful source lead, but displayed totals and district claims require reconciliation. Sources: https://navttc.gov.pk/; https://navttc.gov.pk/tvet-sector/; https://tms.navttc.gov.pk/nsis/institute_help/info; https://registration.btevta.gob.pk/portal/directory.
+
+## 10. S02 task alignment and current evidence
+
+The authoritative weighted task breakdown is in `MILESTONE_STEP_REGISTER.md`. The earlier exploratory gap list in this matrix is not a second task register. Current status:
+
+| Register task | Evidence added in this review | Remaining acceptance gate |
+|---|---|---|
+| S02-C01 Taxonomy and entity distinctions | Expanded provisional taxonomy and separate provider/campus/programme/authority/affiliation/assessment/awarding relationships | Explicit owner review/approval |
+| S02-C02 Higher education and campuses | HEC separate recognised institutions, campuses, affiliated colleges, unaccredited and illegal/unrecognised routes; current campus-page count recorded with caveat | Record-level status/freshness and complete source/rights assessment |
+| S02-C03 Professional councils | HEC accreditation-council map; PM&DC, PNMC, PCP, PEC, NCEAC, NACTE, NBEAC, NTC and NCH evidence; status granularity and stale/anomalous records noted | Remaining discipline councils, current per-programme status and source rights/freshness review |
+| S02-C04 School jurisdictions | Punjab public OpenPunjab + private PEPRIS, KPPSRA district register, Sindh ASC 2024–25, Balochistan EMIS public search/private/NFE, plus existing ICT/AJK/GB leads | Verify full district coverage, public/private scope and source rights/freshness in all jurisdictions |
+| S02-C05 TVET | NAVTTC TIS/NSIS/NVQF and registration/affiliation/accreditation separation; provincial authority and QAB map; B-TEVTA registry caution | Current provincial directory coverage, QAB scope, status/freshness and rights |
+| S02-C06 Non-formal and special education | Balochistan NFE portal lead, BECS/NFEMIS, Punjab special institutes and Sindh DEPD | Full jurisdiction/source inventory, programme/centre status and privacy/rights review |
+| S02-C07 Source rights and access | Expanded source-specific access, field, privacy, freshness and terms findings; no permission requests sent | Complete applicable terms/license assessment, unresolved source-owner clarifications, and owner/legal decision |
+| S02-C08 National coverage synthesis | Updated synthesis cross-referenced to this evidence | Incorporate final verification and unresolved gaps after C02–C07 close |
+| S02-C09 Owner review and acceptance | Prepared decision-ready recommendation and unresolved-gaps list | Owner's explicit approval; AI cannot self-approve this gate |
+
+**Research boundary:** All candidate sources remain RESEARCH ONLY. This review did not scrape, download, bulk-query, register, contact source owners, activate connectors, or collect records. Search-engine-rendered public page evidence is used only to document discovery and observed page semantics.

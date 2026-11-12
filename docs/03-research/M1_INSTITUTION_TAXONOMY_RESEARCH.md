@@ -41,6 +41,24 @@ Do not encode these as mutually exclusive institution types:
 - **Education stage:** primary, middle, secondary, higher-secondary, undergraduate, postgraduate, technical/vocational, professional, non-formal.
 - **Institution relationship:** independent provider, constituent campus, affiliated college, branch campus, franchise/partner or other relationship; only assert when evidenced.
 
+## 3A. Expanded institution-family taxonomy and inclusion boundary (2026-11-12)
+
+The provisional top-level taxonomy should be interpreted as a discovery taxonomy, not a regulatory classification. Add these explicit subfamilies:
+
+- **Professional/regulated programmes:** medicine and dentistry; nursing and midwifery; pharmacy and pharmacy-technician education; engineering; computing; technology; teacher education; business education; architecture/town planning; veterinary education; allied health; homeopathy and Tibb; law and other council-regulated qualifications. The relevant council may approve a programme, institution, campus, intake or individual professional; those are different scopes.
+- **School provider sub-registers:** government/public schools; private registered schools; community schools; special-education institutes; and non-formal/adult-literacy centres. Maintain source jurisdiction and provider type rather than merging them into one undifferentiated school list.
+- **TVET:** technical colleges/polytechnics, vocational institutes, skills centres, apprenticeship/trade providers, assessment centres and QABs. A QAB or assessment body is not itself automatically a training provider.
+- **Alternative/faith-based providers:** religious seminaries/madaris and international-curriculum schools may be considered only as separately classified provider families with an identified competent registration/recognition/board authority and a verifiable institution-level record. Do not assume that curriculum affiliation or a board list is equivalent to statutory registration or programme approval.
+- **Distance/open learning:** distinguish the degree-awarding institution from study centres, examination centres, franchise/partner locations and online-only delivery. Do not infer HEC campus recognition for every study centre.
+
+### Authority and status dimensions must not be collapsed
+
+HEC's current accreditation-council list is a useful discovery map, but the listed councils have different legal mandates and evidence granularity. NCEAC explicitly accredits specific computing degree programmes rather than whole institutions; PEC's engineering programme schedules distinguish accreditation levels and intake; NACTE exposes programme/shift/validity records; NBEAC exposes session-level status categories such as accredited, reaccreditation, under process and expired. These examples demonstrate why one boolean `recognized` field is insufficient.
+
+### Inclusion/exclusion rule
+
+Include a candidate provider when a verifiable institution identity and an education/training service can be evidenced, even if recognition is not yet verified; display candidate/listed status separately from official recognition. Exclude or defer records that are only an individual professional registration, an applicant dossier, a student list, a staff personal contact list, an unverified marketing claim, a staging/test sample or a non-institutional authority body. Keep adverse statuses contextual, time-bound and source-linked; do not label a provider fake/illegal solely from a stale or ambiguous record.
+
 ## 4. Recognition, affiliation and awarding-body model
 
 V2 should represent distinct relationships rather than one ambiguous “recognized” flag:
@@ -92,7 +110,7 @@ This is an initial desk-research baseline, not a complete national inventory or 
 
 ## 9. Acceptance criteria
 
-- [ ] Owner-approved provider categories and inclusion/exclusion boundaries.
+- [ ] Owner-approved provider categories and inclusion/exclusion boundaries — proposed categories and boundaries are now documented; owner approval remains pending.
 - [ ] Provider, campus, programme, regulator, affiliation, assessment and awarding-body concepts remain distinct.
 - [ ] Coverage dimensions and normalization rules are defined.
 - [ ] Current official source inventory is verified for each category and jurisdiction.
