@@ -622,3 +622,8 @@ PR #107 exact head `04c781fb5997d9e56b616e3add2c30f8fd4982da` passed Project doc
 
 
 | [M3-00 Hosting and Operations Decision Framework](M3-00_HOSTING_AND_OPERATIONS_DECISION_FRAMEWORK.md) | T06 provider-region research, operating models, service/region checks, latency, data, recovery, cost and operations criteria | Delivered in hosting framework PR; no provider selected; exact service evidence and owner decision pending |
+
+
+#### PR #109 merge evidence — 2026-11-12
+
+PR #109 exact head `746cc0f89df2716fd5a2170bf17d95697f471ff2` passed Project documentation validation (run #43199827073; all job steps successful) and squash-merged as `5e55f1fe69dce25d0ab2357fef050b9120002579`. T06 remains in progress; no provider or region is selected.
