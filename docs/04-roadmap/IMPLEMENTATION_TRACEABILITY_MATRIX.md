@@ -8,11 +8,15 @@
 | PROD-001 | Student-first discovery and decision support | Product Vision; M1 Student Journey Research | M1-S01 | PR #1 baseline; PR #6 desk research merged; PR #7 adult instruments and PR #8 evidence reconciliation merged | PBS, Punjab HED and published Pakistan-focused student-choice research; draft adult interview/survey kit prepared; primary research pending | In progress — desk research baseline only |
 | DATA-001 | Multi-source lawful data catalogue | Education Data Strategy | M1-S02–S08 | PR #1 merged | Provider/rights register requires source evidence expansion | Delivered — research/acceptance pending |
 | OSS-001 | Lawful open-source and dataset reuse | Open-Source Reuse Audit | M1-S06/S07 | PR #1 merged | Candidate research and license/security scorecards pending | Delivered — research pending |
-| TRUST-001 | Account-based ratings and reviews after launch | Comparison, Reviews and Trust | M1-S09 | PR #1 baseline; clarified in current documentation PR | Owner direction: login required to submit; post-launch collection; moderation, privacy and age safeguards still need detailed design | Product requirement recorded — detailed design pending |\n| TAX-001 | Pakistan provider taxonomy, coverage and recognition/affiliation distinctions | M1 Institution Taxonomy Research | M1-S02 | Current branch — documentation PR pending | MoFEPT, NAVTTC, Skilling Pakistan and Nuffic public sources; source limitations and open questions recorded | Initial desk-research baseline — owner review pending |
+| TRUST-001 | Account-based ratings and reviews after launch | Comparison, Reviews and Trust | M1-S09 | PR #1 baseline; clarified in current documentation PR | Owner direction: login required to submit; post-launch collection; moderation, privacy and age safeguards still need detailed design | Product requirement recorded — detailed design pending |
+| TAX-001 | Pakistan provider taxonomy, coverage and recognition/affiliation distinctions | M1 Institution Taxonomy Research | M1-S02 | PR #10 merged as `11bb356f678e8559e9cd17940a68ab35dcf131b5` | MoFEPT, NAVTTC, Skilling Pakistan and Nuffic public sources; source limitations and open questions recorded | Initial desk-research baseline — owner review and source expansion pending |
 
 Add one row for every approved requirement. Do not mark accepted without verifiable evidence.
 
-## M1 owner decision and current research\nNo survey, interviews, recruitment or outreach during construction. Account-based ratings and reviews are a post-launch product feature. M1-S02 taxonomy desk research is documented in `docs/03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md`; it is an initial baseline, not a complete national inventory or final approved taxonomy.\n\n## M0 closeout evidence
+## M1 owner decision and current research
+No survey, interviews, recruitment or outreach during construction. Account-based ratings and reviews are a post-launch product feature. M1-S02 taxonomy desk research is documented in `docs/03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md`; it is an initial baseline, not a complete national inventory or final approved taxonomy.
+
+## M0 closeout evidence
 PR #4 merged as `4d1122d182961f3842803036f917ce39cd11b4c6`; required check passed on exact head `64da261546b034129af3aebfa38fb91f939732b6`. PR #4 records M0-S01–S07 acceptance and points the controller to M1-S01. M0-S02 remains explicitly scoped to a targeted, metadata-only, non-exhaustive exclusion audit.
 
 ## Documentation catalogue maintenance
