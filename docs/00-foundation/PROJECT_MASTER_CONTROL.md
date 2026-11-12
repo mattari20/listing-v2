@@ -150,3 +150,7 @@ PR #40 merged as `c92d96613dcb510762be5a0a615a73e856861f9b`; final exact head `c
 ## M1-S02 national rights and privacy review — 2026-11-12
 
 The latest desk review clarifies that the National Data Governance Policy 2026 and Personal Data Protection Bill May 2023 remain listed as drafts by MoITT; RTI access is not a general reuse license; copyright in compilations and underlying data must be distinguished; and PBS's open license is limited to PBS products/tiers. The detailed source-rights framework is in `../03-research/M1_S02_DATA_RIGHTS_PRIVACY_FRAMEWORK_REVIEW_2026-11-12.md`. S02-C07/C08 remain active; no education source is approved for collection/reuse.
+
+## PR #41 final reconciliation evidence — 2026-11-12
+
+PR #41 reconciled PR #40 delivery evidence and merged as `c56200bdf66a5fdf615de0da6281495e50c39f92`; exact head `2c11bfc7fe74da6bed4dc04d17c4c80a664990b0` passed required Project documentation validation (run #43154481312). M1-S02 remains active and S02-C09 remains owner-only.
