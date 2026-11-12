@@ -61,6 +61,12 @@ The production NAVTTC site links TIS, NSIS and NVQF Registry; separate official 
 ## PR #23 evidence reconciliation
 PR #23 merged as `2a94f8caced03142fee56c5b6e6fc1afa2f6df65`; exact head `737ec6838dc85d4ba1becc600af661d998074c0a`; required `Project documentation validation` check passed (run #43145140802). It reconciled PR #22 merge evidence in the catalogue, progress report and controller. M1-S02 remains in progress.
 
+## PR #24 evidence reconciliation
+PR #24 merged as `1c2004186a834f5fc06af82d75bf883e26900762`; exact head `1995f3c1d63a44f1673ac29ba76b2a09ac6e8d93`; required `Project documentation validation` check passed (run #43145235157). It reconciled PR #23 evidence across the project control records.
+
+## M1-S02 national coverage synthesis draft
+`docs/03-research/M1_NATIONAL_INSTITUTION_COVERAGE_SYNTHESIS.md` consolidates the current official-source discovery baseline and unresolved sector/jurisdiction, status, freshness, privacy and reuse-rights gaps. It is a draft input to S02-C08, not evidence of completed source verification or owner acceptance. No source is approved for collection or reuse.
+
 ## Documentation catalogue maintenance
 
 `DOCUMENTATION_CATALOG.md` is the owner-facing inventory for documentation delivery and acceptance. Reconcile it on every documentation PR update and merge. Keep delivery status separate from content acceptance; update PR/head/check/merge evidence and links.

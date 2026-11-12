@@ -47,6 +47,9 @@ At the end of each step, update this controller with status, evidence, progress 
 ## Latest documentation delivery evidence
 PR #23 reconciled PR #22's NAVTTC research update across the catalogue, progress report and traceability. Exact head `737ec6838dc85d4ba1becc600af661d998074c0a` passed required documentation validation (run #43145140802); merge commit `2a94f8caced03142fee56c5b6e6fc1afa2f6df65`. M1-S02 remains active; no source has been approved for reuse or ingestion.
 
+## M1-S02 national synthesis status
+A draft national institution coverage synthesis is now being prepared to consolidate the official-source discovery baseline and unresolved gaps across higher education, professional education, schools, TVET, non-formal and special education. S02-C08 is in progress; owner review (S02-C09) has not occurred. The synthesis does not establish complete national coverage or authorize collection/reuse. Continue source verification and gap closure before requesting owner acceptance.
+
 ## Completion status
 M0 is accepted and closed. Future milestones require their own evidence-based acceptance and closeout.
 
