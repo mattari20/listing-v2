@@ -44,3 +44,10 @@ This record does not authorize technology procurement or new costs, source-owner
 - M1: **Accepted and Closed — 100% step completion**
 - M2: **Planned; separate owner authorization required**
 - Application implementation: **Not authorized**
+
+
+## PR #83 delivery and exact-head validation evidence — 2026-11-12
+
+PR [#83](https://github.com/mattari20/listing-v2/pull/83) recorded final owner acceptance of M1-S10 and formal M1 closeout. Exact PR head `30d5c7ecfc929cd680c3da8d076774904ec2d67a` passed required **Project documentation validation** (run [#43175799695](https://github.com/mattari20/listing-v2/actions/runs/43175799695)); the `Validate project control documents` job and all steps completed successfully. PR #83 was squash-merged as `af88a88693e66e9fb0a459d14ba1028e5fd3f97d`.
+
+S10-T10 is accepted; S10 is 100%. M1-S01 through M1-S10 are all Accepted and Closed. M1 is formally **Accepted and Closed** as a research/documentation milestone. M2 remains Planned and requires separate explicit owner authorization; no application implementation is authorized.

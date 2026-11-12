@@ -329,3 +329,10 @@ The owner explicitly accepted the final M1-S10 synthesis and authorized closure 
 G01–G20 and all limitations remain carried forward; acceptance is not a waiver of rights, privacy, quality or product-policy controls. V2-DEC-006 remains binding (Deeni Madaris public visibility defaults OFF); primary participant research remains deferred during construction; reviews remain post-launch; unapproved external sources and third-party software/data remain RESEARCH ONLY. No source collection/ingestion, connector or agent activation, application implementation, database/schema change, production access, deployment or URL cutover is authorized.
 
 M2 architecture/design is **Planned, not started**. It requires separate explicit owner authorization. Application implementation remains prohibited until M2 is completed and separately accepted.
+
+
+## PR #83 delivery and exact-head validation evidence — 2026-11-12
+
+PR [#83](https://github.com/mattari20/listing-v2/pull/83) recorded final owner acceptance of M1-S10 and formal M1 closeout. Exact PR head `30d5c7ecfc929cd680c3da8d076774904ec2d67a` passed required **Project documentation validation** (run [#43175799695](https://github.com/mattari20/listing-v2/actions/runs/43175799695)); the `Validate project control documents` job and all steps completed successfully. PR #83 was squash-merged as `af88a88693e66e9fb0a459d14ba1028e5fd3f97d`.
+
+S10-T10 is accepted; S10 is 100%. M1-S01 through M1-S10 are all Accepted and Closed. M1 is formally **Accepted and Closed** as a research/documentation milestone. M2 remains Planned and requires separate explicit owner authorization; no application implementation is authorized.
