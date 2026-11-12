@@ -442,13 +442,13 @@ The owner explicitly accepted the S08 AI data-agent workflow research and S09 co
 | S10-T08 Define M2 entry criteria and exclusions | 5% | M2 entry requirements and prohibited implied authorizations documented | Completed |
 | S10-T09 Prepare M1 closeout and evidence links | 10% | Final synthesis, gap register and project-control updates delivered | Completed |
 | S10-T10 Owner review and formal M1 acceptance | 5% | Explicit owner acceptance of final M1 synthesis | **Accepted — owner approval recorded 2026-11-12** |
-| **Total** | **100%** | | **95%** |
+| **Total** | **100%** | | **100%** |
 
 **M1-S10 weighted synthesis/documentation completion:** 100%; T01–T10 complete. M1-S10 is Accepted and Closed; M1 is formally Accepted and Closed.
 
 ## M1-S10 closeout review — 2026-11-12
 
-The final synthesis, cross-step traceability, G01–G20 gap/decision register, M2 entry requirements and exclusions are delivered in `../03-research/M1_S10_FINAL_SYNTHESIS_CLOSEOUT_REVIEW_2026-11-12.md`. S01–S09 are owner-accepted. S10 is ready for owner acceptance; M2 remains gated until this final M1 acceptance and separate M2 authorization.
+The final synthesis, cross-step traceability, G01–G20 gap/decision register, M2 entry requirements and exclusions are delivered in `../03-research/M1_S10_FINAL_SYNTHESIS_CLOSEOUT_REVIEW_2026-11-12.md`. S01–S10 are owner-accepted and closed. M1 is formally Accepted and Closed; M2 remains Planned and requires separate explicit owner authorization.
 
 
 ## PR #81 delivery and exact-head validation evidence — 2026-11-12
