@@ -283,3 +283,11 @@ PR [#44](https://github.com/mattari20/listing-v2/pull/44) delivered KPPSRA/Sindh
 ## Supplemental M1-S02 Balochistan 2026 public-school data/open-license review
 
 - [M1-S02 Balochistan 2026 Public-School Data and Scoped Open-License Review](../03-research/M1_S02_BALOCHISTAN_2026_PUBLIC_SCHOOL_OPEN_DATA_REVIEW.md) — 15,368 public-school aggregate (30 July 2026), 1,245 NFE-centre aggregate (28 February 2026), 2025–26 census and narrowly scoped dashboard open-license terms.
+
+
+## M1-S02 owner acceptance and closeout — 2026-11-12
+
+- [M1-S02 Owner Taxonomy and Research Baseline Acceptance](../03-research/M1_S02_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) — explicit owner approval of the provisional institution taxonomy and research baseline, including the documented limitations and authorization boundary.
+- [M1-S02 Task Acceptance Evidence Audit](../03-research/M1_S02_TASK_ACCEPTANCE_EVIDENCE_AUDIT_2026-11-12.md) — final task-by-task acceptance audit, including owner closure of C01 and C09.
+- [M1 Institution Taxonomy Research](../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md) and [Official Institution Source Coverage Matrix](../03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md) — accepted as the M1-S02 research baseline, not a complete national census or production data specification.
+

@@ -255,3 +255,14 @@ Further research confirmed KP public-school iEMIS is role-based and does not est
 ## PR #44 — school regulator status and source terms
 
 PR #44 merged as `11ee337d823731d71a9c0ca00782728ad1994398`; exact head `0b5fe6429a1f6bc8bb383d1db1278d632ae04f08` passed required Project documentation validation (run #43155204020). It clarified KPPSRA/Sindh DIRPIS status semantics, HEC Digital Library terms scope and NAVTTC aggregate count distinctions. No reuse permission is inferred.
+
+
+## M1-S02 owner approval and closeout — 2026-11-12
+
+The owner explicitly approved the proposed institution taxonomy and accepted M1-S02 as a research baseline with the documented limitations. S02-C01 (15%) and S02-C09 (5%) are now closed; S02-C02 through S02-C08 were already completed with limitations documented. The authoritative weighted task register records **M1-S02 Accepted — 100% weighted completion**.
+
+The accepted outcome is a documentation/research baseline only. It is not a complete national census or production-verified dataset. No blanket source-reuse permission is established; the sole scoped exception remains SED Balochistan dashboard headline metrics and district breakdowns under attribution/as-of-date conditions.
+
+No source ingestion, scraping, bulk download, source-owner contact, permission requests, implementation, database/schema changes, production access, deployment, legacy-repository interaction, M1-S03 or M2 work is authorized by this acceptance. Any next step requires separate owner authorization.
+
+Decision record: `docs/03-research/M1_S02_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`.

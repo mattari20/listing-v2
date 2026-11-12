@@ -65,7 +65,7 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 ### M1-S02 task breakdown (weights total 100%)
 | Task | Weight | Acceptance evidence | Status |
 |---|---:|---|---|
-| S02-C01 Taxonomy and entity distinctions | 15% | Owner-reviewed categories and provider/campus/programme/regulator/affiliation distinctions | In progress — expanded provisional taxonomy and inclusion/exclusion boundary documented; explicit owner approval pending |
+| S02-C01 Taxonomy and entity distinctions | 15% | Owner-reviewed categories and provider/campus/programme/regulator/affiliation distinctions | **Completed — owner approved 2026-11-12**; provisional taxonomy and documented distinctions accepted as the M1-S02 research baseline |
 | S02-C02 Higher-education and campus sources | 10% | Current HEC institution, campus and affiliated-college scope verified with limitations | Completed — HEC institution/campus/affiliation/PQR/NOC/study-centre scope mapped with limitations; record-level freshness and source rights remain documented gaps |
 | S02-C03 Professional council sources | 15% | Current PMDC, PNMC, PCP and other relevant council status semantics documented | Completed — major council source families and status semantics mapped; current-register/freshness gaps for selected councils and source-rights limits documented |
 | S02-C04 School-source jurisdiction coverage | 15% | Official source register across provinces/territories, public/private scope and geography gaps | Completed — official source families mapped across all jurisdictions; role-based/aggregate-only/login-only gaps, private/public scope and district coverage limitations explicitly documented |
@@ -73,9 +73,9 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 | S02-C06 Non-formal and special education | 10% | Official provider-source inventory and explicit coverage gaps | Completed — NFE/community and special-education source inventory mapped; partial/missing registers, operational status and privacy limits documented |
 | S02-C07 Source rights and access | 10% | Terms, licenses, permission, access method, update cadence and privacy assessment for each source | Completed — source-by-source access, terms, privacy and freshness assessment recorded; no general reuse permission established, with only the narrow SED dashboard aggregate license identified |
 | S02-C08 National coverage synthesis | 10% | Reviewed coverage matrix, unresolved gaps and source-quality assessment | Completed — consolidated national coverage/gap matrix and corrections addenda delivered; source-quality discrepancies and remaining gaps explicitly assessed |
-| S02-C09 Owner review and step acceptance | 5% | Owner-reviewed taxonomy and coverage acceptance record; no ingestion implied | Not started — requires explicit owner review and approval; no source ingestion implied |
+| S02-C09 Owner review and step acceptance | 5% | Owner-reviewed taxonomy and coverage acceptance record; no ingestion implied | **Accepted — owner approval recorded 2026-11-12**; acceptance is limited to the documented research baseline and does not authorize ingestion or reuse |
 
-**Progress rule:** The source-discovery matrix is delivered, but no S02 task is marked complete until its specific acceptance evidence is verified. Do not convert document delivery into a completion percentage.
+**Progress rule:** Completion is based on each task's stated research/documentation acceptance evidence, not PR count or document volume. C02–C08 are complete with limitations documented; C01 and C09 were owner-approved on 2026-11-12. M1-S02 is therefore **Accepted (100% weighted task completion)** as a research baseline only. Acceptance does not establish a complete national census, source reuse permission, or authorization to ingest data.
 
 ## Owner-approved research timing
 No student survey, interviews, recruitment or outreach will occur during platform construction. The existing adult interview/survey kit is an unapproved draft retained for record only. Ratings and reviews are a post-launch authenticated product feature.
@@ -196,3 +196,16 @@ PR #44 merged the school-regulator status and terms review as `11ee337d823731d71
 ## M1-S02 task acceptance audit — 2026-11-12
 
 The task-by-task audit is recorded in `docs/03-research/M1_S02_TASK_ACCEPTANCE_EVIDENCE_AUDIT_2026-11-12.md`. S02-C02 through S02-C08 are marked **Completed — limitations documented** because their stated research/documentation outputs have been delivered. This does not imply a complete national census or authorize source reuse. S02-C01 remains In progress pending owner review of the provisional taxonomy; S02-C09 remains Not started pending explicit owner acceptance. The overall M1-S02 step therefore remains In progress / awaiting owner acceptance.
+
+
+## M1-S02 owner acceptance and closeout — 2026-11-12
+
+The owner explicitly approved the proposed institution taxonomy and accepted the M1-S02 research baseline with its documented limitations. This closes S02-C01 (15%) and S02-C09 (5%). Together with the previously completed S02-C02 through S02-C08 tasks (80%), all weighted S02 tasks are complete (100%).
+
+**Accepted outcome:** Pakistan institution/provider taxonomy and national source-coverage research baseline, including the documented entity distinctions, jurisdiction/source map, rights/access findings, privacy exclusions, freshness and data-quality warnings, and unresolved coverage gaps.
+
+**Acceptance limitations:** This is not a complete national census or a verified production dataset. All source families remain RESEARCH ONLY unless a source-specific permission is explicitly documented. The only scoped reuse permission remains SED Balochistan dashboard headline metrics and district breakdowns, with attribution and an as-of date; it does not extend to school-level records or other datasets.
+
+**Authorization boundary:** This owner acceptance closes M1-S02 documentation/research only. It does not authorize source ingestion, scraping, bulk download, source-owner contact, permission requests, application implementation, database/schema changes, production access, deployment, legacy-repository interaction, M1-S03 or M2. Any next step requires separate owner authorization.
+
+**Decision record:** `docs/03-research/M1_S02_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`.
