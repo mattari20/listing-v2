@@ -14,18 +14,18 @@ Convert accepted M2 architecture and M3-00 controls into a safe, reviewable, nar
 
 | ID | Weight | Deliverable | Acceptance evidence | Current status |
 |---|---:|---|---|---|
-| P01 | 10% | Baseline, dependency and blocker reconciliation | M2 requirements/architecture and M3-00 decisions mapped, no-go list current | Not started |
-| P02 | 15% | First implementation slice and explicit exclusions | Traceable, bounded scope and owner decision; no hidden scope | Not started |
+| P01 | 10% | Baseline, dependency and blocker reconciliation | M2 requirements/architecture and M3-00 decisions mapped, no-go list current | Delivered for owner review — detailed evidence pack |
+| P02 | 15% | First implementation slice and explicit exclusions | Traceable, bounded scope and owner decision; no hidden scope | Candidate options documented; owner approval pending |
 | P03 | 15% | Human roles, capacity and security/review accountability | Named qualified humans or explicit blocker; AI not substituted for staff | Blocked pending owner/human input |
 | P04 | 15% | Stack, hosting and cost decision evidence | Owner-approved selections or no-go decision; no-spend enforced | Blocked pending evidence/decisions |
 | P05 | 15% | Legal/privacy/source-rights/safeguarding/security preconditions | Scope-specific qualified reviews or excluded work; deny-by-default | Blocked pending reviewers/evidence |
-| P06 | 15% | Environment, tests, CI, release and rollback plan | Synthetic-only test boundaries, acceptance tests, severity gates, secrets, stop/recovery plan | Not started |
+| P06 | 15% | Environment, tests, CI, release and rollback plan | Synthetic-only test boundaries, acceptance tests, severity gates, secrets, stop/recovery plan | Synthetic-only framework delivered for review; environment not selected/activated |
 | P07 | 10% | Narrow implementation authorization request | Exact branch, package, activities, exclusions, spend, named humans, tests, stop/expiry | Not started |
 | P08 | 5% | Final owner review and M3-01 decision record | Explicit owner decision; authorization separately issued or refused | Not started |
 
 No task receives completion credit from a PR alone. An unresolved critical blocker must remain visible even if its planning document is delivered. M3-01 may be fully documented yet **blocked** from implementation.
 
-## 3. Proposed first slice for owner review — NOT APPROVED
+## 3. Proposed first slice for owner review — NOT APPROVED\n\nDetailed options, boundaries, traceability and acceptance questions are in [M3-01 Detailed Planning Evidence Pack](M3-01_DETAILED_PLANNING_EVIDENCE_PACK.md).
 
 **Candidate P0:** Independent V2 non-production repository and CI foundation using synthetic fixtures only, with no provider data, external APIs, connectors, models, source collection, production access, database migrations or deployment. This is a candidate for analysis, **not an authorized implementation package**. Even this candidate requires named accountability, approved stack/environment, review/testing boundaries and explicit implementation-start approval.
 
@@ -57,3 +57,8 @@ Do not infer decisions from the instruction to finish M3. Owner reviews are dema
 ## 6. Governing controls
 
 See [M3-00 T07 Gates](M3-00_T07_LEGAL_PRIVACY_SOURCE_RIGHTS_SECURITY_GATES.md), [M3-00 T08 Authorization Pack](M3-00_T08_IMPLEMENTATION_SCOPE_TEST_RELEASE_AUTHORIZATION_PACK.md), [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md), and [M3-00 Final Owner Acceptance](M3-00_FINAL_OWNER_ACCEPTANCE_AND_CLOSURE_RECORD_2026-11-12.md). No application coding, technical spike, source/production access, DB migration, procurement, new spend, deployment, pilot or launch without separate explicit approval.
+
+
+## 7. Latest planning evidence — 2026-11-12
+
+The [M3-01 Detailed Planning Evidence Pack](M3-01_DETAILED_PLANNING_EVIDENCE_PACK.md) delivers P01 baseline/dependency reconciliation for owner review, documents P02 first-slice options without selecting or approving one, and drafts P06 synthetic-only testing/CI/release controls. P03–P05 remain blocked by unassigned human roles, unselected stack/hosting/budget and unperformed qualified legal/privacy/security/safeguarding reviews. P07/P08 remain not ready. No M3-01 task completion percentage is claimed until its acceptance evidence is reviewed. Implementation authorization remains NOT ISSUED.

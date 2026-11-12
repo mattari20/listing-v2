@@ -682,3 +682,8 @@ PR #114 merged as `534aa11345b91113e370cb1739bbded7d82f4c3c`. T01–T06 are comp
 ## Superseding M3-00 owner acceptance — 2026-11-12
 
 The Product Owner explicitly accepted all three bounded closeout decisions: T07 as a deny-by-default planning/control framework only, T08 as a planning framework only, and M3-00 formal closure on those conditions. The authoritative [M3-00 Final Owner Acceptance and Closure Record](M3-00_FINAL_OWNER_ACCEPTANCE_AND_CLOSURE_RECORD_2026-11-12.md) supersedes earlier pending/open snapshots. M3-00 is **Accepted — 100% of planning deliverables**; M3 overall weighted progress is **5%**. Qualified reviews, staffing, stack, hosting, source rights and spend decisions remain open. M3-01 planning begins under [M3-01 Work Plan](M3-01_IMPLEMENTATION_PLANNING_AND_AUTHORIZATION_WORK_PLAN.md); implementation authorization is **NOT ISSUED**. No application coding, technical spike, source/production access, DB changes, procurement, spend, deployment, pilot or launch is authorized.
+
+
+## M3-01 active planning evidence — 2026-11-12
+
+M3-01 has started as a documentation/planning step following M3-00 owner acceptance. See [M3-01 Detailed Planning Evidence Pack](M3-01_DETAILED_PLANNING_EVIDENCE_PACK.md): P01 baseline/dependency reconciliation delivered for owner review; P02 first-slice options documented but not approved; P06 synthetic-only test/release framework delivered for review; P03–P05 blocked; P07/P08 not ready. No weighted M3-01 completion percentage is claimed. M3 overall remains 5%. No implementation authorization is issued.

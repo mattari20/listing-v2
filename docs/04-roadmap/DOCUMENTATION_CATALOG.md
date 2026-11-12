@@ -669,3 +669,12 @@ The T08 pack is planning documentation only. It does not authorize coding, techn
 | [M3-01 Implementation Planning and Authorization Work Plan](M3-01_IMPLEMENTATION_PLANNING_AND_AUTHORIZATION_WORK_PLAN.md) | Eight weighted planning tasks, candidate first slice, blocker inventory and unissued authorization form | Delivered — M3-01 planning in progress; owner decisions pending |
 
 Historical T07/T08 and M3-00 pending labels above are superseded by the owner acceptance record. No substantive legal/security or implementation clearance is implied.
+
+
+## M3-01 detailed planning evidence — 2026-11-12
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-01 Detailed Planning Evidence Pack](M3-01_DETAILED_PLANNING_EVIDENCE_PACK.md) | P01 baseline/dependency traceability; P02 first-slice options and exclusions; P03–P05 blocker matrix; P06 synthetic-only tests, CI, release and stop conditions | Delivered for owner review; P01/P02/P06 acceptance pending; no implementation authorized |
+
+This is a planning artifact only. No M3-01 weighted progress is claimed until task evidence is reviewed and accepted.
