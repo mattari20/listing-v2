@@ -33,7 +33,7 @@ No production database operation, production deployment, public URL cutover, or 
 
 ## Current project status — M3
 
-M0, M1 and M2 are accepted and closed; M2 is 100% complete. M3-00 — Mobilization and Decision Closure — is the current documentation/planning step. T01 is complete; T02 (owner-approved owner-led/ChatGPT-assisted delivery model) and T03 (owner availability confirmed at a flexible 10–15 hours/week planning baseline with demand-led reviews) are in progress, with no partial task percentages claimed. M3-00 remains 10% pending remaining decisions and evidence. See [M3 Master Step Plan](docs/04-roadmap/M3_MASTER_STEP_PLAN.md) and [M3-00 Mobilization](docs/04-roadmap/M3-00_MOBILIZATION_AND_DECISION_CLOSURE.md). Application implementation remains unauthorized pending a separate explicit M3-01 start authorization. Production access, source ingestion, procurement, deployment and launch remain separately gated.
+M0, M1 and M2 are accepted and closed; M2 is 100% complete. M3-00 — Mobilization and Decision Closure — is the current documentation/planning step. T01 is complete; T02-T06 are in progress; T07-T08 remain open. T04-T06 decision frameworks have been delivered, but final decisions and supporting evidence remain pending. No partial task percentages are claimed. M3-00 remains 10% pending remaining decisions and evidence. See [M3 Master Step Plan](docs/04-roadmap/M3_MASTER_STEP_PLAN.md) and [M3-00 Mobilization](docs/04-roadmap/M3-00_MOBILIZATION_AND_DECISION_CLOSURE.md). Application implementation remains unauthorized pending a separate explicit M3-01 start authorization. Production access, source ingestion, procurement, deployment and launch remain separately gated.
 
 
 Latest M3-00 owner-input documentation: PR [#102](https://github.com/mattari20/listing-v2/pull/102) passed Project documentation validation (run #43198671760) and merged as `cc5a4966cca74df5e15de7f15277814ddb86d6d9`. T02/T03 are in progress; M3-00 remains 10%. No implementation or spend is authorized.
@@ -49,3 +49,6 @@ PR [#107](https://github.com/mattari20/listing-v2/pull/107) reconciled PR #106 t
 
 
 M3-00 T06 hosting framework: PR [#109](https://github.com/mattari20/listing-v2/pull/109) passed required documentation validation (run #43199827073) and merged as `5e55f1fe69dce25d0ab2357fef050b9120002579`. No hosting provider/region is selected; service support, costs, latency, data terms and operations ownership remain open.
+
+
+Latest M3 delivery audit (2026-11-12): PRs #102–#110 are all closed and merged, and required documentation validation passed on each exact PR head. Latest merge PR #110: `a328a8272b086cac6270dc625d53ea6c3bbc1fa7`. Current task status: T01 complete; T02-T06 in progress; T07-T08 open. M3-00 remains 10%; M3 overall 0.5%. No implementation or new spend is authorized.
