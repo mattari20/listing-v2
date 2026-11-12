@@ -600,3 +600,10 @@ The [M3-00 Technology Stack Decision Framework](M3-00_TECHNOLOGY_STACK_DECISION_
 PR [#106](https://github.com/mattari20/listing-v2/pull/106) delivered the M3-00 T05 Technology Stack Decision Framework. Exact head `16352ebb07630b92284ed08b36b0d3230508bd45` passed required **Project documentation validation** (run [#43199371616](https://github.com/mattari20/listing-v2/actions/runs/43199371616)); job `Validate project control documents` and all steps completed successfully. PR #106 was squash-merged as `04ba57a98e434d05069bd0cc4c0de3e05bcacac8`.
 
 T05 is In progress: candidate trade-offs and common evaluation criteria are documented, but named implementer/maintainer skill fit, support/security lifecycle evidence, hosting/cost fit and owner selection remain unresolved. No technology is selected; no technical spike, installation or implementation is authorized. M3-00 remains 10% and M3 overall 0.5%; no partial T05 percentage is claimed.
+
+
+## PR #107 exact-head validation and merge evidence — 2026-11-12
+
+PR [#107](https://github.com/mattari20/listing-v2/pull/107) reconciled PR #106 technology-framework delivery. Exact head `04c781fb5997d9e56b616e3add2c30f8fd4982da` passed required **Project documentation validation** (run [#43199505084](https://github.com/mattari20/listing-v2/actions/runs/43199505084)); job `Validate project control documents` and all steps completed successfully. PR #107 was squash-merged as `137130caa046804fb02a42d9a98e01d855601401`.
+
+T05 remains In progress pending named human implementer/maintainer skill fit, support/security lifecycle evidence, hosting/cost fit and owner selection. No technology is selected and no technical spike or installation is authorized. M3-00 remains 10%; M3 overall 0.5%.
