@@ -141,3 +141,7 @@ M0, M1 and M2 are accepted and closed. M3-00 is documentation/planning only. App
 - [M3-01 Implementation Planning and Authorization Work Plan](04-roadmap/M3-01_IMPLEMENTATION_PLANNING_AND_AUTHORIZATION_WORK_PLAN.md) — next planning step; implementation authorization NOT ISSUED
 
 Earlier M3-00 open/75% statements in this index are historical and superseded by the final acceptance record. M3 overall weighted progress is 5%.
+
+
+## M3-01 planning evidence
+- [M3-01 Detailed Planning Evidence Pack](04-roadmap/M3-01_DETAILED_PLANNING_EVIDENCE_PACK.md) — baseline reconciliation, proposed first-slice options, blocker matrix and synthetic-only test/release plan; no implementation authorization
