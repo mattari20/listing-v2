@@ -293,3 +293,9 @@ S03-C02 and S03-C05 remain in progress. All sources remain RESEARCH ONLY; no stu
 The official provider source register has been expanded with PMDC, PCP, PNMC, NCEAC, NACTE, PEC, NTC, PVMC and PBC source routes. Key distinctions recorded: PMDC undergraduate college versus postgraduate qualification/hospital approvals; PCP programme status including Stoppage of Admissions; PNMC legacy programme labels and separate fake-institute list; NCEAC batch/programme accreditation rather than institution-wide approval; NACTE validity dates; PEC Level-I/II versus Zero/Interim; NTC technology programme scope separate from PEC; PVMC programme accreditation periods; and PBC law-college affiliation/recognition fields whose "Student Fees" semantics are unclear. Full details: `docs/03-research/M1_S03_PROFESSIONAL_REGULATOR_SOURCE_REVIEW_2026-11-12.md`.
 
 S03-C03 remains in progress pending current programme/batch validity, source owner/authority and rights verification. All sources remain RESEARCH ONLY; no scraping, bulk download, source-owner contact, permission request, ingestion, implementation or production access is authorized.
+
+
+## M1-S03 AJK education source review
+
+- [M1-S03 AJK Education Source Review](../03-research/M1_S03_AJK_EDUCATION_SOURCE_REVIEW_2026-11-12.md) — E&SE/EMIS/PEIRA and HED source routes, aggregate freshness, sign-in access limits and 178/180 college discrepancy; **Delivered — review pending; M1-S03 in progress.**
+- [M1-S03 Official Government and Regulator Provider Source Register](../03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md) — updated with GOV-29 and GOV-30 AJK sources; **Updated — review pending.**
