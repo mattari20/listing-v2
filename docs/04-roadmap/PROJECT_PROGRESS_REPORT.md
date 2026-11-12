@@ -20,6 +20,7 @@
 - PR [#8](https://github.com/mattari20/listing-v2/pull/8) reconciled the instrument merge and M1-S01 status; merged as `612a4edfdcd43721407e01e26e79569631684c12`; required check passed on exact head `552e3f60722d35a96c6d353661b561838d68b4ae` ([run #43059961030](https://github.com/mattari20/listing-v2/actions/runs/43059961030)).
 - PR [#9](https://github.com/mattari20/listing-v2/pull/9) reconciled PR #8 evidence; merged as `2747509824d32eacf41e96f725834ac53d68b8d2`.
 - PR [#10](https://github.com/mattari20/listing-v2/pull/10) recorded the owner research-timing decision, post-launch account-based reviews and initial M1-S02 taxonomy research; merged as `11bb356f678e8559e9cd17940a68ab35dcf131b5`; required check passed on exact head `a9929ead88c5592f9ce64f0f7ed8e83005b14329` ([run #43132829648](https://github.com/mattari20/listing-v2/actions/runs/43132829648)).
+- PR [#11](https://github.com/mattari20/listing-v2/pull/11) reconciled PR #10 evidence and corrected the M1-S01 timing status; merged as `e39137e14f152fa82fe2acb284a631cb84438998`; required check passed on exact head `b11e03020a46269d9b04674822182933c569082e` ([run #43136568996](https://github.com/mattari20/listing-v2/actions/runs/43136568996)).
 
 ## M0 acceptance
 - M0-S01 through M0-S07 are recorded as accepted/complete in the step register.
@@ -32,7 +33,7 @@
 ## Current M1 status
 - M1-S01 desk research and initial journey hypotheses are documented. The interview/survey kit is archived preparation material only. By owner direction, no student survey, interviews, recruitment or outreach will occur during construction. This is deferred, not completed or validated.
 - Ratings and written reviews are a post-launch V2 feature; visitors must log in/create an account to submit. Eligibility, moderation, privacy and age-related safeguards remain to be designed.
-- M1-S02 initial independent taxonomy and coverage desk research is documented in `docs/03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md`. It is provisional, not a complete national inventory or final taxonomy.
+- M1-S02 initial taxonomy research is documented in `docs/03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md`; the official source coverage matrix is now documented in `docs/03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md`. Sources identified include HEC, PMDC, PNMC, PCP, Punjab PEPRIS, KP-PSRA, Balochistan SED/EMIS and NAVTTC. Sindh, ICT, AJK and GB school-source coverage, non-formal and special education, source rights and freshness remain gaps. This is not a complete national inventory or final taxonomy.
 - Official/private provider research, source rights/freshness, programme/admissions research, independent software/dataset assessment and final data-agent/trust requirements remain outstanding.
 - Architecture and technology choices remain unapproved until M1 acceptance. No app code, database schema or migrations have been approved or started.
 
@@ -45,10 +46,13 @@ The initial desk-research synthesis is merged in `docs/03-research/M1_STUDENT_JO
 The owner confirmed that ratings and written reviews belong in the V2 product model. Visitors must log in/create an account to submit them, intended after launch. This is a product feature, not a pre-launch survey. Detailed eligibility, moderation, privacy and age-safeguard design remains outstanding.
 
 ## M1-S02 status
-An initial independent desk-research baseline for Pakistan institution taxonomy and geographic coverage is documented in `docs/03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md`. It distinguishes providers, campuses, programmes, regulators, affiliation, assessment and awarding bodies, and records source limitations and open questions. It is not a final taxonomy or comprehensive inventory.
+An initial independent taxonomy baseline is documented in `docs/03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md`; an official source coverage matrix is documented in `docs/03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md`. The matrix identifies HEC, PMDC, PNMC, PCP, Punjab PEPRIS, KP-PSRA, Balochistan SED/EMIS and NAVTTC source families. It records major coverage gaps for Sindh, ICT, AJK, GB, non-formal education and special education. Source access, rights, status semantics and update cadence remain unverified. It is not a final taxonomy or comprehensive inventory.
 
 ## Next authorized step
-Continue M1-S02 by verifying current official category-specific sources and building the institution-type/sector/geography coverage matrix. Do not begin architecture or technology selection before M1 acceptance.
+Continue M1-S02 by closing the documented jurisdiction and sector gaps, verifying source status/update semantics and assessing rights/access for each source. Do not ingest data, activate connectors or begin architecture/technology selection before the relevant approvals and M1 acceptance.
+
+## PR #11 evidence reconciliation
+PR #11 merged as `e39137e14f152fa82fe2acb284a631cb84438998`. Its exact head `b11e03020a46269d9b04674822182933c569082e` passed the required `Validate project control documents` check (run #43136568996). The merge reconciled PR #10 evidence and clarified that primary student research is deferred during construction.
 
 ## Reporting rule
 After every documentation PR update and merge, reconcile the documentation catalogue, index, controller, step register, traceability matrix and progress report. Record exact PR, head SHA, required check and merge SHA. Never infer acceptance from a merge alone.
