@@ -323,7 +323,7 @@ S03-C03 remains in progress pending task audit. All sources remain RESEARCH ONLY
 
 ## M1-S03 task acceptance evidence audit
 
-- [M1-S03 Task Acceptance Evidence Audit](../03-research/M1_S03_TASK_ACCEPTANCE_EVIDENCE_AUDIT_2026-11-12.md) — evidence-based audit of C01–C08, unresolved source/rights/coverage limitations and owner-only C09 gate; **Delivered — owner review pending; 95% weighted completion.**
+- [M1-S03 Task Acceptance Evidence Audit](../03-research/M1_S03_TASK_ACCEPTANCE_EVIDENCE_AUDIT_2026-11-12.md) — evidence-based audit of C01–C09, unresolved source/rights/coverage limitations and owner acceptance; **Accepted — 100% weighted task completion as a research baseline only.**
 
 
 ## M1-S03 owner acceptance and closeout — 2026-11-12
@@ -331,3 +331,8 @@ S03-C03 remains in progress pending task audit. All sources remain RESEARCH ONLY
 The owner explicitly approved the consolidated official government/regulator provider-source register, seven-jurisdiction school-source matrix, eight supplemental reviews, task acceptance audit and documented limitations. C09 is accepted; C01–C08 were already complete with limitations documented. M1-S03 is **Accepted — 100% weighted task completion** as a research/documentation baseline only.
 
 This is not a claim of complete national provider coverage, legal reuse clearance or production-ready data. The narrow SED Balochistan headline/district aggregate permission remains the only previously documented reuse exception. All other sources remain RESEARCH ONLY. Deeni Madaris remain in underlying scope but hidden from public discovery by default, controlled by the authorized `Show Deeni Madaris` setting. No implementation, database/schema work, source ingestion, production access, deployment, M1-S04 or M2 work is authorized by this acceptance. A separate owner instruction is required before the next step begins.
+
+
+## PR #69 — M1-S03 acceptance delivery evidence
+
+PR [#69](https://github.com/mattari20/listing-v2/pull/69) merged as `4c6d076fef9d09a2900ca8e9e265ea6176ed5d6c`. The exact PR head `c6120094139e2f2a7296fd4e59649928c0ddc161` passed required Project documentation validation (run [#43163951606](https://github.com/mattari20/listing-v2/actions/runs/43163951606)). This records the owner's C09 acceptance and closes M1-S03 at 100% weighted task completion as a research/documentation baseline only.

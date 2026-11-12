@@ -284,9 +284,14 @@ The professional-regulator register is expanded with HEC's accreditation-council
 
 ## M1-S03 task acceptance audit — 2026-11-12
 
-The task-by-task audit is recorded in `../03-research/M1_S03_TASK_ACCEPTANCE_EVIDENCE_AUDIT_2026-11-12.md`. S03-C01 through S03-C08 are **Completed — limitations documented** based on their source-mapping, authority, status-semantics, access/rights/privacy and consolidated-gap acceptance criteria. This does not mean a complete national census or source reuse permission. S03-C09 remains **Not started — owner only** pending explicit owner review and acceptance. Weighted task completion is 95%; overall M1-S03 remains In progress / awaiting owner acceptance.
+The task-by-task audit is recorded in `../03-research/M1_S03_TASK_ACCEPTANCE_EVIDENCE_AUDIT_2026-11-12.md`. S03-C01 through S03-C08 are **Completed — limitations documented** based on their source-mapping, authority, status-semantics, access/rights/privacy and consolidated-gap acceptance criteria. The owner accepted S03-C09 on 2026-11-12. M1-S03 is **Accepted — 100% weighted task completion** as a research baseline only. This does not mean a complete national census or source reuse permission.
 
 
 ## M1-S03 owner acceptance and closeout — 2026-11-12
 
 The owner explicitly approved the consolidated official provider-source register, jurisdictional school-source matrix, task acceptance audit and documented limitations. S03-C09 (5%) is accepted; C01–C08 remain completed with limitations documented. M1-S03 is **Accepted — 100% weighted task completion** as a documentation/research baseline. This acceptance is not a complete national institution census, does not grant additional data-reuse rights and does not authorize source ingestion, scraping, implementation, production access, M1-S04 or M2. The Deeni Madaris requirement V2-DEC-006 remains unchanged: included in underlying provider scope, public visibility default OFF, with authorized configurable `Show Deeni Madaris` control.
+
+
+## PR #69 closeout delivery evidence — 2026-11-12
+
+PR [#69](https://github.com/mattari20/listing-v2/pull/69) merged as `4c6d076fef9d09a2900ca8e9e265ea6176ed5d6c`; exact head `c6120094139e2f2a7296fd4e59649928c0ddc161` passed required Project documentation validation (run [#43163951606](https://github.com/mattari20/listing-v2/actions/runs/43163951606)). M1-S03 is accepted and closed at 100% weighted task completion as a research baseline only.

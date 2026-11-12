@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-12
+**Last reconciled:** 2026-11-12 — M1-S03 owner acceptance closeout PR #69 recorded
 
 ## Purpose and maintenance rule
 
@@ -355,3 +355,8 @@ S03-C01 through S03-C08 are completed with limitations documented, for **95% wei
 
 - [M1-S03 Owner Acceptance Record](../03-research/M1_S03_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) — explicit owner approval of the 48-source official provider register, jurisdictional matrix, eight supplemental reviews, task audit and documented limitations. **Accepted — M1-S03 closed at 100% weighted task completion as a research baseline only.**
 - [M1-S03 Task Acceptance Evidence Audit](../03-research/M1_S03_TASK_ACCEPTANCE_EVIDENCE_AUDIT_2026-11-12.md) — updated to record C09 owner acceptance and 100% weighted completion; source coverage, freshness, privacy and reuse limitations remain open.
+
+
+## PR #69 — M1-S03 owner acceptance and closeout
+
+PR [#69](https://github.com/mattari20/listing-v2/pull/69) merged as `4c6d076fef9d09a2900ca8e9e265ea6176ed5d6c`. Exact PR head `c6120094139e2f2a7296fd4e59649928c0ddc161` passed required **Project documentation validation** (run [#43163951606](https://github.com/mattari20/listing-v2/actions/runs/43163951606)). The owner acceptance record, C09 acceptance, task audit, step register, progress report and master control are reconciled. M1-S03 is accepted at 100% weighted task completion as a research baseline only; no implementation or M1-S04 authorization is implied.
