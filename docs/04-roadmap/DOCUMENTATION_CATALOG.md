@@ -678,3 +678,12 @@ Historical T07/T08 and M3-00 pending labels above are superseded by the owner ac
 | [M3-01 Detailed Planning Evidence Pack](M3-01_DETAILED_PLANNING_EVIDENCE_PACK.md) | P01 baseline/dependency traceability; P02 first-slice options and exclusions; P03–P05 blocker matrix; P06 synthetic-only tests, CI, release and stop conditions | Delivered for owner review; P01/P02/P06 acceptance pending; no implementation authorized |
 
 This is a planning artifact only. No M3-01 weighted progress is claimed until task evidence is reviewed and accepted.
+
+
+## PR #122 — solo-founder model reconciliation (2026-11-12)
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-01 Solo Founder Build Model and P03 Decision](M3-01_SOLO_FOUNDER_BUILD_MODEL_AND_P03_DECISION_2026-11-12.md) | Records the Product Owner as sole human builder for the initial bounded build, ChatGPT as assistant, and future operating-team deferral | Delivered; owner decision recorded; implementation authorization not issued |
+
+PR [#122](https://github.com/mattari20/listing-v2/pull/122) passed required check `Validate project control documents` on exact head `877c19f0012e22f6be9c49f4cf84e349f156d578` and squash-merged as `0e144d5221943ff15fde13f8bb336451ef2b2a2a`. P03 is resolved for the bounded Candidate A planning model; this does not clear independent assurance or production gates.
