@@ -338,3 +338,9 @@ S03-C02 remains in progress. No access bypass, personal data collection, scrapin
 
 - [M1-S03 Jurisdictional School Authority Source Matrix](../03-research/M1_S03_JURISDICTIONAL_SCHOOL_SOURCE_MATRIX_2026-11-12.md) — source-by-source public/private school authority routes, data fields, geography, access/freshness/rights and gaps across seven provinces/territories plus ICT; **Delivered — review pending; S03-C02 in progress.**
 - [M1-S03 Official Government and Regulator Provider Source Register](../03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md) — updated with GOV-40 to GOV-42; **Updated — review pending.**
+
+
+## M1-S03 additional accreditation council review
+
+- [M1-S03 Additional Accreditation Council Review](../03-research/M1_S03_ADDITIONAL_ACCREDITATION_COUNCIL_REVIEW_2026-11-12.md) — HEC council map, NBEAC, NCH, PCATP, AHPC and NAEAC scope, status and register limitations; **Delivered — review pending; M1-S03 in progress.**
+- [M1-S03 Official Government and Regulator Provider Source Register](../03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md) — updated with GOV-43 to GOV-48; **Updated — review pending.**

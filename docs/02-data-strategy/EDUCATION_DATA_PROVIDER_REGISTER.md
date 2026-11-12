@@ -83,3 +83,8 @@ FDE and FGEI C/G are separate source families. FDE's 432-institution figure is a
 ## M1-S03 jurisdictional school-source matrix
 
 The source register now has a consolidated jurisdictional matrix for public/private school authorities across Punjab, Sindh, KP, Balochistan, ICT, AJK and GB. See `../03-research/M1_S03_JURISDICTIONAL_SCHOOL_SOURCE_MATRIX_2026-11-12.md`. GOV-40 to GOV-42 add Punjab PMIU/PEPRIS, Sindh private-school registration and KP public iEMIS/KPPSRA. All source reuse remains subject to specific permission; no owner/student/teacher personal data is collected.
+
+
+## M1-S03 additional accreditation council routes
+
+The official source register now includes HEC's accreditation-council map, NBEAC, NCH, PCATP, AHPC and NAEAC. Detailed scope and status limitations are in `../03-research/M1_S03_ADDITIONAL_ACCREDITATION_COUNCIL_REVIEW_2026-11-12.md`. AHPC's published list is applicant-only; no approval is inferred. NCH personal contacts are excluded; PCATP/NAEAC complete current programme registers remain unverified.
