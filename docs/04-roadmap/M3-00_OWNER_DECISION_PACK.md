@@ -167,3 +167,7 @@ Completing this pack does not select a stack, approve spending, authorize source
 
 ### T04 planning posture
 The budget framework is prepared in `M3-00_BUDGET_AND_COST_SCENARIOS.md`. Scenario A (no-new-spend planning) is the only currently permitted posture. Open-source/low-fixed-cost and managed-service scenarios are comparison cases only; numeric ceilings, dated quotes, taxes/FX and paid-service policy remain undecided. No paid evaluation, procurement or contract is authorized.
+
+
+### T05 technology decision status
+The [M3-00 Technology Stack Decision Framework](M3-00_TECHNOLOGY_STACK_DECISION_FRAMEWORK.md) consolidates candidate trade-offs, common evaluation criteria, conditional recommendations and blockers. No backend framework, database, search service, map/geocoder or queue provider is selected. The actual human implementer/maintainer skill profile remains unknown; no technical spike or installation is authorized.
