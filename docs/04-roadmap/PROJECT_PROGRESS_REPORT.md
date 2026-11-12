@@ -33,7 +33,7 @@
 ## Current M1 status
 - M1-S01 desk research and initial journey hypotheses are documented. The interview/survey kit is archived preparation material only. By owner direction, no student survey, interviews, recruitment or outreach will occur during construction. This is deferred, not completed or validated.
 - Ratings and written reviews are a post-launch V2 feature; visitors must log in/create an account to submit. Eligibility, moderation, privacy and age-related safeguards remain to be designed.
-- M1-S02 initial taxonomy research is documented in `docs/03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md`; the official source coverage matrix is now documented in `docs/03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md`. Sources identified include HEC, PMDC, PNMC, PCP, Punjab PEPRIS, KP-PSRA, Balochistan SED/EMIS and NAVTTC. Sindh, ICT, AJK and GB school-source coverage, non-formal and special education, source rights and freshness remain gaps. This is not a complete national inventory or final taxonomy.
+- M1-S02 initial taxonomy research is documented in `docs/03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md`; the official source coverage matrix is now documented in `docs/03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md`. Sources identified include HEC, PMDC, PNMC, PCP, Punjab PEPRIS, KP-PSRA, Balochistan SED/EMIS, Sindh SEMIS, ICT-PEIRA, GB EMIS and NAVTTC. AJK school-source coverage, non-formal and special education, and source rights/freshness/scope verification remain gaps. This is not a complete national inventory or final taxonomy.
 - Official/private provider research, source rights/freshness, programme/admissions research, independent software/dataset assessment and final data-agent/trust requirements remain outstanding.
 - Architecture and technology choices remain unapproved until M1 acceptance. No app code, database schema or migrations have been approved or started.
 
@@ -46,10 +46,13 @@ The initial desk-research synthesis is merged in `docs/03-research/M1_STUDENT_JO
 The owner confirmed that ratings and written reviews belong in the V2 product model. Visitors must log in/create an account to submit them, intended after launch. This is a product feature, not a pre-launch survey. Detailed eligibility, moderation, privacy and age-safeguard design remains outstanding.
 
 ## M1-S02 status
-An initial independent taxonomy baseline is documented in `docs/03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md`; an official source coverage matrix is documented in `docs/03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md`. The matrix identifies HEC, PMDC, PNMC, PCP, Punjab PEPRIS, KP-PSRA, Balochistan SED/EMIS and NAVTTC source families. It records major coverage gaps for Sindh, ICT, AJK, GB, non-formal education and special education. Source access, rights, status semantics and update cadence remain unverified. It is not a final taxonomy or comprehensive inventory.
+An initial independent taxonomy baseline is documented in `docs/03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md`; an official source coverage matrix is documented in `docs/03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md`. The matrix identifies HEC, PMDC, PNMC, PCP, Punjab PEPRIS, KP-PSRA, Balochistan SED/EMIS, Sindh SEMIS, ICT-PEIRA, GB EMIS and NAVTTC source families. AJK remains an unresolved school-source gap; non-formal and special education also need source discovery. Source access, rights, status semantics and update cadence remain unverified. It is not a final taxonomy or comprehensive inventory.
 
 ## Next authorized step
 Continue M1-S02 by closing the documented jurisdiction and sector gaps, verifying source status/update semantics and assessing rights/access for each source. Do not ingest data, activate connectors or begin architecture/technology selection before the relevant approvals and M1 acceptance.
+
+## PR #12 evidence
+PR #12 added the official institution source coverage matrix and weighted M1-S02 task breakdown. Its exact head `ca5f28e2edeb3ccd6088d4cdacad8a5440aaea90` passed the required documentation check (run #43138431960) and merged as `6646889954e20bab95a33d92f6bb2abab266ec59`.
 
 ## PR #11 evidence reconciliation
 PR #11 merged as `e39137e14f152fa82fe2acb284a631cb84438998`. Its exact head `b11e03020a46269d9b04674822182933c569082e` passed the required `Validate project control documents` check (run #43136568996). The merge reconciled PR #10 evidence and clarified that primary student research is deferred during construction.
