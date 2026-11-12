@@ -135,3 +135,7 @@ AJK now has an official 6,019-school dashboard aggregate and distinct public/pri
 ## 15. Sindh private-school and KP registration status synthesis — 2026-11-12
 
 Sindh private-school registration through DIRPIS/SPEI-EMIS is a separate provider stream from the public-school institution checker; older official criteria/TOR documents describe registered and unregistered providers and an explicit need for data updating, so current completeness remains unproven. KPPSRA's district register distinguishes ACTIVE, BLOCKED, DORMANT and CLOSED providers; these states must not be flattened to a binary active flag. Province-wide coverage requires all district routes and update scope verification. See the AJK/GB/Sindh school-register review.
+
+## 16. School regulator status and source-terms synthesis — 2026-11-12
+
+KPPSRA's current portal and 2026–27 notices establish active regulation of private schools, including registration/renewal and BISE de-affiliation notices; preserve registration separately from board affiliation. Sindh DIRPIS October 2026 safety notices are current regulatory activity, not a complete private-school register; older census documentation notes registered/unregistered providers and data-update needs. HEC Digital Library publisher-license terms are scoped to subscribed resources, not HEC institution directories. NAVTTC's 650+ accredited, 900+ quality-assured and 3,500+ ecosystem claims have different/unclear scopes and cannot be used as a single count. See `M1_S02_SCHOOL_REGULATOR_STATUS_TERMS_REVIEW_2026-11-12.md`.
