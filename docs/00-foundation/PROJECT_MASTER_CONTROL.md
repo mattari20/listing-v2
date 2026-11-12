@@ -59,6 +59,9 @@ Expanded source verification and national synthesis are documented in the covera
 ## M1-S02 owner decision pending
 PR #27 completed the current expanded desk-research/documentation pass and merged as `180a6cc19195362caabc3a029dc54c4cc5fc01da`; exact head `8890198905204d07e84c9825ce58b524b7ac27f7` passed required documentation validation (run #43147371049). The owner acceptance pack is `../03-research/M1_S02_OWNER_ACCEPTANCE_REVIEW.md`. M1-S02 remains In progress until the owner explicitly chooses whether to accept the research baseline with limitations carried forward or keep the step open. No source is approved for collection, manual verification, ingestion, republication or commercial reuse. M2 remains unauthorized.
 
+## Latest M1-S02 review state
+PR #28 merged as `2254d52f8799c137ad64e0c28502913453e6d218`; exact head `bbf694ed0d7e372b3e8d4c754b29e3773adbb9c4` passed required documentation validation (run #43147548460). The research package and owner acceptance review are complete as documentation deliverables. M1-S02 remains in progress pending the owner's explicit S02-C09 decision recorded in `../03-research/M1_S02_OWNER_ACCEPTANCE_REVIEW.md`. All candidate sources remain research-only. Do not begin M1-S03 until the owner resolves this acceptance gate; do not begin M2 or implementation.
+
 ## Completion status
 M0 is accepted and closed. Future milestones require their own evidence-based acceptance and closeout.
 
