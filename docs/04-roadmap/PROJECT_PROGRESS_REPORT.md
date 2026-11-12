@@ -522,3 +522,10 @@ The owner authorized joint documentation work on M2-S04, M2-S05 and M2-S06. Thei
 Weighted M2 progress is **62.0%**: S00 5% + S01 8% + S02 12% + S03 12% + S04 8% + S05 10.2% + S06 6.8%. S04-S06 are draft deliverables, not accepted/closed.
 
 No framework, database, search service, map/geocoder or hosting vendor is selected. No spend, procurement, source access/copying/ingestion, connector activation, physical schema, application code, production access, deployment, cutover or legacy V1 interaction is authorized. V2-DEC-006 and all M1 G01-G20 controls remain binding.
+
+
+## PR #93 exact-head validation and merge evidence — 2026-11-12
+
+PR [#93](https://github.com/mattari20/listing-v2/pull/93) recorded the owner's acceptance and closure of S02/S03 and delivered the coordinated S04/S05/S06 architecture documentation. Exact PR head `17a77885eca53fd1a8c8d3d516f26741d10fc39a` passed required **Project documentation validation** (workflow run [#43189688854](https://github.com/mattari20/listing-v2/actions/runs/43189688854)); job `Validate project control documents` and all steps completed successfully. PR #93 was squash-merged as `4a100030a2ea491b0061ac80a543f723b03fdea4`.
+
+S02 and S03 are Accepted and Closed at 100%. S04 remains 80%, S05 85% and S06 85% pending their separate owner-review/decision gates. Weighted M2 progress is 62.0%. CI and merge establish delivery and documentation validation, not owner acceptance of S04-S06.

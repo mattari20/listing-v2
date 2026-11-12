@@ -22,7 +22,7 @@ Build a student-first education discovery, admissions information and comparison
 The Documentation Completion Catalogue is the owner-facing inventory of delivered, updated, accepted and planned documents. A merged PR records delivery, not automatic content acceptance. Every documentation PR update and merge must reconcile the catalogue, index, controller, step register, traceability and progress report.
 
 ## Current milestone
-**M1 — Student requirements and independent research**
+**M2 — Architecture and Design**
 
 ## M0 closeout
 M0 was accepted after review of the founding controls, strict legacy non-interference boundary, project planning records, repository rules and the PR delivery workflow. Evidence is recorded in the catalogue, progress report and traceability matrix. M0-S02 acceptance is limited to the documented metadata-only exclusion audit; it is not an exhaustive inventory of the legacy repository. Repository auto-merge is enabled, but automatic merge execution has not yet been independently demonstrated. Production access, deployment and cutover remain unauthorized.
@@ -407,3 +407,10 @@ The owner explicitly accepted M2-S02 and M2-S03 as the conceptual domain and log
 The owner authorized joint documentation work on M2-S04 Technology Stack Evaluation, M2-S05 Data Architecture/Provenance/Publication Governance and M2-S06 Search/Discovery/Geography Architecture. Their coordinated package and separate owner-review gates are documented in ../05-architecture/M2-S04-S06_JOINT_VALIDATION_AND_OWNER_REVIEW.md.
 
 Current task completion: S04 80%, S05 85%, S06 85%; T05 owner-review/decision gates remain pending. Weighted M2 progress is 62.0%. The work remains documentation and research only. No technology/vendor selection, procurement/new spend, source access/copying/ingestion, connector activation, physical schema, application code, production access, deployment or cutover is authorized. No legacy V1 artifact may inform design. V2-DEC-006 and all M1 G01-G20 restrictions remain binding.
+
+
+## PR #93 exact-head validation and merge evidence — 2026-11-12
+
+PR [#93](https://github.com/mattari20/listing-v2/pull/93) recorded the owner's acceptance and closure of S02/S03 and delivered the coordinated S04/S05/S06 architecture documentation. Exact PR head `17a77885eca53fd1a8c8d3d516f26741d10fc39a` passed required **Project documentation validation** (workflow run [#43189688854](https://github.com/mattari20/listing-v2/actions/runs/43189688854)); job `Validate project control documents` and all steps completed successfully. PR #93 was squash-merged as `4a100030a2ea491b0061ac80a543f723b03fdea4`.
+
+S02 and S03 are Accepted and Closed at 100%. S04 remains 80%, S05 85% and S06 85% pending their separate owner-review/decision gates. Weighted M2 progress is 62.0%. CI and merge establish delivery and documentation validation, not owner acceptance of S04-S06.
