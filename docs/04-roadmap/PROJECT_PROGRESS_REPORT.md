@@ -312,3 +312,10 @@ S03-C03 remains in progress pending current programme/batch validity, source own
 A consolidated jurisdictional source matrix now records public and private school authorities across Punjab, Sindh, KP, Balochistan, ICT, AJK and GB. It distinguishes PMIU from PEPRIS, Sindh's public checker from private DIRPIS, role-based KP public iEMIS from KPPSRA private registers, Balochistan government/private/BEF/ALP layers, FDE from PEIRA, AJK E&SE/EMIS/PEIRA and GB EMIS/college routes. It preserves access/freshness/rights limitations and does not treat aggregate counts as complete registers. Full matrix: `docs/03-research/M1_S03_JURISDICTIONAL_SCHOOL_SOURCE_MATRIX_2026-11-12.md`.
 
 S03-C02 remains in progress pending task audit. No scraping, bulk download, source-owner contact, permission request, login/access bypass, ingestion, implementation or production access is authorized.
+
+
+## M1-S03 additional accreditation-council research — 2026-11-12
+
+The professional regulator source register now covers HEC's accreditation-council map, NBEAC, NCH, PCATP, AHPC and NAEAC in addition to PMDC, PCP, PNMC, NCEAC, NACTE, PEC, NTC, PVMC and PBC. Key gaps are explicit: AHPC's dated list is for applicants only, NCH's recognized-college page lacks clear current status and contains personal contacts, PCATP's current programme register is incomplete/undated in the reviewed route, and NAEAC's public evaluator guidance does not establish a current accredited-programme list. Full note: `docs/03-research/M1_S03_ADDITIONAL_ACCREDITATION_COUNCIL_REVIEW_2026-11-12.md`.
+
+S03-C03 remains in progress pending task audit. All sources remain RESEARCH ONLY; no personal contact data, scraping, bulk download, source-owner contact, permission request, ingestion or implementation is authorized.
