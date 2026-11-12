@@ -318,3 +318,10 @@ PR [#44](https://github.com/mattari20/listing-v2/pull/44) delivered KPPSRA/Sindh
 AJK E&SE currently publishes a homepage aggregate of 6,019 schools, but no as-of date or public record-level register was verified. Its private-institution list announcement dated 5 November 2025 links to a Google Drive file that prompts sign-in; EMIS and PEIRA are authenticated routes. AJK HED publishes separate degree, inter and education college lists, while its functions and overview pages report 180 versus 178 colleges. These differences remain unresolved. Full details: `docs/03-research/M1_S03_AJK_EDUCATION_SOURCE_REVIEW_2026-11-12.md`.
 
 S03-C02 remains in progress. No login, access bypass, download, source-owner contact, permission request, scraping, ingestion, implementation or production access is authorized.
+
+
+## M1-S03 federal data and examination-board research — 2026-11-12
+
+The federal-source register now includes PIE/NEMIS source lineage, Pakistan Education Statistics 2024, historical Deeni Madaris Wafaq reporting and FBISE affiliated institutions. The 2024 report notes that private-college data are not maintained by most provincial/regional departments except Punjab and KP; the 2021–22 report says some Wafaqs supplied repeated rather than actual current-year data; FBISE's 3,315 displayed records are examination-board affiliations across multiple jurisdictions and overseas locations, not a complete unique provider census. Full findings: `docs/03-research/M1_S03_FEDERAL_DATA_FBISE_SOURCE_REVIEW_2026-11-12.md`.
+
+S03-C01 remains in progress. No scraping, bulk download, source-owner contact, permission request, ingestion, implementation, database/schema changes or production access is authorized.
