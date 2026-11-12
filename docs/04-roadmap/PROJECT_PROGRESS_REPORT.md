@@ -228,3 +228,8 @@ A further pass strengthened school-source coverage: AJK's official dashboard agg
 ## PR #42 — national data-rights and privacy review
 
 PR #42 merged as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a42418ee0176f3fad6ad63e0220f1978c8b` passed required Project documentation validation (run #43154673045). It documented draft policy/Bill status, RTI access versus reuse, copyright and the scoped PBS open-license example. It does not grant reuse rights to education directories.
+
+
+## M1-S02 Sindh private-school and KPPSRA status clarification — 2026-11-12
+
+The AJK/GB/Sindh school review has been expanded with Sindh's separate DIRPIS/SPEI-EMIS private-school registration/census stream (older official documentation notes registered and unregistered providers and a need for data updating) and KPPSRA's district register statuses ACTIVE, BLOCKED, DORMANT and CLOSED. These status values must be retained, and district-level results do not prove province-wide completeness. Source rights and current freshness remain unverified.
