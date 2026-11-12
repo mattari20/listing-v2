@@ -94,6 +94,9 @@ PR #29 merged as `8e88443a9d7da11fb1414774ad4766256033d16c`; exact head `52ed405
 ## PR #30 evidence reconciliation
 PR #30 merged as `3553d75a5afd84e8fcfab372324342f7acad7456`; exact head `4ca9d571206072064294f7fb163584db174669f8`; required `Project documentation validation` passed (run #43147756202). It repaired the S02 task register's Markdown table structure without changing weights or status decisions, and reconciled PR #29.
 
+## PR #31 evidence reconciliation
+PR #31 merged as `63d9386a8d93a12cb3f609480f6d101b890bade0`; exact head `1f92b1d2c1021b3a2dc93ad9f00e8082b7158b2a`; required `Project documentation validation` passed (run #43147833542). Final verification confirmed the S02 task table has four columns on each of nine rows and weights total 100%.
+
 ## Documentation catalogue maintenance
 
 `DOCUMENTATION_CATALOG.md` is the owner-facing inventory for documentation delivery and acceptance. Reconcile it on every documentation PR update and merge. Keep delivery status separate from content acceptance; update PR/head/check/merge evidence and links.
