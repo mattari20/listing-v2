@@ -246,3 +246,6 @@ PR [#41](https://github.com/mattari20/listing-v2/pull/41) reconciled PR #40 deli
 ## PR #42 national rights/privacy review delivery
 
 PR [#42](https://github.com/mattari20/listing-v2/pull/42) delivered the national data-rights, RTI, copyright and privacy review. Exact head `80a85a42418ee0176f3fad6ad63e0220f1978c8b` passed required **Project documentation validation** (run [#43154673045](https://github.com/mattari20/listing-v2/actions/runs/43154673045)); merge commit `a6b35abcb091965f90e492e36378750b2f20ebad`. The review is policy context, not legal advice or source-specific clearance.
+
+
+The AJK/GB/Sindh school-register supplement also records Sindh DIRPIS/SPEI-EMIS private-school registration and KPPSRA district-level ACTIVE/BLOCKED/DORMANT/CLOSED status semantics.
