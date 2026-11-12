@@ -444,3 +444,10 @@ The design-level T05 reviews for S07 threat/cost/failure, S08 security/cross-ste
 PR [#96](https://github.com/mattari20/listing-v2/pull/96) delivered the S04-S06 owner acceptance record, S07-S10 architecture package and project-control reconciliation. Exact PR head 0ffa6b4ecad567457af79a4846dd1a03d41af954 passed the required **Project documentation validation** workflow (run [#43191493502](https://github.com/mattari20/listing-v2/actions/runs/43191493502)); the Validate project control documents job and all steps completed successfully. PR #96 was squash-merged as 3df10565711e66ff21bb6afb3a7917bf5deb7e99.
 
 S04-S06 are accepted/closed at 100%; S07-S09 design tasks are complete at 100%; S10 remains 80% pending explicit final owner acceptance. Weighted M2 design progress is 98.6%. CI and merge verify delivery and documentation validation, not final M2 owner acceptance or M3 implementation authorization.
+
+
+## M2 final owner acceptance and closure — 2026-11-12
+
+The owner explicitly accepted S07-S10 and the integrated M2 architecture baseline. M2 is **100% complete, Accepted and Closed**. Formal record: ../05-architecture/M2_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md. Final report: ../05-architecture/M2_FINAL_PROGRESS_AND_CLOSEOUT_REPORT_2026-11-12.md.
+
+All S00-S10 weighted contributions total 100.0%. Unresolved stack, hosting, model, source, legal, privacy, review and operational decisions remain carried forward. M3-00 Mobilization and Decision Closure is the recommended next milestone. Application implementation remains gated on separate explicit M3 start authorization. No source retrieval/ingestion, procurement, production access, deployment, launch or URL cutover is authorized by M2 acceptance.
