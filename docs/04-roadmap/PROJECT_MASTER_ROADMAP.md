@@ -28,3 +28,8 @@ All milestones are planned outcomes. Step-level scope and acceptance criteria ar
 
 ## M1 closeout decision — 2026-11-12
 M1 is formally accepted and closed as a research/documentation milestone. M2 remains Planned and requires separate explicit owner authorization; this closeout does not authorize implementation.
+
+
+## M1 final closeout delivery evidence — 2026-11-12
+
+PR [#83](https://github.com/mattari20/listing-v2/pull/83) recorded owner acceptance of S10 and M1 closure. Exact PR head `30d5c7ecfc929cd680c3da8d076774904ec2d67a` passed Project documentation validation (run [#43175799695](https://github.com/mattari20/listing-v2/actions/runs/43175799695)); merged as `af88a88693e66e9fb0a459d14ba1028e5fd3f97d`. M1 is Accepted and Closed. M2 remains Planned and requires separate explicit owner authorization.
