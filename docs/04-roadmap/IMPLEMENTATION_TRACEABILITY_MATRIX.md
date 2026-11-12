@@ -183,3 +183,7 @@ PR #42 merged as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a4
 ## M1-S02 private-school register status evidence — 2026-11-12
 
 Sindh DIRPIS/SPEI-EMIS and KPPSRA district registers strengthen S02-C04 private-provider coverage and status semantics. Sindh census freshness and KP district completeness remain unresolved; no source reuse permission is inferred.
+
+## PR #42 data-rights/privacy delivery evidence
+
+PR #42 merged as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a42418ee0176f3fad6ad63e0220f1978c8b` passed required Project documentation validation (run #43154673045). It improves S02-C07 evidence but does not establish source-specific legal clearance.
