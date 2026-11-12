@@ -68,9 +68,9 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 | S02-C01 Taxonomy and entity distinctions | 15% | Owner-reviewed categories and provider/campus/programme/regulator/affiliation distinctions | In progress — initial proposal delivered in PR #10 |
 | S02-C02 Higher-education and campus sources | 10% | Current HEC institution, campus and affiliated-college scope verified with limitations | In progress — source families identified; detailed verification remains |
 | S02-C03 Professional council sources | 15% | Current PMDC, PNMC, PCP and other relevant council status semantics documented | In progress — PMDC, PNMC and PCP sources identified; more councils and status checks remain |
-| S02-C04 School-source jurisdiction coverage | 15% | Official source register across provinces/territories, public/private scope and geography gaps | In progress — Punjab, KP, Balochistan, Sindh, ICT and GB sources identified; AJK gap remains; scope/freshness/rights verification pending |
+| S02-C04 School-source jurisdiction coverage | 15% | Official source register across provinces/territories, public/private scope and geography gaps | In progress — source families identified for all provinces/territories; complete coverage and public/private scope verification remain |
 | S02-C05 TVET and awarding relationships | 10% | NAVTTC, provincial TEVTAs, boards, assessment and awarding-body map | In progress — initial sources identified; provincial verification remains |
-| S02-C06 Non-formal and special education | 10% | Official provider-source inventory and explicit coverage gaps | Not started |
+| S02-C06 Non-formal and special education | 10% | Official provider-source inventory and explicit coverage gaps | In progress — BECS/ALP and NFEMIS source families identified; special-education directories and scope verification remain |
 | S02-C07 Source rights and access | 10% | Terms, licenses, permission, access method, update cadence and privacy assessment for each source | Not started |
 | S02-C08 National coverage synthesis | 10% | Reviewed coverage matrix, unresolved gaps and source-quality assessment | Not started |
 | S02-C09 Owner review and step acceptance | 5% | Owner-reviewed taxonomy and coverage acceptance record; no ingestion implied | Not started |
