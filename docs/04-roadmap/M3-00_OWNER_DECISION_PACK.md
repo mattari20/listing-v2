@@ -34,7 +34,8 @@ One person may cover multiple roles only where capability and separation-of-duti
 - External specialist coverage: **Qualified legal, privacy and security specialists may be identified/engaged when needed; no engagement, procurement or spend is authorized by this decision.**
 - Named human implementers/maintainers and independent reviewers: **Pending confirmation.**
 - Skills already available and gaps: **Pending assessment.**
-- Expected weekly capacity: **Pending owner input.**
+- Owner's available project time: **10–15 hours per week — confirmed by owner on 2026-11-12. This is owner decision/review and project participation time, not a claim of 10–15 engineering hours or a staffed development team.**
+- Other human team capacity and named implementer/maintainer availability: **Pending confirmation.**
 - Preferred review/approval cadence: **Pending owner input.**
 
 ## 3. Budget and cost ceiling
@@ -147,7 +148,7 @@ Record only confirmed decisions. A decision can be deferred with rationale and n
 | Decision ID | Owner decision | Rationale/evidence | Date |
 |---|---|---|---|
 | M3-D01 Delivery model and roles | Owner-led; user is Product Owner/final decision-maker; ChatGPT provides step-by-step technical assistance; qualified specialists may be engaged for legal/privacy/security review when needed. Named human implementers, maintainers and reviewers remain pending. | Owner confirmation in this conversation, 2026-11-12; human staffing/capability gaps still to be identified | 2026-11-12 |
-| M3-D02 Capacity and availability | Pending | Pending | Pending |
+| M3-D02 Capacity and availability | Owner availability: 10–15 hours per week for project decisions, review and participation. Other human delivery capacity and detailed review cadence remain pending. | Owner confirmation in this conversation, 2026-11-12; availability does not imply engineering staffing or authorize spend | 2026-11-12 |
 | M3-D03 Budget and spend ceiling | Pending | Pending | Pending |
 | M3-D04 Technology stack | Pending | Pending | Pending |
 | M3-D05 Hosting provider/region | Pending | Pending | Pending |
