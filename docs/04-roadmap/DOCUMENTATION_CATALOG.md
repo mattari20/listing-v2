@@ -221,3 +221,8 @@ PR [#39](https://github.com/mattari20/listing-v2/pull/39) delivered the ICT PEIR
 ## HEC affiliation and programme-status supplement
 
 The [M1-S02 Examination Boards, PMF and DGRE Jurisdiction Review](../03-research/M1_S02_EXAMINATION_BOARDS_PMF_DGRE_JURISDICTION_REVIEW_2026-11-12.md) also documents HEC Institutional Affiliation Policy 2024, approved study-centre scope, affiliate-college data-quality issues and PM&DC/PCP/PNMC programme-status/freshness distinctions.
+
+
+## PR #40 examination-board/PMF/DGRE delivery evidence
+
+PR [#40](https://github.com/mattari20/listing-v2/pull/40) delivered the examination-board, Punjab Medical Faculty, DGRE jurisdiction and HEC affiliation/study-centre research. Final exact head `cc2cc7eaa615e4fe762f808e51918b6b10b5e235` passed required **Project documentation validation** (run [#43154387281](https://github.com/mattari20/listing-v2/actions/runs/43154387281)); merge commit `c92d96613dcb510762be5a0a615a73e856861f9b`. Delivery does not complete S02 or approve source reuse.
