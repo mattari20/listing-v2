@@ -463,3 +463,10 @@ M2 weights: S00 5%, S01 8%, S02 12%, S03 12%, S04 10%, S05 12%, S06 8%, S07 10%,
 M2-S00 baseline reconciliation and architecture documentation controls are complete at 100% task completion. PR [#85](https://github.com/mattari20/listing-v2/pull/85) merged as `17a2e3ad43ba1fd5ca3cb7a163670a2f19dd3783`. Exact PR head `650f5dfe11b9f1f76c2c005c3914186a8c41e23b` passed the required Project documentation validation workflow (run [#43180488082](https://github.com/mattari20/listing-v2/actions/runs/43180488082)).
 
 M2 weighted progress: S00 contributes 5% of the milestone (S00 100%). M2-S01 is the next step. This is documentation/design progress only; no implementation or production action is authorized.
+
+
+## M2-S01 draft package — 2026-11-12
+
+M2-S01 is in progress. The initial system requirements/boundary specification, logical system context and quality-scenario documents have been drafted. AR-001–AR-025 map the accepted M1 student requirements and owner decisions to architecture obligations. Twenty quality scenarios cover privacy/location denial, source rights, human review, Deeni Madaris default-OFF, low-bandwidth/accessibility, degraded operation and recovery.
+
+S01 task progress: T01–T04 drafted (80%); T05 review/validation pending. S01 is not accepted. Numeric performance, availability, capacity, RPO/RTO and cost targets are deliberately deferred to M2-S09 rather than invented before scale and budget analysis. The proposed WCAG 2.2 AA design target requires owner acceptance and later audit.
