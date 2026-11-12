@@ -177,3 +177,7 @@ PR #42 merged as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a4
 ## M1-S02 school regulator and terms research — 2026-11-12
 
 KPPSRA registration/renewal versus BISE affiliation, Sindh DIRPIS safety notices versus complete register, HEC Digital Library publisher license scope and NAVTTC aggregate count scope are now documented. Full evidence is in `../03-research/M1_S02_SCHOOL_REGULATOR_STATUS_TERMS_REVIEW_2026-11-12.md`. S02-C04/C05/C07/C08 remain active; S02-C09 owner-only.
+
+## PR #43 latest school-source delivery — 2026-11-12
+
+PR #43 merged as `a8dfd8018fa33588a4d35166c953b18f89e39c43`; final exact head `56923aca98123dce6b8a574e0cf9f9c244b036b4` passed required Project documentation validation (run #43155004215). AJK/GB/Sindh/Punjab school-source evidence is incorporated; M1-S02 remains active and owner acceptance remains pending.
