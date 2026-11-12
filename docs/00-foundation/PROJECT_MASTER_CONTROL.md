@@ -44,6 +44,9 @@ At the beginning of every work session, the AI must:
 
 At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. M1-S01 desk research and initial journey hypotheses are delivered; primary participant research is explicitly deferred by owner and is not an active construction task. M1-S02 remains active. Its source-rights register now records dated public-terms/freshness reviews for HEC, PM&DC, PNMC, KP-PSRA, ICT-PEIRA and Sindh RSU/SEMIS; the TVET/QAB map distinguishes provider, affiliation, awarding, assessment and accreditation relationships. No directory-specific reuse permission was established and all sources remain research-only. Continue with M1-S02 coverage, status/freshness and rights verification. The 2026-11-12 NAVTTC follow-up distinguishes production TIS/NSIS/NVQF discovery routes from institute registration and NAC-TVS accreditation; NAVTTC states three-year accreditation validity and a six-month pre-expiry renewal window. No directory-specific reuse permission was established; all TVET sources remain research-only. PR #22 delivered this NAVTTC clarification and merged as `2faeba2ba7637a6b4972079d5de3be2b56a7a5dd` after exact-head documentation validation passed (run #43145057750).
 
+## Latest documentation delivery evidence
+PR #23 reconciled PR #22's NAVTTC research update across the catalogue, progress report and traceability. Exact head `737ec6838dc85d4ba1becc600af661d998074c0a` passed required documentation validation (run #43145140802); merge commit `2a94f8caced03142fee56c5b6e6fc1afa2f6df65`. M1-S02 remains active; no source has been approved for reuse or ingestion.
+
 ## Completion status
 M0 is accepted and closed. Future milestones require their own evidence-based acceptance and closeout.
 

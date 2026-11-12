@@ -58,6 +58,9 @@ PR #22 merged as `2faeba2ba7637a6b4972079d5de3be2b56a7a5dd`; exact head `773c4c2
 ## 2026-11-12 NAVTTC registration/accreditation clarification
 The production NAVTTC site links TIS, NSIS and NVQF Registry; separate official pages describe institute registration and NAC-TVS accreditation. NAVTTC's accreditation process page states three-year validity, renewal application at least six months before expiry and a 700/1000 minimum assessment score. These are distinct claims and must not be collapsed into a single provider-recognition status. The registration workflow requests sensitive institutional/individual documentation; such material is excluded from public institution discovery. Punjab TEVTA's RTI page is an access-to-information route, not a blanket reuse license. No directory-specific reuse permission was established; all sources remain research-only. Sources: https://navttc.gov.pk/; https://navttc.gov.pk/accreditation-process/; https://reg.navttc.gov.pk/; https://tms.navttc.gov.pk/nsis/institute_help/info; https://tevta.gop.pk/right-to-information/.
 
+## PR #23 evidence reconciliation
+PR #23 merged as `2a94f8caced03142fee56c5b6e6fc1afa2f6df65`; exact head `737ec6838dc85d4ba1becc600af661d998074c0a`; required `Project documentation validation` check passed (run #43145140802). It reconciled PR #22 merge evidence in the catalogue, progress report and controller. M1-S02 remains in progress.
+
 ## Documentation catalogue maintenance
 
 `DOCUMENTATION_CATALOG.md` is the owner-facing inventory for documentation delivery and acceptance. Reconcile it on every documentation PR update and merge. Keep delivery status separate from content acceptance; update PR/head/check/merge evidence and links.
