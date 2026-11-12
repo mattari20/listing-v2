@@ -112,3 +112,8 @@ The second supplemental review adds PCATP programme-state evidence; NCT FTJ/BEMS
 ## PR #35 final reconciliation evidence — 2026-11-12
 
 PR #35 reconciled PR #34 and merged as `0cb1c8cf1dba9fb0b90b1fa8bda16123d57c65f6`; exact head `48626561f492c03baab9ce72fb79e7a24a01640f` passed required Project documentation validation (run #43152199340). No task weights or acceptance states changed.
+
+
+## PR #36 delivery evidence — 2026-11-12
+
+PR #36 merged the professional-council and special-education supplement as `c0a5e0cc743336610b0eef5d5e56fde5406d92db`; exact head `fb629563b395a29b4d02df443acaa63c4cd38f01` passed required Project documentation validation (run #43152421589). S02-C03/C06/C07 remain In progress; S02-C09 remains Not started pending explicit owner approval. Task weights are unchanged.
