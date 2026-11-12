@@ -320,3 +320,12 @@ Upon S10 acceptance, M1 may be marked Accepted and Closed and M2 architecture/de
 PR [#81](https://github.com/mattari20/listing-v2/pull/81) delivered the S08/S09 owner-acceptance record and M1-S10 final synthesis package. Exact PR head `5d421241b2e643fb8291ff9f183aaa3205005a89` passed required **Project documentation validation** (run [#43175231085](https://github.com/mattari20/listing-v2/actions/runs/43175231085)); the `Validate project control documents` job and all steps completed successfully. PR #81 was squash-merged as `8ab22c7b2ca759db741660fbafd6a0c36edcce6d`.
 
 S08 and S09 are accepted and closed at 100% weighted task completion each. S10 is delivered at 95%; its final 5% owner-acceptance task remains pending. M1 is therefore **Ready for final owner acceptance, not yet formally closed**. No M2 work or implementation is authorized by this merge.
+
+
+## Authoritative update — M1-S10 accepted; M1 closed (2026-11-12)
+
+The owner explicitly accepted the final M1-S10 synthesis and authorized closure of M1. Formal record: `../03-research/M1_S10_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. S10-T10 is accepted; S10 is 100% and Accepted and Closed. All M1 steps S01–S10 are now accepted and closed. **M1 is formally Accepted and Closed as a research/documentation milestone.**
+
+G01–G20 and all limitations remain carried forward; acceptance is not a waiver of rights, privacy, quality or product-policy controls. V2-DEC-006 remains binding (Deeni Madaris public visibility defaults OFF); primary participant research remains deferred during construction; reviews remain post-launch; unapproved external sources and third-party software/data remain RESEARCH ONLY. No source collection/ingestion, connector or agent activation, application implementation, database/schema change, production access, deployment or URL cutover is authorized.
+
+M2 architecture/design is **Planned, not started**. It requires separate explicit owner authorization. Application implementation remains prohibited until M2 is completed and separately accepted.
