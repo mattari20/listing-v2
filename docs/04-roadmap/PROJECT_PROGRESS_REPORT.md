@@ -197,3 +197,7 @@ PR [#38](https://github.com/mattari20/listing-v2/pull/38) merged as `a38fa149d10
 A further review added IBCC's BISE/technical/other board roster, Punjab HED's nine BISE network, Punjab Medical Faculty's separate public/private affiliated-institute lists, and DGRE's district jurisdiction map plus regional Madaris pages for Islamabad, Sindh, KP, Balochistan, AJK and GB. The surfaced DGRE registers share a 26 March 2024 date and contain record-level anomalies (including cross-province address/district text and incomplete rows), so they are not a current verified census. Board membership, examination jurisdiction, institution affiliation, provider registration, programme accreditation and qualification equivalence remain separate relationships. Details are in docs/03-research/M1_S02_EXAMINATION_BOARDS_PMF_DGRE_JURISDICTION_REVIEW_2026-11-12.md.
 
 S02-C01/C03/C05/C07/C08 remain in progress; S02-C09 remains owner-only. All sources remain research-only.
+
+## PR #39 — ICT PEIRA, Deeni Madaris and IBCC QAB research
+
+PR [#39](https://github.com/mattari20/listing-v2/pull/39) merged as `0ace505ec67a420b8c2eb8fedd13ba1a2499f84c`; exact head `cf4d54967cad1f2114cd1f43dfccec5184d1b759` passed required Project documentation validation (run #43154066994). It added ICT PEIRA status/registration evidence, DGRE Madaris registration family and IBCC QAB/equivalence distinctions. No owner acceptance or source reuse is inferred.
