@@ -636,3 +636,12 @@ PR #109 exact head `746cc0f89df2716fd5a2170bf17d95697f471ff2` passed Project doc
 | [M3-00 T07 Legal, Privacy, Source-Rights and Security Gate Register](M3-00_T07_LEGAL_PRIVACY_SOURCE_RIGHTS_SECURITY_GATES.md) | Twelve deny-by-default gates covering applicable law, source rights, privacy, minors, security, AI, supply chain, vendors, publication and operations; defines reviewer roles, no-go conditions and completion evidence | Delivered — review pending; no qualified reviewer assigned and no source/vendor/service approved |
 
 This delivery is a control framework only. It is not legal advice, a privacy impact assessment, security certification, source permission or authorization to access/collect data, activate services, procure, implement or deploy.
+
+
+## M3-00 T08 delivery — 2026-11-12
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-00 T08 Implementation Scope, Test/Release Governance and M3-01 Authorization Pack](M3-00_T08_IMPLEMENTATION_SCOPE_TEST_RELEASE_AUTHORIZATION_PACK.md) | M3-01 readiness inputs, dependency-oriented backlog, Definition of Ready, test/evidence contract, CI/review rules, release/rollback controls and unissued authorization record | Delivered — review pending; staffing, T02–T07 decisions/evidence and exact implementation scope remain open; no implementation authorization |
+
+The T08 pack is planning documentation only. It does not authorize coding, technical spikes, production/source access, schema changes, procurement, spend, deployment, pilot or launch.
