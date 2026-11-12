@@ -78,3 +78,14 @@ Official source routes for NAVTTC QABs, Punjab TEVTA/PSDA/TTB, Sindh STEVTA, KPT
 - **Accountability boundary:** ChatGPT assistance does not create an independently accountable engineering, security, legal or operations function. Named human implementers/maintainers, QA ownership, production operations ownership and independent reviewers must still be confirmed before M3-00 can close and before M3-01 can authorize implementation.
 - **Consequences:** This is an owner-led delivery model, not approval to hire, contract, procure, spend, activate services, access production, or begin application coding. Capacity and budget remain undecided. All existing M3 authorization gates remain binding.
 - **Review trigger:** Revisit if named human capability coverage cannot safely support implementation, maintenance, security assurance or operations.
+
+
+## M3-DEC-002 — Owner weekly project availability
+
+- **Date:** 2026-11-12
+- **Status:** Confirmed by owner; broader delivery capacity remains unresolved
+- **Context:** M3-00 T03 requires a realistic capacity and availability baseline.
+- **Decision:** The owner has confirmed availability of **10–15 hours per week** for Listing V2 project decisions, review and participation.
+- **Interpretation:** This is owner participation capacity only. It must not be counted as engineering, QA, security-review or production-operations capacity unless the owner separately confirms the relevant skills and role. Named human delivery capacity, review/approval cadence and continuity arrangements remain open.
+- **Consequences:** The range informs planning only. It does not authorize hiring, contracting, procurement, spend or implementation.
+- **Review trigger:** Reconfirm if the owner's availability materially changes or the project schedule requires a different commitment.
