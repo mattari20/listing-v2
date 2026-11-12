@@ -42,7 +42,7 @@ At the beginning of every work session, the AI must:
 5. Work only within the step's documented scope.
 6. Confirm all task inputs comply with the strict legacy non-interference rule.
 
-At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. M1-S01 desk research and initial journey hypotheses are delivered; primary participant research is explicitly deferred by owner and is not an active construction task. M1-S02 remains active. Its source-rights register now records a dated initial public-terms review for HEC, PM&DC and PNMC; no directory-specific reuse permission was established and all sources remain research-only. Continue with M1-S02 coverage, status/freshness and rights verification.
+At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. M1-S01 desk research and initial journey hypotheses are delivered; primary participant research is explicitly deferred by owner and is not an active construction task. M1-S02 remains active. Its source-rights register now records dated public-terms/freshness reviews for HEC, PM&DC, PNMC, KP-PSRA, ICT-PEIRA and Sindh RSU/SEMIS; no directory-specific reuse permission was established and all sources remain research-only. Continue with M1-S02 coverage, status/freshness and rights verification.
 
 ## Completion status
 M0 is accepted and closed. Future milestones require their own evidence-based acceptance and closeout.
