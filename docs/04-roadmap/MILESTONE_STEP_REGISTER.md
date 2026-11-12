@@ -107,7 +107,7 @@ Review `../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md` an
 
 ### M1-S05 owner acceptance gate
 
-Review `../03-research/M1_S05_PROGRAMME_ADMISSIONS_SOURCE_RESEARCH_2026-11-12.md`. Acceptance should confirm the 22-source-family research baseline, federated source model, programme/admission/eligibility/fee/scholarship distinctions, freshness and conflict controls, jurisdictional gaps and RESEARCH ONLY boundary. No source collection, reuse, ingestion or connector activation is implied.
+Review `../03-research/M1_S05_PROGRAMME_ADMISSIONS_SOURCE_RESEARCH_2026-11-12.md`. PR [#75](https://github.com/mattari20/listing-v2/pull/75) merged as `cb3adbfef07c49d61f2532026e51a817f3e43afb`. Exact PR head `164744a948d33c3484cc1e611901e3902718fe7b` passed required Project documentation validation (run [#43170713563](https://github.com/actions/runs/43170713563)). Acceptance should confirm the 22-source-family research baseline, federated source model, programme/admission/eligibility/fee/scholarship distinctions, freshness and conflict controls, jurisdictional gaps and RESEARCH ONLY boundary. No source collection, reuse, ingestion or connector activation is implied.
 
 
 
