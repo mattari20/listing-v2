@@ -192,3 +192,7 @@ PR #42 merged as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a4
 ## M1-S02 regulator/status and source-terms evidence — 2026-11-12
 
 The latest review strengthens private-school registration and board-affiliation semantics for KP/Sindh and clarifies HEC/NAVTTC source scope. It does not establish source-specific reuse rights or full coverage.
+
+## PR #43 school-source delivery evidence
+
+PR #43 merged as `a8dfd8018fa33588a4d35166c953b18f89e39c43`; final exact head `56923aca98123dce6b8a574e0cf9f9c244b036b4` passed required Project documentation validation (run #43155004215). It strengthens S02-C04/C06 source coverage; record-level completeness and rights remain open.
