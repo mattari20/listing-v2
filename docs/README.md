@@ -37,6 +37,7 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [M1-S03 AJK Education Source Review](03-research/M1_S03_AJK_EDUCATION_SOURCE_REVIEW_2026-11-12.md) — E&SE/EMIS/PEIRA and HED routes, access limits and 178/180 college discrepancy
 - [M1-S03 TVET and QAB Source Review](03-research/M1_S03_TVET_QAB_SOURCE_REVIEW_2026-11-12.md) — NAVTTC QABs, Punjab TEVTA/PSDA/TTB, Sindh STEVTA, KPTEVTA and B-TEVTA/BSIS
 - [M1-S03 Federal Data and FBISE Source Review](03-research/M1_S03_FEDERAL_DATA_FBISE_SOURCE_REVIEW_2026-11-12.md) — PIE/NEMIS source lineage, private-college data gaps, Wafaq reporting caveats and FBISE affiliation
+- [M1-S03 FDE/FGEI Source Review](03-research/M1_S03_FDE_FGEI_SOURCE_REVIEW_2026-11-12.md) — FDE ICT network and FGEI cantonment/garrison schools/colleges as separate federal source families
 - [M1 Institution Taxonomy Research](03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md)
 - [M1 Official Institution Source Coverage Matrix](03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md)
 - [M1 National Institution Coverage Synthesis](03-research/M1_NATIONAL_INSTITUTION_COVERAGE_SYNTHESIS.md) — draft national sector/jurisdiction coverage, quality assessment and unresolved gaps
