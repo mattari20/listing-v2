@@ -478,3 +478,8 @@ At each new session, inspect `main`, open PRs, the current M3 branch/PR and exac
 ## M3 owner decision update — delivery model (2026-11-12)
 
 The owner accepted the recommended owner-led, ChatGPT-assisted delivery model. The user remains Product Owner and final decision-maker. ChatGPT assists step by step with planning, architecture/documentation, code drafting only after separate implementation authorization, test design, review support and reporting. Qualified external specialists may be identified/engaged for legal, privacy or security review where required. This decision does not make ChatGPT an independently accountable engineering/operations function and does not establish named human implementers, maintainers, QA owners or production operators. Those roles, skills gaps and capacity remain open inputs under M3-00 T02/T03. No hiring, contracting, procurement, spend, service activation, application coding or production access is authorized. M3-00 remains documentation/planning only at 10% weighted completion; T02 is in progress, T03-T08 remain open.
+
+
+## M3 capacity decision update — owner availability (2026-11-12)
+
+The owner confirmed **10–15 hours per week** for Listing V2 project decisions, review and participation. This is recorded as M3-DEC-002. It is not engineering-team capacity and does not establish named human implementers, QA, security or production-operations coverage. T03 is in progress; other human capacity, review/approval cadence and continuity assumptions remain open. M3-00 remains documentation/planning only. No hiring, contracting, spend, implementation or production activity is authorized.
