@@ -543,7 +543,7 @@ This reconciliation confirms PR #93's merge evidence and does not alter content 
 - M0: Accepted and closed.
 - M1-S01–M1-S10: Accepted and closed; G01-G20 remain binding.
 - M2: 100% owner-accepted and closed; see the final acceptance record and final closeout report in `docs/05-architecture/`.
-- M3: Current milestone. M3-00 — Mobilization and Decision Closure — has started as documentation/planning only. M3-00 task progress remains 0% until weighted evidence is produced and accepted.
+- M3: Current milestone. M3-00 — Mobilization and Decision Closure — is in progress as documentation/planning only at 10% weighted task completion (T01 complete; T02-T08 open). M3 overall weighted progress is 0.5%. Owner acceptance remains pending.
 - M3-01 onward: Not started. Application implementation is not authorized.
 - Production access, source ingestion, procurement/new spend, database/schema changes, deployment and launch remain separately gated.
 
