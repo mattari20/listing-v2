@@ -57,3 +57,14 @@ The official provider source register now includes PMDC, PCP, PNMC, NCEAC, NACTE
 ## M1-S03 AJK source update — 2026-11-12
 
 AJK E&SE and HED routes are now included in the official source register. The E&SE homepage displays a 6,019-school aggregate and an announcement for a registered-private-institution list, but the EMIS/PEIRA routes are login-only and the linked private-list PDF prompts sign-in. HED lists degree/inter/education colleges while its official aggregate pages conflict between 180 and 178. See `../03-research/M1_S03_AJK_EDUCATION_SOURCE_REVIEW_2026-11-12.md`. All remain research-only.
+
+
+## M1-S03 TVET/QAB source review
+
+- [M1-S03 TVET and QAB Source Review](../03-research/M1_S03_TVET_QAB_SOURCE_REVIEW_2026-11-12.md) — NAVTTC QABs, provincial TVET authorities, provider directories, B-TEVTA/BSIS discrepancies and Madaris vocational overlap; **Delivered — review pending; M1-S03 in progress.**
+- [M1-S03 Official Government and Regulator Provider Source Register](../03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md) — updated with GOV-31 to GOV-35; **Updated — review pending.**
+
+
+## Deeni Madaris and TVET source relationship — design note
+
+Punjab TEVTA and TTB Punjab publicly list some Deeni Madaris as vocational-training centres or as partners attached to TEVTA institutes. These are training/assessment relationships and do not establish general academic recognition. Preserve the Madrasah provider, separate vocational provider/site (if independently established), programme/trade, TEVTA/TTB affiliation and QAB as distinct entities/relationships. The owner's default-hidden Deeni Madaris rule remains unchanged; public visibility of a separately registered vocational entity sharing the same address is an open M2 design question, not a decision inferred from source data.
