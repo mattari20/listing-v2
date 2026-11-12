@@ -3,7 +3,7 @@
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
 **Milestone:** M2 — Architecture and Design  
-**Final status:** <badge> 100% — Owner Accepted and Closed  
+**Final status:** 100% — Owner Accepted and Closed  
 **Scope completed:** Documentation, architecture design, validation and owner acceptance only.
 
 ## 1. Executive summary
