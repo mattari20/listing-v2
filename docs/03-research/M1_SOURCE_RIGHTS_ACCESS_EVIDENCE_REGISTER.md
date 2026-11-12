@@ -203,3 +203,7 @@ The dedicated [data rights, public-information access and privacy framework revi
 ## AJK/GB/Sindh/Punjab school-source rights and privacy supplement — 2026-11-12
 
 AJK's dashboard and separate public/private census sources are discovery evidence, not permission to reuse. GB EMIS details include administrative-office rows among school rows; BECS GB's June 2025 list includes teacher names, which are excluded from V2 attributes. Sindh's institution checker has region-to-UC search and a discrepancy-reporting instruction, but no complete export or reuse terms were established. Punjab PEPRIS support describes CNIC/registered-mobile search and warns DEA-registered schools may be absent until uploaded; do not collect CNIC/mobile identifiers. No source-specific license or written permission was established. All remain RESEARCH ONLY.
+
+## Sindh DIRPIS and KPPSRA school-register rights/freshness note — 2026-11-12
+
+Sindh's private-school registration criteria are dated September 2023; the SPEI-EMIS census TOR is older and itself notes that registered and unregistered private schools exist and that data required updating. Neither is a current complete registry or reuse license. KPPSRA's district-based register exposes active/blocked/dormant/closed statuses; all district coverage and update cadence must be verified, and no source-specific reuse license was identified. All remain research-only.
