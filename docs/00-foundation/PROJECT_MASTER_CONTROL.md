@@ -365,3 +365,8 @@ The M2 charter, 11-step weighted plan, architecture documentation structure, ADR
 ## M2-S01 current work — 2026-11-12
 
 M2-S01 is now in progress. Draft deliverables are in `../05-architecture/M2-S01_SYSTEM_REQUIREMENTS_AND_BOUNDARIES.md`, `../05-architecture/M2-S01_SYSTEM_CONTEXT.md` and `../05-architecture/M2-S01_QUALITY_SCENARIOS.md`. Architecture-level AR-001–AR-025 and an initial traceability map have been established. Four of five equal-weight S01 tasks are drafted (80%); review, validation and delivery evidence remain pending. No technology or external service is selected.
+
+
+## M2-S01 current disposition — 2026-11-12
+
+The M2-S01 draft package has been delivered and merged. PR [#87](https://github.com/mattari20/listing-v2/pull/87) merged as `a9a8320dadc339cb15c7d75ac430301941abbd57`; exact-head documentation validation passed (run [#43181003815](https://github.com/mattari20/listing-v2/actions/runs/43181003815)). AR-001–AR-025, system actors/boundaries, context view, quality scenarios and explicit SR-to-AR mapping are on main. T01-T04 are drafted; T05 awaits owner review. S01 remains 80% and In Progress. Do not advance dependent S02 as complete until this owner review gate is resolved.
