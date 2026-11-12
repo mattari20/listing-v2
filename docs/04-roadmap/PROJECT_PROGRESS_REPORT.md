@@ -66,6 +66,9 @@ PR #12 added the official institution source coverage matrix and weighted M1-S02
 ## PR #11 evidence reconciliation
 PR #11 merged as `e39137e14f152fa82fe2acb284a631cb84438998`. Its exact head `b11e03020a46269d9b04674822182933c569082e` passed the required `Validate project control documents` check (run #43136568996). The merge reconciled PR #10 evidence and clarified that primary student research is deferred during construction.
 
+## Current M1-S02 research update — TVET providers and awarding bodies
+Independent official-source review mapped NAVTTC's provincial TVET authority landscape and its QAB list, with institute-directory routes for Sindh STEVTA, Punjab TEVTA and B-TEVTA, plus Trade Testing Board Punjab affiliation material. Provider registration, QAB affiliation, assessment/certification authority and quality accreditation are distinct relationships and must not be conflated. B-TEVTA public portal aggregate counts differ across pages and are not accepted as reliable totals without reconciliation. No source-specific reuse license or bulk permission was established; all remain research-only.
+
 ## Current M1-S02 research update — school-source rights and freshness
 A further independent review of official public pages was recorded for KP-PSRA, ICT-PEIRA and Sindh RSU/SEMIS. The KP E&SE Department describes PSRA's private-school regulatory mandate; PEIRA states that its active/valid list is updated every weekend pending auto-update and separately identifies renewal applications under process; Sindh RSU advertises SEMIS, annual school census and geotagging sections. No directory-specific reuse license or bulk-access permission was located for these sources in this review. PBS's data dissemination policy is explicitly not generalized to other agencies' records. All sources remain research-only.
 
