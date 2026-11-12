@@ -263,3 +263,13 @@ PR [#42](https://github.com/mattari20/listing-v2/pull/42) delivered the national
 ## PR #43 AJK/GB/Sindh school-source delivery
 
 PR [#43](https://github.com/mattari20/listing-v2/pull/43) delivered the AJK/GB/Sindh/Punjab school-register review. Final exact head `56923aca98123dce6b8a574e0cf9f9c244b036b4` passed required **Project documentation validation** (run [#43155004215](https://github.com/mattari20/listing-v2/actions/runs/43155004215)); merge commit `a8dfd8018fa33588a4d35166c953b18f89e39c43`. It is research delivery only; completeness and reuse rights remain open.
+
+
+## Supplemental M1-S02 KP/ICT/AJK coverage review
+
+- [M1-S02 KP, ICT and AJK College Coverage Review](../03-research/M1_S02_KP_ICT_AJK_COLLEGE_COVERAGE_REVIEW_2026-11-12.md) — KP role-based iEMIS, FDE aggregate-only coverage and AJK HED 178/180 college discrepancy; research-only.
+
+
+## PR #44 school-regulator status/terms delivery
+
+PR [#44](https://github.com/mattari20/listing-v2/pull/44) delivered KPPSRA/Sindh DIRPIS status semantics, HEC Digital Library terms scope and NAVTTC count distinctions. Exact head `0b5fe6429a1f6bc8bb383d1db1278d632ae04f08` passed required **Project documentation validation** (run [#43155204020](https://github.com/mattari20/listing-v2/actions/runs/43155204020)); merge commit `11ee337d823731d71a9c0ca00782728ad1994398`. It is research delivery only.

@@ -105,3 +105,7 @@ Further research confirms Sindh's DIRPIS/SPEI-EMIS private-school registration/c
 ## 16. School regulator and terms clarification — 2026-11-12
 
 The further review adds KPPSRA's current registration/renewal mandate and 2026–27 BISE de-affiliation notices; Sindh DIRPIS October 2026 safety oversight (not a complete registry); the scope of HEC Digital Library publisher licenses (not HEC directory terms); and NAVTTC aggregate count categories that cannot be combined. Full findings are in [M1-S02 School Regulator Status and Terms Review](M1_S02_SCHOOL_REGULATOR_STATUS_TERMS_REVIEW_2026-11-12.md). Current completeness and source rights remain open.
+
+## 17. KP, ICT and AJK public-sector coverage findings — 2026-11-12
+
+The latest review confirms KP public-school iEMIS is role-based, not a verified public directory; FDE's ICT portal reports 432 institutions but no record-level public school directory was established; and AJK HED publishes college category lists while its official pages conflict between 178 and 180 colleges. These are unresolved public-sector coverage and count issues, not zero-coverage claims. Full findings are in [M1-S02 KP, ICT and AJK College Coverage Review](M1_S02_KP_ICT_AJK_COLLEGE_COVERAGE_REVIEW_2026-11-12.md).

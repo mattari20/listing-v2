@@ -196,3 +196,12 @@ The latest review strengthens private-school registration and board-affiliation 
 ## PR #43 school-source delivery evidence
 
 PR #43 merged as `a8dfd8018fa33588a4d35166c953b18f89e39c43`; final exact head `56923aca98123dce6b8a574e0cf9f9c244b036b4` passed required Project documentation validation (run #43155004215). It strengthens S02-C04/C06 source coverage; record-level completeness and rights remain open.
+
+
+## M1-S02 KP/ICT/AJK public-sector coverage evidence — 2026-11-12
+
+KP role-based iEMIS, ICT FDE aggregate-only portal and AJK HED 178/180 college discrepancy strengthen the explicit coverage-gap record for S02-C02/C04. No unauthorized access, count selection or source reuse is inferred.
+
+## PR #44 regulator/terms delivery evidence
+
+PR #44 merged as `11ee337d823731d71a9c0ca00782728ad1994398`; exact head `0b5fe6429a1f6bc8bb383d1db1278d632ae04f08` passed required Project documentation validation (run #43155204020). It improves S02-C04/C05/C07 evidence but does not establish complete coverage or source rights.

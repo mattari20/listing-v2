@@ -211,3 +211,7 @@ Sindh's private-school registration criteria are dated September 2023; the SPEI-
 ## Regulator status and source-terms scope clarification — 2026-11-12
 
 KPPSRA and Sindh DIRPIS public notices/registers establish regulatory activity but do not grant bulk collection or commercial reuse rights. KPPSRA registration and BISE affiliation are separate relationships. Sindh's current October 2026 safety notices are not a complete private-school register; older census TOR notes known registered/unregistered providers and data-update needs. HEC Digital Library terms govern publisher-licensed electronic resources and must not be applied as directory terms or as directory reuse permission. NAVTTC's aggregate institute claims have different/unclear scopes and must not be treated as one verified count. All sources remain RESEARCH ONLY.
+
+## KP iEMIS, FDE and AJK HED access/freshness supplement — 2026-11-12
+
+KP iEMIS is explicitly role-based; this review did not establish a public unauthenticated school directory or public dataset, and no access control should be bypassed. FDE's portal exposes an aggregate 432 institutions but not a record-level public directory. AJK HED pages expose college lists but conflict on the aggregate count (178 versus 180); category overlap and current operating status require clarification. No source-specific reuse license or written permission was established.

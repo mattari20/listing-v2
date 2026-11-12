@@ -181,3 +181,12 @@ KPPSRA registration/renewal versus BISE affiliation, Sindh DIRPIS safety notices
 ## PR #43 latest school-source delivery — 2026-11-12
 
 PR #43 merged as `a8dfd8018fa33588a4d35166c953b18f89e39c43`; final exact head `56923aca98123dce6b8a574e0cf9f9c244b036b4` passed required Project documentation validation (run #43155004215). AJK/GB/Sindh/Punjab school-source evidence is incorporated; M1-S02 remains active and owner acceptance remains pending.
+
+
+## M1-S02 KP/ICT/AJK public-sector coverage continuation — 2026-11-12
+
+The latest review records KP public iEMIS as role-based, FDE ICT as aggregate-only (432 institutions) and AJK HED's unresolved 178/180 college aggregate discrepancy. Full findings: `../03-research/M1_S02_KP_ICT_AJK_COLLEGE_COVERAGE_REVIEW_2026-11-12.md`. S02-C02/C04/C07/C08 remain active; S02-C09 remains owner-only.
+
+## PR #44 latest delivery evidence — 2026-11-12
+
+PR #44 merged as `11ee337d823731d71a9c0ca00782728ad1994398`; exact head `0b5fe6429a1f6bc8bb383d1db1278d632ae04f08` passed required Project documentation validation (run #43155204020). School-regulator status and terms distinctions are incorporated; M1-S02 remains active.
