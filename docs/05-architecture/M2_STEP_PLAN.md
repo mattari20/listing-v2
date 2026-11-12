@@ -236,3 +236,9 @@ S04-S06 are accepted/closed at 100%; S07-S09 design tasks are complete at 100%; 
 The owner explicitly accepted the S07-S10 architecture documents and the integrated M2 architecture baseline, with unresolved technology, hosting, legal, privacy, vendor and operational decisions carried forward. Formal record: [M2 Final Owner Acceptance and Closure Record](M2_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md). **All steps S00-S10 are Accepted and Closed at 100%; weighted M2 progress is 100.0%.**
 
 The final report is [M2 Final Progress and Closeout Report](M2_FINAL_PROGRESS_AND_CLOSEOUT_REPORT_2026-11-12.md). M2 closure does not authorize M3 implementation. M3 requires separate start authorization and decision closure.
+
+## PR #98 final M2 acceptance validation and merge evidence — 2026-11-12
+
+PR [#98](https://github.com/mattari20/listing-v2/pull/98) recorded the owner's final acceptance of S07-S10 and formally closed M2 at 100.0%. Exact PR head `893a2918455733138903f3c0bc63598d67af5acf` passed required **Project documentation validation** (run [#43192374920](https://github.com/mattari20/listing-v2/actions/runs/43192374920)); the Validate project control documents job and every step completed successfully. PR #98 was squash-merged as `c0ae6488d1b210d8578b2bf3c7cce31dac894d75`.
+
+M2 is Owner Accepted and Closed at 100.0%. This validation is documentation-control validation, not runtime, security, performance or production testing. M3 implementation remains gated on separate start authorization.
