@@ -100,3 +100,8 @@ PR #33's supplemental official-source coverage review merged as `f6c22c70d412878
 ## PR #34 final reconciliation evidence — 2026-11-12
 
 PR #34 reconciled PR #33's supplemental source review evidence and merged as `569ef14f0cc4ef72bb07cf0313965e13250eac3d`. Exact head `fce8164fe73bf435aa7c021ac3b8eb7e521c89a7` passed required Project documentation validation (run #43152117268). M1-S02 remains active; do not begin M1-S03 or M2 until the owner resolves S02-C09. All sources remain research-only.
+
+
+## M1-S02 second supplemental research pass — 2026-11-12
+
+A further source review added PCATP programme-state evidence, NCT FTJ/BEMS routes, AHPC applications-versus-recognition distinction, NTC zero/interim and intake-batch evidence, the unresolved NAEAC register, and ICT DGSE mandate information. Current complete special-education registers for KP, Balochistan, AJK and GB remain unverified; historical material is not treated as current. The detail is in ../03-research/M1_S02_SUPPLEMENTAL_PROFESSIONAL_COUNCIL_SPECIAL_EDUCATION_REVIEW_2026-11-12.md. S02-C03/C06/C07 remain active; S02-C09 remains an owner-only gate. All sources remain research-only.
