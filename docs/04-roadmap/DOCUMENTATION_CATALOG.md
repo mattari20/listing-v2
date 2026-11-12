@@ -332,3 +332,9 @@ S03-C01 remains in progress. No scraping, bulk download, source-owner contact, p
 The official source register now distinguishes FDE's ICT public network (432 institutions displayed) from FGEI C/G's separate cantonment/garrison network (311 schools and 49 colleges indexed) and FBISE's examination-affiliation register. FDE's admission portal is session-specific and its GIS EMIS includes staff, asset and transport modules; personal/operational data are excluded. FGEI record-level pages were access-limited. Full details: `docs/03-research/M1_S03_FDE_FGEI_SOURCE_REVIEW_2026-11-12.md`.
 
 S03-C02 remains in progress. No access bypass, personal data collection, scraping, source-owner contact, permission request, ingestion, implementation or production access is authorized.
+
+
+## M1-S03 jurisdictional school-source matrix
+
+- [M1-S03 Jurisdictional School Authority Source Matrix](../03-research/M1_S03_JURISDICTIONAL_SCHOOL_SOURCE_MATRIX_2026-11-12.md) — source-by-source public/private school authority routes, data fields, geography, access/freshness/rights and gaps across seven provinces/territories plus ICT; **Delivered — review pending; S03-C02 in progress.**
+- [M1-S03 Official Government and Regulator Provider Source Register](../03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md) — updated with GOV-40 to GOV-42; **Updated — review pending.**
