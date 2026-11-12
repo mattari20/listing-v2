@@ -201,3 +201,8 @@ S02-C01/C03/C05/C07/C08 remain in progress; S02-C09 remains owner-only. All sour
 ## PR #39 — ICT PEIRA, Deeni Madaris and IBCC QAB research
 
 PR [#39](https://github.com/mattari20/listing-v2/pull/39) merged as `0ace505ec67a420b8c2eb8fedd13ba1a2499f84c`; exact head `cf4d54967cad1f2114cd1f43dfccec5184d1b759` passed required Project documentation validation (run #43154066994). It added ICT PEIRA status/registration evidence, DGRE Madaris registration family and IBCC QAB/equivalence distinctions. No owner acceptance or source reuse is inferred.
+
+
+## M1-S02 HEC affiliation and health-programme status review — 2026-11-12
+
+The research now includes HEC Institutional Affiliation Policy 2024, which applies to affiliated colleges and approved study centres (including regular-class and MoU-operated centres) and requires current continuation notices from the affiliating DAI. HEC's affiliate-college PDF has duplicate/variant records that require reconciliation. PM&DC seat allocations and 2026–27 court-order admission notes, PCP Active/Stoppage of Admissions statuses and PNMC's stale/irregular register entries show that institute listing, programme approval, seat allocation, admission permission and current programme status must be modelled separately. Full details are in the examination-board/PMF/DGRE review. No current status is inferred from mere directory presence.
