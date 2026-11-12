@@ -1,7 +1,7 @@
 # M3-00 — Mobilization and Decision Closure
 
-**Status:** Started — documentation/planning only  
-**Step completion:** 10% evidence-based (T01 complete; T02-T06 in progress; T07-T08 open). M3 overall weighted progress: 0.5%.  
+**Status:** In progress — documentation/planning only  
+**Step completion:** 75% evidence-based (T01-T06 complete, with T02-T06 closed through explicit owner-approved deferrals; T07-T08 open). M3 overall weighted progress: 3.75%.  
 **Dependency:** M2 accepted and closed at 100%  
 **Governing plan:** [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md)  
 **Implementation authorization:** Not granted
@@ -25,11 +25,11 @@ Establish the people, capacity, budget, technology, hosting, legal/privacy/secur
 | Task | Weight | Required output | Current status |
 |---|---:|---|---|
 | T01 Baseline and handover reconciliation | 10% | M0-M2 accepted baseline, open-decision inventory and binding-control checklist | **Complete — PR #100 merged; controller, roadmap, step register and status reconciled** |
-| T02 Roles, skills and accountability | 15% | Role/capability matrix, decision owners and skills gaps | **In progress — owner approved the owner-led/ChatGPT-assisted delivery model; named human implementers, maintainers, independent reviewers and skill-gap assessment remain open** |
-| T03 Capacity and availability | 10% | Capacity, cadence, review time and continuity assumptions | **In progress — owner confirmed 10–15 hours/week as a planning baseline, with flexibility according to project demand and priority; reviews/approvals are demand-led rather than limited to a fixed weekly meeting; other human delivery capacity and continuity assumptions remain open** |
-| T04 Budget and cost ceiling | 15% | One-time/recurring cost categories, scenarios and explicit ceiling | **In progress — cost framework and three planning scenarios documented; no new spend is authorized; numeric one-time/recurring ceilings, tax/FX assumptions and paid-service policy remain pending owner decision** |
-| T05 Technology stack decision pack | 15% | Evidence matrix, proof-of-fit criteria, options and owner decision record | **In progress — candidate framework and common criteria documented; actual implementer/maintainer skill fit, support evidence, cost/hosting fit and owner selection remain open; no technical spike authorized** |
-| T06 Hosting and vendor decision pack | 10% | Hosting/region/cost/data-location/latency/recovery comparison | **In progress — official region research and operating-model framework documented; exact service/region support, current quotes, Pakistan latency, data terms, recovery evidence and owner selection remain open; no provider selected or spend authorized** |
+| T02 Roles, skills and accountability | 15% | Role/capability matrix, decision owners and skills gaps | **Complete for M3-00 planning — owner-led/ChatGPT-assisted model retained; named human implementers, maintainers, independent reviewers and skill coverage explicitly deferred as gaps (M3-DEC-003). Must be resolved before relevant M3-01 authorization.** |
+| T03 Capacity and availability | 10% | Capacity, cadence, review time and continuity assumptions | **Complete for M3-00 planning — owner's 10–15 hours/week baseline and demand-led approvals recorded; other human delivery capacity and continuity explicitly deferred (M3-DEC-004). No engineering capacity is inferred.** |
+| T04 Budget and cost ceiling | 15% | One-time/recurring cost categories, scenarios and explicit ceiling | **Complete for M3-00 planning — no-new-spend posture explicitly accepted; numeric ceilings, quotes, tax/FX assumptions and paid-service policy deferred (M3-DEC-005). No spend is authorized.** |
+| T05 Technology stack decision pack | 15% | Evidence matrix, proof-of-fit criteria, options and owner decision record | **Complete for M3-00 planning — candidate comparison framework delivered; stack selection explicitly deferred pending human skill, support/security, hosting and cost evidence (M3-DEC-006). No spike or installation authorized.** |
+| T06 Hosting and vendor decision pack | 10% | Hosting/region/cost/data-location/latency/recovery comparison | **Complete for M3-00 planning — hosting/operations framework and candidate research delivered; provider/region/plan selection explicitly deferred pending service, data, cost, latency, recovery and operations evidence (M3-DEC-007). No account, trial or spend authorized.** |
 | T07 Legal, privacy, source-rights and security gates | 15% | Gate register, review owners, source-specific approval protocol | **Open — T07 gate register delivered; qualified review owners, applicable legal/privacy/security evidence and source-specific decisions remain pending; no source/vendor/service activation** |
 | T08 Scope, test/release and authorization pack | 10% | M3-01 backlog outline, acceptance gates, test/release plan and authorization request | **Open — T08 readiness framework delivered; detailed scope, human roles, upstream decisions, reviewer evidence and owner acceptance remain open; implementation authorization not issued** |
 
@@ -48,7 +48,7 @@ The following are intentionally unanswered until confirmed. No assumptions about
 | Hosting constraints | Preferred hosting geography, data-location requirements and operational ownership | Informs legal, latency, cost and recovery evaluation |
 | Decision cadence | Expected time for owner reviews and approvals | Prevents silent assumptions about acceptance timing |
 
-These inputs can be supplied gradually. Until then, affected decisions remain **OPEN / BLOCKED ON OWNER INPUT**.
+These inputs can be supplied gradually. The owner has now explicitly accepted the bounded T02–T06 deferrals recorded in the Owner Decision Pack. The underlying staffing, budget, stack and hosting questions remain unresolved and must be revisited before the relevant M3-01 implementation authorization.
 
 ## 5. Decision gates
 
@@ -95,7 +95,7 @@ No application code; no physical database schema or migrations; no live source r
 6. Identify qualified legal/privacy/security review responsibilities and keep all sources research-only.
 6. Complete M3-00 readiness evidence and request owner acceptance before M3-01.
 
-**Current decision (2026-11-12):** M3-00 planning remains at 10% weighted completion. T01 is complete; T02 is in progress following the owner's delivery-model decision; T03 is in progress following the owner's 10–15 hours/week planning baseline and demand-led availability/review confirmation; T04 is in progress with a budget framework prepared; T05 is in progress with a candidate decision framework prepared; T06 is in progress with a hosting/operations framework prepared; T07-T08 remain open. M3-01 and all implementation steps remain gated.
+**Current decision (2026-11-12):** The owner explicitly approved conservative deferrals M3-DEC-003 through M3-DEC-007. T01–T06 are complete for M3-00 planning/decision-record purposes (75% weighted completion); T07 and T08 remain open pending qualified review responsibilities/evidence and detailed scope/readiness acceptance. M3-01 and all implementation steps remain gated.
 
 ## Supporting owner decision pack
 
@@ -104,14 +104,14 @@ The [M3-00 Owner Decision Pack](M3-00_OWNER_DECISION_PACK.md) contains the role/
 ## Evidence-based progress
 
 - T01: 100% complete — accepted M0-M2 baseline and reconciled project controls delivered in PR #100.
-- T02: In progress — delivery-model decision accepted; named human role coverage, skills and accountability evidence remain outstanding. No task percentage is claimed until its full measurable acceptance output is evidenced.
-- T03: In progress — owner availability recorded at 10–15 hours/week with demand-led flexibility and review cadence; other human team capacity and continuity evidence remain outstanding. No partial task percentage is claimed.
-- T04: In progress — cost categories and scenarios documented; numeric ceilings, dated quotes, tax/FX and paid-service policy remain outstanding. No partial task percentage is claimed.
-- T05: In progress — candidate comparison criteria and conditional baseline documented; human skill fit, support/hosting/cost evidence and owner selection remain outstanding. No partial task percentage is claimed.
-- T06: In progress — region research and operating-model comparison framework documented; exact service support, current quotes, latency, data terms, recovery and owner selection remain outstanding. No partial task percentage is claimed.
-- T07-T08: 0% complete — required owner/team inputs, explicit decisions or supporting evidence remain outstanding.
-- M3-00: 10% (10% task weight × 100% completion).
-- M3 overall: 0.5% (M3-00 milestone weight 5% × M3-00 completion 10%).
+- T02: 100% of its M3-00 planning output — delivery model and unresolved human role/skills gaps explicitly recorded and accepted as a pre-implementation dependency (15%).
+- T03: 100% of its M3-00 planning output — owner capacity/cadence recorded; other human capacity and continuity explicitly deferred (10%).
+- T04: 100% of its M3-00 planning output — no-new-spend posture and blocked budget choices explicitly accepted (15%).
+- T05: 100% of its M3-00 planning output — technology selection explicitly deferred with evidence-based reopening conditions (15%).
+- T06: 100% of its M3-00 planning output — hosting/provider selection explicitly deferred with evidence-based reopening conditions (10%).
+- T07-T08: Open; no weighted completion claimed until their acceptance outputs and required evidence are satisfied.
+- M3-00: 75% (T01 10% + T02 15% + T03 10% + T04 15% + T05 15% + T06 10%).
+- M3 overall: 3.75% (M3-00 milestone weight 5% × M3-00 completion 75%).
 - M3-00 step acceptance remains pending owner review; task progress is not milestone acceptance.
 
 
@@ -122,6 +122,11 @@ The [M3-00 Technology Stack Decision Framework](M3-00_TECHNOLOGY_STACK_DECISION_
 
 
 The [M3-00 Hosting and Operations Decision Framework](M3-00_HOSTING_AND_OPERATIONS_DECISION_FRAMEWORK.md) is the T06 working artifact. It is research/documentation only and does not select a vendor or authorize an account, trial, procurement or deployment.
+
+
+## Owner-approved deferral update — 2026-11-12
+
+The Product Owner approved M3-DEC-003 through M3-DEC-007 as explicit, bounded deferrals for T02–T06. These tasks are complete for M3-00 planning purposes only; named human staffing, other human capacity, numeric budget ceilings, technology selection and hosting selection remain unresolved dependencies before relevant M3-01 authorization. T07 and T08 remain open. M3-00 is 75%; M3 overall is 3.75%. No implementation, technical spike, source/production access, procurement, spend, deployment, pilot or launch is authorized.
 
 
 ## Current audit update — 2026-11-12 (after PR #110)
