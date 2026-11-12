@@ -50,6 +50,9 @@ PR #23 reconciled PR #22's NAVTTC research update across the catalogue, progress
 ## M1-S02 national synthesis status
 A draft national institution coverage synthesis is now being prepared to consolidate the official-source discovery baseline and unresolved gaps across higher education, professional education, schools, TVET, non-formal and special education. S02-C08 is in progress; owner review (S02-C09) has not occurred. The synthesis does not establish complete national coverage or authorize collection/reuse. Continue source verification and gap closure before requesting owner acceptance.
 
+## Latest M1-S02 delivery
+PR #25 delivered a draft national institution coverage synthesis and updated the index, catalogue, step register, traceability and progress report. Exact head `703fc553aca6d06e354849a7a0d6a69bc71e53e7` passed required documentation validation (run #43145378929); merge commit `b06b669627d299ccd5d84416b787274a8e1dac76`. S02-C08 remains in progress; source verification and S02-C09 owner review remain outstanding. No source is approved for collection or reuse.
+
 ## Completion status
 M0 is accepted and closed. Future milestones require their own evidence-based acceptance and closeout.
 
