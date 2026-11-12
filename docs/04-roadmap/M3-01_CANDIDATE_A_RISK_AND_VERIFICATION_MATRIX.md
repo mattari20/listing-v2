@@ -79,3 +79,24 @@ Stop and return to the Product Owner before proceeding if any of the following o
 This matrix is planning evidence only. It does not clear any legal, privacy, safeguarding, security, source-rights, staffing, hosting, budget or operational gate. It does not authorize implementation. No code, technical spike, package installation, environment activation, external access, data collection, schema/migration, procurement, spend, deployment, pilot or launch is authorized.
 
 **Implementation authorization: NOT ISSUED.**
+
+
+## M3-01 AI-era risk and verification extension — 2026-11-12
+
+The AI-era review adds cross-cutting risks that must be retained for any future AI-enabled scope. These risks do not expand Candidate A.
+
+| ID | Risk | Required preventive control | Future verification | Current disposition |
+|---|---|---|---|---|
+| AI-R13 | Provider/model lock-in or provider outage | Stable internal capability contract; provider adapters; AI-off deterministic fallback; no silent substitution | Provider replacement and AI-off outage tests | Planning proposal; owner review pending |
+| AI-R14 | Unsupported or stale generated factual claims | Evidence-grounded RAG; source authorization; citations, freshness and uncertainty; abstention | Citation resolution, freshness, contradiction and abstention suite | Planning proposal; owner review pending |
+| AI-R15 | Prompt injection or malicious retrieved content | Treat retrieved content as untrusted data; enforce policy outside model; isolate instructions and evidence | Adversarial source/user tests | Planning proposal; owner review pending |
+| AI-R16 | Agent/tool privilege escalation or arbitrary egress | Allowlisted tools, least privilege, deterministic authorization, parameter validation and bounded execution | Negative tool permission, destination and cross-scope tests | Planning proposal; owner review pending |
+| AI-R17 | Sensitive/child/restricted data leakage to models or logs | No personal/child data to models by default; minimization, redaction and approved data-flow/terms review | Synthetic privacy and log/prompt inspection | Planning proposal; owner review pending |
+| AI-R18 | AI publication bypass or false high-impact decisions | Proposal/quarantine state; human adjudication; no model-controlled publication | Workflow and audit tests proving no bypass | Planning proposal; owner review pending |
+| AI-R19 | Hidden AI spend, quota exhaustion or poor observability | Usage/cost metering, quotas, alerts, hard limits and kill switch before activation | Usage accounting and hard-stop tests in an approved environment | Planning proposal; owner review pending |
+| AI-R20 | Deeni Madaris leakage via semantic/vector/generated surfaces | Enforce policy before and after retrieval/indexing and across cache/API/export/tool paths | Zero-exposure negative tests across all derived surfaces | Binding policy; future verification pending |
+| AI-R21 | Unportable canonical data or stale embeddings/prompts | Canonical records remain exportable; versioned/rebuildable indexes and provider exit plan | Export/rebuild/provider-exit exercise | Planning proposal; owner review pending |
+| AI-R22 | Multilingual retrieval inequity or normalization errors | English/Urdu Unicode, RTL, script-variant and transliteration evaluation; human correction | Bilingual synthetic relevance and normalization suite | Planning proposal; owner review pending |
+| AI-R23 | Unmaintained model/SDK/tool or unsafe interoperability server | Version inventory, lifecycle review, bounded gateway and explicit trust review | Dependency lifecycle and hostile-server tests | Planning proposal; owner review pending |
+
+AI-specific tests are future obligations only. No model, agent, vector store, external tool, network egress or paid service is approved or activated by this matrix.
