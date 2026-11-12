@@ -40,3 +40,19 @@ This scaffold is not a claim of complete requirements traceability.
 | AR-023–AR-025 | M1 governance; G14/G17/G20 | S05/S08/S09 | Audit, degraded-mode and recovery tests | Drafted |
 
 Full definitions and priorities are in `M2-S01_SYSTEM_REQUIREMENTS_AND_BOUNDARIES.md`; detailed scenarios are in `M2-S01_QUALITY_SCENARIOS.md`. This is an initial mapping; S01-T05 and M2-S10 still require review and reconciliation.
+
+
+## M2-S02/S03 conceptual and logical architecture mapping — draft
+
+| Requirement | Domain/architecture element | Risk/control | Future verification | Status |
+|---|---|---|---|---|
+| AR-003 | Provider, institution, campus, programme and qualification are distinct domain concepts; discovery/query boundary | G04 false merge or wrong scope; stable identity and human adjudication | Duplicate/split/branch and scope test cases | Drafted |
+| AR-005–AR-007, AR-015, AR-019 | Assertion/evidence/provenance, uncertainty, valid/observed/recorded/publication time; governed read projection | G03/G05/G08/G09; preserve source and history | Temporal, conflict, stale and missing-state tests | Drafted |
+| AR-006 | Programme offer scoped to campus and admission cycle; fee/scholarship scoped to offer | Misleading generic or stale admissions facts | Cycle and effective-period scenarios | Drafted |
+| AR-013–AR-014 | Source authorization gate, evidence workflow, AI proposal and human publication | G02/G08/G09/G16; deny by default | Unauthorized-source negative tests and approval audit | Drafted |
+| AR-016–AR-018 / V2-DEC-006 | Platform-wide policy applied to public query and all derived surfaces | G07; fail closed on partial propagation | Negative tests for search, browse, maps, recommendations, counts, sitemap, exports and APIs | Binding — design carried |
+| AR-011 | Identity and post-launch review workflow separate from factual evidence | G12–G15; login is not proof of attendance | Auth, moderation, appeal and review-target tests | Drafted |
+| AR-021–AR-024 | Responsive public experience, request boundary and degraded discovery | Low bandwidth, location denial and optional service outage | Anonymous/manual-locality/failure scenarios | Drafted |
+| AR-023–AR-025 | Audit, privileged configuration, persistence and recovery boundaries | G14/G17/G20 | Audit integrity, restore and incident tests | Drafted |
+
+S02 supplies the domain vocabulary and lifecycle semantics consumed by S03's logical components and runtime scenarios. S04–S09 must deepen the technology, data, search, AI, security and operational designs. This mapping is not a physical schema, API specification or implementation verification.

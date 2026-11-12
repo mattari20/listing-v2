@@ -380,3 +380,14 @@ PR [#88](https://github.com/mattari20/listing-v2/pull/88) reconciled the M2-S01 
 ## PR #89 delivery reconciliation — 2026-11-12
 
 PR [#89](https://github.com/mattari20/listing-v2/pull/89) reconciled PR #88's exact-head validation and merge evidence. Exact PR head `5c038bb8d4662acc590121bf87723a89127ab5b6` passed required Project documentation validation (run [#43181267319](https://github.com/mattari20/listing-v2/actions/runs/43181267319)); PR #89 merged as `a119514862b74d4ec8135409375dc7960f924e2a`. M2-S01 remains 80% and In Progress pending owner review; no acceptance is implied.
+
+
+## M2-S01 owner acceptance — 2026-11-12
+
+The owner explicitly accepted the M2-S01 system requirements, actors, system boundaries and quality scenarios as the working baseline and directed continuation to S02/S03 jointly. Formal record: ../05-architecture/M2-S01_OWNER_ACCEPTANCE_RECORD_2026-11-12.md. S01 is Accepted and Closed at 100%. This acceptance does not approve the proposed WCAG target, numeric SLOs, technology stack, vendors or implementation.
+
+## M2-S02/S03 joint documentation delivery — 2026-11-12
+
+The coordinated S02/S03 documentation package is available in ../05-architecture/: S02 conceptual domain model (glossary, entity relationships, identity/deduplication, affiliation/recognition, lifecycle, temporal semantics, uncertainty and visibility invariants); S03 logical application/integration architecture (context, logical containers, component responsibilities, integration gates, runtime flows and failure/degraded-mode behaviours); and the joint validation/owner review checklist.
+
+Current progress: S02 80% (T05 review pending); S03 85% (T05 review pending). These are delivered drafts and are not accepted/closed. The next action is owner review of the joint package. The work remains documentation/design only; no stack, vendor, physical schema, API, application code, source retrieval/ingestion, production access or deployment is authorized. M2 weighted progress is 32.8%.

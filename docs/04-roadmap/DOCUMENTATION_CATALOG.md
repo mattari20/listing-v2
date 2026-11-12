@@ -501,3 +501,13 @@ PR [#88](https://github.com/mattari20/listing-v2/pull/88) reconciled the M2-S01 
 ## PR #89 delivery reconciliation — 2026-11-12
 
 PR [#89](https://github.com/mattari20/listing-v2/pull/89) reconciled PR #88's exact-head validation and merge evidence. Exact PR head `5c038bb8d4662acc590121bf87723a89127ab5b6` passed required Project documentation validation (run [#43181267319](https://github.com/mattari20/listing-v2/actions/runs/43181267319)); PR #89 merged as `a119514862b74d4ec8135409375dc7960f924e2a`. M2-S01 remains 80% and In Progress pending owner review; no acceptance is implied.
+
+
+## M2-S01 owner acceptance and M2-S02/S03 joint documentation delivery — 2026-11-12
+
+- [M2-S01 Owner Acceptance Record](../05-architecture/M2-S01_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) — owner acceptance of AR-001–AR-025, actors, system boundaries and quality scenarios as the working baseline; S01 closed at 100%.
+- [M2-S02 Core Domain and Conceptual Information Model](../05-architecture/M2-S02_CORE_DOMAIN_CONCEPTUAL_MODEL.md) — domain glossary, conceptual entity relationships, identity/deduplication, temporal/lifecycle and uncertainty rules.
+- [M2-S03 Overall Application and Integration Architecture](../05-architecture/M2-S03_APPLICATION_INTEGRATION_ARCHITECTURE.md) — technology-neutral context, logical containers, components, integrations, runtime and failure scenarios.
+- [M2-S02/S03 Joint Validation and Owner Review](../05-architecture/M2-S02-S03_JOINT_VALIDATION_AND_OWNER_REVIEW.md) — separate task completion evidence, consistency mapping and owner acceptance checklist.
+
+S02 is 80% drafted and S03 is 85% drafted; T05 owner review remains pending for each. Joint delivery does not mean acceptance. No implementation, physical schema, technology/vendor selection, source access/ingestion or deployment is authorized.
