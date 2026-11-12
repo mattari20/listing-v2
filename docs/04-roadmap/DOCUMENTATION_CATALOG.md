@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-12 — M1-S01 through M1-S07 accepted; M1-S08/S09 research packages delivered, owner acceptance pending
+**Last reconciled:** 2026-11-12 — M1-S01 through M1-S07 accepted; M1-S08/S09 research packages merged, owner acceptance pending
 
 ## Purpose and maintenance rule
 
@@ -415,3 +415,8 @@ PR [#77](https://github.com/mattari20/listing-v2/pull/77) merged into `main` as 
 ## M1-S08/S09 joint research package — 2026-11-12
 
 S08 and S09 research packages have been delivered on the documentation branch. Each step is 95% weighted complete with owner acceptance pending. The existing AI Data Agent Requirements and Comparison, Reviews and Trust documents were aligned to the research. No implementation, live source access, connector activation, review collection or pre-launch participant research occurred.
+
+
+## PR #79 merge and exact-head validation evidence — 2026-11-12
+
+PR [#79](https://github.com/mattari20/listing-v2/pull/79) merged into `main` as `59ab010830182a169fd609172618002ee8327fd3`. The exact PR head `4fed8a8d9f49c361539042f1f109102b9d6f4df2` passed the required **Project documentation validation** check (run [#43174230801](https://github.com/actions/runs/43174230801)); the validation job completed successfully. The merge delivered S08/S09 research, aligned product/data requirements and project controls, and recorded S06/S07 owner acceptance. S08 and S09 remain at 95% weighted completion each, with owner acceptance pending. No implementation or source access is authorized.
