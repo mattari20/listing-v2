@@ -154,3 +154,8 @@ The latest desk review clarifies that the National Data Governance Policy 2026 a
 ## PR #41 final reconciliation evidence — 2026-11-12
 
 PR #41 reconciled PR #40 delivery evidence and merged as `c56200bdf66a5fdf615de0da6281495e50c39f92`; exact head `2c11bfc7fe74da6bed4dc04d17c4c80a664990b0` passed required Project documentation validation (run #43154481312). M1-S02 remains active and S02-C09 remains owner-only.
+
+
+## M1-S02 school-jurisdiction research continuation — 2026-11-12
+
+Latest review adds AJK public/private census and 6,019 aggregate; GB EMIS details, BECS community-school list and public colleges; Sindh's region-to-UC institution checker; and Punjab PEPRIS eLicense caveats. Full evidence is in `../03-research/M1_S02_AJK_GB_SINDH_SCHOOL_REGISTER_REVIEW_2026-11-12.md`. S02-C04/C06/C07/C08 remain active; S02-C09 remains owner-only.
