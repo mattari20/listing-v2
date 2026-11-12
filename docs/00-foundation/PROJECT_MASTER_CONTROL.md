@@ -2,7 +2,7 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0 accepted and closed; M1-S01 through M1-S05 accepted; M1-S06/S07 research merged, owner acceptance pending  
+**Status:** M0 accepted and closed; M1-S01 through M1-S07 accepted; M1-S08/S09 research delivered, owner acceptance pending  
 **Last reconciled:** 2026-11-12
 
 ## Authoritative current position
@@ -42,7 +42,7 @@ At the beginning of every work session, the AI must:
 5. Work only within the step's documented scope.
 6. Confirm all task inputs comply with the strict legacy non-interference rule.
 
-At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. Current state as of 2026-11-12: M1-S01 through M1-S05 are accepted and closed as research/documentation baselines. S05 acceptance is recorded in `../03-research/M1_S05_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. Joint S06/S07 research packages are delivered on the active documentation branch at 90% weighted completion each, with owner acceptance pending: `../03-research/M1_S06_GITHUB_SOFTWARE_DATASET_DISCOVERY_2026-11-12.md` and `../03-research/M1_S07_SOURCE_RIGHTS_SECURITY_ASSESSMENT_2026-11-12.md`. No third-party code or dataset is approved for import. No repository was cloned or executed, no dataset downloaded, no source owner contacted and no permission request made. All previously identified education sources and new S06/S07 candidates remain RESEARCH ONLY or HOLD unless an exact, narrow prior permission is documented. No scraping, bulk download, ingestion, connector activation, application implementation, database/schema changes, production access, deployment or legacy-repository interaction is authorized.
+At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. Current state as of 2026-11-12: M1-S01 through M1-S07 are accepted and closed as research/documentation baselines. S06/S07 acceptance is recorded in `../03-research/M1_S06_S07_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`; no third-party code or dataset is approved for import or reuse. Joint S08/S09 research packages are delivered at 95% weighted completion each, with owner acceptance pending: `../03-research/M1_S08_AI_DATA_AGENT_WORKFLOW_RESEARCH_2026-11-12.md` and `../03-research/M1_S09_COMPARISON_REVIEWS_TRUST_RESEARCH_2026-11-12.md`. No agent or connector is activated, no source is accessed, no user review is collected and no pre-launch participant research occurs. No scraping, bulk download, ingestion, application implementation, database/schema changes, production access, deployment or legacy-repository interaction is authorized.
 
 ## Latest documentation delivery evidence
 PR #23 reconciled PR #22's NAVTTC research update across the catalogue, progress report and traceability. Exact head `737ec6838dc85d4ba1becc600af661d998074c0a` passed required documentation validation (run #43145140802); merge commit `2a94f8caced03142fee56c5b6e6fc1afa2f6df65`. M1-S02 remains active; no source has been approved for reuse or ingestion.
@@ -288,7 +288,7 @@ M1-S05 is now active. Its 22-source research register and federated programme/ad
 PR [#75](https://github.com/mattari20/listing-v2/pull/75) merged as `cb3adbfef07c49d61f2532026e51a817f3e43afb`. Exact PR head `164744a948d33c3484cc1e611901e3902718fe7b` passed required Project documentation validation (run [#43170713563](https://github.com/actions/runs/43170713563)). The programme/admissions research baseline is delivered; owner acceptance remains pending. No source collection, applicant data collection, reuse, ingestion or connector activation is authorized.
 
 
-## M1-S05 acceptance and M1-S06/S07 current position — 2026-11-12
+## M1-S06/S07 acceptance and M1-S08/S09 current position — 2026-11-12
 
 The owner explicitly accepted M1-S05 and authorized joint continuation to S06/S07. Formal S05 acceptance record: `../03-research/M1_S05_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. S06 and S07 research packages are delivered at 90% weighted completion each, with owner acceptance pending. Candidate dispositions are documented; no external software or dataset is approved for reuse. The next research steps after owner review are M1-S08 and M1-S09, followed by M1-S10 synthesis. M2 remains blocked until M1 is completed and accepted.
 
@@ -296,3 +296,6 @@ The owner explicitly accepted M1-S05 and authorized joint continuation to S06/S0
 ## PR #77 merge and exact-head validation evidence — 2026-11-12
 
 PR [#77](https://github.com/mattari20/listing-v2/pull/77) merged into `main` as `71e71ce74a57b854724027a1b106befe826b14fa`. The final PR head `deef364831cf4f0d902128ce9933897b17f9649c` passed the required **Project documentation validation** check (run [#43171586968](https://github.com/mattari20/listing-v2/actions/runs/43171586968)); the job completed successfully. The merge delivered the S05 owner-acceptance record and S06/S07 research packages, plus reconciled project-control documents. S06 and S07 remain owner-acceptance pending at 90% weighted completion each. This delivery does not authorize source collection, code/data import, reuse, ingestion, connector activation or implementation.
+
+
+M1-S06 and M1-S07 have been accepted and closed as research baselines. The owner authorized joint S08/S09 research. Both packages are delivered at 95% weighted completion; owner acceptance remains pending. M1-S10 is the next step after S08/S09 acceptance. M2 remains blocked until the complete M1 synthesis and owner acceptance. See the progress report and step register for exact task evidence.
