@@ -40,9 +40,9 @@ A 2021 Pakistan-focused study of 200 business students reports that degree value
 
 Source: [Naveed and Khurshid (2021), Hamdard Islamicus](https://www.hamdardislamicus.com.pk/index.php/hi/article/view/46).
 
-A 2014 study of university choice in Pakistan, published as a New York Fed Staff Report, examined expected earnings, non-pecuniary factors and financial constraints. It reports that financial constraints affected a substantial portion of the study sample and that non-pecuniary factors also mattered. Its date and study design mean it is supporting context, not a current population estimate.
+A 2014 working-paper version of a Pakistan university-choice study, subsequently published in 2019 in the *Journal of Political Economy*, examined expected earnings, non-pecuniary factors and financial constraints. The published study reports that non-pecuniary outcomes were major determinants in its study context and that relaxing financial constraints could yield welfare gains. Its study design and population do not provide a current nationally representative estimate of student preferences.
 
-Source: [Delavande and Zafar (2014), Federal Reserve Bank of New York Staff Report 683](https://www.newyorkfed.org/research/staff_reports/sr683.html).
+Sources: [Delavande and Zafar (2014), Federal Reserve Bank of New York Staff Report 683](https://www.newyorkfed.org/research/staff_reports/sr683.html); [Delavande and Zafar (2019), *Journal of Political Economy*](https://doi.org/10.1086/701808).
 
 ### 2.4 Higher education pathway terminology
 
@@ -156,7 +156,7 @@ Do not claim statistical representation from a small qualitative sample. Define 
 | M1S01-E01 | PBS Social Statistics / PIE estimates (2022–23) | Broad school-level transitions and historical enrolment context | Historical year; national aggregate; not student-choice research | Reviewed |
 | M1S01-E02 | Punjab HED Student Affairs | Example of board registration, SSC-to-college admission and equivalence steps | Punjab-specific; not a national rulebook | Reviewed |
 | M1S01-E03 | Naveed & Khurshid (2021) | Candidate university-choice factors | 200 business students; limited population | Reviewed |
-| M1S01-E04 | Delavande & Zafar (2014) | Financial constraints and non-pecuniary factors in university choice | Older study; not current prevalence | Reviewed |
+| M1S01-E04 | Delavande & Zafar (2014 working paper; 2019 journal publication) | Financial constraints and non-pecuniary factors in Pakistan university choice | Bounded study context; not a current nationally representative preference estimate | Reviewed |
 | M1S01-E05 | HEC Annual Report 2023–24 | Higher-education qualification terminology | Not a comprehensive student-facing pathway guide | Reviewed |
 | M1S01-E06 | PBS HIES 2024–25 | National household internet access and individual internet-use context | Population/household indicators, not student-level device ownership, reliability or usage | Reviewed — contextual only |
 | M1S01-E07 | Pakistan Education Statistics 2023–24, PIE | Public-school student internet access and regional digital infrastructure gaps | Public-school infrastructure indicator; not a measure of home connectivity or all education sectors | Reviewed — contextual only |
