@@ -215,3 +215,7 @@ PR [#40](https://github.com/mattari20/listing-v2/pull/40) merged as `c92d96613dc
 ## M1-S02 data rights and privacy framework review — 2026-11-12
 
 A further rights-focused desk review examined MoITT's official policy/legislation registers, the draft National Data Governance Policy 2026, draft Personal Data Protection Bill May 2023, RTI framework, Copyright Ordinance and PBS data-dissemination policy. The official MoITT registers label both national policy and PDP Bill as drafts; consultation closure is not approval. RTI access is not blanket republication/commercial reuse permission. Copyright in compilations and underlying data/material require separate analysis. PBS's open license applies only to specified PBS products/tiers, not education directories generally. The resulting source-rights decision framework and privacy-minimization rules are in docs/03-research/M1_S02_DATA_RIGHTS_PRIVACY_FRAMEWORK_REVIEW_2026-11-12.md. S02-C07/C08 remain in progress; no source reuse is approved.
+
+## PR #41 — PR #40 evidence reconciliation
+
+PR #41 merged as `c56200bdf66a5fdf615de0da6281495e50c39f92`; exact head `2c11bfc7fe74da6bed4dc04d17c4c80a664990b0` passed required Project documentation validation (run #43154481312). It reconciled PR #40 delivery evidence; no task acceptance or source-use permission changed.
