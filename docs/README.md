@@ -22,6 +22,7 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [Provider Register](02-data-strategy/EDUCATION_DATA_PROVIDER_REGISTER.md)
 - [AI Data Agent Requirements](02-data-strategy/AI_DATA_AGENT_REQUIREMENTS.md)
 - [Data Rights and Provenance](02-data-strategy/DATA_RIGHTS_AND_PROVENANCE.md)
+- [M1 Source Rights, Access and Provenance Evidence Register](03-research/M1_SOURCE_RIGHTS_ACCESS_EVIDENCE_REGISTER.md)
 
 ## Documentation tracking
 - [Documentation Completion Catalogue](04-roadmap/DOCUMENTATION_CATALOG.md) — owner-facing list of delivered, reviewed, accepted and planned documents; updated after every documentation PR update and merge.
@@ -32,6 +33,7 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [M1 Student Research Instruments](03-research/M1_STUDENT_RESEARCH_INSTRUMENTS.md) — archived draft; pre-launch participant research deferred by owner
 - [M1 Institution Taxonomy Research](03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md)
 - [M1 Official Institution Source Coverage Matrix](03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md)
+- [M1 Source Rights, Access and Provenance Evidence Register](03-research/M1_SOURCE_RIGHTS_ACCESS_EVIDENCE_REGISTER.md)
 - [Master Roadmap](04-roadmap/PROJECT_MASTER_ROADMAP.md)
 - [Milestone and Step Register](04-roadmap/MILESTONE_STEP_REGISTER.md)
 - [Traceability Matrix](04-roadmap/IMPLEMENTATION_TRACEABILITY_MATRIX.md)

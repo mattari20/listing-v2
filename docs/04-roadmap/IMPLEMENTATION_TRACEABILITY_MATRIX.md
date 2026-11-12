@@ -19,6 +19,9 @@ No survey, interviews, recruitment or outreach during construction. Account-base
 ## M0 closeout evidence
 PR #4 merged as `4d1122d182961f3842803036f917ce39cd11b4c6`; required check passed on exact head `64da261546b034129af3aebfa38fb91f939732b6`. PR #4 records M0-S01–S07 acceptance and points the controller to M1-S01. M0-S02 remains explicitly scoped to a targeted, metadata-only, non-exhaustive exclusion audit.
 
+## PR #15 evidence
+PR #15 merged as `df60fbe592801e86c2126554c57f6b21ffae36f7`; exact head `b85393c22a2768cf6beb56699aeead5a16d13373`; required documentation check passed (run #43139676215). It expanded special-education and professional programme source discovery; rights and status verification remain open.
+
 ## PR #14 evidence
 PR #14 merged as `f5d185209d96233dc26f5da2c4efd4d8fd1cdf03`; exact head `f5fcfc1c8d6e8722dd7046b2b87d9b5a8e4c1476`; required documentation check passed (run #43138852699). It added AJK and non-formal education source leads; complete coverage remains unverified.
 
