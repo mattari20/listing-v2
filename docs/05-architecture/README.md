@@ -59,3 +59,22 @@ S02 and S03 are delivered as coordinated drafts. Owner review and acceptance rem
 - [S04/S05/S06 Joint Validation and Owner Review](M2-S04-S06_JOINT_VALIDATION_AND_OWNER_REVIEW.md) — separate task progress, cross-step checks and owner review checklist.
 
 S04 is 80%, S05 85%, S06 85% drafted. Owner review and S04 consequential choice decisions remain pending. These deliverables do not approve procurement, source access, implementation or deployment.
+
+## M2-S04/S05/S06 owner acceptance — 2026-11-12
+
+- [M2-S04/S05/S06 Owner Acceptance Record](M2-S04-S06_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) — accepted as working architecture baselines; S04-S06 are Accepted and Closed at 100%, with unresolved technology, vendor, legal, operational and ranking decisions carried forward.
+
+## M2-S07 through M2-S10 documentation package — 2026-11-12
+
+- [M2-S07 AI Data-Agent Technical Architecture](M2-S07_AI_DATA_AGENT_TECHNICAL_ARCHITECTURE.md) — twelve-stage evidence workflow, source authorization, quarantine, extraction, validation, entity resolution, human review, publication, threat and failure controls.
+- [M2-S08 Identity, Authorization, Reviews, Privacy and Security](M2-S08_IDENTITY_AUTHORIZATION_REVIEWS_PRIVACY_SECURITY.md) — identity classes, scoped authorization, review/moderation, minors' safeguarding, privacy and security validation.
+- [M2-S09 Performance, Operations, Hosting and Recovery](M2-S09_PERFORMANCE_OPERATIONS_HOSTING_RECOVERY.md) — provisional quality targets, environments, observability, resilience, hosting evaluation and restore design.
+- [M2-S10 Final Architecture Synthesis and M3 Roadmap](M2-S10_FINAL_ARCHITECTURE_SYNTHESIS_M3_ROADMAP.md) — integrated invariants, decision gates, validation and conditional M3 sequence.
+
+S07-S10 are documentation drafts pending task-level validation and owner review. M3 implementation remains gated until explicit final M2 acceptance and separate M3 authorization.
+
+
+- [M2-S07/S08/S09 Joint Architecture Validation](M2-S07-S09_JOINT_ARCHITECTURE_VALIDATION.md) — cross-step threat/failure review, design task closure and explicit operational evidence limitations.
+- [M2 Progress Report](M2_PROGRESS_REPORT.md) — weighted step status and final owner-acceptance gate.
+
+S07, S08 and S09 are design-task complete at 100%; S10 remains 80% pending explicit final owner acceptance. Weighted M2 design progress is 98.6%.

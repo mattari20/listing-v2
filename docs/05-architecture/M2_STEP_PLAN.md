@@ -196,3 +196,30 @@ S02 and S03 are Accepted and Closed at 100%. S04 remains 80%, S05 85% and S06 85
 PR [#94](https://github.com/mattari20/listing-v2/pull/94) reconciled PR #93 delivery. Exact PR head `9c369a4a6f5b78d794feb2e38d9c4afd1b4875e8` passed required **Project documentation validation** (workflow run [#43189848614](https://github.com/mattari20/listing-v2/actions/runs/43189848614)); job `Validate project control documents` and all steps completed successfully. PR #94 was squash-merged as `0a5f65258ea04c52b8e79b314f7cda04c8d3e65c`.
 
 This reconciliation confirms PR #93's merge evidence and does not alter content acceptance: S02/S03 remain accepted/closed; S04 80%, S05 85% and S06 85% remain owner-review/decision pending. Weighted M2 progress remains 62.0%.
+
+## M2 owner acceptance and S07-S10 delivery status — 2026-11-12
+
+### S04/S05/S06 accepted and closed
+The owner accepted S04 technology evaluation, S05 data/provenance/publication governance and S06 search/discovery/geography baselines as working design documents. Formal record: [M2-S04/S05/S06 Owner Acceptance Record](M2-S04-S06_OWNER_ACCEPTANCE_RECORD_2026-11-12.md). T05 review gates are complete for the accepted scope. S04, S05 and S06 are Accepted and Closed at 100% each. Unresolved stack/vendor, legal, operational, ranking, hosting and provider decisions remain open; acceptance is not procurement or implementation approval.
+
+### S07 — AI data-agent technical architecture (10% M2 weight)
+Deliverable: [M2-S07 AI Data-Agent Technical Architecture](M2-S07_AI_DATA_AGENT_TECHNICAL_ARCHITECTURE.md). T01-T04 drafted: 12-stage workflow, source authorization, extraction/validation/entity resolution, human review/publication/rollback. T05 threat/cost/failure and cross-step design review complete; see [S07-S09 Joint Architecture Validation](M2-S07-S09_JOINT_ARCHITECTURE_VALIDATION.md). S07 design tasks are 100% complete; final M2 owner acceptance remains pending. No agent, connector, model or source is activated.
+
+### S08 — Identity, authorization, reviews, privacy and security (10% M2 weight)
+Deliverable: [M2-S08 Identity, Authorization, Reviews, Privacy and Security](M2-S08_IDENTITY_AUTHORIZATION_REVIEWS_PRIVACY_SECURITY.md). T01-T04 drafted: identity, scoped authorization, post-launch reviews/moderation, privacy/minors/safeguarding. T05 security and cross-step design review complete; see [S07-S09 Joint Architecture Validation](M2-S07-S09_JOINT_ARCHITECTURE_VALIDATION.md). S08 design tasks are 100% complete; legal and policy gates remain open for M3. No identity provider, review collection, legal compliance claim or production control is approved.
+
+### S09 — Performance, operations, hosting and recovery (6% M2 weight)
+Deliverable: [M2-S09 Performance, Operations, Hosting and Recovery](M2-S09_PERFORMANCE_OPERATIONS_HOSTING_RECOVERY.md). T01-T04 drafted: quality/capacity, environment/release boundaries, observability/incident design, backup/recovery. T05 cost/operations design review complete with evidence limitations recorded; see [S07-S09 Joint Architecture Validation](M2-S07-S09_JOINT_ARCHITECTURE_VALIDATION.md). S09 design tasks are 100% complete; provider quotes, workload tests and owner approval remain deferred. Proposed availability, latency, payload, RPO/RTO and freshness values are hypotheses, not approved SLOs. No hosting vendor or spend is selected.
+
+### S10 — Final architecture validation, synthesis and owner acceptance (7% M2 weight)
+Deliverable: [M2-S10 Final Architecture Synthesis and M3 Roadmap](M2-S10_FINAL_ARCHITECTURE_SYNTHESIS_M3_ROADMAP.md). T01-T04 drafted: traceability audit, consistency/threat review, ADR/risk disposition and conditional M3 roadmap. T05 explicit final owner acceptance pending. Draft completion: 80%; S10 cannot self-accept the architecture.
+
+### Weighted progress
+S00 100% (5.0) + S01 100% (8.0) + S02 100% (12.0) + S03 100% (12.0) + S04 100% (10.0) + S05 100% (12.0) + S06 100% (8.0) + S07 100% (10.0) + S08 100% (10.0) + S09 100% (6.0) + S10 80% (5.6) = **98.6% weighted M2 draft progress**.
+
+M2 is not closed. Remaining work is task-level validation/reconciliation and explicit owner acceptance of S07-S10 and the integrated S10 package. Application implementation remains prohibited until M2 final acceptance and separate M3 authorization.
+
+
+### S07-S09 design validation closeout — 2026-11-12
+
+The joint design-level review is recorded in [M2-S07/S08/S09 Joint Architecture Validation](M2-S07-S09_JOINT_ARCHITECTURE_VALIDATION.md). S07 T05 threat/cost/failure review, S08 T05 security/cross-step review and S09 T05 cost/operations review are complete as documentation tasks. S07, S08 and S09 are each 100% design-complete. This does not constitute M2 owner acceptance, legal review, live security testing, performance testing, restore testing, procurement or activation.
