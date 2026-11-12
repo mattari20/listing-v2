@@ -155,9 +155,9 @@ Conditional step. Requires separate explicit written approval for production acc
 - M0: Accepted and closed.
 - M1: Accepted and closed; primary participant research deferred.
 - M2: 100% owner-accepted and closed.
-- M3-00: Started as documentation/planning only; task completion is 0% until its weighted evidence is produced and accepted.
+- M3-00: In progress at 10% weighted completion (T01 complete; T02-T08 open); owner acceptance pending.
 - M3-01 onward: Not started.
 - Application implementation: Not authorized.
 - Production access/deployment/launch: Not authorized.
 
-**Next eligible work:** complete M3-00 task evidence and prepare the owner decision pack. Do not begin M3-01 implementation work or application coding until the required authorization is recorded.
+**M3-00 supporting artifact:** `M3-00_OWNER_DECISION_PACK.md` contains the owner/team input and decision templates. **Next eligible work:** resolve the open owner inputs and decision gates, then complete M3-00 readiness evidence. Do not begin M3-01 implementation work or application coding until the required authorization is recorded.
