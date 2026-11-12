@@ -40,6 +40,15 @@ PR #17 merged as `52481df5d18c60cb9e24ee3a32e7977db3669770`; exact head `8520aed
 ## PR #16 source-rights register delivery
 PR #16 merged as `fdcfb6bd26bc3f0cd1b7467e4f506c7ca40bf2c4`; exact head `902d0af180152b78c42f1bb816545617afcd6b37`; required documentation validation passed (run #43139966390).
 
+## PR #20 TVET/QAB research evidence
+PR #20 merged as `3d66f643cc06054d3caeb2d004da4217b3d86e9d`; exact head `01262d6df0dedf1593487d3df39b5151e041ca9d`; required documentation validation passed (run #43144611231). It mapped provider/QAB/assessment/accreditation distinctions and official TVET directory leads; all sources remain research-only pending rights review.
+
+## PR #19 school-source rights evidence
+PR #19 merged as `b1a38aab46822d3d877a720e04cb19a6164a623b`; exact head `01567f2a4c597b1a3a136fe14f5fc82249a767b1`; required documentation validation passed (run #43144376429).
+
+## PR #18 documentation history reconciliation
+PR #18 merged as `8aebd2df27de2a3bedfddb9b83bf32241e4d7135`; exact head `1655c9fdd75777b6106e3c4dbcdf4cb68b4b94f6`; required documentation validation passed (run #43143898130).
+
 ## Documentation catalogue maintenance
 
 `DOCUMENTATION_CATALOG.md` is the owner-facing inventory for documentation delivery and acceptance. Reconcile it on every documentation PR update and merge. Keep delivery status separate from content acceptance; update PR/head/check/merge evidence and links.
