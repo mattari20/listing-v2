@@ -2,7 +2,7 @@
 
 **As of:** 2026-11-12  
 **Current milestone:** M1  
-**Current phase:** M0 accepted; M1 desk research underway; M1-S02 active
+**Current phase:** M0 accepted; M1-S02 accepted; M1-S03 official government/regulator provider research active
 
 ## Verified V2 repository facts
 - Repository: `mattari20/listing-v2`
@@ -266,3 +266,16 @@ The accepted outcome is a documentation/research baseline only. It is not a comp
 No source ingestion, scraping, bulk download, source-owner contact, permission requests, implementation, database/schema changes, production access, deployment, legacy-repository interaction, M1-S03 or M2 work is authorized by this acceptance. Any next step requires separate owner authorization.
 
 Decision record: `docs/03-research/M1_S02_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`.
+
+
+## M1-S02 closeout and M1-S03 start — 2026-11-12
+
+M1-S02 is **Accepted — 100% weighted task completion** following explicit owner approval, recorded in PR #58 and merged as `0d9ca9b67d1aa7ac19902303b39471c9e16d4965`. Required Project documentation validation passed on exact PR head `de72e52927d86dc997e288afe41cf2db728f97a2` (run [#43158297869](https://github.com/mattari20/listing-v2/actions/runs/43158297869)).
+
+The owner authorized moving forward to **M1-S03 — Official Government and Regulator Provider Research**. Its weighted task breakdown is now in the milestone register. Initial source-specific research has verified federal education governance routes, PIE/NEMIS, HEC, NAVTTC registration/affiliation/accreditation distinctions, IBCC QAB recognition, DGRE Madaris registration mandate, HEC Deeni Asnad equivalence boundaries, Balochistan EMIS, Sindh institution checker, ICT-PEIRA, Punjab SED/PEPRIS and KPPSRA. Full details and limitations are in `docs/03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md`. M1-S03 tasks remain in progress; this first source register is not accepted as complete.
+
+### Owner decision: Deeni Madaris visibility
+Deeni Madaris remain in the underlying provider scope as a separate category but are hidden from the public listing by default at initial launch. The required configurable `Show Deeni Madaris` setting defaults OFF; changes must occur through an authorized administration/configuration path. Exact UI/roles and implementation are deferred to M2 design. See V2-DEC-006 and the institution/programme requirements.
+
+### Boundaries
+M1-S03 is documentation/research only. No scraping, bulk download, source-owner contact, permission request, source ingestion, connector activation, application implementation, database/schema changes, production access, deployment, legacy-repository interaction, M1-S04 or M2 work is authorized. All sources remain research-only except the previously documented narrow SED Balochistan aggregate license.

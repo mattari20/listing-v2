@@ -35,3 +35,10 @@ The following source families have been located independently and are documented
 - PEC, NCEAC, NACTE and NCH professional education sources.
 
 Source discovery does not establish a right to collect or republish. See `../03-research/M1_SOURCE_RIGHTS_ACCESS_EVIDENCE_REGISTER.md`; every source remains research-only pending rights, privacy, access and owner review.
+
+
+## M1-S03 official-source verification
+
+The first source-specific verification pass is recorded in [M1-S03 Official Government and Regulator Provider Source Register](../03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md). It adds current evidence for PIE/NEMIS, MoFEPT, HEC, NAVTTC, IBCC, DGRE, HEC Deeni Asnad equivalence, Balochistan EMIS, Sindh institution checker, ICT-PEIRA, Punjab SED/PEPRIS and KPPSRA. The register distinguishes authority mandate, public directory, aggregate source, application portal and QAB/equivalence route. All records remain research-only unless source-specific reuse permission is documented.
+
+Deeni Madaris remain a distinct underlying provider family. Per owner decision, public listing visibility is disabled by default and controlled by the future `Show Deeni Madaris` setting; this is a requirements decision, not an implemented feature.

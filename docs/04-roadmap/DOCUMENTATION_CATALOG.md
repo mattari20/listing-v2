@@ -291,3 +291,11 @@ PR [#44](https://github.com/mattari20/listing-v2/pull/44) delivered KPPSRA/Sindh
 - [M1-S02 Task Acceptance Evidence Audit](../03-research/M1_S02_TASK_ACCEPTANCE_EVIDENCE_AUDIT_2026-11-12.md) — final task-by-task acceptance audit, including owner closure of C01 and C09.
 - [M1 Institution Taxonomy Research](../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md) and [Official Institution Source Coverage Matrix](../03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md) — accepted as the M1-S02 research baseline, not a complete national census or production data specification.
 
+
+
+## M1-S03 official government/regulator source research — initial delivery
+
+- [M1-S03 Official Government and Regulator Provider Source Register](../03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md) — initial authority/source register for PIE/NEMIS, MoFEPT, HEC, professional regulators, NAVTTC/QABs, IBCC, DGRE, provincial/territorial EMIS and private-school regulators; includes access, freshness, rights and privacy limitations. **Delivered — review pending; M1-S03 in progress.**
+- [Education Data Provider Register](../02-data-strategy/EDUCATION_DATA_PROVIDER_REGISTER.md) — updated with M1-S03 verification routes and Deeni Madaris visibility note. **Updated — review pending.**
+- [Institution and Programme Requirements](../01-product/INSTITUTION_AND_PROGRAMME_REQUIREMENTS.md) — records owner decision V2-DEC-006: Deeni Madaris in underlying scope, hidden from public listing by default, configurable `Show Deeni Madaris` setting. **Updated — owner requirement recorded; implementation deferred.**
+- [Decision Register](../00-foundation/DECISION_REGISTER.md) — V2-DEC-006 recorded as adopted. **Updated — owner decision recorded.**

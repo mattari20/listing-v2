@@ -29,3 +29,12 @@ Decisions are recorded with ID, date, status, context, decision, consequences an
 - **Date:** 2026-11-11
 - **Status:** Product direction adopted; source rights and technical design pending
 - **Decision:** Build a multi-provider education data catalogue and AI-assisted process for discovery, collection, change detection, normalization, duplicate resolution, verification and recurring refresh. Preserve source provenance and usage rights. No source is assumed reusable until reviewed.
+
+
+## V2-DEC-006 — Deeni Madaris included in data scope but hidden by default
+- **Date:** 2026-11-12
+- **Status:** Adopted — explicit owner requirement
+- **Context:** The owner directed that V2 will work with Deeni Madaris as a distinct provider family, but they must not appear in the public listing at initial launch. The owner also requires an option to show or hide this category.
+- **Decision:** Include Deeni Madaris in the underlying V2 provider/research scope as a separate institution category. Provide an authorized platform-configuration setting labelled **Show Deeni Madaris**, with the launch default **OFF**. When OFF, Deeni Madaris are excluded from public discovery/listing outputs; their underlying records and provenance are retained. An authorized administrator may enable the category through the setting. The exact administration UI and authorization roles are deferred to M2 design.
+- **Consequences:** Data inclusion and public visibility are separate concerns. Visibility changes must not alter registration, recognition, affiliation or qualification-equivalence facts. Do not collect or expose sect/maslak as a general discovery attribute. No implementation is authorized by this product decision.
+- **Review trigger:** Before M2 design/implementation, validate the setting's permissions, public-surface coverage, privacy implications and acceptance tests with the owner.
