@@ -71,3 +71,18 @@ S02 supplies the domain vocabulary and lifecycle semantics consumed by S03's log
 | AR-008, AR-019–AR-020 | S06 ranking, freshness, completeness and sponsorship separation | Biased comparison, paid ranking opacity, unknown treated as negative | Relevance evaluation, missingness and sponsored-label tests | Drafted |
 
 S04-S06 designs consume accepted S02/S03 concepts. S07 refines AI-assisted evidence workflow; S08 refines identity/privacy/safeguarding; S09 establishes quantitative operations, capacity, retention and recovery targets. This mapping is a design obligation, not implementation test evidence.
+
+## M2-S07/S08/S09/S10 mapping — draft (2026-11-12)
+
+| Requirement / decision | Architecture element | Risk/control | M3 verification / gate | Status |
+|---|---|---|---|---|
+| AR-005–AR-007, AR-013–AR-015, G02/G08/G09/G16 | S07 source authorization, evidence quarantine, typed extraction, validation and provenance contract | Deny-by-default source access; prompt injection; hallucination; provenance gaps | Unauthorized-source negative tests, evidence-span checks, extraction evaluation, rights expiry/revocation replay | Drafted |
+| AR-003, AR-005–AR-007, G03/G04/G05 | S07 entity resolution and conflict workflow | False merge/split, stale or mis-scoped facts | Synthetic duplicate/split/affiliation/temporal test suite; mandatory human adjudication for ambiguity | Drafted |
+| AR-013–AR-015, G08/G09/G16 | S07 human review and publication separation | AI-only publication, unauthorized tools, silent overwrite | Verify no model-to-publication path; role separation and publication audit | Binding design invariant |
+| AR-009–AR-012, G12-G15 | S08 identity, scoped authorization, review integrity, moderation and appeal | Account takeover, IDOR, brigading, self-dealing | Authentication/authorization matrix, abuse and moderation tests | Drafted |
+| AR-021–AR-022, G17 | S08 privacy/minor safeguarding and anonymous-first discovery | Personal data leakage, unsafe adult-minor contact, precise location exposure | Privacy impact, safeguarding, log/cache/export leakage and location-denial tests | Drafted |
+| V2-DEC-006, AR-016–AR-018, G07 | S08 privileged configuration plus S06 all-surface suppression | Deeni Madaris side-channel leakage | Zero-exposure negative suite across public surfaces, caches, APIs, counts and exports | Binding |
+| AR-021–AR-025, G14/G17/G20 | S09 SLO hypotheses, observability, environments, backup/recovery and incident design | Outage, data loss, unverified backup, cost exhaustion | Load tests, timed restore, incident exercise and cost worksheet | Drafted; targets unapproved |
+| All AR-001–AR-025 and G01-G20 | S10 integrated architecture and conditional M3 roadmap | Cross-step contradiction or unowned gap | Complete traceability audit, threat review, ADR audit, owner acceptance | Pending final owner acceptance |
+
+G01-G20 are not closed merely because a design paragraph exists. Each remains linked to an explicit M3 verification, owner/legal decision, source-specific authorization or documented deferral. This mapping is a design obligation, not implementation test evidence.
