@@ -236,3 +236,8 @@ FDE's current portal displays 432 ICT institutions and has separate admissions a
 ## M1-S03 jurisdictional source matrix update — 2026-11-12
 
 A consolidated public/private school-source matrix now covers Punjab, Sindh, KP, Balochistan, ICT, AJK and GB, with source routes, access, freshness, rights and remaining gaps. The source register adds Punjab PMIU/PEPRIS, Sindh private-school registration criteria and KP public iEMIS/KPPSRA. Full matrix: `../03-research/M1_S03_JURISDICTIONAL_SCHOOL_SOURCE_MATRIX_2026-11-12.md`. S03-C02 remains in progress pending task-by-task acceptance audit.
+
+
+## M1-S03 additional accreditation-council research — 2026-11-12
+
+Additional official routes have been reviewed for HEC's accreditation-council map, NBEAC, NCH, PCATP, AHPC and NAEAC. The register distinguishes NBEAC's programme/department accreditation and session status; NCH's recognized-college list and freshness limitations; PCATP's programme accreditation/NOC and professional registration routes; AHPC's applicant-only list (not approval); and NAEAC's agriculture-programme scope and current-register gap. See `../03-research/M1_S03_ADDITIONAL_ACCREDITATION_COUNCIL_REVIEW_2026-11-12.md`. S03-C03 remains in progress.
