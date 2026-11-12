@@ -69,3 +69,8 @@ All step evidence complete; all M1 requirements and G01-G20 disposed; architectu
 | S01-T05 Owner/design review and S01 completion | 20% | Cross-document review, exact-head CI and delivery evidence | Pending |
 
 **Current S01 task completion:** 80% (four of five equal-weight tasks drafted; review/validation remains). This is task progress, not S01 acceptance.
+
+
+### M2-S01 delivery and validation evidence — 2026-11-12
+
+PR [#87](https://github.com/mattari20/listing-v2/pull/87) merged as `a9a8320dadc339cb15c7d75ac430301941abbd57`. Exact PR head `b759e08e9e4c0ae3c9bdaf9e449e7da751d7b80f` passed required Project documentation validation (run [#43181003815](https://github.com/mattari20/listing-v2/actions/runs/43181003815)). T01-T04 are drafted (80%); T05 validation passed, but explicit owner review remains pending. **S01 remains In Progress at 80%, not accepted.**
