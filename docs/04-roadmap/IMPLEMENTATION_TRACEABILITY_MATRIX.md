@@ -142,3 +142,17 @@ The ICT PEIRA register improves S02-C04 jurisdiction evidence. DGRE's nationwide
 ## PR #38 deep jurisdiction/TVET delivery evidence
 
 PR #38 merged as `a38fa149d10be99903ca6bb44236bd1e68565e6a`; exact head `f1f7aa59424b5161ec91a3f3ae60ff20471edba2` passed required Project documentation validation (run #43153839019). It adds S02-C04/C05/C06 source-family evidence; record-level completeness and rights remain open.
+
+
+## M1-S02 examination-board and PMF evidence — 2026-11-12
+
+The IBCC board roster and Punjab BISE network strengthen assessment/awarding-body relationship evidence; Punjab Medical Faculty strengthens S02-C03 provincial allied-health affiliation evidence; DGRE jurisdiction and multi-region lists strengthen S02-C01 provider taxonomy and coverage. Record-level freshness/anomalies and source rights remain unresolved. No board membership or affiliation is treated as accreditation or source-use authorization.
+
+## PR #39 ICT PEIRA/Madaris evidence delivery
+
+PR #39 merged as `0ace505ec67a420b8c2eb8fedd13ba1a2499f84c`; exact head `cf4d54967cad1f2114cd1f43dfccec5184d1b759` passed required Project documentation validation (run #43154066994). It strengthens ICT coverage and the Deeni Madaris provider taxonomy; source freshness and rights remain open.
+
+
+## M1-S02 HEC affiliation/study-centre and programme status evidence — 2026-11-12
+
+HEC 2024 policy adds explicit approved study-centre/MoU relationship requirements; current affiliated-college continuation is DAI/programme-specific. PM&DC and PCP provide session-specific programme/admission status examples; PNMC freshness limitations remain. These findings strengthen taxonomy and verification requirements but do not close record-level research or rights work.

@@ -130,3 +130,17 @@ The latest review strengthens ICT private-school evidence through PEIRA's pagina
 ## PR #38 delivery evidence — 2026-11-12
 
 PR #38 merged the deep jurisdiction and TVET review as `a38fa149d10be99903ca6bb44236bd1e68565e6a`; exact head `f1f7aa59424b5161ec91a3f3ae60ff20471edba2` passed required Project documentation validation (run #43153839019). It strengthens S02-C04/C05/C06 but does not close their remaining acceptance evidence. Task weights and owner gate are unchanged.
+
+
+## M1-S02 examination-board and PMF research note — 2026-11-12
+
+The latest review adds IBCC forum-member board categories, Punjab's nine BISE jurisdictions, Punjab Medical Faculty's separate public/private affiliated-institute lists, and DGRE regional jurisdiction plus 2024 regional Madaris lists. DGRE record anomalies and freshness limitations are explicit. Examination/assessment jurisdiction, institution-board affiliation, PMF affiliation, provider registration and accreditation remain distinct. See `docs/03-research/M1_S02_EXAMINATION_BOARDS_PMF_DGRE_JURISDICTION_REVIEW_2026-11-12.md`. S02-C01/C03/C05/C07/C08 remain in progress; S02-C09 remains owner-only.
+
+## PR #39 delivery evidence — 2026-11-12
+
+PR #39 merged the ICT PEIRA, Madaris and IBCC QAB review as `0ace505ec67a420b8c2eb8fedd13ba1a2499f84c`; exact head `cf4d54967cad1f2114cd1f43dfccec5184d1b759` passed required Project documentation validation (run #43154066994). It strengthens S02-C01/C04/C05 but does not resolve remaining current-register, rights or acceptance evidence.
+
+
+## M1-S02 HEC affiliation and programme-status note — 2026-11-12
+
+HEC Institutional Affiliation Policy 2024 applies to affiliated colleges and approved study centres, including regular-class/MoU centres; current continuation must be verified per DAI/college/programme. PM&DC seat allocations/court-order admissions, PCP Active/Stoppage of Admissions and PNMC freshness/programme irregularities reinforce the need for session-specific programme status. HEC affiliate-college rows require duplicate/variant reconciliation. S02-C02/C03/C07/C08 remain in progress; S02-C09 remains owner-only.

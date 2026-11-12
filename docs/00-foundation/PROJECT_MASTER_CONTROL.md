@@ -127,3 +127,17 @@ Latest research adds ICT-PEIRA's paginated private-education register/status mod
 ## PR #38 latest delivery evidence — 2026-11-12
 
 PR #38 merged as `a38fa149d10be99903ca6bb44236bd1e68565e6a`; exact head `f1f7aa59424b5161ec91a3f3ae60ff20471edba2` passed required Project documentation validation (run #43153839019). Deep jurisdiction and TVET evidence is incorporated; M1-S02 remains active and S02-C09 remains owner-only.
+
+
+## M1-S02 examination-board and DGRE jurisdiction research — 2026-11-12
+
+The latest pass adds IBCC board categories, Punjab BISE jurisdictions, Punjab Medical Faculty affiliated institute routes, and DGRE regional jurisdiction plus 2024 registered-Madaris lists across multiple territories. Record anomalies and freshness limits are documented; board affiliation, examination jurisdiction, provider registration and qualification equivalence remain separate. Full review: `../03-research/M1_S02_EXAMINATION_BOARDS_PMF_DGRE_JURISDICTION_REVIEW_2026-11-12.md`. S02-C01/C03/C05/C07/C08 remain active; S02-C09 owner-only.
+
+## PR #39 latest delivery evidence — 2026-11-12
+
+PR #39 merged as `0ace505ec67a420b8c2eb8fedd13ba1a2499f84c`; exact head `cf4d54967cad1f2114cd1f43dfccec5184d1b759` passed required Project documentation validation (run #43154066994). ICT PEIRA, DGRE Madaris and IBCC QAB evidence is incorporated; M1-S02 remains active and owner acceptance is pending.
+
+
+## M1-S02 HEC affiliation and programme status continuation — 2026-11-12
+
+HEC's 2024 affiliation policy covers approved study centres and MoU-operated centres as well as affiliated colleges; current continuation must be verified at DAI/college/programme level. PM&DC, PCP and PNMC examples reinforce time/session-specific programme statuses and freshness checks. See the examination-board/PMF/DGRE review. S02-C02/C03/C07/C08 remain active; owner gate remains pending.

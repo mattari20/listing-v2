@@ -190,3 +190,19 @@ S02-C01/C04/C05/C07/C08 remain in progress; S02-C09 remains an owner-only gate. 
 ## PR #38 — deep jurisdiction and TVET research
 
 PR [#38](https://github.com/mattari20/listing-v2/pull/38) merged as `a38fa149d10be99903ca6bb44236bd1e68565e6a`; exact head `f1f7aa59424b5161ec91a3f3ae60ff20471edba2` passed required Project documentation validation (run #43153839019). It delivered Punjab/Sindh/GB special-education source leads, provincial TVET register findings and scope/privacy cautions. No task acceptance or source-use permission is inferred.
+
+
+## M1-S02 examination boards, PMF and DGRE jurisdiction research — 2026-11-12
+
+A further review added IBCC's BISE/technical/other board roster, Punjab HED's nine BISE network, Punjab Medical Faculty's separate public/private affiliated-institute lists, and DGRE's district jurisdiction map plus regional Madaris pages for Islamabad, Sindh, KP, Balochistan, AJK and GB. The surfaced DGRE registers share a 26 March 2024 date and contain record-level anomalies (including cross-province address/district text and incomplete rows), so they are not a current verified census. Board membership, examination jurisdiction, institution affiliation, provider registration, programme accreditation and qualification equivalence remain separate relationships. Details are in docs/03-research/M1_S02_EXAMINATION_BOARDS_PMF_DGRE_JURISDICTION_REVIEW_2026-11-12.md.
+
+S02-C01/C03/C05/C07/C08 remain in progress; S02-C09 remains owner-only. All sources remain research-only.
+
+## PR #39 — ICT PEIRA, Deeni Madaris and IBCC QAB research
+
+PR [#39](https://github.com/mattari20/listing-v2/pull/39) merged as `0ace505ec67a420b8c2eb8fedd13ba1a2499f84c`; exact head `cf4d54967cad1f2114cd1f43dfccec5184d1b759` passed required Project documentation validation (run #43154066994). It added ICT PEIRA status/registration evidence, DGRE Madaris registration family and IBCC QAB/equivalence distinctions. No owner acceptance or source reuse is inferred.
+
+
+## M1-S02 HEC affiliation and health-programme status review — 2026-11-12
+
+The research now includes HEC Institutional Affiliation Policy 2024, which applies to affiliated colleges and approved study centres (including regular-class and MoU-operated centres) and requires current continuation notices from the affiliating DAI. HEC's affiliate-college PDF has duplicate/variant records that require reconciliation. PM&DC seat allocations and 2026–27 court-order admission notes, PCP Active/Stoppage of Admissions statuses and PNMC's stale/irregular register entries show that institute listing, programme approval, seat allocation, admission permission and current programme status must be modelled separately. Full details are in the examination-board/PMF/DGRE review. No current status is inferred from mere directory presence.

@@ -49,3 +49,4 @@ A proposal in a document is not automatically an approved implementation choice.
 
 - [M1-S02 Deep Jurisdiction, Special-Education and TVET Review](03-research/M1_S02_DEEP_JURISDICTION_SPECIAL_ED_TVET_REVIEW_2026-11-12.md) — Punjab/Sindh/GB special-education leads, provincial TVET directory evidence, data-quality and privacy boundaries
 - [M1-S02 ICT PEIRA, Madaris and QAB Review](03-research/M1_S02_ICT_PEIRA_MADARIS_QAB_REVIEW_2026-11-12.md) — ICT PEIRA register, DGRE Madaris source and IBCC qualification-awarding/equivalence distinctions
+- [M1-S02 Examination Boards, PMF and DGRE Jurisdiction Review](03-research/M1_S02_EXAMINATION_BOARDS_PMF_DGRE_JURISDICTION_REVIEW_2026-11-12.md) — examination boards, Punjab Medical Faculty affiliation and DGRE regional register evidence
