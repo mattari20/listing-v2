@@ -141,3 +141,7 @@ PR #39 merged as `0ace505ec67a420b8c2eb8fedd13ba1a2499f84c`; exact head `cf4d549
 ## M1-S02 HEC affiliation and programme status continuation — 2026-11-12
 
 HEC's 2024 affiliation policy covers approved study centres and MoU-operated centres as well as affiliated colleges; current continuation must be verified at DAI/college/programme level. PM&DC, PCP and PNMC examples reinforce time/session-specific programme statuses and freshness checks. See the examination-board/PMF/DGRE review. S02-C02/C03/C07/C08 remain active; owner gate remains pending.
+
+## PR #40 latest research delivery — 2026-11-12
+
+PR #40 merged as `c92d96613dcb510762be5a0a615a73e856861f9b`; final exact head `cc2cc7eaa615e4fe762f808e51918b6b10b5e235` passed required Project documentation validation (run #43154387281). Board, PMF, DGRE and HEC affiliation/study-centre evidence is now incorporated. M1-S02 remains active; S02-C09 is still owner-only.
