@@ -253,3 +253,13 @@ The AJK/GB/Sindh school-register supplement also records Sindh DIRPIS/SPEI-EMIS 
 ## PR #42 data-rights/privacy delivery evidence
 
 PR [#42](https://github.com/mattari20/listing-v2/pull/42) delivered the national data-rights, RTI, copyright and privacy review. Exact head `80a85a42418ee0176f3fad6ad63e0220f1978c8b` passed required Project documentation validation (run [#43154673045](https://github.com/mattari20/listing-v2/actions/runs/43154673045)); merge commit `a6b35abcb091965f90e492e36378750b2f20ebad`. This is policy context, not legal advice or source-specific clearance.
+
+
+## Supplemental M1-S02 school regulator/terms review
+
+- [M1-S02 School Regulator Status and Terms Review](../03-research/M1_S02_SCHOOL_REGULATOR_STATUS_TERMS_REVIEW_2026-11-12.md) — KPPSRA/Sindh DIRPIS status semantics, HEC Digital Library terms scope and NAVTTC aggregate-count cautions; research-only.
+
+
+## PR #43 AJK/GB/Sindh school-source delivery
+
+PR [#43](https://github.com/mattari20/listing-v2/pull/43) delivered the AJK/GB/Sindh/Punjab school-register review. Final exact head `56923aca98123dce6b8a574e0cf9f9c244b036b4` passed required **Project documentation validation** (run [#43155004215](https://github.com/mattari20/listing-v2/actions/runs/43155004215)); merge commit `a8dfd8018fa33588a4d35166c953b18f89e39c43`. It is research delivery only; completeness and reuse rights remain open.

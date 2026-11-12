@@ -207,3 +207,7 @@ AJK's dashboard and separate public/private census sources are discovery evidenc
 ## Sindh DIRPIS and KPPSRA school-register rights/freshness note — 2026-11-12
 
 Sindh's private-school registration criteria are dated September 2023; the SPEI-EMIS census TOR is older and itself notes that registered and unregistered private schools exist and that data required updating. Neither is a current complete registry or reuse license. KPPSRA's district-based register exposes active/blocked/dormant/closed statuses; all district coverage and update cadence must be verified, and no source-specific reuse license was identified. All remain research-only.
+
+## Regulator status and source-terms scope clarification — 2026-11-12
+
+KPPSRA and Sindh DIRPIS public notices/registers establish regulatory activity but do not grant bulk collection or commercial reuse rights. KPPSRA registration and BISE affiliation are separate relationships. Sindh's current October 2026 safety notices are not a complete private-school register; older census TOR notes known registered/unregistered providers and data-update needs. HEC Digital Library terms govern publisher-licensed electronic resources and must not be applied as directory terms or as directory reuse permission. NAVTTC's aggregate institute claims have different/unclear scopes and must not be treated as one verified count. All sources remain RESEARCH ONLY.

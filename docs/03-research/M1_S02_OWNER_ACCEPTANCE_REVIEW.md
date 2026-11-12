@@ -101,3 +101,7 @@ The latest review adds AJK public/private census streams and its 6,019-school ag
 ## 15. Sindh private-school and KPPSRA evidence — 2026-11-12
 
 Further research confirms Sindh's DIRPIS/SPEI-EMIS private-school registration/census stream is distinct from the public-school checker; official documents identify both registered and unregistered private providers and historical data-update needs. KPPSRA's district register provides ACTIVE/BLOCKED/DORMANT/CLOSED statuses. The current province-wide completeness, update cadence and source rights remain unverified. Details are in [M1-S02 AJK, GB, Sindh and Punjab School Register Review](M1_S02_AJK_GB_SINDH_SCHOOL_REGISTER_REVIEW_2026-11-12.md).
+
+## 16. School regulator and terms clarification — 2026-11-12
+
+The further review adds KPPSRA's current registration/renewal mandate and 2026–27 BISE de-affiliation notices; Sindh DIRPIS October 2026 safety oversight (not a complete registry); the scope of HEC Digital Library publisher licenses (not HEC directory terms); and NAVTTC aggregate count categories that cannot be combined. Full findings are in [M1-S02 School Regulator Status and Terms Review](M1_S02_SCHOOL_REGULATOR_STATUS_TERMS_REVIEW_2026-11-12.md). Current completeness and source rights remain open.
