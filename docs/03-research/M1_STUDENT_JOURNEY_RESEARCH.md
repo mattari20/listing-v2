@@ -1,6 +1,6 @@
 # M1-S01 — Student and User Journey Research
 
-**Status:** Initial desk-research synthesis and research protocol; primary student research not yet conducted.  
+**Status:** Desk-research and requirements baseline complete; prepared for owner acceptance. Primary participant validation is explicitly deferred during platform construction and has not been conducted.  
 **Research scope:** Pakistan, with a student-first discovery and education decision-support product.  
 **Research baseline date:** 2026-11-11  
 **Inputs:** Direct V2 owner direction and the independent sources listed below. No legacy project materials were used.
@@ -49,6 +49,19 @@ Source: [Delavande and Zafar (2014), Federal Reserve Bank of New York Staff Repo
 The HEC Annual Report 2023–24 presents higher-education levels and examples including associate degrees, bachelor's programmes, master's/MS/MPhil and doctoral qualifications. This is useful reference material for the vocabulary students may encounter, but the report is not a complete admission guide for every discipline or institution.
 
 Source: [HEC — Annual Report 2023–24](https://www.hec.gov.pk/english/news/AnnualReports/Annual-Report-2023-24.pdf).
+
+### 2.5 Digital access and the limits of a digital-only journey
+
+The Pakistan Bureau of Statistics' HIES 2024–25 release reports household internet access of approximately 70% and individual internet use of approximately 57%. These are household/population indicators, not student-specific usage rates; they do not establish that every student has a personal smartphone, private device access or uninterrupted connectivity.
+
+The Pakistan Institute of Education's *Pakistan Education Statistics 2023–24* reports that only 4% of public schools provide internet connectivity specifically for students' pedagogical use nationally, with substantial regional variation. This is a school-infrastructure indicator, not a direct measure of students' home connectivity or ability to use an independent discovery platform.
+
+**Product implication:** mobile-friendly and low-bandwidth access should be treated as important design requirements to test, while the service must not assume that every learner has continuous internet, a personal device or school-based connectivity. A manual locality-search route and text-first results should remain available. These figures do not justify excluding desktop users or making assumptions about any individual learner.
+
+Sources:
+- [PBS — HIES 2024–25 publication page](https://www.pbs.gov.pk/household-integrated-economic-survey-hies-2024-25/) (published 2 January 2026; includes final report and social report).
+- [Pakistan Institute of Education — Pakistan Education Statistics 2023–24](https://pie.gov.pk/SiteImage/Publication/PES%202024.pdf), especially technology indicators and school internet access (pp. 47–49).
+- [PBS — HIES 2024–25 launch summary](https://pid.gov.pk/site/press_detail/31490), 1 January 2026.
 
 ## 3. Initial V2 student segments — hypotheses, not validated personas
 
@@ -145,34 +158,49 @@ Do not claim statistical representation from a small qualitative sample. Define 
 | M1S01-E03 | Naveed & Khurshid (2021) | Candidate university-choice factors | 200 business students; limited population | Reviewed |
 | M1S01-E04 | Delavande & Zafar (2014) | Financial constraints and non-pecuniary factors in university choice | Older study; not current prevalence | Reviewed |
 | M1S01-E05 | HEC Annual Report 2023–24 | Higher-education qualification terminology | Not a comprehensive student-facing pathway guide | Reviewed |
+| M1S01-E06 | PBS HIES 2024–25 | National household internet access and individual internet-use context | Population/household indicators, not student-level device ownership, reliability or usage | Reviewed — contextual only |
+| M1S01-E07 | Pakistan Education Statistics 2023–24, PIE | Public-school student internet access and regional digital infrastructure gaps | Public-school infrastructure indicator; not a measure of home connectivity or all education sectors | Reviewed — contextual only |
+| M1S01-E08 | IBCC equivalence FAQs | Equivalence as a distinct pathway step for qualifications from different boards | Operational requirements vary by qualification and admission context; current process must be checked with IBCC | Reviewed — process reference only |
 
-Primary interviews, surveys and usability evidence: **not yet collected**. Draft adult-only research instruments are maintained separately in [M1 Student Research Instruments](M1_STUDENT_RESEARCH_INSTRUMENTS.md); they are not approved for distribution.
+Primary interviews, surveys and usability evidence: **not collected and deferred by owner during platform construction**. Draft adult-only research instruments are maintained separately in [M1 Student Research Instruments](M1_STUDENT_RESEARCH_INSTRUMENTS.md); they are archived preparation material only and must not be distributed or activated.
 
-## 8. Initial product implications to validate
+## 8. Desk-research implications and provisional requirements
 
-The following are hypotheses for validation, not final product requirements:
-- The journey should start with the student's current qualification/education stage and intended next step, not only a generic institution search.
-- The product should explain campus- and programme-specific eligibility, deadlines and application steps rather than treating the institution as a single undifferentiated record.
-- Total cost, location/travel, programme fit, recognition and current availability are candidate comparison dimensions.
-- Official process links and clear source/freshness labels are likely to be more useful than unsupported composite rankings.
-- Student and parent/guardian needs may overlap but should not be assumed identical.
-- The product must work without location permission and should be evaluated for low-bandwidth and multilingual use; these are product hypotheses to test, not evidence of current user preference.
+The following are evidence-informed V2 requirements or hypotheses. They are not validated personas or evidence of actual feature preference:
 
-## 9. Acceptance criteria for M1-S01
+- Begin with an optional education-stage/current-qualification and intended-next-step route, while retaining direct search for users who already know an institution or programme.
+- Model the decision at institution, campus and programme level where the underlying facts differ; do not imply that every campus offers every programme.
+- Present eligibility, admission status, deadlines, total fees, scholarships, duration and recognition only when evidence exists and the applicable source, as-of date and verification state can be shown.
+- Support manual locality search without requiring location permission; location-based discovery must be opt-in.
+- Allow comparison of selected options and make missing, stale or incomparable values visible instead of silently filling gaps.
+- Treat official source facts, provider-submitted claims, AI-discovered candidates, estimates and student opinions as distinct information classes.
+- Include student and parent/guardian roles in requirements, but do not assume they have identical goals or decision authority.
+- Use mobile-friendly, low-bandwidth and text-first design as a design requirement to validate. HIES and school connectivity statistics are context, not proof of an individual student's access.
+- Evaluate English and Urdu language needs, accessibility and device-sharing patterns in later research/design; do not claim a language preference without evidence.
+- Preserve privacy by default, especially for minors; do not require personal identifiers to browse or compare.
+- Authenticated ratings/reviews are a post-launch product feature, not a substitute for pre-launch research and not a reason to conduct a survey during construction.
 
-M1-S01 can be accepted only when:
-1. A research protocol, participant segments and ethical/safeguarding process are approved.
-2. Primary research is conducted across the defined transition segments, with sample limitations documented.
-3. Interview/survey evidence is synthesized into validated personas or segment profiles.
-4. At least one end-to-end journey is mapped with actors, stages, user questions, pain points, decision criteria and evidence needs.
-5. Functional requirements and measurable acceptance criteria are traceable to source evidence or explicitly labelled owner decisions.
-6. Conflicting findings, unknowns and research gaps are recorded.
-7. Product Vision and Student Discovery Requirements are updated from accepted evidence, not assumption.
-8. The owner reviews the resulting synthesis before M1-S01 is marked accepted.
+## 9. M1-S01 acceptance criteria — desk-research construction baseline
 
-## 10. Immediate next tasks
+M1-S01 is a documentation/research baseline step. Under the owner's 2026-11-12 direction, primary interviews, surveys, recruitment and research outreach are deferred during platform construction. They are not required to close this construction-stage baseline and must not be represented as completed or validated.
 
-- Confirm participant recruitment channels and safeguarding requirements before contacting minors.
-- Conduct initial exploratory interviews with adult students/parents first if minor-participant safeguards are not yet ready.
-- Expand the source review only where it helps formulate neutral research questions; do not treat desk research as a substitute for primary evidence.
-- Maintain the strict V2/legacy non-interference rule for every research input.
+The step is ready for owner acceptance when:
+1. The independent desk-research register includes dated sources, the specific claim each source supports and limitations that prevent overgeneralization.
+2. Student and supporting-user segments are explicitly labeled as hypotheses rather than validated personas.
+3. At least one end-to-end journey identifies actors, stages, decisions, information needs, trust checks, action points and unresolved questions.
+4. Student discovery requirements have stable IDs and measurable, implementation-neutral acceptance criteria.
+5. Requirements trace to source evidence or explicit owner decisions; unsupported assumptions and unresolved design questions are separated.
+6. Privacy, location consent, accessibility, digital access and minor-safeguarding constraints are documented without collecting participant data.
+7. Product Vision and Student Discovery Requirements are reconciled with the journey baseline.
+8. Primary research is clearly marked deferred; the draft instruments remain archived and inactive.
+9. The owner reviews and explicitly accepts the resulting desk-research baseline.
+
+**Not claimed by this closeout:** validated personas, representative student preferences, field-tested usability, statistical estimates of student demand, or final UX/architecture decisions.
+
+## 10. Deferred validation backlog and handoff
+
+After platform construction, and before treating the provisional segments/journey as validated, the owner may authorize a separate research phase. That phase must first approve recruitment channels, adult/minor scope, consent and safeguarding, data minimization, storage/access, retention/deletion, incentives (if any), and budget. The archived draft kit is not approved for distribution.
+
+Future validation should test which transition segments are distinct; student versus parent/guardian decision roles; actual search channels, language, device-sharing and connectivity patterns; importance of cost, transport, safety, accessibility, recognition, programme fit and admission timing; and whether comparison, save/shortlist and update features solve observed problems.
+
+No recruitment, interview, survey, outreach or usability test is authorized by this document. Continue strict V2/legacy non-interference for all future inputs.
