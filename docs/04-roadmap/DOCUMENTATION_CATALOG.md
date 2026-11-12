@@ -226,3 +226,8 @@ The [M1-S02 Examination Boards, PMF and DGRE Jurisdiction Review](../03-research
 ## PR #40 examination-board/PMF/DGRE delivery evidence
 
 PR [#40](https://github.com/mattari20/listing-v2/pull/40) delivered the examination-board, Punjab Medical Faculty, DGRE jurisdiction and HEC affiliation/study-centre research. Final exact head `cc2cc7eaa615e4fe762f808e51918b6b10b5e235` passed required **Project documentation validation** (run [#43154387281](https://github.com/mattari20/listing-v2/actions/runs/43154387281)); merge commit `c92d96613dcb510762be5a0a615a73e856861f9b`. Delivery does not complete S02 or approve source reuse.
+
+
+## Supplemental M1-S02 data rights/privacy review
+
+- [M1-S02 Data Rights, Public-Information Access and Privacy Framework Review](../03-research/M1_S02_DATA_RIGHTS_PRIVACY_FRAMEWORK_REVIEW_2026-11-12.md) — national policy status, RTI versus reuse, copyright, scoped PBS open license, source-rights checklist and privacy minimization; not legal advice.
