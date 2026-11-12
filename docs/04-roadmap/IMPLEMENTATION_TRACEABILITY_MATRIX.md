@@ -151,3 +151,8 @@ The IBCC board roster and Punjab BISE network strengthen assessment/awarding-bod
 ## PR #39 ICT PEIRA/Madaris evidence delivery
 
 PR #39 merged as `0ace505ec67a420b8c2eb8fedd13ba1a2499f84c`; exact head `cf4d54967cad1f2114cd1f43dfccec5184d1b759` passed required Project documentation validation (run #43154066994). It strengthens ICT coverage and the Deeni Madaris provider taxonomy; source freshness and rights remain open.
+
+
+## M1-S02 HEC affiliation/study-centre and programme status evidence — 2026-11-12
+
+HEC 2024 policy adds explicit approved study-centre/MoU relationship requirements; current affiliated-college continuation is DAI/programme-specific. PM&DC and PCP provide session-specific programme/admission status examples; PNMC freshness limitations remain. These findings strengthen taxonomy and verification requirements but do not close record-level research or rights work.
