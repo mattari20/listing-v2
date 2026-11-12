@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-12 — M1-S01 through M1-S04 accepted; M1-S05 programme/admissions research register delivered
+**Last reconciled:** 2026-11-12 — M1-S01 through M1-S05 accepted; M1-S06/S07 joint research packages delivered, owner acceptance pending
 
 ## Purpose and maintenance rule
 
@@ -72,7 +72,10 @@ For every merge:
 | [M1 Student Research Instruments](../03-research/M1_STUDENT_RESEARCH_INSTRUMENTS.md) | Draft adult interview guide, consent script and survey instrument | Archived preparation only — owner deferred all pre-launch participant research; do not distribute |
 | [M1-S01 Closeout Review](../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md) | Owner review checklist, weighted completion evidence and explicit limitations for S01 | Accepted — owner acceptance 2026-11-12 |
 | [M1-S04 Owner Acceptance Record](../03-research/M1_S04_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) | Formal owner acceptance of S04 private-provider source research, coverage gaps and research-only restrictions | Accepted — 2026-11-12 |
-| [M1-S05 Programme and Admissions Research](../03-research/M1_S05_PROGRAMME_ADMISSIONS_SOURCE_RESEARCH_2026-11-12.md) | 22 source families, federated programme/admissions evidence model, eligibility, fees, scholarships and freshness rules | Delivered — PR #75 merged; S05 T01–T09 complete (95%); owner acceptance pending |
+| [M1-S05 Programme and Admissions Research](../03-research/M1_S05_PROGRAMME_ADMISSIONS_SOURCE_RESEARCH_2026-11-12.md) | 22 source families, federated programme/admissions evidence model, eligibility, fees, scholarships and freshness rules | Accepted — owner acceptance 2026-11-12; 100% research baseline; all sources remain RESEARCH ONLY |
+| [M1-S05 Owner Acceptance Record](../03-research/M1_S05_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) | Formal owner acceptance of the programme/admissions research baseline and its limitations | Accepted — 2026-11-12 |
+| [M1-S06 GitHub Software and Dataset Discovery](../03-research/M1_S06_GITHUB_SOFTWARE_DATASET_DISCOVERY_2026-11-12.md) | Independent software/dataset candidate inventory, Pakistan relevance, transferability, exclusions and quality caveats | Delivered — S06 T01–T06 complete (90%); owner acceptance pending; no import or execution |
+| [M1-S07 Source Rights and Security Assessment](../03-research/M1_S07_SOURCE_RIGHTS_SECURITY_ASSESSMENT_2026-11-12.md) | Candidate-specific rights dispositions, Pakistan legal/policy context, privacy safeguards and software supply-chain review gates | Delivered — S07 T01–T06 complete (90%); owner acceptance pending; no source approved for ingestion |
 | [M1-S01 Owner Acceptance Record](../03-research/M1_S01_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) | Formal owner acceptance of S01 scope, limitations and research deferral | Accepted — 2026-11-12 |
 | [M1-S04 Private Provider Source Register](../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md) | 21 private/non-state provider source families, seven-jurisdiction coverage assessment, source caveats and gaps | Accepted — S04 owner acceptance 2026-11-12; 100% research baseline |
 | [M1 Institution Taxonomy Research](../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md) | Independent desk research on provider types, coverage and recognition relationships | Delivered — initial baseline; owner review and source expansion pending |
@@ -395,3 +398,8 @@ M1-S04 is Accepted and Closed by explicit owner decision; see [M1-S04 Owner Acce
 ## M1-S05 programme/admissions research delivery — PR #75
 
 PR [#75](https://github.com/mattari20/listing-v2/pull/75) merged as `cb3adbfef07c49d61f2532026e51a817f3e43afb`. Exact PR head `164744a948d33c3484cc1e611901e3902718fe7b` passed required Project documentation validation (run [#43170713563](https://github.com/actions/runs/43170713563)). S05 remains owner-acceptance pending.
+
+
+## M1-S06/S07 joint research package — 2026-11-12
+
+S06 and S07 research files have been delivered on the documentation branch for owner review. Both are 90% weighted complete with owner acceptance pending. They do not authorize collection, cloning, execution, ingestion, connector activation or reuse.
