@@ -40,7 +40,7 @@ One person may cover multiple roles only where capability and separation-of-duti
 
 ## 3. Budget and cost ceiling
 
-No cost ceiling or paid-service permission is currently approved.
+No numeric cost ceiling or paid-service permission is currently approved. **No new project spend is authorized.** See [M3-00 Budget and Cost Scenarios](M3-00_BUDGET_AND_COST_SCENARIOS.md) for scenario definitions, cost categories, calculation rules and spend controls. A zero-spend authorization state is not a lifetime budget ceiling.
 
 | Cost category | One-time estimate (PKR) | Recurring estimate (PKR/month) | Evidence/source | Status |
 |---|---:|---:|---|---|
@@ -55,11 +55,11 @@ No cost ceiling or paid-service permission is currently approved.
 | Contingency/tax/FX | Pending | Pending | Explicit assumptions and date | Open |
 
 ### Owner decisions required
-- Maximum one-time setup/development budget: **Pending**
-- Maximum recurring monthly spend: **Pending**
+- Maximum one-time setup/development budget: **Pending owner decision; no new spend authorized**
+- Maximum recurring monthly spend: **Pending owner decision; no new spend authorized**
 - Currency and tax/FX assumptions: **Pending**
-- Are paid third-party services allowed for evaluation? **Pending**
-- Are paid third-party services allowed in production? **Pending**
+- Are paid third-party services allowed for evaluation? **Not authorized pending separate explicit owner approval**
+- Are paid third-party services allowed in production? **Not authorized pending separate explicit owner approval**
 - Is a zero-cost/open-source-first constraint required? **Pending**
 
 A budget figure, if supplied, sets a ceiling only. It does not authorize a purchase, subscription or contract.
@@ -163,3 +163,7 @@ Record only confirmed decisions. A decision can be deferred with rationale and n
 ## 8. Decision boundary
 
 Completing this pack does not select a stack, approve spending, authorize source access, activate a connector/model, approve a production account, authorize physical schema/migrations, or authorize deployment or launch. Those actions require their own explicit approvals and safeguards.
+
+
+### T04 planning posture
+The budget framework is prepared in `M3-00_BUDGET_AND_COST_SCENARIOS.md`. Scenario A (no-new-spend planning) is the only currently permitted posture. Open-source/low-fixed-cost and managed-service scenarios are comparison cases only; numeric ceilings, dated quotes, taxes/FX and paid-service policy remain undecided. No paid evaluation, procurement or contract is authorized.
