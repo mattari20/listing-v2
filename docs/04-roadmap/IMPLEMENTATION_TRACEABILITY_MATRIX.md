@@ -100,3 +100,8 @@ PR #31 merged as `63d9386a8d93a12cb3f609480f6d101b890bade0`; exact head `1f92b1d
 ## Documentation catalogue maintenance
 
 `DOCUMENTATION_CATALOG.md` is the owner-facing inventory for documentation delivery and acceptance. Reconcile it on every documentation PR update and merge. Keep delivery status separate from content acceptance; update PR/head/check/merge evidence and links.
+
+
+## M1-S02 supplemental research evidence — 2026-11-12
+
+The additional AJK, Balochistan, NFEMIS, GB EMIS, HEC PQR/allied-health NOC and historical special-education findings are documented in docs/03-research/M1_S02_SUPPLEMENTAL_SOURCE_COVERAGE_REVIEW_2026-11-12.md. This strengthens TAX-001 source-family evidence and records material data-quality warnings, including NFEMIS dashboard/inventory totals differing by two and GB EMIS zero-valued summary metrics. It does not establish complete coverage, source reuse rights or S02 acceptance. All sources remain research-only; S02-C09 remains owner approval only.
