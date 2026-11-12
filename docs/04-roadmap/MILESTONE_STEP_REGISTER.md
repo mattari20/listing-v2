@@ -37,13 +37,13 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 - M0-S02 acceptance is limited to the documented metadata-only exclusion audit; it does not claim exhaustive inspection of the legacy repository.
 - Repository auto-merge setting is enabled, but automatic merge execution itself remains untested.
 - No application implementation, database schema/migrations, production access, deployment or URL cutover is authorized by M0 acceptance.
-- Next authorized step: M1-S01.
+- Next authorized step after M0 closeout: M1-S01.
 
 ## M1 — Student requirements and independent research
 | Step | Scope | Target / acceptance evidence |
 |---|---|---|
-| M1-S01 | Student/user research and journey | Primary research, validated student segments, end-to-end journey, evidence-backed requirements and measurable acceptance criteria; see `../03-research/M1_STUDENT_JOURNEY_RESEARCH.md` |
-| M1-S02 | Institution taxonomy and coverage requirements | Independently researched level/type/sector/geography matrix and inclusion rules |
+| M1-S01 | Student journey desk research and requirements baseline | Independent desk-research synthesis and provisional journey hypotheses; primary participant research is explicitly deferred during construction by owner |
+| M1-S02 | Institution taxonomy and coverage requirements | Independent level/type/sector/geography matrix, recognition/affiliation distinctions and inclusion rules; see `../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md` |
 | M1-S03 | Official government/regulator provider research | New source register with access, rights, coverage and freshness evidence |
 | M1-S04 | Private provider and institution-source research | New provider inventory and documented gaps |
 | M1-S05 | Programme/admissions information research | Student-required programme, campus, fees, admission and scholarship information |
@@ -53,16 +53,16 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 | M1-S09 | Comparison, review and trust research | Rating rubric, moderation, privacy and abuse cases |
 | M1-S10 | M1 synthesis and acceptance | Research report, gap register and approved inputs to M2 |
 
-### M1-S01 task breakdown (weights total 100%)
+### M1-S01 task breakdown (weights total 100%; primary research deferred by owner)
 | Task | Weight | Acceptance evidence | Status |
 |---|---:|---|---|
-| S01-T01 Desk research and evidence register | 20% | Independent source synthesis with limitations and dated references | In progress — initial baseline drafted |
-| S01-T02 Participant segments and research protocol | 20% | Segment hypotheses, recruitment approach, consent and safeguarding plan | In progress — adult interview/survey kit merged in PR #7; owner approval required before fieldwork |
-| S01-T03 Primary interviews/survey | 25% | Documented, consented participant evidence and sample limitations | Planned |
-| S01-T04 Journey mapping and synthesis | 20% | Validated journey, decision factors, pain points and gaps | Planned |
-| S01-T05 Requirements and acceptance criteria | 15% | Traceable updates to product requirements and owner-reviewed acceptance | Planned |
+| S01-T01 Desk research and evidence register | 35% | Independent source synthesis with limitations and dated references | Delivered — initial desk-research baseline in PR #6 |
+| S01-T02 Participant segments and research protocol | 15% | Clearly labeled segment hypotheses and research safeguards; no recruitment during construction | Delivered as draft preparation only — PR #7; owner deferred fieldwork |
+| S01-T03 Primary interviews/survey | 0% | No pre-launch survey or interview under current owner direction | Deferred — not part of construction scope |
+| S01-T04 Journey mapping and synthesis | 25% | Desk-research journey and explicit evidence gaps, without claiming participant validation | In progress — provisional baseline only |
+| S01-T05 Requirements and acceptance criteria | 25% | Traceable product requirements and owner decisions; unresolved assumptions identified | In progress — continue alongside M1 work |
 
-## M2–M12 step planning
+## Owner-approved research timing\nNo student survey, interviews, recruitment or outreach will occur during platform construction. The existing adult interview/survey kit is an unapproved draft retained for record only. Ratings and reviews are a post-launch authenticated product feature.\n\n## M2–M12 step planning
 Before each milestone starts, create detailed numbered steps, task weights, dependencies, acceptance criteria, PR/test evidence and target dates or duration estimates where supportable. Do not invent calendar commitments without capacity and dependency estimates.
 
 ## Step closeout fields
