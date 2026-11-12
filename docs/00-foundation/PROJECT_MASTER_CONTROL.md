@@ -433,3 +433,8 @@ S07-S10 documentation drafts have been prepared:
 - S10 integrated synthesis and conditional M3 roadmap: 80%; explicit final owner acceptance pending.
 
 Weighted M2 draft progress is 93.9%. The next eligible work is complete T05 validation/reconciliation for S07-S10, then request the owner's explicit final M2 acceptance. M3 implementation remains prohibited until that acceptance and a separate M3 start authorization. No source retrieval/ingestion, connector/agent activation, procurement, production access, deployment, launch or legacy-repository interaction is authorized.
+
+
+## M2-S07/S08/S09 design validation closeout — 2026-11-12
+
+The design-level T05 reviews for S07 threat/cost/failure, S08 security/cross-step consistency and S09 cost/operations limitations are complete. Joint review: ../05-architecture/M2-S07-S09_JOINT_ARCHITECTURE_VALIDATION.md. S07, S08 and S09 are design-task complete at 100%. S10 remains 80% because the explicit final owner acceptance gate is not delegated to the document author. Weighted M2 design progress is 98.6%; see ../05-architecture/M2_PROGRESS_REPORT.md. The only remaining M2 gate is the owner's final acceptance of the integrated architecture. M3 remains unauthorized.
