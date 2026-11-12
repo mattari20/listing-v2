@@ -606,3 +606,6 @@ PR #102 exact head `2cce569bd6e63dcf204f5c11d987a8d544373b2d` passed Project doc
 #### PR #104 merge evidence — 2026-11-12
 
 PR #104 exact head `ee7cb705c91bb640b69f895f7e5e47e848b33da6` passed Project documentation validation (run #43199037952; all job steps successful) and squash-merged as `7b5c31af83bb18b2c5578ddb7cc3dd705f25d08e`. T04's framework is delivered; numeric budget decisions and paid-service permission remain open. No new spend is authorized.
+
+
+| [M3-00 Technology Stack Decision Framework](M3-00_TECHNOLOGY_STACK_DECISION_FRAMEWORK.md) | T05 candidate stack trade-offs, common evaluation criteria, conditional baseline and blockers | Delivered in technology framework PR; no technology selected; owner/team fit and evidence pending |
