@@ -231,3 +231,8 @@ PIE's official mandate confirms federal coordination and support to provincial/r
 ## M1-S03 FDE/FGEI distinction — 2026-11-12
 
 FDE's current portal displays 432 ICT institutions and has separate admissions and GIS/EMIS routes. FGEI C/G is a separate federal directorate under IGT&E; indexed official pages report 311 schools and 49 colleges across cantonment/garrison regions, but record-level pages were access-limited. FDE, FGEI and FBISE must remain distinct source/authority relationships. See `../03-research/M1_S03_FDE_FGEI_SOURCE_REVIEW_2026-11-12.md`. S03-C02 remains in progress.
+
+
+## M1-S03 jurisdictional source matrix update — 2026-11-12
+
+A consolidated public/private school-source matrix now covers Punjab, Sindh, KP, Balochistan, ICT, AJK and GB, with source routes, access, freshness, rights and remaining gaps. The source register adds Punjab PMIU/PEPRIS, Sindh private-school registration criteria and KP public iEMIS/KPPSRA. Full matrix: `../03-research/M1_S03_JURISDICTIONAL_SCHOOL_SOURCE_MATRIX_2026-11-12.md`. S03-C02 remains in progress pending task-by-task acceptance audit.

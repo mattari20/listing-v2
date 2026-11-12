@@ -305,3 +305,10 @@ S03-C03 remains in progress pending current programme/batch validity, source own
 
 - [M1-S03 FDE/FGEI Source Review](../03-research/M1_S03_FDE_FGEI_SOURCE_REVIEW_2026-11-12.md) — separate FDE ICT, FGEI C/G cantonment/garrison and FBISE affiliation source scopes; **Delivered — review pending; M1-S03 in progress.**
 - [M1-S03 Official Government and Regulator Provider Source Register](../03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md) — updated with GOV-38 and GOV-39; **Updated — review pending.**
+
+
+## M1-S03 jurisdictional school authority research — 2026-11-12
+
+A consolidated jurisdictional source matrix now records public and private school authorities across Punjab, Sindh, KP, Balochistan, ICT, AJK and GB. It distinguishes PMIU from PEPRIS, Sindh's public checker from private DIRPIS, role-based KP public iEMIS from KPPSRA private registers, Balochistan government/private/BEF/ALP layers, FDE from PEIRA, AJK E&SE/EMIS/PEIRA and GB EMIS/college routes. It preserves access/freshness/rights limitations and does not treat aggregate counts as complete registers. Full matrix: `docs/03-research/M1_S03_JURISDICTIONAL_SCHOOL_SOURCE_MATRIX_2026-11-12.md`.
+
+S03-C02 remains in progress pending task audit. No scraping, bulk download, source-owner contact, permission request, login/access bypass, ingestion, implementation or production access is authorized.
