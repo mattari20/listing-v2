@@ -1,6 +1,6 @@
 # M1-S04 — Private Provider and Institution-Source Research
 
-**Status:** Initial independent private-provider source inventory and gap analysis delivered and merged in PR [#73](https://github.com/mattari20/listing-v2/pull/73); owner acceptance pending. Exact PR head `099f99289399bc95b6cdd2ca9aafdb023bf5a352` passed required Project documentation validation (run [#43169707414](https://github.com/mattari20/listing-v2/actions/runs/43169707414)); merge commit `a66400189b2f2216e3743fe7b40a7f672cfb240a`. This is a research baseline, not a complete national census, legal opinion, permission grant or authorization to collect/republish data.  
+**Status:** Initial independent private-provider source inventory and gap analysis delivered, merged and **Accepted by owner on 2026-11-12**. See [M1-S04 Owner Acceptance Record](M1_S04_OWNER_ACCEPTANCE_RECORD_2026-11-12.md). Exact PR head `099f99289399bc95b6cdd2ca9aafdb023bf5a352` passed required Project documentation validation (run [#43169707414](https://github.com/mattari20/listing-v2/actions/runs/43169707414)); merge commit `a66400189b2f2216e3743fe7b40a7f672cfb240a`. This is a research baseline, not a complete national census, legal opinion, permission grant or authorization to collect/republish data.  
 **Prepared / checked:** 2026-11-12  
 **Repository:** `mattari20/listing-v2`  
 **Independence:** Research performed independently for Listing V2; no legacy repository artifacts, datasets, schemas, implementation patterns or historical findings used.
@@ -118,3 +118,8 @@ All URLs above were checked as public source routes on 2026-11-12. Principal sou
 ## Delivery evidence
 
 PR [#73](https://github.com/mattari20/listing-v2/pull/73) merged as `a66400189b2f2216e3743fe7b40a7f672cfb240a`. Exact PR head `099f99289399bc95b6cdd2ca9aafdb023bf5a352` passed required Project documentation validation (run [#43169707414](https://github.com/mattari20/listing-v2/actions/runs/43169707414)). This confirms delivery and document validation only; M1-S04 owner acceptance remains pending and all source families remain RESEARCH ONLY.
+
+
+## Owner acceptance
+
+The owner explicitly accepted this research baseline on 2026-11-12. The formal acceptance record is [M1-S04 Owner Acceptance Record](M1_S04_OWNER_ACCEPTANCE_RECORD_2026-11-12.md). Acceptance closes the weighted research/documentation step at 100%, with all coverage gaps and RESEARCH ONLY restrictions carried forward. It does not grant source reuse rights or authorize collection, ingestion or implementation.

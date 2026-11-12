@@ -46,7 +46,7 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 | M1-S02 | Institution taxonomy and coverage requirements | Independent level/type/sector/geography matrix, recognition/affiliation distinctions and inclusion rules; see `../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md` and `../03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md` |
 | M1-S03 | Official government/regulator provider research | New source register with access, rights, coverage and freshness evidence |
 | M1-S04 | Private provider and institution-source research | `../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md` — 21 source families, seven-jurisdiction coverage assessment and documented gaps |
-| M1-S05 | Programme/admissions information research | Student-required programme, campus, fees, admission and scholarship information |
+| M1-S05 | Programme/admissions information research | `../03-research/M1_S05_PROGRAMME_ADMISSIONS_SOURCE_RESEARCH_2026-11-12.md` — 22 source families, federated programme/admissions evidence model and documented gaps |
 | M1-S06 | Independent GitHub software and dataset discovery | Candidate inventory across crawler, data, search, geo, workflow and education-data categories |
 | M1-S07 | License, data-rights and security assessment | Per-candidate evidence and independent reuse decision |
 | M1-S08 | V2 AI data-agent workflow requirements | Source-specific collection, verification, scheduling and human-review requirements |
@@ -80,13 +80,36 @@ The closeout review is `../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md`; th
 | S04-T06 NGO, community, faith-based, online and other non-state providers | 10% | Category definitions, source leads and inclusion/recognition boundaries | **Completed at baseline level** — provider types distinguished; category-specific regulator and inclusion gaps recorded; Deeni Madaris default-OFF decision preserved |
 | S04-T07 Coverage, access, privacy, freshness and data-quality assessment | 10% | Cross-jurisdiction gap matrix and source-native status, personal-data and rights limitations | **Completed with limitations** — seven-jurisdiction confidence matrix, status lifecycle and privacy constraints recorded; all sources remain RESEARCH ONLY |
 | S04-T08 Consolidated private-provider inventory and gap analysis | 5% | Deduplicated source-family register, actionable gaps and research conclusion | **Completed** — 21 source-family records and seven-jurisdiction coverage assessment documented |
-| S04-T09 Owner review and step acceptance | 5% | Owner-reviewed source register, limitations, gap analysis and research-only boundary | **Pending owner acceptance** |
+| S04-T09 Owner review and step acceptance | 5% | Owner-reviewed source register, limitations, gap analysis and research-only boundary | **Accepted — owner approval recorded 2026-11-12** |
 
-**M1-S04 weighted research/documentation completion:** 95% (T01–T08 complete at their stated research-baseline scope; T09 5% pending owner review). This is not a private-provider census, legal clearance or source-reuse approval. No provider records were scraped, bulk-downloaded or ingested.
+**M1-S04 weighted research/documentation completion:** 100% (T01–T08 research tasks complete and T09 accepted by owner on 2026-11-12). This is not a private-provider census, legal clearance or source-reuse approval. No provider records were scraped, bulk-downloaded or ingested.
 
-### M1-S04 owner acceptance gate
+### M1-S04 owner acceptance evidence
 
-Review `../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md`. PR [#73](https://github.com/mattari20/listing-v2/pull/73) merged as `a66400189b2f2216e3743fe7b40a7f672cfb240a`; exact PR head `099f99289399bc95b6cdd2ca9aafdb023bf5a352` passed required Project documentation validation (run [#43169707414](https://github.com/mattari20/listing-v2/actions/runs/43169707414)). Acceptance should confirm the 21 source-family inventory, seven-jurisdiction coverage assessment, status/recognition distinctions, major private-provider coverage gaps, personal-data safeguards and RESEARCH ONLY boundary. No source collection, reuse, ingestion or connector activation is implied.
+Review `../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md` and formal [M1-S04 Owner Acceptance Record](../03-research/M1_S04_OWNER_ACCEPTANCE_RECORD_2026-11-12.md). The owner explicitly accepted the 21 source-family inventory, seven-jurisdiction coverage assessment, status/recognition distinctions, major coverage gaps, privacy safeguards and RESEARCH ONLY boundary. PR [#73](https://github.com/mattari20/listing-v2/pull/73) merged as `a66400189b2f2216e3743fe7b40a7f672cfb240a`; PR [#74](https://github.com/mattari20/listing-v2/pull/74) reconciled delivery evidence and merged as `8fda2dc21aa2fe12b606b2b4cb877fe229401e52`. Required checks passed on both exact PR heads (runs [#43169707414](https://github.com/mattari20/listing-v2/actions/runs/43169707414) and [#43169826241](https://github.com/mattari20/listing-v2/actions/runs/43169826241)). All source families remain RESEARCH ONLY; acceptance does not authorize source collection, reuse, ingestion or connector activation.
+
+### M1-S05 task breakdown (weights total 100%)
+
+| Task | Weight | Acceptance evidence | Status |
+|---|---:|---|---|
+| S05-T01 Scope, programme lifecycle and evidence taxonomy | 10% | Programme, campus, award, admission cycle, eligibility, fee and scholarship concepts distinguished | **Completed** — federated evidence model and separate programme/admission/financial-aid objects documented |
+| S05-T02 Official programme and provider offer sources | 15% | Representative official provider programme/catalogue/prospectus sources and limits | **Completed with limitations** — HEC recognition, PU, UET, UMT, Sindh Agriculture University and University of Baltistan source patterns mapped; no national programme catalogue established |
+| S05-T03 Eligibility, prerequisites and qualification equivalence | 15% | Official admission criteria, subject combinations, equivalence and regulator rules | **Completed with limitations** — UHS/NUMS/PM&DC, IBCC and institution-specific criteria mapped; criteria remain programme/session/category scoped |
+| S05-T04 Admission cycles, application routes and selection stages | 15% | Centralized and institution-run admission schedules, notices, deadlines and portals | **Completed with limitations** — Punjab OCAS, UHS, NUMS and provider portals mapped; full provincial/territorial authority coverage remains open |
+| S05-T05 Fee structures and cost components | 15% | Official fee schedules, categories, billing units and uncertainty rules | **Completed at baseline level** — UET and representative provider schedules mapped; province/sector coverage and total-cost completeness remain open |
+| S05-T06 Scholarships, grants and financial aid | 10% | National/provincial/institution source families and eligibility/coverage distinctions | **Completed with limitations** — HEC Need-Based, HEC catalogue and PEEF/institution routes mapped; current windows and full provincial coverage remain open |
+| S05-T07 TVET, professional and specialist programme routes | 10% | NAVTTC/NVQF and relevant professional-regulator programme/admission distinctions | **Completed with limitations** — NAVTTC student/programme routes and S02/S03 regulator cross-references documented; batch/campus/session approval requires exact verification |
+| S05-T08 Freshness, provenance, privacy and conflict rules | 5% | Source hierarchy, notice revisions, deadline precision, privacy and stale-record handling | **Completed** — versioned evidence, status and conflict rules documented; no applicant data copied |
+| S05-T09 Consolidated source register, gaps and product implications | 5% | Research synthesis, 22 source families and actionable open-gap list | **Completed** — 22 source families, federated model, data/evidence requirements and 10 follow-up gaps documented |
+| S05-T10 Owner review and step acceptance | 5% | Owner-reviewed research register and explicit acceptance record | **Pending owner acceptance** |
+
+**M1-S05 weighted research/documentation completion:** 95% (T01–T09 complete at their stated research-baseline scope; T10 5% pending owner review). This is not a national programme catalogue, current admissions inventory, legal clearance or source-reuse approval. No applicant data was collected, no source was scraped/bulk-downloaded and no records were ingested.
+
+### M1-S05 owner acceptance gate
+
+Review `../03-research/M1_S05_PROGRAMME_ADMISSIONS_SOURCE_RESEARCH_2026-11-12.md`. Acceptance should confirm the 22-source-family research baseline, federated source model, programme/admission/eligibility/fee/scholarship distinctions, freshness and conflict controls, jurisdictional gaps and RESEARCH ONLY boundary. No source collection, reuse, ingestion or connector activation is implied.
+
+
 
 
 
