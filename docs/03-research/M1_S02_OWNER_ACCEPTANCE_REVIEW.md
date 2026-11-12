@@ -57,3 +57,10 @@ Select one decision and record it in the project Decision Register:
 - **Keep open:** Do not close M1-S02; continue source coverage, terms and rights research before acceptance.
 
 No decision has been made by this document. The step remains **In progress** until the owner explicitly approves one option and the project records that decision.
+
+
+## 7. Supplemental review added — 2026-11-12
+
+The research pack has been supplemented with dated AJK private-school register evidence, richer Balochistan EMIS fields, NFEMIS national NFE dashboard/inventory evidence (including a two-record discrepancy between dashboard and category sum), a GB EMIS zero-valued dashboard warning, HEC PQR and allied-health NOC distinctions, and historical-only KP special-education evidence. Full findings and source links are in [M1-S02 Supplemental Official-Source Coverage Review](M1_S02_SUPPLEMENTAL_SOURCE_COVERAGE_REVIEW_2026-11-12.md).
+
+These additions improve the evidence baseline but do not establish complete national coverage, current record-level verification, source reuse permission or legal/privacy approval. The prior owner decision options remain unchanged. S02-C09 remains not approved and must be decided explicitly by the owner; no source is approved for collection or reuse.
