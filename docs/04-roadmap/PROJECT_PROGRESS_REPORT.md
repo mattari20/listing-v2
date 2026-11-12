@@ -319,3 +319,8 @@ S03-C02 remains in progress pending task audit. No scraping, bulk download, sour
 The professional regulator source register now covers HEC's accreditation-council map, NBEAC, NCH, PCATP, AHPC and NAEAC in addition to PMDC, PCP, PNMC, NCEAC, NACTE, PEC, NTC, PVMC and PBC. Key gaps are explicit: AHPC's dated list is for applicants only, NCH's recognized-college page lacks clear current status and contains personal contacts, PCATP's current programme register is incomplete/undated in the reviewed route, and NAEAC's public evaluator guidance does not establish a current accredited-programme list. Full note: `docs/03-research/M1_S03_ADDITIONAL_ACCREDITATION_COUNCIL_REVIEW_2026-11-12.md`.
 
 S03-C03 remains in progress pending task audit. All sources remain RESEARCH ONLY; no personal contact data, scraping, bulk download, source-owner contact, permission request, ingestion or implementation is authorized.
+
+
+## M1-S03 task acceptance evidence audit
+
+- [M1-S03 Task Acceptance Evidence Audit](../03-research/M1_S03_TASK_ACCEPTANCE_EVIDENCE_AUDIT_2026-11-12.md) — evidence-based audit of C01–C08, unresolved source/rights/coverage limitations and owner-only C09 gate; **Delivered — owner review pending; 95% weighted completion.**
