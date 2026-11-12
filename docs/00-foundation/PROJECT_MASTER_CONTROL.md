@@ -123,3 +123,7 @@ A further documentation-only pass adds Punjab/Sindh/GB special-education source 
 ## M1-S02 ICT PEIRA and Madaris continuation — 2026-11-12
 
 Latest research adds ICT-PEIRA's paginated private-education register/status model, DGRE's nationwide Deeni Madaris registration authority and IBCC's QAB-versus-qualification-equivalence distinction. Deeni Madaris are a distinct provisional provider family; DGRE registration, awarding-body recognition and credential equivalence remain separate. DGRE maslak data is excluded from general discovery. Detailed findings are in `../03-research/M1_S02_ICT_PEIRA_MADARIS_QAB_REVIEW_2026-11-12.md`. S02-C01/C04/C05/C07/C08 remain active; S02-C09 remains owner-only; all sources remain research-only.
+
+## PR #38 latest delivery evidence — 2026-11-12
+
+PR #38 merged as `a38fa149d10be99903ca6bb44236bd1e68565e6a`; exact head `f1f7aa59424b5161ec91a3f3ae60ff20471edba2` passed required Project documentation validation (run #43153839019). Deep jurisdiction and TVET evidence is incorporated; M1-S02 remains active and S02-C09 remains owner-only.
