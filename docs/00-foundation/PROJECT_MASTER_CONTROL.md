@@ -2,7 +2,7 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0 accepted and closed; M1 in progress; M1-S02 and M1-S03 accepted; M1-S01 PR #71 merged; owner acceptance pending  
+**Status:** M0 accepted and closed; M1-S01, M1-S02 and M1-S03 accepted; M1-S04 private-provider research in progress  
 **Last reconciled:** 2026-11-12
 
 ## Authoritative current position
@@ -42,7 +42,7 @@ At the beginning of every work session, the AI must:
 5. Work only within the step's documented scope.
 6. Confirm all task inputs comply with the strict legacy non-interference rule.
 
-At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. Current state: M1-S02 and M1-S03 are accepted; M1-S01's weighted documentation tasks are complete at 100% and its closeout package awaits owner acceptance. Primary participant research is deferred during platform construction. After S01 acceptance, M1-S04 is the next planned step and requires separate owner authorization. Do not start M1-S04 or M2 without that authorization.
+At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. Current state as of 2026-11-12: M1-S01, M1-S02 and M1-S03 are accepted; M1-S04 private-provider and institution-source research is active under the owner's instruction to continue. M1-S01's formal acceptance record is `../03-research/M1_S01_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. M1-S04's research register is `../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md`; T01–T08 are complete at 95% weighted progress and T09 owner acceptance remains pending. All sources remain RESEARCH ONLY. No scraping, bulk download, source-owner contact, permission requests, ingestion, connector activation, application implementation, database/schema changes, production access, deployment or legacy-repository interaction is authorized.
 
 ## Latest documentation delivery evidence
 PR #23 reconciled PR #22's NAVTTC research update across the catalogue, progress report and traceability. Exact head `737ec6838dc85d4ba1becc600af661d998074c0a` passed required documentation validation (run #43145140802); merge commit `2a94f8caced03142fee56c5b6e6fc1afa2f6df65`. M1-S02 remains active; no source has been approved for reuse or ingestion.
@@ -267,3 +267,10 @@ The M1-S01 desk-research and requirements closeout package is merged to `main` b
 M1-S01 weighted documentation tasks total 100% (T01 35%, T02 15%, T04 25%, T05 25%). T03 primary interviews/survey is explicitly owner-deferred and has 0% weight. No interviews, surveys, recruitment, outreach, usability testing or participant validation are claimed or authorized. The archived instrument kit must remain inactive.
 
 The closeout review pack is `../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md`. M1-S01 remains **Ready for owner acceptance**, not Accepted, until the owner reviews and explicitly accepts the package. After acceptance, M1-S04 remains the next planned step and requires separate owner authorization. M2, implementation, production access and deployment remain outside this closeout.
+
+
+## Authoritative update — M1-S01 accepted; M1-S04 active (2026-11-12)
+
+The owner explicitly accepted M1-S01 as a completed construction-stage desk-research and requirements baseline. Acceptance is recorded in `../03-research/M1_S01_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`; primary student research remains deferred.
+
+M1-S04 is now active following the owner's instruction to continue. The initial private-provider source register records 21 source families and a seven-jurisdiction coverage assessment. Its weighted task register is 95% complete, with T09 owner acceptance pending. The register is research-only; no scraping, bulk download, source-owner contact, permission request, data ingestion or reuse approval has occurred. M1-S04 does not authorize M2, implementation, production access or deployment.

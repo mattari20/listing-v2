@@ -37,7 +37,7 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 - M0-S02 acceptance is limited to the documented metadata-only exclusion audit; it does not claim exhaustive inspection of the legacy repository.
 - Repository auto-merge setting is enabled, but automatic merge execution itself remains untested.
 - No application implementation, database schema/migrations, production access, deployment or URL cutover is authorized by M0 acceptance.
-- M0 closeout next step was M1-S01; current authorized work is M1-S03 official government and regulator provider research.
+- M0 closeout next step was M1-S01; subsequent current-step status and authorizations are recorded in the authoritative M1 current-position section below.
 
 ## M1 — Student requirements and independent research
 | Step | Scope | Target / acceptance evidence |
@@ -45,7 +45,7 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 | M1-S01 | Student journey desk research and requirements baseline | Independent desk-research synthesis and provisional journey hypotheses; primary participant research is explicitly deferred during construction by owner |
 | M1-S02 | Institution taxonomy and coverage requirements | Independent level/type/sector/geography matrix, recognition/affiliation distinctions and inclusion rules; see `../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md` and `../03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md` |
 | M1-S03 | Official government/regulator provider research | New source register with access, rights, coverage and freshness evidence |
-| M1-S04 | Private provider and institution-source research | New provider inventory and documented gaps |
+| M1-S04 | Private provider and institution-source research | `../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md` — 21 source families, seven-jurisdiction coverage assessment and documented gaps |
 | M1-S05 | Programme/admissions information research | Student-required programme, campus, fees, admission and scholarship information |
 | M1-S06 | Independent GitHub software and dataset discovery | Candidate inventory across crawler, data, search, geo, workflow and education-data categories |
 | M1-S07 | License, data-rights and security assessment | Per-candidate evidence and independent reuse decision |
@@ -62,11 +62,33 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 | S01-T04 Journey mapping and synthesis | 25% | Desk-research journey with actors, stages, questions, decision points, evidence needs and gaps; no validation claim | **Completed** — end-to-end provisional desk-research journey and deferred-validation backlog documented |
 | S01-T05 Requirements and acceptance criteria | 25% | Stable requirement IDs, traceability, measurable acceptance scenarios and unresolved assumptions | **Completed** — SR-01–SR-14 documented; product vision and traceability reconciled; implementation-neutral tests and open questions recorded |
 
-**M1-S01 weighted documentation completion:** 100% (T01 35% + T02 15% + T04 25% + T05 25%). T03 is an explicitly owner-deferred zero-weight activity and is not represented as completed. The step is **ready for owner acceptance**; it is not marked Accepted until the owner reviews the closeout package. Primary participant validation remains outstanding and is not implied by this percentage.
+**M1-S01 weighted documentation completion:** 100% (T01 35% + T02 15% + T04 25% + T05 25%). T03 is an explicitly owner-deferred zero-weight activity and is not represented as completed. **M1-S01 is Accepted and Closed by owner decision on 2026-11-12** as a construction-stage desk-research and requirements baseline. Primary participant validation remains deferred and is not implied by this percentage.
 
-### M1-S01 owner acceptance gate
+### M1-S01 owner acceptance evidence
 
-The closeout package is `../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md`. PR [#71](https://github.com/mattari20/listing-v2/pull/71) merged as `64bd568d522e41452b8b46db8652ec8df48a2d8b`; exact PR head `2982bdf421e09e82c03b76c223adb1b6ecc0b180` passed required Project documentation validation (run [#43166985628](https://github.com/mattari20/listing-v2/actions/runs/43166985628)). Owner acceptance must confirm the desk-research baseline, provisional nature of segments/journey, 14 student discovery requirements, explicit deferral of primary research and carried-forward limitations. Acceptance closes only the construction-stage documentation baseline.
+The closeout review is `../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md`; the formal acceptance record is `../03-research/M1_S01_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. PR [#71](https://github.com/mattari20/listing-v2/pull/71) merged as `64bd568d522e41452b8b46db8652ec8df48a2d8b`; exact PR head `2982bdf421e09e82c03b76c223adb1b6ecc0b180` passed required Project documentation validation (run [#43166985628](https://github.com/mattari20/listing-v2/actions/runs/43166985628)). PR [#72](https://github.com/mattari20/listing-v2/pull/72) reconciled merge evidence. Owner acceptance confirms the desk-research baseline, provisional nature of segments/journey, SR-01–SR-14, explicit deferral of primary research and carried-forward limitations. It does not authorize implementation, participant research, source reuse or ingestion.
+
+### M1-S04 task breakdown (weights total 100%)
+
+| Task | Weight | Acceptance evidence | Status |
+|---|---:|---|---|
+| S04-T01 Scope, provider categories and evidence protocol | 10% | Private/non-state provider scope, source classes, evidence standards and boundaries | **Completed** — scope and evidence rules documented; private commercial, NGO/community, provider-operated, TVET and specialist categories distinguished |
+| S04-T02 Private school sources by jurisdiction | 20% | Official source inventory across provinces/territories with fields, access, freshness and gaps | **Completed with limitations** — Punjab PEPRIS, KP-PSRA, ICT-PEIRA, AJK PEIRA, Sindh DIRPIS and Balochistan BPEIRRA/EMIS routes assessed; GB private-school register remains unverified |
+| S04-T03 Private colleges and higher-education providers | 15% | Private college, university, campus and regulator sources with entity/recognition distinctions | **Completed with limitations** — HEC, Punjab HED, Sindh private-college directorate and KP HERA mapped; Sindh visible records are dated and other jurisdictional gaps remain |
+| S04-T04 Private TVET and vocational providers | 15% | NAVTTC and regional TEVTA provider/registration/accreditation routes with evidence limitations | **Completed with limitations** — national registration and provincial TEVTA source families mapped; public record-level private-provider coverage not established; sample/staging data excluded |
+| S04-T05 Private professional and specialist providers | 10% | Private provider cross-links to competent councils, boards and programme approval sources | **Completed at source-family level** — S02/S03 regulator routes cross-referenced; provider/campus/programme/session linkage remains for later reconciliation |
+| S04-T06 NGO, community, faith-based, online and other non-state providers | 10% | Category definitions, source leads and inclusion/recognition boundaries | **Completed at baseline level** — provider types distinguished; category-specific regulator and inclusion gaps recorded; Deeni Madaris default-OFF decision preserved |
+| S04-T07 Coverage, access, privacy, freshness and data-quality assessment | 10% | Cross-jurisdiction gap matrix and source-native status, personal-data and rights limitations | **Completed with limitations** — seven-jurisdiction confidence matrix, status lifecycle and privacy constraints recorded; all sources remain RESEARCH ONLY |
+| S04-T08 Consolidated private-provider inventory and gap analysis | 5% | Deduplicated source-family register, actionable gaps and research conclusion | **Completed** — 21 source-family records and seven-jurisdiction coverage assessment documented |
+| S04-T09 Owner review and step acceptance | 5% | Owner-reviewed source register, limitations, gap analysis and research-only boundary | **Pending owner acceptance** |
+
+**M1-S04 weighted research/documentation completion:** 95% (T01–T08 complete at their stated research-baseline scope; T09 5% pending owner review). This is not a private-provider census, legal clearance or source-reuse approval. No provider records were scraped, bulk-downloaded or ingested.
+
+### M1-S04 owner acceptance gate
+
+Review `../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md`. Acceptance should confirm the 21 source-family inventory, seven-jurisdiction coverage assessment, status/recognition distinctions, major private-provider coverage gaps, personal-data safeguards and RESEARCH ONLY boundary. No source collection, reuse, ingestion or connector activation is implied.
+
+
 
 ### M1-S02 task breakdown (weights total 100%)
 | Task | Weight | Acceptance evidence | Status |

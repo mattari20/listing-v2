@@ -2,7 +2,7 @@
 
 **Repository:** `mattari20/listing-v2`  
 **Step:** M1-S01 — Student journey desk research and requirements baseline  
-**Review state:** Prepared for owner review; not yet accepted  
+**Review state:** Owner accepted and closed on 2026-11-12  
 **Scope:** Documentation and independent desk research only
 
 ## 1. Closeout recommendation
@@ -52,6 +52,7 @@ Accept M1-S01 as a completed **desk-research and student-requirements baseline**
 
 > I accept M1-S01 as the completed desk-research and student-requirements baseline, with provisional (not participant-validated) student segments and journey hypotheses, SR-01–SR-14 requirements, documented evidence limitations and primary research explicitly deferred during platform construction. This acceptance does not claim fieldwork completion, authorize recruitment, approve architecture or technology, authorize source reuse/ingestion, or authorize application implementation.
 
-**Owner decision:** Pending.  
-**Acceptance date:** Pending.  
-**Next step after acceptance:** M1-S04 is the next planned research step and requires separate owner authorization.
+**Owner decision:** Accepted by explicit owner confirmation in the conversation on 2026-11-12.  
+**Acceptance date:** 2026-11-12.  
+**Formal record:** [M1-S01 Owner Acceptance Record](M1_S01_OWNER_ACCEPTANCE_RECORD_2026-11-12.md).  
+**Next step:** M1-S04 private provider and institution-source research; owner has directed continuation. No application implementation or source ingestion is authorized.
