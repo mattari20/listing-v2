@@ -2,7 +2,7 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0 accepted and closed; M1-S01 through M1-S07 accepted; M1-S08/S09 research delivered, owner acceptance pending  
+**Status:** M0 accepted and closed; M1-S01 through M1-S07 accepted; M1-S08/S09 research merged, owner acceptance pending  
 **Last reconciled:** 2026-11-12
 
 ## Authoritative current position
@@ -299,3 +299,8 @@ PR [#77](https://github.com/mattari20/listing-v2/pull/77) merged into `main` as 
 
 
 M1-S06 and M1-S07 have been accepted and closed as research baselines. The owner authorized joint S08/S09 research. Both packages are delivered at 95% weighted completion; owner acceptance remains pending. M1-S10 is the next step after S08/S09 acceptance. M2 remains blocked until the complete M1 synthesis and owner acceptance. See the progress report and step register for exact task evidence.
+
+
+## PR #79 merge and exact-head validation evidence — 2026-11-12
+
+PR [#79](https://github.com/mattari20/listing-v2/pull/79) merged into `main` as `59ab010830182a169fd609172618002ee8327fd3`. The exact PR head `4fed8a8d9f49c361539042f1f109102b9d6f4df2` passed the required **Project documentation validation** check (run [#43174230801](https://github.com/actions/runs/43174230801)); the validation job completed successfully. The merge delivered S08/S09 research, aligned product/data requirements and project controls, and recorded S06/S07 owner acceptance. S08 and S09 remain at 95% weighted completion each, with owner acceptance pending. No implementation or source access is authorized.
