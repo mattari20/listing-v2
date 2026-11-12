@@ -7,6 +7,8 @@
 
 ## 1. Purpose and decision boundary
 
+The consolidated jurisdiction-by-sector snapshot is maintained in [M1-S02 Consolidated National Institution Coverage and Gap Matrix](M1_S02_CONSOLIDATED_NATIONAL_COVERAGE_GAP_MATRIX_2026-11-12.md). That document is the current cross-jurisdiction summary; this matrix retains source-level detail and historical research updates.
+
 This matrix records which official source families can support institution discovery, what each source appears to cover, and what must be verified before V2 relies on it. It is a research register, not a production ingestion specification.
 
 A source listing is not proof that every campus, programme, intake, affiliation or qualification is currently authorized. Recognition must be represented at the correct level (provider, campus, programme, intake/session, qualification or professional approval), with the source and check date preserved.
