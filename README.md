@@ -43,3 +43,6 @@ M3-00 T04 budget framework: PR [#104](https://github.com/mattari20/listing-v2/pu
 
 
 M3-00 T05 technology framework: PR [#106](https://github.com/mattari20/listing-v2/pull/106) passed required documentation validation (run #43199371616) and merged as `04ba57a98e434d05069bd0cc4c0de3e05bcacac8`. No technology is selected; implementer skill fit and support/cost/hosting evidence remain open.
+
+
+PR [#107](https://github.com/mattari20/listing-v2/pull/107) reconciled PR #106 technology-framework delivery; exact-head validation passed (run #43199505084) and merge commit is `137130caa046804fb02a42d9a98e01d855601401`. T05 remains in progress; no technology selected.
