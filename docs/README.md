@@ -52,7 +52,7 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [Milestone and Step Register](04-roadmap/MILESTONE_STEP_REGISTER.md)
 - [Traceability Matrix](04-roadmap/IMPLEMENTATION_TRACEABILITY_MATRIX.md)
 - [Progress Report](04-roadmap/PROJECT_PROGRESS_REPORT.md)
-- [M3-00 T07 Legal, Privacy, Source-Rights and Security Gate Register](04-roadmap/M3-00_T07_LEGAL_PRIVACY_SOURCE_RIGHTS_SECURITY_GATES.md) — deny-by-default gates; review ownership and source-specific approvals remain open
+- [M3-00 Owner Closeout Review and Decision Pack](04-roadmap/M3-00_OWNER_CLOSEOUT_REVIEW_AND_DECISION_PACK.md) — final M3-00 evidence, bounded planning dispositions and explicit owner acceptance gates\n- [M3-00 T07 Legal, Privacy, Source-Rights and Security Gate Register](04-roadmap/M3-00_T07_LEGAL_PRIVACY_SOURCE_RIGHTS_SECURITY_GATES.md) — deny-by-default gates; review ownership and source-specific approvals remain open
 - [Legacy Repository Isolation Audit](99-reference/LEGACY_REPOSITORY_ISOLATION_AUDIT.md)
 
 ## Governance rule

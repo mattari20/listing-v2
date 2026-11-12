@@ -4,11 +4,11 @@
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
 **Current phase:** M0, M1 and M2 accepted/closed; M3-00 active as documentation/planning only; T01-T06 complete for planning outputs (T02-T06 via owner-approved deferrals), T07-T08 open
 
-## Verified current M3 position — 2026-11-12 (post PR #110)
+## Verified current M3 position — 2026-11-12 (post PR #114 owner-approved deferrals)
 
-**Main branch audit baseline before this reconciliation:** `a328a8272b086cac6270dc625d53ea6c3bbc1fa7`  
+**Main branch audit baseline:** `534aa11345b91113e370cb1739bbded7d82f4c3c` (PR #114 merge)  
 **M3-00:** 75% weighted completion. **M3 overall:** 3.75%.  
-**Latest delivery:** PR #112 (T07) and PR #113 (T08) are merged; PR #113 exact-head Project documentation validation passed. Owner-approved deferrals M3-DEC-003 through M3-DEC-007 close T02–T06 for M3-00 planning purposes only.
+**Latest delivery:** PR #112 (T07), PR #113 (T08) and PR #114 (owner-approved T02–T06 deferrals) are merged. PR #114 exact-head Project documentation validation passed. A separate M3-00 owner closeout review pack is being prepared; formal acceptance remains pending.
 
 | Task | Current status | Delivered | Remaining blocker |
 |---|---|---|---|
@@ -661,3 +661,10 @@ Delivered [M3-00 T07 Legal, Privacy, Source-Rights and Security Gate Register](M
 ## T08 documentation update — 2026-11-12
 
 Delivered [M3-00 T08 Implementation Scope, Test/Release Governance and M3-01 Authorization Pack](M3-00_T08_IMPLEMENTATION_SCOPE_TEST_RELEASE_AUTHORIZATION_PACK.md). The pack is a planning framework only; T08 remains **Open** pending detailed scope, upstream decisions, qualified review evidence, named human roles and owner acceptance. The M3-01 authorization record is intentionally NOT ISSUED. M3-00 remains 10% and M3 overall remains 0.5%; drafting this framework does not earn weighted completion. No application implementation, technical spike, source/production access, schema/migration, spend, procurement, deployment, pilot or launch is authorized.
+
+
+## PR #114 verified current baseline and M3-00 closeout review — 2026-11-12
+
+PR [#114](https://github.com/mattari20/listing-v2/pull/114) merged as `534aa11345b91113e370cb1739bbded7d82f4c3c`. The owner-approved M3-DEC-003 through M3-DEC-007 dispositions close T02–T06 for M3-00 planning outputs only. Current weighted progress remains T01–T06 = 75% of M3-00; M3 overall = 3.75%. T07 and T08 remain open pending explicit owner disposition of the bounded planning frameworks and their outstanding blockers. Formal M3-00 acceptance has not occurred. The M3-01 authorization remains NOT ISSUED.
+
+The [M3-00 Owner Closeout Review and Decision Pack](M3-00_OWNER_CLOSEOUT_REVIEW_AND_DECISION_PACK.md) consolidates the evidence and proposes acceptance of T07/T08 as planning/control deliverables only, with all underlying legal/privacy/security, source, staffing, budget, stack, hosting and implementation-readiness gates retained. This proposal requires explicit owner acceptance; it is not an approved deferral or a change to any no-go gate.

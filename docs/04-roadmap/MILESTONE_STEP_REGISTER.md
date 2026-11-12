@@ -672,3 +672,8 @@ The owner approved M3-DEC-003 (human roles/skills deferred), M3-DEC-004 (other h
 ## Current M3-00 audit reconciliation — 2026-11-12
 
 Historical audit snapshot: PRs #102–#110 were closed and merged. This snapshot is superseded by the owner-approved deferral reconciliation above and the subsequent PR #112/#113 delivery. Current status: T01–T06 complete for M3-00 planning outputs; T07–T08 open. M3-00 is 75%; M3 overall is 3.75%. Implementation and spend remain unauthorized.
+
+
+## M3-00 current baseline and owner closeout pack — 2026-11-12
+
+PR #114 merged as `534aa11345b91113e370cb1739bbded7d82f4c3c`. T01–T06 are complete for M3-00 planning outputs (T02–T06 via owner-approved M3-DEC-003 through M3-DEC-007). T07 and T08 remain open pending explicit Product Owner disposition. The [M3-00 Owner Closeout Review and Decision Pack](M3-00_OWNER_CLOSEOUT_REVIEW_AND_DECISION_PACK.md) proposes bounded acceptance of the T07/T08 frameworks as planning artifacts only; all underlying gates remain deny-by-default and all implementation authorization fields remain unissued. Current M3-00 progress is 75%; M3 overall is 3.75%. Formal M3-00 acceptance is pending. No implementation or spend is authorized.
