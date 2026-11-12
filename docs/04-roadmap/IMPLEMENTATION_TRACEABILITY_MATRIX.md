@@ -156,3 +156,7 @@ PR #39 merged as `0ace505ec67a420b8c2eb8fedd13ba1a2499f84c`; exact head `cf4d549
 ## M1-S02 HEC affiliation/study-centre and programme status evidence — 2026-11-12
 
 HEC 2024 policy adds explicit approved study-centre/MoU relationship requirements; current affiliated-college continuation is DAI/programme-specific. PM&DC and PCP provide session-specific programme/admission status examples; PNMC freshness limitations remain. These findings strengthen taxonomy and verification requirements but do not close record-level research or rights work.
+
+## PR #40 board, PMF and DGRE delivery evidence
+
+PR #40 merged as `c92d96613dcb510762be5a0a615a73e856861f9b`; final exact head `cc2cc7eaa615e4fe762f808e51918b6b10b5e235` passed required Project documentation validation (run #43154387281). The research strengthens assessment-board, affiliation, programme and territorial relationships but does not close remaining record-level verification or rights requirements.
