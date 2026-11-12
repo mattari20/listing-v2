@@ -173,3 +173,10 @@ PR [#35](https://github.com/mattari20/listing-v2/pull/35) merged as `0cb1c8cf1db
 ## PR #36 — professional-council and special-education evidence
 
 PR [#36](https://github.com/mattari20/listing-v2/pull/36) merged as `c0a5e0cc743336610b0eef5d5e56fde5406d92db`; exact head `fb629563b395a29b4d02df443acaa63c4cd38f01` passed required Project documentation validation (run #43152421589). The supplement clarified programme status semantics and identified additional current-register gaps. It does not establish legal reuse permission or complete national coverage. M1-S02 remains in progress pending evidence closure and owner acceptance.
+
+
+## M1-S02 deep jurisdiction, special-education and TVET review — 2026-11-12
+
+A further desk-research pass added Punjab SED category counts and district centre listings; Sindh DEPD regional institution evidence; GB Directorate of Special Education facility leads and a location reconciliation issue; Balochistan 2026 proposed Turbat/Zhob complexes (not operational facilities); KP-TEVTA's 33-institute aggregate and provider-type breakdown; STEVTA's region/district-filtered institute page; Punjab TEVTA's dated 2024 institute PDF; and B-TEVTA's 16-record directory versus NAVTTC's 80+ sector estimate. The surfaced NAVTTC NAC-TVS staging directory explicitly says its 26 records are representative sample data and is excluded. HEC Digital Library and PASTIC are secondary discovery leads, not recognition registers. Personal staff contacts and learner/health/disability-level data remain excluded. Full evidence is in docs/03-research/M1_S02_DEEP_JURISDICTION_SPECIAL_ED_TVET_REVIEW_2026-11-12.md.
+
+S02-C04/C05/C06 are better evidenced but remain in progress; C07/C08 also remain in progress pending rights and national reconciliation. S02-C09 remains an owner-only gate. No source collection or reuse is authorized.
