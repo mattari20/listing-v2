@@ -573,3 +573,9 @@ The [M3-01 Detailed Planning Evidence Pack](../04-roadmap/M3-01_DETAILED_PLANNIN
 PR #122 passed the required exact-head documentation validation and merged as `0e144d5221943ff15fde13f8bb336451ef2b2a2a`. The Product Owner is the sole human builder for the initial bounded V2 build; ChatGPT is the assistant for planning, architecture, code drafting, debugging and verification support. No additional human development team is a prerequisite for Candidate A. Future operating staff, including at least two administrators, are deferred until after completion.
 
 P03 is resolved for the synthetic/offline Candidate A planning model. This does not claim independent security certification, legal clearance or production-operational readiness. P04–P08 remain in progress; implementation authorization is NOT ISSUED. Continue with evidence-based stack/environment/cost planning and scope-specific gate analysis; do not start code, install packages, activate environments, incur spend or access external/production data.
+
+## AI-era architecture requirements — PR #124 — 2026-11-12
+
+PR #124 added the AI-era architecture readiness review and merged it as `4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5`. The review is a proposed planning supplement with 20 requirements (AI-ARCH-01–20), not a stack selection, implementation approval, legal/security clearance or AI activation.
+
+The project now tracks these requirements in both architecture and implementation traceability, with linked future tests and risk controls. AI remains optional and provider-independent; Candidate A remains offline/synthetic-only; no external service, model, agent, vector store, queue, MCP server, source access, database change or spend is authorized. P04 is strengthened but not closed; P04–P08 remain open; M3 remains 5%; implementation authorization NOT ISSUED.
