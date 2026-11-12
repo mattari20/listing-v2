@@ -299,3 +299,9 @@ S03-C03 remains in progress pending current programme/batch validity, source own
 
 - [M1-S03 AJK Education Source Review](../03-research/M1_S03_AJK_EDUCATION_SOURCE_REVIEW_2026-11-12.md) — E&SE/EMIS/PEIRA and HED source routes, aggregate freshness, sign-in access limits and 178/180 college discrepancy; **Delivered — review pending; M1-S03 in progress.**
 - [M1-S03 Official Government and Regulator Provider Source Register](../03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md) — updated with GOV-29 and GOV-30 AJK sources; **Updated — review pending.**
+
+
+## M1-S03 FDE/FGEI source review
+
+- [M1-S03 FDE/FGEI Source Review](../03-research/M1_S03_FDE_FGEI_SOURCE_REVIEW_2026-11-12.md) — separate FDE ICT, FGEI C/G cantonment/garrison and FBISE affiliation source scopes; **Delivered — review pending; M1-S03 in progress.**
+- [M1-S03 Official Government and Regulator Provider Source Register](../03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md) — updated with GOV-38 and GOV-39; **Updated — review pending.**

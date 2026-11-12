@@ -73,3 +73,8 @@ Punjab TEVTA and TTB Punjab publicly list some Deeni Madaris as vocational-train
 ## M1-S03 federal education statistics and examination-board sources
 
 PIE/NEMIS source lineage, Pakistan Education Statistics 2024 coverage caveats, historical Deeni Madaris Wafaq-reporting limitations and FBISE's SSC/HSSC affiliated-institution register are recorded in `../03-research/M1_S03_FEDERAL_DATA_FBISE_SOURCE_REVIEW_2026-11-12.md`. FBISE affiliation is not institutional recognition or accreditation; historical Wafaq statistics are not a current Madaris register.
+
+
+## M1-S03 federal provider network clarification
+
+FDE and FGEI C/G are separate source families. FDE's 432-institution figure is an ICT aggregate and its admissions/GIS routes have separate scope and sensitive modules. FGEI C/G is a distinct directorate under IGT&E with an indexed 311-school/49-college network across cantonment/garrison regions; record-level access was limited in review. FBISE affiliation is a third, separate examination-board relationship. See `../03-research/M1_S03_FDE_FGEI_SOURCE_REVIEW_2026-11-12.md`.

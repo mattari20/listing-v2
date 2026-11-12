@@ -325,3 +325,10 @@ S03-C02 remains in progress. No login, access bypass, download, source-owner con
 The federal-source register now includes PIE/NEMIS source lineage, Pakistan Education Statistics 2024, historical Deeni Madaris Wafaq reporting and FBISE affiliated institutions. The 2024 report notes that private-college data are not maintained by most provincial/regional departments except Punjab and KP; the 2021–22 report says some Wafaqs supplied repeated rather than actual current-year data; FBISE's 3,315 displayed records are examination-board affiliations across multiple jurisdictions and overseas locations, not a complete unique provider census. Full findings: `docs/03-research/M1_S03_FEDERAL_DATA_FBISE_SOURCE_REVIEW_2026-11-12.md`.
 
 S03-C01 remains in progress. No scraping, bulk download, source-owner contact, permission request, ingestion, implementation, database/schema changes or production access is authorized.
+
+
+## M1-S03 federal provider-network research — 2026-11-12
+
+The official source register now distinguishes FDE's ICT public network (432 institutions displayed) from FGEI C/G's separate cantonment/garrison network (311 schools and 49 colleges indexed) and FBISE's examination-affiliation register. FDE's admission portal is session-specific and its GIS EMIS includes staff, asset and transport modules; personal/operational data are excluded. FGEI record-level pages were access-limited. Full details: `docs/03-research/M1_S03_FDE_FGEI_SOURCE_REVIEW_2026-11-12.md`.
+
+S03-C02 remains in progress. No access bypass, personal data collection, scraping, source-owner contact, permission request, ingestion, implementation or production access is authorized.
