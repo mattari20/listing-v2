@@ -28,7 +28,7 @@ Establish the people, capacity, budget, technology, hosting, legal/privacy/secur
 | T02 Roles, skills and accountability | 15% | Role/capability matrix, decision owners and skills gaps | **In progress — owner approved the owner-led/ChatGPT-assisted delivery model; named human implementers, maintainers, independent reviewers and skill-gap assessment remain open** |
 | T03 Capacity and availability | 10% | Capacity, cadence, review time and continuity assumptions | **In progress — owner confirmed 10–15 hours/week as a planning baseline, with flexibility according to project demand and priority; reviews/approvals are demand-led rather than limited to a fixed weekly meeting; other human delivery capacity and continuity assumptions remain open** |
 | T04 Budget and cost ceiling | 15% | One-time/recurring cost categories, scenarios and explicit ceiling | **In progress — cost framework and three planning scenarios documented; no new spend is authorized; numeric one-time/recurring ceilings, tax/FX assumptions and paid-service policy remain pending owner decision** |
-| T05 Technology stack decision pack | 15% | Evidence matrix, proof-of-fit criteria, options and owner decision record | Decision pack prepared; owner/team fit and explicit selection remain open |
+| T05 Technology stack decision pack | 15% | Evidence matrix, proof-of-fit criteria, options and owner decision record | **In progress — candidate framework and common criteria documented; actual implementer/maintainer skill fit, support evidence, cost/hosting fit and owner selection remain open; no technical spike authorized** |
 | T06 Hosting and vendor decision pack | 10% | Hosting/region/cost/data-location/latency/recovery comparison | Decision framework prepared; current quotes, constraints and selection remain open |
 | T07 Legal, privacy, source-rights and security gates | 15% | Gate register, review owners, source-specific approval protocol | Open — qualified review owners and applicable evidence pending; no source/vendor activation |
 | T08 Scope, test/release and authorization pack | 10% | M3-01 backlog outline, acceptance gates, test/release plan and authorization request | Partially outlined in master plan; detailed M3-01 pack remains open |
@@ -90,11 +90,11 @@ No application code; no physical database schema or migrations; no live source r
 1. Convert the accepted owner-led/ChatGPT-assisted delivery model into a named human role/capability matrix; confirm who will own implementation, maintenance, QA and operations, and identify any specialist review gaps.
 2. Complete T03 by confirming continuity assumptions and any other human delivery capacity; owner availability and demand-led review/approval cadence are recorded.
 3. Complete T04 by recording the owner's numeric one-time/recurring ceilings or an explicit deferral; no paid evaluation or spend is authorized meanwhile.
-4. Review the stack and hosting options in the [Owner Decision Pack](M3-00_OWNER_DECISION_PACK.md); then complete proof-of-fit planning without procuring services.
+4. Complete T05/T06 evidence-based stack and hosting comparisons using the [Technology Stack Decision Framework](M3-00_TECHNOLOGY_STACK_DECISION_FRAMEWORK.md) and Owner Decision Pack; any proof-of-fit requires separate synthetic-data-only authorization.
 5. Identify qualified legal/privacy/security review responsibilities and keep all sources research-only.
 6. Complete M3-00 readiness evidence and request owner acceptance before M3-01.
 
-**Current decision (2026-11-12):** M3-00 planning remains at 10% weighted completion. T01 is complete; T02 is in progress following the owner's delivery-model decision; T03 is in progress following the owner's 10–15 hours/week planning baseline and demand-led availability/review confirmation; T04 is in progress with a budget framework prepared; T05-T08 remain open. M3-01 and all implementation steps remain gated.
+**Current decision (2026-11-12):** M3-00 planning remains at 10% weighted completion. T01 is complete; T02 is in progress following the owner's delivery-model decision; T03 is in progress following the owner's 10–15 hours/week planning baseline and demand-led availability/review confirmation; T04 is in progress with a budget framework prepared; T05 is in progress with a candidate decision framework prepared; T06-T08 remain open. M3-01 and all implementation steps remain gated.
 
 ## Supporting owner decision pack
 
@@ -106,10 +106,14 @@ The [M3-00 Owner Decision Pack](M3-00_OWNER_DECISION_PACK.md) contains the role/
 - T02: In progress — delivery-model decision accepted; named human role coverage, skills and accountability evidence remain outstanding. No task percentage is claimed until its full measurable acceptance output is evidenced.
 - T03: In progress — owner availability recorded at 10–15 hours/week with demand-led flexibility and review cadence; other human team capacity and continuity evidence remain outstanding. No partial task percentage is claimed.
 - T04: In progress — cost categories and scenarios documented; numeric ceilings, dated quotes, tax/FX and paid-service policy remain outstanding. No partial task percentage is claimed.
-- T05-T08: 0% complete — required owner/team inputs, explicit decisions or supporting evidence remain outstanding.
+- T05: In progress — candidate comparison criteria and conditional baseline documented; human skill fit, support/hosting/cost evidence and owner selection remain outstanding. No partial task percentage is claimed.
+- T06-T08: 0% complete — required owner/team inputs, explicit decisions or supporting evidence remain outstanding.
 - M3-00: 10% (10% task weight × 100% completion).
 - M3 overall: 0.5% (M3-00 milestone weight 5% × M3-00 completion 10%).
 - M3-00 step acceptance remains pending owner review; task progress is not milestone acceptance.
 
 
 The [M3-00 Budget and Cost Scenarios](M3-00_BUDGET_AND_COST_SCENARIOS.md) document provides T04's cost categories, scenario framework, calculation rules and no-spend controls. It is not a budget approval or procurement authorization.
+
+
+The [M3-00 Technology Stack Decision Framework](M3-00_TECHNOLOGY_STACK_DECISION_FRAMEWORK.md) is the T05 working artifact. It retains the M2 candidate baseline without selecting a stack or authorizing installation, a technical spike or implementation.
