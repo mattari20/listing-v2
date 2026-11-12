@@ -37,13 +37,13 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 - M0-S02 acceptance is limited to the documented metadata-only exclusion audit; it does not claim exhaustive inspection of the legacy repository.
 - Repository auto-merge setting is enabled, but automatic merge execution itself remains untested.
 - No application implementation, database schema/migrations, production access, deployment or URL cutover is authorized by M0 acceptance.
-- Next authorized step after M0 closeout: M1-S01.
+- M0 closeout next step was M1-S01; current authorized work is M1-S02 official institution taxonomy and source-coverage research.
 
 ## M1 — Student requirements and independent research
 | Step | Scope | Target / acceptance evidence |
 |---|---|---|
 | M1-S01 | Student journey desk research and requirements baseline | Independent desk-research synthesis and provisional journey hypotheses; primary participant research is explicitly deferred during construction by owner |
-| M1-S02 | Institution taxonomy and coverage requirements | Independent level/type/sector/geography matrix, recognition/affiliation distinctions and inclusion rules; see `../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md` |
+| M1-S02 | Institution taxonomy and coverage requirements | Independent level/type/sector/geography matrix, recognition/affiliation distinctions and inclusion rules; see `../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md` and `../03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md` |
 | M1-S03 | Official government/regulator provider research | New source register with access, rights, coverage and freshness evidence |
 | M1-S04 | Private provider and institution-source research | New provider inventory and documented gaps |
 | M1-S05 | Programme/admissions information research | Student-required programme, campus, fees, admission and scholarship information |
@@ -61,6 +61,21 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 | S01-T03 Primary interviews/survey | 0% | No pre-launch survey or interview under current owner direction | Deferred — not part of construction scope |
 | S01-T04 Journey mapping and synthesis | 25% | Desk-research journey and explicit evidence gaps, without claiming participant validation | In progress — provisional baseline only |
 | S01-T05 Requirements and acceptance criteria | 25% | Traceable product requirements and owner decisions; unresolved assumptions identified | In progress — continue alongside M1 work |
+
+### M1-S02 task breakdown (weights total 100%)
+| Task | Weight | Acceptance evidence | Status |
+|---|---:|---|---|
+| S02-C01 Taxonomy and entity distinctions | 15% | Owner-reviewed categories and provider/campus/programme/regulator/affiliation distinctions | In progress — initial proposal delivered in PR #10 |
+| S02-C02 Higher-education and campus sources | 10% | Current HEC institution, campus and affiliated-college scope verified with limitations | In progress — source families identified; detailed verification remains |
+| S02-C03 Professional council sources | 15% | Current PMDC, PNMC, PCP and other relevant council status semantics documented | In progress — PMDC, PNMC and PCP sources identified; more councils and status checks remain |
+| S02-C04 School-source jurisdiction coverage | 15% | Official source register across provinces/territories, public/private scope and geography gaps | In progress — Punjab, KP and Balochistan sources found; Sindh, ICT, AJK and GB gaps remain |
+| S02-C05 TVET and awarding relationships | 10% | NAVTTC, provincial TEVTAs, boards, assessment and awarding-body map | In progress — initial sources identified; provincial verification remains |
+| S02-C06 Non-formal and special education | 10% | Official provider-source inventory and explicit coverage gaps | Not started |
+| S02-C07 Source rights and access | 10% | Terms, licenses, permission, access method, update cadence and privacy assessment for each source | Not started |
+| S02-C08 National coverage synthesis | 10% | Reviewed coverage matrix, unresolved gaps and source-quality assessment | Not started |
+| S02-C09 Owner review and step acceptance | 5% | Owner-reviewed taxonomy and coverage acceptance record; no ingestion implied | Not started |
+
+**Progress rule:** The source-discovery matrix is delivered, but no S02 task is marked complete until its specific acceptance evidence is verified. Do not convert document delivery into a completion percentage.
 
 ## Owner-approved research timing
 No student survey, interviews, recruitment or outreach will occur during platform construction. The existing adult interview/survey kit is an unapproved draft retained for record only. Ratings and reviews are a post-launch authenticated product feature.
