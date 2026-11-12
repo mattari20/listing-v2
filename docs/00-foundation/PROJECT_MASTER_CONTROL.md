@@ -473,3 +473,8 @@ M2 is Owner Accepted and Closed at 100.0%. This validation is documentation-cont
 - Strict V2 independence, V2-DEC-006, source-specific rights/security/privacy gates, proposal-only AI, anonymous-first/minor safeguards, deferred participant research and post-launch reviews remain binding.
 
 At each new session, inspect `main`, open PRs, the current M3 branch/PR and exact-head CI before continuing. Continue the existing step; do not restart or duplicate it. Progress remains 0% until M3-00 weighted task evidence is produced and accepted.
+
+
+## M3 owner decision update — delivery model (2026-11-12)
+
+The owner accepted the recommended owner-led, ChatGPT-assisted delivery model. The user remains Product Owner and final decision-maker. ChatGPT assists step by step with planning, architecture/documentation, code drafting only after separate implementation authorization, test design, review support and reporting. Qualified external specialists may be identified/engaged for legal, privacy or security review where required. This decision does not make ChatGPT an independently accountable engineering/operations function and does not establish named human implementers, maintainers, QA owners or production operators. Those roles, skills gaps and capacity remain open inputs under M3-00 T02/T03. No hiring, contracting, procurement, spend, service activation, application coding or production access is authorized. M3-00 remains documentation/planning only at 10% weighted completion; T02 is in progress, T03-T08 remain open.
