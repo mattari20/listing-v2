@@ -6,7 +6,7 @@ All milestones are planned outcomes. Step-level scope and acceptance criteria ar
 |---|---|---|
 | M0 | Independent repository, documentation, governance and delivery controls | Accepted — PR #4 closeout |
 | M1 | Student requirements, provider discovery, data rights and open-source research | **Accepted and Closed — M1-S01 through M1-S10 accepted; 100%; primary research deferred** |
-| M2 | Architecture, domain model, technology evaluation, security and data design | Planned |
+| M2 | Architecture, domain model, technology evaluation, security and data design | **In Progress — owner-authorized 2026-11-12; documentation/design only** |
 | M3 | Application foundation, environments, CI, identity and authorization | Planned |
 | M4 | Institution, campus and programme management | Planned |
 | M5 | Nearby discovery, search, filters and maps | Planned |
@@ -33,3 +33,10 @@ M1 is formally accepted and closed as a research/documentation milestone. M2 rem
 ## M1 final closeout delivery evidence — 2026-11-12
 
 PR [#83](https://github.com/mattari20/listing-v2/pull/83) recorded owner acceptance of S10 and M1 closure. Exact PR head `30d5c7ecfc929cd680c3da8d076774904ec2d67a` passed Project documentation validation (run [#43175799695](https://github.com/mattari20/listing-v2/actions/runs/43175799695)); merged as `af88a88693e66e9fb0a459d14ba1028e5fd3f97d`. M1 is Accepted and Closed. M2 remains Planned and requires separate explicit owner authorization.
+
+
+## M2 authorization and active delivery — 2026-11-12
+
+The owner authorized M2 architecture/design. The milestone is active and governed by `../05-architecture/M2_ARCHITECTURE_DESIGN_CHARTER.md` and `../05-architecture/M2_STEP_PLAN.md`. M2-S00 is first; M2-S01 through S10 follow the documented dependencies and weights.
+
+This authorization covers architecture research and documentation only. M3 implementation remains gated until M2 is complete and separately accepted. Production access, schema changes, source ingestion, connector activation, new spend and deployment require separate approval.
