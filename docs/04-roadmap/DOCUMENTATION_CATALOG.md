@@ -206,3 +206,8 @@ PR [#36](https://github.com/mattari20/listing-v2/pull/36) added the PCATP, NCT, 
 ## PR #38 deep jurisdiction/TVET delivery evidence
 
 PR [#38](https://github.com/mattari20/listing-v2/pull/38) delivered the deep jurisdiction, special-education and TVET review. Exact head `f1f7aa59424b5161ec91a3f3ae60ff20471edba2` passed required **Project documentation validation** (run [#43153839019](https://github.com/mattari20/listing-v2/actions/runs/43153839019)); merge commit `a38fa149d10be99903ca6bb44236bd1e68565e6a`. The supplement is research-only and does not close S02-C04/C05/C06 or approve source reuse.
+
+
+## Supplemental M1-S02 examination-board and jurisdiction review
+
+- [M1-S02 Examination Boards, PMF and DGRE Jurisdiction Review](../03-research/M1_S02_EXAMINATION_BOARDS_PMF_DGRE_JURISDICTION_REVIEW_2026-11-12.md) — IBCC board roster, Punjab BISE network, PMF affiliations and DGRE regional coverage/anomaly review; research-only.
