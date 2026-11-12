@@ -65,6 +65,9 @@ PR #28 merged as `2254d52f8799c137ad64e0c28502913453e6d218`; exact head `bbf694e
 ## PR #29 evidence
 PR #29 reconciled the PR #28 owner-review pack delivery. Exact head `52ed405a11b14e2698e046ebb407d3a53b8542ff` passed required documentation validation (run #43147641844); merge commit `8e88443a9d7da11fb1414774ad4766256033d16c`. A register formatting correction is being made separately; no task weights or acceptance decisions are changed. M1-S02 remains in progress pending owner decision.
 
+## PR #30 evidence
+PR #30 repaired the S02 task table formatting and reconciled PR #29. Exact head `4ca9d571206072064294f7fb163584db174669f8` passed required documentation validation (run #43147756202); merge commit `3553d75a5afd84e8fcfab372324342f7acad7456`. All nine task weights remain unchanged; S02-C09 still requires owner approval.
+
 ## Completion status
 M0 is accepted and closed. Future milestones require their own evidence-based acceptance and closeout.
 

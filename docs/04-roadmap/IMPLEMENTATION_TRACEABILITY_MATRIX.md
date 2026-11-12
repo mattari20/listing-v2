@@ -91,6 +91,9 @@ The current S02 research/documentation package is ready for owner review. S02-C0
 ## PR #29 evidence reconciliation
 PR #29 merged as `8e88443a9d7da11fb1414774ad4766256033d16c`; exact head `52ed405a11b14e2698e046ebb407d3a53b8542ff`; required `Project documentation validation` passed (run #43147641844). It reconciled PR #28 evidence and confirmed that S02-C09 remains an owner-only acceptance gate.
 
+## PR #30 evidence reconciliation
+PR #30 merged as `3553d75a5afd84e8fcfab372324342f7acad7456`; exact head `4ca9d571206072064294f7fb163584db174669f8`; required `Project documentation validation` passed (run #43147756202). It repaired the S02 task register's Markdown table structure without changing weights or status decisions, and reconciled PR #29.
+
 ## Documentation catalogue maintenance
 
 `DOCUMENTATION_CATALOG.md` is the owner-facing inventory for documentation delivery and acceptance. Reconcile it on every documentation PR update and merge. Keep delivery status separate from content acceptance; update PR/head/check/merge evidence and links.
