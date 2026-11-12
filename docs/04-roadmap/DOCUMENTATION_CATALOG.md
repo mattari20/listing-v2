@@ -477,3 +477,12 @@ These are M2 baseline/control deliverables. Their existence does not imply that 
 ## M2-S00 delivery and validation evidence — 2026-11-12
 
 PR [#85](https://github.com/mattari20/listing-v2/pull/85) delivered the M2 charter, 11-step plan, architecture documentation index/plan, ADR register/template, diagram conventions and initial traceability scaffold, while reconciling project status references. Exact head `650f5dfe11b9f1f76c2c005c3914186a8c41e23b` passed required Project documentation validation (run [#43180488082](https://github.com/mattari20/listing-v2/actions/runs/43180488082)); PR #85 merged as `17a2e3ad43ba1fd5ca3cb7a163670a2f19dd3783`. M2-S00 is Complete at 100%; M2-S01 is next.
+
+
+## M2-S01 system requirements and architecture boundaries — draft delivery — 2026-11-12
+
+- [M2-S01 System Requirements and Architecture Boundaries](../05-architecture/M2-S01_SYSTEM_REQUIREMENTS_AND_BOUNDARIES.md) — architecture-level AR-001–AR-025, actor/capability boundary, constraints and acceptance criteria.
+- [M2-S01 System Context and Capability Boundary](../05-architecture/M2-S01_SYSTEM_CONTEXT.md) — logical context, candidate-only external relationships and trust boundaries.
+- [M2-S01 Quality Attribute Scenarios and Targets](../05-architecture/M2-S01_QUALITY_SCENARIOS.md) — 20 scenarios, accessibility proposal and target-setting work deferred to S09.
+
+Draft package; M2-S01-T05 review, exact-head validation and owner disposition remain pending. No stack, vendor or integration is selected.

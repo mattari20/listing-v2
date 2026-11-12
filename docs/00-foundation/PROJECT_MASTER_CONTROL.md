@@ -360,3 +360,8 @@ M2-S00 is complete (100% task completion) as a documentation/control step. PR [#
 The M2 charter, 11-step weighted plan, architecture documentation structure, ADR template/register, diagram conventions and initial traceability scaffold are on main. README, controller, roadmap, step register, progress report, catalogue, documentation index, decision register and M1 synthesis were reconciled. M1 remains Accepted and Closed; M2 is active; no application stack or production architecture has been selected.
 
 **Next eligible step: M2-S01 — System Requirements and Architecture Boundaries.** M2 remains documentation/design only. M3 implementation remains gated until final M2 owner acceptance.
+
+
+## M2-S01 current work — 2026-11-12
+
+M2-S01 is now in progress. Draft deliverables are in `../05-architecture/M2-S01_SYSTEM_REQUIREMENTS_AND_BOUNDARIES.md`, `../05-architecture/M2-S01_SYSTEM_CONTEXT.md` and `../05-architecture/M2-S01_QUALITY_SCENARIOS.md`. Architecture-level AR-001–AR-025 and an initial traceability map have been established. Four of five equal-weight S01 tasks are drafted (80%); review, validation and delivery evidence remain pending. No technology or external service is selected.

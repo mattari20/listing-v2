@@ -484,7 +484,7 @@ M2 step weights total 100%: S00 5%, S01 8%, S02 12%, S03 12%, S04 10%, S05 12%, 
 | Step | Scope | Weight | Dependencies | Status |
 |---|---|---:|---|---|
 | M2-S00 | Baseline reconciliation and architecture documentation controls | 5% | M1 accepted | In progress — delivery branch prepared; validation pending |
-| M2-S01 | System requirements and architecture boundaries | 8% | S00 | Not started |
+| M2-S01 | System requirements and architecture boundaries | 8% | S00 | In progress — draft package prepared; review/CI pending |
 | M2-S02 | Core domain and conceptual information model | 12% | S01 | Not started |
 | M2-S03 | Overall application and integration architecture | 12% | S01-S02 | Not started |
 | M2-S04 | Technology stack evaluation | 10% | S01-S03 | Not started |
@@ -544,3 +544,16 @@ Detailed task breakdowns for S01-S10 are maintained in the governing M2 Step Pla
 ### M2-S00 delivery evidence
 
 PR [#85](https://github.com/mattari20/listing-v2/pull/85) merged as `17a2e3ad43ba1fd5ca3cb7a163670a2f19dd3783`. Exact head `650f5dfe11b9f1f76c2c005c3914186a8c41e23b` passed required Project documentation validation (run [#43180488082](https://github.com/mattari20/listing-v2/actions/runs/43180488082)); the required validation job succeeded. S00-T01–T05 are complete. **M2-S00: Complete, 100% task completion.**
+
+
+### M2-S01 task breakdown — current draft status
+
+| Task | Weight | Acceptance evidence | Status |
+|---|---:|---|---|
+| S01-T01 Requirement inventory and stable identifiers | 20% | AR-001–AR-025 mapped to M1 SR requirements and owner decisions | Complete — draft |
+| S01-T02 Actors, capabilities and system context | 20% | Actor matrix, logical system boundary, trust boundaries and context view | Complete — draft |
+| S01-T03 Functional and quality requirements | 20% | System-level requirements and quality scenarios documented | Complete — draft |
+| S01-T04 Constraints, exclusions and trust boundaries | 20% | M1 rights, privacy, minors, source, production and V1 restrictions carried forward | Complete — draft |
+| S01-T05 Review, validation and step completion | 20% | Internal consistency review, CI and evidence reconciliation | Pending |
+
+Current S01 task progress is 80% (drafting complete for T01-T04; T05 pending). S01 remains In Progress and is not yet accepted.
