@@ -164,3 +164,7 @@ PR [#34](https://github.com/mattari20/listing-v2/pull/34) reconciled the PR #33 
 A second supplemental review clarified PCATP programme states and distinguished NOC applications from approvals; added NCT FTJ/BEMS recognition routes and a disputed-entry warning; identified AHPC's December 2025 list as applications rather than granted recognition; documented NTC zero/interim and intake-batch status semantics; retained NAEAC's public-register gap; and identified ICT DGSE's mandate while confirming that current complete special-education registers remain unverified for KP, Balochistan, AJK and GB. Historical KP data is not accepted as current. Personal contact and student/health/disability-level data remain excluded. Details and source links are in docs/03-research/M1_S02_SUPPLEMENTAL_PROFESSIONAL_COUNCIL_SPECIAL_EDUCATION_REVIEW_2026-11-12.md.
 
 S02-C03/C06/C07 remain in progress; S02-C09 remains an owner-only gate. No source reuse or collection is authorized.
+
+## PR #35 — final PR #34 evidence reconciliation
+
+PR [#35](https://github.com/mattari20/listing-v2/pull/35) merged as `0cb1c8cf1dba9fb0b90b1fa8bda16123d57c65f6`; exact head `48626561f492c03baab9ce72fb79e7a24a01640f` passed required Project documentation validation (run #43152199340). It reconciled PR #34 merge evidence. No task status, task weight, source-use authorization or owner decision changed.
