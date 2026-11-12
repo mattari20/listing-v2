@@ -136,3 +136,8 @@ The latest pass adds IBCC board categories, Punjab BISE jurisdictions, Punjab Me
 ## PR #39 latest delivery evidence — 2026-11-12
 
 PR #39 merged as `0ace505ec67a420b8c2eb8fedd13ba1a2499f84c`; exact head `cf4d54967cad1f2114cd1f43dfccec5184d1b759` passed required Project documentation validation (run #43154066994). ICT PEIRA, DGRE Madaris and IBCC QAB evidence is incorporated; M1-S02 remains active and owner acceptance is pending.
+
+
+## M1-S02 HEC affiliation and programme status continuation — 2026-11-12
+
+HEC's 2024 affiliation policy covers approved study centres and MoU-operated centres as well as affiliated colleges; current continuation must be verified at DAI/college/programme level. PM&DC, PCP and PNMC examples reinforce time/session-specific programme statuses and freshness checks. See the examination-board/PMF/DGRE review. S02-C02/C03/C07/C08 remain active; owner gate remains pending.
