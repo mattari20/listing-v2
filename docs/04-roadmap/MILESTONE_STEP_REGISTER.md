@@ -157,3 +157,20 @@ MoITT's official registers identify the National Data Governance Policy 2026 and
 ## PR #41 reconciliation evidence — 2026-11-12
 
 PR #41 reconciled PR #40 and merged as `c56200bdf66a5fdf615de0da6281495e50c39f92`; exact head `2c11bfc7fe74da6bed4dc04d17c4c80a664990b0` passed required Project documentation validation (run #43154481312). No task status, weight or owner gate was changed.
+
+
+## M1-S02 AJK/GB/Sindh school-source research note — 2026-11-12
+
+New evidence adds AJK public/private census streams and 6,019 aggregate; GB government EMIS details, BECS community-school list (776, June 2025) and public college list; Sindh region-to-UC school checker; and Punjab PEPRIS eLicense/DEA-upload caveats. Teacher names, CNIC/mobile identifiers and student data remain excluded. See `docs/03-research/M1_S02_AJK_GB_SINDH_SCHOOL_REGISTER_REVIEW_2026-11-12.md`. S02-C04/C06/C07/C08 remain In progress; S02-C09 remains owner-only.
+
+## PR #42 delivery evidence — 2026-11-12
+
+PR #42 merged the national data-rights and privacy review as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a42418ee0176f3fad6ad63e0220f1978c8b` passed required Project documentation validation (run #43154673045). S02-C07 remains In progress pending per-source terms/permissions; S02-C09 remains owner-only.
+
+## M1-S02 Sindh private/KP school-register status note — 2026-11-12
+
+Sindh DIRPIS/SPEI-EMIS private-school registration/census is separate from the public institution checker; older official documents note registered/unregistered providers and data-update needs. KPPSRA district records expose ACTIVE/BLOCKED/DORMANT/CLOSED states; full district coverage and freshness remain open. S02-C04/C07/C08 remain in progress; S02-C09 owner-only.
+
+## PR #42 delivery evidence — 2026-11-12
+
+PR #42 merged the national data-rights and privacy review as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a42418ee0176f3fad6ad63e0220f1978c8b` passed required Project documentation validation (run #43154673045). S02-C07 remains In progress pending per-source terms/permissions; S02-C09 remains owner-only.

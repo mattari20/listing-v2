@@ -219,3 +219,21 @@ A further rights-focused desk review examined MoITT's official policy/legislatio
 ## PR #41 — PR #40 evidence reconciliation
 
 PR #41 merged as `c56200bdf66a5fdf615de0da6281495e50c39f92`; exact head `2c11bfc7fe74da6bed4dc04d17c4c80a664990b0` passed required Project documentation validation (run #43154481312). It reconciled PR #40 delivery evidence; no task acceptance or source-use permission changed.
+
+
+## M1-S02 AJK, GB, Sindh and Punjab school-source research — 2026-11-12
+
+A further pass strengthened school-source coverage: AJK's official dashboard aggregate and separate public/private census streams; GB government EMIS school-details table, BECS community schools (776, updated June 2025) and public college list; Sindh's region/district/tehsil/UC institution checker; and Punjab PEPRIS valid eLicense fields and its caveat that DEA-registered schools may be absent until uploaded. The review flags GB office rows in the EMIS details, excludes BECS teacher names and Punjab CNIC/mobile search identifiers, and does not infer completeness or reuse rights. Full evidence is in docs/03-research/M1_S02_AJK_GB_SINDH_SCHOOL_REGISTER_REVIEW_2026-11-12.md.
+
+## PR #42 — national data-rights and privacy review
+
+PR #42 merged as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a42418ee0176f3fad6ad63e0220f1978c8b` passed required Project documentation validation (run #43154673045). It documented draft policy/Bill status, RTI access versus reuse, copyright and the scoped PBS open-license example. It does not grant reuse rights to education directories.
+
+
+## M1-S02 Sindh private-school and KPPSRA status clarification — 2026-11-12
+
+The AJK/GB/Sindh school review has been expanded with Sindh's separate DIRPIS/SPEI-EMIS private-school registration/census stream (older official documentation notes registered and unregistered providers and a need for data updating) and KPPSRA's district register statuses ACTIVE, BLOCKED, DORMANT and CLOSED. These status values must be retained, and district-level results do not prove province-wide completeness. Source rights and current freshness remain unverified.
+
+## PR #42 — national data-rights and privacy review
+
+PR #42 merged as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a42418ee0176f3fad6ad63e0220f1978c8b` passed required Project documentation validation (run #43154673045). It documented draft policy/Bill status, RTI access versus reuse, copyright and the scoped PBS open-license example. It does not grant reuse rights to education directories.

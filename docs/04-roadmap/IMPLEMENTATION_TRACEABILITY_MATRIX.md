@@ -169,3 +169,21 @@ MoITT draft policy/Bill status, RTI access-versus-reuse distinction, Copyright O
 ## PR #41 reconciliation evidence
 
 PR #41 merged as `c56200bdf66a5fdf615de0da6281495e50c39f92`; exact head `2c11bfc7fe74da6bed4dc04d17c4c80a664990b0` passed required Project documentation validation (run #43154481312). It reconciled PR #40 merge evidence; M1-S02 remains in progress.
+
+
+## M1-S02 school-jurisdiction source evidence — 2026-11-12
+
+AJK public/private census streams, GB EMIS/BECS/college lists, Sindh district-to-UC institution checker and Punjab PEPRIS eLicense caveats strengthen S02-C04/C06 source-family coverage. Data-system differences, freshness, completeness and source rights remain unresolved. Personal teacher/contact/identity/student data is excluded.
+
+## PR #42 data-rights/privacy delivery evidence
+
+PR #42 merged as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a42418ee0176f3fad6ad63e0220f1978c8b` passed required Project documentation validation (run #43154673045). It improves S02-C07 evidence but does not establish source-specific legal clearance.
+
+
+## M1-S02 private-school register status evidence — 2026-11-12
+
+Sindh DIRPIS/SPEI-EMIS and KPPSRA district registers strengthen S02-C04 private-provider coverage and status semantics. Sindh census freshness and KP district completeness remain unresolved; no source reuse permission is inferred.
+
+## PR #42 data-rights/privacy delivery evidence
+
+PR #42 merged as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a42418ee0176f3fad6ad63e0220f1978c8b` passed required Project documentation validation (run #43154673045). It improves S02-C07 evidence but does not establish source-specific legal clearance.

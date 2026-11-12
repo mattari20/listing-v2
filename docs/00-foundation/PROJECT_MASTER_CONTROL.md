@@ -154,3 +154,21 @@ The latest desk review clarifies that the National Data Governance Policy 2026 a
 ## PR #41 final reconciliation evidence — 2026-11-12
 
 PR #41 reconciled PR #40 delivery evidence and merged as `c56200bdf66a5fdf615de0da6281495e50c39f92`; exact head `2c11bfc7fe74da6bed4dc04d17c4c80a664990b0` passed required Project documentation validation (run #43154481312). M1-S02 remains active and S02-C09 remains owner-only.
+
+
+## M1-S02 school-jurisdiction research continuation — 2026-11-12
+
+Latest review adds AJK public/private census and 6,019 aggregate; GB EMIS details, BECS community-school list and public colleges; Sindh's region-to-UC institution checker; and Punjab PEPRIS eLicense caveats. Full evidence is in `../03-research/M1_S02_AJK_GB_SINDH_SCHOOL_REGISTER_REVIEW_2026-11-12.md`. S02-C04/C06/C07/C08 remain active; S02-C09 remains owner-only.
+
+## PR #42 latest rights research delivery — 2026-11-12
+
+PR #42 merged as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a42418ee0176f3fad6ad63e0220f1978c8b` passed required Project documentation validation (run #43154673045). National rights/privacy context is documented, but no source-specific reuse permission is granted. M1-S02 remains active.
+
+
+## M1-S02 Sindh private and KP registration-state evidence — 2026-11-12
+
+The school-source review now includes Sindh DIRPIS/SPEI-EMIS private registration/census as a distinct stream and KPPSRA ACTIVE/BLOCKED/DORMANT/CLOSED statuses. District/jurisdiction completeness, freshness and rights remain open. See the AJK/GB/Sindh review supplement. S02-C04/C07/C08 remain active.
+
+## PR #42 latest rights research delivery — 2026-11-12
+
+PR #42 merged as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a42418ee0176f3fad6ad63e0220f1978c8b` passed required Project documentation validation (run #43154673045). National rights/privacy context is documented, but no source-specific reuse permission is granted. M1-S02 remains active.
