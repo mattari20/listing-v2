@@ -2,7 +2,7 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0 accepted and closed; M1-S01 through M1-S10 accepted and closed; M2 authorized and in progress  
+**Status:** M0, M1-S01 through M1-S10, and M2 accepted and closed; M3-00 documentation/planning in progress  
 **Last reconciled:** 2026-11-12
 
 ## Authoritative current position
@@ -22,7 +22,7 @@ Build a student-first education discovery, admissions information and comparison
 The Documentation Completion Catalogue is the owner-facing inventory of delivered, updated, accepted and planned documents. A merged PR records delivery, not automatic content acceptance. Every documentation PR update and merge must reconcile the catalogue, index, controller, step register, traceability and progress report.
 
 ## Current milestone
-**M2 — Architecture and Design**
+**M3 — Mobilization and Decision Closure (documentation/planning only)**
 
 ## M0 closeout
 M0 was accepted after review of the founding controls, strict legacy non-interference boundary, project planning records, repository rules and the PR delivery workflow. Evidence is recorded in the catalogue, progress report and traceability matrix. M0-S02 acceptance is limited to the documented metadata-only exclusion audit; it is not an exhaustive inventory of the legacy repository. Repository auto-merge is enabled, but automatic merge execution has not yet been independently demonstrated. Production access, deployment and cutover remain unauthorized.
