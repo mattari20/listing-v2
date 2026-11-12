@@ -551,3 +551,8 @@ The T07 deny-by-default legal, privacy, source-rights and security gate register
 
 ## M3-00 T08 current position — 2026-11-12
 The T08 planning framework is delivered at `../04-roadmap/M3-00_T08_IMPLEMENTATION_SCOPE_TEST_RELEASE_AUTHORIZATION_PACK.md`. It defines M3-01 readiness inputs, proposed backlog structure, Definition of Ready, test/evidence contract, CI/review controls, release/rollback governance and an unissued authorization record. T08 remains Open pending detailed scope, T02–T07 decisions/evidence, named human roles and owner acceptance. M3-01 implementation-start authorization has NOT been issued. No application code, technical spike, source/production access, schema/migration, procurement, spend, deployment, pilot or launch is authorized.
+
+
+## M3-00 current verified position — after PR #114
+
+The current `main` baseline is `534aa11345b91113e370cb1739bbded7d82f4c3c` (PR #114). T01–T06 are complete for M3-00 planning outputs; T02–T06 use explicit owner-approved deferrals M3-DEC-003 through M3-DEC-007. T07's deny-by-default gate register and T08's implementation-readiness framework are delivered, but qualified reviewer assignments/evidence and owner disposition remain outstanding. M3-00 remains 75% weighted and is not formally accepted; M3 overall is 3.75%. See `../04-roadmap/M3-00_OWNER_CLOSEOUT_REVIEW_AND_DECISION_PACK.md` for the owner review package. M3-01 implementation-start authorization remains NOT ISSUED. All no-spend, no-source-access, no-implementation and no-production boundaries remain binding.
