@@ -165,3 +165,7 @@ PR #40 merged as `c92d96613dcb510762be5a0a615a73e856861f9b`; final exact head `c
 ## M1-S02 national rights/privacy framework evidence — 2026-11-12
 
 MoITT draft policy/Bill status, RTI access-versus-reuse distinction, Copyright Ordinance compilation/data distinction and PBS's scoped open-license example are documented in the data-rights review. This improves S02-C07 requirements but does not provide source-specific legal clearance. Privacy minimization remains mandatory; no source is approved for reuse.
+
+## PR #41 reconciliation evidence
+
+PR #41 merged as `c56200bdf66a5fdf615de0da6281495e50c39f92`; exact head `2c11bfc7fe74da6bed4dc04d17c4c80a664990b0` passed required Project documentation validation (run #43154481312). It reconciled PR #40 merge evidence; M1-S02 remains in progress.
