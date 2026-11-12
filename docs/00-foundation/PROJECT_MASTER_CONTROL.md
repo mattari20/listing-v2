@@ -85,3 +85,8 @@ Use weighted step progress as defined in `../04-roadmap/MILESTONE_STEP_REGISTER.
 
 ## Change control
 Only this controller and approved V2 decision records define the current V2 plan. Legacy documentation, historical reports and implementation results are excluded and do not silently override V2 requirements.
+
+
+## M1-S02 supplemental research continuation — 2026-11-12
+
+The latest documentation-only pass added AJK private-school register evidence, Balochistan EMIS field/scope clarifications, NFEMIS national NFE inventory/dashboard evidence with a two-record total discrepancy, a GB EMIS zero-valued summary warning, HEC PQR/allied-health NOC distinctions, and historical-only KP special-education evidence. The detailed supplement is ../03-research/M1_S02_SUPPLEMENTAL_SOURCE_COVERAGE_REVIEW_2026-11-12.md. S02-C04/C06/C07/C08 remain in progress; S02-C09 still requires the owner's explicit decision. No source is approved for collection or reuse, and M1-S03/M2 remain unauthorized until the owner acceptance gate is resolved.
