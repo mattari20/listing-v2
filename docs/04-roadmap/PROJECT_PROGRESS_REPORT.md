@@ -1,8 +1,8 @@
 # Project Progress Report
 
 **As of:** 2026-11-12  
-**Current milestone:** M2 — Architecture and Design  
-**Current phase:** M0 and M1 accepted/closed; M2-S00 through S03 accepted/closed; S04-S06 joint documentation package delivered, owner review pending
+**Current milestone:** M3 — Mobilization and Controlled Implementation  
+**Current phase:** M0, M1 and M2 accepted/closed; M3-00 active as documentation/planning only; T01 complete, T02-T06 in progress, T07-T08 open
 
 ## Verified V2 repository facts
 - Repository: `mattari20/listing-v2`
