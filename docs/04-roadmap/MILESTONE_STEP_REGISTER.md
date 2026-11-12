@@ -656,3 +656,6 @@ T03 clarification: owner availability is demand-led within the confirmed 10–15
 
 
 T04 update: the [M3-00 Budget and Cost Scenarios](M3-00_BUDGET_AND_COST_SCENARIOS.md) framework documents cost categories, three planning scenarios, calculation rules and mandatory spend controls. No numeric budget ceiling, dated quote or paid-service permission is assumed. No new spend is authorized. T04 is In progress; no partial completion percentage is claimed.
+
+
+T05 update: the [M3-00 Technology Stack Decision Framework](M3-00_TECHNOLOGY_STACK_DECISION_FRAMEWORK.md) documents backend, frontend, database, search, geography and queue candidates; common evidence criteria; conditional recommendations; and unresolved dependencies. No framework or vendor is selected. Actual implementer/maintainer skills and support/cost/hosting evidence remain open. No technical spike or installation is authorized. T05 is In progress; no partial completion percentage is claimed.
