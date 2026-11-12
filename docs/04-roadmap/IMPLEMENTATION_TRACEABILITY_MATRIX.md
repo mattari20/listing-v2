@@ -76,6 +76,12 @@ PR #26 merged as `246c75f66e41dca83202ad555fe7739d7e5cf5a1`; exact head `3af965f
 ## M1-S02 expanded source-verification evidence
 The coverage matrix, taxonomy, national synthesis and rights register were expanded with professional programme authorities (HEC council map, PM&DC, PNMC, PCP, PEC, NCEAC, NACTE, NBEAC, NTC, NCH), school-source distinctions (Punjab public OpenPunjab vs private PEPRIS, KPPSRA district status, Sindh ASC 2024–25, Balochistan EMIS), TVET production-source semantics and non-formal/special-education gaps. Data-quality, freshness and privacy warnings are recorded. All sources remain research-only; no permission request or ingestion approval exists. S02-C09 remains an explicit owner-approval gate.
 
+## PR #27 evidence reconciliation
+PR #27 merged as `180a6cc19195362caabc3a029dc54c4cc5fc01da`; exact head `8890198905204d07e84c9825ce58b524b7ac27f7`; required `Project documentation validation` passed (run #43147371049). It expanded M1-S02 source/rights evidence and reconciled PR #26.
+
+## M1-S02 owner acceptance evidence
+`docs/03-research/M1_S02_OWNER_ACCEPTANCE_REVIEW.md` is a decision-ready review pack, not an approval record. It sets out a recommended limited research-baseline closeout and the alternative of keeping S02 open. Owner decision remains pending. Additional PBC and PVMC source-family evidence is documented; PCATP, NCT, NAEAC and AHPC remain verification gaps. No source-use permission is implied.
+
 ## Documentation catalogue maintenance
 
 `DOCUMENTATION_CATALOG.md` is the owner-facing inventory for documentation delivery and acceptance. Reconcile it on every documentation PR update and merge. Keep delivery status separate from content acceptance; update PR/head/check/merge evidence and links.

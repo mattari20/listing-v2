@@ -56,6 +56,9 @@ PR #25 delivered a draft national institution coverage synthesis and updated the
 ## M1-S02 current closeout position — 2026-11-12
 Expanded source verification and national synthesis are documented in the coverage matrix, taxonomy, rights register and national synthesis. The weighted task register remains authoritative. S02-C01–C08 remain in progress where owner approval, complete jurisdiction coverage, source-specific terms, freshness or rights evidence remains unresolved. S02-C09 is not complete: the owner must review and explicitly accept the taxonomy, coverage limitations and research-only boundary. No source is approved for collection, ingestion, republication or commercial reuse. PR #26 merged as `246c75f66e41dca83202ad555fe7739d7e5cf5a1` after exact-head validation passed (run #43145461579).
 
+## M1-S02 owner decision pending
+PR #27 completed the current expanded desk-research/documentation pass and merged as `180a6cc19195362caabc3a029dc54c4cc5fc01da`; exact head `8890198905204d07e84c9825ce58b524b7ac27f7` passed required documentation validation (run #43147371049). The owner acceptance pack is `../03-research/M1_S02_OWNER_ACCEPTANCE_REVIEW.md`. M1-S02 remains In progress until the owner explicitly chooses whether to accept the research baseline with limitations carried forward or keep the step open. No source is approved for collection, manual verification, ingestion, republication or commercial reuse. M2 remains unauthorized.
+
 ## Completion status
 M0 is accepted and closed. Future milestones require their own evidence-based acceptance and closeout.
 

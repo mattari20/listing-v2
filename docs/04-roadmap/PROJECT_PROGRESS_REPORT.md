@@ -114,5 +114,11 @@ PR #26 reconciled PR #25 merge evidence across the catalogue, traceability, prog
 ## M1-S02 expanded official-source verification — 2026-11-12
 Expanded the official-source coverage matrix and rights register with current HEC campus and accreditation-council routes; PM&DC, PNMC, PCP, PEC, NCEAC, NACTE, NBEAC, NTC and NCH programme/status evidence; Punjab public OpenPunjab and private PEPRIS sources; KPPSRA district statuses; Sindh Annual School Census 2024–25; Balochistan EMIS public/private/NFE areas; and updated NAVTTC production-route distinctions. Recorded data-quality cautions including old/irregular PNMC content, apparent PCP geography anomalies, NCH personal principal contact fields and closed entries, staging/test TVET sample data, and the difference between programme and institution accreditation. All sources remain RESEARCH ONLY; no reuse permission or data-collection authorization was established. S02-C01–C08 remain in progress pending remaining coverage/rights work; S02-C09 requires explicit owner approval.
 
+## PR #27 evidence
+PR #27 expanded M1-S02 source coverage, taxonomy, source rights and national synthesis evidence; aligned the matrix to the authoritative weighted step register; and reconciled PR #26 evidence. Exact head `8890198905204d07e84c9825ce58b524b7ac27f7` passed required `Project documentation validation` (run #43147371049); merge commit `180a6cc19195362caabc3a029dc54c4cc5fc01da`.
+
+## M1-S02 owner acceptance pack
+Added `docs/03-research/M1_S02_OWNER_ACCEPTANCE_REVIEW.md` to present the research deliverables, evidence-backed conclusions, unresolved jurisdiction/rights/privacy/freshness gaps and a proposed closeout boundary. It explicitly offers an owner choice between accepting the research baseline with limitations carried forward or keeping S02 open. No owner decision is recorded. Added PBC and PVMC official source evidence and retained PCATP, NCT, NAEAC and AHPC as unverified source-family leads. All sources remain RESEARCH ONLY.
+
 ## Reporting rule
 After every documentation PR update and merge, reconcile the documentation catalogue, index, controller, step register, traceability matrix and progress report. Record exact PR, head SHA, required check and merge SHA. Never infer acceptance from a merge alone.
