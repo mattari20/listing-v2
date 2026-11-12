@@ -124,3 +124,8 @@ The second supplemental review documents PCATP, NCT, AHPC, NTC, NAEAC and ICT/KP
 ## PR #35 final reconciliation evidence
 
 PR #35 merged as `0cb1c8cf1dba9fb0b90b1fa8bda16123d57c65f6`; exact head `48626561f492c03baab9ce72fb79e7a24a01640f` passed required Project documentation validation (run #43152199340). It reconciled PR #34 merge evidence; TAX-001 remains in progress pending S02 acceptance.
+
+
+## PR #36 council/special-education evidence
+
+PR #36 merged as `c0a5e0cc743336610b0eef5d5e56fde5406d92db`; exact head `fb629563b395a29b4d02df443acaa63c4cd38f01` passed required Project documentation validation (run #43152421589). TAX-001 remains in progress; application-versus-approval and zero/interim-versus-final-accreditation distinctions are now explicit in the research supplement.
