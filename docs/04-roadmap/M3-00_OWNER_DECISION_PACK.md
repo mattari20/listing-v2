@@ -171,3 +171,7 @@ The budget framework is prepared in `M3-00_BUDGET_AND_COST_SCENARIOS.md`. Scenar
 
 ### T05 technology decision status
 The [M3-00 Technology Stack Decision Framework](M3-00_TECHNOLOGY_STACK_DECISION_FRAMEWORK.md) consolidates candidate trade-offs, common evaluation criteria, conditional recommendations and blockers. No backend framework, database, search service, map/geocoder or queue provider is selected. The actual human implementer/maintainer skill profile remains unknown; no technical spike or installation is authorized.
+
+
+### T06 hosting and operations decision status
+The [M3-00 Hosting and Operations Decision Framework](M3-00_HOSTING_AND_OPERATIONS_DECISION_FRAMEWORK.md) records initial official region research, candidate operating models, service/region verification requirements, Pakistan latency testing, data-location/privacy gates, cost evidence and operations responsibilities. No provider, region or plan is selected; no account, trial, deployment or spend is authorized.
