@@ -178,3 +178,8 @@ The [M3-00 Budget and Cost Scenarios](M3-00_BUDGET_AND_COST_SCENARIOS.md) docume
 ## M3-00 T05 supporting technology framework
 
 The [M3-00 Technology Stack Decision Framework](M3-00_TECHNOLOGY_STACK_DECISION_FRAMEWORK.md) compares candidate backend, frontend, database, search, geography and background-processing approaches against common criteria. It preserves the M2 conditional baseline but selects no technology. Named implementer/maintainer skill fit, support/security evidence, cost and hosting fit remain dependencies. No technical spike, installation or implementation is authorized.
+
+
+## M3-00 T06 supporting hosting and operations framework
+
+The [M3-00 Hosting and Operations Decision Framework](M3-00_HOSTING_AND_OPERATIONS_DECISION_FRAMEWORK.md) records provider-region research and operating-model comparisons, with explicit verification requirements for exact service support, Pakistan latency, data location/transfer, backups/restore, security, support and total cost. No provider or region is selected; no account, trial, procurement or deployment is authorized.

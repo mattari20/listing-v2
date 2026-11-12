@@ -619,3 +619,6 @@ PR #106 exact head `16352ebb07630b92284ed08b36b0d3230508bd45` passed Project doc
 #### PR #107 merge evidence — 2026-11-12
 
 PR #107 exact head `04c781fb5997d9e56b616e3add2c30f8fd4982da` passed Project documentation validation (run #43199505084; all job steps successful) and squash-merged as `137130caa046804fb02a42d9a98e01d855601401`. This reconciles PR #106 delivery; T05 remains in progress and no technology is selected.
+
+
+| [M3-00 Hosting and Operations Decision Framework](M3-00_HOSTING_AND_OPERATIONS_DECISION_FRAMEWORK.md) | T06 provider-region research, operating models, service/region checks, latency, data, recovery, cost and operations criteria | Delivered in hosting framework PR; no provider selected; exact service evidence and owner decision pending |
