@@ -349,3 +349,9 @@ S03-C02 remains in progress. No access bypass, personal data collection, scrapin
 ## M1-S03 task acceptance audit — 2026-11-12
 
 S03-C01 through S03-C08 are completed with limitations documented, for **95% weighted task completion**. S03-C09 remains owner-only at 5%; M1-S03 is still **In progress / awaiting owner acceptance**. The audit records 48 official source routes and the remaining coverage, freshness, data-quality, access and rights gaps. Acceptance is a research baseline only; no source ingestion/reuse, implementation, production access, M1-S04 or M2 is authorized.
+
+
+## M1-S03 owner acceptance and closeout — 2026-11-12
+
+- [M1-S03 Owner Acceptance Record](../03-research/M1_S03_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) — explicit owner approval of the 48-source official provider register, jurisdictional matrix, eight supplemental reviews, task audit and documented limitations. **Accepted — M1-S03 closed at 100% weighted task completion as a research baseline only.**
+- [M1-S03 Task Acceptance Evidence Audit](../03-research/M1_S03_TASK_ACCEPTANCE_EVIDENCE_AUDIT_2026-11-12.md) — updated to record C09 owner acceptance and 100% weighted completion; source coverage, freshness, privacy and reuse limitations remain open.
