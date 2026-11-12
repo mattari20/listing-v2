@@ -685,3 +685,9 @@ M3-00 is owner accepted/closed at 100% of bounded planning deliverables (5% of M
 PR #122 passed the required `Validate project control documents` check on exact head `877c19f0012e22f6be9c49f4cf84e349f156d578` and merged as `0e144d5221943ff15fde13f8bb336451ef2b2a2a`. The owner is the sole human builder for the initial bounded V2 build; ChatGPT is the development assistant. No additional human development team is required for Candidate A. Future operating staff, including at least two administrators, are deferred until post-completion.
 
 P03 is resolved for the synthetic/offline Candidate A planning model only. P04 stack/environment/cost decisions, P05 scope-applicable gates, P06 final environment-specific plan, P07 authorization dossier and P08 owner closeout remain. M3-01 is not closed; no weighted M3-01 completion percentage is claimed. M3 remains 5%. Implementation authorization remains NOT ISSUED.
+
+## M3-01 AI-era architecture readiness — 2026-11-12
+
+PR #124 merged the AI-era architecture review as `4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5`. The review adds 20 proposed requirements covering provider independence, AI-off operation, RAG evidence grounding, optional vector retrieval, controlled agents/tools, human approval, prompt lifecycle, evaluation, agent security, observability/cost, versioned APIs, interoperability, async work, portability, English/Urdu readiness, privacy, policy isolation, replaceable search/geospatial, kill switches and lifecycle governance.
+
+This delivery is documentation-only. It strengthens P04 stack/architecture evidence and P05/P06 risk/test planning but does not complete any weighted M3-01 task, select a framework/database/host/model/vendor, authorize services or change the Candidate A boundary. No tests of AI systems have been run. Candidate A remains offline, synthetic-only and no-spend; P04–P08 remain open as applicable; M3 remains 5%; implementation authorization is NOT ISSUED.
