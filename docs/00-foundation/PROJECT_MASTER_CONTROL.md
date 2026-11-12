@@ -526,3 +526,8 @@ T05 is In progress: candidate trade-offs and common evaluation criteria are docu
 PR [#107](https://github.com/mattari20/listing-v2/pull/107) reconciled PR #106 technology-framework delivery. Exact head `04c781fb5997d9e56b616e3add2c30f8fd4982da` passed required **Project documentation validation** (run [#43199505084](https://github.com/mattari20/listing-v2/actions/runs/43199505084)); job `Validate project control documents` and all steps completed successfully. PR #107 was squash-merged as `137130caa046804fb02a42d9a98e01d855601401`.
 
 T05 remains In progress pending named human implementer/maintainer skill fit, support/security lifecycle evidence, hosting/cost fit and owner selection. No technology is selected and no technical spike or installation is authorized. M3-00 remains 10%; M3 overall 0.5%.
+
+
+## M3-00 T06 hosting and operations framework update
+
+The documentation-only [M3-00 Hosting and Operations Decision Framework](../04-roadmap/M3-00_HOSTING_AND_OPERATIONS_DECISION_FRAMEWORK.md) records official provider-region research, operating-model comparison and requirements for exact service support, Pakistan latency, data location/transfer, security, backup/restore, support and total cost. No provider or region is selected. T06 is In progress; no partial percentage is claimed. No account, trial, procurement, spend or deployment is authorized.
