@@ -47,8 +47,8 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 | M1-S03 | Official government/regulator provider research | New source register with access, rights, coverage and freshness evidence |
 | M1-S04 | Private provider and institution-source research | `../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md` — 21 source families, seven-jurisdiction coverage assessment and documented gaps |
 | M1-S05 | Programme/admissions information research | 22-source-family federated programme/admissions evidence model; formal owner acceptance record `../03-research/M1_S05_OWNER_ACCEPTANCE_RECORD_2026-11-12.md` — **Accepted and Closed 2026-11-12** |
-| M1-S06 | Independent GitHub software and dataset discovery | `../03-research/M1_S06_GITHUB_SOFTWARE_DATASET_DISCOVERY_2026-11-12.md` — independent software/dataset candidate register, transferability and exclusions; **research delivered, owner acceptance pending** |
-| M1-S07 | License, data-rights and security assessment | `../03-research/M1_S07_SOURCE_RIGHTS_SECURITY_ASSESSMENT_2026-11-12.md` — source/asset rights, privacy, security gates and candidate dispositions; **research delivered, owner acceptance pending** |
+| M1-S06 | Independent GitHub software and dataset discovery | `../03-research/M1_S06_GITHUB_SOFTWARE_DATASET_DISCOVERY_2026-11-12.md` — independent software/dataset candidate register, transferability and exclusions; **Accepted and Closed 2026-11-12** |
+| M1-S07 | License, data-rights and security assessment | `../03-research/M1_S07_SOURCE_RIGHTS_SECURITY_ASSESSMENT_2026-11-12.md` — source/asset rights, privacy, security gates and candidate dispositions; **Accepted and Closed 2026-11-12** |
 | M1-S08 | V2 AI data-agent workflow requirements | Source-specific collection, verification, scheduling and human-review requirements |
 | M1-S09 | Comparison, review and trust research | Rating rubric, moderation, privacy and abuse cases |
 | M1-S10 | M1 synthesis and acceptance | Research report, gap register and approved inputs to M2 |
@@ -119,9 +119,9 @@ The owner explicitly accepted the 22-source-family programme/admissions research
 | S06-T04 Assess Pakistan relevance and transferability | 15% | Pakistan-specific and comparative-only uses distinguished | Completed |
 | S06-T05 Record provenance, quality and coverage caveats | 15% | Candidate source claims and limitations documented | Completed |
 | S06-T06 Rank candidates and document exclusions | 10% | Candidate dispositions and review conditions recorded | Completed |
-| S06-T07 Owner review and step acceptance | 10% | Owner acceptance of candidate inventory and limitations | Pending owner acceptance |
+| S06-T07 Owner review and step acceptance | 10% | Owner acceptance of candidate inventory and limitations | **Accepted — owner approval recorded 2026-11-12** |
 
-**M1-S06 weighted research/documentation completion:** 90%; T01–T06 complete, T07 owner acceptance pending. No candidate code or data has been imported or executed.
+**M1-S06 weighted research/documentation completion:** 100%; T01–T06 complete and T07 owner acceptance recorded 2026-11-12. This closes S06 as a research baseline only. No candidate code or data has been imported or executed.
 
 ### M1-S07 task breakdown (weights total 100%)
 
@@ -133,9 +133,47 @@ The owner explicitly accepted the 22-source-family programme/admissions research
 | S07-T04 Source-by-source rights evidence record | 15% | Required metadata and approval fields specified | Completed |
 | S07-T05 Software supply-chain/security review framework | 15% | OpenSSF/Scorecard/GitHub controls documented | Completed — no code audit performed |
 | S07-T06 Privacy and sensitive-data controls | 10% | Data minimization, sensitive location and Deeni Madaris restrictions reaffirmed | Completed |
-| S07-T07 Owner review and step acceptance | 10% | Owner acceptance of rights/security framework and dispositions | Pending owner acceptance |
+| S07-T07 Owner review and step acceptance | 10% | Owner acceptance of rights/security framework and dispositions | **Accepted — owner approval recorded 2026-11-12** |
 
-**M1-S07 weighted research/documentation completion:** 90%; T01–T06 complete, T07 owner acceptance pending. No source is approved for collection, ingestion, redistribution or commercial reuse.
+**M1-S07 weighted research/documentation completion:** 100%; T01–T06 complete and T07 owner acceptance recorded 2026-11-12. This closes S07 as a research baseline only. No source is approved for collection, ingestion, redistribution or commercial reuse.
+
+
+### M1-S06/S07 owner acceptance evidence
+
+The owner explicitly accepted the independent software/dataset discovery baseline and the deny-by-default rights/security assessment on 2026-11-12. See `../03-research/M1_S06_S07_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. S06 and S07 are accepted and closed as research baselines at 100% weighted task completion; candidate repositories and datasets remain unapproved for import or reuse. PR [#77](https://github.com/mattari20/listing-v2/pull/77) merged as `71e71ce74a57b854724027a1b106befe826b14fa`; exact head `deef364831cf4f0d902128ce9933897b17f9649c` passed required validation (run [#43171586968](https://github.com/actions/runs/43171586968)). PR [#78](https://github.com/mattari20/listing-v2/pull/78) reconciled merge evidence as `611e5677ceac67bff5b1cf5ae26f505e1596e82d`; exact head `df9d5aea93ccbdd6dbd7536eadc0f3ca000d7ead` passed required validation (run [#43171678247](https://github.com/actions/runs/43171678247)). No collection, cloning, execution, ingestion or source activation is authorized.
+
+### M1-S08 task breakdown (weights total 100%)
+
+| Task | Weight | Acceptance evidence | Status |
+|---|---:|---|---|
+| S08-T01 Agent mission, scope and hard boundaries | 10% | Discovery, retrieval and publication separated; rights-first/no-V1/no-live-activity controls | Completed |
+| S08-T02 Source authorization and rights manifests | 15% | Asset-specific approval, permitted method, expiry and suspension controls | Completed |
+| S08-T03 Workflow stages and provenance | 15% | End-to-end workflow and assertion-level provenance documented | Completed |
+| S08-T04 Extraction, validation and entity resolution | 15% | Source-faithful extraction, deterministic validation and ambiguous-match gates | Completed |
+| S08-T05 Conflict, confidence, freshness and publication | 15% | Evidence/risk separation, human review and reversible publication rules | Completed |
+| S08-T06 Security, privacy and prompt-injection controls | 15% | Least privilege, hostile-source handling, data minimization and sensitive-data exclusions | Completed |
+| S08-T07 Human governance, monitoring and acceptance scenarios | 10% | Roles, metrics and ten testable acceptance scenarios | Completed |
+| S08-T08 Owner review and step acceptance | 5% | Owner acceptance of workflow requirements and limitations | Pending owner acceptance |
+
+**M1-S08 weighted research/documentation completion:** 95%; T01–T07 complete, T08 owner acceptance pending. No agent, connector, crawler, scheduler or live source access was activated.
+
+### M1-S09 task breakdown (weights total 100%)
+
+| Task | Weight | Acceptance evidence | Status |
+|---|---:|---|---|
+| S09-T01 Comparison purpose, entities and student use cases | 10% | Institution/campus/programme/intake comparison units documented | Completed |
+| S09-T02 Comparison dimensions and data comparability | 15% | Programme, eligibility, admissions, cost, recognition, facilities and review dimensions | Completed |
+| S09-T03 Ranking, sorting, sponsorship and transparency | 10% | Explainability, coverage, missing-data and paid-placement safeguards | Completed |
+| S09-T04 Review account and eligibility policy | 10% | Login requirement preserved; experience-verification decision left open | Completed |
+| S09-T05 Rating dimensions, authenticity and manipulation | 15% | Candidate dimensions and fake/incentivized/conflict rules | Completed |
+| S09-T06 Moderation, institution reply, complaints and appeals | 15% | Fair process, reasons, appeals and no unilateral institution deletion | Completed |
+| S09-T07 Privacy, minors, safeguarding and sensitive categories | 10% | Data minimization and legal review gates | Completed |
+| S09-T08 Trust signals, legal research and open decisions | 10% | Source-backed trust model and M2 decision register | Completed |
+| S09-T09 Owner review and step acceptance | 5% | Owner acceptance of comparison/review/trust research and limitations | Pending owner acceptance |
+
+**M1-S09 weighted research/documentation completion:** 95%; T01–T08 complete, T09 owner acceptance pending. Reviews remain a post-launch feature; no pre-launch participant research or review collection is authorized.
+
+
 
 
 
