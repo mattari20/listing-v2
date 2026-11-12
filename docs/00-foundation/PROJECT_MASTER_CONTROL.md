@@ -421,3 +421,15 @@ S02 and S03 are Accepted and Closed at 100%. S04 remains 80%, S05 85% and S06 85
 PR [#94](https://github.com/mattari20/listing-v2/pull/94) reconciled PR #93 delivery. Exact PR head `9c369a4a6f5b78d794feb2e38d9c4afd1b4875e8` passed required **Project documentation validation** (workflow run [#43189848614](https://github.com/mattari20/listing-v2/actions/runs/43189848614)); job `Validate project control documents` and all steps completed successfully. PR #94 was squash-merged as `0a5f65258ea04c52b8e79b314f7cda04c8d3e65c`.
 
 This reconciliation confirms PR #93's merge evidence and does not alter content acceptance: S02/S03 remain accepted/closed; S04 80%, S05 85% and S06 85% remain owner-review/decision pending. Weighted M2 progress remains 62.0%.
+
+## M2-S04/S05/S06 acceptance and S07-S10 continuation — 2026-11-12
+
+The owner accepted S04 Technology Stack Evaluation, S05 Data Architecture/Provenance/Publication Governance and S06 Search/Discovery/Geography as working design baselines, directing that unresolved stack, vendor, legal, operational and ranking choices be carried forward. Formal record: ../05-architecture/M2-S04-S06_OWNER_ACCEPTANCE_RECORD_2026-11-12.md. S04-S06 are Accepted and Closed at 100%; no stack, vendor, procurement or implementation is approved.
+
+S07-S10 documentation drafts have been prepared:
+- S07 AI data-agent technical architecture: 85%; T05 review pending.
+- S08 identity, authorization, reviews, privacy and security: 80%; T05 review pending.
+- S09 performance, operations, hosting and recovery: 80%; T05 cost/operations review pending; all numerical targets are provisional.
+- S10 integrated synthesis and conditional M3 roadmap: 80%; explicit final owner acceptance pending.
+
+Weighted M2 draft progress is 93.9%. The next eligible work is complete T05 validation/reconciliation for S07-S10, then request the owner's explicit final M2 acceptance. M3 implementation remains prohibited until that acceptance and a separate M3 start authorization. No source retrieval/ingestion, connector/agent activation, procurement, production access, deployment, launch or legacy-repository interaction is authorized.
