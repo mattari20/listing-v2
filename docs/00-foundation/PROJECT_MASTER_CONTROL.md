@@ -172,3 +172,8 @@ The school-source review now includes Sindh DIRPIS/SPEI-EMIS private registratio
 ## PR #42 latest rights research delivery — 2026-11-12
 
 PR #42 merged as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a42418ee0176f3fad6ad63e0220f1978c8b` passed required Project documentation validation (run #43154673045). National rights/privacy context is documented, but no source-specific reuse permission is granted. M1-S02 remains active.
+
+
+## M1-S02 school regulator and terms research — 2026-11-12
+
+KPPSRA registration/renewal versus BISE affiliation, Sindh DIRPIS safety notices versus complete register, HEC Digital Library publisher license scope and NAVTTC aggregate count scope are now documented. Full evidence is in `../03-research/M1_S02_SCHOOL_REGULATOR_STATUS_TERMS_REVIEW_2026-11-12.md`. S02-C04/C05/C07/C08 remain active; S02-C09 owner-only.
