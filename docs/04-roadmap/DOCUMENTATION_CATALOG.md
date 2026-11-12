@@ -186,3 +186,8 @@ PR [#34](https://github.com/mattari20/listing-v2/pull/34) reconciled PR #33's su
 ## PR #35 final reconciliation evidence
 
 PR [#35](https://github.com/mattari20/listing-v2/pull/35) reconciled PR #34 delivery evidence and merged as `0cb1c8cf1dba9fb0b90b1fa8bda16123d57c65f6`. Exact head `48626561f492c03baab9ce72fb79e7a24a01640f` passed required **Project documentation validation** (run [#43152199340](https://github.com/mattari20/listing-v2/actions/runs/43152199340)). It preserved the M1-S02 owner-acceptance boundary.
+
+
+## PR #36 professional-council/special-education review delivery
+
+PR [#36](https://github.com/mattari20/listing-v2/pull/36) added the PCATP, NCT, AHPC, NTC, NAEAC and ICT/KP special-education review and reconciled PR #35 evidence. Exact head `fb629563b395a29b4d02df443acaa63c4cd38f01` passed required **Project documentation validation** (run [#43152421589](https://github.com/mattari20/listing-v2/actions/runs/43152421589)); PR #36 merged as `c0a5e0cc743336610b0eef5d5e56fde5406d92db`. S02-C03/C06/C07 remain in progress; S02-C09 remains owner-only.
