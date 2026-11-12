@@ -84,3 +84,42 @@ PR [#88](https://github.com/mattari20/listing-v2/pull/88) reconciled the M2-S01 
 ## PR #89 delivery reconciliation — 2026-11-12
 
 PR [#89](https://github.com/mattari20/listing-v2/pull/89) reconciled PR #88's exact-head validation and merge evidence. Exact PR head `5c038bb8d4662acc590121bf87723a89127ab5b6` passed required Project documentation validation (run [#43181267319](https://github.com/mattari20/listing-v2/actions/runs/43181267319)); PR #89 merged as `a119514862b74d4ec8135409375dc7960f924e2a`. M2-S01 remains 80% and In Progress pending owner review; no acceptance is implied.
+
+
+## M2-S01 owner acceptance — 2026-11-12
+
+The owner explicitly accepted the system requirements, actors, boundaries and quality scenarios as the working baseline. Formal record: [M2-S01 Owner Acceptance Record](M2-S01_OWNER_ACCEPTANCE_RECORD_2026-11-12.md). S01-T05 is complete; S01 is Accepted and Closed at 100%. Acceptance does not approve the proposed WCAG 2.2 AA target, numeric SLOs, stack, vendor or implementation.
+
+## M2-S02 / M2-S03 joint work package — 2026-11-12
+
+S02 and S03 were authored as a coordinated documentation package while retaining separate step weights, task evidence and acceptance gates.
+
+### S02 task progress
+
+| Task | Weight | Evidence | Status |
+|---|---:|---|---|
+| T01 Domain glossary | 15% | M2-S02 section 2 | Complete — draft |
+| T02 Entity and relationship model | 25% | M2-S02 section 3 and conceptual ER view | Complete — draft |
+| T03 Identity, deduplication and affiliation | 20% | M2-S02 section 4 and relationship rules | Complete — draft |
+| T04 Lifecycle and temporal semantics | 20% | M2-S02 sections 5–7 | Complete — draft |
+| T05 Review and validation | 20% | Joint cross-step validation; owner review pending | Pending |
+
+**S02 draft task completion: 80%.** S02 owner acceptance remains pending.
+
+### S03 task progress
+
+| Task | Weight | Evidence | Status |
+|---|---:|---|---|
+| T01 Context view | 15% | M2-S03 section 2 | Complete — draft |
+| T02 Logical container view | 25% | M2-S03 section 3 | Complete — draft |
+| T03 Component boundaries | 25% | M2-S03 section 4 | Complete — draft |
+| T04 Runtime and failure scenarios | 20% | M2-S03 sections 6–8 | Complete — draft |
+| T05 Review and validation | 15% | Joint cross-step validation; owner review pending | Pending |
+
+**S03 draft task completion: 85%.** S03 owner acceptance remains pending.
+
+### Joint package boundary
+
+The package does not choose a monolith/modular monolith/services, framework, language, database, queue, search engine, map provider, identity vendor, AI provider, hosting provider or deployment topology. These remain for S04/S07/S09 and explicit owner decisions. No physical schema, API implementation, production access, source retrieval/ingestion, connector activation or deployment is authorized.
+
+Owner review checklist and decision request: [M2-S02/S03 Joint Validation and Owner Review](M2-S02-S03_JOINT_VALIDATION_AND_OWNER_REVIEW.md).
