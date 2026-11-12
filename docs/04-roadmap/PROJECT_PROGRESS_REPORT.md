@@ -2,29 +2,39 @@
 
 **As of:** 2026-11-12  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current phase:** M0, M1 and M2 accepted/closed; M3-00 active as documentation/planning only; T01 complete, T02-T06 in progress, T07-T08 open
+**Current phase:** M0, M1 and M2 accepted/closed; M3-00 active as documentation/planning only; T01-T06 complete for planning outputs (T02-T06 via owner-approved deferrals), T07-T08 open
 
 ## Verified current M3 position — 2026-11-12 (post PR #110)
 
-**Main branch audit baseline:** `a328a8272b086cac6270dc625d53ea6c3bbc1fa7`  
-**M3-00:** 10% weighted completion. **M3 overall:** 0.5%.  
-**Delivery:** PRs #102–#110 are all closed and merged; required Project documentation validation passed on each exact PR head. No PR from this delivery sequence remains outstanding.
+**Main branch audit baseline before this reconciliation:** `a328a8272b086cac6270dc625d53ea6c3bbc1fa7`  
+**M3-00:** 75% weighted completion. **M3 overall:** 3.75%.  
+**Latest delivery:** PR #112 (T07) and PR #113 (T08) are merged; PR #113 exact-head Project documentation validation passed. Owner-approved deferrals M3-DEC-003 through M3-DEC-007 close T02–T06 for M3-00 planning purposes only.
 
 | Task | Current status | Delivered | Remaining blocker |
 |---|---|---|---|
 | T01 Baseline reconciliation | **Complete** | M0–M2 baseline and control reconciliation (PR #100) | None identified in this audit |
-| T02 Roles, skills and accountability | **In progress** | Owner-led/ChatGPT-assisted model and decision accountability recorded | Named human implementers, maintainers, QA/security reviewers, operations owner, skill coverage and responsibility matrix |
-| T03 Capacity and availability | **In progress** | Owner confirmed 10–15 hours/week planning baseline, flexible by project demand, with demand-led reviews/approvals | Other human delivery capacity, continuity and realistic role-level availability |
-| T04 Budget and cost ceiling | **In progress** | Cost categories, scenarios, calculation rules and no-spend controls documented | Numeric ceilings or explicit deferral, dated quotes, tax/FX basis and paid-service policy |
-| T05 Technology stack | **In progress** | Candidate comparison framework and conditional M2 baseline documented | Named implementer skill fit, support/security lifecycle, hosting/cost evidence and owner selection/deferment |
-| T06 Hosting and operations | **In progress** | Provider-region research and operating-model framework documented | Exact service/region support, current quotes, measured Pakistan latency, data terms, recovery evidence and named operations owner |
+| T02 Roles, skills and accountability | **Complete for M3-00 planning** | Owner-led/ChatGPT-assisted model; human roles/skills gaps explicitly deferred (M3-DEC-003) | Named accountable human roles remain a prerequisite before relevant implementation authorization |
+| T03 Capacity and availability | **Complete for M3-00 planning** | Owner's 10–15 hours/week baseline and demand-led cadence recorded; other human capacity/continuity deferred (M3-DEC-004) | Human capacity and continuity must be resolved before implementation authorization |
+| T04 Budget and cost ceiling | **Complete for M3-00 planning** | No-new-spend posture explicitly accepted; numeric ceilings, quotes, tax/FX and paid-service policy deferred (M3-DEC-005) | Any spend requires separate explicit approval; no spend authorized |
+| T05 Technology stack | **Complete for M3-00 planning** | Stack selection deferred pending human skills, support/security, hosting and cost evidence (M3-DEC-006) | No stack selected; no technical spike/installation authorized |
+| T06 Hosting and operations | **Complete for M3-00 planning** | Provider/region selection deferred pending service, data, cost, latency, recovery and operations evidence (M3-DEC-007) | No provider selected; no account, trial, procurement or spend authorized |
 | T07 Legal, privacy, source-rights and security | **Open** | Twelve-gate deny-by-default register drafted; source-specific approval template, reviewer roles, no-go conditions and reassessment triggers documented | Qualified legal/privacy/security/safeguarding reviewers, applicable evidence and owner decisions; no source/vendor/service approved |
 | T08 Scope, test/release and authorization pack | **Open** | T08 readiness framework drafted: scope inputs, backlog structure, Definition of Ready, test/evidence contract, CI/review and release/rollback controls | Detailed scope and owner acceptance; upstream T02–T07 decisions/reviews; named human roles; separate unissued M3-01 authorization |
 
-PR merges and CI establish documentation delivery/validation, not owner acceptance of T02–T08. No partial task percentages are claimed. The 10% M3-00 and 0.5% M3 figures remain unchanged because T01 is the only fully complete weighted task.
+T02–T06 are complete only for their planning/decision-record outputs under explicit owner-approved deferrals; their underlying decisions remain unresolved dependencies. T07–T08 remain open. PR merges and CI establish documentation delivery/validation, not legal/security approval or implementation readiness.
 
 **Authorization boundary:** Documentation/planning only. No application implementation, production/source access, schema/migrations, connector/service activation, procurement, new spend, deployment, pilot or launch is authorized.
 
+
+## Owner-approved M3-00 deferral and progress update — 2026-11-12
+
+The Product Owner approved M3-DEC-003 through M3-DEC-007. T02–T06 are complete for their M3-00 planning/decision-record outputs only: human role/skill coverage and additional capacity remain deferred; no-new-spend remains binding with numeric ceilings and paid-service policy deferred; technology and hosting selections remain deferred. These decisions do not resolve the underlying dependencies and do not authorize implementation, technical spikes, procurement, spend or service activation.
+
+PR #112 merged the T07 legal/privacy/source-rights/security gate framework. PR #113 merged the T08 implementation scope, test/release and M3-01 authorization framework after exact-head Project documentation validation passed. T07 and T08 remain open because qualified reviewer assignments/evidence and full readiness/acceptance requirements remain outstanding.
+
+**Current weighted progress:** T01 10% + T02 15% + T03 10% + T04 15% + T05 15% + T06 10% = **75% M3-00 completion**. Since M3-00 carries 5% of M3, overall M3 progress is **3.75%**. M3-00 has not yet been formally accepted. M3-01 implementation-start authorization is not issued.
+
+**Binding boundary:** Documentation/planning only. No application code, technical spike, production/source access, schema/migrations, connector/agent/model activation, procurement, new spend, deployment, pilot or launch is authorized.
 
 ## Verified V2 repository facts
 - Repository: `mattari20/listing-v2`
@@ -565,7 +575,7 @@ This reconciliation confirms PR #93's merge evidence and does not alter content 
 - M0: Accepted and closed.
 - M1-S01–M1-S10: Accepted and closed; G01-G20 remain binding.
 - M2: 100% owner-accepted and closed; see the final acceptance record and final closeout report in `docs/05-architecture/`.
-- M3: Current milestone. M3-00 — Mobilization and Decision Closure — is in progress as documentation/planning only at 10% weighted task completion (T01 complete; T02-T08 open). M3 overall weighted progress is 0.5%. Owner acceptance remains pending.
+- M3: Current milestone. M3-00 — Mobilization and Decision Closure — is in progress as documentation/planning only at 75% weighted task completion (T01–T06 complete for planning outputs; T07–T08 open). M3 overall weighted progress is 3.75%. Formal M3-00 acceptance remains pending.
 - M3-01 onward: Not started. Application implementation is not authorized.
 - Production access, source ingestion, procurement/new spend, database/schema changes, deployment and launch remain separately gated.
 

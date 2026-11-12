@@ -149,9 +149,9 @@ Record only confirmed decisions. A decision can be deferred with rationale and n
 |---|---|---|---|
 | M3-D01 Delivery model and roles | Owner-led; user is Product Owner/final decision-maker; ChatGPT provides step-by-step technical assistance; qualified specialists may be engaged for legal/privacy/security review when needed. Named human implementers, maintainers and reviewers remain pending. | Owner confirmation in this conversation, 2026-11-12; human staffing/capability gaps still to be identified | 2026-11-12 |
 | M3-D02 Capacity and availability | Owner availability: 10–15 hours/week as a planning baseline, with flexibility according to project demand and priority. Reviews/approvals are demand-led rather than limited to a fixed weekly meeting. Other human delivery capacity and continuity assumptions remain pending. | Owner confirmation in this conversation, 2026-11-12; availability does not imply engineering staffing or authorize spend | 2026-11-12 |
-| M3-D03 Budget and spend ceiling | Pending | Pending | Pending |
-| M3-D04 Technology stack | Pending | Pending | Pending |
-| M3-D05 Hosting provider/region | Pending | Pending | Pending |
+| M3-D03 Budget and spend ceiling | No-new-spend planning only; numeric ceilings and paid-service policy deferred by owner (M3-DEC-005) | Owner approval, 2026-11-12 | 2026-11-12 |
+| M3-D04 Technology stack | Deferred; no stack selected, M2 baseline remains conditional (M3-DEC-006) | Owner approval, 2026-11-12 | 2026-11-12 |
+| M3-D05 Hosting provider/region | Deferred; no provider or region selected (M3-DEC-007) | Owner approval, 2026-11-12 | 2026-11-12 |
 | M3-D06 Third-party services | Pending | Pending | Pending |
 | M3-D07 Legal/privacy/security review scope | Pending | Pending | Pending |
 | M3-D08 Source-specific access/reuse | Research-only; no source approved | Per-source assessment required | Pending |
@@ -160,7 +160,21 @@ Record only confirmed decisions. A decision can be deferred with rationale and n
 | M3-D11 M3 implementation start | Not authorized | Requires M3-01 package and separate explicit approval | Pending |
 | M3-D12 Production/launch | Not authorized | Requires separate release approval | Pending |
 
-## 8. Decision boundary
+## 8. Owner-approved conservative deferrals — 2026-11-12
+
+The Product Owner explicitly approved the following bounded deferrals. These close the M3-00 planning tasks T02–T06 against their documented alternative exit paths; they do not claim the underlying staffing, numeric budget, technology or hosting questions have been resolved.
+
+| Decision | Owner-approved disposition | Binding boundary / reopening trigger |
+|---|---|---|
+| M3-DEC-003 — Roles and skills (T02) | Retain owner-led/ChatGPT-assisted delivery. Named human implementers, maintainers, QA/security reviewers, operations owner and skills coverage are explicitly deferred as gaps. | No implementation work may begin without named accountable human implementer/reviewer/operations coverage appropriate to the authorized scope. |
+| M3-DEC-004 — Capacity (T03) | Retain the owner's 10–15 hours/week planning baseline and demand-led approvals. Other human delivery capacity and continuity remain explicitly unstaffed/unconfirmed. | Do not treat owner time or ChatGPT assistance as engineering, QA, security or operations capacity. Reassess before M3-01 authorization. |
+| M3-DEC-005 — Budget (T04) | Scenario A, no-new-spend planning, remains the only permitted posture. Numeric one-time/recurring ceilings, quotes, tax/FX assumptions and paid-service policy are deferred. | No purchase, subscription, paid trial, hiring, contract or new spend. Any spend requires a separate explicit owner approval with amount, purpose and period. |
+| M3-DEC-006 — Technology (T05) | Defer all stack/provider selections until actual human skill coverage, support/security lifecycle, hosting compatibility and cost evidence are available. M2 technology remains a conditional candidate baseline only. | No technical spike, package installation, service activation or implementation. Any proof-of-fit requires a separate scoped authorization and synthetic data. |
+| M3-DEC-007 — Hosting (T06) | Defer provider, region and plan selection until exact service support, data terms, costs, Pakistan latency, recovery evidence and a named operations owner can be assessed. | No account creation, trial, credentials, procurement, deployment or spend. Reassess before any environment or vendor commitment. |
+
+These are explicit accepted deferrals, not approvals or evidence of readiness. T02–T06 are marked complete only for their M3-00 planning/decision-record outputs. All implementation readiness gates remain binding.
+
+## 9. Decision boundary
 
 Completing this pack does not select a stack, approve spending, authorize source access, activate a connector/model, approve a production account, authorize physical schema/migrations, or authorize deployment or launch. Those actions require their own explicit approvals and safeguards.
 
