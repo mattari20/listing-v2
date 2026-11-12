@@ -1,6 +1,6 @@
 # M3-00 Owner Closeout Review and Decision Pack
 
-**Status:** Prepared for Product Owner review — not accepted  
+**Status:** Owner accepted on 2026-11-12 — see final acceptance record (historical review pack below)  
 **Milestone:** M3-00 Mobilization and Decision Closure  
 **Baseline:** `main` at PR #114 merge commit `534aa11345b91113e370cb1739bbded7d82f4c3c`  
 **Current weighted position:** 75% M3-00; 3.75% overall M3  
@@ -81,3 +81,8 @@ No application coding, technical spike, source/production access, database schem
 | M3-00 formal milestone acceptance | Accept only after reviewing this pack and confirming the above limitations | Not yet accepted |
 | M3-01 implementation start | Separate future authorization required | NOT ISSUED |
 
+
+
+## Superseding M3-00 owner acceptance — 2026-11-12
+
+The Product Owner explicitly accepted all three bounded closeout decisions: T07 as a deny-by-default planning/control framework only, T08 as a planning framework only, and M3-00 formal closure on those conditions. The authoritative [M3-00 Final Owner Acceptance and Closure Record](M3-00_FINAL_OWNER_ACCEPTANCE_AND_CLOSURE_RECORD_2026-11-12.md) supersedes earlier pending/open snapshots. M3-00 is **Accepted — 100% of planning deliverables**; M3 overall weighted progress is **5%**. Qualified reviews, staffing, stack, hosting, source rights and spend decisions remain open. M3-01 planning begins under [M3-01 Work Plan](M3-01_IMPLEMENTATION_PLANNING_AND_AUTHORIZATION_WORK_PLAN.md); implementation authorization is **NOT ISSUED**. No application coding, technical spike, source/production access, DB changes, procurement, spend, deployment, pilot or launch is authorized.

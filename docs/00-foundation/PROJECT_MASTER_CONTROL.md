@@ -2,7 +2,7 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0, M1-S01 through M1-S10, and M2 accepted and closed; M3-00 documentation/planning in progress  
+**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning in progress; implementation authorization NOT ISSUED  
 **Last reconciled:** 2026-11-12
 
 ## Authoritative current position
@@ -22,7 +22,7 @@ Build a student-first education discovery, admissions information and comparison
 The Documentation Completion Catalogue is the owner-facing inventory of delivered, updated, accepted and planned documents. A merged PR records delivery, not automatic content acceptance. Every documentation PR update and merge must reconcile the catalogue, index, controller, step register, traceability and progress report.
 
 ## Current milestone
-**M3 — Mobilization and Decision Closure (documentation/planning only)**
+**M3 — M3-00 accepted/closed; M3-01 Implementation Planning and Authorization (documentation only)**
 
 ## M0 closeout
 M0 was accepted after review of the founding controls, strict legacy non-interference boundary, project planning records, repository rules and the PR delivery workflow. Evidence is recorded in the catalogue, progress report and traceability matrix. M0-S02 acceptance is limited to the documented metadata-only exclusion audit; it is not an exhaustive inventory of the legacy repository. Repository auto-merge is enabled, but automatic merge execution has not yet been independently demonstrated. Production access, deployment and cutover remain unauthorized.
@@ -556,3 +556,8 @@ The T08 planning framework is delivered at `../04-roadmap/M3-00_T08_IMPLEMENTATI
 ## M3-00 current verified position — after PR #114
 
 The current `main` baseline is `534aa11345b91113e370cb1739bbded7d82f4c3c` (PR #114). T01–T06 are complete for M3-00 planning outputs; T02–T06 use explicit owner-approved deferrals M3-DEC-003 through M3-DEC-007. T07's deny-by-default gate register and T08's implementation-readiness framework are delivered, but qualified reviewer assignments/evidence and owner disposition remain outstanding. M3-00 remains 75% weighted and is not formally accepted; M3 overall is 3.75%. See `../04-roadmap/M3-00_OWNER_CLOSEOUT_REVIEW_AND_DECISION_PACK.md` for the owner review package. M3-01 implementation-start authorization remains NOT ISSUED. All no-spend, no-source-access, no-implementation and no-production boundaries remain binding.
+
+
+## Superseding M3-00 owner acceptance — 2026-11-12
+
+The Product Owner explicitly accepted all three bounded closeout decisions: T07 as a deny-by-default planning/control framework only, T08 as a planning framework only, and M3-00 formal closure on those conditions. The authoritative [M3-00 Final Owner Acceptance and Closure Record](../04-roadmap/M3-00_FINAL_OWNER_ACCEPTANCE_AND_CLOSURE_RECORD_2026-11-12.md) supersedes earlier pending/open snapshots. M3-00 is **Accepted — 100% of planning deliverables**; M3 overall weighted progress is **5%**. Qualified reviews, staffing, stack, hosting, source rights and spend decisions remain open. M3-01 planning begins under [M3-01 Work Plan](../04-roadmap/M3-01_IMPLEMENTATION_PLANNING_AND_AUTHORIZATION_WORK_PLAN.md); implementation authorization is **NOT ISSUED**. No application coding, technical spike, source/production access, DB changes, procurement, spend, deployment, pilot or launch is authorized.

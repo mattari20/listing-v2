@@ -1,7 +1,7 @@
 # M3-00 — Mobilization and Decision Closure
 
-**Status:** In progress — documentation/planning only  
-**Step completion:** 75% evidence-based (T01-T06 complete, with T02-T06 closed through explicit owner-approved deferrals; T07-T08 open). M3 overall weighted progress: 3.75%.  
+**Status:** Accepted and closed — documentation/planning outputs only  
+**Step completion:** 100% owner-accepted planning outputs (T01–T06 accepted; T07–T08 accepted as bounded frameworks only). M3 overall weighted progress: 5%. See final owner acceptance record.  
 **Dependency:** M2 accepted and closed at 100%  
 **Governing plan:** [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md)  
 **Implementation authorization:** Not granted
@@ -142,3 +142,8 @@ The [T07 Legal, Privacy, Source-Rights and Security Gate Register](M3-00_T07_LEG
 ## T08 documentation delivery — 2026-11-12
 
 The [T08 Implementation Scope, Test/Release Governance and M3-01 Authorization Pack](M3-00_T08_IMPLEMENTATION_SCOPE_TEST_RELEASE_AUTHORIZATION_PACK.md) has been drafted and indexed. It defines readiness inputs, a dependency-oriented planning backlog, work-item Definition of Ready, test/evidence contract, CI/review controls, release/rollback governance and a deliberately unissued authorization record. T08 remains Open; upstream T02–T07 decisions and qualified reviews remain pending. No implementation is authorized.
+
+
+## Superseding M3-00 owner acceptance — 2026-11-12
+
+The Product Owner explicitly accepted all three bounded closeout decisions: T07 as a deny-by-default planning/control framework only, T08 as a planning framework only, and M3-00 formal closure on those conditions. The authoritative [M3-00 Final Owner Acceptance and Closure Record](M3-00_FINAL_OWNER_ACCEPTANCE_AND_CLOSURE_RECORD_2026-11-12.md) supersedes earlier pending/open snapshots. M3-00 is **Accepted — 100% of planning deliverables**; M3 overall weighted progress is **5%**. Qualified reviews, staffing, stack, hosting, source rights and spend decisions remain open. M3-01 planning begins under [M3-01 Work Plan](M3-01_IMPLEMENTATION_PLANNING_AND_AUTHORIZATION_WORK_PLAN.md); implementation authorization is **NOT ISSUED**. No application coding, technical spike, source/production access, DB changes, procurement, spend, deployment, pilot or launch is authorized.
