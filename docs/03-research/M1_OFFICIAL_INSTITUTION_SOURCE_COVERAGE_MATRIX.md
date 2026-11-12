@@ -66,19 +66,21 @@ For every source and any future dataset, record:
 
 Do not populate production data or activate a connector as a result of this research document.
 
-## 5. Priority research gaps and next tasks
+## 5. Relationship to the authoritative S02 task register
 
-| Task | Required output | Acceptance evidence | Status |
-|---|---|---|---|
-| S02-C01 | Verify HEC university, campus and affiliated-college source scope | Dated source notes, relationship model and source limitations | In progress |
-| S02-C02 | Verify PMDC, PNMC and PCP programme-level status semantics | Dated source notes; distinguish institution, programme, campus, session and status | In progress |
-| S02-C03 | Complete school-source discovery for Sindh, ICT, AJK and GB | Official source URLs or documented unsuccessful verification attempts and escalation paths | Not started |
-| S02-C04 | Expand provincial school-source coverage beyond Punjab, KP and Balochistan | Public/private scope and district-level coverage matrix | In progress |
-| S02-C05 | Expand TVET provider and awarding-body source register | NAVTTC, provincial TEVTAs, boards and QAB relationship map | In progress |
-| S02-C06 | Research non-formal, adult-learning and special-education source families | Official register/source inventory and inclusion gaps | Not started |
-| S02-C07 | Research remaining professional councils by discipline | Council register, approval granularity and status semantics | Not started |
-| S02-C08 | Verify rights, terms, update cadence and access for each shortlisted source | Completed source-evidence records; no ingestion without a rights decision | Not started |
-| S02-C09 | Synthesize national coverage and unresolved gaps | Reviewed coverage matrix and M1-S02 acceptance recommendation | Not started |
+The weighted task breakdown and acceptance criteria are governed only by `docs/04-roadmap/MILESTONE_STEP_REGISTER.md`. This matrix records supporting evidence; it is not a second or conflicting task register.
+
+| Register task | Evidence in this matrix | Remaining acceptance gate |
+|---|---|---|
+| S02-C01 Taxonomy and entity distinctions | Provisional provider taxonomy, inclusion/exclusion boundaries and distinct recognition/affiliation/assessment/awarding relationships | Owner review and approval |
+| S02-C02 Higher education and campuses | HEC recognized institution, campus, affiliated-college and adverse/unaccredited source routes; campus page count recorded with caveat | Record-level status, freshness, campus/study-centre distinctions and source rights |
+| S02-C03 Professional council sources | HEC council map; PM&DC, PNMC, PCP, PEC, NCEAC, NACTE, NBEAC, NTC and NCH programme/status evidence | Remaining relevant councils and current per-programme/campus/intake status and rights verification |
+| S02-C04 School-source jurisdiction coverage | Punjab public/private, KP private, Sindh ASC, Balochistan EMIS, ICT, AJK and GB source leads | Full district coverage, public/private scope, canonical current datasets and source rights across all jurisdictions |
+| S02-C05 TVET and awarding relationships | NAVTTC production routes, QAB map, provincial TEVTA leads and registration/affiliation/accreditation distinctions | Complete provincial provider coverage, current QAB/trade scope, freshness and rights |
+| S02-C06 Non-formal and special education | BECS/NFEMIS, Balochistan NFE and Punjab/Sindh special-education source leads | Other jurisdictions, current centre/programme status, coverage and privacy/rights review |
+| S02-C07 Source rights and access | Expanded source-by-source public-access, status, privacy and freshness observations; no reuse permission established | Applicable terms/licenses, unresolved owner clarifications, permission where needed and owner/legal review |
+| S02-C08 National coverage synthesis | Draft synthesis updated with expanded sector and jurisdiction evidence | Final gap reconciliation after C02–C07 and owner review |
+| S02-C09 Owner review and step acceptance | Decision-ready taxonomy and gap summary prepared | Explicit owner approval; AI cannot self-approve this gate |
 
 ## 6. Sources consulted
 
