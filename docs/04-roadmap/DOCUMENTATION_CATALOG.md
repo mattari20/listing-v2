@@ -543,3 +543,16 @@ S02 and S03 are Accepted and Closed at 100%. S04 remains 80%, S05 85% and S06 85
 PR [#94](https://github.com/mattari20/listing-v2/pull/94) reconciled PR #93 delivery. Exact PR head `9c369a4a6f5b78d794feb2e38d9c4afd1b4875e8` passed required **Project documentation validation** (workflow run [#43189848614](https://github.com/mattari20/listing-v2/actions/runs/43189848614)); job `Validate project control documents` and all steps completed successfully. PR #94 was squash-merged as `0a5f65258ea04c52b8e79b314f7cda04c8d3e65c`.
 
 This reconciliation confirms PR #93's merge evidence and does not alter content acceptance: S02/S03 remain accepted/closed; S04 80%, S05 85% and S06 85% remain owner-review/decision pending. Weighted M2 progress remains 62.0%.
+
+## M2-S04/S05/S06 owner acceptance — 2026-11-12
+
+- [M2-S04/S05/S06 Owner Acceptance Record](../05-architecture/M2-S04-S06_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) — accepted as working architecture baselines; S04/S05/S06 closed at 100%, with unresolved choices carried forward.
+
+## M2-S07 through S10 draft delivery — 2026-11-12
+
+- [M2-S07 AI Data-Agent Technical Architecture](../05-architecture/M2-S07_AI_DATA_AGENT_TECHNICAL_ARCHITECTURE.md) — 12-stage governed AI evidence workflow; no activation.
+- [M2-S08 Identity, Authorization, Reviews, Privacy and Security](../05-architecture/M2-S08_IDENTITY_AUTHORIZATION_REVIEWS_PRIVACY_SECURITY.md) — identity, permissions, post-launch reviews, safeguarding and security.
+- [M2-S09 Performance, Operations, Hosting and Recovery](../05-architecture/M2-S09_PERFORMANCE_OPERATIONS_HOSTING_RECOVERY.md) — provisional SLO/recovery hypotheses and operations design; no host selected.
+- [M2-S10 Final Architecture Synthesis and M3 Roadmap](../05-architecture/M2-S10_FINAL_ARCHITECTURE_SYNTHESIS_M3_ROADMAP.md) — integrated architecture and conditional M3 roadmap; owner acceptance pending.
+
+S07 is 85%, S08 80%, S09 80% and S10 80% draft completion. Weighted M2 progress is 93.9%. These are draft design deliverables pending T05 reviews and explicit final owner acceptance. M3 implementation remains unauthorized.
