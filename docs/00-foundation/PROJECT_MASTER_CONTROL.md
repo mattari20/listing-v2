@@ -214,3 +214,10 @@ The official-source register now includes professional regulator routes for PMDC
 ## M1-S03 AJK education source update — 2026-11-12
 
 The AJK E&SE/EMIS/PEIRA and HED college routes have been verified and added to the official provider source register. The 6,019-school homepage aggregate lacks a clear as-of date; the private register announcement links to a sign-in-gated file; HED public pages report 180 versus 178 colleges. See `../03-research/M1_S03_AJK_EDUCATION_SOURCE_REVIEW_2026-11-12.md`. S03-C02 remains in progress; no source reuse, access bypass or ingestion is authorized.
+
+
+## M1-S03 TVET and QAB source research — 2026-11-12
+
+The official-source register now includes NAVTTC's 14 production QAB routes, Punjab TEVTA/PSDA/TTB, Sindh STEVTA, KPTEVTA and B-TEVTA/BSIS. Key findings: QABs assess/certify and are not necessarily providers; Punjab TTB has separate TEVTA, non-TEVTA, Deeni Madaris and jail-centre lists; Sindh STEVTA is filter-driven; KPTEVTA tables combine institutes and courses; B-TEVTA's six-versus-16 counts and BSIS 413-versus-112 categories remain unreconciled. Some Deeni Madaris are listed in vocational training arrangements, but this does not change their hidden-by-default requirement. Cross-category visibility of a separately registered TVET provider at a Madrasah location is deferred to M2 design. Full note: `docs/03-research/M1_S03_TVET_QAB_SOURCE_REVIEW_2026-11-12.md`.
+
+S03-C04 remains in progress. All sources remain RESEARCH ONLY; no scraping, bulk download, source-owner contact, permission request, ingestion, implementation, database/schema changes or production access is authorized.

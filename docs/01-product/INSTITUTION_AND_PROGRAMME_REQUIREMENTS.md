@@ -39,3 +39,8 @@ Record regulator/board/university, scope, campus/programme coverage, validity da
 - Do not collect or use sect/maslak as a general discovery, filter, ranking or display attribute.
 
 This is a product requirement and owner decision, not an implementation authorization. The setting's administration UI, roles, audit logging, search-index behaviour and detailed acceptance tests must be finalized during M2 design before coding.
+
+
+## M1-S03 TVET/QAB and Deeni Madaris cross-category research — 2026-11-12
+
+The official source register now includes NAVTTC's production QAB list, Punjab TEVTA/PSDA/TTB, Sindh STEVTA, KPTEVTA and B-TEVTA/BSIS. B-TEVTA public registry and home-page counts differ (16 versus six), and BSIS 413 total providers do not reconcile with displayed gender categories totaling 112. Punjab TEVTA/TTB also list vocational-training relationships involving some Deeni Madaris. This does not alter V2-DEC-006: Deeni Madaris remain hidden by default. Whether a separately registered vocational provider at the same location may be shown independently is deferred to M2 design. See `../03-research/M1_S03_TVET_QAB_SOURCE_REVIEW_2026-11-12.md`.
