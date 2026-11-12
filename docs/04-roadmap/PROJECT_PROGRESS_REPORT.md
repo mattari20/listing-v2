@@ -487,3 +487,17 @@ PR [#88](https://github.com/mattari20/listing-v2/pull/88) reconciled the M2-S01 
 ## PR #89 delivery reconciliation — 2026-11-12
 
 PR [#89](https://github.com/mattari20/listing-v2/pull/89) reconciled PR #88's exact-head validation and merge evidence. Exact PR head `5c038bb8d4662acc590121bf87723a89127ab5b6` passed required Project documentation validation (run [#43181267319](https://github.com/mattari20/listing-v2/actions/runs/43181267319)); PR #89 merged as `a119514862b74d4ec8135409375dc7960f924e2a`. M2-S01 remains 80% and In Progress pending owner review; no acceptance is implied.
+
+
+## M2-S01 owner acceptance and S02/S03 joint delivery — 2026-11-12
+
+The owner explicitly accepted M2-S01 as the working system requirements and architecture-boundary baseline. The formal record is docs/05-architecture/M2-S01_OWNER_ACCEPTANCE_RECORD_2026-11-12.md. S01 is Accepted and Closed at 100%. The proposed WCAG 2.2 AA target remains unapproved; no numeric SLO, stack, vendor or implementation decision is made.
+
+M2-S02 and M2-S03 have been delivered as one coordinated documentation package:
+- S02 conceptual domain model: glossary, entities/relationships, identity/deduplication, affiliation/recognition, lifecycle, temporal semantics, uncertainty and Deeni Madaris invariant.
+- S03 technology-neutral application/integration architecture: context and logical containers, component responsibilities, integration approval gates, runtime scenarios and failure/degraded-mode requirements.
+- Joint validation pack records task evidence and owner review checklist.
+
+Current task progress: S02 80% (T05 owner review pending); S03 85% (T05 owner review pending). Weighted M2 progress: S00 5% + S01 8% + S02 9.6% + S03 10.2% = **32.8%**. S02/S03 are delivered drafts, not accepted/closed. Owner review is the remaining gate.
+
+No physical database schema, application code, API implementation, technology/vendor selection, source retrieval/ingestion, connector activation, production access, procurement, deployment or legacy V1 interaction has occurred or is authorized.
