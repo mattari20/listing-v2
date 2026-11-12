@@ -1,7 +1,7 @@
 # M3-00 — Mobilization and Decision Closure
 
 **Status:** Started — documentation/planning only  
-**Step completion:** 0% (baseline established; task evidence and owner decisions not yet accepted)  
+**Step completion:** 10% evidence-based (T01 complete; T02-T08 remain open). M3 overall weighted progress: 0.5%.  
 **Dependency:** M2 accepted and closed at 100%  
 **Governing plan:** [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md)  
 **Implementation authorization:** Not granted
@@ -24,14 +24,14 @@ Establish the people, capacity, budget, technology, hosting, legal/privacy/secur
 
 | Task | Weight | Required output | Current status |
 |---|---:|---|---|
-| T01 Baseline and handover reconciliation | 10% | M0-M2 accepted baseline, open-decision inventory and binding-control checklist | Baseline identified; reconciliation document in progress |
-| T02 Roles, skills and accountability | 15% | Role/capability matrix, decision owners and skills gaps | Awaiting owner/team facts |
-| T03 Capacity and availability | 10% | Capacity, cadence, review time and continuity assumptions | Awaiting owner/team facts |
-| T04 Budget and cost ceiling | 15% | One-time/recurring cost categories, scenarios and explicit ceiling | Awaiting owner budget decision |
-| T05 Technology stack decision pack | 15% | Evidence matrix, proof-of-fit criteria, options and owner decision record | M2 conditional recommendation exists; no final stack selected |
-| T06 Hosting and vendor decision pack | 10% | Hosting/region/cost/data-location/latency/recovery comparison | No provider or region selected |
-| T07 Legal, privacy, source-rights and security gates | 15% | Gate register, review owners, source-specific approval protocol | Open; no source or vendor activation |
-| T08 Scope, test/release and authorization pack | 10% | M3-01 backlog outline, acceptance gates, test/release plan and authorization request | Drafting follows T01-T07 |
+| T01 Baseline and handover reconciliation | 10% | M0-M2 accepted baseline, open-decision inventory and binding-control checklist | **Complete — PR #100 merged; controller, roadmap, step register and status reconciled** |
+| T02 Roles, skills and accountability | 15% | Role/capability matrix, decision owners and skills gaps | Open — awaiting owner/team facts |
+| T03 Capacity and availability | 10% | Capacity, cadence, review time and continuity assumptions | Open — awaiting owner/team facts |
+| T04 Budget and cost ceiling | 15% | One-time/recurring cost categories, scenarios and explicit ceiling | Open — awaiting owner budget decision |
+| T05 Technology stack decision pack | 15% | Evidence matrix, proof-of-fit criteria, options and owner decision record | Decision pack prepared; owner/team fit and explicit selection remain open |
+| T06 Hosting and vendor decision pack | 10% | Hosting/region/cost/data-location/latency/recovery comparison | Decision framework prepared; current quotes, constraints and selection remain open |
+| T07 Legal, privacy, source-rights and security gates | 15% | Gate register, review owners, source-specific approval protocol | Open — qualified review owners and applicable evidence pending; no source/vendor activation |
+| T08 Scope, test/release and authorization pack | 10% | M3-01 backlog outline, acceptance gates, test/release plan and authorization request | Partially outlined in master plan; detailed M3-01 pack remains open |
 
 Task weights total 100%. No task is marked complete solely because a template or checklist has been drafted.
 
@@ -87,10 +87,22 @@ No application code; no physical database schema or migrations; no live source r
 
 ## 8. Current next actions
 
-1. Complete the detailed M3 master plan and project-control reconciliation.
-2. Build the role/capacity and budget worksheets without inventing values.
-3. Prepare evidence-based stack and hosting decision matrices from the accepted M2 baseline.
-4. Convert unresolved legal/privacy/source/security matters into explicit decision gates.
-5. Present only the genuinely necessary owner inputs, then complete the M3-00 readiness pack.
+1. Obtain the owner/team's delivery model, named role coverage and availability.
+2. Confirm one-time and recurring budget ceilings and whether paid evaluation services are allowed.
+3. Review the stack and hosting options in the [Owner Decision Pack](M3-00_OWNER_DECISION_PACK.md); then complete proof-of-fit planning without procuring services.
+4. Identify qualified legal/privacy/security review responsibilities and keep all sources research-only.
+5. Complete M3-00 readiness evidence and request owner acceptance before M3-01.
 
-**Current decision:** M3-00 planning is in progress. M3-01 and all implementation steps remain gated.
+**Current decision:** M3-00 planning is in progress at 10% weighted task completion. T01 is complete; T02-T08 remain open. M3-01 and all implementation steps remain gated.
+
+## Supporting owner decision pack
+
+The [M3-00 Owner Decision Pack](M3-00_OWNER_DECISION_PACK.md) contains the role/skills matrix, capacity and budget inputs, stack and hosting evaluation criteria, legal/privacy/source/security gates and a decision record. Blank values remain unknown; the pack authorizes no spend or service activation.
+
+## Evidence-based progress
+
+- T01: 100% complete — accepted M0-M2 baseline and reconciled project controls delivered in PR #100.
+- T02-T08: 0% complete — required owner/team inputs, explicit decisions or supporting evidence remain outstanding.
+- M3-00: 10% (10% task weight × 100% completion).
+- M3 overall: 0.5% (M3-00 milestone weight 5% × M3-00 completion 10%).
+- M3-00 step acceptance remains pending owner review; task progress is not milestone acceptance.
