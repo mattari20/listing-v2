@@ -79,3 +79,31 @@ Sources:
 - **S02-C09:** remains owner-only; no acceptance is inferred.
 
 All candidate sources remain RESEARCH ONLY.
+
+
+## 7. Sindh private-school registration — separate regulator and data system
+
+Sindh School Education & Literacy Department publishes a 12 September 2023 registration-criteria notification for private schools under the Sindh Private Educational Institutions (Regulation & Control) Ordinance, 2001 (as amended 2003). A separate procurement/terms-of-reference document describes the Directorate of Inspection and Registration of Private Institutions Sindh (DIRPIS) and a private-school census/management information system (SPEI-EMIS). The document explicitly notes that registered and unregistered private institutions both exist and that the private-school dataset needed updating. This is important: Sindh's public-school institution checker is not sufficient for private-school coverage, and private-school registration/census must be treated as a separate source family. The retrieved TOR is older and is not evidence of a current complete register or current reuse rights.
+
+Sources:
+- https://www.sindheducation.gov.pk/Contents/Notifications/86125%20Criteria%20for%20Registration%20of%20Private%20Schools.PDF
+- https://www.sindheducation.gov.pk/Contents/Notifications/Bidding%20Documents%20for%20Procurement%20of%20Non-Consultant%20Services.pdf
+- https://www.sindheducation.gov.pk/notifications?id=0&key=Private+institutions&pageNumber=1
+
+## 8. KP private-school registration statuses — explicit state model
+
+KPPSRA's district register returns institution name, level, registration number and status. Current visible examples include **ACTIVE**, **BLOCKED**, **DORMANT** and **CLOSED**. These are distinct provider-registration states and must be preserved verbatim with source date and district scope; a blocked/dormant/closed school must not be presented as currently active. The directory is district-driven, so province-wide completeness requires checking all district selections and any pagination/omitted districts; a single district endpoint is not a national or provincial census. The register is useful for private-school coverage, but no source-specific reuse license was established.
+
+Sources:
+- https://www.psra.gkp.pk/registers
+- https://www.psra.gkp.pk/district/get-schools?district_id=1
+- https://www.psra.gkp.pk/district/get-schools?district_id=18
+- https://www.psra.gkp.pk/district/get-schools?district_id=2
+
+## 9. Updated provincial school-source interpretation
+
+- **Sindh:** public-school institution checker and private-school DIRPIS/SPEI-EMIS registration/census are separate streams; the older TOR explicitly notes registered and unregistered private providers and a need for data updating.
+- **KP:** district-based private-school register has multiple meaningful status values; do not treat directory presence as active registration.
+- **Punjab:** PEPRIS valid eLicense list and DEA data-upload caveat remain separate from public-school EMIS.
+- **AJK:** public and private census streams remain distinct.
+- **GB:** government EMIS, BECS community schools, colleges and special education are separate source families.
