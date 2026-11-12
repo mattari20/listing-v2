@@ -72,7 +72,7 @@ For every merge:
 | [M1 Student Research Instruments](../03-research/M1_STUDENT_RESEARCH_INSTRUMENTS.md) | Draft adult interview guide, consent script and survey instrument | Archived preparation only — owner deferred all pre-launch participant research; do not distribute |
 | [M1-S01 Closeout Review](../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md) | Owner review checklist, weighted completion evidence and explicit limitations for S01 | Accepted — owner acceptance 2026-11-12 |
 | [M1-S04 Owner Acceptance Record](../03-research/M1_S04_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) | Formal owner acceptance of S04 private-provider source research, coverage gaps and research-only restrictions | Accepted — 2026-11-12 |
-| [M1-S05 Programme and Admissions Research](../03-research/M1_S05_PROGRAMME_ADMISSIONS_SOURCE_RESEARCH_2026-11-12.md) | 22 source families, federated programme/admissions evidence model, eligibility, fees, scholarships and freshness rules | Delivered — S05 T01–T09 complete (95%); owner acceptance pending |
+| [M1-S05 Programme and Admissions Research](../03-research/M1_S05_PROGRAMME_ADMISSIONS_SOURCE_RESEARCH_2026-11-12.md) | 22 source families, federated programme/admissions evidence model, eligibility, fees, scholarships and freshness rules | Delivered — PR #75 merged; S05 T01–T09 complete (95%); owner acceptance pending |
 | [M1-S01 Owner Acceptance Record](../03-research/M1_S01_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) | Formal owner acceptance of S01 scope, limitations and research deferral | Accepted — 2026-11-12 |
 | [M1-S04 Private Provider Source Register](../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md) | 21 private/non-state provider source families, seven-jurisdiction coverage assessment, source caveats and gaps | Accepted — S04 owner acceptance 2026-11-12; 100% research baseline |
 | [M1 Institution Taxonomy Research](../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md) | Independent desk research on provider types, coverage and recognition relationships | Delivered — initial baseline; owner review and source expansion pending |
@@ -390,3 +390,8 @@ PR [#73](https://github.com/mattari20/listing-v2/pull/73) merged as `a66400189b2
 ## M1-S04 acceptance and M1-S05 research update — 2026-11-12
 
 M1-S04 is Accepted and Closed by explicit owner decision; see [M1-S04 Owner Acceptance Record](../03-research/M1_S04_OWNER_ACCEPTANCE_RECORD_2026-11-12.md). M1-S05 programme/admissions research is active; its initial source inventory and evidence model are delivered in [M1-S05 Programme and Admissions Research](../03-research/M1_S05_PROGRAMME_ADMISSIONS_SOURCE_RESEARCH_2026-11-12.md). S05 remains owner-review pending and all sources remain research-only.
+
+
+## M1-S05 programme/admissions research delivery — PR #75
+
+PR [#75](https://github.com/mattari20/listing-v2/pull/75) merged as `cb3adbfef07c49d61f2532026e51a817f3e43afb`. Exact PR head `164744a948d33c3484cc1e611901e3902718fe7b` passed required Project documentation validation (run [#43170713563](https://github.com/actions/runs/43170713563)). S05 remains owner-acceptance pending.
