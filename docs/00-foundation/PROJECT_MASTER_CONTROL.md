@@ -68,6 +68,9 @@ PR #29 reconciled the PR #28 owner-review pack delivery. Exact head `52ed405a11b
 ## PR #30 evidence
 PR #30 repaired the S02 task table formatting and reconciled PR #29. Exact head `4ca9d571206072064294f7fb163584db174669f8` passed required documentation validation (run #43147756202); merge commit `3553d75a5afd84e8fcfab372324342f7acad7456`. All nine task weights remain unchanged; S02-C09 still requires owner approval.
 
+## PR #31 evidence
+PR #31 reconciled PR #30 task-register correction evidence. Exact head `1f92b1d2c1021b3a2dc93ad9f00e8082b7158b2a` passed required documentation validation (run #43147833542); merge commit `63d9386a8d93a12cb3f609480f6d101b890bade0`. The S02 task table is verified at four columns per row with weights totaling 100%; the owner acceptance gate remains open.
+
 ## Completion status
 M0 is accepted and closed. Future milestones require their own evidence-based acceptance and closeout.
 
