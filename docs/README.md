@@ -126,6 +126,7 @@ M2 is 100% complete, owner-accepted and closed. M3 implementation requires separ
 
 - [M3 Master Step Plan](04-roadmap/M3_MASTER_STEP_PLAN.md) — authoritative M3 steps, weights, dependencies, task/acceptance criteria, binding controls and authorization gates.
 - [M3-00 Mobilization and Decision Closure](04-roadmap/M3-00_MOBILIZATION_AND_DECISION_CLOSURE.md) — current step, owner/team inputs, decision gates and exit criteria.
+- [M3-00 Owner Decision Pack](04-roadmap/M3-00_OWNER_DECISION_PACK.md) — role/skills, capacity, budget, stack, hosting and legal/privacy/security decision worksheets.
 
 M0, M1 and M2 are accepted and closed. M3-00 is documentation/planning only. Application implementation requires separate explicit authorization after M3-01 readiness review. The M3 Master Step Plan supersedes older high-level M3 sequencing where they differ; it does not reopen M2 or relax any binding control.
 
