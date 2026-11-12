@@ -240,3 +240,17 @@ These findings strengthen discovery but do not close S02-C04/C06/C08 or change t
 A second supplement is recorded in [M1-S02 Supplemental Professional-Council and Special-Education Review](M1_S02_SUPPLEMENTAL_PROFESSIONAL_COUNCIL_SPECIAL_EDUCATION_REVIEW_2026-11-12.md). PCATP's 2025 annual report distinguishes accredited, pending NOC, on-hold, revoked and closed architecture programmes and reports all five listed town-planning programmes accredited; its separate September 2025 NOC-application PDF is not proof of approval. NCT publishes separate FTJ and BEMS recognition pages; the FTJ page contains a disputed entry and personal contact data. AHPC's public PDF is a list of institutions that applied for recognition/accreditation, not proof of granted recognition. NTC publishes zero/interim programme and accreditation-visit/intake-batch routes; neither a zero/interim phase nor a visit alone proves final accreditation. NAEAC remains an identified HEC council with no complete current public register verified in this pass.
 
 For special education, the Ministry of Human Rights confirms DGSE's ICT-level mandate, but the reviewed page is not a current institution register. KP evidence remains historical (2020–21); current complete registers for Balochistan, AJK and GB remain unverified. Personal staff/principal contact data and student/health/disability-level data remain excluded. All sources remain research-only; no reuse permission is established.
+
+## 8. Deep jurisdiction, special-education and TVET review — 2026-11-12
+
+The dedicated [deep jurisdiction, special-education and TVET review](M1_S02_DEEP_JURISDICTION_SPECIAL_ED_TVET_REVIEW_2026-11-12.md) adds several important source-family findings:
+
+- Punjab Special Education publishes category counts (including 172 centres) and a district centre list; categories may overlap and must not be summed. Its detailed list exposes personal head mobile numbers, which are excluded from V2 attributes.
+- Sindh DEPD publishes a regional centre/institution list, but it includes personal staff names and mobile contacts and requires province-wide completeness/freshness checks.
+- GB Special Education describes complexes in Gilgit/Skardu and centres in Ghizer/Diamer, while event/news references Chilas and Gahkuch. This internal scope/location discrepancy requires a reconciled current facility register.
+- Balochistan's 2026 PDWP notice concerns proposed complexes at Turbat and Zhob, not proof of operational institutions. A historical PIE publication is not a current directory.
+- KP-TEVTA reports 33 institutes and distinguishes GCT, GPI, GTVC and employment exchange categories. STEVTA provides region/district filters. Punjab TEVTA's surfaced institute PDF is dated 2024. B-TEVTA's public directory shows 16 while NAVTTC's sector page states 80+; scope must be reconciled.
+- NAVTTC's surfaced NAC-TVS directory is on a staging subdomain and explicitly representative sample data; it is excluded from evidence/counts.
+- HEC Digital Library and PASTIC institution databases are secondary discovery sources, not recognition registers or a national census.
+
+These findings strengthen S02-C04/C05/C06 but do not establish full jurisdiction completeness, current record-level status or reuse rights.
