@@ -1,7 +1,7 @@
 # M1 Final Synthesis, Traceability and Closeout Review — 2026-11-12
 
 **Milestone:** M1 — Student Requirements and Independent Research  
-**Status:** S10 synthesis package delivered for owner acceptance; M1 is not formally closed until explicit owner acceptance of this closeout.  
+**Status:** Owner accepted 2026-11-12; M1-S10 and M1 are Accepted and Closed at 100%.  
 **Scope:** Documentation and research synthesis only.  
 **Repository:** `mattari20/listing-v2`
 
@@ -212,8 +212,8 @@ M1 did not:
 | T07 Reconcile owner decisions and hard constraints | 5% | 100% | Deeni Madaris default-OFF, deferred primary research, post-launch reviews and approval gates preserved |
 | T08 Define M2 entry criteria and exclusions | 5% | 100% | M2 entry requirements and prohibited implied authorizations documented |
 | T09 Prepare M1 closeout and evidence links | 10% | 100% | This synthesis, gap register and project-control updates delivered |
-| T10 Owner review and formal M1 acceptance | 5% | 0% | Explicit owner acceptance of this final M1 synthesis required |
-| **Total** | **100%** | **95%** | S10 closeout package delivered; owner acceptance pending |
+| T10 Owner review and formal M1 acceptance | 5% | 100% | Owner accepted final M1 synthesis on 2026-11-12; see final owner acceptance record |
+| **Total** | **100%** | **100%** | S10 accepted and closed; M1 formally accepted and closed |
 
 ## 8. Final M1 acceptance checklist
 
@@ -226,7 +226,7 @@ The owner is asked to confirm:
 
 ## 9. Closeout decision boundary
 
-Until the owner explicitly accepts this S10 package, M1 remains **Ready for final owner acceptance**, not formally closed. Once accepted, M1 may be marked **Accepted and Closed** and the next authorized step becomes M2 architecture/design. This does not itself authorize application implementation, source access, ingestion, production operations, deployment or cutover.
+The owner accepted this S10 package on 2026-11-12; M1 is **Accepted and Closed** as a research/documentation milestone. M2 remains Planned and requires separate explicit owner authorization; this closeout does not authorize application implementation, source access, ingestion, production operations, deployment or cutover.
 
 
 ## PR #81 delivery and exact-head validation evidence — 2026-11-12
@@ -234,3 +234,10 @@ Until the owner explicitly accepts this S10 package, M1 remains **Ready for fina
 PR [#81](https://github.com/mattari20/listing-v2/pull/81) delivered the S08/S09 owner-acceptance record and M1-S10 final synthesis package. Exact PR head `5d421241b2e643fb8291ff9f183aaa3205005a89` passed required **Project documentation validation** (run [#43175231085](https://github.com/mattari20/listing-v2/actions/runs/43175231085)); the `Validate project control documents` job and all steps completed successfully. PR #81 was squash-merged as `8ab22c7b2ca759db741660fbafd6a0c36edcce6d`.
 
 S08 and S09 are accepted and closed at 100% weighted task completion each. S10 is delivered at 95%; its final 5% owner-acceptance task remains pending. M1 is therefore **Ready for final owner acceptance, not yet formally closed**. No M2 work or implementation is authorized by this merge.
+
+
+## Final owner acceptance — 2026-11-12
+
+The owner explicitly accepted S10 and authorized M1 closeout. Formal acceptance record: `M1_S10_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. S10-T10 is complete; S10 is 100% and Accepted and Closed. M1-S01 through M1-S10 are all accepted and closed.
+
+M2 is Planned and not started; it requires separate explicit owner authorization. Application implementation remains gated until M2 is completed and separately accepted. All G01–G20 limitations and owner decisions remain carried forward.
