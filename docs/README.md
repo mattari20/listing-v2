@@ -112,3 +112,11 @@ M2 is owner-authorized and active as a documentation/design milestone. Applicati
 - [M2 Progress Report](05-architecture/M2_PROGRESS_REPORT.md)
 
 S04-S06 are owner-accepted and closed. S07-S09 design tasks are complete; S10 final owner acceptance remains pending. Weighted M2 design progress is 98.6%. M3 implementation is not authorized.
+
+
+### M2 final acceptance and closeout
+
+- [M2 Final Owner Acceptance and Closure Record](05-architecture/M2_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md)
+- [M2 Final Progress and Closeout Report](05-architecture/M2_FINAL_PROGRESS_AND_CLOSEOUT_REPORT_2026-11-12.md)
+
+M2 is 100% complete, owner-accepted and closed. M3 implementation requires separate authorization.

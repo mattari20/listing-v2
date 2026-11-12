@@ -229,3 +229,10 @@ The joint design-level review is recorded in [M2-S07/S08/S09 Joint Architecture 
 PR [#96](https://github.com/mattari20/listing-v2/pull/96) delivered the S04-S06 owner acceptance record, S07-S10 architecture package and project-control reconciliation. Exact PR head 0ffa6b4ecad567457af79a4846dd1a03d41af954 passed the required **Project documentation validation** workflow (run [#43191493502](https://github.com/mattari20/listing-v2/actions/runs/43191493502)); the Validate project control documents job and all steps completed successfully. PR #96 was squash-merged as 3df10565711e66ff21bb6afb3a7917bf5deb7e99.
 
 S04-S06 are accepted/closed at 100%; S07-S09 design tasks are complete at 100%; S10 remains 80% pending explicit final owner acceptance. Weighted M2 design progress is 98.6%. CI and merge verify delivery and documentation validation, not final M2 owner acceptance or M3 implementation authorization.
+
+
+## Final M2 owner acceptance and closure — 2026-11-12
+
+The owner explicitly accepted the S07-S10 architecture documents and the integrated M2 architecture baseline, with unresolved technology, hosting, legal, privacy, vendor and operational decisions carried forward. Formal record: [M2 Final Owner Acceptance and Closure Record](M2_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md). **All steps S00-S10 are Accepted and Closed at 100%; weighted M2 progress is 100.0%.**
+
+The final report is [M2 Final Progress and Closeout Report](M2_FINAL_PROGRESS_AND_CLOSEOUT_REPORT_2026-11-12.md). M2 closure does not authorize M3 implementation. M3 requires separate start authorization and decision closure.

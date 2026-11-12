@@ -78,3 +78,9 @@ S07-S10 are documentation drafts pending task-level validation and owner review.
 - [M2 Progress Report](M2_PROGRESS_REPORT.md) — weighted step status and final owner-acceptance gate.
 
 S07, S08 and S09 are design-task complete at 100%; S10 remains 80% pending explicit final owner acceptance. Weighted M2 design progress is 98.6%.
+
+
+## Final M2 closeout — 2026-11-12
+
+- [M2 Final Owner Acceptance and Closure Record](M2_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) — owner acceptance of the complete S00-S10 architecture baseline; M2 Accepted and Closed at 100%.
+- [M2 Final Progress and Closeout Report](M2_FINAL_PROGRESS_AND_CLOSEOUT_REPORT_2026-11-12.md) — complete weighted progress, deliverables, retained controls, open M3 decisions and authorization boundary.
