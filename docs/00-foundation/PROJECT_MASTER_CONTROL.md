@@ -507,3 +507,8 @@ A documentation-only budget framework is prepared in `../04-roadmap/M3-00_BUDGET
 PR [#104](https://github.com/mattari20/listing-v2/pull/104) delivered the M3-00 T04 Budget and Cost Scenarios framework. Exact head `ee7cb705c91bb640b69f895f7e5e47e848b33da6` passed required **Project documentation validation** (run [#43199037952](https://github.com/mattari20/listing-v2/actions/runs/43199037952)); job `Validate project control documents` and all steps completed successfully. PR #104 was squash-merged as `7b5c31af83bb18b2c5578ddb7cc3dd705f25d08e`.
 
 T04 is In progress: cost categories, scenarios, calculation rules and spend controls are documented, but numeric ceilings, dated quotes, tax/FX assumptions and paid-service policy remain unresolved. No new spend is authorized. M3-00 remains 10% and M3 overall 0.5%; no partial T04 percentage is claimed. No procurement, paid trial, contract, implementation or production activity is authorized.
+
+
+## M3-00 T05 technology decision framework update
+
+The documentation-only [M3-00 Technology Stack Decision Framework](../04-roadmap/M3-00_TECHNOLOGY_STACK_DECISION_FRAMEWORK.md) compares backend, frontend, database, search, geography and background-processing candidates. It retains the M2 conditional baseline but makes no technology selection. Human implementer/maintainer skill fit, support/security evidence, hosting/cost fit and owner decision remain open. T05 is In progress; no partial percentage is claimed. No installation, technical spike, application code or implementation is authorized.
