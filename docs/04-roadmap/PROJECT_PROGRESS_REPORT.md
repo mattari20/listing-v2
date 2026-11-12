@@ -477,3 +477,8 @@ S01 task progress: T01–T04 drafted (80%); T05 review/validation pending. S01 i
 The M2-S01 draft package is on main. PR [#87](https://github.com/mattari20/listing-v2/pull/87) merged as `a9a8320dadc339cb15c7d75ac430301941abbd57`; exact-head Project documentation validation passed (run [#43181003815](https://github.com/mattari20/listing-v2/actions/runs/43181003815)). Four of five equal-weight tasks are drafted (80%). The remaining T05 is owner review; S01 is not yet accepted.
 
 M2 weighted progress at this point: S00 100% × 5% = 5%; S01 80% × 8% = 6.4%; total **11.4%**. This is documented task progress, not overall milestone acceptance.
+
+
+## PR #88 delivery reconciliation — 2026-11-12
+
+PR [#88](https://github.com/mattari20/listing-v2/pull/88) reconciled the M2-S01 draft delivery and owner-review status. Exact PR head `9d05c8f4b35462b935886b78f4aa9aa45c770dc3` passed required Project documentation validation (run [#43181135205](https://github.com/mattari20/listing-v2/actions/runs/43181135205)); PR #88 merged as `226f573d21a03b51caa4ccb46f2a68293fb84be2`. M2-S01 remains 80% and In Progress pending explicit owner review; CI success and merge are not acceptance.
