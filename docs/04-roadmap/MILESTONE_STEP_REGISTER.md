@@ -577,3 +577,10 @@ S02 and S03 are delivered together for cross-step consistency, with separate wei
 - M2 weighted progress: S00 100% × 5% = 5%; S01 100% × 8% = 8%; S02 80% × 12% = 9.6%; S03 85% × 12% = 10.2%; total **32.8%**.
 
 These are documentation task progress figures, not owner acceptance. S04 remains next after S02/S03 review gates. No application implementation, physical schema, production access, source ingestion or deployment is authorized.
+
+
+## PR #91 exact-head validation and merge evidence — 2026-11-12
+
+PR [#91](https://github.com/mattari20/listing-v2/pull/91) delivered the M2-S01 owner-acceptance record and coordinated M2-S02/S03 documentation package. Exact PR head `7a58f7ddb93cd693874e7debd3fa730b5db1d1ea` passed the required **Project documentation validation** workflow (run [#43188475213](https://github.com/mattari20/listing-v2/actions/runs/43188475213)); the `Validate project control documents` job and all steps completed successfully. PR #91 was squash-merged as `0881719c3b0d98893dc0e88a9c4f929cae89aea1`.
+
+S01 is Accepted and Closed at 100%. S02 is delivered at 80% draft task completion and S03 at 85%; their T05 owner-review gates remain open. Merge and CI evidence confirm delivery and documentation validation, not owner acceptance of S02/S03. M2 weighted progress remains 32.8%.
