@@ -40,3 +40,6 @@ Latest M3-00 owner-input documentation: PR [#102](https://github.com/mattari20/l
 
 
 M3-00 T04 budget framework: PR [#104](https://github.com/mattari20/listing-v2/pull/104) passed required documentation validation (run #43199037952) and merged as `7b5c31af83bb18b2c5578ddb7cc3dd705f25d08e`. Numeric ceilings and paid-service permission remain undecided; no new spend is authorized.
+
+
+M3-00 T05 technology framework: PR [#106](https://github.com/mattari20/listing-v2/pull/106) passed required documentation validation (run #43199371616) and merged as `04ba57a98e434d05069bd0cc4c0de3e05bcacac8`. No technology is selected; implementer skill fit and support/cost/hosting evidence remain open.

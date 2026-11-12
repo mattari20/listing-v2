@@ -593,3 +593,10 @@ T04 is In progress: cost categories, scenarios, calculation rules and spend cont
 ## M3-00 T05 technology framework update — 2026-11-12
 
 The [M3-00 Technology Stack Decision Framework](M3-00_TECHNOLOGY_STACK_DECISION_FRAMEWORK.md) is delivered as a documentation artifact. It compares backend, frontend, database, search, geography and background-processing candidates using shared evidence criteria and records a conditional M2 baseline. No stack is selected. Named human implementer/maintainer skills, support/security lifecycle, hosting compatibility and cost evidence remain unresolved. T05 is In progress; no partial task percentage is claimed. M3-00 remains 10%; M3 overall 0.5%. No technical spike, installation, paid service or application implementation is authorized.
+
+
+## PR #106 exact-head validation and merge evidence — 2026-11-12
+
+PR [#106](https://github.com/mattari20/listing-v2/pull/106) delivered the M3-00 T05 Technology Stack Decision Framework. Exact head `16352ebb07630b92284ed08b36b0d3230508bd45` passed required **Project documentation validation** (run [#43199371616](https://github.com/mattari20/listing-v2/actions/runs/43199371616)); job `Validate project control documents` and all steps completed successfully. PR #106 was squash-merged as `04ba57a98e434d05069bd0cc4c0de3e05bcacac8`.
+
+T05 is In progress: candidate trade-offs and common evaluation criteria are documented, but named implementer/maintainer skill fit, support/security lifecycle evidence, hosting/cost fit and owner selection remain unresolved. No technology is selected; no technical spike, installation or implementation is authorized. M3-00 remains 10% and M3 overall 0.5%; no partial T05 percentage is claimed.
