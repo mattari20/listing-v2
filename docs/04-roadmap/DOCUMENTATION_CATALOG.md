@@ -196,3 +196,8 @@ PR [#36](https://github.com/mattari20/listing-v2/pull/36) added the PCATP, NCT, 
 ## Supplemental M1-S02 deep jurisdiction review
 
 - [M1-S02 Deep Jurisdiction, Special-Education and TVET Review](../03-research/M1_S02_DEEP_JURISDICTION_SPECIAL_ED_TVET_REVIEW_2026-11-12.md) — additional official facility and TVET institute source evidence, scope discrepancies, staging-data exclusions and privacy/rights limitations; research-only.
+
+
+## Supplemental M1-S02 ICT PEIRA and Madaris review
+
+- [M1-S02 ICT PEIRA, Madaris and QAB Review](../03-research/M1_S02_ICT_PEIRA_MADARIS_QAB_REVIEW_2026-11-12.md) — ICT private-school registration statuses, DGRE Madaris provider family and IBCC QAB/qualification-equivalence distinctions; research-only.
