@@ -472,12 +472,12 @@ M2 is Owner Accepted and Closed at 100.0%. This validation is documentation-cont
 - No production access, source collection/ingestion, connector activation, procurement/new spend, physical schema/migrations, deployment, launch or URL cutover is authorized.
 - Strict V2 independence, V2-DEC-006, source-specific rights/security/privacy gates, proposal-only AI, anonymous-first/minor safeguards, deferred participant research and post-launch reviews remain binding.
 
-At each new session, inspect `main`, open PRs, the current M3 branch/PR and exact-head CI before continuing. Continue the existing step; do not restart or duplicate it. Progress remains 0% until M3-00 weighted task evidence is produced and accepted.
+At each new session, inspect `main`, open PRs, the current M3 branch/PR and exact-head CI before continuing. Continue the existing step; do not restart or duplicate it. M3-00 weighted progress is currently 10% (T01 complete); do not increase it until further task evidence is accepted.
 
 
 ## M3 owner decision update — delivery model (2026-11-12)
 
-The owner accepted the recommended owner-led, ChatGPT-assisted delivery model. The user remains Product Owner and final decision-maker. ChatGPT assists step by step with planning, architecture/documentation, code drafting only after separate implementation authorization, test design, review support and reporting. Qualified external specialists may be identified/engaged for legal, privacy or security review where required. This decision does not make ChatGPT an independently accountable engineering/operations function and does not establish named human implementers, maintainers, QA owners or production operators. Those roles, skills gaps and capacity remain open inputs under M3-00 T02/T03. No hiring, contracting, procurement, spend, service activation, application coding or production access is authorized. M3-00 remains documentation/planning only at 10% weighted completion; T02 is in progress, T03-T08 remain open.
+The owner accepted the recommended owner-led, ChatGPT-assisted delivery model. The user remains Product Owner and final decision-maker. ChatGPT assists step by step with planning, architecture/documentation, code drafting only after separate implementation authorization, test design, review support and reporting. Qualified external specialists may be identified/engaged for legal, privacy or security review where required. This decision does not make ChatGPT an independently accountable engineering/operations function and does not establish named human implementers, maintainers, QA owners or production operators. Those roles, skills gaps and capacity remain open inputs under M3-00 T02/T03. No hiring, contracting, procurement, spend, service activation, application coding or production access is authorized. M3-00 remains documentation/planning only at 10% weighted completion; T02-T06 are in progress, T07-T08 remain open.
 
 
 ## M3 capacity decision update — owner availability (2026-11-12)
@@ -538,3 +538,8 @@ The documentation-only [M3-00 Hosting and Operations Decision Framework](../04-r
 PR [#109](https://github.com/mattari20/listing-v2/pull/109) delivered the M3-00 T06 Hosting and Operations Decision Framework. Exact head `746cc0f89df2716fd5a2170bf17d95697f471ff2` passed required **Project documentation validation** (run [#43199827073](https://github.com/mattari20/listing-v2/actions/runs/43199827073)); job `Validate project control documents` and all steps completed successfully. PR #109 was squash-merged as `5e55f1fe69dce25d0ab2357fef050b9120002579`.
 
 T06 is In progress: official region research and operating-model criteria are documented, but exact service/region support, current quotes, Pakistan latency measurements, data terms, recovery evidence and a named human operations owner remain unresolved. No provider is selected and no account, trial, procurement, spend or deployment is authorized. M3-00 remains 10%; no partial T06 percentage is claimed.
+
+
+## M3 current-status audit — 2026-11-12 (after PR #110)
+
+GitHub verification confirms PRs #102–#110 are all closed and merged, with required Project documentation validation passing on each exact PR head. PR #110 reconciled the PR #109 hosting framework evidence and merged as `a328a8272b086cac6270dc625d53ea6c3bbc1fa7`. Current M3-00 status is T01 Complete; T02-T06 In progress; T07-T08 Open. T04-T06 frameworks have been delivered, but budget, technology and hosting decisions/evidence remain unresolved. M3-00 remains 10% weighted completion and M3 overall 0.5%. No partial task percentages are claimed. No application implementation, production/source access, schema/migrations, procurement, new spend, deployment or launch is authorized.

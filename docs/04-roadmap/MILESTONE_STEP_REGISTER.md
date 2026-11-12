@@ -643,9 +643,9 @@ M3-00 task completion is 0% until weighted evidence is produced and accepted. Do
 | T01 Baseline reconciliation | 10% | Complete — PR #100 merged |
 | T02 Roles, skills and accountability | 15% | In progress — owner approved owner-led/ChatGPT-assisted delivery model (M3-DEC-001); named human implementers, maintainers, QA/operations owners and skill gaps remain open |
 | T03 Capacity and availability | 10% | In progress — owner confirmed 10–15 hours/week as a planning baseline, with flexibility according to project demand and priority and demand-led review/approval cadence (M3-DEC-002); other human delivery capacity and continuity assumptions remain open |
-| T04 Budget and cost ceiling | 15% | Open — owner input/evidence pending |
-| T05 Technology stack decision pack | 15% | Open — candidate options documented; selection and proof-of-fit evidence pending |
-| T06 Hosting and vendor decision pack | 10% | Open — evaluation framework documented; provider, region and current cost evidence pending |
+| T04 Budget and cost ceiling | 15% | In progress — framework delivered; numeric ceilings, dated quotes, tax/FX and paid-service policy pending |
+| T05 Technology stack decision pack | 15% | In progress — candidate framework delivered; human skill fit, support/security, hosting/cost evidence and owner selection pending |
+| T06 Hosting and vendor decision pack | 10% | In progress — provider-region/operations framework delivered; exact service support, Pakistan latency, data terms, recovery, quotes and operations owner pending |
 | T07 Legal, privacy, source-rights and security gates | 15% | Open — qualified review ownership and applicable evidence pending |
 | T08 Scope, test/release and authorization pack | 10% | Open — detailed M3-01 authorization package pending |
 
@@ -662,3 +662,8 @@ T05 update: the [M3-00 Technology Stack Decision Framework](M3-00_TECHNOLOGY_STA
 
 
 T06 update: the [M3-00 Hosting and Operations Decision Framework](M3-00_HOSTING_AND_OPERATIONS_DECISION_FRAMEWORK.md) records official region research for AWS, Azure, Google Cloud and Hostinger, compares operating models, and defines required evidence for exact service/region support, Pakistan latency, data terms, security, backups/restore, cost and operations ownership. No provider/region is selected; no account, trial, procurement or spend is authorized. T06 is In progress; no partial completion percentage is claimed.
+
+
+## Current M3-00 audit reconciliation — 2026-11-12
+
+GitHub verification: PRs #102–#110 are all closed and merged; required Project documentation validation passed on each exact PR head. Latest merge: PR #110, `a328a8272b086cac6270dc625d53ea6c3bbc1fa7`. Correct current task status is T01 Complete; T02-T06 In progress; T07-T08 Open. The T04/T05/T06 frameworks are delivered documentation, not accepted final decisions. M3-00 remains 10% and M3 overall 0.5%; no partial task percentages are claimed. Implementation and spend remain unauthorized.

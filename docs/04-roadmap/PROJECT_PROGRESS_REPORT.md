@@ -1,8 +1,30 @@
 # Project Progress Report
 
 **As of:** 2026-11-12  
-**Current milestone:** M2 — Architecture and Design  
-**Current phase:** M0 and M1 accepted/closed; M2-S00 through S03 accepted/closed; S04-S06 joint documentation package delivered, owner review pending
+**Current milestone:** M3 — Mobilization and Controlled Implementation  
+**Current phase:** M0, M1 and M2 accepted/closed; M3-00 active as documentation/planning only; T01 complete, T02-T06 in progress, T07-T08 open
+
+## Verified current M3 position — 2026-11-12 (post PR #110)
+
+**Main branch audit baseline:** `a328a8272b086cac6270dc625d53ea6c3bbc1fa7`  
+**M3-00:** 10% weighted completion. **M3 overall:** 0.5%.  
+**Delivery:** PRs #102–#110 are all closed and merged; required Project documentation validation passed on each exact PR head. No PR from this delivery sequence remains outstanding.
+
+| Task | Current status | Delivered | Remaining blocker |
+|---|---|---|---|
+| T01 Baseline reconciliation | **Complete** | M0–M2 baseline and control reconciliation (PR #100) | None identified in this audit |
+| T02 Roles, skills and accountability | **In progress** | Owner-led/ChatGPT-assisted model and decision accountability recorded | Named human implementers, maintainers, QA/security reviewers, operations owner, skill coverage and responsibility matrix |
+| T03 Capacity and availability | **In progress** | Owner confirmed 10–15 hours/week planning baseline, flexible by project demand, with demand-led reviews/approvals | Other human delivery capacity, continuity and realistic role-level availability |
+| T04 Budget and cost ceiling | **In progress** | Cost categories, scenarios, calculation rules and no-spend controls documented | Numeric ceilings or explicit deferral, dated quotes, tax/FX basis and paid-service policy |
+| T05 Technology stack | **In progress** | Candidate comparison framework and conditional M2 baseline documented | Named implementer skill fit, support/security lifecycle, hosting/cost evidence and owner selection/deferment |
+| T06 Hosting and operations | **In progress** | Provider-region research and operating-model framework documented | Exact service/region support, current quotes, measured Pakistan latency, data terms, recovery evidence and named operations owner |
+| T07 Legal, privacy, source-rights and security | **Open** | Existing M1/M2 controls remain binding | M3-specific gate evidence and qualified review ownership |
+| T08 Scope, test/release and authorization pack | **Open** | High-level M3 roadmap and acceptance gates exist | Detailed M3-01 backlog, test strategy, release/rollback plan and separate implementation-start authorization |
+
+PR merges and CI establish documentation delivery/validation, not owner acceptance of T02–T08. No partial task percentages are claimed. The 10% M3-00 and 0.5% M3 figures remain unchanged because T01 is the only fully complete weighted task.
+
+**Authorization boundary:** Documentation/planning only. No application implementation, production/source access, schema/migrations, connector/service activation, procurement, new spend, deployment, pilot or launch is authorized.
+
 
 ## Verified V2 repository facts
 - Repository: `mattari20/listing-v2`
