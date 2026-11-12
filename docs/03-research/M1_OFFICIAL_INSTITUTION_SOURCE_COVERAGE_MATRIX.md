@@ -112,10 +112,17 @@ The weighted task breakdown and acceptance criteria are governed only by `docs/0
 - NAVTTC, Institute Affiliation: https://navttc.gov.pk/affiliation/
 - Skilling Pakistan, Institutes: https://skillingpakistan.gov.pk/institutes
 
+- Punjab PMIU/OpenPunjab public-school search and census: https://openpunjab.pesrp.edu.pk/schools/
+- PEPRIS private-school valid e-license register and support: https://pepris.pesrp.edu.pk/parent_corner and https://pepris.pesrp.edu.pk/support
+- Sindh Annual School Census profiles: https://rsusindh.gov.pk/asc.php
+- NBEAC accredited business schools: https://nbeac.org.pk/index.php/accredited-business-schools
+- National Technology Council accreditation process: https://www.ntc-hec.org.pk/accreditation.php
+- HEC Accreditation Councils: https://www.hec.gov.pk/english/services/universities/qaa/pages/accreditation-councils.aspx
+
 **Research date:** 2026-11-12. Follow-up research identified additional AJK, non-formal, special-education and professional-programme source families. These are discovery leads, not complete inventories or permission to reuse data. Source interfaces and registers can change; verify each record at the point of any future use.
 
 
-## 5. TVET provider and awarding-body research (2026-11-12)
+## 7. TVET provider and awarding-body research (2026-11-12)
 
 ### 5.1 Provider and regulator discovery
 
@@ -141,7 +148,7 @@ NAVTTC's official affiliation page identifies approved Qualification Awarding Bo
 - B-TEVTA public directory: https://registration.btevta.gob.pk/portal/directory
 - Balochistan skills provider discovery: https://bsis.btevta.gob.pk/institute-list
 
-## 6. Selected source-term and freshness clarifications (2026-11-12)
+## 8. Selected source-term and freshness clarifications (2026-11-12)
 
 - **KP-PSRA:** The KP E&SE Department describes PSRA's statutory/administrative role in registration, regulation and supervision of private schools; the current public portal is a source-discovery route. No directory-specific reuse terms or bulk-access permission were located in the dated review. Public accessibility is not permission.
 - **ICT-PEIRA:** The official site states that the active/valid private-institution list is updated every weekend pending auto-update, and distinguishes institutions whose renewal applications are under process. This cadence is not a per-record timestamp or a guarantee of record freshness. Preserve the distinct status if any later authorized use occurs.
@@ -151,7 +158,7 @@ NAVTTC's official affiliation page identifies approved Qualification Awarding Bo
 All source families remain research-only pending source-specific rights, privacy, freshness and owner review.
 
 
-## 7. Expanded official-source verification — 2026-11-12
+## 9. Expanded official-source verification — 2026-11-12
 
 The following observations are based on official regulator/government pages surfaced in the current independent desk review. They improve source-family coverage but do not certify every listed institution or programme. Directory records must be rechecked at the point of any future authorized use.
 
@@ -190,7 +197,7 @@ The following observations are based on official regulator/government pages surf
 
 NAVTTC's current production home page describes institute registration, affiliation to NAVTTC-approved QABs and NAC-TVS quality accreditation as three separate stages. Its public pages link Training Institute Search (TIS), NSIS and the NVQF Registry. A staging/test subdomain exposes a purported accreditation directory with a “representative sample data” disclaimer and conflicting regional labels; it is expressly excluded as authoritative evidence. B-TEVTA's government-hosted public registry is a useful source lead, but displayed totals and district claims require reconciliation. Sources: https://navttc.gov.pk/; https://navttc.gov.pk/tvet-sector/; https://tms.navttc.gov.pk/nsis/institute_help/info; https://registration.btevta.gob.pk/portal/directory.
 
-## 8. S02 task alignment and current evidence
+## 10. S02 task alignment and current evidence
 
 The authoritative weighted task breakdown is in `MILESTONE_STEP_REGISTER.md`. The earlier exploratory gap list in this matrix is not a second task register. Current status:
 
