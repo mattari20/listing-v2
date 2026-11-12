@@ -687,3 +687,11 @@ This is a planning artifact only. No M3-01 weighted progress is claimed until ta
 | [M3-01 Solo Founder Build Model and P03 Decision](M3-01_SOLO_FOUNDER_BUILD_MODEL_AND_P03_DECISION_2026-11-12.md) | Records the Product Owner as sole human builder for the initial bounded build, ChatGPT as assistant, and future operating-team deferral | Delivered; owner decision recorded; implementation authorization not issued |
 
 PR [#122](https://github.com/mattari20/listing-v2/pull/122) passed required check `Validate project control documents` on exact head `877c19f0012e22f6be9c49f4cf84e349f156d578` and squash-merged as `0e144d5221943ff15fde13f8bb336451ef2b2a2a`. P03 is resolved for the bounded Candidate A planning model; this does not clear independent assurance or production gates.
+
+## M3-01 AI-era review delivery — PR #124
+
+| Document | Purpose | Status |
+|---|---|---|
+| [AI-Era Architecture Readiness Review](../05-architecture/M3-01_AI_ERA_ARCHITECTURE_READINESS_REVIEW_2026-11-12.md) | Defines 20 future-proofing requirements, logical boundaries, AI trust flow, security controls, conditional stack implications and later verification | Delivered — owner review pending; no stack or implementation authorization |
+
+PR [#124](https://github.com/mattari20/listing-v2/pull/124) passed required Project documentation validation on exact head `db83a1b83da5862b73d50277473ba64f0437f50e` (run #43259025474) and squash-merged as `4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5`. The review strengthens P04 evidence but does not close P04 or select any stack/provider/host. AI-ARCH-01–20 remain proposed until owner acceptance; implementation authorization remains NOT ISSUED.
