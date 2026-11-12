@@ -581,7 +581,15 @@ M2 is owner-accepted and closed. M3 implementation requires separate authorizati
 | Document | Purpose | Status |
 |---|---|---|
 | [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) | Authoritative M3 sequence, weights, dependencies, task/acceptance criteria and authorization boundaries | Delivered — current planning baseline; owner acceptance pending |
-| [M3-00 Mobilization and Decision Closure](M3-00_MOBILIZATION_AND_DECISION_CLOSURE.md) | Current-step baseline, task register, open owner inputs, decision gates and exit criteria | Delivered — T01 complete; M3-00 at 10%; owner acceptance pending |
-| [M3-00 Owner Decision Pack](M3-00_OWNER_DECISION_PACK.md) | Role/skills, capacity, budget, stack, hosting and legal/privacy/security decision worksheets | Delivered — awaiting owner/team inputs and explicit decisions |
+| [M3-00 Mobilization and Decision Closure](M3-00_MOBILIZATION_AND_DECISION_CLOSURE.md) | Current-step baseline, task register, open owner inputs, decision gates and exit criteria | Updated in PR #102 — T01 complete; T02/T03 in progress; M3-00 remains at 10%; owner acceptance pending |
+| [M3-00 Owner Decision Pack](M3-00_OWNER_DECISION_PACK.md) | Role/skills, capacity, budget, stack, hosting and legal/privacy/security decision worksheets | Updated in PR #102 — delivery model accepted; owner availability 10–15 hours/week recorded as a flexible planning baseline with demand-led reviews; human staffing, continuity, budget and other decisions remain open |
 
 M0/M1/M2 are accepted and closed. M3-00 is documentation/planning only. The M3 Master Step Plan supersedes earlier high-level M3 sequencing where inconsistent. No application implementation or separately gated activity is authorized.
+
+
+#### PR #102 — owner delivery model and capacity inputs (2026-11-12)
+
+The M3-00 owner decision pack, mobilization record, decision register, project controller, M3 plan, step register and progress report are being reconciled to record M3-DEC-001 (owner-led/ChatGPT-assisted delivery model) and M3-DEC-002 (owner availability of 10–15 hours/week). T02/T03 are in progress; no partial task percentages are claimed. PR #102 remains subject to exact-head documentation validation and merge evidence. No implementation or spend authorization is created.
+
+
+Owner capacity clarification: the owner confirmed 10–15 hours/week as a planning baseline, flexible according to project demand and priority, with reviews/approvals arranged around decision gates rather than a fixed weekly meeting. This does not imply unlimited availability or establish human engineering/operations capacity. T03 remains in progress pending other delivery-capacity and continuity evidence.

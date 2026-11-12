@@ -155,7 +155,7 @@ Conditional step. Requires separate explicit written approval for production acc
 - M0: Accepted and closed.
 - M1: Accepted and closed; primary participant research deferred.
 - M2: 100% owner-accepted and closed.
-- M3-00: In progress at 10% weighted completion (T01 complete; T02-T08 open); owner acceptance pending.
+- M3-00: In progress at 10% weighted completion (T01 complete; T02 in progress after owner-approved owner-led/ChatGPT-assisted delivery model; T03 in progress after owner confirmed 10–15 hours/week as a planning baseline, flexible according to project demand and priority, with demand-led reviews/approvals; T04-T08 open); owner acceptance pending.
 - M3-01 onward: Not started.
 - Application implementation: Not authorized.
 - Production access/deployment/launch: Not authorized.

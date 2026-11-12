@@ -634,3 +634,22 @@ See [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) for complete step scopes, task
 | M3-11 | Controlled Production Launch | 6% | Conditional; separate explicit launch authorization |
 
 M3-00 task completion is 0% until weighted evidence is produced and accepted. Do not treat this register entry as evidence of completed work.
+
+
+## M3-00 current task evidence update — 2026-11-12
+
+| Task | Weight | Evidence-based status |
+|---|---:|---|
+| T01 Baseline reconciliation | 10% | Complete — PR #100 merged |
+| T02 Roles, skills and accountability | 15% | In progress — owner approved owner-led/ChatGPT-assisted delivery model (M3-DEC-001); named human implementers, maintainers, QA/operations owners and skill gaps remain open |
+| T03 Capacity and availability | 10% | In progress — owner confirmed 10–15 hours/week as a planning baseline, with flexibility according to project demand and priority and demand-led review/approval cadence (M3-DEC-002); other human delivery capacity and continuity assumptions remain open |
+| T04 Budget and cost ceiling | 15% | Open — owner input/evidence pending |
+| T05 Technology stack decision pack | 15% | Open — candidate options documented; selection and proof-of-fit evidence pending |
+| T06 Hosting and vendor decision pack | 10% | Open — evaluation framework documented; provider, region and current cost evidence pending |
+| T07 Legal, privacy, source-rights and security gates | 15% | Open — qualified review ownership and applicable evidence pending |
+| T08 Scope, test/release and authorization pack | 10% | Open — detailed M3-01 authorization package pending |
+
+T02/T03 have no partial completion percentage claimed. M3-00 remains 10% weighted completion (T01 only). Owner input is recorded as planning evidence and does not authorize hiring, procurement, spend, implementation or production activity.
+
+
+T03 clarification: owner availability is demand-led within the confirmed 10–15 hours/week planning baseline; review/approval is arranged around project priorities and decision gates, not a fixed weekly meeting. No unlimited availability or human engineering capacity is assumed.

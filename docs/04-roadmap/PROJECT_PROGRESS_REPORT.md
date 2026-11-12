@@ -548,3 +548,24 @@ This reconciliation confirms PR #93's merge evidence and does not alter content 
 - Production access, source ingestion, procurement/new spend, database/schema changes, deployment and launch remain separately gated.
 
 Authoritative plan: `M3_MASTER_STEP_PLAN.md`. Current-step record: `M3-00_MOBILIZATION_AND_DECISION_CLOSURE.md`. Earlier status statements in this report that show M1/M2 as active or M2 as incomplete are historical and superseded by the final M1/M2 acceptance records and this handover.
+
+
+## M3 owner decision update — 2026-11-12
+
+The owner accepted the owner-led, ChatGPT-assisted delivery model: the user remains Product Owner/final decision-maker; ChatGPT provides step-by-step planning, documentation, architecture, code-drafting (only after separate authorization), test-design and reporting assistance; qualified specialists may be engaged for legal/privacy/security review where needed. Named human implementers, maintainers, QA and operations owners remain unconfirmed. This decision is recorded as M3-DEC-001 and reflected in the M3-00 owner decision pack and mobilization register.
+
+**Progress treatment:** T02 is now In progress, but no partial task percentage is claimed because its complete role/capability matrix and named accountability evidence are not yet available. T01 remains complete; T03-T08 remain open. M3-00 remains 10%; M3 overall remains 0.5%. No implementation, procurement, spend or production activity is authorized.
+
+
+## M3 capacity decision update — 2026-11-12
+
+The owner confirmed **10–15 hours per week** for project decisions, review and participation. M3-DEC-002 records this owner availability. The range is not treated as engineering or operations capacity. Other human delivery capacity, review/approval cadence and continuity assumptions remain unresolved.
+
+**Progress treatment:** T03 is now In progress, but no partial task percentage is claimed until its complete capacity/cadence/continuity output is evidenced. T01 remains complete; T02 and T03 are in progress; T04-T08 remain open. M3-00 remains 10%; M3 overall remains 0.5%. Documentation/planning only; no implementation, hiring, procurement, spend or production activity is authorized.
+
+
+## M3 owner capacity clarification — 2026-11-12
+
+The owner clarified that 10–15 hours/week is a planning baseline, with flexibility according to project demand and priority. Review and approval cadence is demand-led around decision gates rather than restricted to a fixed weekly meeting. This does not imply unlimited availability. Other human delivery capacity and continuity assumptions remain open.
+
+T03 remains in progress; no partial task percentage is claimed until the remaining capacity and continuity evidence is documented. M3-00 remains at 10%; M3 overall remains at 0.5%. Documentation/planning only.

@@ -28,12 +28,15 @@ One person may cover multiple roles only where capability and separation-of-duti
 
 ### 2.2 Owner confirmation
 
-- Delivery model (owner-led, internal team, contractor, agency or hybrid): **Pending**
-- Named implementers and reviewers: **Pending**
-- Skills already available: **Pending**
-- Skills to acquire/contract: **Pending**
-- Expected weekly capacity: **Pending**
-- Preferred review/approval cadence: **Pending**
+- Delivery model: **Owner-led, ChatGPT-assisted, with qualified external specialists engaged only where a review requires expertise not otherwise available — accepted by owner on 2026-11-12.**
+- Product ownership and final decisions: **The user remains Product Owner and final decision-maker.**
+- Technical assistance: **ChatGPT will assist step by step with planning, architecture documentation, code drafting when separately authorized, test design, review support and progress reporting. ChatGPT is an assistant, not an independently accountable operator or a substitute for human production ownership.**
+- External specialist coverage: **Qualified legal, privacy and security specialists may be identified/engaged when needed; no engagement, procurement or spend is authorized by this decision.**
+- Named human implementers/maintainers and independent reviewers: **Pending confirmation.**
+- Skills already available and gaps: **Pending assessment.**
+- Owner's available project time: **10–15 hours per week as the current planning baseline, with flexibility to participate according to project demand and priority — confirmed by owner on 2026-11-12. This is owner decision/review and project participation time, not a claim of 10–15 engineering hours or a staffed development team.**
+- Other human team capacity and named implementer/maintainer availability: **Pending confirmation.**
+- Preferred review/approval cadence: **Demand-led, not restricted to a fixed weekly meeting. The owner is available to review and decide as project priorities and decision gates require, with reasonable notice and consolidated decision packs where practical — confirmed 2026-11-12.**
 
 ## 3. Budget and cost ceiling
 
@@ -144,8 +147,8 @@ Record only confirmed decisions. A decision can be deferred with rationale and n
 
 | Decision ID | Owner decision | Rationale/evidence | Date |
 |---|---|---|---|
-| M3-D01 Delivery model and roles | Pending | Pending | Pending |
-| M3-D02 Capacity and availability | Pending | Pending | Pending |
+| M3-D01 Delivery model and roles | Owner-led; user is Product Owner/final decision-maker; ChatGPT provides step-by-step technical assistance; qualified specialists may be engaged for legal/privacy/security review when needed. Named human implementers, maintainers and reviewers remain pending. | Owner confirmation in this conversation, 2026-11-12; human staffing/capability gaps still to be identified | 2026-11-12 |
+| M3-D02 Capacity and availability | Owner availability: 10–15 hours/week as a planning baseline, with flexibility according to project demand and priority. Reviews/approvals are demand-led rather than limited to a fixed weekly meeting. Other human delivery capacity and continuity assumptions remain pending. | Owner confirmation in this conversation, 2026-11-12; availability does not imply engineering staffing or authorize spend | 2026-11-12 |
 | M3-D03 Budget and spend ceiling | Pending | Pending | Pending |
 | M3-D04 Technology stack | Pending | Pending | Pending |
 | M3-D05 Hosting provider/region | Pending | Pending | Pending |

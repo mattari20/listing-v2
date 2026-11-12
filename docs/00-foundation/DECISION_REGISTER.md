@@ -67,3 +67,25 @@ Official source routes for NAVTTC QABs, Punjab TEVTA/PSDA/TTB, Sindh STEVTA, KPT
 - **Scope boundary:** This is a documentation method only. It does not select a language, framework, database, hosting provider, search engine, map service, AI model, connector or deployment topology.
 - **References:** arc42 (https://arc42.org/documentation/); C4 (https://c4model.com/); ADR project (https://architecture-decision-record.github.io/en-001/); iSAQB architecture documentation curriculum (https://public.isaqb.org/curriculum-adoc/curriculum-adoc-en.pdf).
 - **Review trigger:** Revisit if the documentation method proves difficult to maintain or fails stakeholder review.
+
+
+## M3-DEC-001 — Owner-led, ChatGPT-assisted delivery model
+
+- **Date:** 2026-11-12
+- **Status:** Adopted by explicit owner confirmation; role/capability details remain open
+- **Context:** M3-00 requires a realistic delivery model before implementation planning. The owner accepted the recommended arrangement.
+- **Decision:** The user remains Product Owner and final decision-maker. ChatGPT will assist step by step with planning, architecture and documentation, code drafting only after separate implementation authorization, test design, review support and progress reporting. Qualified external specialists may be identified or engaged for legal, privacy and security review when expertise is required.
+- **Accountability boundary:** ChatGPT assistance does not create an independently accountable engineering, security, legal or operations function. Named human implementers/maintainers, QA ownership, production operations ownership and independent reviewers must still be confirmed before M3-00 can close and before M3-01 can authorize implementation.
+- **Consequences:** This is an owner-led delivery model, not approval to hire, contract, procure, spend, activate services, access production, or begin application coding. Capacity and budget remain undecided. All existing M3 authorization gates remain binding.
+- **Review trigger:** Revisit if named human capability coverage cannot safely support implementation, maintenance, security assurance or operations.
+
+
+## M3-DEC-002 — Owner weekly project availability
+
+- **Date:** 2026-11-12
+- **Status:** Confirmed by owner; broader delivery capacity remains unresolved
+- **Context:** M3-00 T03 requires a realistic capacity and availability baseline.
+- **Decision:** The owner has confirmed **10–15 hours per week as a planning baseline**, with flexibility to participate according to project demand and priority. Reviews and approvals are demand-led rather than restricted to a fixed weekly meeting.
+- **Interpretation:** This is owner participation capacity only. It must not be counted as engineering, QA, security-review or production-operations capacity unless the owner separately confirms the relevant skills and role. Named human delivery capacity, review/approval cadence and continuity arrangements remain open.
+- **Consequences:** The range informs planning only. It does not authorize hiring, contracting, procurement, spend or implementation.
+- **Review trigger:** Reconfirm if the owner's availability materially changes or the project schedule requires a different commitment.
