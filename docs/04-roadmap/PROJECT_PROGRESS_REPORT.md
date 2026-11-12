@@ -66,5 +66,11 @@ PR #12 added the official institution source coverage matrix and weighted M1-S02
 ## PR #11 evidence reconciliation
 PR #11 merged as `e39137e14f152fa82fe2acb284a631cb84438998`. Its exact head `b11e03020a46269d9b04674822182933c569082e` passed the required `Validate project control documents` check (run #43136568996). The merge reconciled PR #10 evidence and clarified that primary student research is deferred during construction.
 
+## PR #17 evidence
+PR #17 recorded the initial dated public-terms review for HEC, PM&DC and PNMC and reconciled the rights register, catalogue, progress report, traceability, step register and controller. Its exact head `8520aedbd9360bb190819dc85423b475bbb40497` passed the required documentation validation check (run #43143724535); it merged as `52481df5d18c60cb9e24ee3a32e7977db3669770`. The review did not establish directory-specific reuse permission; all sources remain research-only.
+
+## PR #16 evidence
+PR #16 added the source rights, access and provenance evidence register. Its exact head `902d0af180152b78c42f1bb816545617afcd6b37` passed the required documentation validation check (run #43139966390); it merged as `fdcfb6bd26bc3f0cd1b7467e4f506c7ca40bf2c4`.
+
 ## Reporting rule
 After every documentation PR update and merge, reconcile the documentation catalogue, index, controller, step register, traceability matrix and progress report. Record exact PR, head SHA, required check and merge SHA. Never infer acceptance from a merge alone.
