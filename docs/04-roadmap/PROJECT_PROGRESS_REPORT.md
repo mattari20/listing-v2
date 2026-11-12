@@ -186,3 +186,7 @@ S02-C04/C05/C06 are better evidenced but remain in progress; C07/C08 also remain
 A further official-source pass verified ICT-PEIRA's paginated active PEI register, weekend-update statement, renewal-in-process/renewal-awaited/unregistered distinctions and PEI-submitted-data disclaimer. DGRE describes a nationwide Deeni Madaris registration mandate with 16 regional offices; the surfaced regional registered-madaris pages are dated 26 March 2024 and need freshness verification. IBCC recognizes specified QABs and madaris/wafaqs but explicitly distinguishes QAB recognition from equivalence of each credential. Deeni Madaris are added as a distinct provider family; provider registration, awarding-body recognition and qualification equivalence remain separate; the DGRE maslak field is excluded from V2 discovery. Full evidence is in docs/03-research/M1_S02_ICT_PEIRA_MADARIS_QAB_REVIEW_2026-11-12.md.
 
 S02-C01/C04/C05/C07/C08 remain in progress; S02-C09 remains an owner-only gate. No source reuse is authorized.
+
+## PR #38 — deep jurisdiction and TVET research
+
+PR [#38](https://github.com/mattari20/listing-v2/pull/38) merged as `a38fa149d10be99903ca6bb44236bd1e68565e6a`; exact head `f1f7aa59424b5161ec91a3f3ae60ff20471edba2` passed required Project documentation validation (run #43153839019). It delivered Punjab/Sindh/GB special-education source leads, provincial TVET register findings and scope/privacy cautions. No task acceptance or source-use permission is inferred.
