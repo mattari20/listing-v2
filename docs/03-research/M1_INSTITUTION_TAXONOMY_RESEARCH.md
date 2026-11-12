@@ -117,3 +117,8 @@ This is an initial desk-research baseline, not a complete national inventory or 
 - [ ] Rights and provenance are assessed before any data ingestion or republication.
 - [ ] Gaps, stale sources and uncertain recognition claims are explicitly represented.
 - [ ] No legacy-derived taxonomy, data or implementation pattern is used.
+
+
+## Supplemental taxonomy clarification — Deeni Madaris and qualification relationships
+
+Add Deeni Madaris as a distinct provider family, with a separate provider-registration relationship (DGRE) and potentially separate examining/awarding-body relationships. Keep four concepts distinct: (1) provider registration, (2) qualification-awarding-body recognition, (3) equivalence of a specific qualification, and (4) institution/campus/programme recognition or accreditation. IBCC explicitly states that recognition of a QAB does not automatically make every qualification it offers equivalent. Do not infer an individual madrasa's status from a wafaq listing or infer credential equivalence from the awarding body's recognition. Exclude DGRE's maslak/sect field from V2 institution attributes and filters; it is unnecessary for general provider discovery. See `M1_S02_ICT_PEIRA_MADARIS_QAB_REVIEW_2026-11-12.md`.
