@@ -482,3 +482,8 @@ M2 weighted progress at this point: S00 100% × 5% = 5%; S01 80% × 8% = 6.4%; t
 ## PR #88 delivery reconciliation — 2026-11-12
 
 PR [#88](https://github.com/mattari20/listing-v2/pull/88) reconciled the M2-S01 draft delivery and owner-review status. Exact PR head `9d05c8f4b35462b935886b78f4aa9aa45c770dc3` passed required Project documentation validation (run [#43181135205](https://github.com/mattari20/listing-v2/actions/runs/43181135205)); PR #88 merged as `226f573d21a03b51caa4ccb46f2a68293fb84be2`. M2-S01 remains 80% and In Progress pending explicit owner review; CI success and merge are not acceptance.
+
+
+## PR #89 delivery reconciliation — 2026-11-12
+
+PR [#89](https://github.com/mattari20/listing-v2/pull/89) reconciled PR #88's exact-head validation and merge evidence. Exact PR head `5c038bb8d4662acc590121bf87723a89127ab5b6` passed required Project documentation validation (run [#43181267319](https://github.com/mattari20/listing-v2/actions/runs/43181267319)); PR #89 merged as `a119514862b74d4ec8135409375dc7960f924e2a`. M2-S01 remains 80% and In Progress pending owner review; no acceptance is implied.
