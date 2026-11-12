@@ -42,3 +42,8 @@ Source discovery does not establish a right to collect or republish. See `../03-
 The first source-specific verification pass is recorded in [M1-S03 Official Government and Regulator Provider Source Register](../03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md). It adds current evidence for PIE/NEMIS, MoFEPT, HEC, NAVTTC, IBCC, DGRE, HEC Deeni Asnad equivalence, Balochistan EMIS, Sindh institution checker, ICT-PEIRA, Punjab SED/PEPRIS and KPPSRA. The register distinguishes authority mandate, public directory, aggregate source, application portal and QAB/equivalence route. All records remain research-only unless source-specific reuse permission is documented.
 
 Deeni Madaris remain a distinct underlying provider family. Per owner decision, public listing visibility is disabled by default and controlled by the future `Show Deeni Madaris` setting; this is a requirements decision, not an implemented feature.
+
+
+## M1-S03 additional official-source findings
+
+The M1-S03 source register now includes NFEMIS (national NFE), DGSE (special education, with mandate attribution discrepancy), Sindh DEPD (mixed education/rehabilitation provider list), GB EMIS school details and the GB Directorate of Education Colleges list. See `../03-research/M1_S03_NFE_SPECIAL_ED_GB_SOURCE_REVIEW_2026-11-12.md`. These are research-only source routes. No source-specific reuse permission is inferred; learner/teacher records, child identifiers, disability/health/therapy information and staff personal contacts remain excluded.

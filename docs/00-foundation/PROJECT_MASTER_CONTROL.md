@@ -199,3 +199,8 @@ M1-S02 was explicitly accepted by the owner and closed at 100% weighted task com
 Owner product requirement V2-DEC-006: Deeni Madaris are included in the underlying provider scope but hidden from public listings by default at launch. A configurable `Show Deeni Madaris` setting is required, default OFF; only an authorized administration/configuration path may change it. Exact UI and roles are deferred to M2 design. No implementation is authorized.
 
 M1-S03 remains documentation/research-only. No scraping, bulk download, source-owner contact, permission requests, source ingestion, connectors, application code, database/schema changes, production access, deployment, legacy-repository interaction, M1-S04 or M2 work is authorized.
+
+
+## M1-S03 supplemental research update — 2026-11-12
+
+The M1-S03 official-source register has been expanded with NFEMIS, DGSE, Sindh DEPD, GB EMIS school details and GB public-college routes. New quality findings include unstable NFEMIS dashboard totals, a DGSE ministry-attribution discrepancy across official pages, Sindh DEPD's mixed education/rehabilitation provider rows and exposed staff personal contacts, and GB EMIS administrative-office rows plus a zero-valued summary dashboard despite populated school details. See `../03-research/M1_S03_NFE_SPECIAL_ED_GB_SOURCE_REVIEW_2026-11-12.md`. S03-C02 and S03-C05 remain in progress; M1-S03 remains documentation/research-only. No ingestion, scraping, source-owner contact, permission request, implementation, database/schema changes, production access or deployment is authorized.

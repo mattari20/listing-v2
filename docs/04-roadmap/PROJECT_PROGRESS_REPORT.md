@@ -279,3 +279,10 @@ Deeni Madaris remain in the underlying provider scope as a separate category but
 
 ### Boundaries
 M1-S03 is documentation/research only. No scraping, bulk download, source-owner contact, permission request, source ingestion, connector activation, application implementation, database/schema changes, production access, deployment, legacy-repository interaction, M1-S04 or M2 work is authorized. All sources remain research-only except the previously documented narrow SED Balochistan aggregate license.
+
+
+## M1-S03 second official-source research pass — 2026-11-12
+
+A further official-source review has expanded the source register with NFEMIS, DGSE, Sindh DEPD, GB EMIS school details and the GB Directorate of Education Colleges list. Key findings: NFEMIS public dashboard totals fluctuate across page loads and its management system includes sensitive learner/teacher/attendance/assessment data; DGSE's official portal and a Ministry of Human Rights page differ on ministry attribution, while MoHR states ICT-level jurisdiction; Sindh DEPD's public list combines education centres with rehabilitation/vocational/administrative units and exposes staff names/mobile contacts; GB EMIS details are populated but include administrative "Office" rows and its summary dashboard can show zero; GB's colleges directorate publishes a public-sector college list only. AJK public record-level and private-register access remain unresolved. Full details: `docs/03-research/M1_S03_NFE_SPECIAL_ED_GB_SOURCE_REVIEW_2026-11-12.md`.
+
+S03-C02 and S03-C05 remain in progress. All sources remain RESEARCH ONLY; no student, teacher, child, disability/health/therapy or staff personal data is collected. No scraping, bulk download, source-owner contact, permission request, ingestion, implementation, database/schema changes, production access, deployment, legacy-repository interaction, M1-S04 or M2 work is authorized.
