@@ -226,3 +226,10 @@ PR #44 merged as `11ee337d823731d71a9c0ca00782728ad1994398`; exact head `0b5fe64
 The architecture-specific traceability matrix is established at `../05-architecture/M2_REQUIREMENTS_ARCHITECTURE_TRACEABILITY.md`. M2-S01 will expand the stable requirement identifiers and map each accepted M1 requirement and G01-G20 item to architecture elements, ADRs, risks/controls and future verification scenarios.
 
 This initial scaffold is not a claim that every requirement is already designed or tested. Any unresolved mapping must remain visibly pending, deferred or owner-gated.
+
+
+## M2 architecture traceability baseline — 2026-11-12
+
+The architecture-specific traceability matrix is established at `../05-architecture/M2_REQUIREMENTS_ARCHITECTURE_TRACEABILITY.md`. M2-S01 will expand stable requirement identifiers and map accepted M1 requirements and G01-G20 to architecture elements, ADRs, risks/controls and future verification scenarios.
+
+This initial scaffold is not a claim that every requirement is already designed or tested. Unresolved mapping must remain visibly pending, deferred or owner-gated.
