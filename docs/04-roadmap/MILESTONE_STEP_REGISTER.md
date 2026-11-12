@@ -66,7 +66,7 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 
 ### M1-S01 owner acceptance gate
 
-The closeout package is `../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md`. Owner acceptance must confirm the desk-research baseline, provisional nature of segments/journey, 14 student discovery requirements, explicit deferral of primary research and carried-forward limitations. Acceptance closes only the construction-stage documentation baseline.
+The closeout package is `../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md`. PR [#71](https://github.com/mattari20/listing-v2/pull/71) merged as `64bd568d522e41452b8b46db8652ec8df48a2d8b`; exact PR head `2982bdf421e09e82c03b76c223adb1b6ecc0b180` passed required Project documentation validation (run [#43166985628](https://github.com/mattari20/listing-v2/actions/runs/43166985628)). Owner acceptance must confirm the desk-research baseline, provisional nature of segments/journey, 14 student discovery requirements, explicit deferral of primary research and carried-forward limitations. Acceptance closes only the construction-stage documentation baseline.
 
 ### M1-S02 task breakdown (weights total 100%)
 | Task | Weight | Acceptance evidence | Status |
