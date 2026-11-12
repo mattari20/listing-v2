@@ -25,7 +25,7 @@ Establish the people, capacity, budget, technology, hosting, legal/privacy/secur
 | Task | Weight | Required output | Current status |
 |---|---:|---|---|
 | T01 Baseline and handover reconciliation | 10% | M0-M2 accepted baseline, open-decision inventory and binding-control checklist | **Complete — PR #100 merged; controller, roadmap, step register and status reconciled** |
-| T02 Roles, skills and accountability | 15% | Role/capability matrix, decision owners and skills gaps | Open — awaiting owner/team facts |
+| T02 Roles, skills and accountability | 15% | Role/capability matrix, decision owners and skills gaps | **In progress — owner approved the owner-led/ChatGPT-assisted delivery model; named human implementers, maintainers, independent reviewers and skill-gap assessment remain open** |
 | T03 Capacity and availability | 10% | Capacity, cadence, review time and continuity assumptions | Open — awaiting owner/team facts |
 | T04 Budget and cost ceiling | 15% | One-time/recurring cost categories, scenarios and explicit ceiling | Open — awaiting owner budget decision |
 | T05 Technology stack decision pack | 15% | Evidence matrix, proof-of-fit criteria, options and owner decision record | Decision pack prepared; owner/team fit and explicit selection remain open |
@@ -41,7 +41,7 @@ The following are intentionally unanswered until confirmed. No assumptions about
 
 | Input | Needed to close | Why it matters |
 |---|---|---|
-| Delivery model | Who will do product decisions, development, QA, security/privacy review and operations; which roles are internal or contracted | Determines realistic responsibilities and skill gaps |
+| Delivery model | **Owner decision recorded:** user is Product Owner/final decision-maker; ChatGPT assists step by step with planning, documentation, architecture, code drafting only after authorization, test design and reporting; qualified specialists may be engaged for legal/privacy/security review when needed. Named human implementers, maintainers and independent reviewers still need confirmation. | Separates decision accountability, AI assistance and specialist assurance without assuming a staffed engineering/operations team |
 | Availability | Approximate hours per week and preferred review/approval cadence | Determines feasible sequencing and delivery estimates |
 | Budget ceiling | Maximum acceptable one-time setup and recurring monthly/annual spend; whether paid services are permitted at all | Prevents unapproved commitments and unsuitable architecture choices |
 | Technology constraints | Existing team expertise, preferred/unsupported languages or frameworks, maintainability constraints | Informs evidence-based stack selection |
@@ -87,13 +87,13 @@ No application code; no physical database schema or migrations; no live source r
 
 ## 8. Current next actions
 
-1. Obtain the owner/team's delivery model, named role coverage and availability.
+1. Convert the accepted owner-led/ChatGPT-assisted delivery model into a named human role/capability matrix; confirm who will own implementation, maintenance, QA and operations, and identify any specialist review gaps.
 2. Confirm one-time and recurring budget ceilings and whether paid evaluation services are allowed.
 3. Review the stack and hosting options in the [Owner Decision Pack](M3-00_OWNER_DECISION_PACK.md); then complete proof-of-fit planning without procuring services.
 4. Identify qualified legal/privacy/security review responsibilities and keep all sources research-only.
 5. Complete M3-00 readiness evidence and request owner acceptance before M3-01.
 
-**Current decision:** M3-00 planning is in progress at 10% weighted task completion. T01 is complete; T02-T08 remain open. M3-01 and all implementation steps remain gated.
+**Current decision (2026-11-12):** M3-00 planning remains at 10% weighted completion. T01 is complete; T02 is in progress following the owner's delivery-model decision; T03-T08 remain open. M3-01 and all implementation steps remain gated.
 
 ## Supporting owner decision pack
 
@@ -102,7 +102,8 @@ The [M3-00 Owner Decision Pack](M3-00_OWNER_DECISION_PACK.md) contains the role/
 ## Evidence-based progress
 
 - T01: 100% complete — accepted M0-M2 baseline and reconciled project controls delivered in PR #100.
-- T02-T08: 0% complete — required owner/team inputs, explicit decisions or supporting evidence remain outstanding.
+- T02: In progress — delivery-model decision accepted; named human role coverage, skills and accountability evidence remain outstanding. No task percentage is claimed until its full measurable acceptance output is evidenced.
+- T03-T08: 0% complete — required owner/team inputs, explicit decisions or supporting evidence remain outstanding.
 - M3-00: 10% (10% task weight × 100% completion).
 - M3 overall: 0.5% (M3-00 milestone weight 5% × M3-00 completion 10%).
 - M3-00 step acceptance remains pending owner review; task progress is not milestone acceptance.
