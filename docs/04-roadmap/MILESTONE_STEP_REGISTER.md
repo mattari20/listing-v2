@@ -557,3 +557,8 @@ PR [#85](https://github.com/mattari20/listing-v2/pull/85) merged as `17a2e3ad43b
 | S01-T05 Review, validation and step completion | 20% | Internal consistency review, CI and evidence reconciliation | Pending |
 
 Current S01 task progress is 80% (drafting complete for T01-T04; T05 pending). S01 remains In Progress and is not yet accepted.
+
+
+### M2-S01 delivery evidence — 2026-11-12
+
+PR [#87](https://github.com/mattari20/listing-v2/pull/87) merged as `a9a8320dadc339cb15c7d75ac430301941abbd57`; exact head `b759e08e9e4c0ae3c9bdaf9e449e7da751d7b80f` passed required Project documentation validation (run [#43181003815](https://github.com/mattari20/listing-v2/actions/runs/43181003815)). The system requirements, context and quality scenarios are delivered. T01-T04 are drafted (80%); T05 awaits owner review. S01 remains In Progress and is not accepted.
