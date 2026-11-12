@@ -420,3 +420,9 @@ S08 and S09 research packages have been delivered on the documentation branch. E
 ## PR #79 merge and exact-head validation evidence — 2026-11-12
 
 PR [#79](https://github.com/mattari20/listing-v2/pull/79) merged into `main` as `59ab010830182a169fd609172618002ee8327fd3`. The exact PR head `4fed8a8d9f49c361539042f1f109102b9d6f4df2` passed the required **Project documentation validation** check (run [#43174230801](https://github.com/actions/runs/43174230801)); the validation job completed successfully. The merge delivered S08/S09 research, aligned product/data requirements and project controls, and recorded S06/S07 owner acceptance. S08 and S09 remain at 95% weighted completion each, with owner acceptance pending. No implementation or source access is authorized.
+
+
+## M1-S08/S09 owner acceptance and M1-S10 closeout package — 2026-11-12
+
+- [M1-S08/S09 Owner Acceptance Record](../03-research/M1_S08_S09_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) — formal owner acceptance of the AI data-agent workflow and comparison/reviews/trust research baselines; **Accepted and Closed at 100% each**. Open product/policy decisions and rights limitations remain carried forward.
+- [M1-S10 Final Synthesis, Traceability and Closeout Review](../03-research/M1_S10_FINAL_SYNTHESIS_CLOSEOUT_REVIEW_2026-11-12.md) — final step disposition, cross-step traceability, G01–G20 gap/decision register, M2 entry requirements, exclusions and owner acceptance checklist; **Delivered — owner acceptance pending; S10 at 95% weighted completion**.
