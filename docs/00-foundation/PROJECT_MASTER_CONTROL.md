@@ -163,3 +163,8 @@ Latest review adds AJK public/private census and 6,019 aggregate; GB EMIS detail
 ## PR #42 latest rights research delivery — 2026-11-12
 
 PR #42 merged as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a42418ee0176f3fad6ad63e0220f1978c8b` passed required Project documentation validation (run #43154673045). National rights/privacy context is documented, but no source-specific reuse permission is granted. M1-S02 remains active.
+
+
+## M1-S02 Sindh private and KP registration-state evidence — 2026-11-12
+
+The school-source review now includes Sindh DIRPIS/SPEI-EMIS private registration/census as a distinct stream and KPPSRA ACTIVE/BLOCKED/DORMANT/CLOSED statuses. District/jurisdiction completeness, freshness and rights remain open. See the AJK/GB/Sindh review supplement. S02-C04/C07/C08 remain active.
