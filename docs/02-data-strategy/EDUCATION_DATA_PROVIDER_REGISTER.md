@@ -47,3 +47,8 @@ Deeni Madaris remain a distinct underlying provider family. Per owner decision, 
 ## M1-S03 additional official-source findings
 
 The M1-S03 source register now includes NFEMIS (national NFE), DGSE (special education, with mandate attribution discrepancy), Sindh DEPD (mixed education/rehabilitation provider list), GB EMIS school details and the GB Directorate of Education Colleges list. See `../03-research/M1_S03_NFE_SPECIAL_ED_GB_SOURCE_REVIEW_2026-11-12.md`. These are research-only source routes. No source-specific reuse permission is inferred; learner/teacher records, child identifiers, disability/health/therapy information and staff personal contacts remain excluded.
+
+
+## M1-S03 professional regulator source routes
+
+The official provider source register now includes PMDC, PCP, PNMC, NCEAC, NACTE, PEC, NTC, PVMC and PBC source-specific routes. Detailed scope, current-status semantics and limitations are in `../03-research/M1_S03_PROFESSIONAL_REGULATOR_SOURCE_REVIEW_2026-11-12.md`. All remain RESEARCH ONLY; programme/batch/validity and source rights require further verification.
