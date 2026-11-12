@@ -581,3 +581,10 @@ T02 and T03 are In progress; no partial task percentages are claimed because nam
 ## M3-00 T04 budget framework update — 2026-11-12
 
 A documentation-only cost framework is delivered in `M3-00_BUDGET_AND_COST_SCENARIOS.md`, covering one-time/recurring categories, no-new-spend/open-source/managed-service planning scenarios, calculation rules, and mandatory approval controls. The only currently permitted posture is no-new-spend planning. Numeric ceilings, tax/FX assumptions, dated quotes and paid-service policy remain undecided. No partial T04 completion percentage is claimed. T04 is In progress; M3-00 remains 10% and M3 overall 0.5%. No procurement, paid trial, hiring, contract, spend, implementation or production activity is authorized.
+
+
+## PR #104 exact-head validation and merge evidence — 2026-11-12
+
+PR [#104](https://github.com/mattari20/listing-v2/pull/104) delivered the M3-00 T04 Budget and Cost Scenarios framework. Exact head `ee7cb705c91bb640b69f895f7e5e47e848b33da6` passed required **Project documentation validation** (run [#43199037952](https://github.com/mattari20/listing-v2/actions/runs/43199037952)); job `Validate project control documents` and all steps completed successfully. PR #104 was squash-merged as `7b5c31af83bb18b2c5578ddb7cc3dd705f25d08e`.
+
+T04 is In progress: cost categories, scenarios, calculation rules and spend controls are documented, but numeric ceilings, dated quotes, tax/FX assumptions and paid-service policy remain unresolved. No new spend is authorized. M3-00 remains 10% and M3 overall 0.5%; no partial T04 percentage is claimed. No procurement, paid trial, contract, implementation or production activity is authorized.
