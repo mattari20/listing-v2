@@ -123,3 +123,10 @@ S02 and S03 were authored as a coordinated documentation package while retaining
 The package does not choose a monolith/modular monolith/services, framework, language, database, queue, search engine, map provider, identity vendor, AI provider, hosting provider or deployment topology. These remain for S04/S07/S09 and explicit owner decisions. No physical schema, API implementation, production access, source retrieval/ingestion, connector activation or deployment is authorized.
 
 Owner review checklist and decision request: [M2-S02/S03 Joint Validation and Owner Review](M2-S02-S03_JOINT_VALIDATION_AND_OWNER_REVIEW.md).
+
+
+## PR #91 exact-head validation and merge evidence — 2026-11-12
+
+PR [#91](https://github.com/mattari20/listing-v2/pull/91) delivered the M2-S01 owner-acceptance record and coordinated M2-S02/S03 documentation package. Exact PR head `7a58f7ddb93cd693874e7debd3fa730b5db1d1ea` passed the required **Project documentation validation** workflow (run [#43188475213](https://github.com/mattari20/listing-v2/actions/runs/43188475213)); the `Validate project control documents` job and all steps completed successfully. PR #91 was squash-merged as `0881719c3b0d98893dc0e88a9c4f929cae89aea1`.
+
+S01 is Accepted and Closed at 100%. S02 is delivered at 80% draft task completion and S03 at 85%; their T05 owner-review gates remain open. Merge and CI evidence confirm delivery and documentation validation, not owner acceptance of S02/S03. M2 weighted progress remains 32.8%.

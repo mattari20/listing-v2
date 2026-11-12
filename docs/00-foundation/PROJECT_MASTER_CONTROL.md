@@ -391,3 +391,10 @@ The owner explicitly accepted the M2-S01 system requirements, actors, system bou
 The coordinated S02/S03 documentation package is available in ../05-architecture/: S02 conceptual domain model (glossary, entity relationships, identity/deduplication, affiliation/recognition, lifecycle, temporal semantics, uncertainty and visibility invariants); S03 logical application/integration architecture (context, logical containers, component responsibilities, integration gates, runtime flows and failure/degraded-mode behaviours); and the joint validation/owner review checklist.
 
 Current progress: S02 80% (T05 review pending); S03 85% (T05 review pending). These are delivered drafts and are not accepted/closed. The next action is owner review of the joint package. The work remains documentation/design only; no stack, vendor, physical schema, API, application code, source retrieval/ingestion, production access or deployment is authorized. M2 weighted progress is 32.8%.
+
+
+## PR #91 exact-head validation and merge evidence — 2026-11-12
+
+PR [#91](https://github.com/mattari20/listing-v2/pull/91) delivered the M2-S01 owner-acceptance record and coordinated M2-S02/S03 documentation package. Exact PR head `7a58f7ddb93cd693874e7debd3fa730b5db1d1ea` passed the required **Project documentation validation** workflow (run [#43188475213](https://github.com/mattari20/listing-v2/actions/runs/43188475213)); the `Validate project control documents` job and all steps completed successfully. PR #91 was squash-merged as `0881719c3b0d98893dc0e88a9c4f929cae89aea1`.
+
+S01 is Accepted and Closed at 100%. S02 is delivered at 80% draft task completion and S03 at 85%; their T05 owner-review gates remain open. Merge and CI evidence confirm delivery and documentation validation, not owner acceptance of S02/S03. M2 weighted progress remains 32.8%.
