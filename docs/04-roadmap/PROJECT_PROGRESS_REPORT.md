@@ -691,3 +691,10 @@ P03 is resolved for the synthetic/offline Candidate A planning model only. P04 s
 PR #124 merged the AI-era architecture review as `4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5`. The review adds 20 proposed requirements covering provider independence, AI-off operation, RAG evidence grounding, optional vector retrieval, controlled agents/tools, human approval, prompt lifecycle, evaluation, agent security, observability/cost, versioned APIs, interoperability, async work, portability, English/Urdu readiness, privacy, policy isolation, replaceable search/geospatial, kill switches and lifecycle governance.
 
 This delivery is documentation-only. It strengthens P04 stack/architecture evidence and P05/P06 risk/test planning but does not complete any weighted M3-01 task, select a framework/database/host/model/vendor, authorize services or change the Candidate A boundary. No tests of AI systems have been run. Candidate A remains offline, synthetic-only and no-spend; P04–P08 remain open as applicable; M3 remains 5%; implementation authorization is NOT ISSUED.
+
+
+## M3-01 P04 stack/hosting/cost planning update — 2026-11-12
+
+The P04 dossier compares Laravel 13/PHP, Django/Python and NestJS/Node 26 against solo-founder operability and the new AI-era requirements. It recommends preserving a modular monolith, HTML-first delivery and provider-neutral AI boundary; PostgreSQL 18/PostGIS is the leading database candidate, with pgvector/dedicated search/queues/agents optional and benchmark-gated.
+
+The owner's hands-on language/framework proficiency is not established in the project records, and hosting region, data terms, extension availability, backup/restore, support, traffic/storage assumptions, full vendor quotes and numeric spend ceiling remain unresolved. Therefore no defensible final backend/host/cost selection is made and no false numerical score or cost estimate is reported. P04 remains open. No M3-01 weighted progress is claimed; M3 remains 5%; implementation authorization NOT ISSUED.

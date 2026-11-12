@@ -695,3 +695,8 @@ PR [#122](https://github.com/mattari20/listing-v2/pull/122) passed required chec
 | [AI-Era Architecture Readiness Review](../05-architecture/M3-01_AI_ERA_ARCHITECTURE_READINESS_REVIEW_2026-11-12.md) | Defines 20 future-proofing requirements, logical boundaries, AI trust flow, security controls, conditional stack implications and later verification | Delivered — owner review pending; no stack or implementation authorization |
 
 PR [#124](https://github.com/mattari20/listing-v2/pull/124) passed required Project documentation validation on exact head `db83a1b83da5862b73d50277473ba64f0437f50e` (run #43259025474) and squash-merged as `4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5`. The review strengthens P04 evidence but does not close P04 or select any stack/provider/host. AI-ARCH-01–20 remain proposed until owner acceptance; implementation authorization remains NOT ISSUED.
+
+
+## P04 decision dossier — 2026-11-12
+
+A new [M3-01 P04 Stack, Hosting and Cost Decision Dossier](M3-01_P04_STACK_HOSTING_COST_DECISION_DOSSIER_2026-11-12.md) reconciles M2-S04 with the AI-era review. It evaluates backend candidates, database/retrieval direction, solo-founder operability, hosting evidence and a no-invented-cost model. Delivered for owner review; no stack, host, region, budget or vendor selected; P04 remains open; no implementation authorization.

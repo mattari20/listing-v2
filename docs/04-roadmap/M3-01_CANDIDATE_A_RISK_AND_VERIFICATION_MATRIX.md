@@ -100,3 +100,16 @@ The AI-era review adds cross-cutting risks that must be retained for any future 
 | AI-R23 | Unmaintained model/SDK/tool or unsafe interoperability server | Version inventory, lifecycle review, bounded gateway and explicit trust review | Dependency lifecycle and hostile-server tests | Planning proposal; owner review pending |
 
 AI-specific tests are future obligations only. No model, agent, vector store, external tool, network egress or paid service is approved or activated by this matrix.
+
+
+## M3-01 P04 technology decision risk extension — 2026-11-12
+
+| ID | Risk | Control / evidence required | Current state |
+|---|---|---|---|
+| P04-R01 | Backend selected without founder ability to maintain it | Owner-confirmed hands-on skills inventory and operational fit comparison | Open — skills evidence not recorded |
+| P04-R02 | Framework version selected near end of support | Re-check official release/support policy at decision and implementation time; prefer supported LTS where available | Open — no version approved |
+| P04-R03 | AI ecosystem drives premature Python/microservice choice | Keep provider-neutral AI adapter; select core backend on whole-platform and solo-builder fit; separate worker only if workload proves need | Control proposed |
+| P04-R04 | Database/extension unavailable on chosen host | Confirm PostgreSQL major and PostGIS/pgvector availability, backup/PITR and restore before host selection | Open |
+| P04-R05 | Hosting cost/data-location terms underestimated | Baseline/growth cost worksheet with taxes, FX, storage, backups, egress, support and data terms | Open — no quotes or numeric budget |
+| P04-R06 | Search/vector/queue infrastructure overbuilt | Start with database-native search; add optional services only after synthetic benchmark and operations case | Control proposed |
+| P04-R07 | AI/provider lock-in or uncontrolled usage | Adapter boundary, no provider-specific canonical data, quotas and kill switch before any activation | Planning requirement |

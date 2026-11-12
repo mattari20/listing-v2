@@ -127,3 +127,8 @@ A vendor price quote is not comparable without traffic, storage, region, retenti
 - Cost and operability assumptions are exposed rather than invented.
 - Conditional recommendation is traceable to S01-S03.
 - Owner decision and implementation approval remain separate.
+
+
+## M3-01 P04 AI-era stack implications — 2026-11-12
+
+The AI-era review is incorporated as a cross-cutting requirement input. It does not make Python mandatory: the core application may use Laravel/PHP, Django/Python or NestJS/TypeScript if the selected solo-builder skill fit and operational evidence support it. Provider-neutral interfaces, AI-off resilience, evidence-grounded retrieval, controlled tools and data portability are framework-independent requirements. The P04 decision dossier is in `../04-roadmap/M3-01_P04_STACK_HOSTING_COST_DECISION_DOSSIER_2026-11-12.md`. Keep modular monolith and HTML-first as the preferred direction for evaluation; PostgreSQL 18/PostGIS is the leading database candidate; vectors, dedicated search, queues, MCP and agent runtime remain optional. No framework, host, region, vendor or spend is approved.

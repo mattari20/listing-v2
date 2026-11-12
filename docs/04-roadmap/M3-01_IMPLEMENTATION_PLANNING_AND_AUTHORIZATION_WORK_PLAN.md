@@ -73,3 +73,10 @@ P03 is therefore **resolved for the Candidate A synthetic/offline foundation pla
 ## M3-01 AI-era architecture requirements — 2026-11-12
 
 The AI-era readiness review was added in PR #124 and merged as `4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5`. It introduces AI-ARCH-01–20 as proposed planning requirements. The work plan now treats them as P04 architecture/technology evaluation inputs and P05/P06 security/verification considerations. This is not a stack decision or implementation authorization. AI remains optional, provider-independent and disabled unless separately approved; RAG, vectors, agents, MCP, queues and external search are not baseline dependencies. P04–P08 remain open; implementation authorization NOT ISSUED.
+
+
+## M3-01 P04 stack/hosting/cost decision evidence — 2026-11-12
+
+The [P04 Stack, Hosting and Cost Decision Dossier](M3-01_P04_STACK_HOSTING_COST_DECISION_DOSSIER_2026-11-12.md) reconciles the existing M2-S04 options with AI-ARCH-01–20. It compares Laravel 13/PHP, Django/Python and NestJS/Node 26; refines Django lifecycle guidance toward a supported LTS line; evaluates PostgreSQL 18/PostGIS, optional pgvector and database-native search; and defines hosting, portability, restore and cost evidence requirements.
+
+This dossier does not select a backend, database, hosting provider/region, model, vendor or budget. The owner's hands-on framework proficiency and provider/operational evidence remain required. No numerical cost is invented; no new spend is authorized. P04 remains open pending owner decision and evidence.
