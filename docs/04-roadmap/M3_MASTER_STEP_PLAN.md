@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-00 — Mobilization and Decision Closure  
+**Current step:** M3-01 — Implementation Planning and Authorization (documentation only)  
 **Plan status:** Proposed execution baseline, owner-authorized for documentation/planning only  
 **Application implementation:** Not authorized by this plan or by M2 acceptance
 
@@ -188,3 +188,8 @@ The [M3-00 Hosting and Operations Decision Framework](M3-00_HOSTING_AND_OPERATIO
 ## Current-status audit — 2026-11-12 (after PR #110)
 
 PRs #102–#110 are closed and merged; each required Project documentation validation passed on its exact PR head. The latest reconciliation PR #110 merged as `a328a8272b086cac6270dc625d53ea6c3bbc1fa7`. Current M3-00 task status: T01 Complete; T02-T06 In progress; T07-T08 Open. T04-T06 have delivered decision frameworks, not final decisions or completed tasks. M3-00 remains 10%; M3 overall remains 0.5%. No partial task percentages are claimed. See [Project Progress Report](PROJECT_PROGRESS_REPORT.md) and [M3-00 Mobilization](M3-00_MOBILIZATION_AND_DECISION_CLOSURE.md) for blockers and evidence. No implementation, spend or production authorization is created.
+
+
+## Superseding M3-00 owner acceptance — 2026-11-12
+
+The Product Owner explicitly accepted all three bounded closeout decisions: T07 as a deny-by-default planning/control framework only, T08 as a planning framework only, and M3-00 formal closure on those conditions. The authoritative [M3-00 Final Owner Acceptance and Closure Record](M3-00_FINAL_OWNER_ACCEPTANCE_AND_CLOSURE_RECORD_2026-11-12.md) supersedes earlier pending/open snapshots. M3-00 is **Accepted — 100% of planning deliverables**; M3 overall weighted progress is **5%**. Qualified reviews, staffing, stack, hosting, source rights and spend decisions remain open. M3-01 planning begins under [M3-01 Work Plan](M3-01_IMPLEMENTATION_PLANNING_AND_AUTHORIZATION_WORK_PLAN.md); implementation authorization is **NOT ISSUED**. No application coding, technical spike, source/production access, DB changes, procurement, spend, deployment, pilot or launch is authorized.
