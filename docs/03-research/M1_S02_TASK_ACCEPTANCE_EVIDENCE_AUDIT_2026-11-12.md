@@ -22,14 +22,15 @@ S02-C01 and S02-C09 require explicit owner review/approval and must not be self-
 | S02-C06 Non-formal and special education | 10% | BECS, NFEMIS, Balochistan EMIS/SED NFE, KP special-education list, ICT DGSE, Punjab SED, Sindh DEPD and GB facility leads mapped with operational-status/privacy limits. | **Completed — limitations documented.** NFEMIS totals differ by two; KP list has one non-functional entry and no clear update date; Balochistan NFE is aggregate-level; complete registers remain missing in several jurisdictions. |
 | S02-C07 Source rights and access | 10% | Per-source access, freshness, privacy and terms assessment; national draft-policy/RTI/copyright context; narrow SED Balochistan dashboard open license; AJK login/Google Drive access issue; explicit RESEARCH ONLY classification for other sources. | **Completed — limitations documented.** No general education-directory reuse permission is established; only SED headline/district aggregates have scoped permission with attribution/as-of date. |
 | S02-C08 National coverage synthesis | 10% | Consolidated national matrix, multiple evidence addenda and explicit source-strength labels, data-quality discrepancies and remaining coverage gaps. | **Completed — limitations documented.** Matrix is a research baseline, not a complete national census; latest corrections supersede earlier cells where stated. |
-| S02-C09 Owner review and step acceptance | 5% | Explicit owner review of taxonomy, coverage baseline, limitations and no-ingestion boundary. | **Not started — owner only.** Assistant cannot approve this gate. |
+| S02-C09 Owner review and step acceptance | 5% | Explicit owner review of taxonomy, coverage baseline, limitations and no-ingestion boundary. | **Accepted — owner approved 2026-11-12.** The owner explicitly accepted the taxonomy and coverage research baseline with limitations; assistant did not self-approve this gate. |
 
 ## 3. Quantified progress
 
 - Research/documentation outputs for S02-C02 through S02-C08 satisfy their stated mapping, evidence and gap-documentation objectives, subject to the limitations above.
-- S02-C01 remains pending owner review of the proposed taxonomy.
-- S02-C09 remains pending explicit owner acceptance.
-- Therefore M1-S02 as a whole remains **In progress / awaiting owner acceptance**; no ingestion, source reuse, implementation or M1-S03/M2 authorization follows from this audit.
+- S02-C01 was approved by the owner on 2026-11-12.
+- S02-C09 was explicitly accepted by the owner on 2026-11-12.
+- All nine weighted tasks now meet their stated research/documentation acceptance criteria: **100% weighted completion; M1-S02 Accepted**.
+- The acceptance is limited to the documented research baseline and limitations. It does not authorize ingestion, source reuse beyond the one scoped SED aggregate license, implementation, or M1-S03/M2.
 
 ## 4. Principal unresolved gaps carried forward
 
@@ -47,3 +48,10 @@ S02-C01 and S02-C09 require explicit owner review/approval and must not be self-
 ## 5. Safety and independence boundary
 
 No legacy repository or legacy production data was used. No application code, schema, database, production website, migration, deployment, source scraping, bulk download, source-owner contact, permission request, login/access bypass, student/staff personal data, health/disability records, CNICs or sensitive personal data were collected. No source is approved for ingestion/republication except the narrowly scoped SED Balochistan dashboard headline/district aggregates under attribution/as-of-date conditions. M1-S03 and M2 remain unauthorized pending owner acceptance.
+
+
+## 6. Owner acceptance evidence — 2026-11-12
+
+The owner responded: "ok i approve as u recommended above". In context, this explicitly approves the recommended provisional institution taxonomy and accepts M1-S02 as a research baseline with the limitations documented in this audit and the consolidated coverage matrix. The approval closes C01 and C09; it is not a blanket approval of individual source records, licenses, or future implementation.
+
+See `M1_S02_OWNER_ACCEPTANCE_RECORD_2026-11-12.md` and the closeout entry in `../04-roadmap/MILESTONE_STEP_REGISTER.md`.
