@@ -56,3 +56,16 @@ All step evidence complete; all M1 requirements and G01-G20 disposed; architectu
 
 
 **M2-S00 closeout:** 100% task completion. PR [#85](https://github.com/mattari20/listing-v2/pull/85) merged as `17a2e3ad43ba1fd5ca3cb7a163670a2f19dd3783`; exact-head required documentation validation passed (run [#43180488082](https://github.com/mattari20/listing-v2/actions/runs/43180488082)). Next step: M2-S01.
+
+
+## M2-S01 task progress — 2026-11-12
+
+| Task | Weight | Evidence | Status |
+|---|---:|---|---|
+| S01-T01 Requirement inventory and stable identifiers | 20% | AR-001–AR-025 introduced and linked to SR-01–SR-14 / M1 decisions | Complete — draft |
+| S01-T02 Actors, capabilities and system context | 20% | Actor matrix, boundary definition and context diagram | Complete — draft |
+| S01-T03 Functional and quality requirements | 20% | 25 architecture requirements and 20 quality scenarios | Complete — draft |
+| S01-T04 Constraints, exclusions and trust boundaries | 20% | Rights, privacy, minor, source, production, V1 and Deeni Madaris controls mapped | Complete — draft |
+| S01-T05 Owner/design review and S01 completion | 20% | Cross-document review, exact-head CI and delivery evidence | Pending |
+
+**Current S01 task completion:** 80% (four of five equal-weight tasks drafted; review/validation remains). This is task progress, not S01 acceptance.
