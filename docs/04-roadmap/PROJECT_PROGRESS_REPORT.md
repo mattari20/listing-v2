@@ -99,5 +99,11 @@ PR #22 clarified NAVTTC production TIS/NSIS/NVQF discovery routes, separated ins
 ## PR #23 evidence
 PR #23 reconciled PR #22 evidence in the catalogue, traceability matrix, progress report and master controller. Exact head `737ec6838dc85d4ba1becc600af661d998074c0a` passed required `Project documentation validation` (run #43145140802); merge commit `2a94f8caced03142fee56c5b6e6fc1afa2f6df65`.
 
+## PR #24 evidence
+PR #24 reconciled PR #23 merge evidence across the catalogue, traceability, progress report and master controller. Exact head `1995f3c1d63a44f1673ac29ba76b2a09ac6e8d93` passed required `Project documentation validation` (run #43145235157); merge commit `1c2004186a834f5fc06af82d75bf883e26900762`.
+
+## M1-S02 national coverage synthesis — draft delivered
+A draft national coverage synthesis is being added at `docs/03-research/M1_NATIONAL_INSTITUTION_COVERAGE_SYNTHESIS.md`. It consolidates the currently identified official source families across higher education, professional education, school education, TVET, non-formal education and special education; distinguishes provider/campus/programme, registration/recognition/accreditation/affiliation/assessment relationships; and lists unresolved jurisdiction, status, freshness, privacy and reuse-rights gaps. It does not claim a complete national inventory and does not approve any source for collection or reuse. S02-C08 remains in progress; S02-C09 owner review has not occurred.
+
 ## Reporting rule
 After every documentation PR update and merge, reconcile the documentation catalogue, index, controller, step register, traceability matrix and progress report. Record exact PR, head SHA, required check and merge SHA. Never infer acceptance from a merge alone.
