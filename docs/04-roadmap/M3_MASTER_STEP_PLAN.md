@@ -161,3 +161,10 @@ Conditional step. Requires separate explicit written approval for production acc
 - Production access/deployment/launch: Not authorized.
 
 **M3-00 supporting artifact:** `M3-00_OWNER_DECISION_PACK.md` contains the owner/team input and decision templates. **Next eligible work:** resolve the open owner inputs and decision gates, then complete M3-00 readiness evidence. Do not begin M3-01 implementation work or application coding until the required authorization is recorded.
+
+
+## PR #102 merge reconciliation — 2026-11-12
+
+PR [#102](https://github.com/mattari20/listing-v2/pull/102) recorded M3-DEC-001 (owner-led, ChatGPT-assisted delivery model) and M3-DEC-002 (owner availability of 10–15 hours/week as a flexible planning baseline, with demand-led review/approval cadence). Exact PR head `2cce569bd6e63dcf204f5c11d987a8d544373b2d` passed **Project documentation validation** workflow run [#43198671760](https://github.com/mattari20/listing-v2/actions/runs/43198671760); job `Validate project control documents` and all steps completed successfully. PR #102 was squash-merged as `cc5a4966cca74df5e15de7f15277814ddb86d6d9`.
+
+T02 and T03 are In progress; no partial task percentages are claimed because named human role coverage, other delivery capacity and continuity evidence remain incomplete. T01 remains complete; T04-T08 remain open. M3-00 remains 10% weighted completion and M3 overall remains 0.5%. This merge confirms documentation delivery and CI validation, not M3-00 acceptance or implementation authorization. No hiring, procurement, spend, source access, production access, application code, schema/migrations, deployment or launch is authorized.
