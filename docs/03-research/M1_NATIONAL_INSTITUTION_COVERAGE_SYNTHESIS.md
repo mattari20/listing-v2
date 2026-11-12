@@ -53,6 +53,18 @@ A source being publicly visible does not prove completeness, current operating s
 | Rights and access | Dated public-terms reviews exist for selected sources; no directory-specific reuse permission has been established | Complete source-by-source terms, privacy, access, attribution and written-permission assessment; owner/legal decision remains necessary |
 | Data quality and correction | Public directories vary in formatting, scope and aggregate consistency | Identify data dictionaries, correction channels, duplicate handling and conflicting-record resolution rules |
 
+## 4A. Verification updates — 2026-11-12
+
+The official-source review now confirms additional programme-level and jurisdiction evidence:
+
+- HEC's current campus page displays 151 recognized campuses (96 public, 55 private) and separate institution, campus, affiliation, unaccredited and illegal/unrecognized routes. The aggregate is page-reported, not an independently audited national census.
+- HEC's accreditation-council page identifies a broad professional/programme authority landscape. NCEAC explicitly accredits programmes, not institutions; PEC exposes engineering programme levels and intake; NACTE exposes teacher-education programme validity dates; NBEAC exposes session and status categories; NTC publishes programme accreditation criteria.
+- PM&DC publishes public/private medical and dental college tables with seat allocations. PNMC's recognized-institute page appears old/irregular and requires freshness verification. PCP displays programme/seat/status data but search results include apparent geography anomalies requiring source confirmation. NCH's college list contains closed entries and personal principal contact details, which must not be republished.
+- Punjab public-school discovery has a distinct OpenPunjab/PMIU route described as free/open/real-time and tied to School Census 2024–25; PEPRIS is a separate private e-license register with one-year license validity. KPPSRA district lists expose ACTIVE, BLOCKED and DORMANT statuses. Sindh RSU publishes annual school census profiles through 2024–25. Balochistan EMIS separates public-school search, private schools and NFE navigation.
+- NAVTTC's production site distinguishes institute registration, QAB affiliation and NAC-TVS accreditation. Staging/test “representative sample” directory content is excluded as authoritative coverage evidence.
+
+These observations increase confidence in source-family discovery, not in completeness or reuse rights. Every source remains research-only; page-level claims and aggregate totals are not treated as per-record freshness or permission.
+
 ## 5. Priority unresolved gaps
 
 1. Verify the exact HEC campus and affiliated-college registers, including effective dates and current status.
