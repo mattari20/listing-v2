@@ -278,3 +278,8 @@ PR [#44](https://github.com/mattari20/listing-v2/pull/44) delivered KPPSRA/Sindh
 ## Supplemental M1-S02 KP special education and Balochistan NFE review
 
 - [M1-S02 KP Special-Education and Balochistan NFE Register Deep Review](../03-research/M1_S02_KP_SPECIAL_ED_BALOCHISTAN_NFE_REVIEW_2026-11-12.md) — current KP partial centre list and Balochistan organization-level NFE aggregates; status, completeness, privacy and rights remain open.
+
+
+## Supplemental M1-S02 Balochistan 2026 public-school data/open-license review
+
+- [M1-S02 Balochistan 2026 Public-School Data and Scoped Open-License Review](../03-research/M1_S02_BALOCHISTAN_2026_PUBLIC_SCHOOL_OPEN_DATA_REVIEW.md) — 15,368 public-school aggregate (30 July 2026), 1,245 NFE-centre aggregate (28 February 2026), 2025–26 census and narrowly scoped dashboard open-license terms.
