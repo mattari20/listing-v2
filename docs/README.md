@@ -100,3 +100,15 @@ M2 is owner-authorized and active as a documentation/design milestone. Applicati
 - [System Requirements and Architecture Boundaries](05-architecture/M2-S01_SYSTEM_REQUIREMENTS_AND_BOUNDARIES.md)
 - [System Context and Capability Boundary](05-architecture/M2-S01_SYSTEM_CONTEXT.md)
 - [Quality Attribute Scenarios and Targets](05-architecture/M2-S01_QUALITY_SCENARIOS.md)
+
+### M2 architecture and design — current S04-S10 status
+
+- [M2-S04/S05/S06 Owner Acceptance Record](05-architecture/M2-S04-S06_OWNER_ACCEPTANCE_RECORD_2026-11-12.md)
+- [M2-S07 AI Data-Agent Technical Architecture](05-architecture/M2-S07_AI_DATA_AGENT_TECHNICAL_ARCHITECTURE.md)
+- [M2-S08 Identity, Authorization, Reviews, Privacy and Security](05-architecture/M2-S08_IDENTITY_AUTHORIZATION_REVIEWS_PRIVACY_SECURITY.md)
+- [M2-S09 Performance, Operations, Hosting and Recovery](05-architecture/M2-S09_PERFORMANCE_OPERATIONS_HOSTING_RECOVERY.md)
+- [M2-S07/S08/S09 Joint Architecture Validation](05-architecture/M2-S07-S09_JOINT_ARCHITECTURE_VALIDATION.md)
+- [M2-S10 Final Architecture Synthesis and M3 Roadmap](05-architecture/M2-S10_FINAL_ARCHITECTURE_SYNTHESIS_M3_ROADMAP.md)
+- [M2 Progress Report](05-architecture/M2_PROGRESS_REPORT.md)
+
+S04-S06 are owner-accepted and closed. S07-S09 design tasks are complete; S10 final owner acceptance remains pending. Weighted M2 design progress is 98.6%. M3 implementation is not authorized.
