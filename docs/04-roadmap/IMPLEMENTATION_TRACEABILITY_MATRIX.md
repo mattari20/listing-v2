@@ -138,3 +138,7 @@ The new review strengthens TAX-001 source-family discovery for special education
 ## M1-S02 ICT PEIRA and Madaris taxonomy evidence — 2026-11-12
 
 The ICT PEIRA register improves S02-C04 jurisdiction evidence. DGRE's nationwide Madaris registration mandate adds a distinct provider family for S02-C01, while IBCC QAB recognition versus specific qualification equivalence strengthens S02-C05 relationship semantics. Current DGRE register freshness and source rights remain open; no sensitive maslak field is included in the general V2 discovery taxonomy. No acceptance or source-use permission is inferred.
+
+## PR #38 deep jurisdiction/TVET delivery evidence
+
+PR #38 merged as `a38fa149d10be99903ca6bb44236bd1e68565e6a`; exact head `f1f7aa59424b5161ec91a3f3ae60ff20471edba2` passed required Project documentation validation (run #43153839019). It adds S02-C04/C05/C06 source-family evidence; record-level completeness and rights remain open.
