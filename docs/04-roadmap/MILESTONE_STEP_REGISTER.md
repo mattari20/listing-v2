@@ -86,7 +86,7 @@ The closeout review is `../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md`; th
 
 ### M1-S04 owner acceptance gate
 
-Review `../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md`. Acceptance should confirm the 21 source-family inventory, seven-jurisdiction coverage assessment, status/recognition distinctions, major private-provider coverage gaps, personal-data safeguards and RESEARCH ONLY boundary. No source collection, reuse, ingestion or connector activation is implied.
+Review `../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md`. PR [#73](https://github.com/mattari20/listing-v2/pull/73) merged as `a66400189b2f2216e3743fe7b40a7f672cfb240a`; exact PR head `099f99289399bc95b6cdd2ca9aafdb023bf5a352` passed required Project documentation validation (run [#43169707414](https://github.com/mattari20/listing-v2/actions/runs/43169707414)). Acceptance should confirm the 21 source-family inventory, seven-jurisdiction coverage assessment, status/recognition distinctions, major private-provider coverage gaps, personal-data safeguards and RESEARCH ONLY boundary. No source collection, reuse, ingestion or connector activation is implied.
 
 
 

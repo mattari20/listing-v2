@@ -1,6 +1,6 @@
 # M1-S04 — Private Provider and Institution-Source Research
 
-**Status:** Initial independent private-provider source inventory and gap analysis completed; prepared for owner acceptance. This is a research baseline, not a complete national census, legal opinion, permission grant or authorization to collect/republish data.  
+**Status:** Initial independent private-provider source inventory and gap analysis delivered and merged in PR [#73](https://github.com/mattari20/listing-v2/pull/73); owner acceptance pending. Exact PR head `099f99289399bc95b6cdd2ca9aafdb023bf5a352` passed required Project documentation validation (run [#43169707414](https://github.com/mattari20/listing-v2/actions/runs/43169707414)); merge commit `a66400189b2f2216e3743fe7b40a7f672cfb240a`. This is a research baseline, not a complete national census, legal opinion, permission grant or authorization to collect/republish data.  
 **Prepared / checked:** 2026-11-12  
 **Repository:** `mattari20/listing-v2`  
 **Independence:** Research performed independently for Listing V2; no legacy repository artifacts, datasets, schemas, implementation patterns or historical findings used.
@@ -113,3 +113,8 @@ All URLs above were checked as public source routes on 2026-11-12. Principal sou
 - Regional TEVTA portals are separate provider-source families and need record-level public/private classification.
 
 **Conclusion:** M1-S04 establishes a credible first map of private-provider source families and identifies significant jurisdictional and sector gaps. It does not establish a complete private-provider census, current operation of each listed provider, blanket recognition, legal reuse rights or permission to collect data.
+
+
+## Delivery evidence
+
+PR [#73](https://github.com/mattari20/listing-v2/pull/73) merged as `a66400189b2f2216e3743fe7b40a7f672cfb240a`. Exact PR head `099f99289399bc95b6cdd2ca9aafdb023bf5a352` passed required Project documentation validation (run [#43169707414](https://github.com/mattari20/listing-v2/actions/runs/43169707414)). This confirms delivery and document validation only; M1-S04 owner acceptance remains pending and all source families remain RESEARCH ONLY.
