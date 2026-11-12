@@ -216,3 +216,8 @@ PR [#38](https://github.com/mattari20/listing-v2/pull/38) delivered the deep jur
 ## PR #39 ICT PEIRA/Madaris delivery evidence
 
 PR [#39](https://github.com/mattari20/listing-v2/pull/39) delivered the ICT PEIRA, DGRE Madaris and IBCC QAB review. Exact head `cf4d54967cad1f2114cd1f43dfccec5184d1b759` passed required **Project documentation validation** (run [#43154066994](https://github.com/mattari20/listing-v2/actions/runs/43154066994)); merge commit `0ace505ec67a420b8c2eb8fedd13ba1a2499f84c`. This is research delivery only; it does not close S02 or approve reuse.
+
+
+## HEC affiliation and programme-status supplement
+
+The [M1-S02 Examination Boards, PMF and DGRE Jurisdiction Review](../03-research/M1_S02_EXAMINATION_BOARDS_PMF_DGRE_JURISDICTION_REVIEW_2026-11-12.md) also documents HEC Institutional Affiliation Policy 2024, approved study-centre scope, affiliate-college data-quality issues and PM&DC/PCP/PNMC programme-status/freshness distinctions.
