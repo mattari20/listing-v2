@@ -145,3 +145,8 @@ HEC's 2024 affiliation policy covers approved study centres and MoU-operated cen
 ## PR #40 latest research delivery — 2026-11-12
 
 PR #40 merged as `c92d96613dcb510762be5a0a615a73e856861f9b`; final exact head `cc2cc7eaa615e4fe762f808e51918b6b10b5e235` passed required Project documentation validation (run #43154387281). Board, PMF, DGRE and HEC affiliation/study-centre evidence is now incorporated. M1-S02 remains active; S02-C09 is still owner-only.
+
+
+## M1-S02 national rights and privacy review — 2026-11-12
+
+The latest desk review clarifies that the National Data Governance Policy 2026 and Personal Data Protection Bill May 2023 remain listed as drafts by MoITT; RTI access is not a general reuse license; copyright in compilations and underlying data must be distinguished; and PBS's open license is limited to PBS products/tiers. The detailed source-rights framework is in `../03-research/M1_S02_DATA_RIGHTS_PRIVACY_FRAMEWORK_REVIEW_2026-11-12.md`. S02-C07/C08 remain active; no education source is approved for collection/reuse.
