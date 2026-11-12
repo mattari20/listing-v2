@@ -45,7 +45,7 @@ Maintain `DOCUMENTATION_CATALOG.md` as the owner-facing inventory. Reconcile it 
 | M1-S01 | Student journey desk research and requirements baseline | Independent desk-research synthesis and provisional journey hypotheses; primary participant research is explicitly deferred during construction by owner |
 | M1-S02 | Institution taxonomy and coverage requirements | Independent level/type/sector/geography matrix, recognition/affiliation distinctions and inclusion rules; see `../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md` and `../03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md` |
 | M1-S03 | Official government/regulator provider research | New source register with access, rights, coverage and freshness evidence |
-| M1-S04 | Private provider and institution-source research | New provider inventory and documented gaps |
+| M1-S04 | Private provider and institution-source research | `../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md` — 21 source families, seven-jurisdiction coverage assessment and documented gaps |
 | M1-S05 | Programme/admissions information research | Student-required programme, campus, fees, admission and scholarship information |
 | M1-S06 | Independent GitHub software and dataset discovery | Candidate inventory across crawler, data, search, geo, workflow and education-data categories |
 | M1-S07 | License, data-rights and security assessment | Per-candidate evidence and independent reuse decision |
