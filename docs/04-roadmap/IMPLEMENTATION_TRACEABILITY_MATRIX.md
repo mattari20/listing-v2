@@ -110,3 +110,8 @@ The additional AJK, Balochistan, NFEMIS, GB EMIS, HEC PQR/allied-health NOC and 
 ## PR #33 supplemental source evidence
 
 PR #33 added the dated AJK private-institution register lead, Balochistan EMIS field/scope evidence, NFEMIS dashboard/inventory discrepancy, GB EMIS zero-valued summary warning, HEC PQR/allied-health NOC distinctions and historical-only KP special-education lead. Exact head `09a3051043bf47825360cf03ea220c11eff121f7` passed required documentation validation (run #43151991943); merge commit `f6c22c70d4128784b2e3b76cd4115113ad7e5329`. TAX-001 remains in progress; S02-C09 remains an owner-only gate.
+
+
+## PR #34 reconciliation evidence
+
+PR #34 merged as `569ef14f0cc4ef72bb07cf0313965e13250eac3d`; exact head `fce8164fe73bf435aa7c021ac3b8eb7e521c89a7` passed required Project documentation validation (run #43152117268). It reconciled PR #33 merge evidence across the documentation source of truth. TAX-001 remains in progress pending remaining S02 evidence and owner acceptance.
