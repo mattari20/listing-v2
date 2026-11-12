@@ -46,3 +46,5 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 
 ## Governance rule
 A proposal in a document is not automatically an approved implementation choice. Record material decisions in the Decision Register. Update the controller, step register, traceability and progress report as work advances. Legacy repository artifacts are explicitly excluded from V2; see the isolation audit.
+
+- [M1-S02 Deep Jurisdiction, Special-Education and TVET Review](03-research/M1_S02_DEEP_JURISDICTION_SPECIAL_ED_TVET_REVIEW_2026-11-12.md) — Punjab/Sindh/GB special-education leads, provincial TVET directory evidence, data-quality and privacy boundaries
