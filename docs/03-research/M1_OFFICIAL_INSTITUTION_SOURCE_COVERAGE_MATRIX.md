@@ -234,3 +234,9 @@ The supplemental review is recorded in [M1-S02 Supplemental Official-Source Cove
 - KP special-education parliamentary material is historical (2020–21) and is not accepted as a current register; current multi-jurisdiction coverage remains unverified. Source: https://www.pakp.gov.pk/wp-content/uploads/2024/04/14398.pdf.
 
 These findings strengthen discovery but do not close S02-C04/C06/C08 or change the research-only source-use boundary.
+
+## 7. Professional-council and special-education supplement — 2026-11-12
+
+A second supplement is recorded in [M1-S02 Supplemental Professional-Council and Special-Education Review](M1_S02_SUPPLEMENTAL_PROFESSIONAL_COUNCIL_SPECIAL_EDUCATION_REVIEW_2026-11-12.md). PCATP's 2025 annual report distinguishes accredited, pending NOC, on-hold, revoked and closed architecture programmes and reports all five listed town-planning programmes accredited; its separate September 2025 NOC-application PDF is not proof of approval. NCT publishes separate FTJ and BEMS recognition pages; the FTJ page contains a disputed entry and personal contact data. AHPC's public PDF is a list of institutions that applied for recognition/accreditation, not proof of granted recognition. NTC publishes zero/interim programme and accreditation-visit/intake-batch routes; neither a zero/interim phase nor a visit alone proves final accreditation. NAEAC remains an identified HEC council with no complete current public register verified in this pass.
+
+For special education, the Ministry of Human Rights confirms DGSE's ICT-level mandate, but the reviewed page is not a current institution register. KP evidence remains historical (2020–21); current complete registers for Balochistan, AJK and GB remain unverified. Personal staff/principal contact data and student/health/disability-level data remain excluded. All sources remain research-only; no reuse permission is established.
