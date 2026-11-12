@@ -127,3 +127,8 @@ Latest research adds ICT-PEIRA's paginated private-education register/status mod
 ## PR #38 latest delivery evidence — 2026-11-12
 
 PR #38 merged as `a38fa149d10be99903ca6bb44236bd1e68565e6a`; exact head `f1f7aa59424b5161ec91a3f3ae60ff20471edba2` passed required Project documentation validation (run #43153839019). Deep jurisdiction and TVET evidence is incorporated; M1-S02 remains active and S02-C09 remains owner-only.
+
+
+## M1-S02 examination-board and DGRE jurisdiction research — 2026-11-12
+
+The latest pass adds IBCC board categories, Punjab BISE jurisdictions, Punjab Medical Faculty affiliated institute routes, and DGRE regional jurisdiction plus 2024 registered-Madaris lists across multiple territories. Record anomalies and freshness limits are documented; board affiliation, examination jurisdiction, provider registration and qualification equivalence remain separate. Full review: `../03-research/M1_S02_EXAMINATION_BOARDS_PMF_DGRE_JURISDICTION_REVIEW_2026-11-12.md`. S02-C01/C03/C05/C07/C08 remain active; S02-C09 owner-only.
