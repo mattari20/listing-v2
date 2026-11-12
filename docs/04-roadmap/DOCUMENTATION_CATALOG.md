@@ -556,3 +556,7 @@ This reconciliation confirms PR #93's merge evidence and does not alter content 
 - [M2-S10 Final Architecture Synthesis and M3 Roadmap](../05-architecture/M2-S10_FINAL_ARCHITECTURE_SYNTHESIS_M3_ROADMAP.md) — integrated architecture and conditional M3 roadmap; owner acceptance pending.
 
 S07 is 85%, S08 80%, S09 80% and S10 80% draft completion. Weighted M2 progress is 93.9%. These are draft design deliverables pending T05 reviews and explicit final owner acceptance. M3 implementation remains unauthorized.
+
+
+- [M2-S07/S08/S09 Joint Architecture Validation](../05-architecture/M2-S07-S09_JOINT_ARCHITECTURE_VALIDATION.md) — cross-step consistency, threats, failure modes and evidence limitations; S07-S09 design tasks complete.
+- [M2 Progress Report](../05-architecture/M2_PROGRESS_REPORT.md) — weighted progress 98.6%; S10 owner acceptance pending.
