@@ -245,7 +245,7 @@ Additional official routes have been reviewed for HEC's accreditation-council ma
 
 ## M1-S03 task acceptance audit
 
-The 48-source official provider register, jurisdictional school matrix and eight supplemental research notes have been assessed in `../03-research/M1_S03_TASK_ACCEPTANCE_EVIDENCE_AUDIT_2026-11-12.md`. S03-C01 to C08 meet their stated research/documentation criteria with limitations; C09 remains an owner-only acceptance gate. This does not authorize source reuse or ingestion.
+The 48-source official provider register, jurisdictional school matrix and eight supplemental research notes have been assessed in `../03-research/M1_S03_TASK_ACCEPTANCE_EVIDENCE_AUDIT_2026-11-12.md`. S03-C01 to C08 meet their stated research/documentation criteria with limitations; the owner accepted C09 on 2026-11-12. M1-S03 is accepted and closed at 100% weighted task completion as a research baseline only. This does not authorize source reuse or ingestion.
 
 
 ## M1-S03 owner acceptance and closeout — 2026-11-12
@@ -253,3 +253,8 @@ The 48-source official provider register, jurisdictional school matrix and eight
 The owner explicitly approved M1-S03 after review of the 48-source official provider register, jurisdictional school-source matrix, eight supplemental reviews, task acceptance evidence audit and documented limitations. C09 is accepted and M1-S03 is closed at **100% weighted task completion** as a research baseline only. The acceptance record is `../03-research/M1_S03_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`.
 
 The accepted research does not establish a complete national institution census or blanket source-reuse rights. Only the previously documented narrow SED Balochistan headline/district aggregate permission remains. All other sources remain RESEARCH ONLY. V2-DEC-006 remains binding: Deeni Madaris are in underlying provider scope but hidden from public listings by default, with a configurable authorized `Show Deeni Madaris` setting default OFF. No source ingestion, scraping, implementation, database/schema changes, production access, deployment, M1-S04 or M2 work is authorized by this acceptance. The next M1 step requires separate owner authorization.
+
+
+## PR #69 closeout delivery evidence — 2026-11-12
+
+PR [#69](https://github.com/mattari20/listing-v2/pull/69) merged as `4c6d076fef9d09a2900ca8e9e265ea6176ed5d6c`; exact head `c6120094139e2f2a7296fd4e59649928c0ddc161` passed required Project documentation validation (run [#43163951606](https://github.com/mattari20/listing-v2/actions/runs/43163951606)). The owner acceptance record and final 100% task status are now part of the default-branch control documents.
