@@ -501,3 +501,10 @@ M2-S02 and M2-S03 have been delivered as one coordinated documentation package:
 Current task progress: S02 80% (T05 owner review pending); S03 85% (T05 owner review pending). Weighted M2 progress: S00 5% + S01 8% + S02 9.6% + S03 10.2% = **32.8%**. S02/S03 are delivered drafts, not accepted/closed. Owner review is the remaining gate.
 
 No physical database schema, application code, API implementation, technology/vendor selection, source retrieval/ingestion, connector activation, production access, procurement, deployment or legacy V1 interaction has occurred or is authorized.
+
+
+## PR #91 exact-head validation and merge evidence — 2026-11-12
+
+PR [#91](https://github.com/mattari20/listing-v2/pull/91) delivered the M2-S01 owner-acceptance record and coordinated M2-S02/S03 documentation package. Exact PR head `7a58f7ddb93cd693874e7debd3fa730b5db1d1ea` passed the required **Project documentation validation** workflow (run [#43188475213](https://github.com/mattari20/listing-v2/actions/runs/43188475213)); the `Validate project control documents` job and all steps completed successfully. PR #91 was squash-merged as `0881719c3b0d98893dc0e88a9c4f929cae89aea1`.
+
+S01 is Accepted and Closed at 100%. S02 is delivered at 80% draft task completion and S03 at 85%; their T05 owner-review gates remain open. Merge and CI evidence confirm delivery and documentation validation, not owner acceptance of S02/S03. M2 weighted progress remains 32.8%.
