@@ -143,10 +143,10 @@ A source may be proposed for use only when its evidence packet contains:
 
 | Task | Output | Status |
 |---|---|---|
-| RGT-01 | Locate and review terms for HEC, PM&DC, PNMC and PCP | In progress — dated public-terms review recorded for HEC, PM&DC and PNMC; PCP terms remain unlocated; no permission request sent |
-| RGT-02 | Locate and review terms for school regulators and EMIS portals by jurisdiction | In progress — dated review records no directory-specific reuse permission located for KP-PSRA, ICT-PEIRA or Sindh RSU/SEMIS; ICT-PEIRA states its active list is updated weekly; remaining jurisdictions and source-specific terms are open |
-| RGT-03 | Identify exact NAVTTC, Skilling Pakistan and provincial TEVTA data owners and licenses | In progress — NAVTTC QAB relationships and Sindh/Punjab/Balochistan provider-directory routes mapped; source-specific terms, remaining provincial authorities, data owners and permission remain open |
-| RGT-04 | Verify BECS/NFEMIS, special-education and professional-council terms | Not started |
+| RGT-01 | Locate and review terms for HEC, PM&DC, PNMC and PCP | In progress — dated public-terms review recorded for HEC, PM&DC, PNMC and PCP directory field/status semantics; no directory-specific license or permission established; no request sent |
+| RGT-02 | Locate and review terms for school regulators and EMIS portals by jurisdiction | In progress — expanded Punjab public/private, KP, Sindh and Balochistan access/freshness review; ICT weekly cadence and PEPRIS one-year license validity recorded; terms/coverage for AJK, GB and other jurisdictions remain |
+| RGT-03 | Identify exact NAVTTC, Skilling Pakistan and provincial TEVTA data owners and licenses | In progress — production NAVTTC TIS/NSIS/NVQF, registration/QAB/accreditation and B-TEVTA directory leads reviewed; no directory reuse permission; provincial completeness and source terms remain |
+| RGT-04 | Verify BECS/NFEMIS, special-education and professional-council terms | In progress — professional council directories and Punjab/Sindh special-education plus BECS/NFEMIS/Balochistan NFE routes reviewed; complete terms, jurisdiction coverage and privacy remain |
 | RGT-05 | Prepare source-specific permission request drafts where terms are absent or unclear | Not started |
 | RGT-06 | Complete privacy and data-minimization assessment for every candidate | Not started |
 | RGT-07 | Owner/legal review and explicit source-use decision | Not started |
