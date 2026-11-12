@@ -97,3 +97,7 @@ A new legal/policy desk review clarifies that MoITT's official registers label t
 ## 14. Further AJK, GB, Sindh and Punjab school-source research — 2026-11-12
 
 The latest review adds AJK public/private census streams and its 6,019-school aggregate; GB government-school EMIS detail, BECS community schools (776, June 2025) and public college list; Sindh's district-to-UC institution checker; and Punjab PEPRIS valid eLicense records with the DEA-upload completeness caveat. It records EMIS office rows, stale/zero aggregate warnings, personal teacher data and CNIC/mobile search exclusions. Full findings are in [M1-S02 AJK, GB, Sindh and Punjab School Register Review](M1_S02_AJK_GB_SINDH_SCHOOL_REGISTER_REVIEW_2026-11-12.md). These strengthen S02-C04/C06 but do not establish full record-level coverage or reuse rights.
+
+## 15. Sindh private-school and KPPSRA evidence — 2026-11-12
+
+Further research confirms Sindh's DIRPIS/SPEI-EMIS private-school registration/census stream is distinct from the public-school checker; official documents identify both registered and unregistered private providers and historical data-update needs. KPPSRA's district register provides ACTIVE/BLOCKED/DORMANT/CLOSED statuses. The current province-wide completeness, update cadence and source rights remain unverified. Details are in [M1-S02 AJK, GB, Sindh and Punjab School Register Review](M1_S02_AJK_GB_SINDH_SCHOOL_REGISTER_REVIEW_2026-11-12.md).
