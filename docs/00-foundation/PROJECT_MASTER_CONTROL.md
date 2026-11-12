@@ -370,3 +370,8 @@ M2-S01 is now in progress. Draft deliverables are in `../05-architecture/M2-S01_
 ## M2-S01 current disposition — 2026-11-12
 
 The M2-S01 draft package has been delivered and merged. PR [#87](https://github.com/mattari20/listing-v2/pull/87) merged as `a9a8320dadc339cb15c7d75ac430301941abbd57`; exact-head documentation validation passed (run [#43181003815](https://github.com/mattari20/listing-v2/actions/runs/43181003815)). AR-001–AR-025, system actors/boundaries, context view, quality scenarios and explicit SR-to-AR mapping are on main. T01-T04 are drafted; T05 awaits owner review. S01 remains 80% and In Progress. Do not advance dependent S02 as complete until this owner review gate is resolved.
+
+
+## PR #88 delivery reconciliation — 2026-11-12
+
+PR [#88](https://github.com/mattari20/listing-v2/pull/88) reconciled the M2-S01 draft delivery and owner-review status. Exact PR head `9d05c8f4b35462b935886b78f4aa9aa45c770dc3` passed required Project documentation validation (run [#43181135205](https://github.com/mattari20/listing-v2/actions/runs/43181135205)); PR #88 merged as `226f573d21a03b51caa4ccb46f2a68293fb84be2`. M2-S01 remains 80% and In Progress pending explicit owner review; CI success and merge are not acceptance.
