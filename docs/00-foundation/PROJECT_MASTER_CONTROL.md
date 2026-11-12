@@ -204,3 +204,8 @@ M1-S03 remains documentation/research-only. No scraping, bulk download, source-o
 ## M1-S03 supplemental research update — 2026-11-12
 
 The M1-S03 official-source register has been expanded with NFEMIS, DGSE, Sindh DEPD, GB EMIS school details and GB public-college routes. New quality findings include unstable NFEMIS dashboard totals, a DGSE ministry-attribution discrepancy across official pages, Sindh DEPD's mixed education/rehabilitation provider rows and exposed staff personal contacts, and GB EMIS administrative-office rows plus a zero-valued summary dashboard despite populated school details. See `../03-research/M1_S03_NFE_SPECIAL_ED_GB_SOURCE_REVIEW_2026-11-12.md`. S03-C02 and S03-C05 remain in progress; M1-S03 remains documentation/research-only. No ingestion, scraping, source-owner contact, permission request, implementation, database/schema changes, production access or deployment is authorized.
+
+
+## M1-S03 professional regulator research update — 2026-11-12
+
+The official-source register now includes professional regulator routes for PMDC, PCP, PNMC, NCEAC, NACTE, PEC, NTC, PVMC and PBC. New findings reinforce programme/batch-specific approval, time-bounded accreditation, admissions stoppage, under-discussion and zero/interim distinctions; some public pages have stale/inconsistent fields or unclear reuse terms. See `../03-research/M1_S03_PROFESSIONAL_REGULATOR_SOURCE_REVIEW_2026-11-12.md`. S03-C03 remains in progress. No source reuse, ingestion, scraping, source-owner contact, permission request or implementation is authorized.
