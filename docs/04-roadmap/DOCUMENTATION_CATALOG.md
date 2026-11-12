@@ -433,3 +433,9 @@ PR [#79](https://github.com/mattari20/listing-v2/pull/79) merged into `main` as 
 PR [#81](https://github.com/mattari20/listing-v2/pull/81) delivered the S08/S09 owner-acceptance record and M1-S10 final synthesis package. Exact PR head `5d421241b2e643fb8291ff9f183aaa3205005a89` passed required **Project documentation validation** (run [#43175231085](https://github.com/mattari20/listing-v2/actions/runs/43175231085)); the `Validate project control documents` job and all steps completed successfully. PR #81 was squash-merged as `8ab22c7b2ca759db741660fbafd6a0c36edcce6d`.
 
 S08 and S09 are accepted and closed at 100% weighted task completion each. S10 is delivered at 95%; its final 5% owner-acceptance task remains pending. M1 is therefore **Ready for final owner acceptance, not yet formally closed**. No M2 work or implementation is authorized by this merge.
+
+
+## M1 final owner acceptance and milestone closeout — 2026-11-12
+
+- [M1-S10 Final Owner Acceptance Record](../03-research/M1_S10_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) — explicit owner acceptance of S10 and formal closure of M1; **M1-S01 through M1-S10 Accepted and Closed at 100%**.
+- [M1-S10 Final Synthesis, Traceability and Closeout Review](../03-research/M1_S10_FINAL_SYNTHESIS_CLOSEOUT_REVIEW_2026-11-12.md) — accepted M1 handoff containing cross-step traceability, G01–G20 and M2 entry requirements. All limitations and open decisions remain carried forward.
