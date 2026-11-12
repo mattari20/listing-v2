@@ -31,7 +31,7 @@ Establish the people, capacity, budget, technology, hosting, legal/privacy/secur
 | T05 Technology stack decision pack | 15% | Evidence matrix, proof-of-fit criteria, options and owner decision record | **In progress — candidate framework and common criteria documented; actual implementer/maintainer skill fit, support evidence, cost/hosting fit and owner selection remain open; no technical spike authorized** |
 | T06 Hosting and vendor decision pack | 10% | Hosting/region/cost/data-location/latency/recovery comparison | **In progress — official region research and operating-model framework documented; exact service/region support, current quotes, Pakistan latency, data terms, recovery evidence and owner selection remain open; no provider selected or spend authorized** |
 | T07 Legal, privacy, source-rights and security gates | 15% | Gate register, review owners, source-specific approval protocol | **Open — T07 gate register delivered; qualified review owners, applicable legal/privacy/security evidence and source-specific decisions remain pending; no source/vendor/service activation** |
-| T08 Scope, test/release and authorization pack | 10% | M3-01 backlog outline, acceptance gates, test/release plan and authorization request | Partially outlined in master plan; detailed M3-01 pack remains open |
+| T08 Scope, test/release and authorization pack | 10% | M3-01 backlog outline, acceptance gates, test/release plan and authorization request | **Open — T08 readiness framework delivered; detailed scope, human roles, upstream decisions, reviewer evidence and owner acceptance remain open; implementation authorization not issued** |
 
 Task weights total 100%. No task is marked complete solely because a template or checklist has been drafted.
 
@@ -132,3 +132,8 @@ GitHub verification confirms PRs #102–#110 are all closed and merged and each 
 ## T07 documentation delivery — 2026-11-12
 
 The [T07 Legal, Privacy, Source-Rights and Security Gate Register](M3-00_T07_LEGAL_PRIVACY_SOURCE_RIGHTS_SECURITY_GATES.md) has been drafted and indexed. It defines twelve deny-by-default gates, source-specific approval records, required human review roles, no-go conditions, reassessment triggers and T07 completion criteria. It is a delivered framework, not a completed legal/security review. Qualified reviewer assignments and evidence remain open; T07 remains Open and no source, model, connector, vendor or service is approved.
+
+
+## T08 documentation delivery — 2026-11-12
+
+The [T08 Implementation Scope, Test/Release Governance and M3-01 Authorization Pack](M3-00_T08_IMPLEMENTATION_SCOPE_TEST_RELEASE_AUTHORIZATION_PACK.md) has been drafted and indexed. It defines readiness inputs, a dependency-oriented planning backlog, work-item Definition of Ready, test/evidence contract, CI/review controls, release/rollback governance and a deliberately unissued authorization record. T08 remains Open; upstream T02–T07 decisions and qualified reviews remain pending. No implementation is authorized.
