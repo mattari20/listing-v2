@@ -120,5 +120,11 @@ PR #27 expanded M1-S02 source coverage, taxonomy, source rights and national syn
 ## M1-S02 owner acceptance pack
 Added `docs/03-research/M1_S02_OWNER_ACCEPTANCE_REVIEW.md` to present the research deliverables, evidence-backed conclusions, unresolved jurisdiction/rights/privacy/freshness gaps and a proposed closeout boundary. It explicitly offers an owner choice between accepting the research baseline with limitations carried forward or keeping S02 open. No owner decision is recorded. Added PBC and PVMC official source evidence and retained PCATP, NCT, NAEAC and AHPC as unverified source-family leads. All sources remain RESEARCH ONLY.
 
+## PR #28 evidence
+PR #28 added PBC/PVMC source evidence, documented remaining professional-council gaps, created and linked the M1-S02 owner acceptance review pack, and reconciled PR #27 evidence. Exact head `bbf694ed0d7e372b3e8d4c754b29e3773adbb9c4` passed required `Project documentation validation` (run #43147548460); merge commit `2254d52f8799c137ad64e0c28502913453e6d218`.
+
+## M1-S02 final research position
+The current research/documentation pass is ready for owner review. The source-family baseline, provisional taxonomy, national coverage synthesis, rights/privacy register and explicit gaps are recorded. This is not a complete record-by-record national census or legal clearance. All candidate sources remain RESEARCH ONLY. M1-S02 is not marked Accepted because S02-C09 requires the owner's explicit decision in `docs/03-research/M1_S02_OWNER_ACCEPTANCE_REVIEW.md`. The owner can accept the research baseline with limitations carried forward or keep S02 open for further coverage/rights work. No M2 implementation or architecture work is authorized.
+
 ## Reporting rule
 After every documentation PR update and merge, reconcile the documentation catalogue, index, controller, step register, traceability matrix and progress report. Record exact PR, head SHA, required check and merge SHA. Never infer acceptance from a merge alone.
