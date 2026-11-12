@@ -110,7 +110,7 @@ This is an initial desk-research baseline, not a complete national inventory or 
 
 ## 9. Acceptance criteria
 
-- [ ] Owner-approved provider categories and inclusion/exclusion boundaries.
+- [ ] Owner-approved provider categories and inclusion/exclusion boundaries — proposed categories and boundaries are now documented; owner approval remains pending.
 - [ ] Provider, campus, programme, regulator, affiliation, assessment and awarding-body concepts remain distinct.
 - [ ] Coverage dimensions and normalization rules are defined.
 - [ ] Current official source inventory is verified for each category and jurisdiction.
