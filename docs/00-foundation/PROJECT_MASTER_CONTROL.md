@@ -2,7 +2,7 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0 accepted and closed; M1 in progress; M1-S02 and M1-S03 accepted; M1-S01 closeout package ready for owner acceptance  
+**Status:** M0 accepted and closed; M1 in progress; M1-S02 and M1-S03 accepted; M1-S01 PR #71 merged; owner acceptance pending  
 **Last reconciled:** 2026-11-12
 
 ## Authoritative current position
@@ -262,7 +262,7 @@ PR [#69](https://github.com/mattari20/listing-v2/pull/69) merged as `4c6d076fef9
 
 ## Authoritative update — M1-S01 closeout package ready for owner acceptance (2026-11-12)
 
-The M1-S01 desk-research and requirements closeout package is prepared in branch `docs/m1-s01-closeout`. The updated journey research has eight evidence items, including PBS HIES 2024–25 and Pakistan Education Statistics 2023–24; it separates source findings from hypotheses and limitations. The student discovery specification defines SR-01–SR-14 with measurable, implementation-neutral acceptance scenarios. Product Vision, traceability, step register, progress report, roadmap and catalogue are reconciled.
+The M1-S01 desk-research and requirements closeout package is merged to `main` by PR [#71](https://github.com/mattari20/listing-v2/pull/71), merge commit `64bd568d522e41452b8b46db8652ec8df48a2d8b`. Exact PR head `2982bdf421e09e82c03b76c223adb1b6ecc0b180` passed required Project documentation validation (run [#43166985628](https://github.com/mattari20/listing-v2/actions/runs/43166985628)). The updated journey research has eight evidence items, including PBS HIES 2024–25 and Pakistan Education Statistics 2023–24; it separates source findings from hypotheses and limitations. The student discovery specification defines SR-01–SR-14 with measurable, implementation-neutral acceptance scenarios. Product Vision, traceability, step register, progress report, roadmap and catalogue are reconciled.
 
 M1-S01 weighted documentation tasks total 100% (T01 35%, T02 15%, T04 25%, T05 25%). T03 primary interviews/survey is explicitly owner-deferred and has 0% weight. No interviews, surveys, recruitment, outreach, usability testing or participant validation are claimed or authorized. The archived instrument kit must remain inactive.
 
