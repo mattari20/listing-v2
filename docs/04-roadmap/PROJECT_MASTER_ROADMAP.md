@@ -5,7 +5,7 @@ All milestones are planned outcomes. Step-level scope and acceptance criteria ar
 | Milestone | Outcome | Status |
 |---|---|---|
 | M0 | Independent repository, documentation, governance and delivery controls | Accepted — PR #4 closeout |
-| M1 | Student requirements, provider discovery, data rights and open-source research | Ready for final owner acceptance — M1-S01 through M1-S09 accepted; M1-S10 synthesis delivered at 95%; primary research deferred |
+| M1 | Student requirements, provider discovery, data rights and open-source research | **Accepted and Closed — M1-S01 through M1-S10 accepted; 100%; primary research deferred** |
 | M2 | Architecture, domain model, technology evaluation, security and data design | Planned |
 | M3 | Application foundation, environments, CI, identity and authorization | Planned |
 | M4 | Institution, campus and programme management | Planned |
@@ -24,3 +24,7 @@ All milestones are planned outcomes. Step-level scope and acceptance criteria ar
 - Data connectors are not activated until rights and source review pass.
 - Production release/cutover is a separate authorization gate, not an automatic consequence of M12 completion.
 - Each milestone requires its own acceptance record and closeout.
+
+
+## M1 closeout decision — 2026-11-12
+M1 is formally accepted and closed as a research/documentation milestone. M2 remains Planned and requires separate explicit owner authorization; this closeout does not authorize implementation.
