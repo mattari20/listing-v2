@@ -161,3 +161,6 @@ The first review identified and corrected three stale or conflicting statements 
 ## Current acceptance position
 
 M0 founding controls are accepted and closed. Product, provider and open-source research documents remain initial baselines; they are not evidence of completed M1 research or approval of a data source, software dependency, architecture or implementation. The targeted legacy metadata inventory remains explicitly non-exhaustive.
+
+
+| [M1-S02 Supplemental Official-Source Coverage Review](../03-research/M1_S02_SUPPLEMENTAL_SOURCE_COVERAGE_REVIEW_2026-11-12.md) | Dated AJK, Balochistan, NFEMIS, GB EMIS, HEC qualification/NOC and special-education evidence supplement | Delivered — research-only; source rights, completeness and S02 acceptance remain pending |
