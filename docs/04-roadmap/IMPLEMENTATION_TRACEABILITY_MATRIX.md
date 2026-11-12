@@ -19,6 +19,9 @@ No survey, interviews, recruitment or outreach during construction. Account-base
 ## M0 closeout evidence
 PR #4 merged as `4d1122d182961f3842803036f917ce39cd11b4c6`; required check passed on exact head `64da261546b034129af3aebfa38fb91f939732b6`. PR #4 records M0-S01–S07 acceptance and points the controller to M1-S01. M0-S02 remains explicitly scoped to a targeted, metadata-only, non-exhaustive exclusion audit.
 
+## PR #13 evidence
+PR #13 merged as `a0a5f891bdcffdc2ae0de59624358a02f2a9d15f`; exact head `f5dc4f9cbdb76bbb6133191ad676f833995967d9`; required documentation check passed (run #43138669791). It added official source leads for Sindh, ICT and GB; complete coverage and reuse rights remain unverified.
+
 ## PR #12 evidence
 PR #12 merged as `6646889954e20bab95a33d92f6bb2abab266ec59`; exact head `ca5f28e2edeb3ccd6088d4cdacad8a5440aaea90`; required documentation check passed (run #43138431960). The source coverage matrix is a research baseline only; no source is approved for ingestion by this merge.
 
