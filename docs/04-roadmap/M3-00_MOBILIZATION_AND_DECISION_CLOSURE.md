@@ -30,7 +30,7 @@ Establish the people, capacity, budget, technology, hosting, legal/privacy/secur
 | T04 Budget and cost ceiling | 15% | One-time/recurring cost categories, scenarios and explicit ceiling | **In progress — cost framework and three planning scenarios documented; no new spend is authorized; numeric one-time/recurring ceilings, tax/FX assumptions and paid-service policy remain pending owner decision** |
 | T05 Technology stack decision pack | 15% | Evidence matrix, proof-of-fit criteria, options and owner decision record | **In progress — candidate framework and common criteria documented; actual implementer/maintainer skill fit, support evidence, cost/hosting fit and owner selection remain open; no technical spike authorized** |
 | T06 Hosting and vendor decision pack | 10% | Hosting/region/cost/data-location/latency/recovery comparison | **In progress — official region research and operating-model framework documented; exact service/region support, current quotes, Pakistan latency, data terms, recovery evidence and owner selection remain open; no provider selected or spend authorized** |
-| T07 Legal, privacy, source-rights and security gates | 15% | Gate register, review owners, source-specific approval protocol | Open — qualified review owners and applicable evidence pending; no source/vendor activation |
+| T07 Legal, privacy, source-rights and security gates | 15% | Gate register, review owners, source-specific approval protocol | **Open — T07 gate register delivered; qualified review owners, applicable legal/privacy/security evidence and source-specific decisions remain pending; no source/vendor/service activation** |
 | T08 Scope, test/release and authorization pack | 10% | M3-01 backlog outline, acceptance gates, test/release plan and authorization request | Partially outlined in master plan; detailed M3-01 pack remains open |
 
 Task weights total 100%. No task is marked complete solely because a template or checklist has been drafted.
@@ -127,3 +127,8 @@ The [M3-00 Hosting and Operations Decision Framework](M3-00_HOSTING_AND_OPERATIO
 ## Current audit update — 2026-11-12 (after PR #110)
 
 GitHub verification confirms PRs #102–#110 are all closed and merged and each required Project documentation validation passed on its exact head. PR #110 reconciliation merged as `a328a8272b086cac6270dc625d53ea6c3bbc1fa7`. T01 remains Complete; T02-T06 remain In progress; T07-T08 remain Open. T04, T05 and T06 frameworks are delivered, but their owner decisions/evidence are not complete. M3-00 remains 10% and M3 overall 0.5%; no partial task percentages are claimed. No application implementation, spend, procurement, source/production access or deployment is authorized.
+
+
+## T07 documentation delivery — 2026-11-12
+
+The [T07 Legal, Privacy, Source-Rights and Security Gate Register](M3-00_T07_LEGAL_PRIVACY_SOURCE_RIGHTS_SECURITY_GATES.md) has been drafted and indexed. It defines twelve deny-by-default gates, source-specific approval records, required human review roles, no-go conditions, reassessment triggers and T07 completion criteria. It is a delivered framework, not a completed legal/security review. Qualified reviewer assignments and evidence remain open; T07 remains Open and no source, model, connector, vendor or service is approved.
