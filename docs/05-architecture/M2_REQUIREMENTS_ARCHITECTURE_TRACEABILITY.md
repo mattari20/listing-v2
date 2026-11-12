@@ -21,3 +21,22 @@
 Every accepted M1 gap/decision must be marked designed in M2, carried into M3 with a named gate, owner decision required, legal review required, source-specific authorization required, deferred with rationale or excluded by explicit owner decision. No gap is closed by silence.
 
 This scaffold is not a claim of complete requirements traceability.
+
+
+## M2-S01 architecture requirement mapping — initial draft
+
+| Architecture requirement | Product requirement / decision | Architecture view / step | Verification obligation | Status |
+|---|---|---|---|---|
+| AR-001–AR-002 | SR-01, SR-08 | S01 context; S03/S06 public discovery | Anonymous direct/pathway discovery scenarios | Drafted |
+| AR-003 | SR-02; G04 | S02 domain; S03/S06 search | Entity identity and exact/approximate match tests | Drafted |
+| AR-004 | SR-03, SR-14; G06 | S01 context; S06 geo | Location denial/manual locality tests | Drafted |
+| AR-005–AR-007 | SR-04, SR-06, SR-07; G03/G05/G08/G09 | S02/S05/S07 | Missing/stale/conflict and provenance tests | Drafted |
+| AR-008 | SR-05; G10/G11 | S06 | Like-for-like comparison and sponsorship separation tests | Drafted |
+| AR-009–AR-012 | SR-08–SR-10, SR-13; G12-G15 | S06/S08 | Official route, auth, review and privacy tests | Drafted |
+| AR-013–AR-015 | M1-S07/S08; G02/G08/G09/G16 | S05/S07 | Rights gate, adversarial input, history and human-approval tests | Drafted |
+| AR-016–AR-018 | V2-DEC-006; G07 | S02/S06/S08 | Zero-public-exposure tests while setting OFF; no sect/maslak fields | Binding |
+| AR-019–AR-020 | SR-07; G01/G10/G11 | S05/S06 | Coverage-state and sponsored-placement tests | Drafted |
+| AR-021–AR-022 | SR-11/SR-12 | S01/S08/S09/M11 | Low-bandwidth, Unicode/RTL and accessibility tests | Drafted |
+| AR-023–AR-025 | M1 governance; G14/G17/G20 | S05/S08/S09 | Audit, degraded-mode and recovery tests | Drafted |
+
+Full definitions and priorities are in `M2-S01_SYSTEM_REQUIREMENTS_AND_BOUNDARIES.md`; detailed scenarios are in `M2-S01_QUALITY_SCENARIOS.md`. This is an initial mapping; S01-T05 and M2-S10 still require review and reconciliation.
