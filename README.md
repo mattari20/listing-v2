@@ -37,3 +37,6 @@ M0, M1 and M2 are accepted and closed; M2 is 100% complete. M3-00 — Mobilizati
 
 
 Latest M3-00 owner-input documentation: PR [#102](https://github.com/mattari20/listing-v2/pull/102) passed Project documentation validation (run #43198671760) and merged as `cc5a4966cca74df5e15de7f15277814ddb86d6d9`. T02/T03 are in progress; M3-00 remains 10%. No implementation or spend is authorized.
+
+
+M3-00 T04 budget framework: PR [#104](https://github.com/mattari20/listing-v2/pull/104) passed required documentation validation (run #43199037952) and merged as `7b5c31af83bb18b2c5578ddb7cc3dd705f25d08e`. Numeric ceilings and paid-service permission remain undecided; no new spend is authorized.

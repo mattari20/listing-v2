@@ -601,3 +601,8 @@ PR #102 exact head `2cce569bd6e63dcf204f5c11d987a8d544373b2d` passed Project doc
 
 
 | [M3-00 Budget and Cost Scenarios](M3-00_BUDGET_AND_COST_SCENARIOS.md) | T04 cost categories, planning scenarios, calculation rules and spend controls | Delivered in budget framework PR; numeric ceilings and paid-service permission remain pending; no new spend authorized |
+
+
+#### PR #104 merge evidence — 2026-11-12
+
+PR #104 exact head `ee7cb705c91bb640b69f895f7e5e47e848b33da6` passed Project documentation validation (run #43199037952; all job steps successful) and squash-merged as `7b5c31af83bb18b2c5578ddb7cc3dd705f25d08e`. T04's framework is delivered; numeric budget decisions and paid-service permission remain open. No new spend is authorized.
