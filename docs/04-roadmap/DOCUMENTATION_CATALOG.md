@@ -574,3 +574,13 @@ S04-S06 are accepted/closed at 100%; S07-S09 design tasks are complete at 100%; 
 - [M2 Final Progress and Closeout Report](../05-architecture/M2_FINAL_PROGRESS_AND_CLOSEOUT_REPORT_2026-11-12.md) — final weighted report, evidence, open decisions and M3 boundary.
 
 M2 is owner-accepted and closed. M3 implementation requires separate authorization.
+
+
+### M3 — Mobilization and implementation roadmap (2026-11-12)
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) | Authoritative M3 sequence, weights, dependencies, task/acceptance criteria and authorization boundaries | Delivered — current planning baseline; owner acceptance pending |
+| [M3-00 Mobilization and Decision Closure](M3-00_MOBILIZATION_AND_DECISION_CLOSURE.md) | Current-step baseline, task register, open owner inputs, decision gates and exit criteria | Delivered — planning started; task completion 0%; owner acceptance pending |
+
+M0/M1/M2 are accepted and closed. M3-00 is documentation/planning only. The M3 Master Step Plan supersedes earlier high-level M3 sequencing where inconsistent. No application implementation or separately gated activity is authorized.
