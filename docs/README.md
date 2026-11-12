@@ -31,7 +31,8 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [Open-Source Reuse Audit](03-research/OPEN_SOURCE_REUSE_AUDIT.md)
 - [M1 Student Journey Research](03-research/M1_STUDENT_JOURNEY_RESEARCH.md)
 - [M1 Student Research Instruments](03-research/M1_STUDENT_RESEARCH_INSTRUMENTS.md) — archived draft; pre-launch participant research deferred by owner
-- [M1-S03 Official Government and Regulator Provider Source Register](03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md) — initial source-specific authority, access, coverage, freshness, rights and privacy evidence
+- [M1-S03 Official Government and Regulator Provider Source Register](03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md) — source-specific authority, access, coverage, freshness, rights and privacy evidence
+- [M1-S03 NFE, Special-Education and GB Source Review](03-research/M1_S03_NFE_SPECIAL_ED_GB_SOURCE_REVIEW_2026-11-12.md) — NFEMIS, DGSE, Sindh DEPD, GB EMIS/college routes and data-quality/privacy limitations
 - [M1 Institution Taxonomy Research](03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md)
 - [M1 Official Institution Source Coverage Matrix](03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md)
 - [M1 National Institution Coverage Synthesis](03-research/M1_NATIONAL_INSTITUTION_COVERAGE_SYNTHESIS.md) — draft national sector/jurisdiction coverage, quality assessment and unresolved gaps
