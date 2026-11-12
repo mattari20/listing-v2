@@ -120,3 +120,7 @@ PR #34 merged as `569ef14f0cc4ef72bb07cf0313965e13250eac3d`; exact head `fce8164
 ## M1-S02 professional-council and special-education evidence — 2026-11-12
 
 The second supplemental review documents PCATP, NCT, AHPC, NTC, NAEAC and ICT/KP special-education evidence. It strengthens TAX-001 source-family evidence and records crucial status semantics: applied-for recognition is not granted recognition; zero/interim phase is not final accreditation; and historical special-education lists are not current coverage. S02-C03/C06/C07 and TAX-001 remain in progress. No source-use permission is implied.
+
+## PR #35 final reconciliation evidence
+
+PR #35 merged as `0cb1c8cf1dba9fb0b90b1fa8bda16123d57c65f6`; exact head `48626561f492c03baab9ce72fb79e7a24a01640f` passed required Project documentation validation (run #43152199340). It reconciled PR #34 merge evidence; TAX-001 remains in progress pending S02 acceptance.
