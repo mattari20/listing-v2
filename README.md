@@ -46,3 +46,6 @@ M3-00 T05 technology framework: PR [#106](https://github.com/mattari20/listing-v
 
 
 PR [#107](https://github.com/mattari20/listing-v2/pull/107) reconciled PR #106 technology-framework delivery; exact-head validation passed (run #43199505084) and merge commit is `137130caa046804fb02a42d9a98e01d855601401`. T05 remains in progress; no technology selected.
+
+
+M3-00 T06 hosting framework: PR [#109](https://github.com/mattari20/listing-v2/pull/109) passed required documentation validation (run #43199827073) and merged as `5e55f1fe69dce25d0ab2357fef050b9120002579`. No hosting provider/region is selected; service support, costs, latency, data terms and operations ownership remain open.
