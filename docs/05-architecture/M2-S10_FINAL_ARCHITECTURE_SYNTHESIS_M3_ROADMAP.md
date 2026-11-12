@@ -1,7 +1,7 @@
 # M2-S10 — Final Architecture Synthesis and M3 Roadmap
 
-**Status:** Integrated synthesis draft; final owner acceptance pending.  
-**Scope:** Documentation only. M3 implementation is not authorized until explicit M2 acceptance.  
+**Status:** Accepted and closed as part of M2 — 100% owner-accepted on 2026-11-12.  
+**Scope:** Accepted architecture documentation. M3 implementation remains subject to separate M3-01 implementation-start authorization.  
 **M2 weight:** 7%.
 
 ## 1. Executive architecture statement
@@ -83,7 +83,7 @@ Architecture validation must include:
 - no hidden stack/vendor/hosting choice in diagrams or prose.
 
 ## 8. M2 completion status
-S10 T01-T04 are drafted: traceability audit, consistency/threat review, ADR/risk audit and M3 roadmap. T05 requires explicit owner acceptance of the integrated M2 architecture. **Draft completion: 80%.** This document does not self-accept M2 or authorize M3.
+The owner explicitly accepted S07-S10 and the integrated M2 architecture on 2026-11-12. S10 is 100% accepted/closed; M2 is 100% accepted/closed. The formal authority is `M2_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. The M3 sequence in this document is superseded where it differs from `../04-roadmap/M3_MASTER_STEP_PLAN.md`. No M3 implementation is authorized by M2 acceptance.
 
 ## 9. Owner acceptance checklist
 - [ ] Accept S07 AI-agent architecture as a governed proposal-only workflow with source-specific authorization and human publication gates.
@@ -93,4 +93,4 @@ S10 T01-T04 are drafted: traceability audit, consistency/threat review, ADR/risk
 - [ ] Confirm unresolved stack, hosting, model, source, legal, privacy, review and SLO choices remain open and require separate decisions.
 - [ ] Confirm no M3 implementation, source access, procurement, production access, deployment or launch is authorized by this acceptance request.
 
-**Decision requested:** Review and accept the S07-S10 documentation baselines and final M2 synthesis. If accepted, record formal M2 closure at 100%; implementation still requires a separate M3 start authorization and decision gates.
+**Final owner decision:** ACCEPTED on 2026-11-12. M2 closed at 100%. The new M3 Master Step Plan is the authoritative M3 execution sequence; separate implementation, source, procurement, production and launch gates remain in force.
