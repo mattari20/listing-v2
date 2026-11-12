@@ -19,7 +19,7 @@
 | T05 Technology stack | **In progress** | Candidate comparison framework and conditional M2 baseline documented | Named implementer skill fit, support/security lifecycle, hosting/cost evidence and owner selection/deferment |
 | T06 Hosting and operations | **In progress** | Provider-region research and operating-model framework documented | Exact service/region support, current quotes, measured Pakistan latency, data terms, recovery evidence and named operations owner |
 | T07 Legal, privacy, source-rights and security | **Open** | Twelve-gate deny-by-default register drafted; source-specific approval template, reviewer roles, no-go conditions and reassessment triggers documented | Qualified legal/privacy/security/safeguarding reviewers, applicable evidence and owner decisions; no source/vendor/service approved |
-| T08 Scope, test/release and authorization pack | **Open** | High-level M3 roadmap and acceptance gates exist | Detailed M3-01 backlog, test strategy, release/rollback plan and separate implementation-start authorization |
+| T08 Scope, test/release and authorization pack | **Open** | T08 readiness framework drafted: scope inputs, backlog structure, Definition of Ready, test/evidence contract, CI/review and release/rollback controls | Detailed scope and owner acceptance; upstream T02–T07 decisions/reviews; named human roles; separate unissued M3-01 authorization |
 
 PR merges and CI establish documentation delivery/validation, not owner acceptance of T02–T08. No partial task percentages are claimed. The 10% M3-00 and 0.5% M3 figures remain unchanged because T01 is the only fully complete weighted task.
 
@@ -646,3 +646,8 @@ T06 is In progress: official region research and operating-model criteria are do
 ## T07 documentation update — 2026-11-12
 
 Delivered [M3-00 T07 Legal, Privacy, Source-Rights and Security Gate Register](M3-00_T07_LEGAL_PRIVACY_SOURCE_RIGHTS_SECURITY_GATES.md). The register defines twelve gates and explicit no-go/reassessment rules. T07 remains **Open**: reviewer assignments and qualified assessments have not occurred. No legal compliance, privacy assessment, security certification, source permission or service approval is claimed. M3-00 remains 10% and M3 overall remains 0.5%; a drafted framework does not earn weighted task completion. All documentation-only and no-spend/no-access boundaries remain in force.
+
+
+## T08 documentation update — 2026-11-12
+
+Delivered [M3-00 T08 Implementation Scope, Test/Release Governance and M3-01 Authorization Pack](M3-00_T08_IMPLEMENTATION_SCOPE_TEST_RELEASE_AUTHORIZATION_PACK.md). The pack is a planning framework only; T08 remains **Open** pending detailed scope, upstream decisions, qualified review evidence, named human roles and owner acceptance. The M3-01 authorization record is intentionally NOT ISSUED. M3-00 remains 10% and M3 overall remains 0.5%; drafting this framework does not earn weighted completion. No application implementation, technical spike, source/production access, schema/migration, spend, procurement, deployment, pilot or launch is authorized.
