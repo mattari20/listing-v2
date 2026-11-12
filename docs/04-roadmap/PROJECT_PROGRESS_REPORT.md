@@ -140,3 +140,10 @@ PR #31 reconciled PR #30 task-register correction evidence across the catalogue,
 
 ## Reporting rule
 After every documentation PR update and merge, reconcile the documentation catalogue, index, controller, step register, traceability matrix and progress report. Record exact PR, head SHA, required check and merge SHA. Never infer acceptance from a merge alone.
+
+
+## M1-S02 supplemental official-source review — 2026-11-12
+
+A further documentation-only research pass strengthened the AJK private-school source lead (dated register announcement and 2024–25 census guidance), clarified Balochistan EMIS fields and separate private-school/NFE routes, and reviewed NFEMIS national dashboard/inventory evidence. NFEMIS currently displays 20,862 schools on its dashboard, while the 2026-09-21 inventory categories sum to 20,864; the two-record difference is recorded as an unresolved data-quality issue. GB EMIS summary metrics currently display zero values and are not accepted as coverage evidence. HEC PQR and allied-health NOC information are recorded as separate qualification/programme evidence. Historical KP special-education material is not treated as a current register. Full source links and limits are in docs/03-research/M1_S02_SUPPLEMENTAL_SOURCE_COVERAGE_REVIEW_2026-11-12.md.
+
+S02-C04/C06/C07/C08 remain in progress because public/private completeness, record-level freshness, current special-education coverage, source-specific rights and synthesis acceptance remain unresolved. S02-C09 is still an owner-only decision gate. All sources remain RESEARCH ONLY; no scraping, collection, external contact, permission request, connector activation, application work, database change, production access or M2 activity occurred.
