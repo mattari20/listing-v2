@@ -72,7 +72,7 @@ For every merge:
 | [M1 Student Research Instruments](../03-research/M1_STUDENT_RESEARCH_INSTRUMENTS.md) | Draft adult interview guide, consent script and survey instrument | Delivered — archived preparation only; owner deferred all pre-launch participant research; do not distribute |
 | [M1 Institution Taxonomy Research](../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md) | Independent desk research on provider types, coverage and recognition relationships | Delivered — initial baseline; owner review and source expansion pending |
 | [M1 Official Institution Source Coverage Matrix](../03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md) | Official source discovery and jurisdiction/sector coverage gaps for institution data | Delivered — independent source-discovery baseline; rights, freshness and coverage verification pending |
-| [M1 Source Rights, Access and Provenance Evidence Register](../03-research/M1_SOURCE_RIGHTS_ACCESS_EVIDENCE_REGISTER.md) | Source-by-source rights, access, privacy and freshness due-diligence requirements | Updated — initial HEC/PM&DC/PNMC public-terms review recorded; review and remaining source checks pending; all sources remain research-only |
+| [M1 Source Rights, Access and Provenance Evidence Register](../03-research/M1_SOURCE_RIGHTS_ACCESS_EVIDENCE_REGISTER.md) | Source-by-source rights, access, privacy and freshness due-diligence requirements | Updated — dated review expanded to KP-PSRA, ICT-PEIRA and Sindh RSU/SEMIS; no directory-specific reuse permission established; all sources remain research-only |
 
 ### E. Roadmap, traceability and progress
 
