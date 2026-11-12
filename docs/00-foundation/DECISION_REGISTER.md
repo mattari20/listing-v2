@@ -85,7 +85,7 @@ Official source routes for NAVTTC QABs, Punjab TEVTA/PSDA/TTB, Sindh STEVTA, KPT
 - **Date:** 2026-11-12
 - **Status:** Confirmed by owner; broader delivery capacity remains unresolved
 - **Context:** M3-00 T03 requires a realistic capacity and availability baseline.
-- **Decision:** The owner has confirmed availability of **10–15 hours per week** for Listing V2 project decisions, review and participation.
+- **Decision:** The owner has confirmed **10–15 hours per week as a planning baseline**, with flexibility to participate according to project demand and priority. Reviews and approvals are demand-led rather than restricted to a fixed weekly meeting.
 - **Interpretation:** This is owner participation capacity only. It must not be counted as engineering, QA, security-review or production-operations capacity unless the owner separately confirms the relevant skills and role. Named human delivery capacity, review/approval cadence and continuity arrangements remain open.
 - **Consequences:** The range informs planning only. It does not authorize hiring, contracting, procurement, spend or implementation.
 - **Review trigger:** Reconfirm if the owner's availability materially changes or the project schedule requires a different commitment.
