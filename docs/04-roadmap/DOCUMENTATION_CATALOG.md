@@ -459,3 +459,16 @@ S10-T10 is accepted; S10 is 100%. M1-S01 through M1-S10 are all Accepted and Clo
 - [ADR Template](../05-architecture/decisions/ADR_TEMPLATE.md) and [Diagram Conventions](../05-architecture/diagrams/README.md) — repeatable decision and diagram standards.
 
 These are M2 baseline/control deliverables. Their existence does not imply that the application stack, database, hosting, integrations or deployment architecture has been selected.
+
+
+## M2 architecture and design documentation — initiated 2026-11-12
+
+- [M2 Architecture Documentation Index](../05-architecture/README.md) — architecture artifact inventory and maintenance rules.
+- [M2 Architecture and Design Charter](../05-architecture/M2_ARCHITECTURE_DESIGN_CHARTER.md) — authorized scope, non-goals, hard boundaries, methods and acceptance gate.
+- [M2 Step Plan](../05-architecture/M2_STEP_PLAN.md) — 11-step sequence, milestone weights, task-level criteria and operating method.
+- [M2 Architecture Documentation Plan](../05-architecture/M2_ARCHITECTURE_DOCUMENTATION_PLAN.md) — planned views, structure and quality rules.
+- [M2 Requirements-to-Architecture Traceability](../05-architecture/M2_REQUIREMENTS_ARCHITECTURE_TRACEABILITY.md) — initial requirement/design/decision/risk/verification scaffold.
+- [M2 Architecture Decision Register](../05-architecture/M2_ARCHITECTURE_DECISION_REGISTER.md) — consequential decision inventory and status.
+- [ADR Template](../05-architecture/decisions/ADR_TEMPLATE.md) and [Diagram Conventions](../05-architecture/diagrams/README.md) — repeatable decision and diagram standards.
+
+These are M2 baseline/control deliverables. Their existence does not imply that the application stack, database, hosting, integrations or deployment architecture has been selected.
