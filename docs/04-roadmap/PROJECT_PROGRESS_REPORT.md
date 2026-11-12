@@ -444,3 +444,15 @@ Owner authorization for M2 architecture/design was received on 2026-11-12. M2 is
 - Application implementation: Not authorized; M3 remains gated on separate M2 acceptance.
 
 M2 weights: S00 5%, S01 8%, S02 12%, S03 12%, S04 10%, S05 12%, S06 8%, S07 10%, S08 10%, S09 6%, S10 7% (100% total). Step/task progress is evidence-based and will be updated after each delivery and validation.
+
+
+## M2 active — initial baseline and charter delivery — 2026-11-12
+
+Owner authorization for M2 architecture/design was received on 2026-11-12. M2 is active, documentation/design only. M2-S00 establishes a reconciled M1 handoff, M2 charter and weighted step plan, architecture documentation structure, ADR conventions and requirement traceability scaffold.
+
+- M0: Accepted and Closed.
+- M1-S01–M1-S10: Accepted and Closed.
+- M2: In Progress; M2-S00 is the current step.
+- Application implementation: Not authorized; M3 remains gated on separate M2 acceptance.
+
+M2 weights: S00 5%, S01 8%, S02 12%, S03 12%, S04 10%, S05 12%, S06 8%, S07 10%, S08 10%, S09 6%, S10 7% (100% total). Progress is evidence-based and updated after each delivery and validation.
