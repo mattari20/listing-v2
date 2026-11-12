@@ -242,3 +242,7 @@ PR #42 merged as `a6b35abcb091965f90e492e36378750b2f20ebad`; exact head `80a85a4
 ## M1-S02 school-regulator status and source-terms review — 2026-11-12
 
 A further pass documented KPPSRA's registration/renewal and BISE de-affiliation notices; Sindh DIRPIS October 2026 safety oversight versus the older incomplete private-school census TOR; HEC Digital Library publisher-license scope versus HEC institution directories; and NAVTTC's distinct 650+ accredited, 900+ quality-assured and 3,500+ ecosystem claims. These figures cannot be treated as one verified total. Full findings are in docs/03-research/M1_S02_SCHOOL_REGULATOR_STATUS_TERMS_REVIEW_2026-11-12.md. All sources remain research-only.
+
+## PR #43 — AJK, GB, Sindh and Punjab school-register review
+
+PR #43 merged as `a8dfd8018fa33588a4d35166c953b18f89e39c43`; final exact head `56923aca98123dce6b8a574e0cf9f9c244b036b4` passed required Project documentation validation (run #43155004215). It added AJK public/private census, GB EMIS/BECS/college, Sindh school checker/private school source leads and Punjab PEPRIS caveats. No completeness or source-use permission is inferred.
