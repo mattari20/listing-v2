@@ -273,3 +273,8 @@ PR [#43](https://github.com/mattari20/listing-v2/pull/43) delivered the AJK/GB/S
 ## PR #44 school-regulator status/terms delivery
 
 PR [#44](https://github.com/mattari20/listing-v2/pull/44) delivered KPPSRA/Sindh DIRPIS status semantics, HEC Digital Library terms scope and NAVTTC count distinctions. Exact head `0b5fe6429a1f6bc8bb383d1db1278d632ae04f08` passed required **Project documentation validation** (run [#43155204020](https://github.com/mattari20/listing-v2/actions/runs/43155204020)); merge commit `11ee337d823731d71a9c0ca00782728ad1994398`. It is research delivery only.
+
+
+## Supplemental M1-S02 KP special education and Balochistan NFE review
+
+- [M1-S02 KP Special-Education and Balochistan NFE Register Deep Review](../03-research/M1_S02_KP_SPECIAL_ED_BALOCHISTAN_NFE_REVIEW_2026-11-12.md) — current KP partial centre list and Balochistan organization-level NFE aggregates; status, completeness, privacy and rights remain open.
