@@ -206,3 +206,7 @@ PR [#39](https://github.com/mattari20/listing-v2/pull/39) merged as `0ace505ec67
 ## M1-S02 HEC affiliation and health-programme status review — 2026-11-12
 
 The research now includes HEC Institutional Affiliation Policy 2024, which applies to affiliated colleges and approved study centres (including regular-class and MoU-operated centres) and requires current continuation notices from the affiliating DAI. HEC's affiliate-college PDF has duplicate/variant records that require reconciliation. PM&DC seat allocations and 2026–27 court-order admission notes, PCP Active/Stoppage of Admissions statuses and PNMC's stale/irregular register entries show that institute listing, programme approval, seat allocation, admission permission and current programme status must be modelled separately. Full details are in the examination-board/PMF/DGRE review. No current status is inferred from mere directory presence.
+
+## PR #40 — examination boards, PMF and DGRE jurisdiction
+
+PR [#40](https://github.com/mattari20/listing-v2/pull/40) merged as `c92d96613dcb510762be5a0a615a73e856861f9b`; final exact head `cc2cc7eaa615e4fe762f808e51918b6b10b5e235` passed required Project documentation validation (run #43154387281). It delivered IBCC board mapping, Punjab BISE/PMF evidence, DGRE regional registers and HEC affiliation/study-centre status rules. This is research delivery only; remaining S02 evidence and owner acceptance remain open.
