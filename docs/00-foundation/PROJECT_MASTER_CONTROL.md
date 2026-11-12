@@ -119,3 +119,7 @@ PR #36 merged the professional-council and special-education supplement as `c0a5
 ## M1-S02 deep jurisdiction and TVET research — 2026-11-12
 
 A further documentation-only pass adds Punjab/Sindh/GB special-education source leads; Balochistan proposed-versus-operational facility distinction; KP-TEVTA, STEVTA, Punjab TEVTA and B-TEVTA institute evidence; and excludes NAVTTC's staging/sample directory from evidence. HEC Digital Library and PASTIC are discovery leads only. Full findings are in `../03-research/M1_S02_DEEP_JURISDICTION_SPECIAL_ED_TVET_REVIEW_2026-11-12.md`. S02-C04/C05/C06/C07/C08 remain active; S02-C09 remains owner-only. No source reuse or collection is authorized.
+
+## M1-S02 ICT PEIRA and Madaris continuation — 2026-11-12
+
+Latest research adds ICT-PEIRA's paginated private-education register/status model, DGRE's nationwide Deeni Madaris registration authority and IBCC's QAB-versus-qualification-equivalence distinction. Deeni Madaris are a distinct provisional provider family; DGRE registration, awarding-body recognition and credential equivalence remain separate. DGRE maslak data is excluded from general discovery. Detailed findings are in `../03-research/M1_S02_ICT_PEIRA_MADARIS_QAB_REVIEW_2026-11-12.md`. S02-C01/C04/C05/C07/C08 remain active; S02-C09 remains owner-only; all sources remain research-only.
