@@ -259,3 +259,14 @@ The owner accepted S10 and formally closed M1. M1-S01 through M1-S10 are all Acc
 The owner subsequently authorized M2 architecture/design on 2026-11-12. M2 is now active under `../05-architecture/M2_ARCHITECTURE_DESIGN_CHARTER.md` and `../05-architecture/M2_STEP_PLAN.md`. This authorization does not alter M1's research-only source boundaries or authorize application implementation, production access, source ingestion, connector activation, procurement or deployment.
 
 All G01-G20 limitations and adopted decisions remain carried forward.
+
+
+## Current-status reconciliation — M1 closed; M2 authorized — 2026-11-12
+
+This addendum resolves historical wording in earlier sections that described S10 owner acceptance as pending or M2 as not yet authorized. Those statements accurately described earlier review points but are superseded by the final owner acceptance record dated 2026-11-12.
+
+The owner accepted S10 and formally closed M1. M1-S01 through M1-S10 are all Accepted and Closed. The authoritative acceptance record is `M1_S10_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`.
+
+The owner subsequently authorized M2 architecture/design on 2026-11-12. M2 is active under `../05-architecture/M2_ARCHITECTURE_DESIGN_CHARTER.md` and `../05-architecture/M2_STEP_PLAN.md`. This does not alter M1 research-only source boundaries or authorize implementation, production access, source ingestion, connector activation, procurement or deployment.
+
+All G01-G20 limitations and adopted decisions remain carried forward.
