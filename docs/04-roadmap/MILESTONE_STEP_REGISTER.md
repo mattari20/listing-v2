@@ -518,11 +518,11 @@ M2 step weights total 100%: S00 5%, S01 8%, S02 12%, S03 12%, S04 10%, S05 12%, 
 |---|---|---:|---|---|
 | M2-S00 | Baseline reconciliation and architecture documentation controls | 5% | M1 accepted | **Complete — 100%; PR #85 merged and exact-head CI passed** |
 | M2-S01 | System requirements and architecture boundaries | 8% | S00 | **Accepted and Closed — 100%; owner acceptance 2026-11-12** |
-| M2-S02 | Core domain and conceptual information model | 12% | S01 | Not started |
-| M2-S03 | Overall application and integration architecture | 12% | S01-S02 | Not started |
-| M2-S04 | Technology stack evaluation | 10% | S01-S03 | Not started |
-| M2-S05 | Data architecture, provenance and publication governance | 12% | S02-S04 | Not started |
-| M2-S06 | Search, discovery and geography architecture | 8% | S02-S04 | Not started |
+| M2-S02 | Core domain and conceptual information model | 12% | S01 | **Accepted and Closed — 100%; owner acceptance 2026-11-12** |
+| M2-S03 | Overall application and integration architecture | 12% | S01-S02 | **Accepted and Closed — 100%; owner acceptance 2026-11-12** |
+| M2-S04 | Technology stack evaluation | 10% | S01-S03 | **In Progress — 80%; owner decision pending** |
+| M2-S05 | Data architecture, provenance and publication governance | 12% | S02-S04 | **In Progress — 85%; owner review pending** |
+| M2-S06 | Search, discovery and geography architecture | 8% | S02-S04 | **In Progress — 85%; owner review pending** |
 | M2-S07 | AI data-agent technical architecture | 10% | S03-S05 | Not started |
 | M2-S08 | Identity, authorization, reviews, privacy and security | 10% | S01-S07 | Not started |
 | M2-S09 | Performance, operations, hosting and recovery design | 6% | S03-S08 | Not started |
@@ -584,3 +584,17 @@ These are documentation task progress figures, not owner acceptance. S04 remains
 PR [#91](https://github.com/mattari20/listing-v2/pull/91) delivered the M2-S01 owner-acceptance record and coordinated M2-S02/S03 documentation package. Exact PR head `7a58f7ddb93cd693874e7debd3fa730b5db1d1ea` passed the required **Project documentation validation** workflow (run [#43188475213](https://github.com/mattari20/listing-v2/actions/runs/43188475213)); the `Validate project control documents` job and all steps completed successfully. PR #91 was squash-merged as `0881719c3b0d98893dc0e88a9c4f929cae89aea1`.
 
 S01 is Accepted and Closed at 100%. S02 is delivered at 80% draft task completion and S03 at 85%; their T05 owner-review gates remain open. Merge and CI evidence confirm delivery and documentation validation, not owner acceptance of S02/S03. M2 weighted progress remains 32.8%.
+
+
+## Authoritative update — S02/S03 accepted; S04/S05/S06 jointly delivered — 2026-11-12
+
+The owner explicitly accepted S02 and S03 as the conceptual-domain and logical application/integration architecture baselines. Formal record: ../05-architecture/M2-S02-S03_OWNER_ACCEPTANCE_RECORD_2026-11-12.md. Both steps are Accepted and Closed at 100%.
+
+The owner authorized the joint S04/S05/S06 documentation work package. Deliverables and separate task evidence are in ../05-architecture/M2_STEP_PLAN.md and ../05-architecture/M2-S04-S06_JOINT_VALIDATION_AND_OWNER_REVIEW.md.
+
+- S04: 80% drafted; T05 recommendation/owner decision pending.
+- S05: 85% drafted; T05 review pending.
+- S06: 85% drafted; T05 review pending.
+- Weighted M2 progress: **62.0%** (S00 5 + S01 8 + S02 12 + S03 12 + S04 8 + S05 10.2 + S06 6.8).
+
+S04 does not select a framework, database, search engine, map/geocoder or hosting vendor. S05/S06 do not authorize source access, copying, ingestion, connector activation or procurement. V2-DEC-006 remains binding. All three steps remain drafts pending owner review; CI and merge are delivery controls, not content acceptance.

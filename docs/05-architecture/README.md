@@ -14,12 +14,12 @@ M2 architecture and design documentation. Documentation-only until M2 is separat
 ## Planned artifacts
 | Artifact | Step | Status |
 |---|---|---|
-| System context, actors, capabilities and quality scenarios | S01 | Planned |
-| Domain glossary and conceptual model | S02 | Planned |
-| C4 context/container, components and runtime views | S03 | Planned |
-| Technology options and recommendation | S04 | Planned |
-| Data provenance and publication model | S05 | Planned |
-| Search, maps and geospatial design | S06 | Planned |
+| System context, actors, capabilities and quality scenarios | S01 | Accepted and closed |
+| Domain glossary and conceptual model | S02 | Accepted and closed |
+| C4 context/container, components and runtime views | S03 | Accepted and closed |
+| Technology options and conditional recommendation | S04 | Delivered — owner decision pending |
+| Data provenance and publication model | S05 | Delivered — owner review pending |
+| Search, maps and geospatial design | S06 | Delivered — owner review pending |
 | AI data-agent architecture | S07 | Planned |
 | Identity, reviews, privacy and security | S08 | Planned |
 | Operations, deployment and recovery design | S09 | Planned |
@@ -45,3 +45,17 @@ Keep decisions in ADRs, link stable requirement IDs, and update this index and p
 - [M2-S02/S03 Joint Validation and Owner Review](M2-S02-S03_JOINT_VALIDATION_AND_OWNER_REVIEW.md) — separate task evidence, cross-step consistency and owner review checklist.
 
 S02 and S03 are delivered as coordinated drafts. Owner review and acceptance remain pending; do not treat merge or CI as acceptance. No stack, physical schema, API, vendor or deployment topology is selected.
+
+
+## M2-S02/S03 owner acceptance — 2026-11-12
+
+- [M2-S02/S03 Owner Acceptance Record](M2-S02-S03_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) — owner accepted both conceptual/logical baselines; S02 and S03 closed at 100%.
+
+## M2-S04/S05/S06 joint documentation package — 2026-11-12
+
+- [S04 Technology Stack Evaluation](M2-S04_TECHNOLOGY_STACK_EVALUATION.md) — sourced options and conditional recommendation; no stack selected.
+- [S05 Data Architecture, Provenance and Publication Governance](M2-S05_DATA_ARCHITECTURE_PROVENANCE_PUBLICATION.md) — logical data domains, rights gates, lineage, validation, publication and rollback.
+- [S06 Search, Discovery and Geography Architecture](M2-S06_SEARCH_DISCOVERY_GEOGRAPHY_ARCHITECTURE.md) — search pipeline, projections, maps, geospatial privacy and Deeni Madaris negative requirements.
+- [S04/S05/S06 Joint Validation and Owner Review](M2-S04-S06_JOINT_VALIDATION_AND_OWNER_REVIEW.md) — separate task progress, cross-step checks and owner review checklist.
+
+S04 is 80%, S05 85%, S06 85% drafted. Owner review and S04 consequential choice decisions remain pending. These deliverables do not approve procurement, source access, implementation or deployment.

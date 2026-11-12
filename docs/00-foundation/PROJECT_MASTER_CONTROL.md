@@ -398,3 +398,12 @@ Current progress: S02 80% (T05 review pending); S03 85% (T05 review pending). Th
 PR [#91](https://github.com/mattari20/listing-v2/pull/91) delivered the M2-S01 owner-acceptance record and coordinated M2-S02/S03 documentation package. Exact PR head `7a58f7ddb93cd693874e7debd3fa730b5db1d1ea` passed the required **Project documentation validation** workflow (run [#43188475213](https://github.com/mattari20/listing-v2/actions/runs/43188475213)); the `Validate project control documents` job and all steps completed successfully. PR #91 was squash-merged as `0881719c3b0d98893dc0e88a9c4f929cae89aea1`.
 
 S01 is Accepted and Closed at 100%. S02 is delivered at 80% draft task completion and S03 at 85%; their T05 owner-review gates remain open. Merge and CI evidence confirm delivery and documentation validation, not owner acceptance of S02/S03. M2 weighted progress remains 32.8%.
+
+
+## Authoritative update — M2-S02/S03 accepted; S04/S05/S06 jointly active — 2026-11-12
+
+The owner explicitly accepted M2-S02 and M2-S03 as the conceptual domain and logical application/integration architecture baselines and directed closure. Formal record: ../05-architecture/M2-S02-S03_OWNER_ACCEPTANCE_RECORD_2026-11-12.md. S02 and S03 are Accepted and Closed at 100%.
+
+The owner authorized joint documentation work on M2-S04 Technology Stack Evaluation, M2-S05 Data Architecture/Provenance/Publication Governance and M2-S06 Search/Discovery/Geography Architecture. Their coordinated package and separate owner-review gates are documented in ../05-architecture/M2-S04-S06_JOINT_VALIDATION_AND_OWNER_REVIEW.md.
+
+Current task completion: S04 80%, S05 85%, S06 85%; T05 owner-review/decision gates remain pending. Weighted M2 progress is 62.0%. The work remains documentation and research only. No technology/vendor selection, procurement/new spend, source access/copying/ingestion, connector activation, physical schema, application code, production access, deployment or cutover is authorized. No legacy V1 artifact may inform design. V2-DEC-006 and all M1 G01-G20 restrictions remain binding.

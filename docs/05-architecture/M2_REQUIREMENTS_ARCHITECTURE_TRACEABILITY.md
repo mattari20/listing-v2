@@ -56,3 +56,18 @@ Full definitions and priorities are in `M2-S01_SYSTEM_REQUIREMENTS_AND_BOUNDARIE
 | AR-023–AR-025 | Audit, privileged configuration, persistence and recovery boundaries | G14/G17/G20 | Audit integrity, restore and incident tests | Drafted |
 
 S02 supplies the domain vocabulary and lifecycle semantics consumed by S03's logical components and runtime scenarios. S04–S09 must deepen the technology, data, search, AI, security and operational designs. This mapping is not a physical schema, API specification or implementation verification.
+
+
+## M2-S04/S05/S06 technology, data and discovery mapping — draft (2026-11-12)
+
+| Requirement / decision | Architecture element | Risk/control | Future verification | Status |
+|---|---|---|---|---|
+| AR-001–AR-003, AR-021–AR-022 | S04 backend/frontend options; HTML-first public experience; modular capability boundaries | SEO, low bandwidth, maintainability and team skill unknowns | Same synthetic domain workflow across backend candidates; HTML/JS payload and accessibility tests | Drafted; stack owner decision pending |
+| AR-005–AR-007, AR-013–AR-015, AR-019 | S05 evidence lineage, assertion history, source rights gate and publication decision | G02/G03/G05/G08/G09/G16; public access is not reuse permission | Source authorization negative tests, provenance completeness, conflict and withdrawal replay | Drafted |
+| AR-006–AR-007, AR-015, AR-023 | S05 cycle-scoped data, temporal validity, audit and correction history | Stale/mis-scoped admissions, fees and recognition claims | Effective-date, supersession, audit and rollback tests | Drafted |
+| AR-001–AR-010, AR-021–AR-022 | S06 public search/browse/map/list discovery and comparison | Misleading result, hidden missingness, location privacy | Anonymous, manual-locality, bilingual query, comparison and degraded-mode tests | Drafted |
+| AR-016–AR-018 / V2-DEC-006 | S05 publication eligibility plus S06 all-surface discovery enforcement | G07; category leakage via counts, facets, cache, maps or API | Zero-exposure negative suite for every public surface and side channel while OFF | Binding — design carried |
+| AR-004, AR-021, AR-024 | S06 geospatial quality and optional geolocation | Inaccurate pins, privacy leakage, external service outage | Coordinate provenance/precision tests; location-denial and map-outage tests | Drafted |
+| AR-008, AR-019–AR-020 | S06 ranking, freshness, completeness and sponsorship separation | Biased comparison, paid ranking opacity, unknown treated as negative | Relevance evaluation, missingness and sponsored-label tests | Drafted |
+
+S04-S06 designs consume accepted S02/S03 concepts. S07 refines AI-assisted evidence workflow; S08 refines identity/privacy/safeguarding; S09 establishes quantitative operations, capacity, retention and recovery targets. This mapping is a design obligation, not implementation test evidence.
