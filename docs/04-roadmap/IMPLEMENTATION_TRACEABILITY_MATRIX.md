@@ -233,3 +233,33 @@ This initial scaffold is not a claim that every requirement is already designed 
 The architecture-specific traceability matrix is established at `../05-architecture/M2_REQUIREMENTS_ARCHITECTURE_TRACEABILITY.md`. M2-S01 will expand stable requirement identifiers and map accepted M1 requirements and G01-G20 to architecture elements, ADRs, risks/controls and future verification scenarios.
 
 This initial scaffold is not a claim that every requirement is already designed or tested. Unresolved mapping must remain visibly pending, deferred or owner-gated.
+
+
+## M3-01 AI-era requirement traceability — 2026-11-12
+
+The AI-era review adds AI-ARCH-01 through AI-ARCH-20. These are planning requirements, not accepted implementation requirements or test results. The authoritative definitions and minimum acceptance criteria are in `../05-architecture/M3-01_AI_ERA_ARCHITECTURE_READINESS_REVIEW_2026-11-12.md`.
+
+| Requirement ID | Requirement | Specification | Step | PR / commit | Test / evidence | Status |
+|---|---|---|---|---|---|---|
+| AI-ARCH-01 | Provider/model independence | M3-01 AI-era architecture readiness review §4 | M3-01 P04 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future provider-adapter substitution test | Proposed — owner review pending |
+| AI-ARCH-02 | AI-optional operation | Same §4 | M3-01 P04/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future AI-off and provider-outage test | Proposed — owner review pending |
+| AI-ARCH-03 | Evidence-grounded RAG | Same §4 | M3-01 P04/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future citation, freshness, conflict and abstention tests | Proposed — owner review pending |
+| AI-ARCH-04 | Optional vector retrieval | Same §4 | M3-01 P04/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future retrieval benchmark and rebuild/portability tests | Proposed — owner review pending |
+| AI-ARCH-05 | Controlled agent execution | Same §4 | M3-01 P04/P05/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future allowlist, least-privilege and tool-abuse tests | Proposed — owner review pending |
+| AI-ARCH-06 | Human approval/publication integrity | Same §4 | M3-01 P05/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future no-model-to-publication bypass test | Proposed — owner review pending |
+| AI-ARCH-07 | Prompt/configuration lifecycle | Same §4 | M3-01 P04/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future version pin, review and rollback evidence | Proposed — owner review pending |
+| AI-ARCH-08 | AI evaluation/regression | Same §4 | M3-01 P04/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future synthetic evaluation suite and owner-approved thresholds | Proposed — owner review pending |
+| AI-ARCH-09 | Prompt-injection and RAG threat protection | Same §4 | M3-01 P05/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future adversarial retrieval/tool/data-exfiltration tests | Proposed — owner review pending |
+| AI-ARCH-10 | Observability and cost controls | Same §4 | M3-01 P04/P05/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future redaction, quotas, alert and hard-stop tests | Proposed — owner review pending |
+| AI-ARCH-11 | Versioned API/contracts | Same §4 | M3-01 P04/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future compatibility and contract validation tests | Proposed — owner review pending |
+| AI-ARCH-12 | Bounded interoperability/MCP evaluation | Same §4 | M3-01 P04/P05 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future external-server trust and permission tests | Proposed — owner review pending |
+| AI-ARCH-13 | Asynchronous work/event discipline | Same §4 | M3-01 P04/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future idempotency/retry/dead-letter tests if jobs are justified | Proposed — owner review pending |
+| AI-ARCH-14 | Data portability/provider exit | Same §4 | M3-01 P04/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future export, provider replacement and index rebuild tests | Proposed — owner review pending |
+| AI-ARCH-15 | English/Urdu and transliteration readiness | Same §4 | M3-01 P04/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future Unicode, RTL, bilingual and transliteration corpus | Proposed — owner review pending |
+| AI-ARCH-16 | AI data minimization/privacy | Same §4 | M3-01 P05/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future data-flow, redaction and prohibited-data tests | Proposed — owner review pending |
+| AI-ARCH-17 | Policy and context isolation | Same §4 | M3-01 P05/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future cross-scope and Deeni Madaris zero-exposure tests | Proposed — owner review pending |
+| AI-ARCH-18 | Replaceable search/geospatial services | Same §4 | M3-01 P04/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future adapter/outage/manual-locality tests | Proposed — owner review pending |
+| AI-ARCH-19 | Release rollback and kill switch | Same §4 | M3-01 P04/P06/P07 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future capability-disable, rollback and incident shutdown test | Proposed — owner review pending |
+| AI-ARCH-20 | AI dependency lifecycle governance | Same §4 | M3-01 P04/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future support/security/upgrade/retirement review | Proposed — owner review pending |
+ 
+All twenty entries remain planning proposals until owner acceptance and later scope-specific verification. No PR merge or document presence is treated as implementation evidence.
