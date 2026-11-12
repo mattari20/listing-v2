@@ -1,8 +1,8 @@
 # M1-S01 — Adult Participant Interview and Survey Kit
 
-**Status:** Draft research instruments; not approved for participant recruitment or distribution.  
+**Status:** Archived draft preparation material — explicitly deferred by owner; not approved for recruitment, distribution or use during construction.  
 **Intended participants:** Adults aged 18 or older who have recently made an education choice, plus adult parents/guardians who supported such a choice.  
-**Use:** Research preparation only. Do not publish as a live survey or contact participants until the owner approves the recruitment channel, consent process and data-retention plan.
+**Use:** Retained for record only. Owner direction on 2026-11-12 is to complete the platform first and not conduct surveys, interviews, recruitment or outreach during construction. Do not distribute or activate these instruments. The product will collect ratings/reviews through authenticated accounts after launch; this is a product feature, not a research survey.
 
 ## 1. Research safeguards
 

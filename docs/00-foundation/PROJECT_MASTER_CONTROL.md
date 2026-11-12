@@ -2,13 +2,12 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0 — accepted and closed; M1-S01 is the next authorized step  
-**Last reconciled:** 2026-11-11
+**Status:** M0 accepted and closed; M1 in progress; next step M1-S02  
+**Last reconciled:** 2026-11-12
 
 ## Authoritative current position
 - Public V2 repository visibility verified; owner selected public visibility on 2026-11-11.
 - Repository auto-merge is enabled; active `main` ruleset requires the documentation validation check.
-- Bootstrap README committed to `main`.
 - Founding documentation PR #1 merged into `main` as `0f2165f3d18e43f10cf6d6f717f145d3433769a4`.
 - Documentation Completion Catalogue: `../04-roadmap/DOCUMENTATION_CATALOG.md`; update after every documentation PR update and merge.
 - No application code, database schema or migrations have been approved or started.
@@ -26,10 +25,13 @@ The Documentation Completion Catalogue is the owner-facing inventory of delivere
 **M1 — Student requirements and independent research**
 
 ## M0 closeout
-M0 was accepted after review of the founding controls, strict legacy non-interference boundary, project planning records, repository rules and the PR delivery workflow. Evidence is recorded in `../04-roadmap/DOCUMENTATION_CATALOG.md`, `../04-roadmap/PROJECT_PROGRESS_REPORT.md` and `../04-roadmap/IMPLEMENTATION_TRACEABILITY_MATRIX.md`. M0-S02 acceptance is limited to the documented metadata-only exclusion audit; it is not an exhaustive inventory of the legacy repository. Repository auto-merge is enabled, but automatic merge execution has not yet been independently demonstrated. Production access, deployment and cutover remain unauthorized.
+M0 was accepted after review of the founding controls, strict legacy non-interference boundary, project planning records, repository rules and the PR delivery workflow. Evidence is recorded in the catalogue, progress report and traceability matrix. M0-S02 acceptance is limited to the documented metadata-only exclusion audit; it is not an exhaustive inventory of the legacy repository. Repository auto-merge is enabled, but automatic merge execution has not yet been independently demonstrated. Production access, deployment and cutover remain unauthorized.
 
 ## Strict legacy non-interference rule
 Legacy work must not influence V2 in any style or form: no code, schema, migrations, APIs, data, architecture, technology choices, UI patterns, workflows, tests, fixes, deployment practices, historical statuses or operational workarounds may be copied, adapted, ported, treated as templates or used as implicit design inputs. Legacy access is read-only for exclusion/audit purposes. V2 decisions must originate from V2 owner requirements, independent research and V2 validation. See `../99-reference/LEGACY_REPOSITORY_ISOLATION_AUDIT.md`.
+
+## Research timing decision
+The owner has directed that no student survey, interview, recruitment or research outreach be conducted during platform construction. The draft adult research instruments are retained as unapproved preparation material only and must not be distributed. The product will include account-based ratings and reviews; eligible visitors must log in to submit them after launch. This is a product feature, not a pre-launch research survey. Review eligibility, moderation, privacy and age-related safeguards remain design requirements to resolve before implementation and release.
 
 ## Next-step operating rule
 At the beginning of every work session, the AI must:
@@ -40,7 +42,7 @@ At the beginning of every work session, the AI must:
 5. Work only within the step's documented scope.
 6. Confirm all task inputs comply with the strict legacy non-interference rule.
 
-At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. M1-S01 is in progress. Its initial desk-research synthesis and primary-research protocol are tracked in `../03-research/M1_STUDENT_JOURNEY_RESEARCH.md`. Primary participant research remains outstanding.
+At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. M1-S01 desk research and initial journey hypotheses are delivered; primary participant research is explicitly deferred by owner and is not an active construction task. Continue with M1-S02 institution taxonomy and coverage research.
 
 ## Completion status
 M0 is accepted and closed. Future milestones require their own evidence-based acceptance and closeout.

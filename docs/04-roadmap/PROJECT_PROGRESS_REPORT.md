@@ -1,8 +1,8 @@
 # Project Progress Report
 
-**As of:** 2026-11-11  
+**As of:** 2026-11-12  
 **Current milestone:** M1  
-**Current phase:** M0 accepted; beginning independent student research
+**Current phase:** M0 accepted; M1 desk research underway; M1-S02 active
 
 ## Verified V2 repository facts
 - Repository: `mattari20/listing-v2`

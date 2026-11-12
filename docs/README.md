@@ -29,7 +29,7 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 ## Research and delivery
 - [Open-Source Reuse Audit](03-research/OPEN_SOURCE_REUSE_AUDIT.md)
 - [M1 Student Journey Research](03-research/M1_STUDENT_JOURNEY_RESEARCH.md)
-- [M1 Student Research Instruments](03-research/M1_STUDENT_RESEARCH_INSTRUMENTS.md)
+- [M1 Student Research Instruments](03-research/M1_STUDENT_RESEARCH_INSTRUMENTS.md) — archived draft; pre-launch participant research deferred by owner\n- [M1 Institution Taxonomy Research](03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md)
 - [Master Roadmap](04-roadmap/PROJECT_MASTER_ROADMAP.md)
 - [Milestone and Step Register](04-roadmap/MILESTONE_STEP_REGISTER.md)
 - [Traceability Matrix](04-roadmap/IMPLEMENTATION_TRACEABILITY_MATRIX.md)
