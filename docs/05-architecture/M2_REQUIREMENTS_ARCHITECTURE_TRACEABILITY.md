@@ -86,3 +86,8 @@ S04-S06 designs consume accepted S02/S03 concepts. S07 refines AI-assisted evide
 | All AR-001–AR-025 and G01-G20 | S10 integrated architecture and conditional M3 roadmap | Cross-step contradiction or unowned gap | Complete traceability audit, threat review, ADR audit, owner acceptance | Pending final owner acceptance |
 
 G01-G20 are not closed merely because a design paragraph exists. Each remains linked to an explicit M3 verification, owner/legal decision, source-specific authorization or documented deferral. This mapping is a design obligation, not implementation test evidence.
+
+
+## M3-01 AI-era architecture requirements — 2026-11-12
+
+The documentation-only review `M3-01_AI_ERA_ARCHITECTURE_READINESS_REVIEW_2026-11-12.md` proposes AI-ARCH-01 through AI-ARCH-20 as additional M3 planning requirements. They supplement accepted M2 decisions; they do not reopen M2 or authorize implementation. Map each requirement to the review's architecture layers, risk controls and future verification matrix. All 20 remain **proposed / owner review pending** until explicitly accepted. Provider/model independence, AI-off resilience, evidence-grounded RAG, optional vector retrieval, controlled agent execution, human publication approval, prompt lifecycle, evaluation, prompt-injection protection, observability/cost limits, versioned APIs, bounded interoperability, durable jobs, portability, English/Urdu readiness, privacy minimization, policy isolation, replaceable search/geospatial services, kill switches and lifecycle governance are mandatory planning topics. No model, agent, MCP server, API, vector service, queue or vendor is selected or activated.
