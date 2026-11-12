@@ -80,3 +80,17 @@ A proposal in a document is not automatically an approved implementation choice.
 - [Diagram Conventions](05-architecture/diagrams/README.md)
 
 M2 is owner-authorized and active as a documentation/design milestone. Application implementation remains gated until final M2 acceptance.
+
+
+## M2 architecture and design
+
+- [M2 Architecture Documentation Index](05-architecture/README.md)
+- [M2 Architecture and Design Charter](05-architecture/M2_ARCHITECTURE_DESIGN_CHARTER.md)
+- [M2 Step Plan](05-architecture/M2_STEP_PLAN.md)
+- [M2 Architecture Documentation Plan](05-architecture/M2_ARCHITECTURE_DOCUMENTATION_PLAN.md)
+- [M2 Requirements-to-Architecture Traceability](05-architecture/M2_REQUIREMENTS_ARCHITECTURE_TRACEABILITY.md)
+- [M2 Architecture Decision Register](05-architecture/M2_ARCHITECTURE_DECISION_REGISTER.md)
+- [ADR Template](05-architecture/decisions/ADR_TEMPLATE.md)
+- [Diagram Conventions](05-architecture/diagrams/README.md)
+
+M2 is owner-authorized and active as a documentation/design milestone. Application implementation remains gated until final M2 acceptance.
