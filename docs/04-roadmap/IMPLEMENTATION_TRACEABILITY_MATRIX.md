@@ -34,6 +34,12 @@ PR #12 merged as `6646889954e20bab95a33d92f6bb2abab266ec59`; exact head `ca5f28e
 ## PR #11 evidence
 PR #11 merged as `e39137e14f152fa82fe2acb284a631cb84438998`; exact head `b11e03020a46269d9b04674822182933c569082e`; required documentation check passed (run #43136568996).
 
+## PR #17 source-rights evidence
+PR #17 merged as `52481df5d18c60cb9e24ee3a32e7977db3669770`; exact head `8520aedbd9360bb190819dc85423b475bbb40497`; required project documentation validation passed (run #43143724535). It records initial HEC/PM&DC/PNMC public-terms findings. No directory-specific reuse permission was established; all source families remain research-only.
+
+## PR #16 source-rights register delivery
+PR #16 merged as `fdcfb6bd26bc3f0cd1b7467e4f506c7ca40bf2c4`; exact head `902d0af180152b78c42f1bb816545617afcd6b37`; required documentation validation passed (run #43139966390).
+
 ## Documentation catalogue maintenance
 
 `DOCUMENTATION_CATALOG.md` is the owner-facing inventory for documentation delivery and acceptance. Reconcile it on every documentation PR update and merge. Keep delivery status separate from content acceptance; update PR/head/check/merge evidence and links.
