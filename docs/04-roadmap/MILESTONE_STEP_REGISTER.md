@@ -500,10 +500,10 @@ M2 step weights total 100%: S00 5%, S01 8%, S02 12%, S03 12%, S04 10%, S05 12%, 
 | Task | Weight | Acceptance evidence | Status |
 |---|---:|---|---|
 | S00-T01 Verify repository, M1 acceptance and scope boundaries | 20% | Current main SHA, open PR state, owner acceptance record and restrictions verified | Complete |
-| S00-T02 Reconcile contradictory/stale current-status references | 20% | README, controller, roadmap and M1 synthesis point consistently to M1 closed / M2 active | In progress |
-| S00-T03 Publish M2 charter, step plan and weighted acceptance framework | 20% | Charter and 11-step plan committed | In progress |
+| S00-T02 Reconcile contradictory/stale current-status references | 20% | README, controller, roadmap and M1 synthesis point consistently to M1 closed / M2 active | Complete |
+| S00-T03 Publish M2 charter, step plan and weighted acceptance framework | 20% | Charter and 11-step plan committed | Complete |
 | S00-T04 Establish architecture documentation, ADR, diagram and traceability structure | 20% | Architecture index, decision-record conventions and traceability template committed | In progress |
-| S00-T05 Validate documentation and reconcile PR/merge evidence | 20% | Required CI passes on exact PR head; merge and catalogue evidence recorded | Pending |
+| S00-T05 Validate documentation and reconcile PR/merge evidence | 20% | Required CI passes on exact PR head; merge and catalogue evidence recorded | Complete — PR #85 / run #43180488082 / merge 17a2e3a |
 
 The detailed task breakdowns and acceptance evidence for M2-S01 through M2-S10 are maintained in the governing M2 Step Plan. Do not duplicate or independently alter their weights here; reconcile this register if the plan changes.
 
@@ -516,7 +516,7 @@ M2 step weights total 100%: S00 5%, S01 8%, S02 12%, S03 12%, S04 10%, S05 12%, 
 
 | Step | Scope | Weight | Dependencies | Status |
 |---|---|---:|---|---|
-| M2-S00 | Baseline reconciliation and architecture documentation controls | 5% | M1 accepted | In progress — PR validation pending |
+| M2-S00 | Baseline reconciliation and architecture documentation controls | 5% | M1 accepted | **Complete — 100%; PR #85 merged and exact-head CI passed** |
 | M2-S01 | System requirements and architecture boundaries | 8% | S00 | Not started |
 | M2-S02 | Core domain and conceptual information model | 12% | S01 | Not started |
 | M2-S03 | Overall application and integration architecture | 12% | S01-S02 | Not started |
@@ -535,7 +535,12 @@ M2 step weights total 100%: S00 5%, S01 8%, S02 12%, S03 12%, S04 10%, S05 12%, 
 | S00-T01 Verify repository, M1 acceptance and scope boundaries | 20% | Current main SHA, open PR state, owner acceptance record and restrictions verified | Complete |
 | S00-T02 Reconcile contradictory/stale current-status references | 20% | README, controller, roadmap and M1 synthesis point consistently to M1 closed / M2 active | In progress |
 | S00-T03 Publish M2 charter, step plan and weighted acceptance framework | 20% | Charter and 11-step plan committed | In progress |
-| S00-T04 Establish architecture documentation, ADR, diagram and traceability structure | 20% | Architecture index, decision-record conventions and traceability scaffold committed | In progress |
+| S00-T04 Establish architecture documentation, ADR, diagram and traceability structure | 20% | Architecture index, decision-record conventions and traceability scaffold committed | Complete |
 | S00-T05 Validate documentation and reconcile PR/merge evidence | 20% | Required CI passes on exact PR head; merge and catalogue evidence recorded | Pending |
 
 Detailed task breakdowns for S01-S10 are maintained in the governing M2 Step Plan. Do not independently alter task weights without reconciling both records.
+
+
+### M2-S00 delivery evidence
+
+PR [#85](https://github.com/mattari20/listing-v2/pull/85) merged as `17a2e3ad43ba1fd5ca3cb7a163670a2f19dd3783`. Exact head `650f5dfe11b9f1f76c2c005c3914186a8c41e23b` passed required Project documentation validation (run [#43180488082](https://github.com/mattari20/listing-v2/actions/runs/43180488082)); the required validation job succeeded. S00-T01–T05 are complete. **M2-S00: Complete, 100% task completion.**

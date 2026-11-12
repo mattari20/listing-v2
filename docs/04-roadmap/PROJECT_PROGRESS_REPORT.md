@@ -456,3 +456,10 @@ Owner authorization for M2 architecture/design was received on 2026-11-12. M2 is
 - Application implementation: Not authorized; M3 remains gated on separate M2 acceptance.
 
 M2 weights: S00 5%, S01 8%, S02 12%, S03 12%, S04 10%, S05 12%, S06 8%, S07 10%, S08 10%, S09 6%, S10 7% (100% total). Progress is evidence-based and updated after each delivery and validation.
+
+
+## M2-S00 completed — 2026-11-12
+
+M2-S00 baseline reconciliation and architecture documentation controls are complete at 100% task completion. PR [#85](https://github.com/mattari20/listing-v2/pull/85) merged as `17a2e3ad43ba1fd5ca3cb7a163670a2f19dd3783`. Exact PR head `650f5dfe11b9f1f76c2c005c3914186a8c41e23b` passed the required Project documentation validation workflow (run [#43180488082](https://github.com/mattari20/listing-v2/actions/runs/43180488082)).
+
+M2 weighted progress: S00 contributes 5% of the milestone (S00 100%). M2-S01 is the next step. This is documentation/design progress only; no implementation or production action is authorized.

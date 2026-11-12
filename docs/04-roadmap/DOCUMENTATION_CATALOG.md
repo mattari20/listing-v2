@@ -472,3 +472,8 @@ These are M2 baseline/control deliverables. Their existence does not imply that 
 - [ADR Template](../05-architecture/decisions/ADR_TEMPLATE.md) and [Diagram Conventions](../05-architecture/diagrams/README.md) — repeatable decision and diagram standards.
 
 These are M2 baseline/control deliverables. Their existence does not imply that the application stack, database, hosting, integrations or deployment architecture has been selected.
+
+
+## M2-S00 delivery and validation evidence — 2026-11-12
+
+PR [#85](https://github.com/mattari20/listing-v2/pull/85) delivered the M2 charter, 11-step plan, architecture documentation index/plan, ADR register/template, diagram conventions and initial traceability scaffold, while reconciling project status references. Exact head `650f5dfe11b9f1f76c2c005c3914186a8c41e23b` passed required Project documentation validation (run [#43180488082](https://github.com/mattari20/listing-v2/actions/runs/43180488082)); PR #85 merged as `17a2e3ad43ba1fd5ca3cb7a163670a2f19dd3783`. M2-S00 is Complete at 100%; M2-S01 is next.

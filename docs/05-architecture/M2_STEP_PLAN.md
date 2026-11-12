@@ -53,3 +53,6 @@ No application code, physical schema/migrations, production access, source colle
 
 ## Completion gate
 All step evidence complete; all M1 requirements and G01-G20 disposed; architecture/data/security/operations views consistent; consequential choices recorded; traceability gaps explained; M3 roadmap ready; explicit owner acceptance recorded. M3 implementation cannot start before acceptance.
+
+
+**M2-S00 closeout:** 100% task completion. PR [#85](https://github.com/mattari20/listing-v2/pull/85) merged as `17a2e3ad43ba1fd5ca3cb7a163670a2f19dd3783`; exact-head required documentation validation passed (run [#43180488082](https://github.com/mattari20/listing-v2/actions/runs/43180488082)). Next step: M2-S01.
