@@ -72,6 +72,7 @@ For every merge:
 | [M1 Student Research Instruments](../03-research/M1_STUDENT_RESEARCH_INSTRUMENTS.md) | Draft adult interview guide, consent script and survey instrument | Delivered — archived preparation only; owner deferred all pre-launch participant research; do not distribute |
 | [M1 Institution Taxonomy Research](../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md) | Independent desk research on provider types, coverage and recognition relationships | Delivered — initial baseline; owner review and source expansion pending |
 | [M1 Official Institution Source Coverage Matrix](../03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md) | Official source discovery and jurisdiction/sector coverage gaps for institution data | Delivered — independent source-discovery baseline; rights, freshness and coverage verification pending |
+| [M1 Source Rights, Access and Provenance Evidence Register](../03-research/M1_SOURCE_RIGHTS_ACCESS_EVIDENCE_REGISTER.md) | Source-by-source rights, access, privacy and freshness due-diligence requirements | Delivered — initial due-diligence register; all sources remain research-only |
 
 ### E. Roadmap, traceability and progress
 
@@ -119,6 +120,7 @@ For every merge:
 | [#12](https://github.com/mattari20/listing-v2/pull/12) | Add official institution source coverage matrix, weighted M1-S02 tasks and reconcile PR #11 evidence | Merged as `6646889954e20bab95a33d92f6bb2abab266ec59`; exact head `ca5f28e2edeb3ccd6088d4cdacad8a5440aaea90`; required check passed ([run #43138431960](https://github.com/mattari20/listing-v2/actions/runs/43138431960)) | Merged |
 | [#13](https://github.com/mattari20/listing-v2/pull/13) | Extend jurisdiction coverage with Sindh SEMIS, ICT-PEIRA and GB EMIS; reconcile PR #12 | Merged as `a0a5f891bdcffdc2ae0de59624358a02f2a9d15f`; exact head `f5dc4f9cbdb76bbb6133191ad676f833995967d9`; required check passed ([run #43138669791](https://github.com/mattari20/listing-v2/actions/runs/43138669791)) | Merged |
 | [#14](https://github.com/mattari20/listing-v2/pull/14) | Add AJK and non-formal/community education source leads; reconcile PR #13 | Merged as `f5d185209d96233dc26f5da2c4efd4d8fd1cdf03`; exact head `f5fcfc1c8d6e8722dd7046b2b87d9b5a8e4c1476`; required check passed ([run #43138852699](https://github.com/mattari20/listing-v2/actions/runs/43138852699)) | Merged |
+| [#15](https://github.com/mattari20/listing-v2/pull/15) | Add special-education and professional programme sources; reconcile PR #14 | Merged as `df60fbe592801e86c2126554c57f6b21ffae36f7`; exact head `b85393c22a2768cf6beb56699aeead5a16d13373`; required check passed ([run #43139676215](https://github.com/mattari20/listing-v2/actions/runs/43139676215)) | Merged |
 
 ## PR #10 merged documentation update
 PR #10 updated the master controller, comparison/reviews requirements, research instrument status, roadmap, step register, traceability matrix, progress report, catalogue and documentation index. It added the initial independent M1-S02 institution taxonomy research. The owner decision to defer all pre-launch student surveys/interviews/recruitment is recorded; account-based ratings/reviews are specified as post-launch functionality.
@@ -126,13 +128,13 @@ PR #10 updated the master controller, comparison/reviews requirements, research 
 ## Remaining documentation work
 
 1. Review every delivered founding document against V2 owner requirements and its own acceptance criteria; record accepted items individually.
-2. Complete M1-S02 by verifying the official-source coverage matrix, full jurisdiction/sector scope, professional programme status, update cadence and rights; pre-launch participant research remains deferred by owner.
+2. Complete M1-S02 by verifying the official-source coverage matrix, full jurisdiction/sector scope, professional programme status, update cadence and source-specific rights; pre-launch participant research remains deferred by owner.
 3. Expand the provider register with verifiable source access, coverage, update cadence, data rights and provenance evidence.
 4. Complete independent candidate research and license/security assessment before approving reuse.
 5. Refine M1 acceptance and task weights only after research scope and evidence are clear.
 6. Keep M2 architecture and technology decisions unapproved until M1 research is accepted.
 7. Maintain the strict rule that no legacy implementation, architecture, data, workflows or operating patterns influence V2.
-8. Expand the new official institution source coverage matrix into a rights- and freshness-verified source register before any data collection or connector activation.
+8. Complete the source-by-source rights, access, privacy and freshness evidence register before any data collection or connector activation.
 
 ## Initial consistency review findings
 
