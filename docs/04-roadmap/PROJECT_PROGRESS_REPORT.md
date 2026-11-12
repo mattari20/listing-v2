@@ -105,5 +105,8 @@ PR #24 reconciled PR #23 merge evidence across the catalogue, traceability, prog
 ## M1-S02 national coverage synthesis — draft delivered
 A draft national coverage synthesis is being added at `docs/03-research/M1_NATIONAL_INSTITUTION_COVERAGE_SYNTHESIS.md`. It consolidates the currently identified official source families across higher education, professional education, school education, TVET, non-formal education and special education; distinguishes provider/campus/programme, registration/recognition/accreditation/affiliation/assessment relationships; and lists unresolved jurisdiction, status, freshness, privacy and reuse-rights gaps. It does not claim a complete national inventory and does not approve any source for collection or reuse. S02-C08 remains in progress; S02-C09 owner review has not occurred.
 
+## PR #25 evidence
+PR #25 added `docs/03-research/M1_NATIONAL_INSTITUTION_COVERAGE_SYNTHESIS.md`, linked it from the documentation index, catalogued it and marked S02-C08 in progress. Exact head `703fc553aca6d06e354849a7a0d6a69bc71e53e7` passed required `Project documentation validation` (run #43145378929); merge commit `b06b669627d299ccd5d84416b787274a8e1dac76`.
+
 ## Reporting rule
 After every documentation PR update and merge, reconcile the documentation catalogue, index, controller, step register, traceability matrix and progress report. Record exact PR, head SHA, required check and merge SHA. Never infer acceptance from a merge alone.
