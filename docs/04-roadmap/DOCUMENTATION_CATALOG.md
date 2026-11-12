@@ -560,3 +560,9 @@ S07 is 85%, S08 80%, S09 80% and S10 80% draft completion. Weighted M2 progress 
 
 - [M2-S07/S08/S09 Joint Architecture Validation](../05-architecture/M2-S07-S09_JOINT_ARCHITECTURE_VALIDATION.md) — cross-step consistency, threats, failure modes and evidence limitations; S07-S09 design tasks complete.
 - [M2 Progress Report](../05-architecture/M2_PROGRESS_REPORT.md) — weighted progress 98.6%; S10 owner acceptance pending.
+
+## PR #96 exact-head validation and merge evidence — 2026-11-12
+
+PR [#96](https://github.com/mattari20/listing-v2/pull/96) delivered the S04-S06 owner acceptance record, S07-S10 architecture package and project-control reconciliation. Exact PR head 0ffa6b4ecad567457af79a4846dd1a03d41af954 passed the required **Project documentation validation** workflow (run [#43191493502](https://github.com/mattari20/listing-v2/actions/runs/43191493502)); the Validate project control documents job and all steps completed successfully. PR #96 was squash-merged as 3df10565711e66ff21bb6afb3a7917bf5deb7e99.
+
+S04-S06 are accepted/closed at 100%; S07-S09 design tasks are complete at 100%; S10 remains 80% pending explicit final owner acceptance. Weighted M2 design progress is 98.6%. CI and merge verify delivery and documentation validation, not final M2 owner acceptance or M3 implementation authorization.

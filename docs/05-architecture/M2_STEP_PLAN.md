@@ -223,3 +223,9 @@ M2 is not closed. Remaining work is task-level validation/reconciliation and exp
 ### S07-S09 design validation closeout — 2026-11-12
 
 The joint design-level review is recorded in [M2-S07/S08/S09 Joint Architecture Validation](M2-S07-S09_JOINT_ARCHITECTURE_VALIDATION.md). S07 T05 threat/cost/failure review, S08 T05 security/cross-step review and S09 T05 cost/operations review are complete as documentation tasks. S07, S08 and S09 are each 100% design-complete. This does not constitute M2 owner acceptance, legal review, live security testing, performance testing, restore testing, procurement or activation.
+
+## PR #96 exact-head validation and merge evidence — 2026-11-12
+
+PR [#96](https://github.com/mattari20/listing-v2/pull/96) delivered the S04-S06 owner acceptance record, S07-S10 architecture package and project-control reconciliation. Exact PR head 0ffa6b4ecad567457af79a4846dd1a03d41af954 passed the required **Project documentation validation** workflow (run [#43191493502](https://github.com/mattari20/listing-v2/actions/runs/43191493502)); the Validate project control documents job and all steps completed successfully. PR #96 was squash-merged as 3df10565711e66ff21bb6afb3a7917bf5deb7e99.
+
+S04-S06 are accepted/closed at 100%; S07-S09 design tasks are complete at 100%; S10 remains 80% pending explicit final owner acceptance. Weighted M2 design progress is 98.6%. CI and merge verify delivery and documentation validation, not final M2 owner acceptance or M3 implementation authorization.
