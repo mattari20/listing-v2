@@ -64,3 +64,10 @@ No decision has been made by this document. The step remains **In progress** unt
 The research pack has been supplemented with dated AJK private-school register evidence, richer Balochistan EMIS fields, NFEMIS national NFE dashboard/inventory evidence (including a two-record discrepancy between dashboard and category sum), a GB EMIS zero-valued dashboard warning, HEC PQR and allied-health NOC distinctions, and historical-only KP special-education evidence. Full findings and source links are in [M1-S02 Supplemental Official-Source Coverage Review](M1_S02_SUPPLEMENTAL_SOURCE_COVERAGE_REVIEW_2026-11-12.md).
 
 These additions improve the evidence baseline but do not establish complete national coverage, current record-level verification, source reuse permission or legal/privacy approval. The prior owner decision options remain unchanged. S02-C09 remains not approved and must be decided explicitly by the owner; no source is approved for collection or reuse.
+
+
+## 8. Further council and special-education evidence — 2026-11-12
+
+A second supplemental review adds PCATP 2025 programme-status distinctions; separate NCT FTJ/BEMS recognition routes and a disputed FTJ entry; AHPC's December 2025 applications list (not a granted-recognition register); NTC zero/interim and intake-batch visit routes; the outstanding NAEAC register gap; and ICT DGSE mandate evidence while retaining KP/Balochistan/AJK/GB current special-education register gaps. Personal contacts and individual/student/health data remain excluded. Full findings are in [M1-S02 Supplemental Professional-Council and Special-Education Review](M1_S02_SUPPLEMENTAL_PROFESSIONAL_COUNCIL_SPECIAL_EDUCATION_REVIEW_2026-11-12.md).
+
+The evidence package is stronger but not complete: record-level current status, source-specific rights, multi-jurisdiction special-education coverage and owner acceptance remain outstanding. S02-C09 is still not approved; no source is approved for collection or reuse.

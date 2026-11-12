@@ -36,6 +36,7 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [M1 National Institution Coverage Synthesis](03-research/M1_NATIONAL_INSTITUTION_COVERAGE_SYNTHESIS.md) — draft national sector/jurisdiction coverage, quality assessment and unresolved gaps
 - [M1-S02 Owner Acceptance Review](03-research/M1_S02_OWNER_ACCEPTANCE_REVIEW.md) — decision-ready closeout recommendation and limitations; pending owner decision
 - [M1-S02 Supplemental Official-Source Coverage Review](03-research/M1_S02_SUPPLEMENTAL_SOURCE_COVERAGE_REVIEW_2026-11-12.md) — AJK, Balochistan, NFEMIS, GB EMIS, HEC qualification/NOC and special-education evidence supplement
+- [M1-S02 Supplemental Professional-Council and Special-Education Review](03-research/M1_S02_SUPPLEMENTAL_PROFESSIONAL_COUNCIL_SPECIAL_EDUCATION_REVIEW_2026-11-12.md) — PCATP, NCT, AHPC, NTC, NAEAC and ICT/KP special-education findings
 - [M1 Source Rights, Access and Provenance Evidence Register](03-research/M1_SOURCE_RIGHTS_ACCESS_EVIDENCE_REGISTER.md)
 - [Master Roadmap](04-roadmap/PROJECT_MASTER_ROADMAP.md)
 - [Milestone and Step Register](04-roadmap/MILESTONE_STEP_REGISTER.md)

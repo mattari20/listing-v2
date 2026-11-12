@@ -176,3 +176,13 @@ PR [#33](https://github.com/mattari20/listing-v2/pull/33) added the 2026-11-12 s
 ## PR #34 reconciliation evidence
 
 PR [#34](https://github.com/mattari20/listing-v2/pull/34) reconciled PR #33's supplemental source review delivery across the index, catalogue, progress, traceability, step register and controller. Exact head `fce8164fe73bf435aa7c021ac3b8eb7e521c89a7` passed required **Project documentation validation** (run [#43152117268](https://github.com/mattari20/listing-v2/actions/runs/43152117268)); PR #34 merged as `569ef14f0cc4ef72bb07cf0313965e13250eac3d`. M1-S02 remains in progress pending remaining research evidence and owner acceptance.
+
+
+## Supplemental M1-S02 professional-council document
+
+- [M1-S02 Supplemental Professional-Council and Special-Education Review](../03-research/M1_S02_SUPPLEMENTAL_PROFESSIONAL_COUNCIL_SPECIAL_EDUCATION_REVIEW_2026-11-12.md) — PCATP, NCT, AHPC, NTC, NAEAC and ICT/KP special-education evidence; research-only, with current register, rights and owner-acceptance gaps retained.
+
+
+## PR #35 final reconciliation evidence
+
+PR [#35](https://github.com/mattari20/listing-v2/pull/35) reconciled PR #34 delivery evidence and merged as `0cb1c8cf1dba9fb0b90b1fa8bda16123d57c65f6`. Exact head `48626561f492c03baab9ce72fb79e7a24a01640f` passed required **Project documentation validation** (run [#43152199340](https://github.com/mattari20/listing-v2/actions/runs/43152199340)). It preserved the M1-S02 owner-acceptance boundary.
