@@ -441,10 +441,10 @@ The owner explicitly accepted the S08 AI data-agent workflow research and S09 co
 | S10-T07 Reconcile owner decisions and hard constraints | 5% | Deeni Madaris default-OFF, deferred primary research, post-launch reviews and approval gates preserved | Completed |
 | S10-T08 Define M2 entry criteria and exclusions | 5% | M2 entry requirements and prohibited implied authorizations documented | Completed |
 | S10-T09 Prepare M1 closeout and evidence links | 10% | Final synthesis, gap register and project-control updates delivered | Completed |
-| S10-T10 Owner review and formal M1 acceptance | 5% | Explicit owner acceptance of final M1 synthesis | Pending owner acceptance |
+| S10-T10 Owner review and formal M1 acceptance | 5% | Explicit owner acceptance of final M1 synthesis | **Accepted — owner approval recorded 2026-11-12** |
 | **Total** | **100%** | | **95%** |
 
-**M1-S10 weighted synthesis/documentation completion:** 95%; T01–T09 complete and T10 awaits explicit owner acceptance. M1 is not formally closed until S10 acceptance is recorded.
+**M1-S10 weighted synthesis/documentation completion:** 100%; T01–T10 complete. M1-S10 is Accepted and Closed; M1 is formally Accepted and Closed.
 
 ## M1-S10 closeout review — 2026-11-12
 
@@ -456,3 +456,10 @@ The final synthesis, cross-step traceability, G01–G20 gap/decision register, M
 PR [#81](https://github.com/mattari20/listing-v2/pull/81) delivered the S08/S09 owner-acceptance record and M1-S10 final synthesis package. Exact PR head `5d421241b2e643fb8291ff9f183aaa3205005a89` passed required **Project documentation validation** (run [#43175231085](https://github.com/mattari20/listing-v2/actions/runs/43175231085)); the `Validate project control documents` job and all steps completed successfully. PR #81 was squash-merged as `8ab22c7b2ca759db741660fbafd6a0c36edcce6d`.
 
 S08 and S09 are accepted and closed at 100% weighted task completion each. S10 is delivered at 95%; its final 5% owner-acceptance task remains pending. M1 is therefore **Ready for final owner acceptance, not yet formally closed**. No M2 work or implementation is authorized by this merge.
+
+
+## M1-S10 final owner acceptance and M1 closeout — 2026-11-12
+
+The owner explicitly accepted the final S10 synthesis and authorized M1 closeout. Formal record: `../03-research/M1_S10_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. S10-T10 (5%) is accepted; M1-S10 is **Accepted and Closed at 100% weighted task completion**. M1-S01 through M1-S10 are all accepted and closed. M1 is **Accepted and Closed** as a research/documentation milestone.
+
+This acceptance does not authorize M2; M2 requires separate explicit owner authorization. Application implementation remains prohibited until M2 architecture/design is completed and separately accepted. G01–G20 remain carried-forward gaps/decisions. All prior rights, privacy, Deeni Madaris default-OFF, deferred primary research, post-launch reviews, no-source-access and no-production-operation constraints remain binding.
