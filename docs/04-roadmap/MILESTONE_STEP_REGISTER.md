@@ -659,3 +659,6 @@ T04 update: the [M3-00 Budget and Cost Scenarios](M3-00_BUDGET_AND_COST_SCENARIO
 
 
 T05 update: the [M3-00 Technology Stack Decision Framework](M3-00_TECHNOLOGY_STACK_DECISION_FRAMEWORK.md) documents backend, frontend, database, search, geography and queue candidates; common evidence criteria; conditional recommendations; and unresolved dependencies. No framework or vendor is selected. Actual implementer/maintainer skills and support/cost/hosting evidence remain open. No technical spike or installation is authorized. T05 is In progress; no partial completion percentage is claimed.
+
+
+T06 update: the [M3-00 Hosting and Operations Decision Framework](M3-00_HOSTING_AND_OPERATIONS_DECISION_FRAMEWORK.md) records official region research for AWS, Azure, Google Cloud and Hostinger, compares operating models, and defines required evidence for exact service/region support, Pakistan latency, data terms, security, backups/restore, cost and operations ownership. No provider/region is selected; no account, trial, procurement or spend is authorized. T06 is In progress; no partial completion percentage is claimed.
