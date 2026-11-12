@@ -536,3 +536,10 @@ S04 is 80%, S05 85%, S06 85% drafted. Owner review and S04 consequential choice 
 PR [#93](https://github.com/mattari20/listing-v2/pull/93) recorded the owner's acceptance and closure of S02/S03 and delivered the coordinated S04/S05/S06 architecture documentation. Exact PR head `17a77885eca53fd1a8c8d3d516f26741d10fc39a` passed required **Project documentation validation** (workflow run [#43189688854](https://github.com/mattari20/listing-v2/actions/runs/43189688854)); job `Validate project control documents` and all steps completed successfully. PR #93 was squash-merged as `4a100030a2ea491b0061ac80a543f723b03fdea4`.
 
 S02 and S03 are Accepted and Closed at 100%. S04 remains 80%, S05 85% and S06 85% pending their separate owner-review/decision gates. Weighted M2 progress is 62.0%. CI and merge establish delivery and documentation validation, not owner acceptance of S04-S06.
+
+
+## PR #94 exact-head validation and merge evidence — 2026-11-12
+
+PR [#94](https://github.com/mattari20/listing-v2/pull/94) reconciled PR #93 delivery. Exact PR head `9c369a4a6f5b78d794feb2e38d9c4afd1b4875e8` passed required **Project documentation validation** (workflow run [#43189848614](https://github.com/mattari20/listing-v2/actions/runs/43189848614)); job `Validate project control documents` and all steps completed successfully. PR #94 was squash-merged as `0a5f65258ea04c52b8e79b314f7cda04c8d3e65c`.
+
+This reconciliation confirms PR #93's merge evidence and does not alter content acceptance: S02/S03 remain accepted/closed; S04 80%, S05 85% and S06 85% remain owner-review/decision pending. Weighted M2 progress remains 62.0%.
