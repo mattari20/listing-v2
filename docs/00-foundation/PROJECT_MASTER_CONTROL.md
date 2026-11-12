@@ -226,3 +226,8 @@ S03-C04 remains in progress. All sources remain RESEARCH ONLY; no scraping, bulk
 ## M1-S03 federal data source update — 2026-11-12
 
 PIE's official mandate confirms federal coordination and support to provincial/regional EMIS units. Pakistan Education Statistics 2024 states that private-college data are not maintained by most jurisdictions except Punjab and KP. The 2021–22 report records Wafaq-based Madaris aggregates and repeated data for some non-reporting Wafaqs. FBISE's public affiliated-institution table displayed 3,315 records across multiple jurisdictions and overseas locations; this is examination affiliation, not institutional recognition. See `../03-research/M1_S03_FEDERAL_DATA_FBISE_SOURCE_REVIEW_2026-11-12.md`. S03-C01 remains in progress.
+
+
+## M1-S03 FDE/FGEI distinction — 2026-11-12
+
+FDE's current portal displays 432 ICT institutions and has separate admissions and GIS/EMIS routes. FGEI C/G is a separate federal directorate under IGT&E; indexed official pages report 311 schools and 49 colleges across cantonment/garrison regions, but record-level pages were access-limited. FDE, FGEI and FBISE must remain distinct source/authority relationships. See `../03-research/M1_S03_FDE_FGEI_SOURCE_REVIEW_2026-11-12.md`. S03-C02 remains in progress.
