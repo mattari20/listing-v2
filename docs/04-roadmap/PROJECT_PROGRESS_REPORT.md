@@ -562,3 +562,10 @@ The owner accepted the owner-led, ChatGPT-assisted delivery model: the user rema
 The owner confirmed **10–15 hours per week** for project decisions, review and participation. M3-DEC-002 records this owner availability. The range is not treated as engineering or operations capacity. Other human delivery capacity, review/approval cadence and continuity assumptions remain unresolved.
 
 **Progress treatment:** T03 is now In progress, but no partial task percentage is claimed until its complete capacity/cadence/continuity output is evidenced. T01 remains complete; T02 and T03 are in progress; T04-T08 remain open. M3-00 remains 10%; M3 overall remains 0.5%. Documentation/planning only; no implementation, hiring, procurement, spend or production activity is authorized.
+
+
+## M3 owner capacity clarification — 2026-11-12
+
+The owner clarified that 10–15 hours/week is a planning baseline, with flexibility according to project demand and priority. Review and approval cadence is demand-led around decision gates rather than restricted to a fixed weekly meeting. This does not imply unlimited availability. Other human delivery capacity and continuity assumptions remain open.
+
+T03 remains in progress; no partial task percentage is claimed until the remaining capacity and continuity evidence is documented. M3-00 remains at 10%; M3 overall remains at 0.5%. Documentation/planning only.
