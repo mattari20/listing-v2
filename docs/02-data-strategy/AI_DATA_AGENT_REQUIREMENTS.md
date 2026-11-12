@@ -28,3 +28,20 @@ Refresh frequency must be provider-specific and justified by the source's public
 
 ## M1 design decisions
 Choose orchestration, queueing, browser/crawler stack, LLM usage, human review, confidence model, storage and monitoring only after source research and architecture evaluation.
+
+
+## M1-S08 research baseline — 2026-11-12
+
+The detailed workflow and governance baseline is documented in [M1-S08 AI Data-Agent Workflow Research](../03-research/M1_S08_AI_DATA_AGENT_WORKFLOW_RESEARCH_2026-11-12.md).
+
+Additional mandatory requirements:
+- A source/asset authorization manifest must be approved before any automated retrieval; discovery alone must not trigger access.
+- Every assertion must retain field-level provenance, original and normalized values, source dates, observed time, extraction/transformation version, confidence rationale, conflicts and reviewer decision.
+- Treat source content as untrusted data. Prompt-injection text embedded in webpages, PDFs or spreadsheets must never become agent instructions.
+- Separate evidence quality, extraction confidence, entity-match confidence, impact risk and rights status; do not use a single opaque model confidence score as publication authority.
+- Recognition, accreditation, legal status, admission deadlines, eligibility, fees, scholarships and sensitive/high-impact changes require authoritative evidence and human approval.
+- Keep competing assertions and prior published values; never silently overwrite. Publication must be versioned, attributable and reversible.
+- Use least privilege, allowlisted destinations, rate limits, credential isolation, privacy minimization, security monitoring, a kill switch and auditable rollback.
+- No connector, model, crawler, scheduler, database or orchestration technology is selected in M1.
+
+The research uses NIST AI RMF/Generative AI Profile, W3C PROV and the UK Government Data and AI Ethics Framework as non-binding design references. Source rights and S07 security controls remain controlling. No live source was accessed and no agent was activated.

@@ -2,7 +2,7 @@
 
 **As of:** 2026-11-12  
 **Current milestone:** M1  
-**Current phase:** M0 accepted; M1-S01 through M1-S05 accepted; M1-S06/S07 research packages merged, owner acceptance pending
+**Current phase:** M0 accepted; M1-S01 through M1-S07 accepted; M1-S08/S09 joint research packages delivered, owner acceptance pending
 
 ## Verified V2 repository facts
 - Repository: `mattari20/listing-v2`
@@ -32,14 +32,15 @@
 
 ## Current M1 status
 - M1-S01 is **Accepted and Closed** by explicit owner decision on 2026-11-12. Primary participant validation remains deferred.
-- M1-S02 is **Accepted and Closed** as an independent taxonomy/coverage research baseline; its jurisdictional gaps and source-rights limitations remain documented.
-- M1-S03 is **Accepted and Closed** as an official provider/regulator research baseline; its 48-source register and supplemental reviews do not grant reuse rights.
+- M1-S02 is **Accepted and Closed** as an independent taxonomy/coverage research baseline; jurisdictional gaps and source-rights limitations remain documented.
+- M1-S03 is **Accepted and Closed** as an official provider/regulator research baseline; its source register and supplemental reviews do not grant reuse rights.
 - M1-S04 is **Accepted and Closed** at 100% weighted research/documentation completion; its 21 source-family register and seven-jurisdiction coverage assessment remain RESEARCH ONLY.
-- M1-S05 is **Accepted and Closed** at 100% weighted research/documentation completion by explicit owner decision on 2026-11-12. Formal record: `docs/03-research/M1_S05_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. Its 22-source-family federated programme/admissions evidence model and documented gaps remain RESEARCH ONLY.
-- M1-S06 independent GitHub software/dataset discovery is delivered at 90% weighted completion; owner acceptance pending. Candidate inventory: `docs/03-research/M1_S06_GITHUB_SOFTWARE_DATASET_DISCOVERY_2026-11-12.md`.
-- M1-S07 source-rights/licensing/privacy/security assessment is delivered at 90% weighted completion; owner acceptance pending. Assessment: `docs/03-research/M1_S07_SOURCE_RIGHTS_SECURITY_ASSESSMENT_2026-11-12.md`.
-- S06/S07 are research baselines only. No candidate repository was cloned, executed, forked or imported; no dataset was downloaded or ingested; no source owner was contacted; no permission request or connector activation occurred.
-- M1-S08 AI data-agent workflow requirements, M1-S09 comparison/reviews/trust research and M1-S10 final synthesis/acceptance remain outstanding. M2 architecture and implementation remain gated on completion and owner acceptance of M1.
+- M1-S05 is **Accepted and Closed** at 100% weighted research/documentation completion. Its 22-source-family federated programme/admissions model and gaps remain RESEARCH ONLY.
+- M1-S06 and M1-S07 are **Accepted and Closed** at 100% weighted completion as research/documentation baselines. Formal record: `docs/03-research/M1_S06_S07_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. Acceptance does not approve any repository, dataset or source for import, collection or reuse.
+- M1-S08 AI data-agent workflow research is delivered at **95%** weighted completion; owner acceptance pending. Report: `docs/03-research/M1_S08_AI_DATA_AGENT_WORKFLOW_RESEARCH_2026-11-12.md`.
+- M1-S09 comparison, ratings, reviews and trust research is delivered at **95%** weighted completion; owner acceptance pending. Report: `docs/03-research/M1_S09_COMPARISON_REVIEWS_TRUST_RESEARCH_2026-11-12.md`.
+- S08/S09 are documentation-only baselines. No agents, connectors, crawlers, schedulers, comparison engine, review feature or moderation console were implemented or activated.
+- M1-S10 final synthesis, gap reconciliation and owner acceptance remains outstanding. M2 architecture and application implementation remain gated on completion and acceptance of M1.
 
 ## M1-S01 and owner research-timing decision
 The initial desk-research synthesis is merged in `docs/03-research/M1_STUDENT_JOURNEY_RESEARCH.md`. Draft adult interview/survey instruments remain in `docs/03-research/M1_STUDENT_RESEARCH_INSTRUMENTS.md` as preparation material only. On 2026-11-12, the owner directed that no student survey, interview, recruitment or research outreach be conducted during construction. These instruments must not be distributed or activated. Primary participant research is deferred; this does not mean it has been completed or validated.
@@ -50,7 +51,7 @@ The owner confirmed that ratings and written reviews belong in the V2 product mo
 An initial independent taxonomy baseline is documented in `docs/03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md`; an official source coverage matrix is documented in `docs/03-research/M1_OFFICIAL_INSTITUTION_SOURCE_COVERAGE_MATRIX.md`. The matrix identifies HEC, PMDC, PNMC, PCP, Punjab PEPRIS, KP-PSRA, Balochistan SED/EMIS, Sindh SEMIS, ICT-PEIRA, GB EMIS and NAVTTC source families. AJK official source families (E&SE Department and BECS) have been identified, but complete coverage remains unverified. BECS/ALP and NFEMIS are initial non-formal source leads. Punjab and Sindh special-education source families and PEC, NCEAC, NACTE and NCH professional education sources have now been identified; other jurisdictions/councils and source verification remain outstanding. Source access, rights, status semantics and update cadence remain unverified. A source-by-source rights/access evidence register is maintained. Its 2026-11-12 review records initial HEC/PM&DC/PNMC terms findings; PCP terms and source-specific permission remain unresolved. The 2026-11-12 review also checked KP-PSRA, ICT-PEIRA and Sindh RSU/SEMIS: no directory-specific reuse permission was located; ICT-PEIRA states its active list is updated weekly and distinguishes renewal-pending records. No permission requests have been sent; all sources remain research-only. It is not a final taxonomy or comprehensive inventory.
 
 ## Next authorized step
-M1-S05 is accepted and closed. M1-S06 and M1-S07 research packages have been delivered jointly and are pending owner acceptance. The next eligible research work is M1-S08 and M1-S09 after the S06/S07 acceptance gate is resolved. M1-S10 then consolidates the complete M1 baseline. No M2 architecture, application implementation, data ingestion, connector activation, production access or deployment is authorized.
+M1-S06 and M1-S07 are accepted and closed as research baselines. M1-S08 and M1-S09 research packages have been delivered jointly at 95% weighted completion each; owner acceptance remains pending. After the owner resolves those two acceptance gates, M1-S10 will consolidate the complete M1 baseline and prepare the M1 closeout/approval package. No M2 architecture, application implementation, data ingestion, connector activation, production access or deployment is authorized.
 
 ## PR #15 evidence
 PR #15 added Punjab/Sindh special-education source families and PEC, NCEAC, NACTE and NCH professional education sources. Its exact head `b85393c22a2768cf6beb56699aeead5a16d13373` passed the required documentation check (run #43139676215) and merged as `df60fbe592801e86c2126554c57f6b21ffae36f7`.
@@ -381,3 +382,12 @@ The independent GitHub software/dataset discovery and source-rights/security ass
 ## PR #77 merge and exact-head validation evidence — 2026-11-12
 
 PR [#77](https://github.com/mattari20/listing-v2/pull/77) merged into `main` as `71e71ce74a57b854724027a1b106befe826b14fa`. The final PR head `deef364831cf4f0d902128ce9933897b17f9649c` passed the required **Project documentation validation** check (run [#43171586968](https://github.com/mattari20/listing-v2/actions/runs/43171586968)); the job completed successfully. The merge delivered the S05 owner-acceptance record and S06/S07 research packages, plus reconciled project-control documents. S06 and S07 remain owner-acceptance pending at 90% weighted completion each. This delivery does not authorize source collection, code/data import, reuse, ingestion, connector activation or implementation.
+
+
+## M1-S06/S07 owner acceptance — 2026-11-12
+
+The owner accepted the S06 independent software/dataset discovery and S07 source-rights/security research baselines. Formal record: `docs/03-research/M1_S06_S07_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. S06/S07 are closed as research baselines only; no third-party source or code is approved for reuse.
+
+## M1-S08/S09 joint research delivery — 2026-11-12
+
+S08 AI data-agent workflow requirements and S09 comparison/reviews/trust requirements are delivered in `docs/03-research/M1_S08_AI_DATA_AGENT_WORKFLOW_RESEARCH_2026-11-12.md` and `docs/03-research/M1_S09_COMPARISON_REVIEWS_TRUST_RESEARCH_2026-11-12.md`. Both steps are at 95% weighted research/documentation completion, with owner acceptance pending. The existing AI Data Agent Requirements and Comparison, Reviews and Trust product documents have been reconciled to the new research. No source was accessed, no agent or connector activated, no user review collected, and no feature implemented.
