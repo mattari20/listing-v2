@@ -72,3 +72,9 @@ S04 is 80%, S05 85%, S06 85% drafted. Owner review and S04 consequential choice 
 - [M2-S10 Final Architecture Synthesis and M3 Roadmap](M2-S10_FINAL_ARCHITECTURE_SYNTHESIS_M3_ROADMAP.md) — integrated invariants, decision gates, validation and conditional M3 sequence.
 
 S07-S10 are documentation drafts pending task-level validation and owner review. M3 implementation remains gated until explicit final M2 acceptance and separate M3 authorization.
+
+
+- [M2-S07/S08/S09 Joint Architecture Validation](M2-S07-S09_JOINT_ARCHITECTURE_VALIDATION.md) — cross-step threat/failure review, design task closure and explicit operational evidence limitations.
+- [M2 Progress Report](M2_PROGRESS_REPORT.md) — weighted step status and final owner-acceptance gate.
+
+S07, S08 and S09 are design-task complete at 100%; S10 remains 80% pending explicit final owner acceptance. Weighted M2 design progress is 98.6%.
