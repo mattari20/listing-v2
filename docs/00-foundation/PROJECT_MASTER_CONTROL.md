@@ -304,3 +304,12 @@ M1-S06 and M1-S07 have been accepted and closed as research baselines. The owner
 ## PR #79 merge and exact-head validation evidence — 2026-11-12
 
 PR [#79](https://github.com/mattari20/listing-v2/pull/79) merged into `main` as `59ab010830182a169fd609172618002ee8327fd3`. The exact PR head `4fed8a8d9f49c361539042f1f109102b9d6f4df2` passed the required **Project documentation validation** check (run [#43174230801](https://github.com/actions/runs/43174230801)); the validation job completed successfully. The merge delivered S08/S09 research, aligned product/data requirements and project controls, and recorded S06/S07 owner acceptance. S08 and S09 remain at 95% weighted completion each, with owner acceptance pending. No implementation or source access is authorized.
+
+
+## Authoritative update — S08/S09 accepted; M1-S10 ready for final acceptance (2026-11-12)
+
+The owner explicitly accepted M1-S08 and M1-S09. Formal record: `../03-research/M1_S08_S09_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. Both steps are Accepted and Closed at 100% weighted task completion as research/documentation baselines. Their open policy decisions and limitations remain binding and are carried into M2.
+
+M1-S10 final synthesis is delivered in `../03-research/M1_S10_FINAL_SYNTHESIS_CLOSEOUT_REVIEW_2026-11-12.md`. It reconciles S01–S09, maps cross-step requirements, consolidates G01–G20, defines M2 entry requirements and records exclusions. S10 is 95% complete; the 5% owner acceptance task is pending. **M1 remains open pending explicit owner acceptance of S10.**
+
+Upon S10 acceptance, M1 may be marked Accepted and Closed and M2 architecture/design may be separately authorized. This does not authorize application implementation, source access/ingestion, database/schema changes, production access, deployment or URL cutover. Application implementation remains prohibited until M2 is completed and accepted. V2-DEC-006 (Deeni Madaris public visibility default OFF), no primary research during construction, post-launch reviews, deny-by-default source rights and all privacy/security safeguards remain binding.

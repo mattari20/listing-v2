@@ -396,3 +396,16 @@ S08 AI data-agent workflow requirements and S09 comparison/reviews/trust require
 ## PR #79 merge and exact-head validation evidence — 2026-11-12
 
 PR [#79](https://github.com/mattari20/listing-v2/pull/79) merged into `main` as `59ab010830182a169fd609172618002ee8327fd3`. The exact PR head `4fed8a8d9f49c361539042f1f109102b9d6f4df2` passed the required **Project documentation validation** check (run [#43174230801](https://github.com/actions/runs/43174230801)); the validation job completed successfully. The merge delivered S08/S09 research, aligned product/data requirements and project controls, and recorded S06/S07 owner acceptance. S08 and S09 remain at 95% weighted completion each, with owner acceptance pending. No implementation or source access is authorized.
+
+
+## M1-S08/S09 owner acceptance — 2026-11-12
+
+The owner explicitly accepted both research baselines. Formal record: `docs/03-research/M1_S08_S09_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. S08 and S09 are now Accepted and Closed at 100% weighted task completion each. Their open policy decisions, source-rights restrictions, privacy safeguards and technical choices remain carried forward; acceptance is not permission to access or ingest sources, activate agents/connectors, collect reviews or implement features.
+
+## M1-S10 final synthesis and closeout package — 2026-11-12
+
+Delivered `docs/03-research/M1_S10_FINAL_SYNTHESIS_CLOSEOUT_REVIEW_2026-11-12.md`, containing the S01–S09 disposition, cross-step traceability, consolidated G01–G20 gap/decision register, M2 entry requirements, exclusions and final acceptance checklist. S10 tasks T01–T09 are complete (95% weighted completion); T10 formal owner acceptance remains pending. **M1 is ready for final owner acceptance but is not yet formally closed.**
+
+M1 closeout preserves all boundaries: primary participant research remains deferred; all unapproved external sources and third-party software/data remain RESEARCH ONLY; no connector, agent, crawler or scheduler is activated; reviews remain post-launch; Deeni Madaris remain hidden from public discovery by default under V2-DEC-006; no application implementation, schema/database change, production access, deployment or URL cutover is authorized.
+
+M2 architecture/design may begin only after explicit S10/M1 owner acceptance and separate authorization. Application implementation remains gated until M2 design is completed and accepted.
