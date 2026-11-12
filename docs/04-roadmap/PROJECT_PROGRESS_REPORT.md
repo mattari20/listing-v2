@@ -152,3 +152,8 @@ S02-C04/C06/C07/C08 remain in progress because public/private completeness, reco
 ## PR #33 — supplemental source coverage and control-record reconciliation
 
 PR [#33](https://github.com/mattari20/listing-v2/pull/33) delivered the supplemental AJK, Balochistan, NFEMIS, GB EMIS, HEC PQR/allied-health NOC and historical special-education review. Its exact head `09a3051043bf47825360cf03ea220c11eff121f7` passed required **Project documentation validation** (run [#43151991943](https://github.com/mattari20/listing-v2/actions/runs/43151991943)) and merged as `f6c22c70d4128784b2e3b76cd4115113ad7e5329`. The task table and weights were verified unchanged (nine rows; 100% total). This is delivery evidence, not S02 acceptance. The owner decision remains pending; no source reuse or M1-S03/M2 work is authorized.
+
+
+## PR #34 — PR #33 merge-evidence reconciliation
+
+PR [#34](https://github.com/mattari20/listing-v2/pull/34) reconciled the PR #33 delivery record across the documentation index, catalogue, traceability, step register, progress report and master controller. Exact head `fce8164fe73bf435aa7c021ac3b8eb7e521c89a7` passed required **Project documentation validation** (run [#43152117268](https://github.com/mattari20/listing-v2/actions/runs/43152117268)); merge commit `569ef14f0cc4ef72bb07cf0313965e13250eac3d`. This final reconciliation PR does not change research findings, task weights or the S02-C09 owner decision boundary.
