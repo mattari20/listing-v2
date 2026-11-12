@@ -5,7 +5,7 @@ An independent, greenfield education discovery and decision-support platform for
 ## Project status
 
 - **Repository:** `mattari20/listing-v2`
-- **Project phase:** M0 — Founding documentation merged; acceptance and workflow verification
+- **Project phase:** M2 — Architecture and design documentation in progress; M0 and M1 accepted and closed
 - **Application implementation:** Not started
 - **Production connection or deployment:** Not authorized
 - **Governing documentation:** Established in `docs/`; see the Documentation Index and Completion Catalogue
@@ -15,6 +15,10 @@ An independent, greenfield education discovery and decision-support platform for
 Help students discover nearby government and private educational institutions, explore classes and academic programmes, understand admissions and costs, compare institutions, and share trustworthy ratings and reviews.
 
 The platform will also maintain a continuously refreshed, evidence-based education data catalogue using multiple lawful data providers and a governed AI-assisted collection process.
+
+## Current milestone
+
+M0 and M1 are accepted and closed. M2 architecture/design is owner-authorized and active. M2 is documentation/design only; application implementation remains gated until M2 is separately accepted.
 
 ## Start here
 
