@@ -9,7 +9,7 @@
 | DATA-001 | Multi-source lawful data catalogue | Education Data Strategy | M1-S02–S08 | PR #1 merged | Provider/rights register requires source evidence expansion | Delivered — research/acceptance pending |
 | OSS-001 | Lawful open-source and dataset reuse | Open-Source Reuse Audit | M1-S06/S07 | PR #1 merged | Candidate research and license/security scorecards pending | Delivered — research pending |
 | TRUST-001 | Account-based ratings and reviews after launch | Comparison, Reviews and Trust | M1-S09 | PR #1 baseline; clarified in current documentation PR | Owner direction: login required to submit; post-launch collection; moderation, privacy and age safeguards still need detailed design | Product requirement recorded — detailed design pending |
-| TAX-001 | Pakistan provider taxonomy, coverage and recognition/affiliation distinctions | M1 Institution Taxonomy Research | M1-S02 | PR #10 merged as `11bb356f678e8559e9cd17940a68ab35dcf131b5` | MoFEPT, NAVTTC, Skilling Pakistan and Nuffic public sources; source limitations and open questions recorded | Initial desk-research baseline — owner review and source expansion pending |
+| TAX-001 | Pakistan provider taxonomy, coverage and recognition/affiliation distinctions | M1 Institution Taxonomy Research; M1 Official Institution Source Coverage Matrix | M1-S02 | PR #10 merged as `11bb356f678e8559e9cd17940a68ab35dcf131b5`; source coverage addendum prepared in current PR | HEC, PMDC, PNMC, PCP, Punjab PEPRIS, KP-PSRA, Balochistan SED/EMIS and NAVTTC official source families identified; jurisdiction, rights and freshness gaps recorded | In progress — source discovery baseline delivered; verification and owner acceptance pending |
 
 Add one row for every approved requirement. Do not mark accepted without verifiable evidence.
 
@@ -18,6 +18,9 @@ No survey, interviews, recruitment or outreach during construction. Account-base
 
 ## M0 closeout evidence
 PR #4 merged as `4d1122d182961f3842803036f917ce39cd11b4c6`; required check passed on exact head `64da261546b034129af3aebfa38fb91f939732b6`. PR #4 records M0-S01–S07 acceptance and points the controller to M1-S01. M0-S02 remains explicitly scoped to a targeted, metadata-only, non-exhaustive exclusion audit.
+
+## PR #11 evidence
+PR #11 merged as `e39137e14f152fa82fe2acb284a631cb84438998`; exact head `b11e03020a46269d9b04674822182933c569082e`; required documentation check passed (run #43136568996).
 
 ## Documentation catalogue maintenance
 
