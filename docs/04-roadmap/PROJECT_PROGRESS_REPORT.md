@@ -416,3 +416,12 @@ M2 architecture/design may begin only after explicit S10/M1 owner acceptance and
 PR [#81](https://github.com/mattari20/listing-v2/pull/81) delivered the S08/S09 owner-acceptance record and M1-S10 final synthesis package. Exact PR head `5d421241b2e643fb8291ff9f183aaa3205005a89` passed required **Project documentation validation** (run [#43175231085](https://github.com/mattari20/listing-v2/actions/runs/43175231085)); the `Validate project control documents` job and all steps completed successfully. PR #81 was squash-merged as `8ab22c7b2ca759db741660fbafd6a0c36edcce6d`.
 
 S08 and S09 are accepted and closed at 100% weighted task completion each. S10 is delivered at 95%; its final 5% owner-acceptance task remains pending. M1 is therefore **Ready for final owner acceptance, not yet formally closed**. No M2 work or implementation is authorized by this merge.
+
+
+## M1-S10 final owner acceptance — M1 formally closed — 2026-11-12
+
+The owner explicitly accepted the M1-S10 final synthesis, cross-step traceability and G01–G20 gap/decision register. Formal record: `docs/03-research/M1_S10_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. S10-T10 (5%) is accepted; S10 is now 100% and Accepted and Closed. **M1-S01 through M1-S10 are all Accepted and Closed; M1 is formally Accepted and Closed at the research/documentation milestone level.**
+
+The closeout retains all documented limitations and open decisions. Deeni Madaris remain default OFF for public discovery under V2-DEC-006; primary participant research remains deferred during construction; reviews remain post-launch; external sources and third-party code/data remain RESEARCH ONLY until individually authorized; no source collection/ingestion, connector/agent activation, implementation, schema/database change, production access, deployment or cutover is authorized.
+
+**Next phase:** M2 architecture/design is Planned and requires separate explicit owner authorization. This M1 acceptance does not start M2. Application implementation remains gated until M2 is completed and separately accepted.
