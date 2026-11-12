@@ -67,6 +67,9 @@ PR #24 merged as `1c2004186a834f5fc06af82d75bf883e26900762`; exact head `1995f3c
 ## M1-S02 national coverage synthesis draft
 `docs/03-research/M1_NATIONAL_INSTITUTION_COVERAGE_SYNTHESIS.md` consolidates the current official-source discovery baseline and unresolved sector/jurisdiction, status, freshness, privacy and reuse-rights gaps. It is a draft input to S02-C08, not evidence of completed source verification or owner acceptance. No source is approved for collection or reuse.
 
+## PR #25 national coverage synthesis evidence
+PR #25 merged as `b06b669627d299ccd5d84416b787274a8e1dac76`; exact head `703fc553aca6d06e354849a7a0d6a69bc71e53e7`; required `Project documentation validation` passed (run #43145378929). It added the draft national institution coverage synthesis, linked/catalogued it and marked S02-C08 in progress. The synthesis is not a final coverage inventory or source-reuse approval.
+
 ## Documentation catalogue maintenance
 
 `DOCUMENTATION_CATALOG.md` is the owner-facing inventory for documentation delivery and acceptance. Reconcile it on every documentation PR update and merge. Keep delivery status separate from content acceptance; update PR/head/check/merge evidence and links.
