@@ -2,7 +2,7 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0 accepted and closed; M1-S01, M1-S02 and M1-S03 accepted; M1-S04 private-provider research in progress  
+**Status:** M0 accepted and closed; M1-S01 through M1-S04 accepted; M1-S05 programme/admissions research in progress  
 **Last reconciled:** 2026-11-12
 
 ## Authoritative current position
@@ -42,7 +42,7 @@ At the beginning of every work session, the AI must:
 5. Work only within the step's documented scope.
 6. Confirm all task inputs comply with the strict legacy non-interference rule.
 
-At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. Current state as of 2026-11-12: M1-S01, M1-S02 and M1-S03 are accepted; M1-S04 private-provider and institution-source research is active under the owner's instruction to continue. M1-S01's formal acceptance record is `../03-research/M1_S01_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. M1-S04's research register is `../03-research/M1_S04_PRIVATE_PROVIDER_SOURCE_REGISTER_2026-11-12.md`; T01–T08 are complete at 95% weighted progress and T09 owner acceptance remains pending. All sources remain RESEARCH ONLY. No scraping, bulk download, source-owner contact, permission requests, ingestion, connector activation, application implementation, database/schema changes, production access, deployment or legacy-repository interaction is authorized.
+At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. Current state as of 2026-11-12: M1-S01, M1-S02, M1-S03 and M1-S04 are accepted. M1-S04's formal acceptance record is `../03-research/M1_S04_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`; its 21-source register and seven-jurisdiction gap assessment remain RESEARCH ONLY. M1-S05 programme/admissions research is active under the owner's instruction to continue. Its initial register is `../03-research/M1_S05_PROGRAMME_ADMISSIONS_SOURCE_RESEARCH_2026-11-12.md`; T01–T09 are complete at 95% weighted progress and T10 owner acceptance remains pending. All sources remain RESEARCH ONLY. No scraping, bulk download, source-owner contact, permission requests, applicant data collection, ingestion, connector activation, application implementation, database/schema changes, production access, deployment or legacy-repository interaction is authorized.
 
 ## Latest documentation delivery evidence
 PR #23 reconciled PR #22's NAVTTC research update across the catalogue, progress report and traceability. Exact head `737ec6838dc85d4ba1becc600af661d998074c0a` passed required documentation validation (run #43145140802); merge commit `2a94f8caced03142fee56c5b6e6fc1afa2f6df65`. M1-S02 remains active; no source has been approved for reuse or ingestion.
@@ -274,3 +274,10 @@ The closeout review pack is `../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md
 The owner explicitly accepted M1-S01 as a completed construction-stage desk-research and requirements baseline. Acceptance is recorded in `../03-research/M1_S01_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`; primary student research remains deferred.
 
 M1-S04's initial private-provider source register is delivered and merged in PR [#73](https://github.com/mattari20/listing-v2/pull/73), merge commit `a66400189b2f2216e3743fe7b40a7f672cfb240a`. Exact PR head `099f99289399bc95b6cdd2ca9aafdb023bf5a352` passed required Project documentation validation (run [#43169707414](https://github.com/mattari20/listing-v2/actions/runs/43169707414)). The register records 21 source families and a seven-jurisdiction coverage assessment. Its weighted task register is 95% complete, with T09 owner acceptance pending. The register is research-only; no scraping, bulk download, source-owner contact, permission request, data ingestion or reuse approval has occurred. M1-S04 does not authorize M2, implementation, production access or deployment.
+
+
+## Authoritative update — M1-S04 accepted; M1-S05 active (2026-11-12)
+
+The owner explicitly accepted M1-S04 as the private-provider research baseline, with its documented jurisdictional gaps and source-rights limitations. See `../03-research/M1_S04_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`.
+
+M1-S05 is now active. Its 22-source research register and federated programme/admissions evidence model are in `../03-research/M1_S05_PROGRAMME_ADMISSIONS_SOURCE_RESEARCH_2026-11-12.md`. T01–T09 are complete at 95% weighted research/documentation completion; T10 owner acceptance remains pending. No applicant data has been collected and all source families remain RESEARCH ONLY. No source collection, reuse, ingestion, M2 architecture, application implementation, database/schema work, production access or deployment is authorized.
