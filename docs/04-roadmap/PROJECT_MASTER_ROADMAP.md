@@ -5,7 +5,7 @@ All milestones are planned outcomes. Step-level scope and acceptance criteria ar
 | Milestone | Outcome | Status |
 |---|---|---|
 | M0 | Independent repository, documentation, governance and delivery controls | Accepted — PR #4 closeout |
-| M1 | Student requirements, provider discovery, data rights and open-source research | In progress — M1-S01 next |
+| M1 | Student requirements, provider discovery, data rights and open-source research | In progress — M1-S02 active; M1-S01 desk research delivered, primary research deferred |
 | M2 | Architecture, domain model, technology evaluation, security and data design | Planned |
 | M3 | Application foundation, environments, CI, identity and authorization | Planned |
 | M4 | Institution, campus and programme management | Planned |
@@ -18,7 +18,7 @@ All milestones are planned outcomes. Step-level scope and acceptance criteria ar
 | M11 | SEO, accessibility, performance and public experience hardening | Planned |
 | M12 | Full acceptance, security/recovery readiness and controlled release planning | Planned |
 
-## Planning rules
+## Owner-approved research timing\n- No student survey, interviews, participant recruitment or research outreach during construction.\n- Authenticated ratings and reviews are a post-launch product feature, not a pre-launch research survey.\n\n## Planning rules
 - M1 research must inform M2 architecture.
 - Do not select a technology stack or begin production application modules before M2 approval.
 - Data connectors are not activated until rights and source review pass.
