@@ -231,3 +231,8 @@ PR [#40](https://github.com/mattari20/listing-v2/pull/40) delivered the examinat
 ## Supplemental M1-S02 data rights/privacy review
 
 - [M1-S02 Data Rights, Public-Information Access and Privacy Framework Review](../03-research/M1_S02_DATA_RIGHTS_PRIVACY_FRAMEWORK_REVIEW_2026-11-12.md) — national policy status, RTI versus reuse, copyright, scoped PBS open license, source-rights checklist and privacy minimization; not legal advice.
+
+
+## PR #41 reconciliation evidence
+
+PR [#41](https://github.com/mattari20/listing-v2/pull/41) reconciled PR #40 delivery evidence and merged as `c56200bdf66a5fdf615de0da6281495e50c39f92`. Exact head `2c11bfc7fe74da6bed4dc04d17c4c80a664990b0` passed required **Project documentation validation** (run [#43154481312](https://github.com/mattari20/listing-v2/actions/runs/43154481312)).
