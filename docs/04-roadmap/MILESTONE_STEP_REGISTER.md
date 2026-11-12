@@ -485,8 +485,8 @@ M2 step weights total 100%: S00 5%, S01 8%, S02 12%, S03 12%, S04 10%, S05 12%, 
 |---|---|---:|---|---|
 | M2-S00 | Baseline reconciliation and architecture documentation controls | 5% | M1 accepted | In progress — delivery branch prepared; validation pending |
 | M2-S01 | System requirements and architecture boundaries | 8% | S00 | In progress — draft package prepared; review/CI pending |
-| M2-S02 | Core domain and conceptual information model | 12% | S01 | Not started |
-| M2-S03 | Overall application and integration architecture | 12% | S01-S02 | Not started |
+| M2-S02 | Core domain and conceptual information model | 12% | S01 | **In Progress — 80%; owner review pending** |
+| M2-S03 | Overall application and integration architecture | 12% | S01-S02 | **In Progress — 85%; owner review pending** |
 | M2-S04 | Technology stack evaluation | 10% | S01-S03 | Not started |
 | M2-S05 | Data architecture, provenance and publication governance | 12% | S02-S04 | Not started |
 | M2-S06 | Search, discovery and geography architecture | 8% | S02-S04 | Not started |
@@ -517,7 +517,7 @@ M2 step weights total 100%: S00 5%, S01 8%, S02 12%, S03 12%, S04 10%, S05 12%, 
 | Step | Scope | Weight | Dependencies | Status |
 |---|---|---:|---|---|
 | M2-S00 | Baseline reconciliation and architecture documentation controls | 5% | M1 accepted | **Complete — 100%; PR #85 merged and exact-head CI passed** |
-| M2-S01 | System requirements and architecture boundaries | 8% | S00 | Not started |
+| M2-S01 | System requirements and architecture boundaries | 8% | S00 | **Accepted and Closed — 100%; owner acceptance 2026-11-12** |
 | M2-S02 | Core domain and conceptual information model | 12% | S01 | Not started |
 | M2-S03 | Overall application and integration architecture | 12% | S01-S02 | Not started |
 | M2-S04 | Technology stack evaluation | 10% | S01-S03 | Not started |
@@ -562,3 +562,18 @@ Current S01 task progress is 80% (drafting complete for T01-T04; T05 pending). S
 ### M2-S01 delivery evidence — 2026-11-12
 
 PR [#87](https://github.com/mattari20/listing-v2/pull/87) merged as `a9a8320dadc339cb15c7d75ac430301941abbd57`; exact head `b759e08e9e4c0ae3c9bdaf9e449e7da751d7b80f` passed required Project documentation validation (run [#43181003815](https://github.com/mattari20/listing-v2/actions/runs/43181003815)). The system requirements, context and quality scenarios are delivered. T01-T04 are drafted (80%); T05 awaits owner review. S01 remains In Progress and is not accepted.
+
+
+### M2-S01 owner acceptance — 2026-11-12
+
+The owner accepted the S01 system requirements, actors, boundaries and quality scenarios as the working baseline. Formal record: ../05-architecture/M2-S01_OWNER_ACCEPTANCE_RECORD_2026-11-12.md. S01-T05 is complete; S01 is Accepted and Closed at 100%. The acceptance does not select technology or authorize implementation.
+
+### M2-S02/S03 joint package — draft task status
+
+S02 and S03 are delivered together for cross-step consistency, with separate weights and exit gates. Detailed task evidence is in ../05-architecture/M2_STEP_PLAN.md; the owner checklist is ../05-architecture/M2-S02-S03_JOINT_VALIDATION_AND_OWNER_REVIEW.md.
+
+- S02: T01–T04 drafted (80%); T05 owner review pending. Conceptual domain model delivered.
+- S03: T01–T04 drafted (85%); T05 owner review pending. Logical application/integration architecture delivered.
+- M2 weighted progress: S00 100% × 5% = 5%; S01 100% × 8% = 8%; S02 80% × 12% = 9.6%; S03 85% × 12% = 10.2%; total **32.8%**.
+
+These are documentation task progress figures, not owner acceptance. S04 remains next after S02/S03 review gates. No application implementation, physical schema, production access, source ingestion or deployment is authorized.
