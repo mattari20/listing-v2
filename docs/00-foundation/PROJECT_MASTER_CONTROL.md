@@ -132,3 +132,7 @@ PR #38 merged as `a38fa149d10be99903ca6bb44236bd1e68565e6a`; exact head `f1f7aa5
 ## M1-S02 examination-board and DGRE jurisdiction research — 2026-11-12
 
 The latest pass adds IBCC board categories, Punjab BISE jurisdictions, Punjab Medical Faculty affiliated institute routes, and DGRE regional jurisdiction plus 2024 registered-Madaris lists across multiple territories. Record anomalies and freshness limits are documented; board affiliation, examination jurisdiction, provider registration and qualification equivalence remain separate. Full review: `../03-research/M1_S02_EXAMINATION_BOARDS_PMF_DGRE_JURISDICTION_REVIEW_2026-11-12.md`. S02-C01/C03/C05/C07/C08 remain active; S02-C09 owner-only.
+
+## PR #39 latest delivery evidence — 2026-11-12
+
+PR #39 merged as `0ace505ec67a420b8c2eb8fedd13ba1a2499f84c`; exact head `cf4d54967cad1f2114cd1f43dfccec5184d1b759` passed required Project documentation validation (run #43154066994). ICT PEIRA, DGRE Madaris and IBCC QAB evidence is incorporated; M1-S02 remains active and owner acceptance is pending.
