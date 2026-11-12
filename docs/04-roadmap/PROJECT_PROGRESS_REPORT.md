@@ -1,8 +1,8 @@
 # Project Progress Report
 
 **As of:** 2026-11-12  
-**Current milestone:** M1  
-**Current phase:** M0 accepted; M1-S01 through M1-S07 accepted; M1-S08/S09 joint research packages merged, owner acceptance pending
+**Current milestone:** M2 — Architecture and Design  
+**Current phase:** M0 and M1 accepted/closed; M2-S00 through S03 accepted/closed; S04-S06 joint documentation package delivered, owner review pending
 
 ## Verified V2 repository facts
 - Repository: `mattari20/listing-v2`
@@ -508,3 +508,17 @@ No physical database schema, application code, API implementation, technology/ve
 PR [#91](https://github.com/mattari20/listing-v2/pull/91) delivered the M2-S01 owner-acceptance record and coordinated M2-S02/S03 documentation package. Exact PR head `7a58f7ddb93cd693874e7debd3fa730b5db1d1ea` passed the required **Project documentation validation** workflow (run [#43188475213](https://github.com/mattari20/listing-v2/actions/runs/43188475213)); the `Validate project control documents` job and all steps completed successfully. PR #91 was squash-merged as `0881719c3b0d98893dc0e88a9c4f929cae89aea1`.
 
 S01 is Accepted and Closed at 100%. S02 is delivered at 80% draft task completion and S03 at 85%; their T05 owner-review gates remain open. Merge and CI evidence confirm delivery and documentation validation, not owner acceptance of S02/S03. M2 weighted progress remains 32.8%.
+
+
+## Authoritative current position — S02/S03 accepted; S04/S05/S06 jointly delivered — 2026-11-12
+
+The owner explicitly accepted M2-S02 and M2-S03 as the conceptual domain and logical application/integration architecture baselines. Formal record: docs/05-architecture/M2-S02-S03_OWNER_ACCEPTANCE_RECORD_2026-11-12.md. Both steps are Accepted and Closed at 100%.
+
+The owner authorized joint documentation work on M2-S04, M2-S05 and M2-S06. Their documents are delivered on the active documentation branch for PR review:
+- S04 technology stack evaluation: options, criteria, support/licensing evidence and conditional recommendation; 80% draft completion; owner decision pending.
+- S05 data architecture/provenance/publication governance: data domains, rights gates, lineage, validation, correction and rollback; 85% draft completion; owner review pending.
+- S06 search/discovery/geography architecture: search pipeline, derived projections, map/geocoder boundaries, privacy and Deeni Madaris default-OFF enforcement; 85% draft completion; owner review pending.
+
+Weighted M2 progress is **62.0%**: S00 5% + S01 8% + S02 12% + S03 12% + S04 8% + S05 10.2% + S06 6.8%. S04-S06 are draft deliverables, not accepted/closed.
+
+No framework, database, search service, map/geocoder or hosting vendor is selected. No spend, procurement, source access/copying/ingestion, connector activation, physical schema, application code, production access, deployment, cutover or legacy V1 interaction is authorized. V2-DEC-006 and all M1 G01-G20 controls remain binding.
