@@ -241,3 +241,8 @@ A consolidated public/private school-source matrix now covers Punjab, Sindh, KP,
 ## M1-S03 additional accreditation-council research — 2026-11-12
 
 Additional official routes have been reviewed for HEC's accreditation-council map, NBEAC, NCH, PCATP, AHPC and NAEAC. The register distinguishes NBEAC's programme/department accreditation and session status; NCH's recognized-college list and freshness limitations; PCATP's programme accreditation/NOC and professional registration routes; AHPC's applicant-only list (not approval); and NAEAC's agriculture-programme scope and current-register gap. See `../03-research/M1_S03_ADDITIONAL_ACCREDITATION_COUNCIL_REVIEW_2026-11-12.md`. S03-C03 remains in progress.
+
+
+## M1-S03 task acceptance audit
+
+The 48-source official provider register, jurisdictional school matrix and eight supplemental research notes have been assessed in `../03-research/M1_S03_TASK_ACCEPTANCE_EVIDENCE_AUDIT_2026-11-12.md`. S03-C01 to C08 meet their stated research/documentation criteria with limitations; C09 remains an owner-only acceptance gate. This does not authorize source reuse or ingestion.
