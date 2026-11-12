@@ -439,3 +439,10 @@ S08 and S09 are accepted and closed at 100% weighted task completion each. S10 i
 
 - [M1-S10 Final Owner Acceptance Record](../03-research/M1_S10_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) — explicit owner acceptance of S10 and formal closure of M1; **M1-S01 through M1-S10 Accepted and Closed at 100%**.
 - [M1-S10 Final Synthesis, Traceability and Closeout Review](../03-research/M1_S10_FINAL_SYNTHESIS_CLOSEOUT_REVIEW_2026-11-12.md) — accepted M1 handoff containing cross-step traceability, G01–G20 and M2 entry requirements. All limitations and open decisions remain carried forward.
+
+
+## PR #83 delivery and exact-head validation evidence — 2026-11-12
+
+PR [#83](https://github.com/mattari20/listing-v2/pull/83) recorded final owner acceptance of M1-S10 and formal M1 closeout. Exact PR head `30d5c7ecfc929cd680c3da8d076774904ec2d67a` passed required **Project documentation validation** (run [#43175799695](https://github.com/mattari20/listing-v2/actions/runs/43175799695)); the `Validate project control documents` job and all steps completed successfully. PR #83 was squash-merged as `af88a88693e66e9fb0a459d14ba1028e5fd3f97d`.
+
+S10-T10 is accepted; S10 is 100%. M1-S01 through M1-S10 are all Accepted and Closed. M1 is formally **Accepted and Closed** as a research/documentation milestone. M2 remains Planned and requires separate explicit owner authorization; no application implementation is authorized.
