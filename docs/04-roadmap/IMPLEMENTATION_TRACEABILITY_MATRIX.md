@@ -49,6 +49,12 @@ PR #19 merged as `b1a38aab46822d3d877a720e04cb19a6164a623b`; exact head `01567f2
 ## PR #18 documentation history reconciliation
 PR #18 merged as `8aebd2df27de2a3bedfddb9b83bf32241e4d7135`; exact head `1655c9fdd75777b6106e3c4dbcdf4cb68b4b94f6`; required documentation validation passed (run #43143898130).
 
+## PR #21 documentation evidence reconciliation
+PR #21 merged as `56530e2e6b6ad562cad961ca0675f77ad5bb0e0b`; exact head `013b17c2080d9ca9b787ba55190af287f2c1b148`; required `Project documentation validation` check passed (run #43144752274). It reconciled the catalogue, progress report and traceability records for PRs #18–#20.
+
+## 2026-11-12 NAVTTC registration/accreditation clarification
+The production NAVTTC site links TIS, NSIS and NVQF Registry; separate official pages describe institute registration and NAC-TVS accreditation. NAVTTC's accreditation process page states three-year validity, renewal application at least six months before expiry and a 700/1000 minimum assessment score. These are distinct claims and must not be collapsed into a single provider-recognition status. The registration workflow requests sensitive institutional/individual documentation; such material is excluded from public institution discovery. Punjab TEVTA's RTI page is an access-to-information route, not a blanket reuse license. No directory-specific reuse permission was established; all sources remain research-only. Sources: https://navttc.gov.pk/; https://navttc.gov.pk/accreditation-process/; https://reg.navttc.gov.pk/; https://tms.navttc.gov.pk/nsis/institute_help/info; https://tevta.gop.pk/right-to-information/.
+
 ## Documentation catalogue maintenance
 
 `DOCUMENTATION_CATALOG.md` is the owner-facing inventory for documentation delivery and acceptance. Reconcile it on every documentation PR update and merge. Keep delivery status separate from content acceptance; update PR/head/check/merge evidence and links.
