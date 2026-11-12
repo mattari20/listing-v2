@@ -89,3 +89,10 @@ This document is a **draft national coverage synthesis** and supports the S02-C0
 - No source is approved for manual verification, bulk collection or commercial reuse by this synthesis.
 - No application code, architecture selection, database schema/migrations, production access, deployment or cutover.
 - No legacy repository material, data, architecture or process pattern is used.
+
+
+## 7. Supplemental coverage and data-quality update — 2026-11-12
+
+The supplemental source review adds a dated AJK private-institution register announcement and 2024–25 census guidance; clarifies Balochistan EMIS search fields and separate private-school/NFE navigation; and identifies NFEMIS as a national non-formal education dashboard/inventory source family. NFEMIS currently displays 20,862 schools on its dashboard while the 2026-09-21 inventory categories sum to 20,864. This two-record discrepancy must be reconciled and neither value is an independently verified national total. GB EMIS summary metrics currently display zero values, so no coverage count should be inferred from that dashboard. HEC PQR and its allied-health NOC list provide qualification-level and programme-specific evidence distinct from institution recognition. Historical KP special-education material is retained only as a lead, not as current register evidence.
+
+The remaining national gaps are therefore narrower but still material: current public-school source coverage and record freshness in AJK; validated record-level coverage in Balochistan; functioning, dated GB EMIS records; current special-education directories across all jurisdictions; professional council registers and programme status; and source-specific terms/permissions. This supplement does not complete S02-C08 or authorize reuse. See [M1-S02 Supplemental Official-Source Coverage Review](M1_S02_SUPPLEMENTAL_SOURCE_COVERAGE_REVIEW_2026-11-12.md).

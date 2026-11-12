@@ -220,3 +220,17 @@ The authoritative weighted task breakdown is in `MILESTONE_STEP_REGISTER.md`. Th
 | S02-C09 Owner review and acceptance | Prepared decision-ready recommendation and unresolved-gaps list | Owner's explicit approval; AI cannot self-approve this gate |
 
 **Research boundary:** All candidate sources remain RESEARCH ONLY. This review did not scrape, download, bulk-query, register, contact source owners, activate connectors, or collect records. Search-engine-rendered public page evidence is used only to document discovery and observed page semantics.
+
+
+## 6. Supplemental official-source review — 2026-11-12
+
+The supplemental review is recorded in [M1-S02 Supplemental Official-Source Coverage Review](M1_S02_SUPPLEMENTAL_SOURCE_COVERAGE_REVIEW_2026-11-12.md). Key changes to the evidence position:
+
+- AJK E&SE now advertises a dated registered-private-institution list (2025-11-05) and private-institution census guidance for 2024–25. This improves the private-school lead but does not prove public-school coverage, record freshness or reuse rights. Sources: https://ese.gok.pk/ and https://www.ese.gok.pk/news-and-notifications.
+- Balochistan EMIS exposes BEMIS code, legal status, school status, district, tehsil, level and gender filters, plus separate Private Schools and NFE routes. Completeness and permitted access remain unverified. Sources: https://www.emis.gob.pk/views/Reports/Reports/SchoolSearchPublic.aspx and https://emis.gob.pk/.
+- NFEMIS publishes a national NFE dashboard and dated inventory. Dashboard school total (20,862) differs by two from the 20,864 sum of the 2026-09-21 inventory categories. Treat both as dashboard-reported and reconcile before using totals. Sources: https://www.nfemis.net/Dashboard.aspx and https://www.nfemis.net/.
+- GB EMIS currently displays zero-valued school/staff/student summary metrics; do not use these as coverage counts. Sources: https://emis2.gilgitbaltistan.gov.pk/ and https://emis.gilgitbaltistan.gov.pk/dashboard/schools/details.
+- HEC PQR and the HEC allied-health NOC list add qualification-level and programme/NOC evidence layers. They must remain distinct from institution-wide recognition. Sources: https://www.hec.gov.pk/english/services/universities/pqr/Pages/default.aspx and https://www.hec.gov.pk/english/universities/Pages/DAIs/NOC-AHS.aspx.
+- KP special-education parliamentary material is historical (2020–21) and is not accepted as a current register; current multi-jurisdiction coverage remains unverified. Source: https://www.pakp.gov.pk/wp-content/uploads/2024/04/14398.pdf.
+
+These findings strengthen discovery but do not close S02-C04/C06/C08 or change the research-only source-use boundary.

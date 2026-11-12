@@ -163,3 +163,10 @@ This register supplements:
 - docs/02-data-strategy/DATA_RIGHTS_AND_PROVENANCE.md — governing rights and provenance principles.
 
 A public source is not automatically approved for collection or republication. The default remains research only until the complete evidence packet and separate owner approval exist.
+
+
+## Supplemental rights, privacy and freshness review — 2026-11-12
+
+A further desk review examined AJK E&SE private-institution announcements, Balochistan EMIS, NFEMIS, GB EMIS, HEC PQR/allied-health NOC information and historical special-education material. Public pages and dashboard visibility were observed; no source-specific license or written permission for automated collection, bulk download, storage, republication or commercial reuse was established. AJK's dated 2025-11-05 private-institution register announcement is a publication lead, not a reuse license. Balochistan's search interface and separate private-school/NFE navigation do not establish bulk access rights. NFEMIS dashboard totals differ by two from the sum of its dated inventory categories, requiring source-owner clarification before quantitative reliance. GB EMIS summary metrics currently display zero values and cannot be treated as a freshness or coverage guarantee.
+
+Privacy exclusions remain: do not copy or republish personal staff/principal names and direct phone numbers from special-education directories; do not use student profiles, staff profiles, learner-level records or disability/health information for institution discovery. Historical KP special-education documents are not current operational evidence. HEC PQR and allied-health NOC pages should be assessed under their own terms and remain separate evidence types. All sources remain **RESEARCH ONLY**; no permission request, external contact or collection was made.
