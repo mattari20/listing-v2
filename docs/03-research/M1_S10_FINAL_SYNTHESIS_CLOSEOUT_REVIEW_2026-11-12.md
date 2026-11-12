@@ -248,3 +248,25 @@ M2 is Planned and not started; it requires separate explicit owner authorization
 PR [#83](https://github.com/mattari20/listing-v2/pull/83) recorded final owner acceptance of M1-S10 and formal M1 closeout. Exact PR head `30d5c7ecfc929cd680c3da8d076774904ec2d67a` passed required **Project documentation validation** (run [#43175799695](https://github.com/mattari20/listing-v2/actions/runs/43175799695)); the `Validate project control documents` job and all steps completed successfully. PR #83 was squash-merged as `af88a88693e66e9fb0a459d14ba1028e5fd3f97d`.
 
 S10-T10 is accepted; S10 is 100%. M1-S01 through M1-S10 are all Accepted and Closed. M1 is formally **Accepted and Closed** as a research/documentation milestone. M2 remains Planned and requires separate explicit owner authorization; no application implementation is authorized.
+
+
+## Current-status reconciliation — M1 closed; M2 authorized — 2026-11-12
+
+This addendum resolves historical wording in earlier sections that described S10 owner acceptance as pending or M2 as not yet authorized. Those statements accurately described earlier review points but are superseded by the final owner acceptance record dated 2026-11-12.
+
+The owner accepted S10 and formally closed M1. M1-S01 through M1-S10 are all Accepted and Closed. The authoritative acceptance record is `M1_S10_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`.
+
+The owner subsequently authorized M2 architecture/design on 2026-11-12. M2 is now active under `../05-architecture/M2_ARCHITECTURE_DESIGN_CHARTER.md` and `../05-architecture/M2_STEP_PLAN.md`. This authorization does not alter M1's research-only source boundaries or authorize application implementation, production access, source ingestion, connector activation, procurement or deployment.
+
+All G01-G20 limitations and adopted decisions remain carried forward.
+
+
+## Current-status reconciliation — M1 closed; M2 authorized — 2026-11-12
+
+This addendum resolves historical wording in earlier sections that described S10 owner acceptance as pending or M2 as not yet authorized. Those statements accurately described earlier review points but are superseded by the final owner acceptance record dated 2026-11-12.
+
+The owner accepted S10 and formally closed M1. M1-S01 through M1-S10 are all Accepted and Closed. The authoritative acceptance record is `M1_S10_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`.
+
+The owner subsequently authorized M2 architecture/design on 2026-11-12. M2 is active under `../05-architecture/M2_ARCHITECTURE_DESIGN_CHARTER.md` and `../05-architecture/M2_STEP_PLAN.md`. This does not alter M1 research-only source boundaries or authorize implementation, production access, source ingestion, connector activation, procurement or deployment.
+
+All G01-G20 limitations and adopted decisions remain carried forward.

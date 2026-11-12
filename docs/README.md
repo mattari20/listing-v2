@@ -66,3 +66,31 @@ A proposal in a document is not automatically an approved implementation choice.
 - [M1-S02 School Regulator Status and Terms Review](03-research/M1_S02_SCHOOL_REGULATOR_STATUS_TERMS_REVIEW_2026-11-12.md) — KP/Sindh regulator status, HEC publisher-license scope and NAVTTC count distinctions
 - [M1-S02 KP, ICT and AJK College Coverage Review](03-research/M1_S02_KP_ICT_AJK_COLLEGE_COVERAGE_REVIEW_2026-11-12.md) — public-sector school/college coverage gaps and AJK count discrepancy
 - [M1-S02 Consolidated National Institution Coverage and Gap Matrix](03-research/M1_S02_CONSOLIDATED_NATIONAL_COVERAGE_GAP_MATRIX_2026-11-12.md) — reconciled national coverage snapshot and remaining evidence gaps
+
+
+## M2 architecture and design
+
+- [M2 Architecture Documentation Index](05-architecture/README.md)
+- [M2 Architecture and Design Charter](05-architecture/M2_ARCHITECTURE_DESIGN_CHARTER.md)
+- [M2 Step Plan](05-architecture/M2_STEP_PLAN.md)
+- [M2 Architecture Documentation Plan](05-architecture/M2_ARCHITECTURE_DOCUMENTATION_PLAN.md)
+- [M2 Requirements-to-Architecture Traceability](05-architecture/M2_REQUIREMENTS_ARCHITECTURE_TRACEABILITY.md)
+- [M2 Architecture Decision Register](05-architecture/M2_ARCHITECTURE_DECISION_REGISTER.md)
+- [ADR Template](05-architecture/decisions/ADR_TEMPLATE.md)
+- [Diagram Conventions](05-architecture/diagrams/README.md)
+
+M2 is owner-authorized and active as a documentation/design milestone. Application implementation remains gated until final M2 acceptance.
+
+
+## M2 architecture and design
+
+- [M2 Architecture Documentation Index](05-architecture/README.md)
+- [M2 Architecture and Design Charter](05-architecture/M2_ARCHITECTURE_DESIGN_CHARTER.md)
+- [M2 Step Plan](05-architecture/M2_STEP_PLAN.md)
+- [M2 Architecture Documentation Plan](05-architecture/M2_ARCHITECTURE_DOCUMENTATION_PLAN.md)
+- [M2 Requirements-to-Architecture Traceability](05-architecture/M2_REQUIREMENTS_ARCHITECTURE_TRACEABILITY.md)
+- [M2 Architecture Decision Register](05-architecture/M2_ARCHITECTURE_DECISION_REGISTER.md)
+- [ADR Template](05-architecture/decisions/ADR_TEMPLATE.md)
+- [Diagram Conventions](05-architecture/diagrams/README.md)
+
+M2 is owner-authorized and active as a documentation/design milestone. Application implementation remains gated until final M2 acceptance.

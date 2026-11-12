@@ -432,3 +432,27 @@ The closeout retains all documented limitations and open decisions. Deeni Madari
 PR [#83](https://github.com/mattari20/listing-v2/pull/83) recorded final owner acceptance of M1-S10 and formal M1 closeout. Exact PR head `30d5c7ecfc929cd680c3da8d076774904ec2d67a` passed required **Project documentation validation** (run [#43175799695](https://github.com/mattari20/listing-v2/actions/runs/43175799695)); the `Validate project control documents` job and all steps completed successfully. PR #83 was squash-merged as `af88a88693e66e9fb0a459d14ba1028e5fd3f97d`.
 
 S10-T10 is accepted; S10 is 100%. M1-S01 through M1-S10 are all Accepted and Closed. M1 is formally **Accepted and Closed** as a research/documentation milestone. M2 remains Planned and requires separate explicit owner authorization; no application implementation is authorized.
+
+
+## M2 active — initial baseline and charter delivery — 2026-11-12
+
+Owner authorization for M2 architecture/design was received on 2026-11-12. M2 is active, documentation/design only. The first step M2-S00 establishes a reconciled M1 handoff, M2 charter and weighted step plan, architecture documentation structure, ADR conventions and requirement traceability scaffold.
+
+- M0: Accepted and Closed.
+- M1-S01–M1-S10: Accepted and Closed.
+- M2: In Progress; M2-S00 is the current step.
+- Application implementation: Not authorized; M3 remains gated on separate M2 acceptance.
+
+M2 weights: S00 5%, S01 8%, S02 12%, S03 12%, S04 10%, S05 12%, S06 8%, S07 10%, S08 10%, S09 6%, S10 7% (100% total). Step/task progress is evidence-based and will be updated after each delivery and validation.
+
+
+## M2 active — initial baseline and charter delivery — 2026-11-12
+
+Owner authorization for M2 architecture/design was received on 2026-11-12. M2 is active, documentation/design only. M2-S00 establishes a reconciled M1 handoff, M2 charter and weighted step plan, architecture documentation structure, ADR conventions and requirement traceability scaffold.
+
+- M0: Accepted and Closed.
+- M1-S01–M1-S10: Accepted and Closed.
+- M2: In Progress; M2-S00 is the current step.
+- Application implementation: Not authorized; M3 remains gated on separate M2 acceptance.
+
+M2 weights: S00 5%, S01 8%, S02 12%, S03 12%, S04 10%, S05 12%, S06 8%, S07 10%, S08 10%, S09 6%, S10 7% (100% total). Progress is evidence-based and updated after each delivery and validation.
