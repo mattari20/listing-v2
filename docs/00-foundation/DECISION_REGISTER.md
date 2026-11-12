@@ -67,3 +67,14 @@ Official source routes for NAVTTC QABs, Punjab TEVTA/PSDA/TTB, Sindh STEVTA, KPT
 - **Scope boundary:** This is a documentation method only. It does not select a language, framework, database, hosting provider, search engine, map service, AI model, connector or deployment topology.
 - **References:** arc42 (https://arc42.org/documentation/); C4 (https://c4model.com/); ADR project (https://architecture-decision-record.github.io/en-001/); iSAQB architecture documentation curriculum (https://public.isaqb.org/curriculum-adoc/curriculum-adoc-en.pdf).
 - **Review trigger:** Revisit if the documentation method proves difficult to maintain or fails stakeholder review.
+
+
+## M3-DEC-001 — Owner-led, ChatGPT-assisted delivery model
+
+- **Date:** 2026-11-12
+- **Status:** Adopted by explicit owner confirmation; role/capability details remain open
+- **Context:** M3-00 requires a realistic delivery model before implementation planning. The owner accepted the recommended arrangement.
+- **Decision:** The user remains Product Owner and final decision-maker. ChatGPT will assist step by step with planning, architecture and documentation, code drafting only after separate implementation authorization, test design, review support and progress reporting. Qualified external specialists may be identified or engaged for legal, privacy and security review when expertise is required.
+- **Accountability boundary:** ChatGPT assistance does not create an independently accountable engineering, security, legal or operations function. Named human implementers/maintainers, QA ownership, production operations ownership and independent reviewers must still be confirmed before M3-00 can close and before M3-01 can authorize implementation.
+- **Consequences:** This is an owner-led delivery model, not approval to hire, contract, procure, spend, activate services, access production, or begin application coding. Capacity and budget remain undecided. All existing M3 authorization gates remain binding.
+- **Review trigger:** Revisit if named human capability coverage cannot safely support implementation, maintenance, security assurance or operations.
