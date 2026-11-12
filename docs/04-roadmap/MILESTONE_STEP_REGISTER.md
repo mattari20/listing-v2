@@ -126,3 +126,7 @@ The deep review strengthens S02-C04/C05/C06 with Punjab/Sindh/GB special-educati
 ## M1-S02 ICT PEIRA and Madaris research note — 2026-11-12
 
 The latest review strengthens ICT private-school evidence through PEIRA's paginated active register and separate renewal/unregistered states, adds DGRE's nationwide Deeni Madaris registration family and 16 regional offices (public lists located dated March 2024), and documents IBCC's QAB recognition versus qualification-equivalence distinction. Deeni Madaris are added to the provisional provider taxonomy; DGRE maslak data is excluded from general discovery. See `docs/03-research/M1_S02_ICT_PEIRA_MADARIS_QAB_REVIEW_2026-11-12.md`. S02-C01/C04/C05/C07/C08 remain in progress; S02-C09 remains owner-only.
+
+## PR #38 delivery evidence — 2026-11-12
+
+PR #38 merged the deep jurisdiction and TVET review as `a38fa149d10be99903ca6bb44236bd1e68565e6a`; exact head `f1f7aa59424b5161ec91a3f3ae60ff20471edba2` passed required Project documentation validation (run #43153839019). It strengthens S02-C04/C05/C06 but does not close their remaining acceptance evidence. Task weights and owner gate are unchanged.
