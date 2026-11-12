@@ -2,7 +2,7 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0 accepted and closed; M1 in progress; M1-S02 and M1-S03 accepted; next M1 step awaits separate owner authorization  
+**Status:** M0 accepted and closed; M1 in progress; M1-S02 and M1-S03 accepted; M1-S01 closeout package ready for owner acceptance  
 **Last reconciled:** 2026-11-12
 
 ## Authoritative current position
@@ -42,7 +42,7 @@ At the beginning of every work session, the AI must:
 5. Work only within the step's documented scope.
 6. Confirm all task inputs comply with the strict legacy non-interference rule.
 
-At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. M1-S01 desk research and initial journey hypotheses are delivered; primary participant research is explicitly deferred by owner and is not an active construction task. M1-S02 remains active. Its source-rights register and coverage matrix have been expanded with HEC, PM&DC, PNMC, PCP, PEC, NCEAC, NACTE, NBEAC, NTC, NCH, Punjab public/private school sources, KPPSRA, Sindh ASC, Balochistan EMIS, TVET, non-formal and special-education source leads. Programme/campus/intake status, data-quality, privacy, freshness and reuse limitations are documented; all sources remain research-only. No directory-specific reuse permission was established and all sources remain research-only. Continue with M1-S02 coverage, status/freshness and rights verification. The 2026-11-12 NAVTTC follow-up distinguishes production TIS/NSIS/NVQF discovery routes from institute registration and NAC-TVS accreditation; NAVTTC states three-year accreditation validity and a six-month pre-expiry renewal window. No directory-specific reuse permission was established; all TVET sources remain research-only. PR #22 delivered this NAVTTC clarification and merged as `2faeba2ba7637a6b4972079d5de3be2b56a7a5dd` after exact-head documentation validation passed (run #43145057750).
+At the end of each step, update this controller with status, evidence, progress and the exact next authorized V2 step. M1-S01 has a completed 100%-weighted documentation package and awaits owner acceptance; primary participant research remains explicitly deferred by owner and is not an active construction task. M1-S02 and M1-S03 are accepted. Its source-rights register and coverage matrix have been expanded with HEC, PM&DC, PNMC, PCP, PEC, NCEAC, NACTE, NBEAC, NTC, NCH, Punjab public/private school sources, KPPSRA, Sindh ASC, Balochistan EMIS, TVET, non-formal and special-education source leads. Programme/campus/intake status, data-quality, privacy, freshness and reuse limitations are documented; all sources remain research-only. No directory-specific reuse permission was established and all sources remain research-only. Continue with M1-S02 coverage, status/freshness and rights verification. The 2026-11-12 NAVTTC follow-up distinguishes production TIS/NSIS/NVQF discovery routes from institute registration and NAC-TVS accreditation; NAVTTC states three-year accreditation validity and a six-month pre-expiry renewal window. No directory-specific reuse permission was established; all TVET sources remain research-only. PR #22 delivered this NAVTTC clarification and merged as `2faeba2ba7637a6b4972079d5de3be2b56a7a5dd` after exact-head documentation validation passed (run #43145057750).
 
 ## Latest documentation delivery evidence
 PR #23 reconciled PR #22's NAVTTC research update across the catalogue, progress report and traceability. Exact head `737ec6838dc85d4ba1becc600af661d998074c0a` passed required documentation validation (run #43145140802); merge commit `2a94f8caced03142fee56c5b6e6fc1afa2f6df65`. M1-S02 remains active; no source has been approved for reuse or ingestion.
@@ -258,3 +258,12 @@ The accepted research does not establish a complete national institution census 
 ## PR #69 closeout delivery evidence — 2026-11-12
 
 PR [#69](https://github.com/mattari20/listing-v2/pull/69) merged as `4c6d076fef9d09a2900ca8e9e265ea6176ed5d6c`; exact head `c6120094139e2f2a7296fd4e59649928c0ddc161` passed required Project documentation validation (run [#43163951606](https://github.com/mattari20/listing-v2/actions/runs/43163951606)). The owner acceptance record and final 100% task status are now part of the default-branch control documents.
+
+
+## Authoritative update — M1-S01 closeout package ready for owner acceptance (2026-11-12)
+
+The M1-S01 desk-research and requirements closeout package is prepared in branch `docs/m1-s01-closeout`. The updated journey research has eight evidence items, including PBS HIES 2024–25 and Pakistan Education Statistics 2023–24; it separates source findings from hypotheses and limitations. The student discovery specification defines SR-01–SR-14 with measurable, implementation-neutral acceptance scenarios. Product Vision, traceability, step register, progress report, roadmap and catalogue are reconciled.
+
+M1-S01 weighted documentation tasks total 100% (T01 35%, T02 15%, T04 25%, T05 25%). T03 primary interviews/survey is explicitly owner-deferred and has 0% weight. No interviews, surveys, recruitment, outreach, usability testing or participant validation are claimed or authorized. The archived instrument kit must remain inactive.
+
+The closeout review pack is `../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md`. M1-S01 remains **Ready for owner acceptance**, not Accepted, until the owner reviews and explicitly accepts the package. After acceptance, M1-S04 remains the next planned step and requires separate owner authorization. M2, implementation, production access and deployment remain outside this closeout.
