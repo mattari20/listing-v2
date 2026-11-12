@@ -2,7 +2,7 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0 accepted and closed; M1 in progress; next step M1-S02  
+**Status:** M0 accepted and closed; M1 in progress; M1-S02 accepted; current step M1-S03  
 **Last reconciled:** 2026-11-12
 
 ## Authoritative current position
@@ -190,3 +190,12 @@ The latest review records KP public iEMIS as role-based, FDE ICT as aggregate-on
 ## PR #44 latest delivery evidence — 2026-11-12
 
 PR #44 merged as `11ee337d823731d71a9c0ca00782728ad1994398`; exact head `0b5fe6429a1f6bc8bb383d1db1278d632ae04f08` passed required Project documentation validation (run #43155204020). School-regulator status and terms distinctions are incorporated; M1-S02 remains active.
+
+
+## Authoritative update — M1-S02 accepted; M1-S03 active (2026-11-12)
+
+M1-S02 was explicitly accepted by the owner and closed at 100% weighted task completion. The acceptance record is `../03-research/M1_S02_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`; the final task register and progress report are reconciled. The next authorized step is **M1-S03 — Official Government and Regulator Provider Research**, now in progress. Its weighted task breakdown is in `../04-roadmap/MILESTONE_STEP_REGISTER.md`; the initial official-source register is `../03-research/M1_S03_OFFICIAL_PROVIDER_SOURCE_REGISTER_2026-11-12.md`.
+
+Owner product requirement V2-DEC-006: Deeni Madaris are included in the underlying provider scope but hidden from public listings by default at launch. A configurable `Show Deeni Madaris` setting is required, default OFF; only an authorized administration/configuration path may change it. Exact UI and roles are deferred to M2 design. No implementation is authorized.
+
+M1-S03 remains documentation/research-only. No scraping, bulk download, source-owner contact, permission requests, source ingestion, connectors, application code, database/schema changes, production access, deployment, legacy-repository interaction, M1-S04 or M2 work is authorized.
