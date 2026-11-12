@@ -160,3 +160,8 @@ HEC 2024 policy adds explicit approved study-centre/MoU relationship requirement
 ## PR #40 board, PMF and DGRE delivery evidence
 
 PR #40 merged as `c92d96613dcb510762be5a0a615a73e856861f9b`; final exact head `cc2cc7eaa615e4fe762f808e51918b6b10b5e235` passed required Project documentation validation (run #43154387281). The research strengthens assessment-board, affiliation, programme and territorial relationships but does not close remaining record-level verification or rights requirements.
+
+
+## M1-S02 national rights/privacy framework evidence — 2026-11-12
+
+MoITT draft policy/Bill status, RTI access-versus-reuse distinction, Copyright Ordinance compilation/data distinction and PBS's scoped open-license example are documented in the data-rights review. This improves S02-C07 requirements but does not provide source-specific legal clearance. Privacy minimization remains mandatory; no source is approved for reuse.
