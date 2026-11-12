@@ -130,3 +130,55 @@ Owner review checklist and decision request: [M2-S02/S03 Joint Validation and Ow
 PR [#91](https://github.com/mattari20/listing-v2/pull/91) delivered the M2-S01 owner-acceptance record and coordinated M2-S02/S03 documentation package. Exact PR head `7a58f7ddb93cd693874e7debd3fa730b5db1d1ea` passed the required **Project documentation validation** workflow (run [#43188475213](https://github.com/mattari20/listing-v2/actions/runs/43188475213)); the `Validate project control documents` job and all steps completed successfully. PR #91 was squash-merged as `0881719c3b0d98893dc0e88a9c4f929cae89aea1`.
 
 S01 is Accepted and Closed at 100%. S02 is delivered at 80% draft task completion and S03 at 85%; their T05 owner-review gates remain open. Merge and CI evidence confirm delivery and documentation validation, not owner acceptance of S02/S03. M2 weighted progress remains 32.8%.
+
+
+
+## Authoritative update — S02/S03 accepted and closed; S04/S05/S06 jointly active — 2026-11-12
+
+The owner explicitly accepted the S02 conceptual domain model and S03 logical application/integration architecture and directed both steps to close. Formal record: [M2-S02/S03 Owner Acceptance Record](M2-S02-S03_OWNER_ACCEPTANCE_RECORD_2026-11-12.md). S02-T05 and S03-T05 are complete; **S02 and S03 are Accepted and Closed at 100% each**. Their conceptual/technology-neutral qualifications remain binding.
+
+The owner authorized the next coordinated documentation work package: S04 Technology Stack Evaluation, S05 Data Architecture/Provenance/Publication Governance and S06 Search/Discovery/Geography Architecture. They are authored jointly for consistency but retain separate task weights and owner-acceptance gates.
+
+### S04 task progress (10% M2 weight)
+
+| Task | Weight | Evidence | Status |
+|---|---:|---|---|
+| T01 Evaluation criteria | 15% | S04 section 2 | Complete — draft |
+| T02 Backend/frontend options | 20% | S04 sections 3–4 | Complete — draft |
+| T03 Data/search/maps/async options | 25% | S04 sections 5–6 | Complete — draft |
+| T04 Hosting/cost/operability | 20% | S04 section 8 | Complete — draft |
+| T05 Recommendation/owner decision | 20% | S04 section 9; owner decision pending | Pending |
+
+**S04 draft task completion: 80%.** No technology/vendor/hosting choice is approved. The recommendation is conditional and requires team-skill, hosting and cost evidence plus explicit owner decision.
+
+### S05 task progress (12% M2 weight)
+
+| Task | Weight | Evidence | Status |
+|---|---:|---|---|
+| T01 Data domains | 20% | S05 section 2 | Complete — draft |
+| T02 Provenance | 25% | S05 section 3 | Complete — draft |
+| T03 Rights/retention/privacy | 15% | S05 section 4 | Complete — draft |
+| T04 Validation/publication/conflict/rollback | 25% | S05 sections 5–7 | Complete — draft |
+| T05 Review | 15% | Joint consistency and owner review pending | Pending |
+
+**S05 draft task completion: 85%.** No source access, copying, collection, ingestion or reuse is authorized.
+
+### S06 task progress (8% M2 weight)
+
+| Task | Weight | Evidence | Status |
+|---|---:|---|---|
+| T01 Discovery capabilities | 20% | S06 section 2 | Complete — draft |
+| T02 Geo quality/privacy | 20% | S06 sections 6–7 | Complete — draft |
+| T03 Indexing/freshness/relevance | 20% | S06 sections 3–5 and 9 | Complete — draft |
+| T04 Deeni Madaris enforcement | 25% | S06 section 8 | Complete — draft |
+| T05 Review | 15% | Joint consistency and owner review pending | Pending |
+
+**S06 draft task completion: 85%.** V2-DEC-006 remains binding and the negative test requirements cover every public surface and side channel.
+
+### Joint package and current weighted progress
+
+Deliverables: M2-S04_TECHNOLOGY_STACK_EVALUATION.md, M2-S05_DATA_ARCHITECTURE_PROVENANCE_PUBLICATION.md, M2-S06_SEARCH_DISCOVERY_GEOGRAPHY_ARCHITECTURE.md, and M2-S04-S06_JOINT_VALIDATION_AND_OWNER_REVIEW.md.
+
+Weighted M2 progress: S00 5% + S01 8% + S02 12% + S03 12% + S04 8% + S05 10.2% + S06 6.8% = **62.0%**. S04/S05/S06 are delivered drafts, not accepted/closed. Owner review is pending.
+
+The S04 evaluation compares Laravel 13, Django 6.1 and NestJS/Node 26, HTML-first versus React SSR/partial enhancement, PostgreSQL/MySQL/MariaDB, database-native search/Meilisearch/OpenSearch, and map/geocoder boundaries. The modular-monolith, HTML-first and PostgreSQL/PostGIS directions are conditional recommendations only. No procurement or implementation approval is implied.
