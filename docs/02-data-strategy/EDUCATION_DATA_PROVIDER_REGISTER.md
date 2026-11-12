@@ -78,3 +78,8 @@ PIE/NEMIS source lineage, Pakistan Education Statistics 2024 coverage caveats, h
 ## M1-S03 federal provider network clarification
 
 FDE and FGEI C/G are separate source families. FDE's 432-institution figure is an ICT aggregate and its admissions/GIS routes have separate scope and sensitive modules. FGEI C/G is a distinct directorate under IGT&E with an indexed 311-school/49-college network across cantonment/garrison regions; record-level access was limited in review. FBISE affiliation is a third, separate examination-board relationship. See `../03-research/M1_S03_FDE_FGEI_SOURCE_REVIEW_2026-11-12.md`.
+
+
+## M1-S03 jurisdictional school-source matrix
+
+The source register now has a consolidated jurisdictional matrix for public/private school authorities across Punjab, Sindh, KP, Balochistan, ICT, AJK and GB. See `../03-research/M1_S03_JURISDICTIONAL_SCHOOL_SOURCE_MATRIX_2026-11-12.md`. GOV-40 to GOV-42 add Punjab PMIU/PEPRIS, Sindh private-school registration and KP public iEMIS/KPPSRA. All source reuse remains subject to specific permission; no owner/student/teacher personal data is collected.
