@@ -88,6 +88,9 @@ PR #28 merged as `2254d52f8799c137ad64e0c28502913453e6d218`; exact head `bbf694e
 ## M1-S02 owner acceptance gate
 The current S02 research/documentation package is ready for owner review. S02-C09 remains pending; the AI must not self-approve the taxonomy or close the step without the owner's explicit choice. All sources remain research-only and no collection/reuse is authorized.
 
+## PR #29 evidence reconciliation
+PR #29 merged as `8e88443a9d7da11fb1414774ad4766256033d16c`; exact head `52ed405a11b14e2698e046ebb407d3a53b8542ff`; required `Project documentation validation` passed (run #43147641844). It reconciled PR #28 evidence and confirmed that S02-C09 remains an owner-only acceptance gate.
+
 ## Documentation catalogue maintenance
 
 `DOCUMENTATION_CATALOG.md` is the owner-facing inventory for documentation delivery and acceptance. Reconcile it on every documentation PR update and merge. Keep delivery status separate from content acceptance; update PR/head/check/merge evidence and links.

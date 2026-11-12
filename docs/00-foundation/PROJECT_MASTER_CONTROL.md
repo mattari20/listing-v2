@@ -62,6 +62,9 @@ PR #27 completed the current expanded desk-research/documentation pass and merge
 ## Latest M1-S02 review state
 PR #28 merged as `2254d52f8799c137ad64e0c28502913453e6d218`; exact head `bbf694ed0d7e372b3e8d4c754b29e3773adbb9c4` passed required documentation validation (run #43147548460). The research package and owner acceptance review are complete as documentation deliverables. M1-S02 remains in progress pending the owner's explicit S02-C09 decision recorded in `../03-research/M1_S02_OWNER_ACCEPTANCE_REVIEW.md`. All candidate sources remain research-only. Do not begin M1-S03 until the owner resolves this acceptance gate; do not begin M2 or implementation.
 
+## PR #29 evidence
+PR #29 reconciled the PR #28 owner-review pack delivery. Exact head `52ed405a11b14e2698e046ebb407d3a53b8542ff` passed required documentation validation (run #43147641844); merge commit `8e88443a9d7da11fb1414774ad4766256033d16c`. A register formatting correction is being made separately; no task weights or acceptance decisions are changed. M1-S02 remains in progress pending owner decision.
+
 ## Completion status
 M0 is accepted and closed. Future milestones require their own evidence-based acceptance and closeout.
 

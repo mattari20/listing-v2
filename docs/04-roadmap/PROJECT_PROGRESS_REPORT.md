@@ -126,5 +126,11 @@ PR #28 added PBC/PVMC source evidence, documented remaining professional-council
 ## M1-S02 final research position
 The current research/documentation pass is ready for owner review. The source-family baseline, provisional taxonomy, national coverage synthesis, rights/privacy register and explicit gaps are recorded. This is not a complete record-by-record national census or legal clearance. All candidate sources remain RESEARCH ONLY. M1-S02 is not marked Accepted because S02-C09 requires the owner's explicit decision in `docs/03-research/M1_S02_OWNER_ACCEPTANCE_REVIEW.md`. The owner can accept the research baseline with limitations carried forward or keep S02 open for further coverage/rights work. No M2 implementation or architecture work is authorized.
 
+## PR #29 evidence
+PR #29 reconciled PR #28 evidence across the catalogue, progress report, traceability and controller. Exact head `52ed405a11b14e2698e046ebb407d3a53b8542ff` passed required `Project documentation validation` (run #43147641844); merge commit `8e88443a9d7da11fb1414774ad4766256033d16c`.
+
+## M1-S02 register quality correction
+A follow-up consistency check found malformed duplicate status cells in the S02 weighted task table. PR #30 repairs the table to exactly four columns (task, weight, acceptance evidence, status) without changing task weights or the owner-approval boundary.
+
 ## Reporting rule
 After every documentation PR update and merge, reconcile the documentation catalogue, index, controller, step register, traceability matrix and progress report. Record exact PR, head SHA, required check and merge SHA. Never infer acceptance from a merge alone.
