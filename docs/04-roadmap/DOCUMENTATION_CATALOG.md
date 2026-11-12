@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-12 — M0/M1 closed; M2-S00 through S03 accepted/closed; S04-S06 delivered, owner review pending
+**Last reconciled:** 2026-11-12 — M0/M1/M2 and M3-00 accepted/closed; M3-01 planning in progress
 
 ## Purpose and maintenance rule
 
@@ -659,3 +659,13 @@ The T08 pack is planning documentation only. It does not authorize coding, techn
 - PR [#113](https://github.com/mattari20/listing-v2/pull/113) delivered the T08 implementation scope, test/release and unissued M3-01 authorization framework; squash merge `0a1d1dfbaab292ae75439dd90bd910bb42780a89`.
 - PR [#114](https://github.com/mattari20/listing-v2/pull/114) recorded owner-approved M3-DEC-003 through M3-DEC-007; squash merge `534aa11345b91113e370cb1739bbded7d82f4c3c`. T02–T06 are complete for M3-00 planning outputs only.
 - Current baseline for this pack: `main` at `534aa11345b91113e370cb1739bbded7d82f4c3c`. T07/T08 and formal M3-00 acceptance remain pending.
+
+
+## M3-00 acceptance and M3-01 documentation — 2026-11-12
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-00 Final Owner Acceptance and Closure Record](M3-00_FINAL_OWNER_ACCEPTANCE_AND_CLOSURE_RECORD_2026-11-12.md) | Records explicit three-part owner approval, bounded T07/T08 dispositions, 100% planning closeout and carry-forward no-go gates | Owner accepted — M3-00 closed |
+| [M3-01 Implementation Planning and Authorization Work Plan](M3-01_IMPLEMENTATION_PLANNING_AND_AUTHORIZATION_WORK_PLAN.md) | Eight weighted planning tasks, candidate first slice, blocker inventory and unissued authorization form | Delivered — M3-01 planning in progress; owner decisions pending |
+
+Historical T07/T08 and M3-00 pending labels above are superseded by the owner acceptance record. No substantive legal/security or implementation clearance is implied.
