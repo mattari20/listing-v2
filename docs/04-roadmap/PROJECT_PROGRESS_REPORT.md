@@ -2,7 +2,7 @@
 
 **As of:** 2026-11-12  
 **Current milestone:** M1  
-**Current phase:** M0 accepted; M1-S02 and M1-S03 accepted; M1-S01 closeout package ready for owner acceptance
+**Current phase:** M0 accepted; M1-S02 and M1-S03 accepted; M1-S01 closeout PR #71 merged; owner acceptance pending
 
 ## Verified V2 repository facts
 - Repository: `mattari20/listing-v2`
@@ -340,4 +340,9 @@ PR [#69](https://github.com/mattari20/listing-v2/pull/69) merged as `4c6d076fef9
 
 ## M1-S01 closeout package — 2026-11-12
 
-The closeout package updates the student journey research, Student Discovery Requirements, Product Vision, traceability matrix and project control records. It contains eight evidence items, a provisional end-to-end journey, SR-01–SR-14 and measurable acceptance scenarios. The weighted documentation tasks total 100% (T01 35%, T02 15%, T04 25%, T05 25%); T03 is explicitly owner-deferred at 0% weight. This percentage does not mean participant validation. M1-S01 is ready for owner acceptance, not yet Accepted. The owner review pack is `../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md`.
+The closeout package updates the student journey research, Student Discovery Requirements, Product Vision, traceability matrix and project control records. It contains eight evidence items, a provisional end-to-end journey, SR-01–SR-14 and measurable acceptance scenarios. The weighted documentation tasks total 100% (T01 35%, T02 15%, T04 25%, T05 25%); T03 is explicitly owner-deferred at 0% weight. This percentage does not mean participant validation. PR [#71](https://github.com/mattari20/listing-v2/pull/71) merged as `64bd568d522e41452b8b46db8652ec8df48a2d8b`; exact head `2982bdf421e09e82c03b76c223adb1b6ecc0b180` passed required Project documentation validation (run [#43166985628](https://github.com/mattari20/listing-v2/actions/runs/43166985628)). M1-S01 is delivered and awaits owner acceptance, not yet Accepted. The owner review pack is `../03-research/M1_S01_CLOSEOUT_REVIEW_2026-11-12.md`.
+
+
+## PR #71 — M1-S01 closeout delivery evidence
+
+PR [#71](https://github.com/mattari20/listing-v2/pull/71) merged as `64bd568d522e41452b8b46db8652ec8df48a2d8b`. Exact PR head `2982bdf421e09e82c03b76c223adb1b6ecc0b180` passed the required Project documentation validation check (run [#43166985628](https://github.com/mattari20/listing-v2/actions/runs/43166985628)). The S01 documentation package is on `main`; owner acceptance remains pending.
