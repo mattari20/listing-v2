@@ -55,3 +55,4 @@ A proposal in a document is not automatically an approved implementation choice.
 - [M1-S02 AJK, GB, Sindh and Punjab School Register Review](03-research/M1_S02_AJK_GB_SINDH_SCHOOL_REGISTER_REVIEW_2026-11-12.md) — additional public/private school source coverage and data-quality limits
 - [M1-S02 School Regulator Status and Terms Review](03-research/M1_S02_SCHOOL_REGULATOR_STATUS_TERMS_REVIEW_2026-11-12.md) — KP/Sindh regulator status, HEC publisher-license scope and NAVTTC count distinctions
 - [M1-S02 KP, ICT and AJK College Coverage Review](03-research/M1_S02_KP_ICT_AJK_COLLEGE_COVERAGE_REVIEW_2026-11-12.md) — public-sector school/college coverage gaps and AJK count discrepancy
+- [M1-S02 Consolidated National Institution Coverage and Gap Matrix](03-research/M1_S02_CONSOLIDATED_NATIONAL_COVERAGE_GAP_MATRIX_2026-11-12.md) — reconciled national coverage snapshot and remaining evidence gaps
