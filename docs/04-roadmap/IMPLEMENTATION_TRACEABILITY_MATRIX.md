@@ -169,3 +169,8 @@ MoITT draft policy/Bill status, RTI access-versus-reuse distinction, Copyright O
 ## PR #41 reconciliation evidence
 
 PR #41 merged as `c56200bdf66a5fdf615de0da6281495e50c39f92`; exact head `2c11bfc7fe74da6bed4dc04d17c4c80a664990b0` passed required Project documentation validation (run #43154481312). It reconciled PR #40 merge evidence; M1-S02 remains in progress.
+
+
+## M1-S02 school-jurisdiction source evidence — 2026-11-12
+
+AJK public/private census streams, GB EMIS/BECS/college lists, Sindh district-to-UC institution checker and Punjab PEPRIS eLicense caveats strengthen S02-C04/C06 source-family coverage. Data-system differences, freshness, completeness and source rights remain unresolved. Personal teacher/contact/identity/student data is excluded.
