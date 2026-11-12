@@ -518,3 +518,14 @@ S02 is 80% drafted and S03 is 85% drafted; T05 owner review remains pending for 
 PR [#91](https://github.com/mattari20/listing-v2/pull/91) delivered the M2-S01 owner-acceptance record and coordinated M2-S02/S03 documentation package. Exact PR head `7a58f7ddb93cd693874e7debd3fa730b5db1d1ea` passed the required **Project documentation validation** workflow (run [#43188475213](https://github.com/mattari20/listing-v2/actions/runs/43188475213)); the `Validate project control documents` job and all steps completed successfully. PR #91 was squash-merged as `0881719c3b0d98893dc0e88a9c4f929cae89aea1`.
 
 S01 is Accepted and Closed at 100%. S02 is delivered at 80% draft task completion and S03 at 85%; their T05 owner-review gates remain open. Merge and CI evidence confirm delivery and documentation validation, not owner acceptance of S02/S03. M2 weighted progress remains 32.8%.
+
+
+## M2-S02/S03 owner acceptance and S04/S05/S06 joint delivery — 2026-11-12
+
+- [M2-S02/S03 Owner Acceptance Record](../05-architecture/M2-S02-S03_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) — owner accepted both conceptual/logical baselines; S02/S03 closed at 100%.
+- [M2-S04 Technology Stack Evaluation](../05-architecture/M2-S04_TECHNOLOGY_STACK_EVALUATION.md) — sourced backend/frontend/data/search/geospatial/async options, criteria and conditional recommendation; no technology selected.
+- [M2-S05 Data Architecture, Provenance and Publication Governance](../05-architecture/M2-S05_DATA_ARCHITECTURE_PROVENANCE_PUBLICATION.md) — logical data domains, source rights gates, lineage, validation, retention principles, publication, correction and rollback.
+- [M2-S06 Search, Discovery and Geography Architecture](../05-architecture/M2-S06_SEARCH_DISCOVERY_GEOGRAPHY_ARCHITECTURE.md) — search pipeline, indexes, relevance, map/geocoder constraints, privacy and Deeni Madaris negative requirements.
+- [M2-S04/S05/S06 Joint Validation and Owner Review](../05-architecture/M2-S04-S06_JOINT_VALIDATION_AND_OWNER_REVIEW.md) — separate task evidence, cross-step consistency and owner review checklist.
+
+S04 is 80%, S05 85%, S06 85% drafted. Owner review and S04 consequential choice decisions remain pending. No stack, vendor, source access, procurement, implementation or deployment is approved.
