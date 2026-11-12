@@ -94,3 +94,9 @@ M2 is owner-authorized and active as a documentation/design milestone. Applicati
 - [Diagram Conventions](05-architecture/diagrams/README.md)
 
 M2 is owner-authorized and active as a documentation/design milestone. Application implementation remains gated until final M2 acceptance.
+
+
+### M2-S01 — System requirements and architecture boundaries
+- [System Requirements and Architecture Boundaries](05-architecture/M2-S01_SYSTEM_REQUIREMENTS_AND_BOUNDARIES.md)
+- [System Context and Capability Boundary](05-architecture/M2-S01_SYSTEM_CONTEXT.md)
+- [Quality Attribute Scenarios and Targets](05-architecture/M2-S01_QUALITY_SCENARIOS.md)
