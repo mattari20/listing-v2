@@ -2,7 +2,7 @@
 
 **As of:** 2026-11-12  
 **Current milestone:** M1  
-**Current phase:** M0 accepted; M1-S01 through M1-S05 accepted; M1-S06 and M1-S07 research packages delivered, owner acceptance pending
+**Current phase:** M0 accepted; M1-S01 through M1-S05 accepted; M1-S06/S07 research packages merged, owner acceptance pending
 
 ## Verified V2 repository facts
 - Repository: `mattari20/listing-v2`
@@ -376,3 +376,8 @@ The owner accepted the S05 programme/admissions research baseline and directed c
 ## M1-S06 and M1-S07 joint research delivery — 2026-11-12
 
 The independent GitHub software/dataset discovery and source-rights/security assessment packages are documented in `docs/03-research/M1_S06_GITHUB_SOFTWARE_DATASET_DISCOVERY_2026-11-12.md` and `docs/03-research/M1_S07_SOURCE_RIGHTS_SECURITY_ASSESSMENT_2026-11-12.md`. Each step is at 90% weighted research/documentation completion, with owner acceptance pending. The assessment is deny-by-default: no third-party software or data is approved for import, collection or reuse. No repositories were cloned or executed, no datasets downloaded, and no external parties contacted.
+
+
+## PR #77 merge and exact-head validation evidence — 2026-11-12
+
+PR [#77](https://github.com/mattari20/listing-v2/pull/77) merged into `main` as `71e71ce74a57b854724027a1b106befe826b14fa`. The final PR head `deef364831cf4f0d902128ce9933897b17f9649c` passed the required **Project documentation validation** check (run [#43171586968](https://github.com/mattari20/listing-v2/actions/runs/43171586968)); the job completed successfully. The merge delivered the S05 owner-acceptance record and S06/S07 research packages, plus reconciled project-control documents. S06 and S07 remain owner-acceptance pending at 90% weighted completion each. This delivery does not authorize source collection, code/data import, reuse, ingestion, connector activation or implementation.
