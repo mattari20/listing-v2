@@ -135,5 +135,8 @@ A follow-up consistency check found malformed duplicate status cells in the S02 
 ## PR #30 evidence
 PR #30 corrected the S02 weighted task table to exactly four columns, preserved all nine task weights totaling 100%, and reconciled PR #29 evidence. Exact head `4ca9d571206072064294f7fb163584db174669f8` passed required `Project documentation validation` (run #43147756202); merge commit `3553d75a5afd84e8fcfab372324342f7acad7456`.
 
+## PR #31 evidence
+PR #31 reconciled PR #30 task-register correction evidence across the catalogue, progress report, traceability and controller. Exact head `1f92b1d2c1021b3a2dc93ad9f00e8082b7158b2a` passed required `Project documentation validation` (run #43147833542); merge commit `63d9386a8d93a12cb3f609480f6d101b890bade0`. Final verification confirmed all nine S02 task rows have exactly four columns and weights total 100%.
+
 ## Reporting rule
 After every documentation PR update and merge, reconcile the documentation catalogue, index, controller, step register, traceability matrix and progress report. Record exact PR, head SHA, required check and merge SHA. Never infer acceptance from a merge alone.
