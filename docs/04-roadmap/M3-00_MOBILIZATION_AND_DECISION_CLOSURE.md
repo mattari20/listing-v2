@@ -1,0 +1,96 @@
+# M3-00 — Mobilization and Decision Closure
+
+**Status:** Started — documentation/planning only  
+**Step completion:** 0% (baseline established; task evidence and owner decisions not yet accepted)  
+**Dependency:** M2 accepted and closed at 100%  
+**Governing plan:** [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md)  
+**Implementation authorization:** Not granted
+
+## 1. Objective
+
+Establish the people, capacity, budget, technology, hosting, legal/privacy/security and delivery-governance conditions needed to plan Listing V2 implementation responsibly. This step must expose unknowns and blockers rather than fill them with assumptions.
+
+## 2. Verified starting baseline
+
+- M0 is accepted and closed.
+- M1-S01 through M1-S10 are accepted and closed; G01-G20 remain binding.
+- M2 is formally accepted and closed at 100% under the M2 final owner acceptance record dated 2026-11-12.
+- M2 left stack, hosting, model/vendor, source rights, legal/privacy, accessibility, review policy and operational targets unresolved where evidence or owner decisions were outstanding.
+- V2-DEC-006 remains binding.
+- Application implementation, source access/ingestion, procurement, production access and deployment remain unauthorized.
+- Listing V2 remains independent of legacy Listing V1.
+
+## 3. M3-00 task register
+
+| Task | Weight | Required output | Current status |
+|---|---:|---|---|
+| T01 Baseline and handover reconciliation | 10% | M0-M2 accepted baseline, open-decision inventory and binding-control checklist | Baseline identified; reconciliation document in progress |
+| T02 Roles, skills and accountability | 15% | Role/capability matrix, decision owners and skills gaps | Awaiting owner/team facts |
+| T03 Capacity and availability | 10% | Capacity, cadence, review time and continuity assumptions | Awaiting owner/team facts |
+| T04 Budget and cost ceiling | 15% | One-time/recurring cost categories, scenarios and explicit ceiling | Awaiting owner budget decision |
+| T05 Technology stack decision pack | 15% | Evidence matrix, proof-of-fit criteria, options and owner decision record | M2 conditional recommendation exists; no final stack selected |
+| T06 Hosting and vendor decision pack | 10% | Hosting/region/cost/data-location/latency/recovery comparison | No provider or region selected |
+| T07 Legal, privacy, source-rights and security gates | 15% | Gate register, review owners, source-specific approval protocol | Open; no source or vendor activation |
+| T08 Scope, test/release and authorization pack | 10% | M3-01 backlog outline, acceptance gates, test/release plan and authorization request | Drafting follows T01-T07 |
+
+Task weights total 100%. No task is marked complete solely because a template or checklist has been drafted.
+
+## 4. Required owner/team inputs
+
+The following are intentionally unanswered until confirmed. No assumptions about staffing, budget or vendor preferences are made.
+
+| Input | Needed to close | Why it matters |
+|---|---|---|
+| Delivery model | Who will do product decisions, development, QA, security/privacy review and operations; which roles are internal or contracted | Determines realistic responsibilities and skill gaps |
+| Availability | Approximate hours per week and preferred review/approval cadence | Determines feasible sequencing and delivery estimates |
+| Budget ceiling | Maximum acceptable one-time setup and recurring monthly/annual spend; whether paid services are permitted at all | Prevents unapproved commitments and unsuitable architecture choices |
+| Technology constraints | Existing team expertise, preferred/unsupported languages or frameworks, maintainability constraints | Informs evidence-based stack selection |
+| Hosting constraints | Preferred hosting geography, data-location requirements and operational ownership | Informs legal, latency, cost and recovery evaluation |
+| Decision cadence | Expected time for owner reviews and approvals | Prevents silent assumptions about acceptance timing |
+
+These inputs can be supplied gradually. Until then, affected decisions remain **OPEN / BLOCKED ON OWNER INPUT**.
+
+## 5. Decision gates
+
+### Stack
+M2's conditional direction (modular monolith, HTML-first, PostgreSQL/PostGIS proof-of-fit, database-native search initially, replaceable map/tile/geocoder adapters) is a candidate baseline, not a final selection. Compare options against team skills, total cost, security, maintainability, migration/exit risk, Pakistan user performance and test evidence. Do not install or procure a paid service as part of this planning step.
+
+### Hosting
+Compare provider/region options using verified quotes, data location and transfer terms, Pakistan latency, backup/restore capability, security controls, support and total cost. No provider or region is selected.
+
+### Legal, privacy and source rights
+Obtain qualified review where needed. Public availability does not grant reuse rights. Each external source requires its own rights, terms, privacy, security and permitted-method assessment and explicit authorization. No source-owner outreach, permission request, scraping, bulk download, connector activation or ingestion is included here.
+
+### AI and third-party services
+No AI model, identity provider, map/tile/geocoder, search SaaS or other third-party service is activated. Evaluation must cover data terms, privacy, security, quality, cost caps, portability and exit strategy.
+
+### Security, privacy and safeguarding
+Carry forward least privilege, anonymous-first discovery, data minimization, minor safeguarding, prompt-injection defenses, human publication gates, auditability and incident/recovery design. No claim of legal compliance or completed security certification is made.
+
+## 6. M3-00 exit criteria
+
+M3-00 can be submitted for owner review only when:
+1. M0-M2 baseline and all binding controls are reconciled.
+2. Team roles, skills, accountability and capacity are confirmed or explicit gaps/dependencies are accepted.
+3. Budget scenarios and a spend ceiling are documented, or the owner explicitly records that no spend is authorized and which choices remain blocked.
+4. Stack and hosting options have evidence-based comparisons and explicit owner decisions, or are explicitly deferred with a reason and a safe next proof-of-fit.
+5. Legal/privacy/minor/source-rights/security gates have named review responsibilities and clear no-go conditions.
+6. M3 scope, dependencies, step acceptance criteria, testing, release and rollback governance are documented.
+7. All unresolved decisions are visible in the decision register.
+8. The owner explicitly accepts the M3-00 readiness baseline.
+
+M3-00 acceptance does **not** authorize application implementation. M3-01 must prepare a separate implementation-start authorization naming the exact permitted scope.
+
+## 7. Explicit non-authorizations
+
+No application code; no physical database schema or migrations; no live source retrieval, scraping, bulk download or ingestion; no source-owner outreach or permission request; no connector/agent/model activation; no procurement or new spend; no production credentials or production access; no production data operation; no deployment, pilot with real users, launch or URL cutover.
+
+## 8. Current next actions
+
+1. Complete the detailed M3 master plan and project-control reconciliation.
+2. Build the role/capacity and budget worksheets without inventing values.
+3. Prepare evidence-based stack and hosting decision matrices from the accepted M2 baseline.
+4. Convert unresolved legal/privacy/source/security matters into explicit decision gates.
+5. Present only the genuinely necessary owner inputs, then complete the M3-00 readiness pack.
+
+**Current decision:** M3-00 planning is in progress. M3-01 and all implementation steps remain gated.
