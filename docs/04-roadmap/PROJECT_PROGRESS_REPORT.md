@@ -555,3 +555,10 @@ Authoritative plan: `M3_MASTER_STEP_PLAN.md`. Current-step record: `M3-00_MOBILI
 The owner accepted the owner-led, ChatGPT-assisted delivery model: the user remains Product Owner/final decision-maker; ChatGPT provides step-by-step planning, documentation, architecture, code-drafting (only after separate authorization), test-design and reporting assistance; qualified specialists may be engaged for legal/privacy/security review where needed. Named human implementers, maintainers, QA and operations owners remain unconfirmed. This decision is recorded as M3-DEC-001 and reflected in the M3-00 owner decision pack and mobilization register.
 
 **Progress treatment:** T02 is now In progress, but no partial task percentage is claimed because its complete role/capability matrix and named accountability evidence are not yet available. T01 remains complete; T03-T08 remain open. M3-00 remains 10%; M3 overall remains 0.5%. No implementation, procurement, spend or production activity is authorized.
+
+
+## M3 capacity decision update — 2026-11-12
+
+The owner confirmed **10–15 hours per week** for project decisions, review and participation. M3-DEC-002 records this owner availability. The range is not treated as engineering or operations capacity. Other human delivery capacity, review/approval cadence and continuity assumptions remain unresolved.
+
+**Progress treatment:** T03 is now In progress, but no partial task percentage is claimed until its complete capacity/cadence/continuity output is evidenced. T01 remains complete; T02 and T03 are in progress; T04-T08 remain open. M3-00 remains 10%; M3 overall remains 0.5%. Documentation/planning only; no implementation, hiring, procurement, spend or production activity is authorized.
