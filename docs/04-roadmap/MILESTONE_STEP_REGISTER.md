@@ -153,9 +153,9 @@ The owner explicitly accepted the independent software/dataset discovery baselin
 | S08-T05 Conflict, confidence, freshness and publication | 15% | Evidence/risk separation, human review and reversible publication rules | Completed |
 | S08-T06 Security, privacy and prompt-injection controls | 15% | Least privilege, hostile-source handling, data minimization and sensitive-data exclusions | Completed |
 | S08-T07 Human governance, monitoring and acceptance scenarios | 10% | Roles, metrics and ten testable acceptance scenarios | Completed |
-| S08-T08 Owner review and step acceptance | 5% | Owner acceptance of workflow requirements and limitations | Pending owner acceptance |
+| S08-T08 Owner review and step acceptance | 5% | Owner acceptance of workflow requirements and limitations | **Accepted — owner approval recorded 2026-11-12** |
 
-**M1-S08 weighted research/documentation completion:** 95%; T01–T07 complete, T08 owner acceptance pending. No agent, connector, crawler, scheduler or live source access was activated.
+**M1-S08 weighted research/documentation completion:** 100%; T01–T07 complete and T08 accepted by owner on 2026-11-12. M1-S08 is Accepted and Closed as a research baseline only. No agent, connector, crawler, scheduler or live source access was activated.
 
 ### M1-S09 task breakdown (weights total 100%)
 
@@ -169,9 +169,9 @@ The owner explicitly accepted the independent software/dataset discovery baselin
 | S09-T06 Moderation, institution reply, complaints and appeals | 15% | Fair process, reasons, appeals and no unilateral institution deletion | Completed |
 | S09-T07 Privacy, minors, safeguarding and sensitive categories | 10% | Data minimization and legal review gates | Completed |
 | S09-T08 Trust signals, legal research and open decisions | 10% | Source-backed trust model and M2 decision register | Completed |
-| S09-T09 Owner review and step acceptance | 5% | Owner acceptance of comparison/review/trust research and limitations | Pending owner acceptance |
+| S09-T09 Owner review and step acceptance | 5% | Owner acceptance of comparison/review/trust research and limitations | **Accepted — owner approval recorded 2026-11-12** |
 
-**M1-S09 weighted research/documentation completion:** 95%; T01–T08 complete, T09 owner acceptance pending. Reviews remain a post-launch feature; no pre-launch participant research or review collection is authorized.
+**M1-S09 weighted research/documentation completion:** 100%; T01–T08 complete and T09 accepted by owner on 2026-11-12. M1-S09 is Accepted and Closed as a research baseline only. Reviews remain a post-launch feature; no pre-launch participant research or review collection is authorized.
 
 
 
@@ -422,3 +422,30 @@ PR [#77](https://github.com/mattari20/listing-v2/pull/77) merged into `main` as 
 ## PR #79 merge and exact-head validation evidence — 2026-11-12
 
 PR [#79](https://github.com/mattari20/listing-v2/pull/79) merged into `main` as `59ab010830182a169fd609172618002ee8327fd3`. The exact PR head `4fed8a8d9f49c361539042f1f109102b9d6f4df2` passed the required **Project documentation validation** check (run [#43174230801](https://github.com/actions/runs/43174230801)); the validation job completed successfully. The merge delivered S08/S09 research, aligned product/data requirements and project controls, and recorded S06/S07 owner acceptance. S08 and S09 remain at 95% weighted completion each, with owner acceptance pending. No implementation or source access is authorized.
+
+
+## M1-S08/S09 owner acceptance — 2026-11-12
+
+The owner explicitly accepted the S08 AI data-agent workflow research and S09 comparison/reviews/trust research. Formal record: `../03-research/M1_S08_S09_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`. S08-T08 and S09-T09 are accepted; both steps are **Accepted and Closed at 100% weighted task completion** as M1 research/documentation baselines. Open S09 policy decisions, source rights, technical choices and legal-review requirements remain carried forward; acceptance does not resolve them or authorize implementation, source access or ingestion.
+
+## M1-S10 task breakdown (weights total 100%)
+
+| Task | Weight | Acceptance evidence | Status |
+|---|---:|---|---|
+| S10-T01 Verify accepted status and evidence of S01–S09 | 15% | Step register and owner acceptance records reconciled | Completed |
+| S10-T02 Cross-audit product requirements against research | 15% | Student, taxonomy, provider, programme, AI and trust requirements reconciled | Completed |
+| S10-T03 Build cross-step traceability | 15% | Requirement/decision families mapped to evidence steps and M2 obligations | Completed |
+| S10-T04 Consolidate source, coverage and rights gaps | 10% | Coverage, source rights and reuse limitations consolidated | Completed |
+| S10-T05 Consolidate AI, data quality and provenance controls | 10% | S08 controls and source-conflict rules consolidated | Completed |
+| S10-T06 Consolidate comparison, review and trust decisions | 10% | S09 policy decisions and safeguards consolidated | Completed |
+| S10-T07 Reconcile owner decisions and hard constraints | 5% | Deeni Madaris default-OFF, deferred primary research, post-launch reviews and approval gates preserved | Completed |
+| S10-T08 Define M2 entry criteria and exclusions | 5% | M2 entry requirements and prohibited implied authorizations documented | Completed |
+| S10-T09 Prepare M1 closeout and evidence links | 10% | Final synthesis, gap register and project-control updates delivered | Completed |
+| S10-T10 Owner review and formal M1 acceptance | 5% | Explicit owner acceptance of final M1 synthesis | Pending owner acceptance |
+| **Total** | **100%** | | **95%** |
+
+**M1-S10 weighted synthesis/documentation completion:** 95%; T01–T09 complete and T10 awaits explicit owner acceptance. M1 is not formally closed until S10 acceptance is recorded.
+
+## M1-S10 closeout review — 2026-11-12
+
+The final synthesis, cross-step traceability, G01–G20 gap/decision register, M2 entry requirements and exclusions are delivered in `../03-research/M1_S10_FINAL_SYNTHESIS_CLOSEOUT_REVIEW_2026-11-12.md`. S01–S09 are owner-accepted. S10 is ready for owner acceptance; M2 remains gated until this final M1 acceptance and separate M2 authorization.
