@@ -96,5 +96,8 @@ A follow-up review of NAVTTC's production site identified linked Training Instit
 ## PR #22 evidence
 PR #22 clarified NAVTTC production TIS/NSIS/NVQF discovery routes, separated institute registration from NAC-TVS accreditation, recorded the published accreditation validity/renewal/score criteria, excluded staging/test directory evidence and added privacy/reuse boundaries. Exact head `773c4c20165f51098ba8f01a24dd0c06ede44b57` passed required `Project documentation validation` (run #43145057750); PR #22 merged as `2faeba2ba7637a6b4972079d5de3be2b56a7a5dd`.
 
+## PR #23 evidence
+PR #23 reconciled PR #22 evidence in the catalogue, traceability matrix, progress report and master controller. Exact head `737ec6838dc85d4ba1becc600af661d998074c0a` passed required `Project documentation validation` (run #43145140802); merge commit `2a94f8caced03142fee56c5b6e6fc1afa2f6df65`.
+
 ## Reporting rule
 After every documentation PR update and merge, reconcile the documentation catalogue, index, controller, step register, traceability matrix and progress report. Record exact PR, head SHA, required check and merge SHA. Never infer acceptance from a merge alone.
