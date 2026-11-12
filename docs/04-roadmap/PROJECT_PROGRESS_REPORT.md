@@ -536,3 +536,15 @@ S02 and S03 are Accepted and Closed at 100%. S04 remains 80%, S05 85% and S06 85
 PR [#94](https://github.com/mattari20/listing-v2/pull/94) reconciled PR #93 delivery. Exact PR head `9c369a4a6f5b78d794feb2e38d9c4afd1b4875e8` passed required **Project documentation validation** (workflow run [#43189848614](https://github.com/mattari20/listing-v2/actions/runs/43189848614)); job `Validate project control documents` and all steps completed successfully. PR #94 was squash-merged as `0a5f65258ea04c52b8e79b314f7cda04c8d3e65c`.
 
 This reconciliation confirms PR #93's merge evidence and does not alter content acceptance: S02/S03 remain accepted/closed; S04 80%, S05 85% and S06 85% remain owner-review/decision pending. Weighted M2 progress remains 62.0%.
+
+
+## Authoritative status update — M3 handover (2026-11-12)
+
+- M0: Accepted and closed.
+- M1-S01–M1-S10: Accepted and closed; G01-G20 remain binding.
+- M2: 100% owner-accepted and closed; see the final acceptance record and final closeout report in `docs/05-architecture/`.
+- M3: Current milestone. M3-00 — Mobilization and Decision Closure — has started as documentation/planning only. M3-00 task progress remains 0% until weighted evidence is produced and accepted.
+- M3-01 onward: Not started. Application implementation is not authorized.
+- Production access, source ingestion, procurement/new spend, database/schema changes, deployment and launch remain separately gated.
+
+Authoritative plan: `M3_MASTER_STEP_PLAN.md`. Current-step record: `M3-00_MOBILIZATION_AND_DECISION_CLOSURE.md`. Earlier status statements in this report that show M1/M2 as active or M2 as incomplete are historical and superseded by the final M1/M2 acceptance records and this handover.

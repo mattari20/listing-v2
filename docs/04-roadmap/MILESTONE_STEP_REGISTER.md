@@ -612,3 +612,25 @@ S02 and S03 are Accepted and Closed at 100%. S04 remains 80%, S05 85% and S06 85
 PR [#94](https://github.com/mattari20/listing-v2/pull/94) reconciled PR #93 delivery. Exact PR head `9c369a4a6f5b78d794feb2e38d9c4afd1b4875e8` passed required **Project documentation validation** (workflow run [#43189848614](https://github.com/mattari20/listing-v2/actions/runs/43189848614)); job `Validate project control documents` and all steps completed successfully. PR #94 was squash-merged as `0a5f65258ea04c52b8e79b314f7cda04c8d3e65c`.
 
 This reconciliation confirms PR #93's merge evidence and does not alter content acceptance: S02/S03 remain accepted/closed; S04 80%, S05 85% and S06 85% remain owner-review/decision pending. Weighted M2 progress remains 62.0%.
+
+
+## M3 — Mobilization, implementation and controlled release (authoritative register)
+
+See [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) for complete step scopes, task weights and acceptance criteria. The M3 step sequence and weights below are authoritative; earlier high-level roadmap entries are superseded where inconsistent.
+
+| Step | Scope | Weight | Status / gate |
+|---|---|---:|---|
+| M3-00 | Mobilization and Decision Closure | 5% | In progress; planning only |
+| M3-01 | Implementation Planning and Authorization | 7% | Not started; explicit implementation-start approval required |
+| M3-02 | Platform Foundation | 10% | Not started; post-authorization |
+| M3-03 | Core Data and Governance | 12% | Not started; post-authorization |
+| M3-04 | Provider Management | 8% | Not started |
+| M3-05 | Public Directory and Search | 10% | Not started |
+| M3-06 | Geography and Discovery | 7% | Not started |
+| M3-07 | AI Data-Agent | 10% | Not started; source-specific authorization required |
+| M3-08 | Identity, Reviews and Security | 10% | Not started; reviews post-launch only |
+| M3-09 | Quality and Operational Hardening | 8% | Not started |
+| M3-10 | Pilot and Launch Readiness | 7% | Not started; separate pilot approval |
+| M3-11 | Controlled Production Launch | 6% | Conditional; separate explicit launch authorization |
+
+M3-00 task completion is 0% until weighted evidence is produced and accepted. Do not treat this register entry as evidence of completed work.

@@ -2,7 +2,7 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0 accepted and closed; M1-S01 through M1-S10 accepted and closed; M2 authorized and in progress  
+**Status:** M0, M1-S01 through M1-S10, and M2 accepted and closed; M3-00 documentation/planning in progress  
 **Last reconciled:** 2026-11-12
 
 ## Authoritative current position
@@ -22,7 +22,7 @@ Build a student-first education discovery, admissions information and comparison
 The Documentation Completion Catalogue is the owner-facing inventory of delivered, updated, accepted and planned documents. A merged PR records delivery, not automatic content acceptance. Every documentation PR update and merge must reconcile the catalogue, index, controller, step register, traceability and progress report.
 
 ## Current milestone
-**M2 — Architecture and Design**
+**M3 — Mobilization and Decision Closure (documentation/planning only)**
 
 ## M0 closeout
 M0 was accepted after review of the founding controls, strict legacy non-interference boundary, project planning records, repository rules and the PR delivery workflow. Evidence is recorded in the catalogue, progress report and traceability matrix. M0-S02 acceptance is limited to the documented metadata-only exclusion audit; it is not an exhaustive inventory of the legacy repository. Repository auto-merge is enabled, but automatic merge execution has not yet been independently demonstrated. Production access, deployment and cutover remain unauthorized.
@@ -457,3 +457,19 @@ All S00-S10 weighted contributions total 100.0%. Unresolved stack, hosting, mode
 PR [#98](https://github.com/mattari20/listing-v2/pull/98) recorded the owner's final acceptance of S07-S10 and formally closed M2 at 100.0%. Exact PR head `893a2918455733138903f3c0bc63598d67af5acf` passed required **Project documentation validation** (run [#43192374920](https://github.com/mattari20/listing-v2/actions/runs/43192374920)); the Validate project control documents job and every step completed successfully. PR #98 was squash-merged as `c0ae6488d1b210d8578b2bf3c7cce31dac894d75`.
 
 M2 is Owner Accepted and Closed at 100.0%. This validation is documentation-control validation, not runtime, security, performance or production testing. M3 implementation remains gated on separate start authorization.
+
+
+## Authoritative status reconciliation and M3 handover — 2026-11-12
+
+**This section supersedes earlier historical status text in this controller wherever it describes M1 as active, M2 as active/in progress/98.6%, S10 acceptance as pending, or M2 as not yet authorized/closed.**
+
+- M0: Accepted and closed.
+- M1-S01 through M1-S10: Accepted and closed. M1 G01-G20 remain binding.
+- M2: 100% owner-accepted and closed. Authoritative records: `../05-architecture/M2_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md` and `../05-architecture/M2_FINAL_PROGRESS_AND_CLOSEOUT_REPORT_2026-11-12.md`.
+- Current milestone: M3. Current step: M3-00 — Mobilization and Decision Closure (documentation/planning only).
+- Governing M3 plan: `../04-roadmap/M3_MASTER_STEP_PLAN.md`. Current-step record: `../04-roadmap/M3-00_MOBILIZATION_AND_DECISION_CLOSURE.md`.
+- M3-00 does not authorize application implementation. M3-01 must produce an explicit owner implementation-start authorization naming the permitted scope.
+- No production access, source collection/ingestion, connector activation, procurement/new spend, physical schema/migrations, deployment, launch or URL cutover is authorized.
+- Strict V2 independence, V2-DEC-006, source-specific rights/security/privacy gates, proposal-only AI, anonymous-first/minor safeguards, deferred participant research and post-launch reviews remain binding.
+
+At each new session, inspect `main`, open PRs, the current M3 branch/PR and exact-head CI before continuing. Continue the existing step; do not restart or duplicate it. Progress remains 0% until M3-00 weighted task evidence is produced and accepted.
