@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-12 — M1-S01 through M1-S05 accepted; M1-S06/S07 joint research packages delivered, owner acceptance pending
+**Last reconciled:** 2026-11-12 — M1-S01 through M1-S05 accepted; M1-S06/S07 research packages merged, owner acceptance pending
 
 ## Purpose and maintenance rule
 
@@ -403,3 +403,7 @@ PR [#75](https://github.com/mattari20/listing-v2/pull/75) merged as `cb3adbfef07
 ## M1-S06/S07 joint research package — 2026-11-12
 
 S06 and S07 research files have been delivered on the documentation branch for owner review. Both are 90% weighted complete with owner acceptance pending. They do not authorize collection, cloning, execution, ingestion, connector activation or reuse.
+
+## PR #77 merge and exact-head validation evidence — 2026-11-12
+
+PR [#77](https://github.com/mattari20/listing-v2/pull/77) merged into `main` as `71e71ce74a57b854724027a1b106befe826b14fa`. The final PR head `deef364831cf4f0d902128ce9933897b17f9649c` passed the required **Project documentation validation** check (run [#43171586968](https://github.com/mattari20/listing-v2/actions/runs/43171586968)); the job completed successfully. The merge delivered the S05 owner-acceptance record and S06/S07 research packages, plus reconciled project-control documents. S06 and S07 remain owner-acceptance pending at 90% weighted completion each. This delivery does not authorize source collection, code/data import, reuse, ingestion, connector activation or implementation.
