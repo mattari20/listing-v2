@@ -9,7 +9,7 @@
 | DATA-001 | Multi-source lawful data catalogue | Education Data Strategy | M1-S02–S08 | PR #1 merged | Provider/rights register requires source evidence expansion | Delivered — research/acceptance pending |
 | OSS-001 | Lawful open-source and dataset reuse | Open-Source Reuse Audit | M1-S06/S07 | PR #1 merged | Candidate research and license/security scorecards pending | Delivered — research pending |
 | TRUST-001 | Account-based ratings and reviews after launch | Comparison, Reviews and Trust | M1-S09 | PR #1 baseline; clarified in current documentation PR | Owner direction: login required to submit; post-launch collection; moderation, privacy and age safeguards still need detailed design | Product requirement recorded — detailed design pending |
-| TAX-001 | Pakistan provider taxonomy, coverage and recognition/affiliation distinctions | M1 Institution Taxonomy Research; M1 Official Institution Source Coverage Matrix | M1-S02 | PR #10 merged as `11bb356f678e8559e9cd17940a68ab35dcf131b5`; source coverage addendum prepared in current PR | HEC, PMDC, PNMC, PCP, Punjab PEPRIS, KP-PSRA, Balochistan SED/EMIS and NAVTTC official source families identified; jurisdiction, rights and freshness gaps recorded | In progress — source discovery baseline delivered; verification and owner acceptance pending |
+| TAX-001 | Pakistan provider taxonomy, coverage and recognition/affiliation distinctions | M1 Institution Taxonomy Research; M1 Official Institution Source Coverage Matrix | M1-S02 | PR #10 merged as `11bb356f678e8559e9cd17940a68ab35dcf131b5`; source coverage addendum prepared in current PR | HEC, PMDC, PNMC, PCP, PEC, NCEAC, NACTE, NCH, Punjab/Sindh special education, provincial school EMIS/regulator portals and NAVTTC source families identified; jurisdiction, rights and freshness gaps recorded | In progress — source discovery baseline delivered; verification and owner acceptance pending |
 
 Add one row for every approved requirement. Do not mark accepted without verifiable evidence.
 
@@ -18,6 +18,9 @@ No survey, interviews, recruitment or outreach during construction. Account-base
 
 ## M0 closeout evidence
 PR #4 merged as `4d1122d182961f3842803036f917ce39cd11b4c6`; required check passed on exact head `64da261546b034129af3aebfa38fb91f939732b6`. PR #4 records M0-S01–S07 acceptance and points the controller to M1-S01. M0-S02 remains explicitly scoped to a targeted, metadata-only, non-exhaustive exclusion audit.
+
+## PR #14 evidence
+PR #14 merged as `f5d185209d96233dc26f5da2c4efd4d8fd1cdf03`; exact head `f5fcfc1c8d6e8722dd7046b2b87d9b5a8e4c1476`; required documentation check passed (run #43138852699). It added AJK and non-formal education source leads; complete coverage remains unverified.
 
 ## PR #13 evidence
 PR #13 merged as `a0a5f891bdcffdc2ae0de59624358a02f2a9d15f`; exact head `f5dc4f9cbdb76bbb6133191ad676f833995967d9`; required documentation check passed (run #43138669791). It added official source leads for Sindh, ICT and GB; complete coverage and reuse rights remain unverified.
