@@ -34,3 +34,6 @@ No production database operation, production deployment, public URL cutover, or 
 ## Current project status — M3
 
 M0, M1 and M2 are accepted and closed; M2 is 100% complete. M3-00 — Mobilization and Decision Closure — is the current documentation/planning step. T01 is complete; T02 (owner-approved owner-led/ChatGPT-assisted delivery model) and T03 (owner availability confirmed at a flexible 10–15 hours/week planning baseline with demand-led reviews) are in progress, with no partial task percentages claimed. M3-00 remains 10% pending remaining decisions and evidence. See [M3 Master Step Plan](docs/04-roadmap/M3_MASTER_STEP_PLAN.md) and [M3-00 Mobilization](docs/04-roadmap/M3-00_MOBILIZATION_AND_DECISION_CLOSURE.md). Application implementation remains unauthorized pending a separate explicit M3-01 start authorization. Production access, source ingestion, procurement, deployment and launch remain separately gated.
+
+
+Latest M3-00 owner-input documentation: PR [#102](https://github.com/mattari20/listing-v2/pull/102) passed Project documentation validation (run #43198671760) and merged as `cc5a4966cca74df5e15de7f15277814ddb86d6d9`. T02/T03 are in progress; M3-00 remains 10%. No implementation or spend is authorized.

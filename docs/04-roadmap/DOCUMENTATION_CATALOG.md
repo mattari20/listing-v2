@@ -593,3 +593,8 @@ The M3-00 owner decision pack, mobilization record, decision register, project c
 
 
 Owner capacity clarification: the owner confirmed 10–15 hours/week as a planning baseline, flexible according to project demand and priority, with reviews/approvals arranged around decision gates rather than a fixed weekly meeting. This does not imply unlimited availability or establish human engineering/operations capacity. T03 remains in progress pending other delivery-capacity and continuity evidence.
+
+
+#### PR #102 merge and validation evidence — 2026-11-12
+
+PR #102 exact head `2cce569bd6e63dcf204f5c11d987a8d544373b2d` passed Project documentation validation (run #43198671760; all job steps successful) and squash-merged as `cc5a4966cca74df5e15de7f15277814ddb86d6d9`. It records M3-DEC-001 and M3-DEC-002. T02/T03 are in progress; M3-00 remains 10%; no implementation or spend authorization is created.
