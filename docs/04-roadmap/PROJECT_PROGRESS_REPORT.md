@@ -132,5 +132,8 @@ PR #29 reconciled PR #28 evidence across the catalogue, progress report, traceab
 ## M1-S02 register quality correction
 A follow-up consistency check found malformed duplicate status cells in the S02 weighted task table. PR #30 repairs the table to exactly four columns (task, weight, acceptance evidence, status) without changing task weights or the owner-approval boundary.
 
+## PR #30 evidence
+PR #30 corrected the S02 weighted task table to exactly four columns, preserved all nine task weights totaling 100%, and reconciled PR #29 evidence. Exact head `4ca9d571206072064294f7fb163584db174669f8` passed required `Project documentation validation` (run #43147756202); merge commit `3553d75a5afd84e8fcfab372324342f7acad7456`.
+
 ## Reporting rule
 After every documentation PR update and merge, reconcile the documentation catalogue, index, controller, step register, traceability matrix and progress report. Record exact PR, head SHA, required check and merge SHA. Never infer acceptance from a merge alone.
