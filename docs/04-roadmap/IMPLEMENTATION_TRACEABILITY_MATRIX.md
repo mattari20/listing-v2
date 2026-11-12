@@ -134,3 +134,11 @@ PR #36 merged as `c0a5e0cc743336610b0eef5d5e56fde5406d92db`; exact head `fb62956
 ## M1-S02 deep jurisdiction and TVET evidence — 2026-11-12
 
 The new review strengthens TAX-001 source-family discovery for special education and TVET, including Punjab/Sindh/GB facility leads, KP-TEVTA's 33-institute aggregate, STEVTA region/district filters, Punjab TEVTA's 2024 list and B-TEVTA/NAVTTC scope discrepancy. It records staging/sample-data exclusion, source-status limitations and privacy minimization. It does not establish a complete provider census, rights clearance or owner acceptance. S02-C04/C05/C06/C07/C08 and TAX-001 remain in progress.
+
+## M1-S02 ICT PEIRA and Madaris taxonomy evidence — 2026-11-12
+
+The ICT PEIRA register improves S02-C04 jurisdiction evidence. DGRE's nationwide Madaris registration mandate adds a distinct provider family for S02-C01, while IBCC QAB recognition versus specific qualification equivalence strengthens S02-C05 relationship semantics. Current DGRE register freshness and source rights remain open; no sensitive maslak field is included in the general V2 discovery taxonomy. No acceptance or source-use permission is inferred.
+
+## PR #38 deep jurisdiction/TVET delivery evidence
+
+PR #38 merged as `a38fa149d10be99903ca6bb44236bd1e68565e6a`; exact head `f1f7aa59424b5161ec91a3f3ae60ff20471edba2` passed required Project documentation validation (run #43153839019). It adds S02-C04/C05/C06 source-family evidence; record-level completeness and rights remain open.

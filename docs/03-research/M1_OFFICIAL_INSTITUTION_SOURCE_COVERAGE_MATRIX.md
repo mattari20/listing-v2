@@ -254,3 +254,7 @@ The dedicated [deep jurisdiction, special-education and TVET review](M1_S02_DEEP
 - HEC Digital Library and PASTIC institution databases are secondary discovery sources, not recognition registers or a national census.
 
 These findings strengthen S02-C04/C05/C06 but do not establish full jurisdiction completeness, current record-level status or reuse rights.
+
+## 9. ICT PEIRA, Deeni Madaris and IBCC QAB evidence — 2026-11-12
+
+The new [ICT PEIRA, Madaris and QAB review](M1_S02_ICT_PEIRA_MADARIS_QAB_REVIEW_2026-11-12.md) establishes PEIRA as the statutory ICT private-education regulator up to higher-secondary/equivalent level, with a paginated register and separate active, renewal-in-process, renewal-awaited and unregistered states. Its records are PEI-submitted and carry a discrepancy disclaimer. DGRE identifies a nationwide Deeni Madaris registration mandate and 16 regional offices; surfaced regional lists are dated 26 March 2024 and therefore require freshness verification. IBCC lists recognized QABs and Deeni Madaris/wafaqs but explicitly distinguishes QAB recognition from qualification equivalence. Deeni Madaris should be represented as a distinct provider family; DGRE registration, awarding-body recognition and credential equivalence remain separate relationships. Exclude the maslak/sect field from general institution discovery. These findings strengthen S02-C01/C04/C05/C07 but do not resolve current nationwide madaris register freshness or reuse rights.
