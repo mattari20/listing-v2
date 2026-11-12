@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-11
+**Last reconciled:** 2026-11-12
 
 ## Purpose and maintenance rule
 
@@ -52,7 +52,7 @@ For every merge:
 | [Product Vision and Student Journey](../01-product/PRODUCT_VISION_AND_STUDENT_JOURNEY.md) | Product purpose and student journey | Delivered — review pending |
 | [Student Discovery Requirements](../01-product/STUDENT_DISCOVERY_REQUIREMENTS.md) | Student discovery needs and requirements | Delivered — review pending |
 | [Institution and Programme Requirements](../01-product/INSTITUTION_AND_PROGRAMME_REQUIREMENTS.md) | Institution, campus and programme information requirements | Delivered — review pending |
-| [Comparison, Reviews and Trust](../01-product/COMPARISON_REVIEWS_AND_TRUST.md) | Comparison, ratings, reviews and trust requirements | Delivered — review pending |
+| [Comparison, Reviews and Trust](../01-product/COMPARISON_REVIEWS_AND_TRUST.md) | Comparison and post-launch account-based ratings/reviews requirements | Updated — owner direction recorded; detailed design pending |
 
 ### C. Data strategy and rights
 
@@ -69,7 +69,7 @@ For every merge:
 |---|---|---|
 | [Open-Source Reuse Audit](../03-research/OPEN_SOURCE_REUSE_AUDIT.md) | Independent evaluation framework for external software and datasets | Delivered — candidate research pending |
 | [M1 Student Journey Research](../03-research/M1_STUDENT_JOURNEY_RESEARCH.md) | Desk-research synthesis, student segment hypotheses, journey and primary-research protocol | Accepted as initial desk-research baseline; primary research pending |
-| [M1 Student Research Instruments](../03-research/M1_STUDENT_RESEARCH_INSTRUMENTS.md) | Draft adult interview guide, consent script and survey instrument | Delivered — preparation only; owner approval required before fieldwork |
+| [M1 Student Research Instruments](../03-research/M1_STUDENT_RESEARCH_INSTRUMENTS.md) | Draft adult interview guide, consent script and survey instrument | Delivered — archived preparation only; owner deferred all pre-launch participant research; do not distribute |\n| [M1 Institution Taxonomy Research](../03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md) | Independent desk research on provider types, coverage and recognition relationships | Delivered in current PR — initial baseline; owner review and source expansion pending |
 
 ### E. Roadmap, traceability and progress
 
@@ -110,13 +110,13 @@ For every merge:
 | [#5](https://github.com/mattari20/listing-v2/pull/5) | Final M0 closeout merge evidence reconciliation | Merged as `e1a3da011f29f99f546b812f564869cc33d34e05`; required check passed on exact head `3365a2bae83b90b31011fa170bb77ff6389fc91c` ([run #43058850736](https://github.com/mattari20/listing-v2/actions/runs/43058850736)) | Merged |
 | [#6](https://github.com/mattari20/listing-v2/pull/6) | M1-S01 desk-research synthesis, provisional student segments, journey and research protocol | Merged as `94936177012f924efe36fe29cf0dba3cba094081`; exact head `4f29050a234dbc6c4eed0968408fe89805526476`; required check passed ([run #43059386299](https://github.com/mattari20/listing-v2/actions/runs/43059386299)) | Merged |
 | [#7](https://github.com/mattari20/listing-v2/pull/7) | Draft adult participant interview guide, consent script and survey; research evidence reconciliation | Merged as `bf3e1ef0054b337466884fb5a731141ce03d3ec0`; exact head `943766fee66e7dfcda46ebdd5a3d3049d02ddbba`; required check passed ([run #43059725757](https://github.com/mattari20/listing-v2/actions/runs/43059725757)) | Merged |
-| [#8](https://github.com/mattari20/listing-v2/pull/8) | Reconcile PR #7 instrument delivery, task status and evidence | Merged as `612a4edfdcd43721407e01e26e79569631684c12`; exact head `552e3f60722d35a96c6d353661b561838d68b4ae`; required check passed ([run #43059961030](https://github.com/mattari20/listing-v2/actions/runs/43059961030)) | Merged |
+| [#8](https://github.com/mattari20/listing-v2/pull/8) | Reconcile PR #7 instrument delivery, task status and evidence | Merged as `612a4edfdcd43721407e01e26e79569631684c12`; exact head `552e3f60722d35a96c6d353661b561838d68b4ae`; required check passed ([run #43059961030](https://github.com/mattari20/listing-v2/actions/runs/43059961030)) | Merged |\n| [#9](https://github.com/mattari20/listing-v2/pull/9) | Reconcile PR #8 merge evidence and documentation status | Merged as `2747509824d32eacf41e96f725834ac53d68b8d2` | Merged |
 | [#7](https://github.com/mattari20/listing-v2/pull/7) | Draft adult participant interview guide, consent script and survey; research evidence reconciliation | Merged as `bf3e1ef0054b337466884fb5a731141ce03d3ec0`; exact head `943766fee66e7dfcda46ebdd5a3d3049d02ddbba`; required check passed ([run #43059725757](https://github.com/mattari20/listing-v2/actions/runs/43059725757)) | Merged — instruments remain draft and require owner approval before fieldwork |
 
-## Remaining documentation work
+## Current PR documentation update\nThis branch updates the master controller, comparison/reviews requirements, research instrument status, roadmap, step register, traceability matrix, progress report, catalogue and documentation index. It adds the initial independent M1-S02 institution taxonomy research. The owner decision to defer all pre-launch student surveys/interviews/recruitment is recorded; account-based ratings/reviews are specified as post-launch functionality.\n\n## Remaining documentation work
 
 1. Review every delivered founding document against V2 owner requirements and its own acceptance criteria; record accepted items individually.
-2. Expand student and institution requirements using new, independent V2 research.
+2. Expand institution requirements and verify the M1-S02 taxonomy against current, category-specific official sources; pre-launch participant research remains deferred by owner.
 3. Expand the provider register with verifiable source access, coverage, update cadence, data rights and provenance evidence.
 4. Complete independent candidate research and license/security assessment before approving reuse.
 5. Refine M1 acceptance and task weights only after research scope and evidence are clear.
