@@ -486,3 +486,8 @@ PR [#85](https://github.com/mattari20/listing-v2/pull/85) delivered the M2 chart
 - [M2-S01 Quality Attribute Scenarios and Targets](../05-architecture/M2-S01_QUALITY_SCENARIOS.md) — 20 scenarios, accessibility proposal and target-setting work deferred to S09.
 
 Draft package; M2-S01-T05 review, exact-head validation and owner disposition remain pending. No stack, vendor or integration is selected.
+
+
+## M2-S01 exact-head validation and merge evidence — 2026-11-12
+
+PR [#87](https://github.com/mattari20/listing-v2/pull/87) delivered the M2-S01 system requirements, context and quality-scenario package. Exact PR head `b759e08e9e4c0ae3c9bdaf9e449e7da751d7b80f` passed required Project documentation validation (run [#43181003815](https://github.com/mattari20/listing-v2/actions/runs/43181003815)); PR #87 merged as `a9a8320dadc339cb15c7d75ac430301941abbd57`. S01 remains a draft baseline pending owner review; merge is delivery, not acceptance.
