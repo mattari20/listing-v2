@@ -148,7 +148,7 @@ A source may be proposed for use only when its evidence packet contains:
 | RGT-03 | Identify exact NAVTTC, Skilling Pakistan and provincial TEVTA data owners and licenses | In progress — production NAVTTC TIS/NSIS/NVQF, registration/QAB/accreditation and B-TEVTA directory leads reviewed; no directory reuse permission; provincial completeness and source terms remain |
 | RGT-04 | Verify BECS/NFEMIS, special-education and professional-council terms | In progress — professional council directories and Punjab/Sindh special-education plus BECS/NFEMIS/Balochistan NFE routes reviewed; complete terms, jurisdiction coverage and privacy remain |
 | RGT-05 | Prepare source-specific permission request drafts where terms are absent or unclear | Not started |
-| RGT-06 | Complete privacy and data-minimization assessment for every candidate | Not started |
+| RGT-06 | Complete privacy and data-minimization assessment for every candidate | In progress — initial institution-level minimization, exclusion of student/applicant/staff personal data, disability-sensitive data cautions and source-specific privacy observations documented; full source-by-source assessment remains |
 | RGT-07 | Owner/legal review and explicit source-use decision | Not started |
 
 ## 8. Relationship to other V2 documents
