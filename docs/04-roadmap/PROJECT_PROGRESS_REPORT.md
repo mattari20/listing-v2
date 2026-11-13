@@ -793,3 +793,12 @@ Step 4 is complete as a documentation/evidence deliverable. The final review map
 The [M3-01 Remaining-Gates Reconciliation](M3-01_REMAINING_GATES_RECONCILIATION_2026-11-13.md) is the current task-level disposition. P01 planning evidence is delivered for review; P02 remains open for selection/approval of the next exact implementation slice; P03 is resolved only for bounded synthetic/offline solo-founder foundation work; P04 preferred stack direction is accepted but V2-specific compatibility/isolation/capacity/recovery remain open; P05 and P06 planning deliverables are owner-accepted/closed while their specialist and execution gates remain open; P07/P08 are complete for FND-01 only.
 
 M3-01 remains **In progress** and no defensible whole-step weighted completion percentage is assigned. The next required Product Owner decision is whether to authorize a precisely bounded local/CI-only synthetic M3-03 slice or defer it. This record grants no new implementation authorization. No Hostinger/V1/production access, physical schema/migrations, real/source/personal data, external services, AI providers, deployment, procurement or new spend is authorized.
+
+
+## M3-01 formal closeout — 2026-11-13
+
+M3-01 is **CLOSED as an implementation-planning and authorization milestone**. The Product Owner's bounded M3-03 logical-model/provenance decision is recorded in Section 8 of the [M3-01 Remaining-Gates Reconciliation](M3-01_REMAINING_GATES_RECONCILIATION_2026-11-13.md); the formal closeout and PR evidence are recorded in its Section 9.
+
+PR #149 passed exact-head Project documentation validation (run #356; GitHub run ID 43440848522) and FND-01 foundation CI (run #50; GitHub run ID 43440848520), with no outstanding review threads, and was squash-merged into `main` as `ce0ecb71d8fd8ca0f7f235b5ff998025e37abd2a`.
+
+M3-01 closure is limited to the planning/reconciliation/authorization milestone. P04 V2 hosted compatibility/isolation/capacity/recovery, P05 qualified specialist clearances and P06 hosted execution/recovery remain open for relevant future activities; they are not marked complete and do not block closure of this planning milestone. The next agenda is the bounded M3-03 logical domain model and provenance work package, under the exclusions recorded in Section 8. No physical schema/migrations/database persistence, real/source/personal data, hosting/live access, external services or new spend is authorized.
