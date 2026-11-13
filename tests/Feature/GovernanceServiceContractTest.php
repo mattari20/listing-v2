@@ -197,9 +197,18 @@ class GovernanceServiceContractTest extends TestCase
     public function test_entry_point_policy_is_expressed_as_a_single_service_capability_boundary(): void
     {
         $this->assertTrue(Schema::hasTable('audit_events'));
-        $this->assertFalse(method_exists($this, 'writeGovernanceTablesDirectly'));
         $this->assertTrue(method_exists(app(GovernanceCommandService::class), 'registerEvidenceReference'));
         $this->assertTrue(method_exists(app(GovernanceCommandService::class), 'registerProposedClaim'));
+
+        foreach ([app_path('Http/Controllers'), app_path('Console/Commands')] as $directory) {
+            if (! File::isDirectory($directory)) {
+                continue;
+            }
+            foreach (File::allFiles($directory) as $file) {
+                $source = File::get($file->getPathname());
+                $this->assertDoesNotMatchRegularExpression('/(?:DB::table|Schema::create)\\s*\\(/', $source, $file->getRelativePathname().' must not mutate governance persistence directly.');
+            }
+        }
     }
 
 
