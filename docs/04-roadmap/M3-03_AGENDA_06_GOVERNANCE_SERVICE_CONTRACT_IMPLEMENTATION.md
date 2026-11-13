@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-13  
 **Repository:** `mattari20/listing-v2`  
-**Status:** Implementation delivered to PR #160; exact-head CI and merge evidence pending  
+**Status:** COMPLETED — merged in PR #160; exact-head CI passed  
 **Authorization:** Product Owner authorized local/CI-only synthetic service-contract implementation and testing using the approved Agenda 5 defaults.
 
 ## 1. Authorized scope
@@ -81,21 +81,21 @@ No real roles or users are provisioned. The policy layer is not a legal/security
 
 PR [#160](https://github.com/mattari20/listing-v2/pull/160) contains the implementation.
 
-Required before merge:
-- exact-head PHP 8.5 foundation CI passes, including Pint, Laravel bootstrap, dependency audit, SQLite in-memory tests and artifact hygiene;
-- exact-head Project documentation validation passes;
-- no unresolved review threads;
-- code and test review confirms transaction rollback, metadata-only quarantine, payload-bound idempotency and fail-closed policy decisions.
-
-As of this record, CI status has not yet been returned by the available GitHub status interface. Do not claim checks passed or merge until the exact PR head has verifiable successful results.
+**Exact-head validation passed:**
+- PHP 8.5 foundation CI run #87 (ID `43453989536`) — all steps succeeded, including Pint, Laravel bootstrap/routes, dependency audit, SQLite in-memory synthetic tests and artifact hygiene.
+- Project documentation validation run #404 (ID `43453989517`) — passed.
+- No unresolved review threads at merge.
+- Synthetic test runner recorded 104 assertions and 22 non-fatal warnings caused by the existing test harness reading an absent local `.env` file. No test failures occurred.
+- PR #160 merged by squash as `9fd14f069f71e17d34a5392caf6977df9674fd4d` from exact validated head `8648781689ebe2fe28ba7ee033ccff4d3066d143`.
 
 ## 6. Agenda disposition
 
-**Implementation files:** delivered to PR #160.  
-**Policy-level synthetic acceptance matrix:** included.  
-**Exact-head CI:** pending evidence.  
-**PR merge:** pending.  
-**Agenda 6 closeout:** pending successful validation and post-merge reconciliation.  
-**M3-03 overall:** remains in progress; no whole-step completion percentage is claimed.
+**Implementation files:** merged in PR #160.  
+**Policy-level synthetic acceptance matrix:** included and validated.  
+**Exact-head CI and documentation validation:** passed.  
+**PR merge:** complete.  
+**Agenda 6 closeout:** complete for the bounded authorized scope.  
+**M3-03 overall:** remains in progress; no whole-step completion percentage is claimed.  
+**Completion evidence:** [M3-03 Agenda 6 Completion and Evidence Record](M3-03_AGENDA_06_COMPLETION_AND_EVIDENCE_RECORD.md).
 
 No production/source access, real data, external service/AI, public surface, deployment, procurement or spend occurred.
