@@ -8,9 +8,10 @@ use Carbon\CarbonImmutable;
 
 final class GovernancePolicy
 {
-    /** @param array<string, mixed> $authorization
-     *  @param array<string, mixed> $context
-     *  @return array{allowed: bool, reason: string}
+    /**
+     * @param array<string, mixed> $authorization
+     * @param array<string, mixed> $context
+     * @return array{allowed: bool, reason: string}
      */
     public function authorizeSourceAction(array $authorization, string $action, array $context, ?CarbonImmutable $now = null): array
     {
@@ -46,8 +47,9 @@ final class GovernancePolicy
         return ['allowed' => true, 'reason' => 'scope_permitted'];
     }
 
-    /** @param array<string, mixed> $actor
-     *  @return array{allowed: bool, reason: string}
+    /**
+     * @param array<string, mixed> $actor
+     * @return array{allowed: bool, reason: string}
      */
     public function requireCapability(array $actor, string $capability): array
     {
@@ -61,8 +63,9 @@ final class GovernancePolicy
         return ['allowed' => true, 'reason' => 'capability_granted'];
     }
 
-    /** @param array<string, mixed> $actor
-     *  @return array{allowed: bool, reason: string}
+    /**
+     * @param array<string, mixed> $actor
+     * @return array{allowed: bool, reason: string}
      */
     public function authorizeAdjudication(array $actor, string $evidenceActorId, bool $highImpact = true): array
     {
@@ -85,7 +88,8 @@ final class GovernancePolicy
         return $status === 'eligible_for_review';
     }
 
-    /** @param list<string> $evidenceStatuses */
+    /**
+     * @param list<string> $evidenceStatuses */
     public function canAcceptClaim(array $evidenceStatuses): bool
     {
         if ($evidenceStatuses === []) {
@@ -100,8 +104,9 @@ final class GovernancePolicy
         return true;
     }
 
-    /** @param list<array{value: mixed}> $claims
-     *  @return array{conflict: bool, candidate_count: int}
+    /**
+     * @param list<array{value: mixed}> $claims
+     * @return array{conflict: bool, candidate_count: int}
      */
     public function detectClaimConflict(array $claims): array
     {
@@ -113,10 +118,11 @@ final class GovernancePolicy
         return ['conflict' => count($values) > 1, 'candidate_count' => count($claims)];
     }
 
-    /** @param array<string, mixed> $actor
-     *  @param array<string, mixed> $adjudication
-     *  @param list<string> $evidenceActorIds
-     *  @return array{allowed: bool, reason: string}
+    /**
+     * @param array<string, mixed> $actor
+     * @param array<string, mixed> $adjudication
+     * @param list<string> $evidenceActorIds
+     * @return array{allowed: bool, reason: string}
      */
     public function authorizePublication(array $actor, array $adjudication, array $evidenceActorIds): array
     {
@@ -149,8 +155,9 @@ final class GovernancePolicy
         return ['allowed' => true, 'reason' => 'human_publication_permitted'];
     }
 
-    /** @param array<string, mixed> $actor
-     *  @return array{allowed: bool, reason: string}
+    /**
+     * @param array<string, mixed> $actor
+     * @return array{allowed: bool, reason: string}
      */
     public function authorizeRestore(array $actor, string $suppressorActorId, bool $snapshotApproved, bool $policyEligible): array
     {
@@ -171,8 +178,9 @@ final class GovernancePolicy
         return ['allowed' => true, 'reason' => 'restoration_permitted'];
     }
 
-    /** @param array<string, mixed> $actor
-     *  @return array{allowed: bool, reason: string}
+    /**
+     * @param array<string, mixed> $actor
+     * @return array{allowed: bool, reason: string}
      */
     public function authorizeEvidenceWithdrawal(array $actor, bool $retentionPolicyApproved): array
     {
@@ -198,7 +206,8 @@ final class GovernancePolicy
         return $isDeeniMadaris === false || $deeniMadarisEnabled === true;
     }
 
-    /** @param array<string, mixed> $authorization */
+    /**
+     * @param array<string, mixed> $authorization */
     private function withinWindow(array $authorization, CarbonImmutable $now): bool
     {
         try {
