@@ -16,7 +16,7 @@ final class DeeniMadarisVisibilityPolicyTest extends TestCase
 
     public function test_unset_visibility_configuration_fails_closed(): void
     {
-        config()->offsetUnset('directory.deeni_madaris_public');
+        config()->set('directory.deeni_madaris_public', null);
 
         $this->assertFalse((new DeeniMadarisVisibilityPolicy)->isPubliclyVisible());
     }
