@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\\Database\\Migrations\\Migration;
-use Illuminate\\Database\\Schema\\Blueprint;
-use Illuminate\\Support\\Facades\\Schema;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
@@ -65,7 +65,7 @@ return new class extends Migration
             $table->foreignUuid('subject_entity_id')->constrained('directory_entities')->restrictOnDelete();
             $table->string('predicate', 100);
             $table->timestamps();
-            $table->unique(['subject_entity_id', 'predicate', 'id'], 'claim_subject_predicate_identity_unique');
+            $table->index(['subject_entity_id', 'predicate']);
         });
 
         Schema::create('claim_versions', function (Blueprint $table): void {
