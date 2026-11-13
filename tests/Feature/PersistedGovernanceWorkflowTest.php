@@ -96,6 +96,17 @@ class PersistedGovernanceWorkflowTest extends TestCase
         }
     }
 
+    public function test_deeni_madaris_publication_remains_default_off(): void
+    {
+        $fixture = $this->fixture('deeni_madaris');
+        $service = new PersistedGovernanceWorkflowService();
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-deeni');
+        $decisionId = $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted synthetic fixture claim.', 'policy-v1');
+
+        $this->expectException(ValidationException::class);
+        $service->authorizePublication($this->actor('publisher', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'publish-deeni');
+    }
+
     public function test_adjudicator_cannot_publish_their_own_accepted_decision(): void
     {
         $fixture = $this->fixture();
@@ -120,7 +131,7 @@ class PersistedGovernanceWorkflowTest extends TestCase
         }
     }
 
-    private function fixture(): array
+    private function fixture(string $entityType = 'institution'): array
     {
         $now = now();
         $entity = (string) str()->uuid();
@@ -129,7 +140,7 @@ class PersistedGovernanceWorkflowTest extends TestCase
         $claim = (string) str()->uuid();
         $version = (string) str()->uuid();
 
-        DB::table('directory_entities')->insert(['id' => $entity, 'entity_type' => 'institution', 'label' => 'Synthetic Academy', 'created_at' => $now, 'updated_at' => $now]);
+        DB::table('directory_entities')->insert(['id' => $entity, 'entity_type' => $entityType, 'label' => 'Synthetic Academy', 'created_at' => $now, 'updated_at' => $now]);
         DB::table('source_authorizations')->insert([
             'id' => $authorization, 'source_family_id' => 'synthetic-only', 'status' => 'approved_for_defined_purpose_and_method',
             'permitted_purposes' => json_encode(['directory_publication']), 'permitted_methods' => json_encode(['approved_projection']),
