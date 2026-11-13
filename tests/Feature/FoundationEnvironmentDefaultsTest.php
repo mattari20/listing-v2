@@ -14,7 +14,10 @@ final class FoundationEnvironmentDefaultsTest extends TestCase
         $this->assertSame('array', config('cache.default'));
         $this->assertSame('array', config('session.driver'));
         $this->assertSame('sync', config('queue.default'));
-        $this->assertSame('local', config('filesystems.default'));\n        $this->assertNull(config('database.default'));\n        $this->assertSame('array', config('mail.default'));\n        $this->assertSame('null', config('broadcasting.default'));
+        $this->assertSame('local', config('filesystems.default'));
+        $this->assertNull(config('database.default'));
+        $this->assertSame('array', config('mail.default'));
+        $this->assertSame('null', config('broadcasting.default'));
     }
 
     public function test_logging_defaults_are_local_and_non_verbose(): void
