@@ -15,7 +15,7 @@ final class FoundationEnvironmentDefaultsTest extends TestCase
         $this->assertSame('array', config('session.driver'));
         $this->assertSame('sync', config('queue.default'));
         $this->assertSame('local', config('filesystems.default'));
-        $this->assertNull(config('database.default'));
+        $this->assertFileDoesNotExist(base_path('config/database.php'));
         $this->assertSame('array', config('mail.default'));
         $this->assertSame('null', config('broadcasting.default'));
     }
