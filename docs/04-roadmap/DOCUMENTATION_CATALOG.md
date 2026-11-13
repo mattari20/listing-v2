@@ -848,3 +848,7 @@ Candidate branch: `feature/m3-03-agenda-08-outbox-reliability`. Exact-head PHP 8
 | [M3-03 Agenda 8 Completion and Evidence Record](M3-03_AGENDA_08_COMPLETION_AND_EVIDENCE_RECORD.md) | Owner authorization, exact validated head, CI/test evidence, review state, merge SHA and residual gates | Complete — documentation closeout |
 
 PR #165 merged as `3f547ca7b925c5445c296c5a6311bac2fa7d744d` from exact head `e11abda10ed8a2aefe69e66c9740544c9bdb4d2a`. PHP 8.5 foundation CI run #43527123064 and Project documentation validation run #43527123066 passed. Agenda 8 is complete for its bounded synthetic scope; M3-03 remains in progress.
+
+## M3-03 Agenda 9 — Claim Version Lifecycle, Correction and Withdrawal
+- [Agenda 9 Claim Version Lifecycle, Correction and Withdrawal](M3-03_AGENDA_09_CLAIM_VERSION_LIFECYCLE_CORRECTION_AND_WITHDRAWAL.md) — bounded synthetic correction, immutable temporal successor, disputed-state and withdrawal/suppression behavior.
+- [Agenda 9 Completion and Evidence Record](M3-03_AGENDA_09_COMPLETION_AND_EVIDENCE_RECORD.md) — implementation candidate, tests, validation status and safety boundary.
