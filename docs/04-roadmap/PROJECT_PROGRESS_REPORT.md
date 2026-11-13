@@ -2,7 +2,7 @@
 
 **As of:** 2026-11-13  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 documentation/planning in progress; implementation not authorized
+**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 bounded FND-01 authorization delivered; M3-02 local/CI foundation hardening in progress under separate bounded owner authorization
 
 ## Verified current M3 position — 2026-11-12 (post PR #114 owner-approved deferrals)
 
@@ -755,3 +755,8 @@ The GitHub merge state and PR exact-head CI evidence are verified. This does not
 ## M3-02 next-step assessment — 2026-11-13
 
 FND-01 is merged and its exact-head CI passed. A separate [M3-02 FND-01 Gap Assessment](M3-02_PLATFORM_FOUNDATION_FND01_GAP_ASSESSMENT_2026-11-13.md) now distinguishes evidenced, partial and undelivered M3-02 outcomes. It recommends a possible local/CI-only follow-on but does not authorize it. No M3-02 weighted completion credit is claimed; no M3 overall progress change is made. Hostinger/V1/production, database, real/source data, external API/AI, deployment and new spend remain excluded.
+
+
+## M3-02 local/CI hardening candidate — 2026-11-13
+
+The Product Owner authorized a bounded local workstation + GitHub CI foundation hardening increment. The candidate now adds a deterministic environment-default test suite, warning-level logging fallback, explicit PHPUnit local/test settings and environment/secret/diagnostics documentation. The read-only GitHub ruleset audit found one active main ruleset (ID 27043221) requiring the documentation validation check, but not the PHP foundation CI check; no ruleset changes were made. Exact-head CI and Product Owner review remain pending. No Hostinger/V1/production/database/real data/external APIs/AI/deployment/new spend are in scope. M3-02 remains in progress; no weighted percentage is claimed.
