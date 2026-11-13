@@ -27,7 +27,7 @@ This agenda remains local/CI-only. It does not configure or operate a production
 
 ## 3. Acceptance and synthetic verification
 
-The Agenda 8 candidate adds tests for:
+Agenda 8 adds tests for:
 - Claim lease metadata migration.
 - Recovery of a stale processing claim after a simulated worker crash.
 - Failure capture, retry scheduling and claim release.
@@ -36,7 +36,7 @@ The Agenda 8 candidate adds tests for:
 - Latest-snapshot-wins behavior when multiple snapshots are pending for the same surface/audience.
 - Existing idempotent projection behavior and source-revocation/suppression regressions.
 
-The repository's PHP 8.5 foundation CI and project documentation validation must pass on the exact PR head. Review threads must be clear and the exact head must be rechecked before merge. A completion record will capture the final head, CI run IDs, test assertion count, review state and merge SHA.
+The repository's PHP 8.5 foundation CI and project documentation validation must pass on the exact PR head. Review threads must be clear and the exact head must be rechecked before merge. The completion record captures the final head, CI run IDs, successful test-step result, review state and merge SHA. The available run summary did not expose the assertion total, so no assertion count is claimed.
 
 ## 4. Explicit limitations
 
