@@ -17,6 +17,13 @@ class PersistedConflictAndRollbackTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_agenda_tables_are_present(): void
+    {
+        foreach (['claim_conflicts', 'claim_conflict_candidates', 'publication_rollbacks'] as $table) {
+            $this->assertTrue(Schema::hasTable($table));
+        }
+    }
+
     public function test_overlapping_incompatible_assertions_persist_both_candidates_and_recorded_time_conflict(): void
     {
         $fixture = $this->fixture();
@@ -115,7 +122,7 @@ class PersistedConflictAndRollbackTest extends TestCase
 
         DB::listen(function (QueryExecuted $query): void {
             if (str_contains(strtolower($query->sql), 'insert into "audit_events"')) {
-                throw new \\RuntimeException('Synthetic audit sink failure.');
+                throw new \RuntimeException('Synthetic audit sink failure.');
             }
         });
 
@@ -126,7 +133,7 @@ class PersistedConflictAndRollbackTest extends TestCase
                 'conflict-audit-failure',
             );
             $this->fail('A failed audit write must abort conflict persistence.');
-        } catch (\\RuntimeException $exception) {
+        } catch (\RuntimeException $exception) {
             $this->assertSame('Synthetic audit sink failure.', $exception->getMessage());
         }
 
