@@ -4,9 +4,9 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-03 — Core Data and Governance; Agenda 2 logical model review and Product Owner design-baseline decision (documentation-only)  
-**Plan status:** Proposed execution baseline, owner-authorized for documentation/planning only  
-**Application implementation:** Not authorized. Agenda 1 documentation/synthetic specification is delivered; Agenda 2 review is recorded. Physical schema, migrations, persistence and all excluded activities remain unauthorized
+**Current step:** M3-03 — Core Data and Governance; Agendas 1–4 delivered (Agenda 4 local/CI synthetic persistence foundation merged; later agendas remain separately gated)  
+**Plan status:** Proposed execution baseline; bounded Agenda 4 Slices A and B were separately authorized and delivered; no later slice is implied  
+**Application implementation:** Limited local/CI-only synthetic implementation authorized for Agenda 4 Slices A and B only. The physical schema, reversible migration and SQLite in-memory tests are merged. All later implementation and excluded activities remain unauthorized
 
 ## 1. Purpose and governance
 
@@ -228,3 +228,14 @@ The acceptance record is in `M3-03_AGENDA_02_LOGICAL_MODEL_REVIEW_AND_GOVERNANCE
 Following Product Owner acceptance of the logical design baseline, a documentation-only authorization pack was prepared at `M3-03_AGENDA_03_PHYSICAL_IMPLEMENTATION_AUTHORIZATION_PACK.md`. It proposes a staged local/CI-only, synthetic-only first increment (physical schema/migration contract, then synthetic persistence/invariant tests), defines exclusions, preconditions and acceptance criteria, and explicitly requests a separate Product Owner authorization.
 
 This is a proposal only. No physical schema, migrations, persistence, database provisioning/connection, application code or runtime work has begun. No implementation authorization is issued. M3-03 remains In progress; the next gate is the Product Owner's explicit decision on the exact implementation scope and disposable test-database method.
+
+
+## M3-03 Agenda 4 — Local/CI synthetic persistence foundation closeout (2026-11-13)
+
+Agenda 4 Slices A and B are **Completed** within the exact Product Owner authorization: repository `mattari20/listing-v2`, local development and GitHub CI only, fabricated synthetic values only, and disposable SQLite `:memory:` only. No V1, Hostinger, hPanel, production/live database, real/source/personal/institute data, source acquisition, external API/AI, public surface, deployment, procurement, new spend or GitHub protection/ruleset change was performed.
+
+PR [#157](https://github.com/mattari20/listing-v2/pull/157) was merged into `main` as `1587cd9b2d05b033c18f0b0570b13d37b872bfce`. Exact PR head: `a3636709a6a299e7e264b315c07a323fa4ff85d3`. Exact-head Project documentation validation run #378 (GitHub run ID 43448575503) passed. Exact-head FND-01 foundation CI run #64 (GitHub run ID 43448575509) passed, including PHP 8.5 setup, SQLite/PDO SQLite verification, Composer validation, dependency advisory checks, PHP formatting, Laravel bootstrap/routes, synthetic persistence tests and artifact hygiene. No outstanding review threads were present. The PR was squash-merged; the first default merge-method attempt was rejected because merge commits are disabled, then the repository-supported squash method succeeded without bypassing protections.
+
+The migration creates eight tables: `directory_entities`, `entity_relationships`, `source_authorizations`, `evidence_references`, `claims`, `claim_versions`, `claim_evidence_links` and `audit_events`. It uses UUID keys, foreign-key restrictions, temporal fields, distinct authorization scopes, metadata-only quarantined evidence references, claim disposition/version lineage separation and audit metadata. The migration includes a reverse-order `down()`. Synthetic tests cover schema presence, invalid relationship endpoints, distinct authorization scopes/evidence quarantine, claim version supersession/disposition separation and audit event fields. SQLite is configured to default to `:memory:`; PHPUnit and CI explicitly use `:memory:`, and tracked database files remain prohibited.
+
+**Acceptance boundary:** This is a local/CI persistence foundation, not the complete governance service, adjudication/publication workflow, institute listing product, legal/privacy/source-rights clearance, public release or production readiness. The Agenda 4 authorization is exhausted at closeout. Agenda 5 or any further implementation requires a new, explicit Product Owner authorization. M3-03 as a whole remains **In progress**; no unsupported weighted completion percentage is claimed.
