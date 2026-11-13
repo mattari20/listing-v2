@@ -329,6 +329,13 @@ class PersistedGovernanceWorkflowTest extends TestCase
         $actor = $this->actor('correction-reviewer', ['correct_claim']);
 
         try {
+            $service->correctClaimVersion($this->actor('automated-corrector', ['correct_claim'], 'automated'), $fixture['version'], ['value' => 'Automated'], [$fixture['evidence']], '2026-11-14', null, 'automated_attempt', 'Automated correction must be denied.', 'automated-correction-key');
+            $this->fail('Automated actors must not correct claim versions.');
+        } catch (ValidationException) {
+            $this->assertDatabaseCount('claim_versions', 1);
+        }
+
+        try {
             $service->correctClaimVersion($actor, $fixture['version'], ['value' => 'Invalid'], [$fixture['evidence']], '2027-01-01', '2026-01-01', 'invalid_range', 'Invalid synthetic range.', 'invalid-range-key');
             $this->fail('A correction whose end precedes its start must be rejected.');
         } catch (ValidationException) {
