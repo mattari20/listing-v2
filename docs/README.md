@@ -212,3 +212,7 @@ PR #165 merged as `3f547ca7b925c5445c296c5a6311bac2fa7d744d`. Exact-head PHP 8.5
 
 
 Agenda 9 is completed for its bounded synthetic local/CI scope. PR #167 merged as `91c15204fb41ba5cc5a29b99a2dca80e983adc9d`; exact-head PHP 8.5 foundation CI and Project documentation validation passed. See the [Agenda 9 Completion and Evidence Record](04-roadmap/M3-03_AGENDA_09_COMPLETION_AND_EVIDENCE_RECORD.md).
+
+
+## M3-03 Exit Reconciliation
+- [M3-03 Exit-Criteria Reconciliation and M3-04 Entry Gate](04-roadmap/M3-03_EXIT_CRITERIA_RECONCILIATION_AND_M3-04_ENTRY_GATE.md)
