@@ -106,3 +106,83 @@ This record changes planning constraints only. It does not authorize:
 - schema/migrations, deployment, pilot or launch.
 
 **Decision summary:** Plan the first V2 release around the existing Premium Web Hosting resources only. Prefer a lightweight PHP-based modular monolith with an existing-hosting-compatible relational database, subject to verification. Defer unavailable capabilities. Preserve future portability where practical. No additional spend and no implementation authorization.
+
+
+## 8. Official Hostinger compatibility research — 2026-11-13
+
+This section records public documentation findings only. It is not a live inspection of the Product Owner's account or server.
+
+| Capability | Official Hostinger evidence | Planning assessment |
+|---|---|---|
+| PHP on Web Premium | Web/Cloud PHP support; dashboard supports PHP versions 8.2–8.5 according to current PHP version guidance | Compatible in principle; hPanel screenshot shows PHP 8.5, but CLI/runtime parity and the exact V2 folder runtime must be verified |
+| Laravel | Hostinger's current framework guidance describes Laravel 12.x Auto Installer availability on eligible hosting plans; older version article describes Laravel 10.x. Laravel 13 official deployment docs require PHP >=8.3 | PHP version is sufficient in principle if PHP 8.5 applies to the app. Hostinger's Auto Installer version information is inconsistent across its articles; do not rely on Auto Installer. Composer-based Laravel 13 installation is a candidate only after CLI, Composer, extensions, routing and document-root verification |
+| SSH | Hostinger says SSH is available on Premium Web and higher; user enables it in hPanel's SSH Access page | Strong documented support; actual account enablement, endpoint and access method still require user confirmation |
+| Composer | Hostinger says Composer 1 and Composer 2 are pre-installed on Premium Web, Business and Cloud; Composer commands run over SSH | Strong documented support; verify composer2 --version read-only in the account |
+| Cron | Hostinger says Premium and higher have no fixed cron-job count cap; Web/Cloud scheduled tasks are dashboard-managed and consume CPU/RAM | Suitable for low-frequency bounded scheduled work; not an always-on worker or queue substitute |
+| PHP extensions | Hostinger exposes installed/enableable extensions in PHP Configuration and PHP Info; Laravel 13 requires Ctype, cURL, DOM, Fileinfo, Filter, Hash, Mbstring, OpenSSL, PCRE, PDO, Session, Tokenizer and XML | Must verify each required extension is enabled for the actual V2 PHP handler; avoid changing global PHP configuration while V1 shares the plan |
+| MySQL access | Hostinger supports MySQL with MySQLi, PDO and pdo_mysql on Web/Cloud plans | Compatible in principle; actual server engine/version and database limits remain account-specific |
+| PostgreSQL / Redis / MongoDB | Hostinger classifies these standalone services as VPS-only; PostgreSQL not available on Web/Cloud | Not in initial scope; defer |
+| Web resource ceilings | Published plan-limit tables vary by hosting-plan generation and have changed. Current documentation includes Premium variants with 1 CPU core, 2 GB RAM, 20 GB storage, 40 PHP workers, and a separate table with 3 GB per-DB cap and 50 connections per DB user; older tables show 25 GB storage and different resource values | Treat the supplied hPanel snapshot as the primary evidence for this subscription. Confirm exact generation and live values in hPanel; do not apply generic limits as a contract |
+| Database limits | Hostinger's published limits have included 3 GB per MySQL database and 200 MB import cap for some Web plan generations; newer plan tables differ | Conservative planning ceiling only until exact subscription-specific limits are confirmed |
+| PHP routing / document root | Laravel's deployment guidance requires web requests to be routed to the application's public/index.php; Hostinger offers folder/subdomain PHP handling guidance | A safe subfolder deployment is not yet proven. Prefer a separately isolated site/subdomain or carefully configured V2 web root if available without cost; never expose the Laravel project root, .env, vendor internals or storage files |
+
+### Official references reviewed
+
+- Hostinger plan limits: https://www.hostinger.com/support/6976044-parameters-and-limits-of-hosting-plans-in-hostinger/
+- Hostinger cron limits: https://www.hostinger.com/support/1583765-how-many-cron-jobs-can-you-set-up-in-hostinger/
+- Hostinger Composer: https://www.hostinger.com/support/5792078-how-to-use-composer-at-hostinger/
+- Hostinger SSH: https://www.hostinger.com/support/1583245-how-to-connect-to-a-hosting-plan-via-ssh-in-hostinger/
+- Hostinger supported languages/frameworks: https://www.hostinger.com/support/which-programming-languages-and-frameworks-are-supported-at-hostinger/
+- Hostinger PHP version configuration: https://www.hostinger.com/support/1575755-how-to-change-the-php-version-of-your-hosting-plan/
+- Hostinger PHP extensions: https://www.hostinger.com/support/which-php-extensions-and-configuration-options-are-supported-at-hostinger/
+- Hostinger PHP Info: https://www.hostinger.com/support/1583467-how-to-check-the-php-information-of-your-website-in-hostinger/
+- Hostinger database support: https://www.hostinger.com/support/which-databases-and-data-tools-are-supported-at-hostinger/
+- Hostinger database size limits: https://www.hostinger.com/support/5534251-what-to-do-if-the-database-size-limit-has-been-reached/
+- Laravel 13 deployment requirements: https://laravel.com/framework/docs/deployment
+- Laravel release/support matrix: https://laravel.com/framework/docs/13.x/releases
+
+### Interpretation
+
+The public documentation makes the Premium plan a credible candidate for a small PHP/Laravel + MySQL modular monolith without buying a VPS. It does not prove the complete V2 platform will fit the plan. The one-core CPU, shared 2 GB RAM shown by hPanel, shared storage already used by estudent.pk, 40 PHP workers and per-database limits mean the initial release must be deliberately lean. No persistent queue workers, Redis, PostgreSQL, PostGIS, vector database, containers or always-on agent processes are assumed.
+
+A useful first directory slice is technically plausible on this plan if V2 remains isolated, uses server-rendered pages, indexed bounded queries, small media, few scheduled tasks and modest concurrency. Capacity cannot be certified until an authorized synthetic load test is designed and run in a separate V2-only environment. No load test is performed as part of this documentation investigation.
+
+## 9. Exact account checks needed to close P04
+
+The owner can provide the following screenshots from hPanel (hide account email, username, IP address, domain credentials and any secrets):
+
+1. **Websites → Manage site → Advanced → SSH Access:** show whether SSH is enabled and the plan's connection details with host/IP and username obscured.
+2. **Websites → Manage site → Advanced → PHP Configuration / PHP Info:** show PHP 8.5 and the enabled extensions list. Do not change or save any settings.
+3. **Websites → Manage site → Databases → Management:** show database engine/version if exposed, database size/limit and current V2-free database availability. Do not create, alter or open the V1 database.
+4. **Websites → Manage site → Advanced → Cron Jobs:** show available cron interface and restrictions. Do not create a job.
+5. **Websites → Manage site → Resource Usage / Plan details:** show current CPU/RAM/process/inode usage and the exact subscription generation/limits.
+
+If SSH is already enabled and the owner is comfortable running read-only commands, these commands only print versions/configuration and do not install, modify or start services:
+
+```sh
+php -v
+php -m
+composer2 --version
+which php
+```
+
+Do not run composer install, composer update, Artisan commands, migrations, SQL writes, package managers, deployment commands or any command that changes files or services. The CLI php -v output may not prove the PHP handler version assigned to a subfolder; compare with hPanel PHP Info. Never paste passwords, private keys, tokens, full SSH commands or database credentials into chat.
+
+For database version, the owner may inspect only the hPanel database management metadata. Do not connect to or inspect the existing V1 database. A future V2-owned synthetic database test would need a separate explicit authorization and must not be created under this current read-only investigation.
+
+## 10. Current P04 gate status
+
+| Gate | Status |
+|---|---|
+| Public PHP/Laravel compatibility | **Provisionally supported** by Hostinger docs; exact Laravel 13 deployment path unverified |
+| SSH | **Documented for Premium; account enablement unverified** |
+| Composer 2 | **Documented pre-installed; account command unverified** |
+| Cron | **Documented for Premium; exact UI/limits unverified** |
+| Required PHP extensions | **Not verified in this account** |
+| MySQL/PDO support | **Documented; server engine/version and actual limits unverified** |
+| Isolated V2 web root/subfolder routing | **Not verified** |
+| Backup/restore | **Weekly backup shown; restore evidence not available** |
+| Shared resource headroom | **Not measured** |
+| Exact renewal cost / plan generation | **Not confirmed** |
+
+**Interim conclusion:** The existing Premium plan is a credible zero-new-spend hosting candidate for a carefully scoped initial V2 directory. It is not yet a proven fit for the complete roadmap or for production launch. P04 remains OPEN until the account-specific checks and an authorized V2-only synthetic capacity/recovery test are completed. No stack version is finally selected, and this research does not authorize implementation, installation, account changes, production access, database creation/inspection, deployment or spend.
