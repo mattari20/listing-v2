@@ -75,6 +75,20 @@ final class GovernancePolicy
         return $status === 'eligible_for_review';
     }
 
+    public function canAcceptClaim(array $evidenceStatuses): bool
+    {
+        if ($evidenceStatuses === []) {
+            return false;
+        }
+        foreach ($evidenceStatuses as $status) {
+            if ($this->evidenceCanSupportClaim($status) === false) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public function detectClaimConflict(array $claims): array
     {
         $values = [];
