@@ -263,3 +263,16 @@ The AI-era review adds AI-ARCH-01 through AI-ARCH-20. These are planning require
 | AI-ARCH-20 | AI dependency lifecycle governance | Same §4 | M3-01 P04/P06 | PR #124; merge 4dd6cd8807b40b11f6693ae1cd98b63ca1a362f5 | Future support/security/upgrade/retirement review | Proposed — owner review pending |
  
 All twenty entries remain planning proposals until owner acceptance and later scope-specific verification. No PR merge or document presence is treated as implementation evidence.
+
+
+## FND-01 implementation traceability — PR #136
+
+| Requirement ID | Requirement | Specification | Step | PR / commit | Test / evidence | Status |
+|---|---|---|---|---|---|---|
+| FND-01 | Reproducible Laravel 13 / PHP 8.5 local foundation | M3-01 P07 FND-01 authorization; FND-01 implementation record | M3-01 P07 (bounded package) | PR #136; merge f61b4d17492294d45518493337f3fcd58fd78487; exact head d9b8eb8bb04c394d2b08e1a451fcb2d338158662 | Locked Composer install, Composer validation/audit, Pint, Laravel bootstrap/route list, PHPUnit, artifact hygiene | Delivered and merged; exact-head CI passed |
+| FND-02 | Fixed non-sensitive health endpoint | FND-01 implementation record | M3-01 P07 | PR #136; merge f61b4d17492294d45518493337f3fcd58fd78487 | Health endpoint feature test | Delivered; exact-head CI passed |
+| FND-03 | Deeni Madaris visibility seam defaults off and fails closed | FND-01 implementation record | M3-01 P07 | PR #136; merge f61b4d17492294d45518493337f3fcd58fd78487 | Synthetic unit tests for default-off and unset/null behavior | Delivered; exact-head CI passed; does not certify future surfaces |
+| FND-04 | Database-free local/CI defaults and no migrations | FND-01 implementation record | M3-01 P07 | PR #136; merge f61b4d17492294d45518493337f3fcd58fd78487 | PHPUnit config inspection and CI artifact hygiene; no database commands run | Delivered within bounded scope |
+| FND-05 | Protected, read-only GitHub CI quality checks | FND-01 implementation record | M3-01 P07 | PR #136; merge f61b4d17492294d45518493337f3fcd58fd78487 | CI run #43380176340 and docs validation run #43380176524 | Exact-head checks passed |
+
+FND-01 traceability applies only to the bounded local/CI package. It does not satisfy the separate M3-02 exit criteria or authorize Hostinger, production, database, source-data, external-service or deployment work.
