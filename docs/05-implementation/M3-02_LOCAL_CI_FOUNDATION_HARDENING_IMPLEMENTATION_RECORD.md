@@ -40,3 +40,8 @@ This package does not establish Hostinger or production environment isolation, l
 The active ruleset gap is documented, not changed. Requiring additional status checks, changing approval count, or altering bypass/merge controls requires a separate explicit owner decision. Any request for live services, credentials, database, real/source/personal data, external APIs, AI, telemetry, spend or deployment stops this work and requires a new authorization.
 
 This is a bounded M3-02 implementation candidate. M3-02 is not complete until all roadmap exit criteria and owner acceptance are evidenced.
+
+
+## Exact-head CI update — 2026-11-13
+
+Final PR head `6f5429f1fad0a8f892b66ec59ea4cc7bc8f7c6ff` passed both required checks: PHP 8.5 foundation CI run [#43389111061](https://github.com/mattari20/listing-v2/actions/runs/43389111061) and Project documentation validation run [#43389111140](https://github.com/mattari20/listing-v2/actions/runs/43389111140). The earlier test failures were corrected before this final head; they are retained in workflow history but are not the final result. The PR remains open and unmerged pending Product Owner diff review/acceptance.
