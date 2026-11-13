@@ -4,9 +4,9 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-01 — Implementation Planning and Authorization (documentation only)  
+**Current step:** M3-03 — Core Data and Governance; Agenda 1 logical domain model and provenance work package (bounded synthetic/offline scope)  
 **Plan status:** Proposed execution baseline, owner-authorized for documentation/planning only  
-**Application implementation:** Not authorized by this plan or by M2 acceptance
+**Application implementation:** Only the exact bounded M3-03 logical-model/provenance work-package preparation is authorized; physical schema, migrations, persistence and all excluded activities remain unauthorized
 
 ## 1. Purpose and governance
 
@@ -193,3 +193,15 @@ PRs #102–#110 are closed and merged; each required Project documentation valid
 ## Superseding M3-00 owner acceptance — 2026-11-12
 
 The Product Owner explicitly accepted all three bounded closeout decisions: T07 as a deny-by-default planning/control framework only, T08 as a planning framework only, and M3-00 formal closure on those conditions. The authoritative [M3-00 Final Owner Acceptance and Closure Record](M3-00_FINAL_OWNER_ACCEPTANCE_AND_CLOSURE_RECORD_2026-11-12.md) supersedes earlier pending/open snapshots. M3-00 is **Accepted — 100% of planning deliverables**; M3 overall weighted progress is **5%**. Qualified reviews, staffing, stack, hosting, source rights and spend decisions remain open. M3-01 planning begins under [M3-01 Work Plan](M3-01_IMPLEMENTATION_PLANNING_AND_AUTHORIZATION_WORK_PLAN.md); implementation authorization is **NOT ISSUED**. No application coding, technical spike, source/production access, DB changes, procurement, spend, deployment, pilot or launch is authorized.
+
+
+## M3-03 Agenda 1 — Logical Domain Model and Provenance Work Package (2026-11-13)
+
+A bounded Product Owner authorization permits repository-local documentation and synthetic-only deterministic specification in `mattari20/listing-v2`. The agenda deliverables are:
+- `M3-03_LOGICAL_DOMAIN_MODEL_AND_GOVERNANCE.md` — logical entities/relationships, temporal claim/version contract, provenance/source-authorization contract, deterministic validation, conflict handling, human adjudication, audit, correction, withdrawal, rollback and publication controls.
+- `M3-03_SYNTHETIC_FIXTURES.json` — fabricated fixture catalogue only; no real/source/personal data.
+- `M3-03_SYNTHETIC_FIXTURES_AND_DETERMINISTIC_TEST_SPEC.md` — 20 deterministic test vectors and expected outcomes.
+
+The fixture JSON was parsed and structurally checked: 5 entities, 4 relationships, 5 claims, 2 evidence references and 20 test IDs; all relationship endpoints, claim-evidence links and evidence-authorization references resolve; restricted category default is false. These are fixture integrity checks, not application/runtime test execution.
+
+Agenda 1 deliverables are prepared for review. The exact M1 requirement and M2 architecture identifier crosswalk remains unresolved because the canonical acceptance documents were not discoverable through the connected repository file lookup in this execution. Theme-level traceability is recorded without inventing IDs. No physical schema, migrations, database connection, persistence, application code, real/source/personal data, source collection, external services/AI, hosting, deployment or new spend was performed or authorized. M3-03 as a whole remains in progress; this agenda does not close the full M3-03 step.
