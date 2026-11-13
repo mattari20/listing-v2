@@ -15,9 +15,10 @@ final class GovernanceCommandService
     {
     }
 
-    /** @param array<string, mixed> $actor
-     *  @param array<string, mixed> $context
-     *  @param array<string, mixed> $metadata
+    /**
+     * @param array<string, mixed> $actor
+     * @param array<string, mixed> $context
+     * @param array<string, mixed> $metadata
      */
     public function registerEvidenceReference(string $authorizationId, array $actor, array $context, string $idempotencyKey, array $metadata): string
     {
@@ -71,9 +72,10 @@ final class GovernanceCommandService
         });
     }
 
-    /** @param array<string, mixed> $actor
-     *  @param array<string, mixed> $value
-     *  @param list<string> $evidenceReferenceIds
+    /**
+     * @param array<string, mixed> $actor
+     * @param array<string, mixed> $value
+     * @param list<string> $evidenceReferenceIds
      */
     public function registerProposedClaim(array $actor, string $subjectEntityId, string $predicate, array $value, array $evidenceReferenceIds, string $idempotencyKey): string
     {
@@ -143,7 +145,7 @@ final class GovernanceCommandService
     private function requireActor(array $actor, string $capability): void
     {
         $decision = $this->policy->requireCapability($actor, $capability);
-        if (!$decision['allowed']) {
+        if ($decision['allowed'] === false) {
             throw ValidationException::withMessages(['actor' => $decision['reason']]);
         }
     }
@@ -166,8 +168,9 @@ final class GovernanceCommandService
         return (string) $event->target_id;
     }
 
-    /** @param array<string, mixed> $actor
-     *  @param array<string, mixed> $metadata
+    /**
+     * @param array<string, mixed> $actor
+     * @param array<string, mixed> $metadata
      */
     private function writeAudit(array $actor, string $action, string $targetType, string $targetId, string $reason, array $metadata): void
     {
