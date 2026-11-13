@@ -274,6 +274,119 @@ class PersistedGovernanceWorkflowTest extends TestCase
         ]);
     }
 
+    public function test_claim_correction_creates_immutable_temporal_successor_with_audit_and_idempotency(): void
+    {
+        $fixture = $this->fixture();
+        $service = new PersistedGovernanceWorkflowService;
+        $originalValue = DB::table('claim_versions')->where('id', $fixture['version'])->value('value');
+        $actor = $this->actor('correction-reviewer', ['correct_claim']);
+        $arguments = [
+            $actor,
+            $fixture['version'],
+            ['value' => 'Synthetic Academy Corrected'],
+            [$fixture['evidence']],
+            '2026-11-14',
+            '2027-06-30',
+            'synthetic_correction',
+            'Synthetic correction supported by eligible fixture evidence.',
+            'correction-key-1',
+        ];
+
+        $correctedVersionId = $service->correctClaimVersion(...$arguments);
+        $this->assertSame($correctedVersionId, $service->correctClaimVersion(...$arguments));
+        $this->assertSame($originalValue, DB::table('claim_versions')->where('id', $fixture['version'])->value('value'));
+        $this->assertDatabaseHas('claim_versions', [
+            'id' => $correctedVersionId,
+            'claim_id' => DB::table('claim_versions')->where('id', $fixture['version'])->value('claim_id'),
+            'version_number' => 2,
+            'valid_from' => '2026-11-14',
+            'valid_to' => '2027-06-30',
+            'disposition' => 'proposed',
+            'supersedes_version_id' => $fixture['version'],
+            'correction_reason' => 'synthetic_correction',
+        ]);
+        $this->assertDatabaseHas('claim_evidence_links', [
+            'claim_version_id' => $correctedVersionId,
+            'evidence_reference_id' => $fixture['evidence'],
+            'relationship_type' => 'correction_support',
+        ]);
+        $this->assertDatabaseHas('audit_events', [
+            'target_id' => $fixture['version'],
+            'action' => 'claim_version_corrected',
+            'reason_code' => 'synthetic_correction',
+        ]);
+    }
+
+    public function test_claim_correction_rejects_invalid_temporal_ranges_and_reused_keys(): void
+    {
+        $fixture = $this->fixture();
+        $service = new PersistedGovernanceWorkflowService;
+        $actor = $this->actor('correction-reviewer', ['correct_claim']);
+
+        try {
+            $service->correctClaimVersion($actor, $fixture['version'], ['value' => 'Invalid'], [$fixture['evidence']], '2027-01-01', '2026-01-01', 'invalid_range', 'Invalid synthetic range.', 'invalid-range-key');
+            $this->fail('A correction whose end precedes its start must be rejected.');
+        } catch (ValidationException) {
+            $this->assertDatabaseCount('claim_versions', 1);
+        }
+
+        $first = $service->correctClaimVersion($actor, $fixture['version'], ['value' => 'Corrected'], [$fixture['evidence']], '2026-11-14', null, 'synthetic_correction', 'First correction.', 'correction-reuse-key');
+        $this->expectException(ValidationException::class);
+        $service->correctClaimVersion($actor, $fixture['version'], ['value' => 'Different'], [$fixture['evidence']], '2026-11-14', null, 'synthetic_correction', 'Different correction.', 'correction-reuse-key');
+    }
+
+    public function test_disputed_claim_version_is_persisted_and_cannot_be_published(): void
+    {
+        $fixture = $this->fixture();
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-disputed');
+        $decisionId = $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'disputed', 'synthetic_conflict', 'Conflicting synthetic evidence requires resolution.', 'policy-v1');
+        $this->assertDatabaseHas('claim_versions', ['id' => $fixture['version'], 'disposition' => 'disputed']);
+        $this->assertDatabaseHas('audit_events', ['target_id' => $decisionId, 'action' => 'adjudication_decided', 'reason_code' => 'synthetic_conflict']);
+
+        $this->expectException(ValidationException::class);
+        $service->authorizePublication($this->actor('publisher', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'publish-disputed');
+    }
+
+    public function test_claim_withdrawal_suppresses_pending_publication_and_is_idempotent(): void
+    {
+        $fixture = $this->fixture();
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-withdraw-pending');
+        $decisionId = $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted before withdrawal.', 'policy-v1');
+        $service->authorizePublication($this->actor('publisher', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'publish-before-withdrawal');
+
+        $actor = $this->actor('withdrawal-officer', ['withdraw_claim']);
+        $service->withdrawClaimVersion($actor, $fixture['version'], 'synthetic_withdrawal', 'Synthetic correction requires withdrawal.', 'withdraw-key-1');
+        $service->withdrawClaimVersion($actor, $fixture['version'], 'synthetic_withdrawal', 'Synthetic correction requires withdrawal.', 'withdraw-key-1');
+        $this->assertDatabaseHas('claim_versions', ['id' => $fixture['version'], 'disposition' => 'withdrawn']);
+
+        $this->assertSame(2, $service->processOutbox());
+        $this->assertDatabaseCount('public_projections', 0);
+        $this->assertDatabaseHas('publication_snapshots', ['claim_version_id' => $fixture['version'], 'status' => 'suppressed']);
+        $this->assertDatabaseHas('audit_events', ['target_id' => $fixture['version'], 'action' => 'claim_version_withdrawn']);
+    }
+
+    public function test_withdrawal_of_projected_claim_suppresses_projection_and_blocks_restoration(): void
+    {
+        $fixture = $this->fixture();
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-withdraw-projected');
+        $decisionId = $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted before withdrawal.', 'policy-v1');
+        $service->authorizePublication($this->actor('publisher', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'publish-projected-withdrawal');
+        $service->processOutbox();
+        $snapshot = DB::table('publication_snapshots')->first();
+
+        $service->withdrawClaimVersion($this->actor('withdrawal-officer', ['withdraw_claim']), $fixture['version'], 'synthetic_withdrawal', 'Synthetic withdrawal after publication.', 'withdraw-key-2');
+        $service->processOutbox();
+        $this->assertDatabaseHas('public_projections', ['publication_snapshot_id' => $snapshot->id, 'status' => 'suppressed']);
+
+        $suppression = DB::table('publication_suppressions')->where('publication_snapshot_id', $snapshot->id)->first();
+        $this->assertNotNull($suppression);
+        $this->expectException(ValidationException::class);
+        $service->restorePublication($this->actor('restorer', ['restore_publication']), $suppression->id, 'policy-v2', 'withdrawn_claim_cannot_restore');
+    }
+
     private function fixture(string $entityType = 'institution'): array
     {
         $now = now();
