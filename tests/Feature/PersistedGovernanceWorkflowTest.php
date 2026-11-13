@@ -20,6 +20,7 @@ class PersistedGovernanceWorkflowTest extends TestCase
         foreach (['adjudication_cases', 'adjudication_decisions', 'publication_decisions', 'publication_snapshots', 'public_projections', 'governance_outbox', 'publication_suppressions', 'publication_restorations'] as $table) {
             $this->assertTrue(Schema::hasTable($table));
         }
+        $this->assertTrue(Schema::hasColumns('governance_outbox', ['claim_token', 'claimed_at']));
     }
 
     public function test_human_adjudication_is_persisted_with_appeal_lineage_and_audit(): void
