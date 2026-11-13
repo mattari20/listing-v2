@@ -25,7 +25,7 @@ class PersistedGovernanceWorkflowTest extends TestCase
     public function test_human_adjudication_is_persisted_with_appeal_lineage_and_audit(): void
     {
         $fixture = $this->fixture();
-        $service = new PersistedGovernanceWorkflowService();
+        $service = new PersistedGovernanceWorkflowService;
         $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-1');
         $decisionId = $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Synthetic evidence supports this fixture claim.', 'policy-v1');
         $appealId = $service->openAdjudicationCase($this->actor('appeals', ['open_adjudication']), $fixture['version'], 'appeal-1', 'appeal', $caseId);
@@ -39,7 +39,7 @@ class PersistedGovernanceWorkflowTest extends TestCase
     public function test_publication_creates_immutable_snapshot_and_outbox_projection_is_idempotent(): void
     {
         $fixture = $this->fixture();
-        $service = new PersistedGovernanceWorkflowService();
+        $service = new PersistedGovernanceWorkflowService;
         $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-publish');
         $decisionId = $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted after synthetic review.', 'policy-v1');
         $publicationId = $service->authorizePublication($this->actor('publisher', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'publish-1');
@@ -57,7 +57,7 @@ class PersistedGovernanceWorkflowTest extends TestCase
     public function test_suppression_freezes_projection_and_distinct_human_can_restore_after_recheck(): void
     {
         $fixture = $this->fixture();
-        $service = new PersistedGovernanceWorkflowService();
+        $service = new PersistedGovernanceWorkflowService;
         $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-suppress');
         $decisionId = $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted after synthetic review.', 'policy-v1');
         $service->authorizePublication($this->actor('publisher', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'publish-suppress');
@@ -75,7 +75,7 @@ class PersistedGovernanceWorkflowTest extends TestCase
     public function test_source_authorization_revocation_quarantines_evidence_and_freezes_every_dependent_projection(): void
     {
         $fixture = $this->fixture();
-        $service = new PersistedGovernanceWorkflowService();
+        $service = new PersistedGovernanceWorkflowService;
         $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-revoke');
         $decisionId = $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted before revocation.', 'policy-v1');
         $service->authorizePublication($this->actor('publisher', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'publish-revoke');
@@ -99,7 +99,7 @@ class PersistedGovernanceWorkflowTest extends TestCase
     public function test_deeni_madaris_publication_remains_default_off(): void
     {
         $fixture = $this->fixture('deeni_madaris');
-        $service = new PersistedGovernanceWorkflowService();
+        $service = new PersistedGovernanceWorkflowService;
         $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-deeni');
         $decisionId = $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted synthetic fixture claim.', 'policy-v1');
 
@@ -110,7 +110,7 @@ class PersistedGovernanceWorkflowTest extends TestCase
     public function test_adjudicator_cannot_publish_their_own_accepted_decision(): void
     {
         $fixture = $this->fixture();
-        $service = new PersistedGovernanceWorkflowService();
+        $service = new PersistedGovernanceWorkflowService;
         $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-separation');
         $decisionId = $service->decideAdjudication($this->actor('same_human', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted after synthetic review.', 'policy-v1');
 
@@ -121,7 +121,7 @@ class PersistedGovernanceWorkflowTest extends TestCase
     public function test_automated_adjudication_and_same_actor_publication_are_denied(): void
     {
         $fixture = $this->fixture();
-        $service = new PersistedGovernanceWorkflowService();
+        $service = new PersistedGovernanceWorkflowService;
         $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-deny');
         try {
             $service->decideAdjudication($this->actor('robot', ['adjudicate_claim'], 'automation'), $caseId, 'accepted', 'x', 'No automation allowed.', 'policy-v1');
