@@ -2,7 +2,7 @@
 
 **As of:** 2026-11-13  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 in progress — Agenda 1 delivered, Agenda 2 review delivered, Product Owner design-baseline decision pending
+**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 in progress — Agendas 1–4 delivered; Agenda 4 local/CI synthetic persistence foundation merged
 
 ## Verified current M3 position — 2026-11-12 (post PR #114 owner-approved deferrals)
 
@@ -834,3 +834,16 @@ The decision and acceptance record is in `M3-03_AGENDA_02_LOGICAL_MODEL_REVIEW_A
 The Product Owner-accepted logical design baseline is now accompanied by a documentation-only implementation authorization pack: `M3-03_AGENDA_03_PHYSICAL_IMPLEMENTATION_AUTHORIZATION_PACK.md`. It recommends a tightly bounded local/CI-only, synthetic-only first increment and defines scope options, preconditions, acceptance criteria, and exclusions. The pack does not create a physical design or implement anything.
 
 **Current status:** Agenda 1 delivered; Agenda 2 review and design acceptance delivered; Agenda 3 authorization proposal prepared. Physical schema/migrations/persistence and database execution remain **Not authorized** pending a separate explicit Product Owner decision. No hosted/production access, real/source/personal data, external APIs/AI, deployment, pilot, launch or new spend is authorized. No M3-03 completion percentage is claimed.
+
+
+## M3-03 Agenda 4 closeout — 2026-11-13
+
+**Status: Completed — bounded Slices A and B only.** The Product Owner authorized a physical schema/migration contract and synthetic persistence tests using a disposable SQLite in-memory database, restricted to `mattari20/listing-v2`, local development and GitHub CI. The implementation is delivered in PR [#157](https://github.com/mattari20/listing-v2/pull/157), squash-merged as `1587cd9b2d05b033c18f0b0570b13d37b872bfce`; exact PR head `a3636709a6a299e7e264b315c07a323fa4ff85d3`.
+
+Exact-head checks: Project documentation validation run #378 (GitHub run ID 43448575503) **passed**; FND-01 foundation CI run #64 (GitHub run ID 43448575509) **passed**. FND-01 included PHP 8.5 and SQLite/PDO SQLite driver verification, Composer/dependency checks, formatting, Laravel bootstrap/routes, synthetic persistence tests and artifact hygiene. No outstanding review threads were present. SQLite defaults to `:memory:`; PHPUnit/CI also explicitly use `:memory:`; persistent database artifacts remain excluded.
+
+The merged migration establishes eight core governance tables for entities, relationships, source authorizations, evidence references, claims, claim versions, claim-evidence links and audit events. Synthetic tests cover table creation, relationship foreign-key rejection, separate authorization scopes and quarantined metadata-only evidence, claim disposition/supersession separation and audit fields. The migration has a reverse-order rollback method.
+
+No V1, Hostinger, hPanel, production/live database, real/source/personal/institute data, source acquisition, external API/AI, public surface, deployment, new spend or repository protection/ruleset changes occurred. The implementation does not deliver the governance service, human adjudication/publication workflow or a complete V2 product, and it does not establish legal/privacy/source-rights clearance or production readiness.
+
+**Agenda boundary:** Agenda 4 authorization is exhausted and closed. No subsequent slice is authorized. M3-03 remains **In progress** pending separately scoped future work and owner decisions; no whole-step completion percentage is claimed. See [M3 master step plan](M3_MASTER_STEP_PLAN.md) and the Agenda 4 completion/evidence record.
