@@ -18,12 +18,16 @@
         </include>
     </source>
     <php>
-        <env name="APP_ENV" value="testing"/>\n        <env name="APP_DEBUG" value="false"/>
+        <env name="APP_ENV" value="testing"/>
+        <env name="APP_DEBUG" value="false"/>
         <env name="APP_KEY" value="base64:AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="/>
         <env name="APP_MAINTENANCE_DRIVER" value="file"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
         <env name="BROADCAST_CONNECTION" value="null"/>
-        <env name="CACHE_STORE" value="array"/>\n        <env name="FILESYSTEM_DISK" value="local"/>\n        <env name="LOG_CHANNEL" value="stack"/>\n        <env name="LOG_LEVEL" value="warning"/>
+        <env name="CACHE_STORE" value="array"/>
+        <env name="FILESYSTEM_DISK" value="local"/>
+        <env name="LOG_CHANNEL" value="stack"/>
+        <env name="LOG_LEVEL" value="warning"/>
         <env name="MAIL_MAILER" value="array"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="SESSION_DRIVER" value="array"/>
