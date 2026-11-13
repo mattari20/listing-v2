@@ -89,6 +89,9 @@ For every merge:
 
 ### E. Roadmap, traceability and progress
 
+| [M3-01 P04 Hostinger V2 Architecture and Delivery Schedule](M3-01_P04_HOSTINGER_V2_ARCHITECTURE_AND_DELIVERY_SCHEDULE_2026-11-13.md) | Conditional Laravel/PHP + MySQL-compatible architecture, V2 isolation/deployment boundaries, synthetic-only first slice and staged delivery ranges | Delivered — planning recommendation; owner stack decision pending; no implementation authorized |
+
+
 | Document | Purpose | Status |
 |---|---|---|
 | [Master Roadmap](PROJECT_MASTER_ROADMAP.md) | M0–M12 milestone outcomes and dependencies | Accepted — M0/M1 sequencing baseline |
