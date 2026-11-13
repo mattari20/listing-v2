@@ -14,7 +14,7 @@ final class FoundationEnvironmentDefaultsTest extends TestCase
         $this->assertSame('array', config('cache.default'));
         $this->assertSame('array', config('session.driver'));
         $this->assertSame('sync', config('queue.default'));
-        $this->assertSame('file', config('filesystems.default') === 'local' ? 'file' : 'unexpected');
+        $this->assertSame('local', config('filesystems.default'));
     }
 
     public function test_logging_defaults_are_local_and_non_verbose(): void
