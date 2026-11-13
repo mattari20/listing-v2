@@ -41,6 +41,10 @@ final class GovernanceCommandService
             if ($decision['allowed'] === false) {
                 throw ValidationException::withMessages(['authorization' => $decision['reason']]);
             }
+            $retention = $this->policy()->authorizeSourceAction($authorization, 'retention', $context);
+            if ($retention['allowed'] === false) {
+                throw ValidationException::withMessages(['retention' => $retention['reason']]);
+            }
 
             $id = (string) Str::uuid();
             $now = now();
