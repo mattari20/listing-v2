@@ -38,6 +38,9 @@ jobs:
       - name: Validate Composer manifest
         run: composer validate --strict
 
+      - name: Validate project documentation
+        run: python3 scripts/validate_project_docs.py
+
       - name: Install locked dependencies
         run: composer install --no-interaction --prefer-dist --no-progress --no-scripts
 
@@ -55,9 +58,6 @@ jobs:
 
       - name: Run synthetic-only test suite
         run: php artisan test
-
-      - name: Validate project documentation
-        run: python3 scripts/validate_project_docs.py
 
       - name: Check repository artifact hygiene
         shell: bash
