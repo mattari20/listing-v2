@@ -759,7 +759,7 @@ FND-01 is not treated as full M3-02 completion. The gap assessment awards no wei
 
 | Document | Purpose | Status |
 |---|---|---|
-| [M3-02 Environment Configuration and Diagnostics Baseline](../05-implementation/M3-02_ENVIRONMENT_CONFIGURATION_AND_DIAGNOSTICS.md) | Defines local/test/CI configuration boundaries, non-secret variable inventory, secret lifecycle and privacy-safe logging/diagnostics | Delivered in implementation candidate; exact-head CI and owner review pending |
+| [M3-02 Environment Configuration and Diagnostics Baseline](../05-implementation/M3-02_ENVIRONMENT_CONFIGURATION_AND_DIAGNOSTICS.md) | Defines local/test/CI configuration boundaries, non-secret variable inventory, secret lifecycle and privacy-safe logging/diagnostics | Delivered in implementation candidate; exact-head CI passed; Product Owner review pending |
 | [M3-02 Local/CI Foundation Hardening Implementation Record](../05-implementation/M3-02_LOCAL_CI_FOUNDATION_HARDENING_IMPLEMENTATION_RECORD.md) | Records warning-level logging defaults, deterministic PHPUnit environment, environment-default tests and read-only ruleset audit | Delivered in implementation candidate; exact-head CI and owner review pending |
 
 No repository ruleset was changed. The active main ruleset currently requires documentation validation but not the PHP foundation check; this governance gap is documented for separate owner decision.
