@@ -94,6 +94,9 @@ final class PersistedGovernanceWorkflowService
     public function correctClaimVersion(array $actor, string $priorVersionId, array $value, array $evidenceReferenceIds, string $validFrom, ?string $validTo, string $reasonCode, string $rationale, string $idempotencyKey): string
     {
         $this->requireActor($actor, 'correct_claim');
+        if (($actor['actor_class'] ?? null) !== 'human') {
+            $this->reject('actor', 'Claim correction requires a human actor.');
+        }
 
         $validFrom = $this->normalizeEffectiveDate($validFrom);
         $validTo = $validTo === null ? null : $this->normalizeEffectiveDate($validTo);
