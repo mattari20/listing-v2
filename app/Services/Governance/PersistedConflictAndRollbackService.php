@@ -42,15 +42,22 @@ final class PersistedConflictAndRollbackService
                 $this->reject('claim_versions', 'Identical assertions do not form a conflict.');
             }
 
-            $first = $versions[0];
             $overlap = true;
-            foreach ($versions->slice(1) as $candidate) {
-                $overlap = $overlap && $this->intervalsOverlap(
-                    $first->valid_from,
-                    $first->valid_to,
-                    $candidate->valid_from,
-                    $candidate->valid_to,
-                );
+            foreach ($versions as $index => $left) {
+                if ($left->valid_from !== null && $left->valid_to !== null && $left->valid_to < $left->valid_from) {
+                    $this->reject('validity', 'A conflict candidate has an invalid valid-time interval.');
+                }
+                foreach ($versions->slice($index + 1) as $right) {
+                    if ($right->valid_from !== null && $right->valid_to !== null && $right->valid_to < $right->valid_from) {
+                        $this->reject('validity', 'A conflict candidate has an invalid valid-time interval.');
+                    }
+                    $overlap = $overlap && $this->intervalsOverlap(
+                        $left->valid_from,
+                        $left->valid_to,
+                        $right->valid_from,
+                        $right->valid_to,
+                    );
+                }
             }
 
             if (! $overlap) {
