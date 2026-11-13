@@ -4,9 +4,9 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-03 — Core Data and Governance; Agendas 1–4 delivered (Agenda 4 local/CI synthetic persistence foundation merged; later agendas remain separately gated)  
-**Plan status:** Proposed execution baseline; bounded Agenda 4 Slices A and B were separately authorized and delivered; no later slice is implied  
-**Application implementation:** Limited local/CI-only synthetic implementation authorized for Agenda 4 Slices A and B only. The physical schema, reversible migration and SQLite in-memory tests are merged. All later implementation and excluded activities remain unauthorized
+**Current step:** M3-03 — Core Data and Governance; Agendas 1–5 delivered (Agenda 5 governance service boundary/enforcement design completed; implementation remains separately gated)  
+**Plan status:** Proposed execution baseline; Agenda 4 Slices A and B and Agenda 5 design were separately authorized and delivered; no service implementation is implied  
+**Application implementation:** Limited local/CI-only synthetic implementation authorized for Agenda 4 Slices A and B only. Agenda 5 delivered design documentation only; governance service implementation and all later implementation remain unauthorized
 
 ## 1. Purpose and governance
 
@@ -239,3 +239,14 @@ PR [#157](https://github.com/mattari20/listing-v2/pull/157) was merged into `mai
 The migration creates eight tables: `directory_entities`, `entity_relationships`, `source_authorizations`, `evidence_references`, `claims`, `claim_versions`, `claim_evidence_links` and `audit_events`. It uses UUID keys, foreign-key restrictions, temporal fields, distinct authorization scopes, metadata-only quarantined evidence references, claim disposition/version lineage separation and audit metadata. The migration includes a reverse-order `down()`. Synthetic tests cover schema presence, invalid relationship endpoints, distinct authorization scopes/evidence quarantine, claim version supersession/disposition separation and audit event fields. SQLite is configured to default to `:memory:`; PHPUnit and CI explicitly use `:memory:`, and tracked database files remain prohibited.
 
 **Acceptance boundary:** This is a local/CI persistence foundation, not the complete governance service, adjudication/publication workflow, institute listing product, legal/privacy/source-rights clearance, public release or production readiness. The Agenda 4 authorization is exhausted at closeout. Agenda 5 or any further implementation requires a new, explicit Product Owner authorization. M3-03 as a whole remains **In progress**; no unsupported weighted completion percentage is claimed.
+
+
+## M3-03 Agenda 5 — Governance Service Boundary and Enforcement Design closeout (2026-11-13)
+
+Agenda 5 was separately authorized by the Product Owner as the next bounded design activity. The design is recorded in `M3-03_AGENDA_05_GOVERNANCE_SERVICE_BOUNDARY_AND_ENFORCEMENT_DESIGN.md`; the completion/evidence record is `M3-03_AGENDA_05_COMPLETION_AND_EVIDENCE_RECORD.md`.
+
+The design defines logical application-service boundaries in a modular monolith; conceptual commands and decision contracts; authorization/evidence/claim state transitions; provenance, quarantine, human adjudication and publication invariants; revocation and suppression propagation; audit, atomicity, idempotency, concurrency and fail-closed behavior; entry-point bypass prevention; a minimum separation-of-duties capability model; 32 synthetic acceptance-test scenarios (GS-001–GS-032); M1/M2/Agenda 2/Agenda 4 traceability; and explicit residual risks.
+
+**Agenda disposition:** design activity completed and closed. The 32 GS scenarios are specifications only, not executed application tests. No service code, role provisioning, runtime enforcement, physical schema change, source access, real data, external integration, public surface, deployment, procurement or spend was performed or authorized. The detailed role/permission matrix, human coverage, specialist clearances, source-specific rights, retention policy, projection architecture and runtime transaction/recovery evidence remain open.
+
+M3-03 remains **In progress**; no whole-step weighted completion percentage is claimed. Agenda 5 authorization is exhausted. Any implementation-readiness or service implementation activity requires a new explicit Product Owner authorization.
