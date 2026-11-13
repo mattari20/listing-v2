@@ -289,3 +289,11 @@ FND-01 traceability applies only to the bounded local/CI package. It does not sa
 | GOV-PR-01 | Read-only audit of effective default-branch ruleset | Same | M3-02 | Read-only audit 2026-11-13 | Active ruleset ID 27043221 inspected; PHP foundation check not currently required; no settings changed | Audit delivered; governance change not authorized |
 
 These rows describe only the bounded M3-02 candidate and do not represent full M3-02 exit acceptance.
+
+
+
+## M3-02 traceability status correction — PR #139 merged (2026-11-13)
+
+This addendum supersedes the candidate/pending-PR statuses in the M3-02 foundation hardening rows above. ENV-01, ENV-02 and LOG-01 are delivered in merged PR #139 (merge bab5d7458b2820be2f93f242b925eaed2ae0ece0; final PR head b5f8761f0d1607571bf85dd10f259e4a159ab099). PHP 8.5 foundation CI run #43389214026 and Project documentation validation run #43389213905 passed on that exact head. SEC-ENV-01 is documented for local/CI only; it is not evidence of production secret handling. GOV-PR-01 read-only audit is delivered: active ruleset 27043221 does not require PHP foundation CI, and no settings were changed.
+
+These entries represent bounded local/CI delivery, not full M3-02 acceptance. Architecture conformance, V2-specific environment isolation, operational observability beyond local/CI diagnostics and any required owner decisions remain open. See the M3-02 Step 1–2 Reconciliation and Repository Governance Audit for criterion-level status.
