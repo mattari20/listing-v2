@@ -205,3 +205,7 @@ Agenda 8 is in progress on `feature/m3-03-agenda-08-outbox-reliability`; exact-h
 - [M3-03 Agenda 8 Completion and Evidence Record](04-roadmap/M3-03_AGENDA_08_COMPLETION_AND_EVIDENCE_RECORD.md) — PR #165 merge SHA, exact-head CI runs, review reconciliation, limitations and remaining gates.
 
 PR #165 merged as `3f547ca7b925c5445c296c5a6311bac2fa7d744d`. Exact-head PHP 8.5 foundation CI run #43527123064 and Project documentation validation run #43527123066 passed. Agenda 8 is complete for its authorized scope; M3-03 remains in progress.
+
+## M3-03 Agenda 9 — Claim Version Lifecycle, Correction and Withdrawal
+- [Agenda 9 Claim Version Lifecycle, Correction and Withdrawal](04-roadmap/M3-03_AGENDA_09_CLAIM_VERSION_LIFECYCLE_CORRECTION_AND_WITHDRAWAL.md)
+- [Agenda 9 Completion and Evidence Record](04-roadmap/M3-03_AGENDA_09_COMPLETION_AND_EVIDENCE_RECORD.md)
