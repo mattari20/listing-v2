@@ -142,3 +142,12 @@ Current task disposition:
 - P07/P08: completed for FND-01 only. They do not authorize M3-03 or any broader implementation.
 
 M3-01 remains **In progress**. No whole-step completion percentage is claimed. FND-01 PR #136 and the separately authorized M3-02 platform-foundation work do not constitute blanket M3-01 authorization. No new implementation authorization is issued by this reconciliation.
+
+
+## Superseding formal M3-01 closeout — 2026-11-13
+
+M3-01 is **CLOSED as an implementation-planning and authorization milestone**. The earlier statements in this work plan that M3-01 remained open pending a next-scope decision are superseded by the recorded Product Owner decision in [M3-01 Remaining-Gates Reconciliation, Section 8](M3-01_REMAINING_GATES_RECONCILIATION_2026-11-13.md), and by formal closeout evidence in Section 9 of that record.
+
+PR #149 was validated on exact head `0b91f69698c6f01896efe8f8bdae7adaff630f77`: Project documentation validation and FND-01 foundation CI both completed successfully; no review threads remained; GitHub merged it under the existing repository protections as `ce0ecb71d8fd8ca0f7f235b5ff998025e37abd2a`.
+
+P04 hosted V2 proof-of-fit, P05 qualified specialist clearances and P06 hosted execution/recovery evidence remain open for the later activities that require them. They are not falsely marked complete and do not keep the planning milestone open. The next bounded agenda is M3-03 logical domain model and provenance work package, limited exactly as authorized in Section 8 of the reconciliation. No physical schema, migrations, database/persistence, real/source/personal data, hosting/live access, external services or new spend is authorized.
