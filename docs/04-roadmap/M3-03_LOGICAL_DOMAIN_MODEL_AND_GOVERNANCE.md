@@ -283,7 +283,8 @@ Stop and seek a separate scope decision if a next action requires any excluded a
 - [x] Audit, correction, withdrawal and rollback rules defined.
 - [x] Synthetic fixture/test specification companion prepared.
 - [x] Unresolved gates and exclusions stated.
-- [ ] Exact M1/M2 identifier crosswalk — deferred; canonical source files not discoverable in this execution.
+- [x] Focused M1 SR / M1 G / M2 AR crosswalk completed against canonical accepted source documents.
+- [x] Internal design consistency review and synthetic fixture structural validation completed.
 - [ ] Product Owner review of this work-package baseline — pending.
 
 
