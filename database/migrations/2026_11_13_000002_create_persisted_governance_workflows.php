@@ -42,7 +42,7 @@ return new class extends Migration
             $table->string('audience', 60);
             $table->string('actor_id', 120);
             $table->string('actor_class', 40);
-            $table->string('adjudication_decision_id', 36);
+            $table->foreignUuid('adjudication_decision_id')->constrained('adjudication_decisions')->restrictOnDelete();
             $table->string('policy_version', 80);
             $table->string('idempotency_key', 160)->unique();
             $table->string('reason_code', 100);
