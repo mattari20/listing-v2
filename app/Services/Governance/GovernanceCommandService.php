@@ -11,11 +11,6 @@ use Illuminate\Validation\ValidationException;
 
 final class GovernanceCommandService
 {
-    /**
-     * @param array<string, mixed> $actor
-     * @param array<string, mixed> $context
-     * @param array<string, mixed> $metadata
-     */
     public function registerEvidenceReference(string $authorizationId, array $actor, array $context, string $idempotencyKey, array $metadata): string
     {
         $this->requireActor($actor, 'register_evidence');
@@ -72,11 +67,6 @@ final class GovernanceCommandService
         });
     }
 
-    /**
-     * @param array<string, mixed> $actor
-     * @param array<string, mixed> $value
-     * @param list<string> $evidenceReferenceIds
-     */
     public function registerProposedClaim(array $actor, string $subjectEntityId, string $predicate, array $value, array $evidenceReferenceIds, array $context, string $idempotencyKey): string
     {
         $this->requireActor($actor, 'register_claim');
@@ -180,10 +170,6 @@ final class GovernanceCommandService
         return (string) $event->target_id;
     }
 
-    /**
-     * @param array<string, mixed> $actor
-     * @param array<string, mixed> $metadata
-     */
     private function writeAudit(array $actor, string $action, string $targetType, string $targetId, string $reason, array $metadata): void
     {
         DB::table('audit_events')->insert([
