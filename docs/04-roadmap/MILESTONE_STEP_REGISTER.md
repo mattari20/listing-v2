@@ -765,3 +765,8 @@ Step 1 (repository/roadmap status reconciliation) and Step 2 (read-only main rul
 ## M3-02 Step 3 status — architecture conformance review (2026-11-13)
 
 **Step 3: COMPLETE as a read-only review/documentation deliverable.** The repository was assessed against accepted M2 architecture and M3 AI-era readiness. Overall result is PARTIAL / FOUNDATION-ONLY: FND-01 is consistent with its bounded authorization, but the wider domain, evidence, publication, discovery, identity, AI and operational architecture is not implemented or not yet verifiable. The default-OFF Deeni Madaris seam is not yet cross-surface enforcement; that is a release-blocking requirement before public discovery surfaces. No application or configuration changes were made. M3-02 remains in progress and is not formally accepted. See M3-02_STEP_03_ARCHITECTURE_CONFORMANCE_REVIEW_2026-11-13.md.
+
+
+## M3-02 Step 4 — final exit review and acceptance pack (2026-11-13)
+
+**Step 4: COMPLETE as a documentation/evidence deliverable.** The criterion-level review confirms GitHub CI build evidence, local/CI configuration and secret boundaries, foundation smoke tests, a minimal local/CI diagnostics baseline, and a completed architecture conformance assessment (PARTIAL / FOUNDATION-ONLY). M3-02 is **not accepted or closed** because PHP foundation CI is not a required main ruleset check and V2-specific environment isolation/recovery evidence remains unverified. No ruleset or Hostinger/V1/production access was performed. No weighted completion percentage is assigned. See M3-02_STEP_04_FINAL_EXIT_REVIEW_AND_ACCEPTANCE_PACK_2026-11-13.md. Closure requires the separate owner decisions/evidence listed in that pack.
