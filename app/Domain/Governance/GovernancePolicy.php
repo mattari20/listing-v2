@@ -8,29 +8,20 @@ use Carbon\CarbonImmutable;
 
 final class GovernancePolicy
 {
-    /**
-     * Evaluate one precisely scoped source permission. Unknown or missing values deny.
-     *
-     * @param array<string, mixed> $authorization
-     * @param array<string, mixed> $context
-     * @return array{allowed: bool, reason: string}
+    /** @param array<string, mixed> $authorization
+     *  @param array<string, mixed> $context
+     *  @return array{allowed: bool, reason: string}
      */
-    public function authorizeSourceAction(
-        array $authorization,
-        string $action,
-        array $context,
-        ?CarbonImmutable $now = null,
-    ): array {
+    public function authorizeSourceAction(array $authorization, string $action, array $context, ?CarbonImmutable $now = null): array
+    {
         $now ??= CarbonImmutable::now();
 
         if (($authorization['status'] ?? null) !== 'approved_for_defined_purpose_and_method') {
             return $this->deny('authorization_not_currently_approved');
         }
-
         if (! empty($authorization['revoked_at'])) {
             return $this->deny('authorization_revoked');
         }
-
         if (! $this->withinWindow($authorization, $now)) {
             return $this->deny('authorization_outside_validity_window');
         }
@@ -47,7 +38,6 @@ final class GovernancePolicy
         ] as $contextKey => $authorizationKey) {
             $requested = $context[$contextKey] ?? null;
             $permitted = $this->decode($authorization[$authorizationKey] ?? null);
-
             if (! is_string($requested) || $requested === '' || ! in_array($requested, $permitted, true)) {
                 return $this->deny($contextKey.'_not_permitted');
             }
@@ -64,7 +54,6 @@ final class GovernancePolicy
         if (($actor['actor_id'] ?? '') === '' || ($actor['actor_class'] ?? '') === '') {
             return $this->deny('actor_identity_missing');
         }
-
         if (! in_array($capability, $actor['capabilities'] ?? [], true)) {
             return $this->deny('capability_missing');
         }
@@ -72,11 +61,8 @@ final class GovernancePolicy
         return ['allowed' => true, 'reason' => 'capability_granted'];
     }
 
-    /**
-     * Automated actors may validate but can never adjudicate a claim.
-     *
-     * @param array<string, mixed> $actor
-     * @return array{allowed: bool, reason: string}
+    /** @param array<string, mixed> $actor
+     *  @return array{allowed: bool, reason: string}
      */
     public function authorizeAdjudication(array $actor, string $evidenceActorId, bool $highImpact = true): array
     {
@@ -84,11 +70,9 @@ final class GovernancePolicy
         if (! $capability['allowed']) {
             return $capability;
         }
-
         if (in_array($actor['actor_class'] ?? '', ['automated', 'system', 'agent'], true)) {
             return $this->deny('automated_adjudication_prohibited');
         }
-
         if ($highImpact && ($actor['actor_id'] ?? null) === $evidenceActorId) {
             return $this->deny('evidence_submitter_cannot_adjudicate_high_impact_claim');
         }
@@ -96,14 +80,43 @@ final class GovernancePolicy
         return ['allowed' => true, 'reason' => 'human_adjudication_permitted'];
     }
 
-    /**
-     * Publication is a separate human decision and must not be performed by the
-     * evidence submitter or the adjudicator.
-     *
-     * @param array<string, mixed> $actor
-     * @param array<string, mixed> $adjudication
-     * @param list<string> $evidenceActorIds
-     * @return array{allowed: bool, reason: string}
+    public function evidenceCanSupportClaim(string $status): bool
+    {
+        return $status === 'eligible_for_review';
+    }
+
+    /** @param list<string> $evidenceStatuses */
+    public function canAcceptClaim(array $evidenceStatuses): bool
+    {
+        if ($evidenceStatuses === []) {
+            return false;
+        }
+        foreach ($evidenceStatuses as $status) {
+            if (! $this->evidenceCanSupportClaim($status)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /** @param list<array{value: mixed}> $claims
+     *  @return array{conflict: bool, candidate_count: int}
+     */
+    public function detectClaimConflict(array $claims): array
+    {
+        $values = [];
+        foreach ($claims as $claim) {
+            $values[json_encode($claim['value'] ?? null, JSON_THROW_ON_ERROR)] = true;
+        }
+
+        return ['conflict' => count($values) > 1, 'candidate_count' => count($claims)];
+    }
+
+    /** @param array<string, mixed> $actor
+     *  @param array<string, mixed> $adjudication
+     *  @param list<string> $evidenceActorIds
+     *  @return array{allowed: bool, reason: string}
      */
     public function authorizePublication(array $actor, array $adjudication, array $evidenceActorIds): array
     {
@@ -111,36 +124,78 @@ final class GovernancePolicy
         if (! $capability['allowed']) {
             return $capability;
         }
-
         if (in_array($actor['actor_class'] ?? '', ['automated', 'system', 'agent'], true)) {
             return $this->deny('automated_publication_prohibited');
         }
-
         if (($adjudication['outcome'] ?? null) !== 'accepted' || ($adjudication['claim_disposition'] ?? null) !== 'accepted') {
             return $this->deny('claim_not_human_accepted');
         }
-
         if (($adjudication['actor_id'] ?? '') === '' || ($actor['actor_id'] ?? '') === $adjudication['actor_id']) {
             return $this->deny('publication_requires_distinct_adjudicator');
         }
-
-        if (in_array($actor['actor_id'] ?? '', $evidenceActorIds, true)) {
-            return $this->deny('evidence_submitter_cannot_publish');
+        if ($evidenceActorIds === [] || in_array($actor['actor_id'] ?? '', $evidenceActorIds, true)) {
+            return $this->deny('evidence_submitter_cannot_publish_or_evidence_missing');
         }
-
-        if (($adjudication['evidence_admissible'] ?? false) !== true || ($adjudication['version_current'] ?? false) !== true) {\n            return $this->deny('evidence_or_claim_version_not_publishable');\n        }\n\n        if (($adjudication['surface'] ?? '') === '' || ($adjudication['audience'] ?? '') === '') {\n            return $this->deny('publication_surface_and_audience_required');\n        }\n\n        if (($adjudication['policy_version'] ?? '') === '') {
+        if (($adjudication['evidence_admissible'] ?? false) !== true || ($adjudication['version_current'] ?? false) !== true) {
+            return $this->deny('evidence_or_claim_version_not_publishable');
+        }
+        if (($adjudication['surface'] ?? '') === '' || ($adjudication['audience'] ?? '') === '') {
+            return $this->deny('publication_surface_and_audience_required');
+        }
+        if (($adjudication['policy_version'] ?? '') === '') {
             return $this->deny('policy_version_missing');
         }
 
         return ['allowed' => true, 'reason' => 'human_publication_permitted'];
     }
 
-    /**
-     * Missing/unknown restricted-category state is suppressed (default OFF).
+    /** @param array<string, mixed> $actor
+     *  @return array{allowed: bool, reason: string}
      */
-    public function isPubliclyVisible(?bool $deeniMadarisEnabled, bool $restricted): bool
+    public function authorizeRestore(array $actor, string $suppressorActorId, bool $snapshotApproved, bool $policyEligible): array
     {
-        return ! $restricted || $deeniMadarisEnabled === true;
+        $capability = $this->requireCapability($actor, 'restore_publication');
+        if (! $capability['allowed']) {
+            return $capability;
+        }
+        if (in_array($actor['actor_class'] ?? '', ['automated', 'system', 'agent'], true)) {
+            return $this->deny('automated_restoration_prohibited');
+        }
+        if (($actor['actor_id'] ?? '') === $suppressorActorId) {
+            return $this->deny('restoration_requires_distinct_suppressor');
+        }
+        if (! $snapshotApproved || ! $policyEligible) {
+            return $this->deny('snapshot_not_reapproved_by_current_policy');
+        }
+
+        return ['allowed' => true, 'reason' => 'restoration_permitted'];
+    }
+
+    /** @param array<string, mixed> $actor
+     *  @return array{allowed: bool, reason: string}
+     */
+    public function authorizeEvidenceWithdrawal(array $actor, bool $retentionPolicyApproved): array
+    {
+        $capability = $this->requireCapability($actor, 'withdraw_evidence');
+        if (! $capability['allowed']) {
+            return $capability;
+        }
+        if (! $retentionPolicyApproved) {
+            return $this->deny('retention_policy_decision_missing');
+        }
+
+        return ['allowed' => true, 'reason' => 'evidence_withdrawal_permitted'];
+    }
+
+    public function authorizePublicRead(bool $approvedProjection): bool
+    {
+        return $approvedProjection;
+    }
+
+    /** Missing/unknown Deeni Madaris visibility defaults to OFF. */
+    public function isPubliclyVisible(?bool $deeniMadarisEnabled, bool $isDeeniMadaris): bool
+    {
+        return ! $isDeeniMadaris || $deeniMadarisEnabled === true;
     }
 
     /** @param array<string, mixed> $authorization */
@@ -150,7 +205,6 @@ final class GovernancePolicy
             if (! empty($authorization['valid_from']) && $now->lessThan(CarbonImmutable::parse($authorization['valid_from']))) {
                 return false;
             }
-
             if (! empty($authorization['valid_to']) && ! $now->lessThan(CarbonImmutable::parse($authorization['valid_to']))) {
                 return false;
             }
@@ -167,11 +221,9 @@ final class GovernancePolicy
         if (is_array($value)) {
             return $value;
         }
-
         if (! is_string($value)) {
             return [];
         }
-
         $decoded = json_decode($value, true);
 
         return is_array($decoded) ? $decoded : [];
