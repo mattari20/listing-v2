@@ -8,7 +8,6 @@ use App\Domain\Governance\GovernancePolicy;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
-use RuntimeException;
 
 final class GovernanceCommandService
 {
@@ -16,39 +15,24 @@ final class GovernanceCommandService
     {
     }
 
-    /**
-     * Register metadata only. Evidence content is never accepted by this command.
-     *
-     * @param array<string, mixed> $actor
-     * @param array<string, mixed> $context
+    /** @param array<string, mixed> $actor
+     *  @param array<string, mixed> $context
+     *  @param array<string, mixed> $metadata
      */
-    public function registerEvidenceReference(
-        string $authorizationId,
-        array $actor,
-        array $context,
-        string $idempotencyKey,
-        array $metadata,
-    ): string {
-        $capability = $this->policy->requireCapability($actor, 'register_evidence');
-        if (! $capability['allowed']) {
-            throw ValidationException::withMessages(['actor' => $capability['reason']]);
-        }
-
+    public function registerEvidenceReference(string $authorizationId, array $actor, array $context, string $idempotencyKey, array $metadata): string
+    {
+        $this->requireActor($actor, 'register_evidence');
         if ($idempotencyKey === '') {
             throw ValidationException::withMessages(['idempotency_key' => 'An idempotency key is required.']);
         }
-
         if (($metadata['content_included'] ?? false) !== false) {
             throw ValidationException::withMessages(['content' => 'This command accepts metadata only.']);
         }
 
         return DB::transaction(function () use ($authorizationId, $actor, $context, $idempotencyKey, $metadata): string {
-            $existing = DB::table('audit_events')
-                ->where('action', 'evidence_reference_registered')
-                ->where('metadata->idempotency_key', $idempotencyKey)
-                ->value('target_id');
-
-            if (is_string($existing)) {
+            $fingerprint = hash('sha256', json_encode([$authorizationId, $context, $metadata], JSON_THROW_ON_ERROR));
+            $existing = $this->existingIdempotentTarget('evidence_reference_registered', $idempotencyKey, $fingerprint);
+            if ($existing !== null) {
                 return $existing;
             }
 
@@ -56,7 +40,6 @@ final class GovernanceCommandService
             if ($authorization === []) {
                 throw ValidationException::withMessages(['authorization' => 'Source authorization was not found.']);
             }
-
             $decision = $this->policy->authorizeSourceAction($authorization, 'acquisition', $context);
             if (! $decision['allowed']) {
                 throw ValidationException::withMessages(['authorization' => $decision['reason']]);
@@ -64,7 +47,6 @@ final class GovernanceCommandService
 
             $id = (string) Str::uuid();
             $now = now();
-
             DB::table('evidence_references')->insert([
                 'id' => $id,
                 'source_authorization_id' => $authorizationId,
@@ -78,9 +60,9 @@ final class GovernanceCommandService
                 'created_at' => $now,
                 'updated_at' => $now,
             ]);
-
             $this->writeAudit($actor, 'evidence_reference_registered', 'evidence_reference', $id, 'synthetic_evidence_intake', [
                 'idempotency_key' => $idempotencyKey,
+                'idempotency_fingerprint' => $fingerprint,
                 'authorization_id' => $authorizationId,
                 'status' => 'quarantined',
             ]);
@@ -89,53 +71,36 @@ final class GovernanceCommandService
         });
     }
 
-    /**
-     * Create a proposed claim version. Quarantined evidence may be linked for
-     * review but can never be treated as admissible or publication-approved here.
-     *
-     * @param array<string, mixed> $actor
-     * @param list<string> $evidenceReferenceIds
+    /** @param array<string, mixed> $actor
+     *  @param array<string, mixed> $value
+     *  @param list<string> $evidenceReferenceIds
      */
-    public function registerProposedClaim(
-        array $actor,
-        string $subjectEntityId,
-        string $predicate,
-        array $value,
-        array $evidenceReferenceIds,
-        string $idempotencyKey,
-    ): string {
-        $capability = $this->policy->requireCapability($actor, 'register_claim');
-        if (! $capability['allowed']) {
-            throw ValidationException::withMessages(['actor' => $capability['reason']]);
-        }
-
+    public function registerProposedClaim(array $actor, string $subjectEntityId, string $predicate, array $value, array $evidenceReferenceIds, string $idempotencyKey): string
+    {
+        $this->requireActor($actor, 'register_claim');
         if ($idempotencyKey === '' || $predicate === '' || $evidenceReferenceIds === []) {
             throw ValidationException::withMessages(['claim' => 'Predicate, evidence references and idempotency key are required.']);
         }
 
         return DB::transaction(function () use ($actor, $subjectEntityId, $predicate, $value, $evidenceReferenceIds, $idempotencyKey): string {
-            $existing = DB::table('audit_events')
-                ->where('action', 'claim_version_registered')
-                ->where('metadata->idempotency_key', $idempotencyKey)
-                ->value('target_id');
-
-            if (is_string($existing)) {
+            $fingerprint = hash('sha256', json_encode([$subjectEntityId, $predicate, $value, array_values($evidenceReferenceIds)], JSON_THROW_ON_ERROR));
+            $existing = $this->existingIdempotentTarget('claim_version_registered', $idempotencyKey, $fingerprint);
+            if ($existing !== null) {
                 return $existing;
             }
-
             if (! DB::table('directory_entities')->where('id', $subjectEntityId)->exists()) {
                 throw ValidationException::withMessages(['subject' => 'Claim subject does not exist.']);
             }
 
-            $evidence = DB::table('evidence_references')->whereIn('id', $evidenceReferenceIds)->get();
-            if ($evidence->count() !== count(array_unique($evidenceReferenceIds))) {
+            $uniqueEvidenceIds = array_values(array_unique($evidenceReferenceIds));
+            $evidence = DB::table('evidence_references')->whereIn('id', $uniqueEvidenceIds)->get();
+            if ($evidence->count() !== count($uniqueEvidenceIds)) {
                 throw ValidationException::withMessages(['evidence' => 'Every evidence reference must exist.']);
             }
 
             $claimId = (string) Str::uuid();
             $versionId = (string) Str::uuid();
             $now = now();
-
             DB::table('claims')->insert([
                 'id' => $claimId,
                 'subject_entity_id' => $subjectEntityId,
@@ -143,7 +108,6 @@ final class GovernanceCommandService
                 'created_at' => $now,
                 'updated_at' => $now,
             ]);
-
             DB::table('claim_versions')->insert([
                 'id' => $versionId,
                 'claim_id' => $claimId,
@@ -154,8 +118,7 @@ final class GovernanceCommandService
                 'created_at' => $now,
                 'updated_at' => $now,
             ]);
-
-            foreach ($evidenceReferenceIds as $evidenceId) {
+            foreach ($uniqueEvidenceIds as $evidenceId) {
                 DB::table('claim_evidence_links')->insert([
                     'id' => (string) Str::uuid(),
                     'claim_version_id' => $versionId,
@@ -165,32 +128,49 @@ final class GovernanceCommandService
                     'updated_at' => $now,
                 ]);
             }
-
             $this->writeAudit($actor, 'claim_version_registered', 'claim_version', $versionId, 'synthetic_claim_registration', [
                 'idempotency_key' => $idempotencyKey,
+                'idempotency_fingerprint' => $fingerprint,
                 'claim_id' => $claimId,
                 'disposition' => 'proposed',
-                'evidence_reference_ids' => array_values($evidenceReferenceIds),
+                'evidence_reference_ids' => $uniqueEvidenceIds,
             ]);
 
             return $versionId;
         });
     }
 
-    /**
-     * Append a material audit event inside the caller's transaction.
-     *
-     * @param array<string, mixed> $actor
-     * @param array<string, mixed> $metadata
+    private function requireActor(array $actor, string $capability): void
+    {
+        $decision = $this->policy->requireCapability($actor, $capability);
+        if (! $decision['allowed']) {
+            throw ValidationException::withMessages(['actor' => $decision['reason']]);
+        }
+    }
+
+    private function existingIdempotentTarget(string $action, string $key, string $fingerprint): ?string
+    {
+        $event = DB::table('audit_events')
+            ->where('action', $action)
+            ->where('metadata->idempotency_key', $key)
+            ->first(['target_id', 'metadata']);
+        if ($event === null) {
+            return null;
+        }
+
+        $metadata = json_decode((string) $event->metadata, true);
+        if (! is_array($metadata) || ! hash_equals((string) ($metadata['idempotency_fingerprint'] ?? ''), $fingerprint)) {
+            throw ValidationException::withMessages(['idempotency_key' => 'The idempotency key was already used for a different command.']);
+        }
+
+        return (string) $event->target_id;
+    }
+
+    /** @param array<string, mixed> $actor
+     *  @param array<string, mixed> $metadata
      */
-    private function writeAudit(
-        array $actor,
-        string $action,
-        string $targetType,
-        string $targetId,
-        string $reason,
-        array $metadata,
-    ): void {
+    private function writeAudit(array $actor, string $action, string $targetType, string $targetId, string $reason, array $metadata): void
+    {
         DB::table('audit_events')->insert([
             'id' => (string) Str::uuid(),
             'actor_class' => (string) $actor['actor_class'],
