@@ -827,3 +827,10 @@ PR [#153](https://github.com/mattari20/listing-v2/pull/153) was merged as `9d83d
 The Product Owner accepted all five recommendations D-01 through D-05. The logical model is accepted as the working design baseline subject to the documented clarifications. R-01–R-06 are incorporated as explicit design invariants; R-07 is addressed by expanding the synthetic deterministic test specification from 24 to 32 cases (T-025–T-032). The synthetic fixture manifest is version 1.1.0 and remains fabricated-only.
 
 The decision and acceptance record is in `M3-03_AGENDA_02_LOGICAL_MODEL_REVIEW_AND_GOVERNANCE_DECISIONS.md`. This is design acceptance only. No physical schema, migrations, persistence, application implementation, real/source/personal data, source acquisition, external services/AI, hosting, deployment, pilot, launch or new spend is authorized. M3-03 remains **In progress**; no unsupported completion percentage is claimed.
+
+
+## M3-03 Agenda 3 — Implementation authorization pack prepared (2026-11-13)
+
+The Product Owner-accepted logical design baseline is now accompanied by a documentation-only implementation authorization pack: `M3-03_AGENDA_03_PHYSICAL_IMPLEMENTATION_AUTHORIZATION_PACK.md`. It recommends a tightly bounded local/CI-only, synthetic-only first increment and defines scope options, preconditions, acceptance criteria, and exclusions. The pack does not create a physical design or implement anything.
+
+**Current status:** Agenda 1 delivered; Agenda 2 review and design acceptance delivered; Agenda 3 authorization proposal prepared. Physical schema/migrations/persistence and database execution remain **Not authorized** pending a separate explicit Product Owner decision. No hosted/production access, real/source/personal data, external APIs/AI, deployment, pilot, launch or new spend is authorized. No M3-03 completion percentage is claimed.
