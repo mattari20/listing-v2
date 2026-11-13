@@ -42,14 +42,14 @@ Two transactional commands are implemented against existing tables:
 
 1. `registerEvidenceReference`
    - requires the `register_evidence` capability;
-   - rechecks current source authorization for the acquisition action and exact purpose/method/territory;
+   - rechecks current source authorization independently for acquisition and retention, with exact purpose/method/territory;
    - accepts metadata only, hard-sets source type to synthetic, and creates the evidence reference in `quarantined` state with `content_included=false`;
    - writes the audit event in the same database transaction;
    - uses a stable idempotency key bound to a command fingerprint.
 
 2. `registerProposedClaim`
    - requires the `register_claim` capability;
-   - verifies the subject and evidence references exist;
+   - verifies the subject and evidence references exist and rechecks processing authorization for every linked evidence reference;
    - creates a new proposed claim version and explicit evidence links;
    - preserves quarantine; registration does not accept, adjudicate or publish the claim;
    - writes the audit event in the same transaction and binds idempotency to the command fingerprint.
