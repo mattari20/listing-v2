@@ -18,6 +18,6 @@ final class DeeniMadarisVisibilityPolicyTest extends TestCase
     {
         config()->offsetUnset('directory.deeni_madaris_public');
 
-        $this->assertFalse((new DeeniMadarisVisibilityPolicy())->isPubliclyVisible());
+        $this->assertFalse((new DeeniMadarisVisibilityPolicy)->isPubliclyVisible());
     }
 }
