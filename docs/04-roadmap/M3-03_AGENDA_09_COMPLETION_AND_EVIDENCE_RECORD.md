@@ -3,37 +3,56 @@
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
 **Agenda:** Claim Version Lifecycle, Correction and Withdrawal  
-**Status:** Implementation delivered; exact-head CI, review and merge evidence pending
+**Disposition:** **COMPLETED** for the bounded authorized local/CI synthetic scope
 
-## 1. Authorized bounded scope
+## 1. Authorization and boundary
 
-The Product Owner directed continuation to the next agenda and completion. The scope is limited to synthetic-only application code and disposable SQLite `:memory:` tests in `mattari20/listing-v2`. No real/source data, production, external services, public endpoint, deployment or spend is authorized.
+The Product Owner directed continuation to the next agenda and completion. The scope was limited to repository-local application code, fabricated synthetic values and disposable SQLite `:memory:` tests. No real/source data, source acquisition, external services, public endpoint, production, deployment or spend was included.
 
-## 2. Implementation candidate
+## 2. Merged implementation
 
-- Branch: `feature/m3-03-agenda-09-claim-lifecycle`
-- Adds human-capability-gated immutable successor creation with effective dates, correction reason, eligible evidence links and audit/idempotency fingerprint.
-- Preserves predecessor values and rejects multiple successors.
-- Prevents publication of superseded versions using the existing current-version guard.
-- Adds human-only claim withdrawal with audit/idempotency, dependent snapshot suppression records, immediate projection freeze and outbox suppression events.
-- Uses the existing `disputed` adjudication disposition as the explicit human conflict state; publication remains denied for disputed claims.
-- Adds synthetic feature tests for temporal correction, immutable lineage, idempotency, disputed state, superseded publication denial, pending/projection withdrawal suppression and restoration denial.
+- PR [#167](https://github.com/mattari20/listing-v2/pull/167) merged by squash.
+- Validated exact PR head: `3d01e87643aa838e55e07a1a20c67ada9078415b`.
+- Merge commit on `main`: `91c15204fb41ba5cc5a29b99a2dca80e983adc9d`.
+- Changed files: eight — persisted workflow service, feature tests, Agenda 9 scope/evidence records and project-control/index documents.
 
-## 3. Validation status
+## 3. Delivered lifecycle behavior
 
-Pending exact PR head:
-- PHP 8.5 foundation CI, including Pint, Laravel bootstrap/routes, synthetic feature suite and artifact hygiene.
-- Project documentation validation.
-- Review-thread reconciliation and exact-head recheck.
+- Human-only, capability-gated correction creates a new immutable claim-version successor with incremented version number, `supersedes_version_id`, effective-date interval, correction reason and eligible evidence references.
+- The predecessor's stored value/version is preserved; an existing successor prevents a second correction.
+- Correction idempotency keys are bound to a command fingerprint; changed reuse is rejected.
+- Superseded versions cannot be newly published because the existing publication gate rejects versions with successors.
+- Existing `disputed` adjudication outcome is verified as a persisted, non-publishable human conflict disposition; no automated conflict resolution or new conflict table is introduced.
+- Human-only withdrawal records reason/rationale and idempotency evidence, changes the version disposition to `withdrawn`, creates suppression records for dependent snapshots, freezes existing projections and enqueues suppression events.
+- A pending approval event cannot resurrect a withdrawn version; restoration remains denied while the claim version is withdrawn.
 
-No assertion count or merge status will be claimed until the corresponding run and GitHub state are verified.
+## 4. Exact-head CI and review evidence
 
-## 4. Limitations
+All validation below applies to exact PR head `3d01e87643aa838e55e07a1a20c67ada9078415b`.
 
-This increment does not define a conflict table or automated conflict resolution, global temporal-overlap policy, real actor/role provisioning, approved retention/deletion schedule, specialist review, public read surface, production queue operations or deployment. SQLite `:memory:` verification does not establish production concurrency/isolation.
+| Check | Run | Result |
+|---|---:|---|
+| PHP 8.5 foundation CI | [Run #43529328306](https://github.com/mattari20/listing-v2/actions/runs/43529328306) | **Success** |
+| Project documentation validation | [Run #43529328427](https://github.com/mattari20/listing-v2/actions/runs/43529328427) | **Success** |
 
-## 5. Safety boundary
+PHP 8.5 foundation CI completed every configured step: toolchain/SQLite, Composer validation/install, dependency advisory audit, Pint formatting, Laravel bootstrap/routes, synthetic-only tests and repository artifact hygiene. The test suite reported **176 assertions and no failures**. It also emitted **42 non-fatal warnings** from the existing test harness attempting to read an absent local `.env` file; no `.env` file or database artifact was added.
 
-No V1, Hostinger/hPanel, production/live DB, real/source/personal data, source retrieval, external API/AI, public endpoint, deployment, procurement, spend or repository protection change occurred.
+Project documentation validation passed. Review-thread inspection found no unresolved inline threads and no review submissions were present. The branch was rechecked against `main` immediately before merge; PR #167 was merged using the expected-head SHA guard.
 
-**Final disposition:** pending exact-head CI, documentation validation, review reconciliation and merge.
+## 5. Limitations and deferrals
+
+- No global temporal-overlap policy is invented; effective intervals are stored on successor versions and predecessor history remains immutable.
+- Conflicts remain human adjudication outcomes; no automated resolution is provided.
+- Evidence content is not acquired or processed; only already-existing eligible synthetic evidence references may be linked.
+- No real role/account provisioning, retention/deletion schedule, specialist legal/privacy/source-rights/safeguarding/security sign-off, public read surface, production queue operations, deployment or launch is included.
+- SQLite `:memory:` tests do not prove production multi-process locking, database isolation or downstream delivery guarantees.
+
+## 6. Safety boundary
+
+No V1, Hostinger/hPanel, production/live database, real/source/institute/student/child/staff data, source retrieval, scraping, external API/AI, public endpoint, deployment, procurement, new spend or GitHub ruleset/protection change occurred.
+
+## 7. Agenda disposition
+
+**Agenda 9:** **COMPLETED** for the bounded authorized local/CI synthetic claim-version lifecycle, correction, dispute and withdrawal scope.  
+**M3-03 overall:** remains **IN PROGRESS**; no whole-step weighted completion percentage is claimed.  
+**Remaining gates:** specialist reviews, real role/human coverage, approved retention/deletion rules, source-specific rights, production concurrency/operations, public surfaces and deployment remain separate and require their applicable approvals.
