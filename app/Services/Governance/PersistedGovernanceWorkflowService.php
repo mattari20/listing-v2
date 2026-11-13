@@ -675,7 +675,7 @@ final class PersistedGovernanceWorkflowService
             $this->reject('validity', 'Effective dates must use YYYY-MM-DD.');
         }
 
-        $date = \\DateTimeImmutable::createFromFormat('!Y-m-d', $value);
+        $date = \DateTimeImmutable::createFromFormat('!Y-m-d', $value);
         if ($date === false || $date->format('Y-m-d') !== $value) {
             $this->reject('validity', 'The effective date is invalid.');
         }
