@@ -80,3 +80,10 @@ The AI-era readiness review was added in PR #124 and merged as `4dd6cd8807b40b11
 The [P04 Stack, Hosting and Cost Decision Dossier](M3-01_P04_STACK_HOSTING_COST_DECISION_DOSSIER_2026-11-12.md) reconciles the existing M2-S04 options with AI-ARCH-01–20. It compares Laravel 13/PHP, Django/Python and NestJS/Node 26; refines Django lifecycle guidance toward a supported LTS line; evaluates PostgreSQL 18/PostGIS, optional pgvector and database-native search; and defines hosting, portability, restore and cost evidence requirements.
 
 This dossier does not select a backend, database, hosting provider/region, model, vendor or budget. The owner's hands-on framework proficiency and provider/operational evidence remain required. No numerical cost is invented; no new spend is authorized. P04 remains open pending owner decision and evidence.
+
+
+## P04 Product Owner preferred technology direction — 2026-11-13
+
+The Product Owner confirmed a ChatGPT-assisted development model (mainly relying on ChatGPT for writing, understanding and debugging code) and agreed with the preferred planning direction recorded in [M3-01 P04 Product Owner Preferred Technology Direction](M3-01_P04_OWNER_PREFERRED_TECHNOLOGY_DIRECTION_2026-11-13.md): Django/Python, PostgreSQL, PostGIS, modular monolith, HTML-first server-rendered frontend and provider-neutral/AI-off architecture.
+
+P04 is advanced but remains **Open** pending hosting/provider/region, PostgreSQL/PostGIS compatibility, backup/restore, data terms, operational support, dated cost evidence and final version decisions. This owner preference does not establish hands-on framework proficiency and does not authorize a technical spike or implementation. P05 and P06 retain their independent gates; P07/P08 are not ready. No M3-01 weighted completion percentage is claimed; M3 remains 5%; implementation authorization NOT ISSUED.
