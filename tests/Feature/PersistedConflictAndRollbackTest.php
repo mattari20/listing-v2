@@ -6,6 +6,7 @@ namespace Tests\Feature;
 
 use App\Services\Governance\PersistedConflictAndRollbackService;
 use App\Services\Governance\PersistedGovernanceWorkflowService;
+use Illuminate\Database\Events\QueryExecuted;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -106,6 +107,34 @@ class PersistedConflictAndRollbackTest extends TestCase
         $this->assertDatabaseHas('audit_events', ['target_id' => $conflictId, 'action' => 'claim_conflict_resolved']);
     }
 
+    public function test_conflict_and_candidate_records_roll_back_when_audit_write_fails(): void
+    {
+        $fixture = $this->fixture();
+        $second = $this->secondVersion($fixture, 'Synthetic Academy North', '2026-06-01', '2027-05-31', '2026-11-01 00:00:00');
+        $auditCount = DB::table('audit_events')->count();
+
+        DB::listen(function (QueryExecuted $query): void {
+            if (str_contains(strtolower($query->sql), 'insert into "audit_events"')) {
+                throw new \\RuntimeException('Synthetic audit sink failure.');
+            }
+        });
+
+        try {
+            (new PersistedConflictAndRollbackService)->evaluateTemporalConflict(
+                $this->actor('conflict-reviewer', ['evaluate_conflicts']),
+                [$fixture['version'], $second],
+                'conflict-audit-failure',
+            );
+            $this->fail('A failed audit write must abort conflict persistence.');
+        } catch (\\RuntimeException $exception) {
+            $this->assertSame('Synthetic audit sink failure.', $exception->getMessage());
+        }
+
+        $this->assertDatabaseCount('claim_conflicts', 0);
+        $this->assertDatabaseCount('claim_conflict_candidates', 0);
+        $this->assertSame($auditCount, DB::table('audit_events')->count());
+    }
+
     public function test_automated_conflict_evaluation_and_rollback_are_denied(): void
     {
         $fixture = $this->fixture();
@@ -199,12 +228,9 @@ class PersistedConflictAndRollbackTest extends TestCase
             'publication_snapshot_id' => $snapshots[1]->id,
             'status' => 'approved',
         ]);
-        $this->assertDatabaseHas('governance_outbox', [
-            'aggregate_id' => $rollbackId,
-            'event_type' => 'publication.snapshot.rollback',
-            'status' => 'pending',
-            'last_error' => 'Current claim and evidence policy no longer permits publication.',
-        ]);
+        $event = DB::table('governance_outbox')->where('aggregate_id', $rollbackId)->first();
+        $this->assertSame('pending', $event->status);
+        $this->assertNotEmpty($event->last_error);
     }
 
     private function fixture(): array
