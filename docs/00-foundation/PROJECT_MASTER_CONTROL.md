@@ -2,7 +2,7 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0, M1, M2 and M3-00 accepted/closed; FND-01 bounded M3-01 P07 package merged; remaining M3-01 gates and M3-02 authorization pending  
+**Status:** M0, M1, M2 and M3-00 accepted/closed; FND-01 bounded M3-01 P07 package merged; M3-01 remaining gates open; M3-02 bounded local/CI hardening in progress  
 **Last reconciled:** 2026-11-13
 
 ## Authoritative current position
@@ -637,3 +637,10 @@ This records delivery and merge of FND-01 only. It does not claim Hostinger comp
 ## M3-02 next-step assessment — 2026-11-13
 
 The [M3-02 Platform Foundation — FND-01 Gap Assessment](../04-roadmap/M3-02_PLATFORM_FOUNDATION_FND01_GAP_ASSESSMENT_2026-11-13.md) maps what the merged FND-01 local/CI foundation does and does not satisfy in M3-02. It is a planning assessment only. A separate explicit Product Owner authorization is required before any M3-02 implementation. The current next action is owner review of the gap assessment; no Hostinger/V1/production access, database work, real data, external APIs/AI, deployment or new spend is authorized.
+
+
+## M3-02 bounded local/CI hardening authorization — 2026-11-13
+
+The Product Owner authorized the bounded follow-on described in the M3-02 FND-01 Gap Assessment: local workstation and GitHub CI only, synthetic fixtures only, no new spend, no Hostinger/V1/production access or changes, no database/schema/migrations, no real/source/personal data, no external APIs/AI, no deployment and no scope expansion. The implementation candidate adds safe environment defaults, warning-level logging fallback, deterministic environment tests and documentation. See [M3-02 implementation record](../05-implementation/M3-02_LOCAL_CI_FOUNDATION_HARDENING_IMPLEMENTATION_RECORD.md).
+
+The active main ruleset was inspected read-only. It requires the project documentation validation check but does not require the PHP foundation CI check. No ruleset or branch-protection setting was changed; any such change remains a separate owner decision. M3-02 remains in progress pending exact-head CI and owner review. The M3-01 P04/P05 gates remain open and are not closed by this M3-02 authorization.
