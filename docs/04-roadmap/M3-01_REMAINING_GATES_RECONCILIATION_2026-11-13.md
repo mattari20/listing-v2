@@ -89,3 +89,34 @@ Before any authorization request is finalized, the proposed slice must be decomp
 - FND-01 PR #136: https://github.com/mattari20/listing-v2/pull/136
 
 **Final status:** M3-01 remains **In progress / authorization decision pending**. No unsupported completion percentage is claimed.
+
+## 8. Product Owner authorization decision — 2026-11-13
+
+**Decision:** APPROVED — bounded M3-03 logical-model and provenance work-package preparation.
+
+The Product Owner explicitly approved the proposed next scope in the conversation on 2026-11-13. This approval is limited to defining and validating a local/CI-only, synthetic-data M3-03 work package. It permits:
+- documenting the logical domain model and entity relationships without creating a physical database schema;
+- defining provenance, source-evidence, temporal-validity, validation, conflict and human-adjudication requirements;
+- preparing fabricated synthetic fixtures that do not mirror real people, institutions or source records;
+- writing deterministic tests/specifications for those logical rules using synthetic fixtures only;
+- preparing traceable acceptance criteria, risks, exclusions and a later implementation proposal.
+
+**Explicit exclusions remain:**
+- no physical database schema, migrations, database provisioning, DB connections or persistence implementation;
+- no Hostinger, V1, hPanel, SSH, production, DNS or deployment access;
+- no real institute, public-source, student, child, staff or personal data;
+- no source collection, scraping, downloads, outreach, reuse or republication;
+- no external APIs, AI providers/models, connectors, telemetry destinations or paid services;
+- no procurement, hiring, contract or new spend;
+- no public pilot, launch, student research or real-user interaction;
+- no changes to GitHub rulesets, branch protection, required checks or merge settings.
+
+**Permitted environment:** repository-local documentation and synthetic-only local/GitHub CI work in `mattari20/listing-v2`, on PR branches. Existing required CI and review protections remain mandatory.
+
+**Acceptance evidence:** a reviewed logical model, entity/relationship glossary, provenance contract, synthetic fixture catalogue, deterministic test specifications/results, traceability to accepted M2 architecture and M1 requirements, and an explicit list of unresolved gates. Any physical schema/persistence or data-source work must be proposed separately.
+
+**Stop conditions:** stop if the work requires physical schema/migrations, real/source/personal data, external connectivity, additional human specialist clearance, hosting/live access, new spend or scope expansion. Return for a separate Product Owner decision.
+
+**Expiry/review:** this authorization expires at completion of the bounded work package or immediately upon a scope change, whichever occurs first. It does not authorize implementation beyond the listed activities.
+
+This is an explicit bounded authorization, not a blanket M3-03 or M3 milestone authorization. P04 hosted proof-of-fit and P05 specialist/source gates remain open for later affected activities. M3-01 is considered closed only for the planning/reconciliation and issuance of this bounded authorization; no claim is made that all later-stage gates have been cleared.
