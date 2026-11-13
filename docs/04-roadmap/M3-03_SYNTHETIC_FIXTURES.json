@@ -1,6 +1,6 @@
 {
   "fixture_set": "M3-03-SYNTHETIC-001",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "classification": "fabricated_synthetic_only",
   "note": "All identifiers and labels are invented. No real entities, persons, addresses, contacts, URLs, source records or source content.",
   "entities": [
@@ -326,6 +326,14 @@
     "T-021",
     "T-022",
     "T-023",
-    "T-024"
+    "T-024",
+    "T-025",
+    "T-026",
+    "T-027",
+    "T-028",
+    "T-029",
+    "T-030",
+    "T-031",
+    "T-032"
   ]
 }
