@@ -19,10 +19,10 @@ final class GovernancePolicy
         if (($authorization['status'] ?? null) !== 'approved_for_defined_purpose_and_method') {
             return $this->deny('authorization_not_currently_approved');
         }
-        if (!empty($authorization['revoked_at'])) {
+        if (empty($authorization['revoked_at']) === false) {
             return $this->deny('authorization_revoked');
         }
-        if (!$this->withinWindow($authorization, $now)) {
+        if ($this->withinWindow($authorization, $now) === false) {
             return $this->deny('authorization_outside_validity_window');
         }
 
@@ -38,7 +38,7 @@ final class GovernancePolicy
         ] as $contextKey => $authorizationKey) {
             $requested = $context[$contextKey] ?? null;
             $permitted = $this->decode($authorization[$authorizationKey] ?? null);
-            if (!is_string($requested) || $requested === '' || !in_array($requested, $permitted, true)) {
+            if (is_string($requested) === false || $requested === '' || in_array($requested, $permitted, true) === false) {
                 return $this->deny($contextKey.'_not_permitted');
             }
         }
@@ -54,7 +54,7 @@ final class GovernancePolicy
         if (($actor['actor_id'] ?? '') === '' || ($actor['actor_class'] ?? '') === '') {
             return $this->deny('actor_identity_missing');
         }
-        if (!in_array($capability, $actor['capabilities'] ?? [], true)) {
+        if (in_array($capability, $actor['capabilities'] ?? [], true) === false) {
             return $this->deny('capability_missing');
         }
 
@@ -67,7 +67,7 @@ final class GovernancePolicy
     public function authorizeAdjudication(array $actor, string $evidenceActorId, bool $highImpact = true): array
     {
         $capability = $this->requireCapability($actor, 'adjudicate_claim');
-        if (!$capability['allowed']) {
+        if ($capability['allowed'] === false) {
             return $capability;
         }
         if (in_array($actor['actor_class'] ?? '', ['automated', 'system', 'agent'], true)) {
@@ -92,7 +92,7 @@ final class GovernancePolicy
             return false;
         }
         foreach ($evidenceStatuses as $status) {
-            if (!$this->evidenceCanSupportClaim($status)) {
+            if ($this->evidenceCanSupportClaim($status) === false) {
                 return false;
             }
         }
@@ -121,7 +121,7 @@ final class GovernancePolicy
     public function authorizePublication(array $actor, array $adjudication, array $evidenceActorIds): array
     {
         $capability = $this->requireCapability($actor, 'authorize_publication');
-        if (!$capability['allowed']) {
+        if ($capability['allowed'] === false) {
             return $capability;
         }
         if (in_array($actor['actor_class'] ?? '', ['automated', 'system', 'agent'], true)) {
@@ -155,7 +155,7 @@ final class GovernancePolicy
     public function authorizeRestore(array $actor, string $suppressorActorId, bool $snapshotApproved, bool $policyEligible): array
     {
         $capability = $this->requireCapability($actor, 'restore_publication');
-        if (!$capability['allowed']) {
+        if ($capability['allowed'] === false) {
             return $capability;
         }
         if (in_array($actor['actor_class'] ?? '', ['automated', 'system', 'agent'], true)) {
@@ -164,7 +164,7 @@ final class GovernancePolicy
         if (($actor['actor_id'] ?? '') === $suppressorActorId) {
             return $this->deny('restoration_requires_distinct_suppressor');
         }
-        if (!$snapshotApproved || !$policyEligible) {
+        if ($snapshotApproved === false || $policyEligible === false) {
             return $this->deny('snapshot_not_reapproved_by_current_policy');
         }
 
@@ -177,10 +177,10 @@ final class GovernancePolicy
     public function authorizeEvidenceWithdrawal(array $actor, bool $retentionPolicyApproved): array
     {
         $capability = $this->requireCapability($actor, 'withdraw_evidence');
-        if (!$capability['allowed']) {
+        if ($capability['allowed'] === false) {
             return $capability;
         }
-        if (!$retentionPolicyApproved) {
+        if ($retentionPolicyApproved === false) {
             return $this->deny('retention_policy_decision_missing');
         }
 
@@ -195,17 +195,17 @@ final class GovernancePolicy
     /** Missing/unknown Deeni Madaris visibility defaults to OFF. */
     public function isPubliclyVisible(?bool $deeniMadarisEnabled, bool $isDeeniMadaris): bool
     {
-        return !$isDeeniMadaris || $deeniMadarisEnabled === true;
+        return $isDeeniMadaris === false || $deeniMadarisEnabled === true;
     }
 
     /** @param array<string, mixed> $authorization */
     private function withinWindow(array $authorization, CarbonImmutable $now): bool
     {
         try {
-            if (!empty($authorization['valid_from']) && $now->lessThan(CarbonImmutable::parse($authorization['valid_from']))) {
+            if (empty($authorization['valid_from']) === false && $now->lessThan(CarbonImmutable::parse($authorization['valid_from']))) {
                 return false;
             }
-            if (!empty($authorization['valid_to']) && !$now->lessThan(CarbonImmutable::parse($authorization['valid_to']))) {
+            if (empty($authorization['valid_to']) === false && $now->lessThan(CarbonImmutable::parse($authorization['valid_to'])) === false) {
                 return false;
             }
         } catch (\Throwable) {
@@ -221,7 +221,7 @@ final class GovernancePolicy
         if (is_array($value)) {
             return $value;
         }
-        if (!is_string($value)) {
+        if (is_string($value) === false) {
             return [];
         }
         $decoded = json_decode($value, true);
