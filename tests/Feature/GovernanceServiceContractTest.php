@@ -156,6 +156,7 @@ class GovernanceServiceContractTest extends TestCase
             'display_name',
             ['value' => 'Synthetic Institute Delta'],
             [$evidenceId],
+            $this->context(),
             'claim-key-1',
         );
 
@@ -277,7 +278,7 @@ class GovernanceServiceContractTest extends TestCase
             'permitted_purposes' => ['synthetic_test_only'],
             'permitted_methods' => ['fixture_reference'],
             'territories' => ['synthetic'],
-            'permitted_scopes' => ['acquisition' => true, 'retention' => false, 'processing' => false, 'reuse' => false, 'publication' => false],
+            'permitted_scopes' => ['acquisition' => true, 'retention' => false, 'processing' => true, 'reuse' => false, 'publication' => false],
             'valid_from' => '2026-11-13T00:00:00Z',
             'valid_to' => '2026-11-14T00:00:00Z',
             'revoked_at' => null,
