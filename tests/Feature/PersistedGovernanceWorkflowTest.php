@@ -278,6 +278,8 @@ class PersistedGovernanceWorkflowTest extends TestCase
     {
         $fixture = $this->fixture();
         $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-correction-publish-guard');
+        $decisionId = $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted before a synthetic correction.', 'policy-v1');
         $originalValue = DB::table('claim_versions')->where('id', $fixture['version'])->value('value');
         $actor = $this->actor('correction-reviewer', ['correct_claim']);
         $arguments = [
@@ -315,6 +317,9 @@ class PersistedGovernanceWorkflowTest extends TestCase
             'action' => 'claim_version_corrected',
             'reason_code' => 'synthetic_correction',
         ]);
+
+        $this->expectException(ValidationException::class);
+        $service->authorizePublication($this->actor('publisher', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'publish-superseded-version');
     }
 
     public function test_claim_correction_rejects_invalid_temporal_ranges_and_reused_keys(): void
