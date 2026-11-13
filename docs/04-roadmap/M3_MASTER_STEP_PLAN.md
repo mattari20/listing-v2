@@ -5,7 +5,7 @@
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
 **Current step:** M3-03 — Core Data and Governance; Agendas 1–8 delivered within their separately authorized scopes; Agenda 8 outbox reliability and recovery implementation merged and closed  
-**Plan status:** Agenda 4 Slices A and B, Agenda 5 design and Agenda 6 bounded policy/service-contract implementation were separately authorized, delivered and evidence-reconciled  
+**Plan status:** Agenda 4 Slices A and B, Agenda 5 design, Agenda 6 service contracts, Agenda 7 persisted workflows and Agenda 8 outbox reliability/recovery were separately authorized, delivered and evidence-reconciled  
 **Application implementation:** Local/CI-only synthetic implementation has been separately authorized and completed for Agenda 4 Slices A/B, Agenda 6 service contracts and Agenda 7 persisted workflows; Agenda 8 bounded outbox reliability/recovery hardening is complete. Real/source data, external services, production and deployment remain separately gated.
 
 ## 1. Purpose and governance
