@@ -41,7 +41,7 @@ final class GovernanceCommandService
                 throw ValidationException::withMessages(['authorization' => 'Source authorization was not found.']);
             }
             $decision = $this->policy->authorizeSourceAction($authorization, 'acquisition', $context);
-            if (!$decision['allowed']) {
+            if ($decision['allowed'] === false) {
                 throw ValidationException::withMessages(['authorization' => $decision['reason']]);
             }
 
@@ -88,7 +88,7 @@ final class GovernanceCommandService
             if ($existing !== null) {
                 return $existing;
             }
-            if (!DB::table('directory_entities')->where('id', $subjectEntityId)->exists()) {
+            if (DB::table('directory_entities')->where('id', $subjectEntityId)->exists() === false) {
                 throw ValidationException::withMessages(['subject' => 'Claim subject does not exist.']);
             }
 
@@ -159,7 +159,7 @@ final class GovernanceCommandService
         }
 
         $metadata = json_decode((string) $event->metadata, true);
-        if (!is_array($metadata) || !hash_equals((string) ($metadata['idempotency_fingerprint'] ?? ''), $fingerprint)) {
+        if (is_array($metadata) === false || hash_equals((string) ($metadata['idempotency_fingerprint'] ?? ''), $fingerprint) === false) {
             throw ValidationException::withMessages(['idempotency_key' => 'The idempotency key was already used for a different command.']);
         }
 
