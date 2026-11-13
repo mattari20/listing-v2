@@ -882,3 +882,10 @@ PR [#160](https://github.com/mattari20/listing-v2/pull/160) merged as `9fd14f069
 
 **Agenda 6:** COMPLETED for its bounded authorized scope.  
 **M3-03 overall:** remains **In progress**; no whole-step completion percentage is claimed.
+
+
+## M3-03 Agenda 7 — persisted governance workflow implementation candidate (2026-11-13)
+
+The Product Owner authorized Agenda 7 for local/CI-only synthetic implementation. PR [#162](https://github.com/mattari20/listing-v2/pull/162) adds adjudication/appeal persistence, publication decisions and immutable snapshots, internal projection state, a transactional outbox, emergency suppression/restoration, and source-authorization revocation propagation. Human-only adjudication/publication and separation-of-duties checks are enforced using synthetic actors; no real roles or accounts are provisioned.
+
+The candidate adds synthetic feature coverage for schema creation, appeal lineage, adjudication, publication snapshot digest, projection idempotency, suppression/restoration, revocation and automated-actor denial. Exact-head CI and documentation validation have not yet been evidenced. Agenda 7 remains **In progress** pending exact-head checks, review and merge. The internal projection table is not exposed by a public endpoint; outbox processing is a deterministic local/CI seam, not production queue delivery. Concurrency, worker crash recovery, external downstream propagation, retention/deletion, real role coverage and specialist legal/privacy/source-rights/safeguarding/security reviews remain open. M3-03 overall remains **In progress**; no whole-step completion percentage is claimed.
