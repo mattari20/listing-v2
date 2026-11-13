@@ -855,3 +855,7 @@ PR #165 merged as `3f547ca7b925c5445c296c5a6311bac2fa7d744d` from exact head `e1
 
 
 Agenda 9 closeout: PR #167 merged as `91c15204fb41ba5cc5a29b99a2dca80e983adc9d`; exact-head PHP 8.5 foundation CI run #43529328306 and Project documentation validation run #43529328427 passed. See the [Agenda 9 Completion and Evidence Record](M3-03_AGENDA_09_COMPLETION_AND_EVIDENCE_RECORD.md).
+
+
+## M3-03 Exit Reconciliation
+- [M3-03 Exit-Criteria Reconciliation and M3-04 Entry Gate](M3-03_EXIT_CRITERIA_RECONCILIATION_AND_M3-04_ENTRY_GATE.md) — step-level evidence matrix, remaining gaps, proposed Agenda 10 and M3-04 prerequisite gate.
