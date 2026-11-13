@@ -729,3 +729,11 @@ This supersedes the earlier Django/PostgreSQL/PostGIS preference for initial dep
 ## P04 compatibility evidence update — 2026-11-13
 
 The existing [P04 Hostinger Premium constraint record](M3-01_P04_EXISTING_HOSTINGER_PREMIUM_CONSTRAINT_2026-11-13.md) now includes official Hostinger capability research, Laravel 13 requirements, account-specific verification steps, read-only CLI commands and current P04 gate status. P04 remains open pending owner-provided hPanel evidence; no implementation authorization is issued.
+
+## FND-01 foundation implementation — PR preparation
+
+| Document | Purpose | Status |
+|---|---|---|
+| [FND-01 Laravel 13 Foundation Implementation Record](../05-implementation/FND-01_IMPLEMENTATION_RECORD.md) | Records the bounded local/CI Laravel foundation, health endpoint, default-OFF visibility seam, synthetic tests, immutable CI action pins and acceptance evidence | Delivered on feature branch; exact-head CI and Product Owner review pending |
+
+The application scaffold commit is \`4a6d4d262e36d5d60fad77bc6c3895f77bc183a4\`. This is not a merge or acceptance record. FND-01 remains unaccepted until the implementation PR's exact-head checks pass and the Product Owner reviews the complete diff. No merge or deployment is authorized by this status entry.

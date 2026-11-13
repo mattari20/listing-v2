@@ -1,0 +1,71 @@
+name: FND-01 foundation CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [feature/m3-foundation-01]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fnd-01-\${{ github.workflow }}-\${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  foundation:
+    name: PHP 8.5 foundation checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out exact revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.2.2
+
+      - name: Set up PHP 8.5 and Composer 2
+        uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
+        with:
+          php-version: '8.5'
+          coverage: none
+          tools: composer:2
+
+      - name: Verify toolchain
+        run: |
+          php --version
+          composer --version
+          php -r 'exit(PHP_VERSION_ID >= 80500 ? 0 : 1);'
+
+      - name: Validate Composer manifest
+        run: composer validate --strict
+
+      - name: Validate project documentation
+        run: python3 scripts/validate_project_docs.py
+
+      - name: Install locked dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress --no-scripts
+
+      - name: Check dependency advisories
+        run: composer audit --locked
+
+      - name: Check PHP formatting
+        run: vendor/bin/pint --test
+
+      - name: Validate Laravel bootstrap and routes
+        run: |
+          php artisan config:clear
+          php artisan route:list --except-vendor
+          php artisan config:clear
+
+      - name: Run synthetic-only test suite
+        run: php artisan test
+
+      - name: Check repository artifact hygiene
+        shell: bash
+        run: |
+          set -euo pipefail
+          test ! -e .env
+          if git ls-files | grep -E '(^database/|^vendor/|^node_modules/|(^|/)\.env$|(^|/)\.env\.(backup|production)$|\.log$|\.sqlite$|\.db$)'; then
+            echo "Prohibited database, environment, dependency, or log artifact is tracked."
+            exit 1
+          fi
+          git diff --check

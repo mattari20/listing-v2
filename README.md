@@ -6,7 +6,7 @@ An independent, greenfield education discovery and decision-support platform for
 
 - **Repository:** `mattari20/listing-v2`
 - **Project phase:** M3 — Mobilization and Decision Closure; M0, M1 and M2 accepted and closed
-- **Application implementation:** Not started
+- **Application implementation:** FND-01 foundation candidate committed on `feature/m3-foundation-01`; PR/CI and owner acceptance pending
 - **Production connection or deployment:** Not authorized
 - **Governing documentation:** Established in `docs/`; see the Documentation Index and Completion Catalogue
 
@@ -52,3 +52,23 @@ M3-00 T06 hosting framework: PR [#109](https://github.com/mattari20/listing-v2/p
 
 
 Latest M3 delivery audit (2026-11-12): PRs #102–#110 are all closed and merged, and required documentation validation passed on each exact PR head. Latest merge PR #110: `a328a8272b086cac6270dc625d53ea6c3bbc1fa7`. Current task status: T01 complete; T02-T06 in progress; T07-T08 open. M3-00 remains 10%; M3 overall 0.5%. No implementation or new spend is authorized.
+
+
+## FND-01 local foundation checks
+
+The FND-01 Laravel 13 foundation is isolated to local development and GitHub CI. It does not connect to V1, Hostinger or production and does not require a database.
+
+Requirements: PHP 8.5 and Composer 2.
+
+\`\`\`sh
+composer validate --strict
+composer install --no-interaction --prefer-dist --no-progress --no-scripts
+composer audit --locked
+vendor/bin/pint --test
+php artisan config:clear
+php artisan route:list --except-vendor
+php artisan test
+python3 scripts/validate_project_docs.py
+\`\`\`
+
+The synthetic-only \`GET /health\` endpoint returns fixed status metadata. The Deeni Madaris visibility policy seam defaults to false. No migrations, database setup, deployment, Hostinger/V1 access or real data are part of FND-01. See [FND-01 implementation record](docs/05-implementation/FND-01_IMPLEMENTATION_RECORD.md).
