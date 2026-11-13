@@ -699,3 +699,8 @@ P04 is advanced but remains Open: no final versions, hosting provider/region, da
 ## M3-01 P04 Hostinger Premium constraint update — 2026-11-13
 
 The Product Owner directed that initial V2 use only the existing Hostinger Premium Web Hosting resources, with no VPS, hosting upgrade or new paid infrastructure. This supersedes the earlier Django/PostgreSQL/PostGIS preferred initial deployment direction. PHP/Laravel and the included MySQL/MariaDB database are candidates only pending exact runtime, Composer, extensions, SSH/cron, database engine/limits, backup/restore, isolated deployment and synthetic resource-headroom verification. PostGIS, dedicated search, external workers, paid maps/geocoding and AI providers are deferred. P04 remains open; no implementation authorization or spend is created. Evidence and gates: [M3-01 P04 Existing Hostinger Premium Constraint](M3-01_P04_EXISTING_HOSTINGER_PREMIUM_CONSTRAINT_2026-11-13.md).
+
+
+## P04 official Hostinger compatibility research — 2026-11-13
+
+Official Hostinger documentation indicates that Premium Web Hosting supports SSH, pre-installed Composer 2, cron jobs, PHP and MySQL/PDO. Laravel 13 requires PHP 8.3+, so the PHP 8.5 value shown in the owner's hPanel is promising if the CLI and web handler versions match. Published resource/database limits vary by hosting-plan generation; the owner's hPanel values remain the primary subscription evidence. Exact extensions, CLI, DB engine/limits, routing, restore and resource headroom remain unverified. P04 remains OPEN. See [P04 Hostinger constraint and compatibility evidence](M3-01_P04_EXISTING_HOSTINGER_PREMIUM_CONSTRAINT_2026-11-13.md).
