@@ -14,12 +14,14 @@ final class PersistedGovernanceWorkflowService
     public function openAdjudicationCase(array $actor, string $claimVersionId, string $idempotencyKey, string $caseKind = 'initial', ?string $parentCaseId = null): string
     {
         $this->requireActor($actor, 'open_adjudication');
+
         return DB::transaction(function () use ($actor, $claimVersionId, $idempotencyKey, $caseKind, $parentCaseId): string {
             $existing = DB::table('adjudication_cases')->where('idempotency_key', $idempotencyKey)->first();
             if ($existing !== null) {
                 if ($existing->claim_version_id !== $claimVersionId || $existing->opened_by_actor_id !== $actor['actor_id'] || $existing->case_kind !== $caseKind || $existing->parent_case_id !== $parentCaseId) {
                     $this->reject('idempotency_key', 'Idempotency key reused for a different adjudication case.');
                 }
+
                 return (string) $existing->id;
             }
             if ($idempotencyKey === '' || DB::table('claim_versions')->where('id', $claimVersionId)->exists() === false) {
@@ -40,6 +42,7 @@ final class PersistedGovernanceWorkflowService
                 'created_at' => $now, 'updated_at' => $now,
             ]);
             $this->audit($actor, 'adjudication_case_opened', 'adjudication_case', $id, 'case_opened', ['case_kind' => $caseKind]);
+
             return $id;
         });
     }
@@ -47,6 +50,7 @@ final class PersistedGovernanceWorkflowService
     public function decideAdjudication(array $actor, string $caseId, string $outcome, string $rationaleCode, string $rationale, string $policyVersion): string
     {
         $this->requireActor($actor, 'adjudicate_claim');
+
         return DB::transaction(function () use ($actor, $caseId, $outcome, $rationaleCode, $rationale, $policyVersion): string {
             $case = DB::table('adjudication_cases')->where('id', $caseId)->lockForUpdate()->first();
             if ($case === null || $case->status !== 'open') {
@@ -60,7 +64,7 @@ final class PersistedGovernanceWorkflowService
                 ->where('claim_evidence_links.claim_version_id', $case->claim_version_id)
                 ->get(['evidence_references.status']);
             $statuses = $evidence->pluck('status')->all();
-            if ($outcome === 'accepted' && !(new GovernancePolicy)->canAcceptClaim($statuses)) {
+            if ($outcome === 'accepted' && ! (new GovernancePolicy)->canAcceptClaim($statuses)) {
                 $this->reject('evidence', 'Claim cannot be accepted without admissible evidence.');
             }
             $evidenceActorIds = $this->evidenceActorIds($case->claim_version_id);
@@ -82,6 +86,7 @@ final class PersistedGovernanceWorkflowService
             DB::table('adjudication_cases')->where('id', $caseId)->update(['status' => 'decided', 'updated_at' => $now]);
             DB::table('claim_versions')->where('id', $case->claim_version_id)->update(['disposition' => $outcome, 'updated_at' => $now]);
             $this->audit($actor, 'adjudication_decided', 'adjudication_decision', $id, $rationaleCode, ['outcome' => $outcome, 'case_id' => $caseId]);
+
             return $id;
         });
     }
@@ -89,12 +94,14 @@ final class PersistedGovernanceWorkflowService
     public function authorizePublication(array $actor, string $claimVersionId, string $adjudicationDecisionId, string $surface, string $audience, string $policyVersion, string $idempotencyKey): string
     {
         $this->requireActor($actor, 'authorize_publication');
+
         return DB::transaction(function () use ($actor, $claimVersionId, $adjudicationDecisionId, $surface, $audience, $policyVersion, $idempotencyKey): string {
             $existing = DB::table('publication_decisions')->where('idempotency_key', $idempotencyKey)->first();
             if ($existing !== null) {
                 if ($existing->claim_version_id !== $claimVersionId || $existing->actor_id !== $actor['actor_id'] || $existing->adjudication_decision_id !== $adjudicationDecisionId || $existing->surface !== $surface || $existing->audience !== $audience || $existing->policy_version !== $policyVersion) {
                     $this->reject('idempotency_key', 'Idempotency key reused for a different publication command.');
                 }
+
                 return (string) $existing->id;
             }
             $version = DB::table('claim_versions')->where('id', $claimVersionId)->lockForUpdate()->first();
@@ -111,7 +118,7 @@ final class PersistedGovernanceWorkflowService
                 ->join('evidence_references', 'evidence_references.id', '=', 'claim_evidence_links.evidence_reference_id')
                 ->where('claim_evidence_links.claim_version_id', $claimVersionId)->get(['evidence_references.id', 'evidence_references.status', 'evidence_references.source_authorization_id']);
             $statuses = $evidenceRows->pluck('status')->all();
-            if (!(new GovernancePolicy)->canAcceptClaim($statuses)) {
+            if (! (new GovernancePolicy)->canAcceptClaim($statuses)) {
                 $this->reject('evidence', 'Evidence is not currently admissible for publication.');
             }
             $authorizationActors = $this->evidenceActorIds($claimVersionId);
@@ -136,7 +143,7 @@ final class PersistedGovernanceWorkflowService
             $entity = DB::table('claims')->join('directory_entities', 'directory_entities.id', '=', 'claims.subject_entity_id')
                 ->where('claims.id', $version->claim_id)->first(['directory_entities.entity_type', 'directory_entities.label']);
             $isDeeniMadaris = $entity !== null && $entity->entity_type === 'deeni_madaris';
-            if (!(new GovernancePolicy)->isPubliclyVisible(false, $isDeeniMadaris)) {
+            if (! (new GovernancePolicy)->isPubliclyVisible(false, $isDeeniMadaris)) {
                 $this->reject('visibility', 'Restricted-category publication is disabled by default.');
             }
             if ($surface === '' || $audience === '' || $policyVersion === '' || $idempotencyKey === '') {
@@ -167,6 +174,7 @@ final class PersistedGovernanceWorkflowService
             ]);
             $this->enqueue('publication.snapshot.approved', 'publication_snapshot', $snapshotId, $payload, 'publish:'.$snapshotId);
             $this->audit($actor, 'publication_authorized', 'publication_decision', $id, 'human_publication_approval', ['snapshot_id' => $snapshotId, 'payload_digest' => $digest]);
+
             return $id;
         });
     }
@@ -177,12 +185,14 @@ final class PersistedGovernanceWorkflowService
         if (($actor['actor_class'] ?? null) !== 'human' || $reasonCode === '' || trim($rationale) === '') {
             $this->reject('revocation', 'Human authority, reason code and rationale are required.');
         }
+
         return DB::transaction(function () use ($actor, $authorizationId, $reasonCode, $rationale): int {
             $authorization = DB::table('source_authorizations')->where('id', $authorizationId)->lockForUpdate()->first();
             if ($authorization === null) {
                 $this->reject('authorization', 'Source authorization was not found.');
             }
             if ($authorization->revoked_at !== null) {
+
                 return 0;
             }
             $now = now();
@@ -209,6 +219,7 @@ final class PersistedGovernanceWorkflowService
             $this->audit($actor, 'source_authorization_revoked', 'source_authorization', $authorizationId, $reasonCode, [
                 'affected_evidence_count' => $evidenceIds->count(), 'affected_snapshot_count' => $snapshotIds->count(),
             ]);
+
             return $snapshotIds->count();
         });
     }
@@ -219,6 +230,7 @@ final class PersistedGovernanceWorkflowService
         if (($actor['actor_class'] ?? null) !== 'human') {
             $this->reject('actor', 'Emergency suppression requires a human actor.');
         }
+
         return DB::transaction(function () use ($actor, $snapshotId, $reasonCode, $rationale): string {
             $snapshot = DB::table('publication_snapshots')->where('id', $snapshotId)->lockForUpdate()->first();
             if ($snapshot === null || $reasonCode === '' || trim($rationale) === '') {
@@ -235,6 +247,7 @@ final class PersistedGovernanceWorkflowService
             DB::table('public_projections')->where('publication_snapshot_id', $snapshotId)->update(['status' => 'suppressed', 'updated_at' => $now]);
             $this->enqueue('publication.snapshot.suppressed', 'publication_snapshot', $snapshotId, ['snapshot_id' => $snapshotId], 'suppress:'.$id);
             $this->audit($actor, 'publication_suppressed', 'publication_suppression', $id, $reasonCode, ['snapshot_id' => $snapshotId]);
+
             return $id;
         });
     }
@@ -242,6 +255,7 @@ final class PersistedGovernanceWorkflowService
     public function restorePublication(array $actor, string $suppressionId, string $policyVersion, string $reasonCode): string
     {
         $this->requireActor($actor, 'restore_publication');
+
         return DB::transaction(function () use ($actor, $suppressionId, $policyVersion, $reasonCode): string {
             $suppression = DB::table('publication_suppressions')->where('id', $suppressionId)->lockForUpdate()->first();
             if ($suppression === null || $suppression->status !== 'active') {
@@ -282,6 +296,7 @@ final class PersistedGovernanceWorkflowService
             DB::table('publication_snapshots')->where('id', $snapshot->id)->update(['status' => 'approved_pending_projection']);
             $this->enqueue('publication.snapshot.restored', 'publication_snapshot', $snapshot->id, ['snapshot_id' => $snapshot->id], 'restore:'.$id);
             $this->audit($actor, 'publication_restored', 'publication_restoration', $id, $reasonCode, ['snapshot_id' => $snapshot->id]);
+
             return $id;
         });
     }
@@ -291,6 +306,7 @@ final class PersistedGovernanceWorkflowService
         if ($limit < 1 || $limit > 100) {
             throw ValidationException::withMessages(['limit' => 'Outbox batch size must be between 1 and 100.']);
         }
+
         return DB::transaction(function () use ($limit): int {
             $events = DB::table('governance_outbox')->where('status', 'pending')->where('available_at', '<=', now())
                 ->orderBy('created_at')->limit($limit)->lockForUpdate()->get();
@@ -315,6 +331,7 @@ final class PersistedGovernanceWorkflowService
                 DB::table('governance_outbox')->where('id', $event->id)->update(['status' => 'processed', 'attempts' => $event->attempts + 1, 'processed_at' => now(), 'updated_at' => now()]);
                 $processed++;
             }
+
             return $processed;
         });
     }
@@ -331,6 +348,7 @@ final class PersistedGovernanceWorkflowService
                 $actors[] = (string) $metadata['actor_id'];
             }
         }
+
         return array_values(array_unique($actors));
     }
 
