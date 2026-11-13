@@ -1,7 +1,7 @@
 # M3-01 P05 — Legal, Privacy, Source-Rights, Safeguarding and Security Gate Assessment
 
 **Date:** 2026-11-13  
-**Status:** Planning assessment complete; qualified review and owner policy decisions remain required  
+**Status:** Owner-accepted planning deliverable; specialist legal/privacy/safeguarding/security and later operational gates remain open  
 **Jurisdictional starting point:** Pakistan-first service; cross-border hosting/vendor implications to be assessed  
 **Implementation authorization:** NOT ISSUED  
 **Spend authorization:** NONE — no new spend  
@@ -109,3 +109,21 @@ P05 can be marked as a completed planning deliverable only after owner review of
 The legal sources above are a dated research snapshot. The Ministry legislation register and official Gazette must be rechecked at the time of any future launch or data-processing decision. Qualified counsel must confirm current law, amendments, rules, regulatory status, territorial reach and contractual requirements.
 
 **No implementation authorization is issued by this document.**
+
+
+## 11. Product Owner review disposition — 2026-11-13
+
+**Owner instruction:** The Product Owner instructed the project to proceed and complete P05 and P06. This is recorded as acceptance of the P05 planning assessment and its bounded risk/gate disposition only.
+
+**P05 planning deliverable: ACCEPTED / CLOSED.**
+
+Acceptance confirms that:
+- The risk categories, synthetic-only foundation boundary, source-family RESEARCH ONLY status and no-direct-child-interaction initial scope are the accepted planning baseline.
+- The listed legal, privacy, safeguarding, source-rights and independent-security reviews remain mandatory before the relevant later activity.
+- No source family, real data, personal-data processing, pilot, launch or new spend is approved.
+
+Acceptance does **not** constitute legal advice or counsel sign-off, a completed formal privacy impact assessment, safeguarding certification, source-owner permission, independent security assessment, or a declaration of legal compliance. These are external/later gates and remain OPEN.
+
+The Product Owner is the final project decision-maker; qualified professionals must provide the specialist reviews described above. If a required review cannot be obtained within the no-new-spend constraint, the affected activity remains deferred.
+
+**Implementation authorization: NOT ISSUED.**
