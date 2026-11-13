@@ -193,11 +193,13 @@ class PersistedGovernanceWorkflowTest extends TestCase
             'id' => (string) str()->uuid(), 'claim_version_id' => $version, 'evidence_reference_id' => $evidence,
             'relationship_type' => 'supports', 'created_at' => $now, 'updated_at' => $now,
         ]);
+
         return ['version' => $version, 'authorization' => $authorization, 'evidence' => $evidence];
     }
 
     private function actor(string $id, array $capabilities, string $class = 'human'): array
     {
+
         return ['actor_id' => $id, 'actor_class' => $class, 'capabilities' => $capabilities];
     }
 }
