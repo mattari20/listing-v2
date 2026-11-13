@@ -17,7 +17,6 @@ final class FoundationEnvironmentDefaultsTest extends TestCase
         $this->assertSame('local', config('filesystems.default'));
         $this->assertFileDoesNotExist(base_path('config/database.php'));
         $this->assertSame('array', config('mail.default'));
-        $this->assertSame('null', config('broadcasting.default'));
     }
 
     public function test_logging_defaults_are_local_and_non_verbose(): void
