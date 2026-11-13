@@ -127,3 +127,18 @@ The Product Owner issued the exact bounded FND-01 authorization on 2026-11-13. I
 This records delivery and merge of FND-01 only. It does not claim Hostinger compatibility, V2 runtime isolation, capacity, backup/restore, legal/privacy/source-rights/safeguarding/security sign-off, production readiness or completion of M3-01 as a whole. No Hostinger/V1/production access, database work, migrations, real/source/personal data, external APIs/AI, deployment or new spend occurred. M3-02 and all later implementation remain separately gated and unauthorized.
 
 P07/P08 are closed only for the FND-01 bounded package. This does not mean M3-01 as a whole is complete: P04 remains open for V2-specific compatibility/isolation/capacity/recovery evidence; P05 professional review gates remain open; other M3-01 planning and acceptance criteria must be reconciled individually. Do not assign a whole-step completion percentage until the remaining task evidence is assessed. M3-02 is a separate roadmap step and requires separate explicit authorization.
+
+## Superseding remaining-gates reconciliation — 2026-11-13
+
+The authoritative [M3-01 Remaining-Gates Reconciliation](M3-01_REMAINING_GATES_RECONCILIATION_2026-11-13.md) supersedes stale task snapshots above where they conflict with later owner decisions and delivery evidence.
+
+Current task disposition:
+- P01: planning evidence delivered for review; retain traceability and refresh against the next selected scope.
+- P02: candidate first-slice options documented; the next implementation slice remains unselected/unapproved.
+- P03: resolved only for the bounded solo-founder, ChatGPT-assisted, synthetic/offline foundation planning model. No independent human security certifier or accountable operational responder is established.
+- P04: preferred Laravel 13/PHP 8.5 + existing Hostinger MySQL-compatible direction accepted; P04 remains open for exact V2 runtime/database compatibility, isolation, capacity and recovery evidence.
+- P05: risk/gate planning assessment accepted/closed as a planning deliverable only. Legal, privacy, source-rights, safeguarding and independent-security clearances remain open where applicable.
+- P06: local/CI synthetic-only test/release plan accepted/closed as a planning deliverable only. Environment activation, additional test execution, hosted isolation, backup/restore, capacity and deployment remain separately gated.
+- P07/P08: completed for FND-01 only. They do not authorize M3-03 or any broader implementation.
+
+M3-01 remains **In progress**. No whole-step completion percentage is claimed. FND-01 PR #136 and the separately authorized M3-02 platform-foundation work do not constitute blanket M3-01 authorization. No new implementation authorization is issued by this reconciliation.
