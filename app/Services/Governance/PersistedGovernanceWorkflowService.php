@@ -17,7 +17,7 @@ final class PersistedGovernanceWorkflowService
         return DB::transaction(function () use ($actor, $claimVersionId, $idempotencyKey, $caseKind, $parentCaseId): string {
             $existing = DB::table('adjudication_cases')->where('idempotency_key', $idempotencyKey)->first();
             if ($existing !== null) {
-                if ($existing->claim_version_id !== $claimVersionId || $existing->opened_by_actor_id !== $actor['actor_id']) {
+                if ($existing->claim_version_id !== $claimVersionId || $existing->opened_by_actor_id !== $actor['actor_id'] || $existing->case_kind !== $caseKind || $existing->parent_case_id !== $parentCaseId) {
                     $this->reject('idempotency_key', 'Idempotency key reused for a different adjudication case.');
                 }
                 return (string) $existing->id;
@@ -92,7 +92,7 @@ final class PersistedGovernanceWorkflowService
         return DB::transaction(function () use ($actor, $claimVersionId, $adjudicationDecisionId, $surface, $audience, $policyVersion, $idempotencyKey): string {
             $existing = DB::table('publication_decisions')->where('idempotency_key', $idempotencyKey)->first();
             if ($existing !== null) {
-                if ($existing->claim_version_id !== $claimVersionId || $existing->actor_id !== $actor['actor_id']) {
+                if ($existing->claim_version_id !== $claimVersionId || $existing->actor_id !== $actor['actor_id'] || $existing->adjudication_decision_id !== $adjudicationDecisionId || $existing->surface !== $surface || $existing->audience !== $audience || $existing->policy_version !== $policyVersion) {
                     $this->reject('idempotency_key', 'Idempotency key reused for a different publication command.');
                 }
                 return (string) $existing->id;
@@ -156,11 +156,12 @@ final class PersistedGovernanceWorkflowService
                 'entity_label' => $entity->label ?? null, 'predicate' => DB::table('claims')->where('id', $version->claim_id)->value('predicate'),
                 'value' => json_decode($version->value, true), 'surface' => $surface, 'audience' => $audience,
                 'is_deeni_madaris' => $isDeeniMadaris, 'policy_version' => $policyVersion];
+            $snapshotVersion = (int) DB::table('publication_snapshots')->where('claim_version_id', $claimVersionId)->max('snapshot_version') + 1;
             $snapshotId = (string) Str::uuid();
             $digest = hash('sha256', json_encode($payload, JSON_THROW_ON_ERROR));
             DB::table('publication_snapshots')->insert([
                 'id' => $snapshotId, 'publication_decision_id' => $id, 'claim_version_id' => $claimVersionId,
-                'snapshot_version' => 1, 'payload' => json_encode($payload, JSON_THROW_ON_ERROR),
+                'snapshot_version' => $snapshotVersion, 'payload' => json_encode($payload, JSON_THROW_ON_ERROR),
                 'payload_digest' => $digest, 'surface' => $surface, 'audience' => $audience,
                 'status' => 'approved_pending_projection', 'created_at' => $now,
             ]);
