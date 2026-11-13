@@ -128,7 +128,7 @@ final class GovernancePolicy
             return $this->deny('evidence_submitter_cannot_publish');
         }
 
-        if (($adjudication['policy_version'] ?? '') === '') {
+        if (($adjudication['surface'] ?? '') === '' || ($adjudication['audience'] ?? '') === '') {\n            return $this->deny('publication_surface_and_audience_required');\n        }\n\n        if (($adjudication['policy_version'] ?? '') === '') {
             return $this->deny('policy_version_missing');
         }
 
@@ -140,7 +140,7 @@ final class GovernancePolicy
      */
     public function isPubliclyVisible(?bool $deeniMadarisEnabled, bool $restricted): bool
     {
-        return ! $restricted && $deeniMadarisEnabled === true;
+        return ! $restricted || $deeniMadarisEnabled === true;
     }
 
     /** @param array<string, mixed> $authorization */
