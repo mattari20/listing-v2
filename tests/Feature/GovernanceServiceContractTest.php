@@ -281,7 +281,6 @@ class GovernanceServiceContractTest extends TestCase
         $this->assertFalse((new GovernancePolicy)->isPubliclyVisible(false, true));
     }
 
-    /** @return array<string, mixed> */
     private function authorization(array $overrides = []): array
     {
         return array_replace([
@@ -296,13 +295,11 @@ class GovernanceServiceContractTest extends TestCase
         ], $overrides);
     }
 
-    /** @return array<string, string> */
     private function context(): array
     {
         return ['purpose' => 'synthetic_test_only', 'method' => 'fixture_reference', 'territory' => 'synthetic'];
     }
 
-    /** @return array<string, mixed> */
     private function actor(string $id, array $capabilities, string $class = 'human'): array
     {
         return ['actor_id' => $id, 'actor_class' => $class, 'capabilities' => $capabilities];
