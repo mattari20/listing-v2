@@ -50,9 +50,7 @@ jobs:
         run: composer audit --locked
 
       - name: Check PHP formatting
-        run: |
-          vendor/bin/pint
-          git diff -- app/Services/Governance/PersistedGovernanceWorkflowService.php tests/Feature/PersistedGovernanceWorkflowTest.php
+        run: vendor/bin/pint --test
 
       - name: Validate Laravel bootstrap and routes
         run: |
