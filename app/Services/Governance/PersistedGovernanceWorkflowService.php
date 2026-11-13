@@ -215,6 +215,9 @@ final class PersistedGovernanceWorkflowService
     public function suppressPublication(array $actor, string $snapshotId, string $reasonCode, string $rationale): string
     {
         $this->requireActor($actor, 'suppress_publication');
+        if (($actor['actor_class'] ?? null) !== 'human') {
+            $this->reject('actor', 'Emergency suppression requires a human actor.');
+        }
         return DB::transaction(function () use ($actor, $snapshotId, $reasonCode, $rationale): string {
             $snapshot = DB::table('publication_snapshots')->where('id', $snapshotId)->lockForUpdate()->first();
             if ($snapshot === null || $reasonCode === '' || trim($rationale) === '') {
@@ -247,8 +250,22 @@ final class PersistedGovernanceWorkflowService
             $version = DB::table('claim_versions')->where('id', $snapshot->claim_version_id)->first();
             $evidence = DB::table('claim_evidence_links')->join('evidence_references', 'evidence_references.id', '=', 'claim_evidence_links.evidence_reference_id')
                 ->where('claim_evidence_links.claim_version_id', $snapshot->claim_version_id)->pluck('evidence_references.status')->all();
-            $policyEligible = $version !== null && $version->disposition === 'accepted' && (new GovernancePolicy)->canAcceptClaim($evidence);
-            $decision = (new GovernancePolicy)->authorizeRestore($actor, $suppression->actor_id, true, $policyEligible);
+            $sourceAuthorizations = DB::table('claim_evidence_links')
+                ->join('evidence_references', 'evidence_references.id', '=', 'claim_evidence_links.evidence_reference_id')
+                ->where('claim_evidence_links.claim_version_id', $snapshot->claim_version_id)
+                ->pluck('evidence_references.source_authorization_id');
+            $sourceScopesValid = $sourceAuthorizations->isNotEmpty();
+            foreach ($sourceAuthorizations as $authorizationId) {
+                $sourceAuthorization = (array) DB::table('source_authorizations')->where('id', $authorizationId)->first();
+                $scope = (new GovernancePolicy)->authorizeSourceAction($sourceAuthorization, 'publication', [
+                    'purpose' => 'directory_publication', 'method' => 'approved_projection', 'territory' => 'synthetic',
+                ]);
+                $sourceScopesValid = $sourceScopesValid && $scope['allowed'];
+            }
+            $policyEligible = $version !== null && $version->disposition === 'accepted'
+                && (new GovernancePolicy)->canAcceptClaim($evidence) && $sourceScopesValid;
+            $priorApproval = DB::table('publication_decisions')->where('id', $snapshot->publication_decision_id)->where('decision', 'approved')->exists();
+            $decision = (new GovernancePolicy)->authorizeRestore($actor, $suppression->actor_id, $priorApproval, $policyEligible);
             if ($decision['allowed'] === false || $policyVersion === '' || $reasonCode === '') {
                 $this->reject('restoration', $decision['allowed'] ? 'Policy version and reason are required.' : $decision['reason']);
             }
