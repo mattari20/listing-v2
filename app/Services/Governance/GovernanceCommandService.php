@@ -29,7 +29,7 @@ final class GovernanceCommandService
         }
 
         return DB::transaction(function () use ($authorizationId, $actor, $context, $idempotencyKey, $metadata): string {
-            $fingerprint = hash('sha256', json_encode([$authorizationId, $context, $metadata], JSON_THROW_ON_ERROR));
+            $fingerprint = hash('sha256', json_encode([$actor['actor_id'], $actor['actor_class'], $authorizationId, $context, $metadata], JSON_THROW_ON_ERROR));
             $existing = $this->existingIdempotentTarget('evidence_reference_registered', $idempotencyKey, $fingerprint);
             if ($existing !== null) {
                 return $existing;
@@ -75,15 +75,15 @@ final class GovernanceCommandService
      * @param array<string, mixed> $value
      * @param list<string> $evidenceReferenceIds
      */
-    public function registerProposedClaim(array $actor, string $subjectEntityId, string $predicate, array $value, array $evidenceReferenceIds, string $idempotencyKey): string
+    public function registerProposedClaim(array $actor, string $subjectEntityId, string $predicate, array $value, array $evidenceReferenceIds, array $context, string $idempotencyKey): string
     {
         $this->requireActor($actor, 'register_claim');
         if ($idempotencyKey === '' || $predicate === '' || $evidenceReferenceIds === []) {
             throw ValidationException::withMessages(['claim' => 'Predicate, evidence references and idempotency key are required.']);
         }
 
-        return DB::transaction(function () use ($actor, $subjectEntityId, $predicate, $value, $evidenceReferenceIds, $idempotencyKey): string {
-            $fingerprint = hash('sha256', json_encode([$subjectEntityId, $predicate, $value, array_values($evidenceReferenceIds)], JSON_THROW_ON_ERROR));
+        return DB::transaction(function () use ($actor, $subjectEntityId, $predicate, $value, $evidenceReferenceIds, $context, $idempotencyKey): string {
+            $fingerprint = hash('sha256', json_encode([$actor['actor_id'], $actor['actor_class'], $subjectEntityId, $predicate, $value, array_values($evidenceReferenceIds), $context], JSON_THROW_ON_ERROR));
             $existing = $this->existingIdempotentTarget('claim_version_registered', $idempotencyKey, $fingerprint);
             if ($existing !== null) {
                 return $existing;
@@ -96,6 +96,13 @@ final class GovernanceCommandService
             $evidence = DB::table('evidence_references')->whereIn('id', $uniqueEvidenceIds)->get();
             if ($evidence->count() !== count($uniqueEvidenceIds)) {
                 throw ValidationException::withMessages(['evidence' => 'Every evidence reference must exist.']);
+            }
+            foreach ($evidence as $reference) {
+                $authorization = (array) DB::table('source_authorizations')->where('id', $reference->source_authorization_id)->first();
+                $decision = $this->policy->authorizeSourceAction($authorization, 'processing', $context);
+                if ($decision['allowed'] === false) {
+                    throw ValidationException::withMessages(['authorization' => $decision['reason']]);
+                }
             }
 
             $claimId = (string) Str::uuid();
