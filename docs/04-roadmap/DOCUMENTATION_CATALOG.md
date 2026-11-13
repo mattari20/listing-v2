@@ -91,6 +91,10 @@ For every merge:
 
 | Document | Purpose | Status |
 |---|---|---|
+| [M3-01 P06 Environment, Test, CI, Release and Rollback Plan](M3-01_P06_ENVIRONMENT_TEST_CI_RELEASE_ROLLBACK_PLAN_2026-11-13.md) | Synthetic-only local/CI environments, test matrix, PR gates, no-deployment foundation boundary, V2 recovery prerequisites and stop conditions | Delivered for owner review — no environment activated or implementation authorized |
+
+| Document | Purpose | Status |
+|---|---|---|
 | [M3-01 P04 Hostinger V2 Architecture and Delivery Schedule](M3-01_P04_HOSTINGER_V2_ARCHITECTURE_AND_DELIVERY_SCHEDULE_2026-11-13.md) | Owner-approved preferred Laravel 13/PHP 8.5 + Hostinger MySQL-compatible stack direction, V2 isolation boundaries, synthetic-only first slice and staged delivery ranges | Delivered — preferred stack approved; V2 compatibility/isolation/capacity/recovery gates remain open; no implementation authorized |
 | [M3-01 P05 Legal, Privacy, Source-Rights, Safeguarding and Security Gate Assessment](M3-01_P05_LEGAL_PRIVACY_SOURCE_RIGHTS_SAFEGUARDING_SECURITY_GATE_ASSESSMENT_2026-11-13.md) | Pakistan legal research snapshot, source-rights restrictions, privacy/minors safeguards, initial security acceptance criteria and later professional review gates | Delivered for owner review — no legal/privacy/security sign-off; no source families or real data approved |
 | [Master Roadmap](PROJECT_MASTER_ROADMAP.md) | M0–M12 milestone outcomes and dependencies | Accepted — M0/M1 sequencing baseline |

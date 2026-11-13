@@ -722,3 +722,7 @@ This is a planning recommendation, not a final stack selection or implementation
 The Product Owner approved Laravel 13/PHP 8.5 with the existing Hostinger Premium MySQL-compatible database as the preferred initial stack direction, subject to V2-specific compatibility checks. This resolves the pending owner preference only; P04 remains OPEN for exact runtime/database compatibility, V2 isolation, capacity and recovery evidence.
 
 The [P05 legal/privacy/source-rights/safeguarding/security assessment](M3-01_P05_LEGAL_PRIVACY_SOURCE_RIGHTS_SAFEGUARDING_SECURITY_GATE_ASSESSMENT_2026-11-13.md) is delivered for owner review. It makes no compliance claim or professional sign-off, approves no source families and authorizes no real data, child interaction, public pilot or launch. M3 remains 5%; implementation authorization NOT ISSUED.
+
+## M3-01 P06 environment and release plan — 2026-11-13
+
+The [P06 Environment, Test, CI, Release and Rollback Plan](M3-01_P06_ENVIRONMENT_TEST_CI_RELEASE_ROLLBACK_PLAN_2026-11-13.md) defines synthetic-only local/CI environments, required quality/security/visibility tests, PR gates, local/CI-only first-slice release boundary, V2-only recovery prerequisites and severity-based stop conditions. P06 is delivered for owner review only; no environment activation, CI application workflow, package install, database creation or deployment is authorized.
