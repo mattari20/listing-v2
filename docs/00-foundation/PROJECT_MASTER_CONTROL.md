@@ -632,3 +632,8 @@ The Product Owner issued the exact bounded FND-01 authorization on 2026-11-13. I
 This records delivery and merge of FND-01 only. It does not claim Hostinger compatibility, V2 runtime isolation, capacity, backup/restore, legal/privacy/source-rights/safeguarding/security sign-off, production readiness or completion of M3-01 as a whole. No Hostinger/V1/production access, database work, migrations, real/source/personal data, external APIs/AI, deployment or new spend occurred. M3-02 and all later implementation remain separately gated and unauthorized.
 
 **Next authorized action:** documentation reconciliation and owner-facing review only. No M3-02 implementation may begin without its own explicit scope-specific Product Owner authorization.
+
+
+## M3-02 next-step assessment — 2026-11-13
+
+The [M3-02 Platform Foundation — FND-01 Gap Assessment](../04-roadmap/M3-02_PLATFORM_FOUNDATION_FND01_GAP_ASSESSMENT_2026-11-13.md) maps what the merged FND-01 local/CI foundation does and does not satisfy in M3-02. It is a planning assessment only. A separate explicit Product Owner authorization is required before any M3-02 implementation. The current next action is owner review of the gap assessment; no Hostinger/V1/production access, database work, real data, external APIs/AI, deployment or new spend is authorized.
