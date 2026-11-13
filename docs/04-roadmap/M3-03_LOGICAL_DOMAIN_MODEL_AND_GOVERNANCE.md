@@ -57,8 +57,10 @@ These are logical concepts only. They do not prescribe tables, columns, indexes,
 | Scholarship / Aid Offer | Financial support with eligibility, coverage, value, period and conditions | Advertised availability is not a guaranteed award |
 | Authority | A regulator, accreditor, examining body, government department or other authority | Authority relationship type and scope must be explicit; affiliation is not inferred from a name similarity |
 | Entity Relationship | A typed, time-bounded relationship between two directory entities | Examples: operates, owns, administers, affiliated_with, recognized_by, delivers_at; relationship itself requires evidence and review |
-| Claim | A normalized assertion about an entity or relationship | Has a predicate, value, subject, valid-time interval, recorded-time and status; never overwrite history |
-| Claim Version | An immutable revision of an assertion | Supersedes a prior version while retaining the earlier version and reason |
+| Claim | A normalized assertion about an entity or relationship | Has a predicate, value, subject, valid-time interval, recorded-time and current disposition; never overwrite history |
+| Claim Version | An immutable revision of an assertion | Supersedes a prior version while retaining the earlier version and reason; supersession is a version relation/event, not a disposition value |
+| Identity Candidate | A proposed possible match between two or more directory identities | Candidate only; no automatic merge; requires human decision and preserved match evidence |
+| Identity Resolution Decision | A human decision to link, keep separate, merge or split candidate identities | Append-only decision with rationale, actor role, evidence and reversible lineage; merge/split never erases source identities |
 | Evidence Reference | A minimal reference/metadata record describing evidence relevant to a claim | Content is quarantined/out of scope here; requires authorization, provenance and integrity metadata before any later acquisition |
 | Source Authorization | A scoped permission record governing a source family, purpose, method, territory, time and permitted use | Must be explicit, current, reviewable and revocable; no blanket authorization |
 | Claim-Evidence Link | A typed relation between a claim version and evidence reference | Supports, contradicts, qualifies or contextualizes; evidence may support multiple claims |
@@ -74,7 +76,7 @@ These are logical concepts only. They do not prescribe tables, columns, indexes,
 
 ### Relationship cardinalities (logical)
 
-- Provider 1 — 0..N Institution; an institution may have 0..N provider relationships over time.
+- Provider–Institution is a typed, time-bounded association. A Provider may have 0..N Institution relationships; an Institution may have 0..N Provider relationships over time, including none. Multiple concurrent providers are permitted only where each relationship has a distinct explicit type/scope and admissible evidence; no exclusive provider is inferred.
 - Institution 1 — 0..N Campus/Delivery Site.
 - Institution 1 — 0..N Programme catalogue entries.
 - Programme 0..N — 0..N Qualification; Awarding Body 1 — 0..N Qualifications.
@@ -99,7 +101,8 @@ A claim version is logically described by:
 - language/locale where relevant;
 - valid-from and valid-to (world validity; either bound may be unknown);
 - recorded-at and superseded-at (system history);
-- assertion status: proposed, needs_evidence, under_review, accepted, rejected, disputed, stale, withdrawn;
+- current disposition: `proposed`, `needs_evidence`, `under_review`, `accepted`, `rejected`, `disputed`, `deferred`, `stale` or `withdrawn`;
+- version relation: `initial`, `supersedes` or `superseded_by` (version lineage, not a disposition);
 - confidence is optional and must never replace evidence or human decision;
 - provenance links and validation state;
 - correction/supersession reason.
@@ -128,7 +131,7 @@ Each evidence reference must carry, at minimum, the following logical metadata b
 - chain-of-custody events, quarantine status and deletion/withdrawal state;
 - linked claim versions and relationship type (supports, contradicts, qualifies, contextualizes).
 
-**Authorization gate:** no evidence may be acquired, fetched, scraped, downloaded, copied, transformed, stored, reused or republished unless a separately approved source-specific authorization covers that exact activity. This package performs none of those activities.
+**Authorization gate:** no evidence may be acquired, fetched, scraped, downloaded, copied, transformed, stored, processed, reused or republished unless a separately approved source-specific authorization covers that exact activity. Authorization must independently specify permitted purpose, method, territory, retention, processing, reuse and publication; permission for one does not imply another. This package performs none of those activities.
 
 **Provenance invariant:** every accepted claim must have at least one admissible evidence path or an explicitly approved exception with a recorded human rationale. A claim with no admissible evidence cannot become publishable.
 
@@ -291,3 +294,36 @@ Stop and seek a separate scope decision if a next action requires any excluded a
 ## 15. Alignment refinements from canonical M1/M2 source review
 
 The canonical M2-S02 model also requires explicit distinction among Programme, Qualification, Awarding Body, Admission Cycle, Programme Offer, Fee Component and Scholarship/Aid Offer. These concepts and their cycle/campus scope have been incorporated in the glossary and cardinality rules above. Recognition, accreditation, licensing and affiliation remain distinct authority-scoped relationships. Identity candidates and ambiguous merges remain subject to human review. The M1-S01 requirements SR-01–SR-14 and relevant M1 G01–G20 controls are mapped in Section 12 to the corresponding M2 AR identifiers.
+
+
+## 16. Accepted Agenda 2 design clarifications
+
+The Product Owner accepted the Agenda 2 recommendations on 2026-11-13. The following clarifications are binding design-baseline rules.
+
+### 16.1 Provider–Institution cardinality (R-01)
+
+Provider–Institution is a typed, time-bounded relationship, not a mandatory ownership parent. An institution may have no provider relationship or multiple relationships over time. Concurrent relationships require explicit type and scope; no single/exclusive provider is inferred.
+
+### 16.2 Claim disposition and version lineage (R-02)
+
+Current disposition is limited to: `proposed`, `needs_evidence`, `under_review`, `accepted`, `rejected`, `disputed`, `deferred`, `stale`, `withdrawn`. Version lineage is separate: an immutable new version may supersede an earlier version; superseded is not a current disposition. State transitions are append-only and record prior/new disposition, actor class, reason and time.
+
+### 16.3 Identity candidate and merge/split governance (R-03)
+
+Identity candidates are proposals only. Matching may rank or route candidates but cannot merge identities. A human decision must choose link, keep separate, merge or split, with evidence, rationale, actor role and timestamp. Merge/split decisions preserve original identifiers, source lineage and reversible history; correction or reversal is a new event. Automated irreversible merge is prohibited.
+
+### 16.4 Authority relationship vocabulary (R-04)
+
+The minimum controlled relationship vocabulary distinguishes: `regulated_by`, `licensed_by`, `accredited_by`, `recognized_by`, `examined_by`, `awarded_by`, `affiliated_with`, `operates`, `owns`, `administers` and `delivers_at`. Each relation has typed endpoints, scope, jurisdiction where relevant, valid-time interval and evidence. These predicates are not interchangeable; no relationship is inferred from name similarity or from another authority role. A qualification-award relationship is distinct from institutional recognition or programme examination.
+
+### 16.5 Source authorization revocation (R-05)
+
+Authorization is evaluated independently for acquisition, retention, processing, reuse and publication. If authorization expires or is revoked, affected evidence is quarantined from further activity pending scope review; dependent claims are revalidated; publication eligibility is suspended and the current public projection is reviewed promptly. Where continued publication is no longer authorized or a safety/privacy rule requires it, affected facts are suppressed from the current projection. Prior snapshots and minimum audit lineage are retained only to the extent permitted by applicable law and the approved retention policy. Revocation does not automatically prove the underlying claim false.
+
+### 16.6 Minimum separation of duties (R-06)
+
+At minimum, evidence submission/collection cannot by itself grant source authorization, adjudicate a contested/high-impact claim and approve its publication. Automated validation or matching cannot perform human adjudication or publication approval. Publication approval is a distinct human decision. Emergency suppression may be performed by a specifically designated authorized role and must be audited and reviewed. A detailed role/permission matrix, incompatible-role rules and independent-review thresholds are mandatory before any real source handling, editorial workflow or public release.
+
+### 16.7 Synthetic edge-case acceptance vectors (R-07)
+
+The companion deterministic specification extends the original 24 cases with synthetic mutation cases T-025–T-032. These remain specification-level expected outcomes, not runtime test evidence.
