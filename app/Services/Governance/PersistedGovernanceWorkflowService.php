@@ -25,7 +25,7 @@ final class PersistedGovernanceWorkflowService
             if ($idempotencyKey === '' || DB::table('claim_versions')->where('id', $claimVersionId)->exists() === false) {
                 $this->reject('case', 'A valid claim version and idempotency key are required.');
             }
-            if (!in_array($caseKind, ['initial', 'appeal', 'reconsideration'], true)) {
+            if (! in_array($caseKind, ['initial', 'appeal', 'reconsideration'], true)) {
                 $this->reject('case_kind', 'Unsupported adjudication case kind.');
             }
             if ($caseKind !== 'initial' && ($parentCaseId === null || DB::table('adjudication_cases')->where('id', $parentCaseId)->exists() === false)) {
@@ -52,7 +52,7 @@ final class PersistedGovernanceWorkflowService
             if ($case === null || $case->status !== 'open') {
                 $this->reject('case', 'Adjudication case is missing or no longer open.');
             }
-            if (!in_array($outcome, ['accepted', 'rejected', 'disputed', 'needs_evidence', 'deferred'], true) || $rationaleCode === '' || trim($rationale) === '' || $policyVersion === '') {
+            if (! in_array($outcome, ['accepted', 'rejected', 'disputed', 'needs_evidence', 'deferred'], true) || $rationaleCode === '' || trim($rationale) === '' || $policyVersion === '') {
                 $this->reject('decision', 'Outcome, rationale and policy version are required.');
             }
             $evidence = DB::table('claim_evidence_links')
@@ -326,7 +326,7 @@ final class PersistedGovernanceWorkflowService
             $event = DB::table('audit_events')->where('target_type', 'evidence_reference')->where('target_id', $id)
                 ->where('action', 'evidence_reference_registered')->first();
             $metadata = $event === null ? [] : (json_decode((string) $event->metadata, true) ?: []);
-            if (!empty($metadata['actor_id'])) {
+            if (! empty($metadata['actor_id'])) {
                 $actors[] = (string) $metadata['actor_id'];
             }
         }
