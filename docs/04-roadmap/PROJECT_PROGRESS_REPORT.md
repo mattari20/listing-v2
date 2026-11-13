@@ -2,7 +2,7 @@
 
 **As of:** 2026-11-13  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 in progress — Agendas 1–5 delivered; Agenda 6 bounded governance service-contract implementation in PR #160, validation pending
+**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 in progress — Agendas 1–6 delivered within separately authorized scopes; Agenda 6 bounded governance service-contract implementation merged and closed
 
 ## Verified current M3 position — 2026-11-12 (post PR #114 owner-approved deferrals)
 
@@ -864,12 +864,21 @@ This is a design deliverable only. The GS-001–GS-032 cases are not executed ap
 **Agenda boundary:** Agenda 5 is closed and its authorization exhausted. Governance service implementation is **Not authorized**. M3-03 overall remains **In progress**; no whole-step completion percentage is claimed. Any subsequent implementation-readiness or implementation work requires a new explicit Product Owner authorization.
 
 
-## M3-03 Agenda 6 — Governance Service Contract Implementation (2026-11-13)
+## M3-03 Agenda 6 — completed bounded governance service-contract implementation (2026-11-13)
 
-The Product Owner authorized the bounded local/CI-only synthetic governance service-contract increment. PR [#160](https://github.com/mattari20/listing-v2/pull/160) adds fail-closed source authorization and capability policies; human-only adjudication/publication decision gates and separation-of-duties checks; evidence admissibility, conflict preservation, Deeni Madaris default-OFF and approved-projection read gates; transactional metadata-only evidence-reference and proposed claim-version registration using the existing Agenda 4 schema; audit events in the same transaction, audit-failure rollback and payload-bound idempotency; and a synthetic GS-001–GS-032 policy matrix with service/persistence contract tests.
+The Product Owner authorized and completed the bounded local/CI-only synthetic governance service-contract increment.
 
-The GS matrix verifies policy outcomes and existing persistence guarantees; it is not a set of 32 complete end-to-end workflows. The current eight-table schema has no adjudication-decision, publication-snapshot, projection/outbox, suppression-propagation or restoration persistence. Those workflows remain deferred and require a separately scoped increment.
+PR [#160](https://github.com/mattari20/listing-v2/pull/160) merged as `9fd14f069f71e17d34a5392caf6977df9674fd4d`. The exact validated PR head was `8648781689ebe2fe28ba7ee033ccff4d3066d143`.
 
-**PR #160 current evidence:** current branch head f148494822cc7692030b53e9cd3d54c7a8e1ddd9. Project documentation validation passed on an earlier PR head (run #402); the latest PHP 8.5 foundation run (#85, earlier head c142772eb97e05d355567a390daef964adbcccff) reached the synthetic test suite and failed because the policy acceptance helper was missing. The helper was added in commit b2fb3a9fde668db80bb7cb675495f3492d6dc372. The connected GitHub status interface has not yet returned workflow runs for the current head f148494822cc7692030b53e9cd3d54c7a8e1ddd9. PR remains open and unmerged; exact-head PHP 8.5 foundation CI and Project documentation validation are **pending / not evidenced**. No merge is authorized by a missing status result.
+**Exact-head validation:**
+- PHP 8.5 foundation CI run #87 (ID `43453989536`): **success**. Toolchain, Composer manifest, documentation, dependency audit, Pint, Laravel bootstrap/routes, synthetic test suite and artifact hygiene all passed.
+- Project documentation validation run #404 (ID `43453989517`): **success**.
+- Review threads: none unresolved at merge.
+- Synthetic test runner: 104 assertions, 22 non-fatal warnings caused by existing test harness attempts to read a missing local `.env` file. No test failures; no `.env` or database artifact was added.
 
-No new migration/table, real/source/personal data, source access, V1/Hostinger/production, external API/AI, public surface, deployment, procurement, spend or GitHub protection changes occurred. M3-03 remains **In progress** and no whole-step completion percentage is claimed.
+**Delivered:** fail-closed source authorization/capability policies; human-only adjudication/publication/withdrawal/restoration gates; evidence admissibility and conflict preservation; Deeni Madaris default-OFF and approved-projection reads; transactional metadata-only evidence-reference and proposed-claim commands; independent acquisition/retention/processing authorization checks; audit rollback and payload-bound idempotency; GS-001–GS-032 policy matrix; and controller/command/job persistence-bypass guard.
+
+**Scope qualification:** the GS matrix is policy-level verification, not 32 end-to-end workflow tests. The existing eight-table foundation still does not persist adjudication decisions, publication snapshots/projections, outbox/queue delivery, suppression propagation or restoration. Those are deferred and require a separate Product Owner authorization. No real role provisioning, source access, real data, external services/AI, public endpoints, production, deployment, procurement or spend occurred.
+
+**Agenda 6:** COMPLETED for its bounded authorized scope.  
+**M3-03 overall:** remains **In progress**; no whole-step completion percentage is claimed.

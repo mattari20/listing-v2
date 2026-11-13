@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-13 — M0/M1/M2 and M3-00 accepted/closed; M3-03 Agenda 6 implementation PR #160 open; exact-head validation pending
+**Last reconciled:** 2026-11-13 — M0/M1/M2 and M3-00 accepted/closed; M3-03 Agenda 6 bounded service-contract increment merged and closed; PR #160 exact-head evidence reconciled
 
 ## Purpose and maintenance rule
 
@@ -124,8 +124,8 @@ For every merge:
 
 | Artifact | Purpose | Status |
 |---|---|---|
-| [M3-03 Agenda 6 Governance Service Contract Implementation](M3-03_AGENDA_06_GOVERNANCE_SERVICE_CONTRACT_IMPLEMENTATION.md) | Executable policy/service boundary, transactional synthetic commands, GS-001–GS-032 policy matrix and explicit deferred workflow persistence | Updated — PR #160 validation and merge pending |
-| app/Domain/Governance/GovernancePolicy.php | Fail-closed source, capability, human decision, publication, restoration and visibility policies | Delivered in PR #160 — review/CI pending |
+| [M3-03 Agenda 6 Governance Service Contract Implementation](M3-03_AGENDA_06_GOVERNANCE_SERVICE_CONTRACT_IMPLEMENTATION.md) | Executable policy/service boundary, transactional synthetic commands, GS-001–GS-032 policy matrix and explicit deferred workflow persistence | Completed — PR #160 merged; see Agenda 6 completion/evidence record |
+| app/Domain/Governance/GovernancePolicy.php | Fail-closed source, capability, human decision, publication, restoration and visibility policies | Merged in PR #160 — exact-head CI passed |
 | app/Services/Governance/GovernanceCommandService.php | Transactional metadata-only evidence and proposed-claim commands with audit and payload-bound idempotency | Delivered in PR #160 — review/CI pending |
 | tests/Feature/GovernanceServiceContractTest.php | Synthetic policy matrix and persistence/transaction/entry-point contract tests | Delivered in PR #160 — review/CI pending |
 
@@ -801,3 +801,13 @@ Step 3 does not authorize application changes or close M3-02. Hostinger/V1/produ
 | [M3-02 Step 4 Final Exit Review and Acceptance Pack](M3-02_STEP_04_FINAL_EXIT_REVIEW_AND_ACCEPTANCE_PACK_2026-11-13.md) | Criterion-level final reconciliation of M3-02 exit evidence, blockers, scope limits and closure decision | Completed as a documentation deliverable; M3-02 is not accepted/closed |
 
 The acceptance pack confirms that reproducible GitHub CI, local/CI configuration and secret boundaries, foundation smoke tests and a minimal local/CI diagnostics baseline are evidenced. Protected PR checks and V2-specific environment isolation/recovery remain partial or unverified. No governance or hosting changes were made.
+
+
+### M3-03 Agenda 6 — final completion evidence
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-03 Agenda 6 Completion and Evidence Record](M3-03_AGENDA_06_COMPLETION_AND_EVIDENCE_RECORD.md) | Owner authorization, bounded scope, deliverables, exact-head CI, merge SHA, warnings and residual gates | Complete — PR #161 documentation reconciliation |
+| [M3-03 Agenda 6 Governance Service Contract Implementation](M3-03_AGENDA_06_GOVERNANCE_SERVICE_CONTRACT_IMPLEMENTATION.md) | Executable policy/service implementation and explicit workflow deferrals | Complete — implementation merged in PR #160 |
+
+PR #160 merged as `9fd14f069f71e17d34a5392caf6977df9674fd4d`; exact-head PHP 8.5 foundation CI run #87 and Project documentation validation run #404 passed. The 22 test-run warnings are non-fatal missing-local-.env harness warnings; 104 assertions were recorded.

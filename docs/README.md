@@ -178,3 +178,5 @@ Step 4 is complete as a documentation/evidence deliverable. M3-02 remains in pro
 
 ## M3-03 Agenda 6 — Governance Service Contracts
 - [Agenda 6 Governance Service Contract Implementation](04-roadmap/M3-03_AGENDA_06_GOVERNANCE_SERVICE_CONTRACT_IMPLEMENTATION.md) — bounded synthetic service/policy implementation, acceptance matrix, CI gate and explicit deferrals.
+
+- [M3-03 Agenda 6 Completion and Evidence Record](04-roadmap/M3-03_AGENDA_06_COMPLETION_AND_EVIDENCE_RECORD.md) — final owner authorization, merged PR, exact-head CI evidence, bounded completion and deferred gates.
