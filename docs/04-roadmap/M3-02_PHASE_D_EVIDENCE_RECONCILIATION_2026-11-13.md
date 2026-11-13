@@ -18,7 +18,7 @@ This report is deliberately limited to evidence that was actually observed:
 - Phase B was run in the existing Codespaces workspace on branch `m3-02-phase-b-verification`, at commit `1479fbba6edbf10e668ab57bcdf3a6bdd49f1ae2`. The user-provided outputs show successful local prerequisites, PHP syntax checks, Composer platform checks, PHPUnit assertions and a local-only HTTP health response.
 - The local workspace was returned to a clean Git state. The temporary local server was stopped, the two identified generated view-cache files were removed, and `composer.json` / `composer.lock` remained unchanged.
 
-These results improve the local/CI evidence but do not establish hosting/runtime isolation, document-root mapping, capacity, recovery, or full GitHub branch-protection enforcement.
+These results improve the local/CI evidence but do not establish hosting/runtime isolation, document-root mapping, capacity or recovery. A fresh read-only fetch of active ruleset 27043221 now confirms that both required status checks are configured on the main ruleset: `Validate project control documents` and `PHP 8.5 foundation checks`. The legacy branch-protection endpoint remains unreadable to the connected integration (HTTP 403), so this is a verified ruleset result, not a complete attestation of every possible protection mechanism.
 
 ## 2. Phase A and Phase B evidence
 
@@ -105,7 +105,7 @@ The earlier HTTP 500 was caused by the standalone local server lacking an applic
 | Exit criterion | Updated evidence | Status |
 |---|---|---|
 | Reproducible local/CI build | CI checks and local Composer/platform/syntax/test evidence | **Met for foundation scope, with local PHP-version and PHPUnit-warning qualifications** |
-| Protected PR checks | Existing ruleset audit; PHP foundation CI runs but is not yet confirmed as a required ruleset check | **Partial / open** |
+| Protected PR checks | Fresh read-only ruleset 27043221 includes both `Validate project control documents` and `PHP 8.5 foundation checks` as required status checks | **Met for the active readable ruleset; legacy endpoint limitation remains** |
 | Configuration and secret boundaries | Repository, PHPUnit and synthetic local process environment reviewed | **Met for local/CI scope only** |
 | Environment isolation | Phase A and B establish repository/local boundaries, not host/runtime separation | **Partial / open** |
 | Smoke tests | CI and local loopback `GET /health` evidence | **Met for local/CI foundation scope** |
@@ -116,9 +116,11 @@ The earlier HTTP 500 was caused by the standalone local server lacking an applic
 
 ### BLOCK-01 — Required PHP foundation check
 
-The read-only ruleset audit found that the active main ruleset requires the project documentation validation check but does not require `FND-01 foundation CI`. The Product Owner previously authorized adding that exact check while preserving all other rules. The connected GitHub integration has no ruleset-write action, so the setting has not been changed by this process.
+**Resolved for the active readable main ruleset.** A fresh read-only fetch of ruleset `27043221` confirms that both `Validate project control documents` and `PHP 8.5 foundation checks` are required status checks, with strict status-check policy. The previously authorized exact required-check addition is therefore reflected in the current ruleset state.
 
-**Next action:** apply the already-authorized exact required-check change through GitHub's ruleset UI, or use an authorized administration integration if one becomes available. Preserve all other rules. Then perform a read-only verification. This is the only owner-operated settings step currently identified; do not ask for new authorization for the exact previously approved change.
+The read-only result also confirms that the other returned rules remain present: PR requirement, review-thread resolution, extra approval for unattributed changes, linear history, deletion protection, non-fast-forward protection, zero required approving reviews, no bypass actors, and the existing allowed merge methods. No settings were changed by this reconciliation.
+
+**Residual limitation:** the legacy branch-protection endpoint remains inaccessible to the connected integration (HTTP 403). Do not describe that separate endpoint as verified.
 
 ### BLOCK-02 — Runtime isolation
 
@@ -153,6 +155,6 @@ This operating model does not grant new production, hosting, database, deploymen
 
 **M3-02 Platform Foundation: NOT ACCEPTED / NOT CLOSED.**
 
-The local/Codespaces evidence strengthens the build, test, configuration-default and smoke-test portions of the milestone. Protected-check enforcement and hosting/runtime isolation remain unresolved. No weighted completion percentage is assigned.
+The local/Codespaces evidence strengthens the build, test, configuration-default and smoke-test portions of the milestone. The active readable main ruleset now has both required checks, resolving that previously identified ruleset gap. Hosting/runtime isolation remains unresolved, and the legacy branch-protection endpoint remains unverified. No weighted completion percentage is assigned.
 
 No merge, ruleset mutation, hosting access, V1/production access, database operation, deployment, external API/AI integration, telemetry integration or new spend is performed or authorized by this report.
