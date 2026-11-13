@@ -91,7 +91,8 @@ For every merge:
 
 | Document | Purpose | Status |
 |---|---|---|
-| [M3-01 P04 Hostinger V2 Architecture and Delivery Schedule](M3-01_P04_HOSTINGER_V2_ARCHITECTURE_AND_DELIVERY_SCHEDULE_2026-11-13.md) | Conditional Laravel/PHP + MySQL-compatible architecture, V2 isolation/deployment boundaries, synthetic-only first slice and staged delivery ranges | Delivered — planning recommendation; owner stack decision pending; no implementation authorized |
+| [M3-01 P04 Hostinger V2 Architecture and Delivery Schedule](M3-01_P04_HOSTINGER_V2_ARCHITECTURE_AND_DELIVERY_SCHEDULE_2026-11-13.md) | Owner-approved preferred Laravel 13/PHP 8.5 + Hostinger MySQL-compatible stack direction, V2 isolation boundaries, synthetic-only first slice and staged delivery ranges | Delivered — preferred stack approved; V2 compatibility/isolation/capacity/recovery gates remain open; no implementation authorized |
+| [M3-01 P05 Legal, Privacy, Source-Rights, Safeguarding and Security Gate Assessment](M3-01_P05_LEGAL_PRIVACY_SOURCE_RIGHTS_SAFEGUARDING_SECURITY_GATE_ASSESSMENT_2026-11-13.md) | Pakistan legal research snapshot, source-rights restrictions, privacy/minors safeguards, initial security acceptance criteria and later professional review gates | Delivered for owner review — no legal/privacy/security sign-off; no source families or real data approved |
 | [Master Roadmap](PROJECT_MASTER_ROADMAP.md) | M0–M12 milestone outcomes and dependencies | Accepted — M0/M1 sequencing baseline |
 | [Milestone and Step Register](MILESTONE_STEP_REGISTER.md) | Numbered milestones, steps and acceptance evidence | Accepted — M0 closeout; M1 step execution pending |
 | [Implementation Traceability Matrix](IMPLEMENTATION_TRACEABILITY_MATRIX.md) | Requirement-to-delivery traceability | Accepted for M0 baseline; M1 requirement evidence pending |
