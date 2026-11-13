@@ -1,7 +1,7 @@
 # M3-01 P06 — Environment, Test, CI, Release and Rollback Plan
 
 **Date:** 2026-11-13  
-**Status:** Planning deliverable for Product Owner review  
+**Status:** Owner-accepted planning deliverable; execution and later release gates remain open  
 **Preferred stack:** Laravel 13 / PHP 8.5 / Hostinger MySQL-compatible database (owner-approved direction; exact compatibility pending)  
 **Implementation authorization:** NOT ISSUED  
 **Spend authorization:** NONE — no new spend  
@@ -138,4 +138,25 @@ P06 planning can be considered ready for owner acceptance when:
 **Implementation authorization: NOT ISSUED.**  
 **Spend authorization: NONE — no new spend.**  
 **V1 access/change: PROHIBITED.**  
-**P06: Delivered for owner review.**
+**P06: Owner-accepted planning deliverable; no environment activated or application CI created.**
+
+
+## 12. Product Owner review disposition — 2026-11-13
+
+**Owner instruction:** The Product Owner instructed the project to proceed and complete P05 and P06. This is recorded as acceptance of the P06 planning deliverable and its bounded environment/test/release disposition only.
+
+**P06 planning deliverable: ACCEPTED / CLOSED.**
+
+Acceptance confirms that:
+- Local workstation plus GitHub CI is the initial environment boundary.
+- Synthetic fixtures only; no V1 access, real data, production secrets or external service/API access in CI.
+- The defined static, dependency, security-hygiene, smoke, privacy/visibility and documentation checks are the required initial CI design.
+- The branch/PR review policy and exact-PR-head validation requirement are accepted.
+- The first foundation package ends at a reproducible local/CI artifact; Hostinger deployment is excluded.
+- Database creation/migrations, backup rehearsal, capacity testing, deployment, pilot and launch remain separate future authorizations.
+
+Acceptance does **not** mean that an application CI workflow exists, tests have been implemented or passed, runtime compatibility is verified, a backup has been rehearsed, or any environment has been activated. Those are execution/evidence tasks for separately authorized stages.
+
+The Product Owner remains accountable for product decisions and release approval. ChatGPT assistance is not an independent security review or accountable human operator. Specialist review remains required where identified in P05 and later release gates.
+
+**Implementation authorization: NOT ISSUED.**
