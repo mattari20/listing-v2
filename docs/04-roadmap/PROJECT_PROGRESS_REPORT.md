@@ -913,3 +913,11 @@ Agenda 8 is **COMPLETED** for its bounded authorized local/CI synthetic reliabil
 Exact-head PHP 8.5 foundation CI run #43527123064 and Project documentation validation run #43527123066 both passed. The PHP workflow completed all configured steps, including Pint, Laravel bootstrap/routes, synthetic-only tests and repository artifact hygiene. No unresolved review threads or review submissions were present; merge used an expected-head SHA guard.
 
 Delivered controls include claim-token fencing, stale-lease recovery, per-event transactions, retry/backoff, dead-letter disposition, fail-closed event handling, latest-snapshot ordering and suppression/restoration lifecycle guards. The CI test step passed; no assertion total is claimed because the available run summary did not expose it. Production multi-process locking, broker operations, exactly-once external effects, operational dead-letter tooling and downstream reconciliation remain unverified. No production, source data, external service, deployment or spend occurred. M3-03 overall remains **In progress**.
+
+## M3-03 Agenda 9 — Claim Version Lifecycle, Correction and Withdrawal (2026-11-14)
+
+A gap review of the M3-03 exit criteria and merged workflow code found no persisted command for immutable claim-version correction/successor creation or claim withdrawal. Agenda 9 is a bounded local/CI synthetic increment addressing that gap. It also adds direct verification that the existing `disputed` adjudication disposition cannot be published.
+
+Candidate branch: `feature/m3-03-agenda-09-claim-lifecycle`. The implementation adds human-capability-gated correction with temporal successor lineage, evidence references, audit/idempotency and superseded-version publication denial; human-only withdrawal with audited suppression records, immediate projection freeze and outbox suppression; and synthetic feature tests for these paths.
+
+Exact-head PHP 8.5 foundation CI, Project documentation validation, review reconciliation, merge and final completion evidence remain pending. No real/source/personal data, source access, real role provisioning, production, external API/AI, public endpoint, deployment or spend is included. M3-03 remains **In progress**.

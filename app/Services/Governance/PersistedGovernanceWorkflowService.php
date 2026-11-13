@@ -91,6 +91,189 @@ final class PersistedGovernanceWorkflowService
         });
     }
 
+    public function correctClaimVersion(array $actor, string $priorVersionId, array $value, array $evidenceReferenceIds, string $validFrom, ?string $validTo, string $reasonCode, string $rationale, string $idempotencyKey): string
+    {
+        $this->requireActor($actor, 'correct_claim');
+        if (($actor['actor_class'] ?? null) !== 'human') {
+            $this->reject('actor', 'Claim correction requires a human actor.');
+        }
+
+        $validFrom = $this->normalizeEffectiveDate($validFrom);
+        $validTo = $validTo === null ? null : $this->normalizeEffectiveDate($validTo);
+        if ($validTo !== null && $validTo < $validFrom) {
+            $this->reject('validity', 'The correction end date cannot precede its start date.');
+        }
+        if ($value === [] || $evidenceReferenceIds === [] || trim($reasonCode) === '' || trim($rationale) === '' || trim($idempotencyKey) === '') {
+            $this->reject('correction', 'A value, supporting evidence, reason, rationale and idempotency key are required.');
+        }
+
+        $evidenceReferenceIds = array_values(array_unique($evidenceReferenceIds));
+        $fingerprint = hash('sha256', json_encode([
+            'prior_version_id' => $priorVersionId,
+            'value' => $value,
+            'evidence_reference_ids' => $evidenceReferenceIds,
+            'valid_from' => $validFrom,
+            'valid_to' => $validTo,
+            'reason_code' => $reasonCode,
+            'rationale' => $rationale,
+        ], JSON_THROW_ON_ERROR));
+
+        return DB::transaction(function () use ($actor, $priorVersionId, $value, $evidenceReferenceIds, $validFrom, $validTo, $reasonCode, $rationale, $idempotencyKey, $fingerprint): string {
+            $priorAuditEvents = DB::table('audit_events')->where('target_type', 'claim_version')->where('action', 'claim_version_corrected')->get();
+            foreach ($priorAuditEvents as $event) {
+                $metadata = json_decode((string) $event->metadata, true) ?: [];
+                if (($metadata['idempotency_key'] ?? null) === $idempotencyKey) {
+                    if (($metadata['fingerprint'] ?? null) !== $fingerprint || ($metadata['actor_id'] ?? null) !== $actor['actor_id']) {
+                        $this->reject('idempotency_key', 'Correction idempotency key was reused for a different command.');
+                    }
+
+                    return (string) $metadata['new_version_id'];
+                }
+            }
+
+            $prior = DB::table('claim_versions')->where('id', $priorVersionId)->lockForUpdate()->first();
+            if ($prior === null || $prior->disposition === 'withdrawn') {
+                $this->reject('claim_version', 'A current, non-withdrawn claim version is required for correction.');
+            }
+            if (DB::table('claim_versions')->where('supersedes_version_id', $priorVersionId)->exists()) {
+                $this->reject('claim_version', 'A claim version with an existing successor cannot be corrected again.');
+            }
+
+            $evidenceRows = DB::table('evidence_references')->whereIn('id', $evidenceReferenceIds)->get(['id', 'status']);
+            if ($evidenceRows->count() !== count($evidenceReferenceIds) || (new GovernancePolicy)->canAcceptClaim($evidenceRows->pluck('status')->all()) === false) {
+                $this->reject('evidence', 'Every correction evidence reference must exist and be eligible for review.');
+            }
+
+            $newVersionId = (string) Str::uuid();
+            $nextVersion = (int) DB::table('claim_versions')->where('claim_id', $prior->claim_id)->max('version_number') + 1;
+            $now = now();
+            DB::table('claim_versions')->insert([
+                'id' => $newVersionId,
+                'claim_id' => $prior->claim_id,
+                'version_number' => $nextVersion,
+                'value' => json_encode($value, JSON_THROW_ON_ERROR),
+                'valid_from' => $validFrom,
+                'valid_to' => $validTo,
+                'recorded_at' => $now,
+                'disposition' => 'proposed',
+                'supersedes_version_id' => $priorVersionId,
+                'correction_reason' => $reasonCode,
+                'created_at' => $now,
+                'updated_at' => $now,
+            ]);
+
+            foreach ($evidenceReferenceIds as $evidenceId) {
+                DB::table('claim_evidence_links')->insert([
+                    'id' => (string) Str::uuid(),
+                    'claim_version_id' => $newVersionId,
+                    'evidence_reference_id' => $evidenceId,
+                    'relationship_type' => 'correction_support',
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]);
+            }
+
+            $this->audit($actor, 'claim_version_corrected', 'claim_version', $priorVersionId, $reasonCode, [
+                'prior_version_id' => $priorVersionId,
+                'new_version_id' => $newVersionId,
+                'version_number' => $nextVersion,
+                'valid_from' => $validFrom,
+                'valid_to' => $validTo,
+                'rationale' => $rationale,
+                'idempotency_key' => $idempotencyKey,
+                'fingerprint' => $fingerprint,
+            ]);
+
+            return $newVersionId;
+        });
+    }
+
+    public function withdrawClaimVersion(array $actor, string $claimVersionId, string $reasonCode, string $rationale, string $idempotencyKey): void
+    {
+        $this->requireActor($actor, 'withdraw_claim');
+        if (($actor['actor_class'] ?? null) !== 'human') {
+            $this->reject('actor', 'Claim withdrawal requires a human actor.');
+        }
+        if (trim($reasonCode) === '' || trim($rationale) === '' || trim($idempotencyKey) === '') {
+            $this->reject('withdrawal', 'A reason, rationale and idempotency key are required.');
+        }
+
+        $fingerprint = hash('sha256', json_encode([
+            'claim_version_id' => $claimVersionId,
+            'reason_code' => $reasonCode,
+            'rationale' => $rationale,
+        ], JSON_THROW_ON_ERROR));
+
+        DB::transaction(function () use ($actor, $claimVersionId, $reasonCode, $rationale, $idempotencyKey, $fingerprint): void {
+            $events = DB::table('audit_events')->where('target_type', 'claim_version')->where('action', 'claim_version_withdrawn')->get();
+            foreach ($events as $event) {
+                $metadata = json_decode((string) $event->metadata, true) ?: [];
+                if (($metadata['idempotency_key'] ?? null) === $idempotencyKey) {
+                    if (($metadata['fingerprint'] ?? null) !== $fingerprint || ($metadata['actor_id'] ?? null) !== $actor['actor_id']) {
+                        $this->reject('idempotency_key', 'Withdrawal idempotency key was reused for a different command.');
+                    }
+
+                    return;
+                }
+            }
+
+            $version = DB::table('claim_versions')->where('id', $claimVersionId)->lockForUpdate()->first();
+            if ($version === null || $version->disposition === 'withdrawn') {
+                $this->reject('claim_version', 'A non-withdrawn claim version is required.');
+            }
+
+            $now = now();
+            DB::table('claim_versions')->where('id', $claimVersionId)->update([
+                'disposition' => 'withdrawn',
+                'updated_at' => $now,
+            ]);
+
+            $snapshots = DB::table('publication_snapshots')->where('claim_version_id', $claimVersionId)->get(['id', 'status']);
+            foreach ($snapshots as $snapshot) {
+                if ($snapshot->status !== 'suppressed') {
+                    $suppressionId = (string) Str::uuid();
+                    DB::table('publication_suppressions')->insert([
+                        'id' => $suppressionId,
+                        'publication_snapshot_id' => $snapshot->id,
+                        'reason_code' => $reasonCode,
+                        'rationale' => $rationale,
+                        'actor_id' => $actor['actor_id'],
+                        'actor_class' => $actor['actor_class'],
+                        'status' => 'active',
+                        'suppressed_at' => $now,
+                        'created_at' => $now,
+                        'updated_at' => $now,
+                    ]);
+                    DB::table('publication_snapshots')->where('id', $snapshot->id)->update([
+                        'status' => 'suppressed',
+                    ]);
+                    DB::table('public_projections')->where('publication_snapshot_id', $snapshot->id)->update([
+                        'status' => 'suppressed',
+                        'updated_at' => $now,
+                    ]);
+                    $this->audit($actor, 'publication_suppressed', 'publication_suppression', $suppressionId, $reasonCode, [
+                        'snapshot_id' => (string) $snapshot->id,
+                        'claim_withdrawal' => true,
+                    ]);
+                    $this->enqueue(
+                        'publication.snapshot.suppressed',
+                        'publication_snapshot',
+                        (string) $snapshot->id,
+                        ['snapshot_id' => (string) $snapshot->id, 'withdrawn_claim_version_id' => $claimVersionId],
+                        'claim-withdrawal:'.$idempotencyKey.':'.$snapshot->id,
+                    );
+                }
+            }
+
+            $this->audit($actor, 'claim_version_withdrawn', 'claim_version', $claimVersionId, $reasonCode, [
+                'rationale' => $rationale,
+                'idempotency_key' => $idempotencyKey,
+                'fingerprint' => $fingerprint,
+                'suppressed_snapshot_count' => $snapshots->count(),
+            ]);
+        });
+    }
+
     public function authorizePublication(array $actor, string $claimVersionId, string $adjudicationDecisionId, string $surface, string $audience, string $policyVersion, string $idempotencyKey): string
     {
         $this->requireActor($actor, 'authorize_publication');
@@ -487,6 +670,20 @@ final class PersistedGovernanceWorkflowService
                 'updated_at' => now(),
             ]);
         });
+    }
+
+    private function normalizeEffectiveDate(string $value): string
+    {
+        if (preg_match('/^\\d{4}-\\d{2}-\\d{2}$/', $value) !== 1) {
+            $this->reject('validity', 'Effective dates must use YYYY-MM-DD.');
+        }
+
+        $date = \DateTimeImmutable::createFromFormat('!Y-m-d', $value);
+        if ($date === false || $date->format('Y-m-d') !== $value) {
+            $this->reject('validity', 'The effective date is invalid.');
+        }
+
+        return $value;
     }
 
     private function evidenceActorIds(string $claimVersionId): array
