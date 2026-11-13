@@ -221,3 +221,10 @@ The review and five Product Owner decision prompts are recorded in `M3-03_AGENDA
 The Product Owner accepted D-01 through D-05 in the Agenda 2 review. R-01–R-06 are incorporated as logical-model invariants; R-07 is addressed by extending the synthetic deterministic specification from 24 to 32 cases (T-025–T-032). The accepted design baseline includes explicit Provider–Institution cardinality, normalized claim disposition/version lineage, human-controlled reversible identity resolution, distinct authority relationship predicates, authorization revocation consequences and minimum separation-of-duties rules.
 
 The acceptance record is in `M3-03_AGENDA_02_LOGICAL_MODEL_REVIEW_AND_GOVERNANCE_DECISIONS.md`; revised artifacts are the logical model, synthetic fixture manifest v1.1.0 and 32-vector test specification. This acceptance is **design-only**. It does not authorize physical schema, migrations, persistence, application implementation, real/source/personal data, source acquisition, external services/AI, hosting, deployment, pilot, launch or spend. M3-03 remains In progress; the next implementation-related scope requires a separate explicit Product Owner authorization.
+
+
+## M3-03 Agenda 3 — Physical Implementation Scope and Authorization Pack (2026-11-13)
+
+Following Product Owner acceptance of the logical design baseline, a documentation-only authorization pack was prepared at `M3-03_AGENDA_03_PHYSICAL_IMPLEMENTATION_AUTHORIZATION_PACK.md`. It proposes a staged local/CI-only, synthetic-only first increment (physical schema/migration contract, then synthetic persistence/invariant tests), defines exclusions, preconditions and acceptance criteria, and explicitly requests a separate Product Owner authorization.
+
+This is a proposal only. No physical schema, migrations, persistence, database provisioning/connection, application code or runtime work has begun. No implementation authorization is issued. M3-03 remains In progress; the next gate is the Product Owner's explicit decision on the exact implementation scope and disposable test-database method.
