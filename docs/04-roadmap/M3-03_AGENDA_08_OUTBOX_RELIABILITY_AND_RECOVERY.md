@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
-**Status:** Implementation candidate; exact-head validation and merge evidence pending  
+**Status:** COMPLETED for bounded authorized local/CI synthetic reliability implementation  
 **Authorization:** Product Owner explicitly authorized Agenda 8 in the current conversation.
 
 ## 1. Objective and bounded scope
@@ -50,7 +50,11 @@ The repository's PHP 8.5 foundation CI and project documentation validation must
 
 No V1, Hostinger/hPanel, production/live database, real/source/institute/student/child/staff data, source retrieval, scraping, external API/AI, public endpoint, deployment, procurement, new spend, role provisioning or GitHub ruleset/protection change is included. The migration is additive and is validated only by disposable CI SQLite `:memory:` tests.
 
-## 6. Agenda disposition
+## 6. Acceptance evidence and closeout
 
-**Agenda 8:** In progress pending exact-head PHP 8.5 foundation CI, documentation validation, review reconciliation and merge.  
+PR [#165](https://github.com/mattari20/listing-v2/pull/165) merged as `3f547ca7b925c5445c296c5a6311bac2fa7d744d` from exact validated head `e11abda10ed8a2aefe69e66c9740544c9bdb4d2a`. PHP 8.5 foundation CI run #43527123064 and Project documentation validation run #43527123066 both passed. No unresolved review threads or review submissions were present. See `M3-03_AGENDA_08_COMPLETION_AND_EVIDENCE_RECORD.md` for full evidence and limitations.
+
+## 7. Agenda disposition
+
+**Agenda 8:** **COMPLETED** for the bounded authorized local/CI synthetic reliability and recovery scope.  
 **M3-03 overall:** remains **IN PROGRESS**; no whole-step weighted completion percentage is claimed.
