@@ -5,7 +5,7 @@
 **Review baseline:** `5679642182cec97426eae7bcb4f836627b04fb09` (main after PR #145)  
 **Review authority:** M3 Master Step Plan; M3-02 Step 1–3 records; merged FND-01 and local/CI hardening evidence; Phase A and Phase D isolation evidence; Product Owner's explicit 2026-11-13 closure-method authorization  
 **Review type:** Final milestone exit assessment and bounded risk disposition  
-**Decision:** **READY FOR PRODUCT OWNER FINAL ACCEPTANCE — FOUNDATION SCOPE ONLY**
+**Decision:** **ACCEPTED / CLOSED — FOUNDATION SCOPE ONLY**
 
 ## 1. Executive decision
 
@@ -15,7 +15,7 @@ M3-02 is bounded to the Laravel platform foundation and its repository/local/CI 
 
 The active readable main ruleset (27043221) requires both `Validate project control documents` and `PHP 8.5 foundation checks` with strict status checks. PR #145 reconciled Phase A and Phase B evidence and is merged. Phase A repository review and Phase B local/Codespaces evidence are qualified as described below.
 
-**Owner disposition:** The Product Owner's explicit authorization accepts the documented M3-02 closure method with runtime isolation, capacity and recovery deferred. Final milestone acceptance remains a separate recorded decision after this final PR's required checks pass and the PR is reviewed. A PR merge alone is not owner acceptance.
+**Owner disposition:** The Product Owner explicitly accepted this final closure pack and authorized merge of PR #146 after both required checks passed. PR #146 was merged on 2026-11-13 as `e778b9d4a5a822a81ab46757b43bab8b74b42082`. This records final Product Owner acceptance of M3-02 foundation scope with the listed runtime isolation, capacity and recovery items deferred.
 
 ## 2. Exit-criteria decision matrix
 
@@ -70,11 +70,8 @@ No weighted completion percentage is assigned. M3-02 acceptance is limited to th
 
 ## 6. Final disposition
 
-**M3-02 Platform Foundation — READY FOR PRODUCT OWNER FINAL ACCEPTANCE, FOUNDATION SCOPE ONLY.**
+**M3-02 Platform Foundation — ACCEPTED / CLOSED on 2026-11-13, FOUNDATION SCOPE ONLY.**
 
-The milestone may be marked accepted/closed only after:
-1. this final PR passes both required checks on its exact final head;
-2. the Product Owner reviews and explicitly accepts the final closure record; and
-3. the PR is merged under the repository's active ruleset.
+Closure evidence: PR #146 passed both required checks on its exact head and was merged under the active repository ruleset. The Product Owner explicitly accepted the closure pack and authorized the merge. Merge commit: `e778b9d4a5a822a81ab46757b43bab8b74b42082`.
 
-Until those steps are complete, the milestone remains **closure pending**. No downstream implementation milestone is started by this document.
+The deferred items remain deferred / not verified / not passed. No downstream implementation milestone is started by this status record.

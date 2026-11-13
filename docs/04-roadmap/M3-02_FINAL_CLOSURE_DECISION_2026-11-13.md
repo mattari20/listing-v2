@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Decision authority:** Product Owner  
 **Scope:** M3-02 platform foundation only  
-**Status before this PR:** Closure pending final validation and owner acceptance
+**Final status:** ACCEPTED / CLOSED on 2026-11-13
 
 ## 1. Product Owner authorization
 
@@ -45,11 +45,14 @@ These deferred items must remain labelled **deferred / not verified / not passed
 
 No Hostinger, V1, production, SSH, hPanel, DNS, deployment, live service, database, real user data, external API, AI provider, telemetry destination, paid service or new spend is authorized by this closure. No repository protection settings are changed by this PR.
 
-## 5. Closure sequence
+## 5. Final acceptance and closure record
 
-1. Validate this PR on its exact head with both required checks.
-2. Product Owner reviews the final acceptance pack and explicitly confirms final acceptance.
-3. Merge only after that separate merge authorization.
-4. After merge, verify the merge commit and post-merge state, then mark M3-02 accepted/closed in the governing roadmap status.
+The Product Owner reviewed and explicitly accepted the final M3-02 closure pack, then authorized merge of PR #146 after both required checks passed on its exact head.
 
-**No weighted completion percentage is assigned.** A successful PR merge without explicit Product Owner acceptance is not sufficient to close the milestone.
+- Final PR: #146 — https://github.com/mattari20/listing-v2/pull/146
+- Required checks: both passed on exact head 
+- Merge commit: `e778b9d4a5a822a81ab46757b43bab8b74b42082`
+- Merge date: 2026-11-13
+- Final status: **M3-02 ACCEPTED / CLOSED — FOUNDATION SCOPE ONLY**
+
+**No weighted completion percentage is assigned.** The explicit deferred items remain unverified and are not converted into passes by milestone closure.
