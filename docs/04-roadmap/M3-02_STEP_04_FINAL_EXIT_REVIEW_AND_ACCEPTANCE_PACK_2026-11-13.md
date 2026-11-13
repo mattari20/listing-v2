@@ -1,101 +1,80 @@
 # M3-02 Step 4 — Final Exit Review and Acceptance Pack
 
 **Prepared:** 2026-11-13  
-**Repository:** mattari20/listing-v2  
-**Baseline:** main at 074b079cf45e89986f51233f79102087b8e04ab2  
-**Review authority:** M3 Master Step Plan; M3-02 Step 1–2 audit; Step 3 architecture conformance review; merged FND-01 and local/CI hardening evidence  
-**Review type:** Final milestone exit assessment; documentation-only  
-**Decision:** **NOT READY FOR M3-02 ACCEPTANCE OR CLOSURE**
+**Repository:** `mattari20/listing-v2`  
+**Review baseline:** `5679642182cec97426eae7bcb4f836627b04fb09` (main after PR #145)  
+**Review authority:** M3 Master Step Plan; M3-02 Step 1–3 records; merged FND-01 and local/CI hardening evidence; Phase A and Phase D isolation evidence; Product Owner's explicit 2026-11-13 closure-method authorization  
+**Review type:** Final milestone exit assessment and bounded risk disposition  
+**Decision:** **READY FOR PRODUCT OWNER FINAL ACCEPTANCE — FOUNDATION SCOPE ONLY**
 
 ## 1. Executive decision
 
-Step 4 is complete as a final evidence reconciliation and acceptance-pack deliverable. M3-02 itself cannot responsibly be marked accepted or closed on the evidence currently available.
+The Product Owner has explicitly authorized the M3-02 closure method and accepted deferral of runtime isolation, capacity and recovery as described in the Phase D evidence reconciliation. These items are **deferred / not verified / not passed**. This is a documented scope-and-risk disposition, not technical proof that a hosted runtime is isolated, adequately sized or recoverable.
 
-The completed work establishes a reproducible GitHub CI foundation, local/CI environment defaults, a documented secret boundary, basic smoke tests, a minimal local/CI diagnostics baseline, a read-only repository governance audit and a full repository-snapshot architecture conformance review. These are meaningful deliverables, but the M3 Master Step Plan requires a reproducible build, protected PR checks, documented configuration and secret boundaries, environment isolation, smoke tests and reviewed architecture conformance.
+M3-02 is bounded to the Laravel platform foundation and its repository/local/CI controls. It does not claim that the complete institute listing product, public discovery, institute records, moderation, publication, identity, maps, analytics or AI capabilities have been implemented.
 
-Two mandatory outcomes remain incomplete or only partially evidenced:
-1. **Protected PR checks:** the active main ruleset requires the documentation validation check but does not require the PHP 8.5 foundation CI check. The legacy branch-protection endpoint could not be read by the connected integration (HTTP 403), so this review cannot claim a complete protection attestation.
-2. **Environment isolation:** local, PHPUnit and GitHub CI boundaries are documented and synthetic-only. V2-specific runtime/document-root/configuration isolation, capacity and recovery evidence have not been verified. No Hostinger/V1/production inspection was performed, and this report does not treat an uninspected environment as isolated.
+The active readable main ruleset (27043221) requires both `Validate project control documents` and `PHP 8.5 foundation checks` with strict status checks. PR #145 reconciled Phase A and Phase B evidence and is merged. Phase A repository review and Phase B local/Codespaces evidence are qualified as described below.
 
-Architecture conformance is reviewed and recorded as **PARTIAL / FOUNDATION-ONLY**, not full conformance. The minimal logging/diagnostics work is accepted as a local/CI baseline only; it is not production observability.
-
-Accordingly, **Step 4 does not authorize a false milestone closeout**. M3-02 remains **In progress — not accepted — not closed**. No weighted completion percentage is assigned because no accepted task-weighted evidence model for this milestone has been reconciled.
+**Owner disposition:** The Product Owner's explicit authorization accepts the documented M3-02 closure method with runtime isolation, capacity and recovery deferred. Final milestone acceptance remains a separate recorded decision after this final PR's required checks pass and the PR is reviewed. A PR merge alone is not owner acceptance.
 
 ## 2. Exit-criteria decision matrix
 
-| M3-02 exit criterion | Evidence available on main | Final disposition | What is still required |
-|---|---|---|---|
-| Reproducible local/CI build | PR #139 exact-head PHP 8.5 foundation CI and documentation validation passed; PR #141 exact-head PHP foundation CI and docs validation passed; PR #141 post-merge docs validation passed | **Met for GitHub CI foundation** | No independent private Codespace run was observed; CI is the verified evidence |
-| Protected PR checks | Active ruleset 27043221 requires PRs, thread resolution, linear history, deletion/non-fast-forward protection and project documentation validation | **Partial / not met** | PHP foundation CI is not a required check; authorized owner must decide whether to require it. Legacy branch-protection endpoint remains unreadable to the integration |
-| Configuration and secret boundaries | Local untracked .env guidance, synthetic PHPUnit key, no secrets in CI, contents:read workflow permissions, environment inventory and secret-handling documentation | **Met for local/CI scope** | Production/host secret lifecycle remains outside this foundation scope and requires separate authorization/review |
-| Environment isolation | Local workstation/Codespace, PHPUnit and GitHub Actions CI are documented as distinct non-production contexts with synthetic fixtures | **Partial / not fully evidenced** | V2-specific runtime/document-root/configuration separation, capacity and recovery remain unverified. Do not access Hostinger/V1/production without explicit scope |
-| Smoke tests | Fixed non-sensitive GET /health endpoint has an exact-response feature test; CI runs Laravel bootstrap, route listing and synthetic PHPUnit suite | **Met for foundation smoke scope** | Does not establish live service, database, host or operational dependency health |
-| Reviewed architecture conformance | Step 3 PR #141 merged; evidence-based matrix covers accepted M2 architecture and AI-era requirements | **Reviewed; result PARTIAL / FOUNDATION-ONLY** | Broader domain, provenance, adjudication, publication, discovery, identity and operations features remain future milestone work, not FND-01 conformance claims |
-| Observability baseline | Warning-level logging defaults, local stack/single channel, disabled deprecation trace, privacy-safe logging policy and tests | **Met only as minimal local/CI diagnostics baseline** | No production metrics, traces, alerts, retention, centralized monitoring or incident operations; defer to later operational-readiness scope |
+| M3-02 exit criterion | Evidence | Final disposition |
+|---|---|---|
+| Reproducible local/CI build | PR #136 foundation; PR #139 hardening; exact-head CI on PRs #141, #144 and #145; Phase B Composer/platform/syntax/test evidence | **Accepted for foundation scope**, with local PHP 8.4.27 vs CI PHP 8.5 and five benign missing-.env PHPUnit warnings retained as qualifications |
+| Protected PR checks | Active readable main ruleset 27043221 requires documentation validation and PHP 8.5 foundation checks; strict status checks | **Accepted for the active readable ruleset**. Legacy branch-protection endpoint remains unreadable to the integration (HTTP 403), so that separate mechanism is not attested |
+| Configuration and secret boundaries | Tracked V2 repository review, synthetic local/PHPUnit defaults, CI permissions and no repository secret use in inspected workflows | **Accepted for repository/local/CI foundation scope only** |
+| Environment isolation | Phase A current-tree static review; Phase B local/Codespaces evidence; no authorized hosted target | **Runtime isolation deferred / not verified / not passed**. ISO-06, ISO-07 runtime, ISO-08 hosting boundaries, ISO-10 capacity and ISO-11 recovery remain unverified |
+| Smoke tests | Exact `GET /health` feature test passed in CI; supplied local standalone HTTP attempt returned 500 due missing APP_KEY and no successful retry evidence was supplied | **Accepted for CI foundation smoke-test scope only**. Standalone local HTTP and hosted endpoint checks are not claimed as passed |
+| Architecture conformance | Step 3 architecture review, merged PR #141 | **Accepted as PARTIAL / FOUNDATION-ONLY**. Downstream product architecture remains assigned to later roadmap milestones; Deeni Madaris default-OFF remains a release gate before public discovery |
+| Minimal observability/diagnostics | Warning-level logging defaults and local/CI diagnostics baseline | **Accepted for local/CI foundation scope only**. Production metrics, traces, alerts, retention and incident operations are deferred to operational readiness |
 
 ## 3. Accepted evidence inventory
 
-### 3.1 Delivered implementation evidence
-- PR #136 — FND-01 Laravel foundation, merged as f61b4d17492294d45518493337f3fcd58fd78487.
-- PR #139 — local/CI foundation hardening, merged as bab5d7458b2820be2f93f242b925eaed2ae0ece0.
-- PR #141 — architecture conformance review, merged as 074b079cf45e89986f51233f79102087b8e04ab2.
-- PHP 8.5 foundation CI passed on PR #141 exact head b37f81ac42095ac3ed95167f7ef912744add43c9 (run #43405105613).
-- Project documentation validation passed on PR #141 exact head (run #43405105789).
-- Post-merge project documentation validation passed on main merge commit 074b079cf45e89986f51233f79102087b8e04ab2 (run #43405175049).
+- PR #136 — FND-01 Laravel foundation, merged as `f61b4d17492294d45518493337f3fcd58fd78487`.
+- PR #139 — local/CI foundation hardening, merged as `bab5d7458b2820be2f93f242b925eaed2ae0ece0`.
+- PR #141 — architecture conformance review, merged as `074b079cf45e89986f51233f79102087b8e04ab2`.
+- PR #143 — V2-only non-production isolation verification plan, merged as `1479fbba6edbf10e668ab57bcdf3a6bdd49f1ae2`.
+- PR #145 — Phase D evidence reconciliation, merged as `5679642182cec97426eae7bcb4f836627b04fb09`.
+- PR #144 — Phase A static isolation review, commit `6256f5f79e71b22f6998952114d1ff74484aafed`; its exact-head documentation validation run #43432289303 and PHP foundation CI run #43432289072 both succeeded. The report's static findings are incorporated by reference; PR #144 itself is not treated as merged evidence.
+- Phase B supplied Codespaces evidence: Composer validation and platform checks passed; 21 tracked PHP files linted; PHPUnit ran 5 methods / 17 assertions with no failed assertions or test errors and five benign missing-.env warnings; no successful standalone HTTP retry or final cleanup attestation was supplied.
+- Active main ruleset 27043221 read-only snapshot: both required checks present with strict status checks.
 
-### 3.2 Delivered documentation
-- M3-02 Step 1–2 reconciliation and governance audit.
-- M3-02 local/CI environment configuration and diagnostics baseline.
-- M3-02 local/CI foundation hardening implementation record.
-- M3-02 Step 3 architecture conformance review.
-- This Step 4 final exit review and acceptance pack.
+## 4. Explicit deferred items and accepted limitations
 
-## 4. Open blockers and decisions
+The following are deliberately not completed in M3-02 and must remain visible as deferred work:
 
-### BLOCK-01 — Required application CI check
-**Current state:** PHP 8.5 foundation CI runs for PRs and passed exact-head checks, but active main ruleset 27043221 does not require it.  
-**Needed:** Product Owner decision on making the PHP foundation check required, followed by a separately authorized settings change and read-only verification of the resulting ruleset.  
-**Boundary:** This Step 4 did not modify rulesets, branch protection, required checks, review count, bypass actors or merge methods.
+1. **ISO-06 — hosted V2 document-root mapping:** not verified.
+2. **ISO-07 — hosted configuration/secrets separation:** not verified.
+3. **ISO-08 — hosted storage/session/cache/queue/log separation:** not verified.
+4. **ISO-10 — hosting/runtime capacity:** not verified; no load or stress test performed.
+5. **ISO-11 — recovery readiness:** not verified; no backup, restore, failover or recovery exercise performed.
+6. **Standalone local HTTP smoke:** not verified; CI `GET /health` feature test is the accepted foundation smoke evidence.
+7. **Production observability and operations:** deferred to a separately scoped operational-readiness milestone.
+8. **Legacy branch-protection endpoint:** unreadable to the connected integration (HTTP 403); no claim is made about that endpoint.
+9. **Architecture beyond foundation:** carried forward to downstream roadmap steps; no product feature completion is implied.
 
-### BLOCK-02 — V2 environment isolation and recovery evidence
-**Current state:** local/CI boundaries are documented; V2-specific runtime/document-root/configuration isolation, capacity and recovery are unverified.  
-**Needed:** A separately scoped and explicitly authorized non-production V2 environment verification plan. It must not inspect or change V1, use the V1 database, modify shared settings or cause production impact. If the required proof cannot be obtained safely under the no-new-spend constraint, record it as deferred and keep the relevant acceptance gate open.  
-**Boundary:** No Hostinger, hPanel, SSH, DNS, deployment, production or V1 access was performed.
+The Product Owner has accepted closure with items 1–5 deferred. No deferred item may be relabelled as passed, verified, complete or safe by inference. Any future hosted/runtime verification requires a separate explicit authorization naming the V2-only non-production target, access method, allowed actions, time window and stop conditions.
 
-### BLOCK-03 — Scope of observability acceptance
-**Current state:** a minimal local/CI diagnostics baseline is implemented and documented.  
-**Disposition:** Accept only that bounded local/CI baseline for the foundation. Do not describe it as production observability or operational monitoring. Production metrics, traces, alerts, retention and incident operations belong to a later separately scoped operational-readiness stage.
+## 5. Scope boundary and no-change attestation
 
-### BLOCK-04 — Architecture implementation boundaries
-**Current state:** Step 3 reviewed the foundation as PARTIAL / FOUNDATION-ONLY.  
-**Disposition:** M3-02 does not need to implement the entire M2 product architecture; downstream domain, publication, discovery, identity and AI capabilities belong to their own roadmap steps. However, the platform foundation must preserve their logical boundaries and the Deeni Madaris default-OFF invariant. No public discovery surface may be built until cross-surface policy enforcement and negative tests are in place.
+This closure package does not authorize or perform:
+- Hostinger, hPanel, SSH, SFTP, DNS, deployment, live service or production access;
+- V1 repository, files, configuration, database, hosting or shared-resource access;
+- database configuration, credentials, connections, commands, schema, migrations, seeds or writes;
+- real/source/personal/student/child/institute/staff data;
+- external APIs, AI/model providers, telemetry destinations, paid services, infrastructure or new spend;
+- repository ruleset, branch-protection, required-check, approval-count, bypass or merge-setting changes.
 
-## 5. Conditions for any future M3-02 closure attempt
+No weighted completion percentage is assigned. M3-02 acceptance is limited to the foundation scope and the explicit deferred-risk disposition above.
 
-M3-02 may be reconsidered for acceptance only after:
-1. The required-check governance gap is resolved by an explicit owner decision and verified settings evidence, or a formally accepted alternative control is documented.
-2. The environment-isolation criterion has objective evidence within an explicitly authorized, non-production scope, or the Product Owner explicitly revises the criterion with a documented risk acceptance. No silent waiver is inferred.
-3. The local/CI observability baseline is explicitly accepted as sufficient for M3-02 foundation scope, with production operations clearly deferred.
-4. The Step 3 partial-conformance findings are dispositioned: foundation constraints accepted, downstream architecture requirements carried forward to the correct M3 steps, and no unresolved foundation contradiction left unassigned.
-5. The final acceptance pack is reviewed and the Product Owner records explicit acceptance.
+## 6. Final disposition
 
-A PR merge, CI pass, or this report alone does not constitute owner acceptance.
+**M3-02 Platform Foundation — READY FOR PRODUCT OWNER FINAL ACCEPTANCE, FOUNDATION SCOPE ONLY.**
 
-## 6. Safety, scope and no-change attestation
+The milestone may be marked accepted/closed only after:
+1. this final PR passes both required checks on its exact final head;
+2. the Product Owner reviews and explicitly accepts the final closure record; and
+3. the PR is merged under the repository's active ruleset.
 
-This Step 4 activity was documentation and evidence reconciliation only. It did not:
-- change application code, dependencies, workflows or CI behavior;
-- change repository settings, rulesets, branch protection, required checks, approval counts, bypass or merge settings;
-- access Hostinger, V1, production, SSH, hPanel, DNS or any live service;
-- create or access a database, configuration, schema, migration, seed or database connection;
-- use real/source/personal/student/child/institute/staff data;
-- call external APIs, AI/model providers, agents, MCP servers or telemetry destinations;
-- deploy, launch, create infrastructure or incur spend.
-
-## 7. Step 4 completion and milestone status
-
-**M3-02 Step 4 — Final Exit Review and Acceptance Pack: COMPLETE as a documentation/evidence deliverable.**
-
-**M3-02 Platform Foundation — NOT ACCEPTED / NOT CLOSED.** The milestone remains In progress because protected PR checks and environment-isolation evidence are not fully satisfied. The observability baseline is accepted only at the local/CI diagnostic level. No weighted percentage is assigned.
-
-**Next action:** obtain the Product Owner's explicit decision on the PHP CI required-check control and a separately bounded authorization for safe V2 non-production isolation verification. Reassess closure only after those gates have evidence. Do not begin M3-03 implementation until M3-02 is formally accepted and the applicable M3-01 authorization/dependencies are confirmed.
+Until those steps are complete, the milestone remains **closure pending**. No downstream implementation milestone is started by this document.
