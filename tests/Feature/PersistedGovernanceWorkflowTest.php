@@ -89,6 +89,17 @@ class PersistedGovernanceWorkflowTest extends TestCase
         $this->assertDatabaseHas('audit_events', ['target_id' => $fixture['authorization'], 'action' => 'source_authorization_revoked']);
     }
 
+    public function test_adjudicator_cannot_publish_their_own_accepted_decision(): void
+    {
+        $fixture = $this->fixture();
+        $service = new PersistedGovernanceWorkflowService();
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-separation');
+        $decisionId = $service->decideAdjudication($this->actor('same_human', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted after synthetic review.', 'policy-v1');
+
+        $this->expectException(ValidationException::class);
+        $service->authorizePublication($this->actor('same_human', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'publish-same-actor');
+    }
+
     public function test_automated_adjudication_and_same_actor_publication_are_denied(): void
     {
         $fixture = $this->fixture();
