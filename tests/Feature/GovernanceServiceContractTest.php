@@ -89,6 +89,7 @@ class GovernanceServiceContractTest extends TestCase
         ]);
         $second = $service->registerEvidenceReference($authorizationId, $actor, $this->context(), 'evidence-key-1', [
             'reference_kind' => 'synthetic_fixture',
+            'integrity_digest' => 'sha256:synthetic-fixture',
             'content_included' => false,
         ]);
 
@@ -96,6 +97,24 @@ class GovernanceServiceContractTest extends TestCase
         $this->assertDatabaseHas('evidence_references', ['id' => $first, 'status' => 'quarantined', 'content_included' => 0]);
         $this->assertSame(1, DB::table('evidence_references')->count());
         $this->assertSame(1, DB::table('audit_events')->where('action', 'evidence_reference_registered')->count());
+    }
+
+
+    public function test_idempotency_key_cannot_be_reused_for_a_different_command(): void
+    {
+        $authorizationId = $this->insertAuthorization();
+        $service = app(GovernanceCommandService::class);
+        $actor = $this->actor('synthetic-collector', ['register_evidence']);
+        $service->registerEvidenceReference($authorizationId, $actor, $this->context(), 'same-key', [
+            'reference_kind' => 'synthetic_fixture',
+            'content_included' => false,
+        ]);
+
+        $this->expectException(ValidationException::class);
+        $service->registerEvidenceReference($authorizationId, $actor, $this->context(), 'same-key', [
+            'reference_kind' => 'different-synthetic-fixture',
+            'content_included' => false,
+        ]);
     }
 
     public function test_evidence_registration_denies_unapproved_scope_and_content_payloads(): void
