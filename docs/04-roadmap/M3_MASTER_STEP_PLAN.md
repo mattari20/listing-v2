@@ -262,3 +262,10 @@ PR [#160](https://github.com/mattari20/listing-v2/pull/160) merged as `9fd14f069
 - The test suite recorded 104 assertions and 22 non-fatal warnings from existing test harness attempts to read an absent local `.env` file.
 
 Agenda 6 is **Complete** for the bounded local/CI synthetic policy/service-contract scope. The GS-001–GS-032 matrix is policy-level verification, not 32 end-to-end workflows. Persisted adjudication/publication decisions, snapshots/projections, outbox/queue delivery, suppression propagation and restoration persistence remain deferred and require separate authorization. M3-03 remains **In progress**; no whole-step completion percentage is claimed.
+
+
+## M3-03 Agenda 7 — Persisted Adjudication and Publication Workflows (2026-11-13)
+
+The Product Owner authorized the next bounded local/CI-only synthetic implementation increment. PR [#162](https://github.com/mattari20/listing-v2/pull/162) adds persistence for adjudication cases/decisions and appeal lineage, publication decisions and immutable snapshots, internal public-projection state, transactional outbox events, emergency suppression and restoration. The service implements human adjudication and publication gates, evidence/authorization rechecks, actor separation, source-authorization revocation propagation, idempotent projection processing and audit/outbox atomicity.
+
+The implementation candidate and scope/limitations record is `M3-03_AGENDA_07_PERSISTED_ADJUDICATION_AND_PUBLICATION_WORKFLOWS.md`. Synthetic feature tests cover the new workflows. Exact-head PHP 8.5 foundation CI and documentation validation are pending; do not mark Agenda 7 complete or merge until both pass, review threads are clear and the exact head is rechecked. No public route, real role provisioning, real/source data, production, external services, deployment or spend is included. M3-03 remains in progress; no whole-step completion percentage is claimed.
