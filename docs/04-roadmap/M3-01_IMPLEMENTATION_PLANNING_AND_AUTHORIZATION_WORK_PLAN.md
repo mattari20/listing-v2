@@ -1,10 +1,10 @@
 # M3-01 — Implementation Planning and Authorization Work Plan
 
-**Status:** Documentation/planning in progress — no implementation authorized  
+**Status:** Planning/authorization record in progress; bounded FND-01 package authorized and merged; broader implementation remains gated  
 **Dependency:** M3-00 accepted/closed for planning deliverables on 2026-11-12  
 **M3 weight:** 7%  
 **Owner:** Product Owner (final decisions); ChatGPT assists with documentation and planning  
-**Implementation authorization:** NOT ISSUED
+**Implementation authorization:** FND-01 only — explicitly issued 2026-11-13; no authorization for M3-02 or later work
 
 ## 1. Objective
 
@@ -20,8 +20,8 @@ Convert accepted M2 architecture and M3-00 controls into a safe, reviewable, nar
 | P04 | 15% | Stack, hosting and cost decision evidence | Owner-approved selections or no-go decision; no-spend enforced | Blocked pending evidence/decisions |
 | P05 | 15% | Legal/privacy/source-rights/safeguarding/security preconditions | Scope-specific qualified reviews or excluded work; deny-by-default | Blocked pending reviewers/evidence |
 | P06 | 15% | Environment, tests, CI, release and rollback plan | Synthetic-only test boundaries, acceptance tests, severity gates, secrets, stop/recovery plan | Synthetic-only framework delivered for review; environment not selected/activated |
-| P07 | 10% | Narrow implementation authorization request | Exact branch, package, activities, exclusions, spend, named humans, tests, stop/expiry | Not started |
-| P08 | 5% | Final owner review and M3-01 decision record | Explicit owner decision; authorization separately issued or refused | Not started |
+| P07 | 10% | Narrow implementation authorization request | Exact branch, package, activities, exclusions, spend, named humans, tests, stop/expiry | Completed for bounded FND-01 only — exact authorization received; PR #136 merged; no broader scope |
+| P08 | 5% | Final owner review and M3-01 decision record | Explicit owner decision; authorization separately issued or refused | Completed for FND-01 decision only — owner approved exact PR #136 for squash merge; M3-02 and later work remain unauthorized |
 
 No task receives completion credit from a PR alone. An unresolved critical blocker must remain visible even if its planning document is delivered. M3-01 may be fully documented yet **blocked** from implementation.
 
@@ -118,3 +118,12 @@ P04 remains OPEN for exact V2 compatibility/isolation/capacity/recovery evidence
 ## P06 environment, test, CI, release and rollback plan — 2026-11-13
 
 The [P06 Environment, Test, CI, Release and Rollback Plan](M3-01_P06_ENVIRONMENT_TEST_CI_RELEASE_ROLLBACK_PLAN_2026-11-13.md) specifies local + GitHub CI synthetic-only environments, runtime/dependency policy, test matrix, branch/review controls, no-deployment first foundation boundary, recovery prerequisites and stop conditions. It does not create CI workflows, install packages, activate environments or deploy. P06 is delivered for owner review; implementation authorization remains NOT ISSUED.
+
+
+## FND-01 merge and owner decision — 2026-11-13
+
+The Product Owner issued the exact bounded FND-01 authorization on 2026-11-13. Implementation was delivered in PR [#136](https://github.com/mattari20/listing-v2/pull/136), whose exact head was `d9b8eb8bb04c394d2b08e1a451fcb2d338158662`. The required exact-head checks passed: **FND-01 foundation CI** (run [#43380176340](https://github.com/mattari20/listing-v2/actions/runs/43380176340)) and **Project documentation validation** (run [#43380176524](https://github.com/mattari20/listing-v2/actions/runs/43380176524)). Following the Product Owner's explicit approval, PR #136 was squash-merged into `main` as `f61b4d17492294d45518493337f3fcd58fd78487`; GitHub confirms `main` points to that merge commit and PR #136 is merged.
+
+This records delivery and merge of FND-01 only. It does not claim Hostinger compatibility, V2 runtime isolation, capacity, backup/restore, legal/privacy/source-rights/safeguarding/security sign-off, production readiness or completion of M3-01 as a whole. No Hostinger/V1/production access, database work, migrations, real/source/personal data, external APIs/AI, deployment or new spend occurred. M3-02 and all later implementation remain separately gated and unauthorized.
+
+P07/P08 are closed only for the FND-01 bounded package. This does not mean M3-01 as a whole is complete: P04 remains open for V2-specific compatibility/isolation/capacity/recovery evidence; P05 professional review gates remain open; other M3-01 planning and acceptance criteria must be reconciled individually. Do not assign a whole-step completion percentage until the remaining task evidence is assessed. M3-02 is a separate roadmap step and requires separate explicit authorization.
