@@ -2,7 +2,7 @@
 
 **As of:** 2026-11-13  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 in progress — Agendas 1–4 delivered; Agenda 4 local/CI synthetic persistence foundation merged
+**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 in progress — Agendas 1–5 delivered; Agenda 5 governance service boundary/enforcement design completed
 
 ## Verified current M3 position — 2026-11-12 (post PR #114 owner-approved deferrals)
 
@@ -847,3 +847,18 @@ The merged migration establishes eight core governance tables for entities, rela
 No V1, Hostinger, hPanel, production/live database, real/source/personal/institute data, source acquisition, external API/AI, public surface, deployment, new spend or repository protection/ruleset changes occurred. The implementation does not deliver the governance service, human adjudication/publication workflow or a complete V2 product, and it does not establish legal/privacy/source-rights clearance or production readiness.
 
 **Agenda boundary:** Agenda 4 authorization is exhausted and closed. No subsequent slice is authorized. M3-03 remains **In progress** pending separately scoped future work and owner decisions; no whole-step completion percentage is claimed. See [M3 master step plan](M3_MASTER_STEP_PLAN.md) and the Agenda 4 completion/evidence record.
+
+
+## M3-03 Agenda 5 — Governance Service Boundary and Enforcement Design closeout (2026-11-13)
+
+**Status: Completed — design only.** The Product Owner authorized and closed the bounded agenda to define how source authorization, evidence quarantine, claim validation, audit, human decisions and publication controls should be enforced by application services.
+
+Deliverables:
+- `M3-03_AGENDA_05_GOVERNANCE_SERVICE_BOUNDARY_AND_ENFORCEMENT_DESIGN.md`
+- `M3-03_AGENDA_05_COMPLETION_AND_EVIDENCE_RECORD.md`
+
+The design defines modular-monolith service boundaries, conceptual commands and outcomes, authorization/evidence/claim states, mandatory governance invariants, revocation and suppression handling, audit and transaction/failure expectations, entry-point bypass prevention, minimum capability separation, 32 synthetic acceptance-test scenarios, traceability and deferred risks.
+
+This is a design deliverable only. The GS-001–GS-032 cases are not executed application tests. No service implementation, role provisioning, source access, real data, external API/AI, public surface, deployment, procurement or spend occurred. The role/permission matrix and named human coverage, legal/privacy/source-rights/safeguarding/security reviews, source-specific authorization, retention policy, projection architecture and runtime proof remain open gates.
+
+**Agenda boundary:** Agenda 5 is closed and its authorization exhausted. Governance service implementation is **Not authorized**. M3-03 overall remains **In progress**; no whole-step completion percentage is claimed. Any subsequent implementation-readiness or implementation work requires a new explicit Product Owner authorization.
