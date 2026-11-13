@@ -28,6 +28,11 @@ All identifiers and labels below are invented for test use. They are not intende
 | FX-013 | Prohibited public field `private_contact_synth` | Privacy allowlist rejection |
 | FX-014 | Audit event `audit-synth-001` | Required transition lineage |
 | FX-015 | Correction/withdrawal event `withdraw-synth-001` | Removal from current public projection while retaining history |
+| FX-016 | Qualification `qual-synth-001` and awarding body `award-synth-001` | Keep qualification distinct from programme and awarding body distinct from provider/regulator |
+| FX-017 | Admission cycle `cycle-synth-001` | Scope offers, eligibility, deadlines and fees to a named cycle |
+| FX-018 | Programme offer `offer-synth-001` | Bind one programme to one campus/site and one admission cycle |
+| FX-019 | Fee component `fee-synth-001` | Preserve amount/period/effective interval as a scoped component |
+| FX-020 | Scholarship offer `aid-synth-001` | Preserve eligibility, coverage and cycle-specific conditions |
 
 ## 3. Canonical synthetic input set
 
@@ -59,6 +64,10 @@ For every case, the same rule-set version and same fixture input must yield the 
 | T-018 | Rollback selects a prior approved snapshot | PASS: create new rollback event; do not erase intervening events |
 | T-019 | Material state transition has no audit event/reason | FAIL: missing_audit_lineage |
 | T-020 | Repeated run with identical rule version and fixtures | PASS: byte-equivalent normalized findings and outcome |
+| T-021 | Programme is linked to a qualification through a typed may-lead-to relationship | PASS: qualification remains distinct from programme |
+| T-022 | A programme offer lacks a campus/site or admission-cycle scope | FAIL: incomplete_offer_scope |
+| T-023 | Fee component is attached to an offer but omits currency, period or effective-time context | FAIL: incomplete_fee_scope; do not expose an unscoped total |
+| T-024 | Awarding body is inferred from provider identity or regulator label without an explicit relationship | FAIL: unsupported_awarding_body_inference |
 
 ## 5. Test oracle and result semantics
 
@@ -73,7 +82,7 @@ Validation findings must include stable rule identifier, rule-set version, fixtu
 
 ## 6. Expected-result review summary
 
-The 20 test vectors above cover entity/relationship integrity, vocabulary, temporal validity, provenance authorization, immutable versioning, conflict detection, human decision separation, restricted-category suppression, public field allowlisting, audit completeness, correction/withdrawal, rollback and deterministic repeatability.
+The 24 test vectors above cover entity/relationship integrity, vocabulary, temporal validity, provenance authorization, immutable versioning, conflict detection, human decision separation, restricted-category suppression, public field allowlisting, audit completeness, correction/withdrawal, rollback and deterministic repeatability.
 
 **Execution status:** specification-level expected results are defined. No application-level test code was added or run because the bounded authorization excludes persistence and application implementation. These are design acceptance vectors for a later separately authorized implementation test suite.
 
