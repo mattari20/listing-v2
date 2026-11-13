@@ -186,3 +186,10 @@ Step 4 is complete as a documentation/evidence deliverable. M3-02 remains in pro
 - [M3-03 Agenda 7 Persisted Adjudication and Publication Workflows](04-roadmap/M3-03_AGENDA_07_PERSISTED_ADJUDICATION_AND_PUBLICATION_WORKFLOWS.md) — bounded synthetic implementation scope, persistence/workflow safeguards, separation-of-duties feasibility and remaining technical/approval gates.
 
 PR #162 contains the implementation candidate. Exact-head CI and documentation validation remain pending; Agenda 7 is not yet closed.
+
+
+## M3-03 Agenda 7 — persisted governance workflow closeout
+- [M3-03 Agenda 7 Persisted Adjudication and Publication Workflows](04-roadmap/M3-03_AGENDA_07_PERSISTED_ADJUDICATION_AND_PUBLICATION_WORKFLOWS.md) — completed bounded local/CI synthetic implementation.
+- [M3-03 Agenda 7 Completion and Evidence Record](04-roadmap/M3-03_AGENDA_07_COMPLETION_AND_EVIDENCE_RECORD.md) — merged PR #163, exact-head CI/test evidence, limitations and remaining approval gates.
+
+PR #163 is merged. Exact-head PHP 8.5 foundation CI run #111 and Project documentation validation run #430 passed. Agenda 7 is complete for its authorized scope; M3-03 remains in progress.
