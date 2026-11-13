@@ -717,3 +717,9 @@ P04 remains open pending verification. P05–P08 remain independently gated. M3 
 ## P04 official Hostinger compatibility research — 2026-11-13
 
 Public Hostinger documentation makes Premium a credible candidate for a lean PHP/Laravel + MySQL modular monolith without new hosting spend: SSH and Composer 2 are documented for Premium, cron is supported, and MySQL/PDO is available on Web hosting. Laravel 13 requires PHP >=8.3, compatible in principle with the hPanel PHP 8.5 screenshot. However, account-specific CLI/runtime, extensions, database engine/limits, isolated routing, restore and shared resource headroom are still unverified. Published plan limits differ by plan generation, so no generic limit is treated as the owner's exact entitlement. P04 remains OPEN; M3 remains 5%; implementation authorization NOT ISSUED. See [P04 Hostinger compatibility evidence](M3-01_P04_EXISTING_HOSTINGER_PREMIUM_CONSTRAINT_2026-11-13.md).
+
+## P04 owner-confirmed Hostinger capabilities — 2026-11-13
+
+The Product Owner confirmed that PHP/CLI, Composer, PHP-extension support, hosted MySQL-compatible database service, SSH, cron and the existing deployment/file-management workflow are already available and in use for V1 on the same Hostinger Premium environment. This owner confirmation is recorded without accessing V1. Screenshots are no longer required merely to prove general availability of those capabilities.
+
+Remaining checks are V2-specific: exact PHP/DB versions and limits relevant to the selected framework, Laravel compatibility, isolated V2 routing/document root and configuration, resource headroom, and V2 backup/restore. P04 is advanced but OPEN. M3 overall remains 5%; no M3-01 weighted progress is claimed. No implementation, technical spike, package installation, V1 inspection, database creation, deployment or spend is authorized.

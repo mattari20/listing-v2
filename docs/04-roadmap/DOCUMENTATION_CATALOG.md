@@ -715,7 +715,7 @@ The decision does not claim hands-on framework proficiency or select final versi
 
 | Document | Purpose | Status |
 |---|---|---|
-| [M3-01 P04 Existing Hostinger Premium Constraint](M3-01_P04_EXISTING_HOSTINGER_PREMIUM_CONSTRAINT_2026-11-13.md) | Records hPanel plan evidence, owner's no-new-spend constraint, initial PHP/Laravel + existing database candidate, deferred capabilities, portability principles and verification gates | Delivered in planning PR; P04 remains open; no implementation authorized |
+| [M3-01 P04 Existing Hostinger Premium Constraint](M3-01_P04_EXISTING_HOSTINGER_PREMIUM_CONSTRAINT_2026-11-13.md) | Records hPanel evidence, no-new-spend constraint, owner-confirmed existing-host PHP/CLI, Composer, extensions, MySQL-compatible DB, SSH, cron and deployment capabilities, plus remaining V2 isolation/capacity/recovery gates | Updated in owner-confirmation PR; P04 advanced but remains open; no implementation authorized |
 
 This supersedes the earlier Django/PostgreSQL/PostGIS preference for initial deployment only. Exact Premium compatibility remains unverified; no additional infrastructure spend is approved.
 

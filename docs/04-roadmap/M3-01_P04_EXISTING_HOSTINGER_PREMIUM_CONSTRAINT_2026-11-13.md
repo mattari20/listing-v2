@@ -186,3 +186,34 @@ For database version, the owner may inspect only the hPanel database management 
 | Exact renewal cost / plan generation | **Not confirmed** |
 
 **Interim conclusion:** The existing Premium plan is a credible zero-new-spend hosting candidate for a carefully scoped initial V2 directory. It is not yet a proven fit for the complete roadmap or for production launch. P04 remains OPEN until the account-specific checks and an authorized V2-only synthetic capacity/recovery test are completed. No stack version is finally selected, and this research does not authorize implementation, installation, account changes, production access, database creation/inspection, deployment or spend.
+
+## 11. Product Owner confirmation of existing-host capabilities — 2026-11-13
+
+The Product Owner has confirmed that the hosting capabilities previously listed as requiring screenshots or account checks are already available and in use for the existing V1 website on the same Hostinger Premium hosting environment. This confirmation is accepted as owner-supplied operational evidence for the shared hosting account; no V1 files, configuration, database, credentials or production service were accessed for this update.
+
+For planning purposes, the following shared-host capabilities are treated as **owner-confirmed present and operational in the current hosting environment**: PHP execution/CLI, Composer, required PHP-extension support, the hosted MySQL-compatible database service, SSH, scheduled cron capability and the existing hosting deployment/file-management workflow.
+
+This confirmation does **not** establish the exact PHP CLI version, exact enabled extension list for a future V2 web root, exact MySQL versus MariaDB engine/version, exact database quota/connection limits, Laravel-specific compatibility, or that V2 can safely share V1's current document root, files, database, configuration or resource allocation. No values are inferred from V1 and no V1 inspection is authorized or required.
+
+### Updated evidence treatment
+
+| Item | Revised evidence status | V2-specific treatment |
+|---|---|---|
+| PHP / PHP CLI | Owner-confirmed used on the current hosting environment; hPanel screenshot previously showed PHP 8.5 | Confirm CLI/web-handler parity and supported Laravel target at the V2 boundary before implementation |
+| Composer | Owner-confirmed used/available | Confirm exact Composer 2 invocation/version only if required by the selected build workflow |
+| PHP extensions | Owner-confirmed extension capability is in use | Check the selected framework's exact required extensions against the V2 PHP runtime; do not change shared/global settings |
+| MySQL-compatible database | Owner-confirmed hosted database service is in use | Exact engine/version and free isolated database/quota remain V2 planning inputs; never inspect or reuse the V1 database |
+| SSH | Owner-confirmed available/in use | Define least-privilege V2 deployment access; do not share credentials in chat |
+| Cron | Owner-confirmed available/in use | Keep initial scheduled work low-frequency and bounded; no persistent workers |
+| Deployment/file management | Owner-confirmed existing workflow is in use | Define a separate V2 path/document root, secrets, permissions, release and rollback boundaries |
+| V2 isolation | Not proven by V1 usage | Must be designed and verified independently |
+| V2 resource headroom | Not proven by V1 usage | Requires an authorized V2-only synthetic capacity test before launch |
+| V2 backup/restore | Weekly plan backup is visible, but V2 restore evidence is absent | Define and rehearse V2-owned synthetic-data recovery after separate authorization |
+
+### Revised P04 interpretation
+
+The prior request for screenshots merely to prove that PHP, Composer, extensions, database service, SSH, cron and basic deployment capability exist is withdrawn. The Product Owner's confirmation is sufficient to proceed with architecture planning and to avoid unnecessary V1 access.
+
+P04 is **advanced but remains OPEN** because exact framework/runtime compatibility, V2 isolation/routing, V2 resource headroom, V2 recovery evidence and final owner approval of the initial versioned stack are still outstanding. These are V2-specific gates, not requests to audit V1.
+
+The current zero-new-spend direction remains binding. The next planning output should define a lean Laravel/PHP + MySQL-compatible modular monolith candidate, a V2-only directory/deployment boundary, and a staged schedule. No implementation, technical spike, package installation, account change, database creation, V1 inspection, deployment, production access or spend is authorized by this owner confirmation.
