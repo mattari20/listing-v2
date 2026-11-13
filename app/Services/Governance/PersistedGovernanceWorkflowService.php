@@ -323,7 +323,7 @@ final class PersistedGovernanceWorkflowService
             try {
                 $this->applyOutboxEvent($claim['id'], $claim['token']);
                 $processed++;
-            } catch (\\Throwable $exception) {
+            } catch (\Throwable $exception) {
                 $this->recordOutboxFailure($claim, $exception, $maxAttempts);
             }
         }
@@ -389,7 +389,7 @@ final class PersistedGovernanceWorkflowService
                 if ($snapshot !== null && $snapshot->status === 'approved_pending_projection') {
                     $snapshotPayload = json_decode($snapshot->payload, true, 512, JSON_THROW_ON_ERROR);
                     if (($snapshotPayload['is_deeni_madaris'] ?? false) === true) {
-                        throw new \\RuntimeException('Restricted Deeni Madaris snapshots cannot be projected.');
+                        throw new \RuntimeException('Restricted Deeni Madaris snapshots cannot be projected.');
                     }
 
                     $latestSnapshotId = DB::table('publication_snapshots')
@@ -441,7 +441,7 @@ final class PersistedGovernanceWorkflowService
                         ->update(['status' => 'suppressed', 'updated_at' => now()]);
                 }
             } else {
-                throw new \\RuntimeException('Unsupported governance outbox event type: '.$event->event_type);
+                throw new \RuntimeException('Unsupported governance outbox event type: '.$event->event_type);
             }
 
             DB::table('governance_outbox')->where('id', $eventId)->where('claim_token', $claimToken)->update([
@@ -455,7 +455,7 @@ final class PersistedGovernanceWorkflowService
         });
     }
 
-    private function recordOutboxFailure(array $claim, \\Throwable $exception, int $maxAttempts): void
+    private function recordOutboxFailure(array $claim, \Throwable $exception, int $maxAttempts): void
     {
         DB::transaction(function () use ($claim, $exception, $maxAttempts): void {
             $event = DB::table('governance_outbox')->where('id', $claim['id'])
