@@ -1,0 +1,241 @@
+{
+  "fixture_set": "M3-03-SYNTHETIC-001",
+  "version": "1.0.0",
+  "classification": "fabricated_synthetic_only",
+  "note": "All identifiers and labels are invented. No real entities, persons, addresses, contacts, URLs, source records or source content.",
+  "entities": [
+    {
+      "id": "prov-synth-001",
+      "type": "provider",
+      "label": "Synthetic Provider Alpha"
+    },
+    {
+      "id": "inst-synth-001",
+      "type": "institution",
+      "label": "Synthetic Institute North"
+    },
+    {
+      "id": "site-synth-001",
+      "type": "delivery_site",
+      "label": "Synthetic Site One"
+    },
+    {
+      "id": "prog-synth-001",
+      "type": "programme",
+      "label": "Synthetic Programme A"
+    },
+    {
+      "id": "auth-synth-001",
+      "type": "authority",
+      "label": "Synthetic Authority Q"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "rel-synth-001",
+      "type": "operates",
+      "from": "prov-synth-001",
+      "to": "inst-synth-001",
+      "valid_from": "2025-01-01",
+      "valid_to": null
+    },
+    {
+      "id": "rel-synth-002",
+      "type": "has_site",
+      "from": "inst-synth-001",
+      "to": "site-synth-001",
+      "valid_from": "2025-01-01",
+      "valid_to": null
+    },
+    {
+      "id": "rel-synth-003",
+      "type": "offers",
+      "from": "inst-synth-001",
+      "to": "prog-synth-001",
+      "valid_from": "2025-01-01",
+      "valid_to": null
+    },
+    {
+      "id": "rel-synth-004",
+      "type": "recognized_by",
+      "from": "auth-synth-001",
+      "to": "inst-synth-001",
+      "valid_from": "2025-01-01",
+      "valid_to": "2026-01-01"
+    }
+  ],
+  "authorizations": [
+    {
+      "id": "authz-synth-active-001",
+      "status": "active",
+      "purpose": "synthetic_test_only",
+      "methods": [
+        "fixture_reference"
+      ],
+      "valid_from": "2025-01-01",
+      "valid_to": "2027-01-01",
+      "territory": "synthetic"
+    },
+    {
+      "id": "authz-synth-revoked-001",
+      "status": "revoked",
+      "purpose": "synthetic_test_only",
+      "methods": [
+        "fixture_reference"
+      ],
+      "valid_from": "2025-01-01",
+      "valid_to": "2026-01-01",
+      "territory": "synthetic"
+    }
+  ],
+  "evidence_references": [
+    {
+      "id": "ev-synth-authorized-001",
+      "authorization_id": "authz-synth-active-001",
+      "reference_kind": "synthetic_fixture",
+      "integrity_digest": "sha256:synthetic-digest-001",
+      "status": "quarantined",
+      "content_included": false
+    },
+    {
+      "id": "ev-synth-revoked-001",
+      "authorization_id": "authz-synth-revoked-001",
+      "reference_kind": "synthetic_fixture",
+      "integrity_digest": "sha256:synthetic-digest-002",
+      "status": "quarantined",
+      "content_included": false
+    }
+  ],
+  "claims": [
+    {
+      "id": "claim-synth-name-v1",
+      "subject": "inst-synth-001",
+      "predicate": "display_name",
+      "value": "Synthetic Institute North",
+      "valid_from": "2025-01-01",
+      "valid_to": null,
+      "recorded_at": "2025-01-02T00:00:00Z",
+      "status": "accepted",
+      "evidence": [
+        "ev-synth-authorized-001"
+      ],
+      "supersedes": null
+    },
+    {
+      "id": "claim-synth-name-v2",
+      "subject": "inst-synth-001",
+      "predicate": "display_name",
+      "value": "Synthetic Institute North Revised",
+      "valid_from": "2025-01-01",
+      "valid_to": null,
+      "recorded_at": "2025-02-01T00:00:00Z",
+      "status": "proposed",
+      "evidence": [
+        "ev-synth-authorized-001"
+      ],
+      "supersedes": "claim-synth-name-v1"
+    },
+    {
+      "id": "claim-synth-status-a",
+      "subject": "inst-synth-001",
+      "predicate": "operational_status",
+      "value": "operating",
+      "valid_from": "2025-01-01",
+      "valid_to": "2026-01-01",
+      "recorded_at": "2025-01-03T00:00:00Z",
+      "status": "accepted",
+      "evidence": [
+        "ev-synth-authorized-001"
+      ]
+    },
+    {
+      "id": "claim-synth-status-b",
+      "subject": "inst-synth-001",
+      "predicate": "operational_status",
+      "value": "closed",
+      "valid_from": "2025-06-01",
+      "valid_to": "2025-12-01",
+      "recorded_at": "2025-07-01T00:00:00Z",
+      "status": "proposed",
+      "evidence": [
+        "ev-synth-authorized-001"
+      ]
+    },
+    {
+      "id": "claim-synth-stale-001",
+      "subject": "prog-synth-001",
+      "predicate": "programme_status",
+      "value": "active",
+      "valid_from": "2024-01-01",
+      "valid_to": "2024-12-31",
+      "recorded_at": "2024-01-01T00:00:00Z",
+      "status": "stale",
+      "evidence": [
+        "ev-synth-authorized-001"
+      ]
+    }
+  ],
+  "policy": {
+    "restricted_category_default_enabled": false,
+    "public_field_allowlist": [
+      "display_name",
+      "approved_category",
+      "broad_locality",
+      "approved_status",
+      "freshness_label"
+    ],
+    "prohibited_public_fields": [
+      "private_contact_synth",
+      "student_identity",
+      "staff_personal_profile",
+      "exact_residential_coordinate"
+    ]
+  },
+  "publication": {
+    "snapshot_id": "pub-synth-001",
+    "approved_claims": [
+      "claim-synth-name-v1"
+    ],
+    "human_decision_id": "decision-synth-publish-001",
+    "withdrawal_event_id": "withdraw-synth-001",
+    "prior_snapshot_id": "pub-synth-000"
+  },
+  "audit_events": [
+    {
+      "id": "audit-synth-001",
+      "action": "claim_created",
+      "target": "claim-synth-name-v1",
+      "actor_class": "synthetic_editor",
+      "reason_code": "fixture_setup"
+    },
+    {
+      "id": "audit-synth-002",
+      "action": "publication_approved",
+      "target": "pub-synth-001",
+      "actor_class": "synthetic_authorized_editor",
+      "reason_code": "fixture_expected_approval"
+    }
+  ],
+  "test_ids": [
+    "T-001",
+    "T-002",
+    "T-003",
+    "T-004",
+    "T-005",
+    "T-006",
+    "T-007",
+    "T-008",
+    "T-009",
+    "T-010",
+    "T-011",
+    "T-012",
+    "T-013",
+    "T-014",
+    "T-015",
+    "T-016",
+    "T-017",
+    "T-018",
+    "T-019",
+    "T-020"
+  ]
+}
