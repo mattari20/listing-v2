@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-13 — M0/M1/M2 and M3-00 accepted/closed; M3-03 Agenda 6 bounded service-contract increment merged and closed; PR #160 exact-head evidence reconciled
+**Last reconciled:** 2026-11-14 — M0/M1/M2 and M3-00 accepted/closed; M3-03 Agendas 6, 7 and 8 bounded synthetic implementation scopes merged and evidence-reconciled; PR #165 exact-head evidence reconciled
 
 ## Purpose and maintenance rule
 
