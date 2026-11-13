@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-13 — M0/M1/M2 and M3-00 accepted/closed; FND-01 bounded package merged; remaining M3-01 gates open
+**Last reconciled:** 2026-11-13 — M0/M1/M2 and M3-00 accepted/closed; M3-03 Agenda 6 implementation PR #160 open; exact-head validation pending
 
 ## Purpose and maintenance rule
 
@@ -119,6 +119,17 @@ For every merge:
 | [Task Issue Template](../../.github/ISSUE_TEMPLATE/task.yml) | Structured V2 task intake | Accepted — M0 task intake controls |
 | [Documentation Validation Workflow](../../.github/workflows/project-docs-validation.yml) | Automated documentation validation on PRs | Accepted — required check passed on PRs #1–#3 latest heads |
 | [Documentation Validator](../../scripts/validate_project_docs.py) | Required-file and local-link validation | Accepted — PR #4 required-check success on exact head; catalogue and governance files required |
+
+### M3-03 Agenda 6 — current delivery
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-03 Agenda 6 Governance Service Contract Implementation](M3-03_AGENDA_06_GOVERNANCE_SERVICE_CONTRACT_IMPLEMENTATION.md) | Executable policy/service boundary, transactional synthetic commands, GS-001–GS-032 policy matrix and explicit deferred workflow persistence | Updated — PR #160 validation and merge pending |
+| app/Domain/Governance/GovernancePolicy.php | Fail-closed source, capability, human decision, publication, restoration and visibility policies | Delivered in PR #160 — review/CI pending |
+| app/Services/Governance/GovernanceCommandService.php | Transactional metadata-only evidence and proposed-claim commands with audit and payload-bound idempotency | Delivered in PR #160 — review/CI pending |
+| tests/Feature/GovernanceServiceContractTest.php | Synthetic policy matrix and persistence/transaction/entry-point contract tests | Delivered in PR #160 — review/CI pending |
+
+PR [#160](https://github.com/mattari20/listing-v2/pull/160) is open at the time of this reconciliation. GitHub status lookup returned no workflow runs or commit statuses for the then-current head; required checks are pending/not evidenced. Do not mark accepted or merged until exact-head CI and review evidence are available.
 
 ## PR delivery history
 

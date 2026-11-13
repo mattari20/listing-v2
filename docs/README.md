@@ -174,3 +174,7 @@ Step 3 is complete as a review/documentation deliverable. The repository remains
 - [M3-02 Step 4 Final Exit Review and Acceptance Pack](04-roadmap/M3-02_STEP_04_FINAL_EXIT_REVIEW_AND_ACCEPTANCE_PACK_2026-11-13.md) — final criterion-by-criterion evidence reconciliation and closure decision.
 
 Step 4 is complete as a documentation/evidence deliverable. M3-02 remains in progress, not accepted and not closed: PHP foundation CI is not a required main ruleset check, and V2-specific environment isolation/recovery evidence remains unverified. The local/CI diagnostics baseline is accepted only at that bounded level.
+
+
+## M3-03 Agenda 6 — Governance Service Contracts
+- [Agenda 6 Governance Service Contract Implementation](04-roadmap/M3-03_AGENDA_06_GOVERNANCE_SERVICE_CONTRACT_IMPLEMENTATION.md) — bounded synthetic service/policy implementation, acceptance matrix, CI gate and explicit deferrals.
