@@ -820,3 +820,13 @@ PR #160 merged as `9fd14f069f71e17d34a5392caf6977df9674fd4d`; exact-head PHP 8.5
 | [M3-03 Agenda 7 Persisted Adjudication and Publication Workflows](M3-03_AGENDA_07_PERSISTED_ADJUDICATION_AND_PUBLICATION_WORKFLOWS.md) | Scope, persisted workflow design, separation-of-duties feasibility, technical limitations and acceptance gates | Implementation candidate in PR #162; exact-head validation pending |
 
 PR [#162](https://github.com/mattari20/listing-v2/pull/162) contains the additive migration, persisted workflow service and synthetic feature tests. Do not mark complete until exact-head PHP 8.5 foundation CI and documentation validation pass and merge evidence is reconciled.
+
+
+## M3-03 Agenda 7 — final completion evidence
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-03 Agenda 7 Persisted Adjudication and Publication Workflows](M3-03_AGENDA_07_PERSISTED_ADJUDICATION_AND_PUBLICATION_WORKFLOWS.md) | Bounded workflow implementation, persistence, safety boundaries and limitations | Complete — PR #163 |
+| [M3-03 Agenda 7 Completion and Evidence Record](M3-03_AGENDA_07_COMPLETION_AND_EVIDENCE_RECORD.md) | Owner authorization, merged SHA, exact-head CI, test results, warnings and residual gates | Complete — documentation closeout |
+
+PR #163 merged as `a16d6564e5f5190a841c5596ddb47638d1ec735c`. Exact-head PHP 8.5 foundation CI run #111 and documentation validation run #430 both passed. Agenda 7 is complete for the bounded synthetic scope; M3-03 remains in progress.
