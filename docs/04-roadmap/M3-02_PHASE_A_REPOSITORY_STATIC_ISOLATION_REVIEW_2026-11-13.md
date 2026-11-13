@@ -180,3 +180,8 @@ No application code, dependencies, environment files, database configuration, wo
 Proceed to Phase B only within an existing V2 local/Codespaces workspace controlled by the Product Owner. First confirm the exact repository remote, branch and commit. Use only the repository's already declared lockfile dependencies and synthetic local values. Run only documented database-free checks. Do not copy any V1/hosting configuration and do not access Hostinger, V1, production, SSH, hPanel, DNS, deployment or any database.
 
 Phase C remains **NOT AUTHORIZED** and requires a separate explicit Product Owner authorization naming the exact V2-only non-production target, access method, permitted actions, time window and stop conditions.
+
+
+## 8. Post-review reconciliation note
+
+The separate Phase D evidence reconciliation was merged to `main` after this Phase A snapshot review. It records the later local/Codespaces Phase B observations and confirms that the active readable `main` ruleset requires both project documentation validation and PHP 8.5 foundation CI. This does not change the historical Phase A baseline above or close the runtime-isolation findings: ISO-06, ISO-07, ISO-08 hosting boundaries, ISO-10 and ISO-11 remain unverified, and Phase C remains unauthorized.
