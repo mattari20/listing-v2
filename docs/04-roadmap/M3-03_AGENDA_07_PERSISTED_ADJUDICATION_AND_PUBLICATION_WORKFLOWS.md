@@ -14,7 +14,8 @@ Implement persisted, local/CI-only governance workflows using synthetic fixtures
 - Additive schema for adjudication cases, append-only adjudication decisions, appeal/reconsideration lineage, publication decisions, immutable snapshot payloads and SHA-256 digests, public-projection state, transactional outbox, suppression records and restoration records.
 - Human adjudication service with capability gate, evidence admissibility checks, submitter/adjudicator separation, rationale and policy-version capture, case locking, decision history and same-transaction audit.
 - Human publication approval requiring an accepted decision for the same claim version, current claim disposition, no successor version, admissible evidence, distinct adjudicator/evidence submitter/publisher, and source-specific publication scope.
-- Snapshot payload and outbox intent created atomically with the publication decision. Snapshot payload is not overwritten by projection processing.
+- Snapshot payload and outbox intent created atomically with the publication decision. Snapshot payload is not overwritten by projection processing; successive publications for distinct surfaces/audiences receive monotonically increasing per-claim snapshot versions.
+- Idempotency replay returns the original adjudication/publication decision only when the complete command identity and relevant fields match; changed case lineage, decision, surface, audience or policy under the same key is rejected.
 - Outbox processing is idempotent at projection-key level. Suppression updates authoritative snapshot and any existing projection synchronously before outbox cleanup.
 - Source-authorization revocation quarantines dependent evidence and suppresses all dependent snapshots/projections in the same transaction.
 - Restoration is human-only, requires a distinct actor from the suppressor, and rechecks claim/evidence eligibility before queuing projection restoration.
