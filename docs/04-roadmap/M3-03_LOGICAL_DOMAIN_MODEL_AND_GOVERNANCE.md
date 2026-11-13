@@ -48,7 +48,13 @@ These are logical concepts only. They do not prescribe tables, columns, indexes,
 | Provider | A legal, administrative or operating organization that provides or coordinates education services | May operate or administer multiple institutions/sites; not synonymous with regulator |
 | Institution | A named education institution or organizational unit represented in the directory | Has a stable internal identity; can have multiple sites and programmes |
 | Campus / Delivery Site | A physical or delivery location associated with an institution | Address/location claims are separately evidenced and time-bounded; avoid precise public coordinates by default |
-| Programme | An education, training or learning offering associated with an institution or site | Programme status and delivery location may change over time |
+| Programme | A structured course of study/training catalogued by an institution and offered at one or more sites | Distinct from a qualification/award; campus availability is expressed through a cycle-scoped offer |
+| Qualification | An award, credential or level resulting from successful study/assessment | May be issued by a body other than the teaching provider |
+| Awarding Body | Entity legally/officially responsible for issuing a qualification | Distinct from teaching provider, regulator and recognizing authority |
+| Admission Cycle | Named intake/session/window for a programme or campus | Eligibility, deadlines and fees may vary by cycle |
+| Programme Offer | A programme's availability at a campus for a specific admission cycle | A general programme catalogue entry is not proof of current campus availability |
+| Fee Component | A named charge with amount, currency, frequency, applicability and effective period | Do not collapse one-time and recurring costs or unscoped totals |
+| Scholarship / Aid Offer | Financial support with eligibility, coverage, value, period and conditions | Advertised availability is not a guaranteed award |
 | Authority | A regulator, accreditor, examining body, government department or other authority | Authority relationship type and scope must be explicit; affiliation is not inferred from a name similarity |
 | Entity Relationship | A typed, time-bounded relationship between two directory entities | Examples: operates, owns, administers, affiliated_with, recognized_by, delivers_at; relationship itself requires evidence and review |
 | Claim | A normalized assertion about an entity or relationship | Has a predicate, value, subject, valid-time interval, recorded-time and status; never overwrite history |
@@ -70,7 +76,10 @@ These are logical concepts only. They do not prescribe tables, columns, indexes,
 
 - Provider 1 — 0..N Institution; an institution may have 0..N provider relationships over time.
 - Institution 1 — 0..N Campus/Delivery Site.
-- Institution 1 — 0..N Programme; a programme may be delivered at 0..N sites.
+- Institution 1 — 0..N Programme catalogue entries.
+- Programme 0..N — 0..N Qualification; Awarding Body 1 — 0..N Qualifications.
+- Campus 0..N — 0..N Programme Offers; each Programme Offer is scoped to one campus, one programme and one Admission Cycle.
+- Admission Cycle 1 — 0..N Programme Offers; each Programme Offer may have 0..N Fee Components and 0..N Scholarship/Aid Offers.
 - Authority 0..N — 0..N Institution through a typed, evidenced, time-bounded relationship.
 - Any directory entity 1 — 0..N Claims; each claim has exactly one subject and one predicate/value assertion.
 - Claim Version 1 — 0..N Claim-Evidence Links; Evidence Reference 1 — 0..N links.
@@ -212,15 +221,33 @@ The companion `M3-03_SYNTHETIC_FIXTURES_AND_DETERMINISTIC_TEST_SPEC.md` defines 
 
 ## 12. Traceability and unresolved gates
 
-| Source / control baseline | M3-03 design response | Traceability confidence |
+| Source / control baseline | M3-03 design response | Traceability |
 |---|---|---|
-| M1 accepted requirements baseline (accepted; exact source file/requirement IDs not re-extracted in this bounded session) | Distinct provider/institution/site/programme/authority concepts; anonymous-safe public projection; unknown/stale/conflict states; human editorial publication; privacy/minor safeguards | Theme-level only; exact M1 IDs must be crosswalked from canonical M1 acceptance pack before physical implementation |
-| M2 accepted architecture (accepted; exact architecture component IDs not re-extracted in this bounded session) | Modular bounded contexts; evidence/provenance separation; versioned claims; deterministic validation; human adjudication; publication projection; provider-neutral boundaries | Theme-level only; exact M2 architecture IDs must be crosswalked from canonical M2 architecture pack before physical implementation |
-| M3 master step plan, M3-03 definition | Domain model, provenance, validation, audit, adjudication, publication, correction, withdrawal, rollback; no unauthorized source data | Direct |
-| M3-02 accepted foundation | Design remains independent of persistence and runtime; no schema/migration/application changes | Direct |
-| G01–G20 and V2-DEC-006 | Existing accepted governance controls remain binding; this package does not reinterpret or waive them | Identifier-level existence is grounded in M3 master plan; exact control-by-control mapping remains open |
+| M1 SR-01; M2 AR-002 | Keep pathway/direct discovery independent; logical identity does not require a pathway profile | Direct |
+| M1 SR-02; M2 AR-003; M2-S02 | Separate provider, institution, campus, delivery site and programme identities; typed relationships | Direct |
+| M1 SR-03/SR-14; M2 AR-004/AR-024 | Manual locality remains viable; this model does not require precise location | Direct design constraint; geography details deferred to M3-06 |
+| M1 SR-04/SR-07; M2 AR-005/AR-019 | Evidence-backed attributes, explicit unknown/stale/disputed/partial states; no null/zero/false coercion | Direct |
+| M1 SR-05; M2 AR-008 | Preserve comparable units, scope and missing/stale/disputed states for later comparison | Direct design constraint; comparison UI deferred to M3-05 |
+| M1 SR-06; M2 AR-006; M2-S02 | Programme, campus, admission cycle, programme offer, fee and scholarship are separately scoped; material facts retain evidence and time | Direct |
+| M1 SR-07; M2 AR-007 | Distinguish official evidence, provider-submitted claims, AI-discovered candidates, estimates and opinions | Direct |
+| M1 SR-08; M2 AR-009 | Official application/contact route remains external; no V2 application submission concept is introduced | Direct boundary |
+| M1 SR-10; M2 AR-011 | Reviews are a separate post-launch user-opinion domain, not official evidence or proof of attendance | Direct boundary; implementation deferred |
+| M1 SR-11/SR-12; M2 AR-021/AR-022 | Text-first, low-bandwidth and language/accessibility requirements remain presentation-level constraints; no language/UX assumptions embedded in facts | Direct boundary |
+| M1 SR-13; M2 AR-012 | Minimize personal data; no student/child/staff personal record in the core directory model | Direct |
+| M2-S02 | Preserve qualification vs programme, awarding body vs regulator, recognition vs affiliation, cycle-scoped offer, identity candidate and time/uncertainty semantics | Direct conceptual-model alignment |
+| M2-S05; M2 AR-005–AR-007, AR-013–AR-015, AR-019, AR-023–AR-025 | Source rights before retrieval; evidence/assertion/publication separation; conflict, correction, withdrawal, rollback, audit and audience-scoped projection | Direct |
+| M1 G01/G03/G05 | No national completeness inference; coverage, freshness, scope and missingness remain explicit | Direct |
+| M1 G02/G16; M2 AR-013 | Source-specific authorization before acquisition/reuse; deny by default | Direct |
+| M1 G07; V2-DEC-006; M2 AR-016–AR-018 | Deeni Madaris default-OFF across all public surfaces; no sect/maslak discovery attribute | Direct |
+| M1 G08/G09/G14/G17; M2 AR-014/AR-015/AR-023 | AI is proposal-only; provenance, conflict and material governance actions are auditable and human-controlled | Direct |
+| M1 G12–G15; M2 AR-011/AR-012 | Reviews remain post-launch; login is not attendance proof; privacy/minor safeguards remain mandatory | Direct |
+| M1 G20; M2 AR-025 | Operational audit/recovery/rollback requirements are preserved as later gates, not claimed as implemented | Direct boundary |
+| M3-02 accepted foundation | Design is persistence-agnostic and makes no schema, migration or runtime changes | Direct |
+| M3 master step plan, M3-03 definition | Domain model, provenance, validation, audit, adjudication, publication, correction, withdrawal and rollback; no unauthorized source data | Direct |
 
-**Traceability limitation is explicit:** the canonical M1 and M2 acceptance documents were not discoverable through the connected repository file search in this execution. This work therefore does not invent M1 requirement IDs or M2 architecture component IDs. A precise crosswalk remains a required design-review action before physical implementation.
+**Canonical source references reviewed:** `docs/01-product/STUDENT_DISCOVERY_REQUIREMENTS.md`; `docs/01-product/INSTITUTION_AND_PROGRAMME_REQUIREMENTS.md`; `docs/01-product/COMPARISON_REVIEWS_AND_TRUST.md`; `docs/03-research/M1_S10_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md`; `docs/03-research/M1_S10_FINAL_SYNTHESIS_CLOSEOUT_REVIEW_2026-11-12.md`; `docs/05-architecture/M2-S01_SYSTEM_REQUIREMENTS_AND_BOUNDARIES.md`; `docs/05-architecture/M2-S02_CORE_DOMAIN_CONCEPTUAL_MODEL.md`; `docs/05-architecture/M2-S05_DATA_ARCHITECTURE_PROVENANCE_PUBLICATION.md`; `docs/05-architecture/M2-S10_FINAL_ARCHITECTURE_SYNTHESIS_M3_ROADMAP.md`.
+
+The canonical M1 and M2 files were subsequently located and reviewed. The crosswalk above maps the relevant M1 SR IDs, M1 G controls and M2 AR IDs. It is a focused M3-03 crosswalk, not a claim that every SR/AR requirement is implemented by this agenda.
 
 ### Unresolved gates (not completed by this package)
 
@@ -258,3 +285,8 @@ Stop and seek a separate scope decision if a next action requires any excluded a
 - [x] Unresolved gates and exclusions stated.
 - [ ] Exact M1/M2 identifier crosswalk — deferred; canonical source files not discoverable in this execution.
 - [ ] Product Owner review of this work-package baseline — pending.
+
+
+## 15. Alignment refinements from canonical M1/M2 source review
+
+The canonical M2-S02 model also requires explicit distinction among Programme, Qualification, Awarding Body, Admission Cycle, Programme Offer, Fee Component and Scholarship/Aid Offer. These concepts and their cycle/campus scope have been incorporated in the glossary and cardinality rules above. Recognition, accreditation, licensing and affiliation remain distinct authority-scoped relationships. Identity candidates and ambiguous merges remain subject to human review. The M1-S01 requirements SR-01–SR-14 and relevant M1 G01–G20 controls are mapped in Section 12 to the corresponding M2 AR identifiers.
