@@ -88,6 +88,7 @@ class PersistedGovernanceWorkflowTest extends TestCase
         $this->assertDatabaseHas('public_projections', ['status' => 'suppressed']);
         $this->assertDatabaseHas('audit_events', ['target_id' => $fixture['authorization'], 'action' => 'source_authorization_revoked']);
         $suppression = DB::table('publication_suppressions')->first();
+        
         try {
             $service->restorePublication($this->actor('restorer', ['restore_publication']), $suppression->id, 'policy-v2', 'must_remain_suppressed');
             $this->fail('Restoration after source authorization revocation must be denied.');
@@ -123,6 +124,7 @@ class PersistedGovernanceWorkflowTest extends TestCase
         $fixture = $this->fixture();
         $service = new PersistedGovernanceWorkflowService;
         $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-deny');
+        
         try {
             $service->decideAdjudication($this->actor('robot', ['adjudicate_claim'], 'automation'), $caseId, 'accepted', 'x', 'No automation allowed.', 'policy-v1');
             $this->fail('Automated adjudication should be denied.');
