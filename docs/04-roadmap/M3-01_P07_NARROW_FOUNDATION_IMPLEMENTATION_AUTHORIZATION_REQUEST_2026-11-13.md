@@ -199,3 +199,23 @@ To authorize only FND-01, the Product Owner must send:
 Any modification to the scope requires a revised request and separate approval.
 
 **Implementation authorization status: NOT ISSUED — awaiting explicit Product Owner approval.**
+
+
+## FND-01 merge and owner decision — 2026-11-13
+
+The Product Owner issued the exact bounded FND-01 authorization on 2026-11-13. Implementation was delivered in PR [#136](https://github.com/mattari20/listing-v2/pull/136), whose exact head was `d9b8eb8bb04c394d2b08e1a451fcb2d338158662`. The required exact-head checks passed: **FND-01 foundation CI** (run [#43380176340](https://github.com/mattari20/listing-v2/actions/runs/43380176340)) and **Project documentation validation** (run [#43380176524](https://github.com/mattari20/listing-v2/actions/runs/43380176524)). Following the Product Owner's explicit approval, PR #136 was squash-merged into `main` as `f61b4d17492294d45518493337f3fcd58fd78487`; GitHub confirms `main` points to that merge commit and PR #136 is merged.
+
+This records delivery and merge of FND-01 only. It does not claim Hostinger compatibility, V2 runtime isolation, capacity, backup/restore, legal/privacy/source-rights/safeguarding/security sign-off, production readiness or completion of M3-01 as a whole. No Hostinger/V1/production access, database work, migrations, real/source/personal data, external APIs/AI, deployment or new spend occurred. M3-02 and all later implementation remain separately gated and unauthorized.
+
+## Final authorization and execution disposition — 2026-11-13
+
+**Authorization:** ISSUED for FND-01 only, upon receipt of the Product Owner's exact Section 13 statement.  
+**Implementation PR:** #136.  
+**Exact PR head:** `d9b8eb8bb04c394d2b08e1a451fcb2d338158662`.  
+**Required exact-head CI:** passed (FND-01 foundation CI run #43380176340; Project documentation validation run #43380176524).  
+**Owner review/merge approval:** received; PR #136 squash-merged.  
+**Main merge commit:** `f61b4d17492294d45518493337f3fcd58fd78487`.  
+**FND-01 disposition:** delivered and merged.  
+**M3-02 / subsequent implementation:** NOT AUTHORIZED by this approval.
+
+This final disposition supersedes the historical pending/not-issued status text above only for the bounded FND-01 package. All exclusions, stop conditions, no-new-spend, no-Hostinger/V1/production, no-database/migrations, synthetic-only, no-external-API/AI and no-deployment restrictions remain binding.

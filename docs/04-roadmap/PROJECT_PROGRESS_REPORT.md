@@ -1,6 +1,6 @@
 # Project Progress Report
 
-**As of:** 2026-11-12  
+**As of:** 2026-11-13  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
 **Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 documentation/planning in progress; implementation not authorized
 
@@ -739,3 +739,14 @@ P05 planning assessment is delivered for owner review. It records Pakistan legal
 ## M3-01 P06 plan delivered — 2026-11-13
 
 The P06 environment/test/CI/release/rollback plan is delivered for owner review. It keeps the first foundation package local/CI-only with synthetic fixtures, no production credentials, no Hostinger deployment and no V1 access. CI acceptance includes dependency integrity, static/security checks, smoke tests and default-OFF non-exposure tests. No implementation authorization is issued.
+
+
+## FND-01 merge and owner decision — 2026-11-13
+
+The Product Owner issued the exact bounded FND-01 authorization on 2026-11-13. Implementation was delivered in PR [#136](https://github.com/mattari20/listing-v2/pull/136), whose exact head was `d9b8eb8bb04c394d2b08e1a451fcb2d338158662`. The required exact-head checks passed: **FND-01 foundation CI** (run [#43380176340](https://github.com/mattari20/listing-v2/actions/runs/43380176340)) and **Project documentation validation** (run [#43380176524](https://github.com/mattari20/listing-v2/actions/runs/43380176524)). Following the Product Owner's explicit approval, PR #136 was squash-merged into `main` as `f61b4d17492294d45518493337f3fcd58fd78487`; GitHub confirms `main` points to that merge commit and PR #136 is merged.
+
+This records delivery and merge of FND-01 only. It does not claim Hostinger compatibility, V2 runtime isolation, capacity, backup/restore, legal/privacy/source-rights/safeguarding/security sign-off, production readiness or completion of M3-01 as a whole. No Hostinger/V1/production access, database work, migrations, real/source/personal data, external APIs/AI, deployment or new spend occurred. M3-02 and all later implementation remain separately gated and unauthorized.
+
+## Verification boundary and next step
+
+The GitHub merge state and PR exact-head CI evidence are verified. This does not prove execution inside the owner's Codespace; no private Codespace shell session was available to this workflow. A local clean-checkout run remains optional corroboration, not a prerequisite to the GitHub exact-head CI evidence already recorded. Continue with documentation reconciliation and remaining M3-01 readiness decisions. M3-02 is not authorized by the FND-01 approval.
