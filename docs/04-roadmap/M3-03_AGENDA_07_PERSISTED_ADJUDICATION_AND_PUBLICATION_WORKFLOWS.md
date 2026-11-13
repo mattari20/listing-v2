@@ -19,7 +19,7 @@ Implement persisted, local/CI-only governance workflows using synthetic fixtures
 - Outbox processing is idempotent at projection-key level. Suppression updates authoritative snapshot and any existing projection synchronously before outbox cleanup.
 - Source-authorization revocation quarantines dependent evidence and suppresses all dependent snapshots/projections in the same transaction.
 - Restoration is human-only, requires a distinct actor from the suppressor, and rechecks claim/evidence eligibility before queuing projection restoration.
-- Synthetic tests cover workflow tables, adjudication and appeal lineage, publication snapshot integrity, outbox idempotency, suppression/restoration, source revocation and automated-actor denial.
+- Synthetic tests cover workflow tables, adjudication and appeal lineage, publication snapshot integrity, outbox idempotency, suppression/restoration, source revocation, automated-actor denial, changed-command idempotency and multiple publication surfaces. New PHP files conform to the repository Pint formatter.
 
 ## 3. Separation-of-duties feasibility and approval gates
 
