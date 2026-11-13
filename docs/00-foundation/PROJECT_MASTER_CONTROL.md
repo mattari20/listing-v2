@@ -584,3 +584,10 @@ The project now tracks these requirements in both architecture and implementatio
 ## M3-01 P04 stack and hosting decision dossier — 2026-11-12
 
 The [P04 Stack, Hosting and Cost Decision Dossier](../04-roadmap/M3-01_P04_STACK_HOSTING_COST_DECISION_DOSSIER_2026-11-12.md) is delivered for owner review. It reconciles the existing stack comparison with the AI-era architecture requirements, evaluates Laravel/PHP, Django/Python and NestJS/TypeScript, identifies PostgreSQL 18/PostGIS as the leading database candidate, and defines hosting/cost/restore/portability gates. No framework, host, region, vendor, model or spend is selected. P04 remains open pending founder skill evidence and owner decision.
+
+
+## M3-01 P04 owner-approved preferred technology direction — 2026-11-13
+
+The Product Owner confirmed that their current development model mainly relies on ChatGPT for writing, understanding and debugging code, and agreed with the preferred planning direction: Django/Python, PostgreSQL, PostGIS, modular monolith, HTML-first server-rendered frontend and provider-neutral AI architecture with AI-off core operation. See [M3-01 P04 Product Owner Preferred Technology Direction](../04-roadmap/M3-01_P04_OWNER_PREFERRED_TECHNOLOGY_DIRECTION_2026-11-13.md).
+
+This is a preferred planning direction, not a final versioned stack or hosting selection. It does not assert hands-on Python/Django proficiency. Hosting/provider/region, PostgreSQL/PostGIS support, backup/restore, data terms, support, portability and full cost evidence remain unresolved; P04 is advanced but not closed. No implementation, technical spike, package installation, environment activation, external/production access, procurement or spend is authorized. P05–P08 retain their independent gates; M3 remains 5%; implementation authorization NOT ISSUED.

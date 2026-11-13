@@ -698,3 +698,10 @@ This delivery is documentation-only. It strengthens P04 stack/architecture evide
 The P04 dossier compares Laravel 13/PHP, Django/Python and NestJS/Node 26 against solo-founder operability and the new AI-era requirements. It recommends preserving a modular monolith, HTML-first delivery and provider-neutral AI boundary; PostgreSQL 18/PostGIS is the leading database candidate, with pgvector/dedicated search/queues/agents optional and benchmark-gated.
 
 The owner's hands-on language/framework proficiency is not established in the project records, and hosting region, data terms, extension availability, backup/restore, support, traffic/storage assumptions, full vendor quotes and numeric spend ceiling remain unresolved. Therefore no defensible final backend/host/cost selection is made and no false numerical score or cost estimate is reported. P04 remains open. No M3-01 weighted progress is claimed; M3 remains 5%; implementation authorization NOT ISSUED.
+
+
+## M3-01 P04 owner preferred technology direction — 2026-11-13
+
+The Product Owner confirmed that they mainly rely on ChatGPT for writing, understanding and debugging code and agreed with Django/Python, PostgreSQL, PostGIS, modular monolith, HTML-first server-rendered frontend and provider-neutral AI/AI-off operation as the preferred planning direction. The decision is recorded in [M3-01 P04 Product Owner Preferred Technology Direction](M3-01_P04_OWNER_PREFERRED_TECHNOLOGY_DIRECTION_2026-11-13.md).
+
+This is not a final versioned stack or hosting decision. It does not claim hands-on Python proficiency. Hosting/provider/region, PostgreSQL/PostGIS availability, backup/restore, data terms, support, portability and full cost evidence remain open; P04 is advanced but not closed. No M3-01 weighted progress is claimed; M3 remains 5%. No implementation authorization, package installation, environment activation, external/production access or spend is authorized.

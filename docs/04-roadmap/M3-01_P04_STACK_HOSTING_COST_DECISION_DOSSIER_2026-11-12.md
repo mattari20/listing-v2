@@ -145,3 +145,14 @@ A non-production technical proof-of-fit, if needed, remains prohibited until sep
 - PostgreSQL versioning/support policy: https://www.postgresql.org/support/versioning/
 
 Re-check all lifecycle and provider facts immediately before any later stack or implementation decision. This dossier is a research snapshot, not a guarantee of future availability or support.
+
+
+## Product Owner preferred direction and skill evidence — 2026-11-13
+
+The Product Owner confirmed that their current development model mainly relies on ChatGPT for writing, understanding and debugging code. This is not evidence of hands-on proficiency in Python/Django, PHP/Laravel or TypeScript/NestJS and must not be represented as such.
+
+The Product Owner agreed with the recommended preferred planning direction: **Python/Django backend; PostgreSQL primary database; PostGIS geography; modular monolith; HTML-first server-rendered frontend with progressive enhancement; provider-neutral AI boundary with AI-off core operation; database-native search initially.** This is recorded in [M3-01 P04 Product Owner Preferred Technology Direction](M3-01_P04_OWNER_PREFERRED_TECHNOLOGY_DIRECTION_2026-11-13.md).
+
+Django is preferred because of its integrated application capabilities and useful future data/AI ecosystem, not because the owner is already proficient in Python. Laravel/PHP and NestJS/TypeScript remain credible alternatives, not technically rejected. The delivery plan must mitigate the owner's learning/maintenance burden through small changes, explanatory documentation, automated tests, protected PRs, lifecycle checks and human approval of consequential actions.
+
+This is a **preferred planning direction**, not final approval of framework/runtime/database versions or a hosting stack. Provider, region, PostgreSQL/PostGIS availability, backup/PITR, restore, data terms, support, latency, portability, dated quotes and total costs remain open. P04 is advanced but **not closed**. No implementation, package installation, environment activation, account, trial, procurement, spend or external/production access is authorized. Implementation authorization remains NOT ISSUED.

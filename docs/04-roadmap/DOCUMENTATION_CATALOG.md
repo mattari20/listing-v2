@@ -700,3 +700,12 @@ PR [#124](https://github.com/mattari20/listing-v2/pull/124) passed required Proj
 ## P04 decision dossier — 2026-11-12
 
 A new [M3-01 P04 Stack, Hosting and Cost Decision Dossier](M3-01_P04_STACK_HOSTING_COST_DECISION_DOSSIER_2026-11-12.md) reconciles M2-S04 with the AI-era review. It evaluates backend candidates, database/retrieval direction, solo-founder operability, hosting evidence and a no-invented-cost model. Delivered for owner review; no stack, host, region, budget or vendor selected; P04 remains open; no implementation authorization.
+
+
+## P04 owner preferred technology direction — 2026-11-13
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-01 P04 Product Owner Preferred Technology Direction](M3-01_P04_OWNER_PREFERRED_TECHNOLOGY_DIRECTION_2026-11-13.md) | Records owner-confirmed ChatGPT-assisted development model and preferred Django/Python, PostgreSQL/PostGIS, modular monolith, HTML-first and provider-neutral AI planning direction, with remaining hosting/cost gates | Delivered through PR; preferred planning direction accepted; P04 remains open; no implementation authorized |
+
+The decision does not claim hands-on framework proficiency or select final versions, host, region, vendor or budget. Implementation authorization remains NOT ISSUED.
