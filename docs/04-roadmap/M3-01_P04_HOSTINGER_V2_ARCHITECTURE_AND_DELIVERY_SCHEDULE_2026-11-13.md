@@ -151,11 +151,11 @@ The Product Owner's confirmation removes the need for screenshots to prove gener
 
 ## 9. Decisions requested from the Product Owner
 
-1. Accept Laravel 13/PHP 8.5 + the existing Hostinger MySQL-compatible database as the **preferred conditional initial stack**, subject to the exact V2 checks above; or request a change.
-2. Accept the isolation principle: dedicated V2 public document root/subdomain preferred; V2-only code, secrets, database/user and storage; V1 untouched.
-3. Accept the staged schedule as a planning baseline only, to be recalibrated after the first authorized build.
+**Owner decision recorded 2026-11-13:** The Product Owner approved Laravel 13/PHP 8.5 + the existing Hostinger MySQL-compatible database as the preferred initial V2 stack direction, subject to exact V2 checks. The owner approved proceeding with the V2 isolation and staged delivery planning. The approval does not authorize implementation.
 
-No response to this document, including approval of its planning direction, will itself authorize implementation. A separate explicit implementation-start authorization is still mandatory.
+The isolation principle remains the required design: dedicated V2 public document root/subdomain preferred; V2-only code, secrets, database/user and storage; V1 untouched. The staged schedule is a planning baseline only and must be recalibrated after any separately authorized build.
+
+A separate explicit implementation-start authorization remains mandatory.
 
 ## 10. Authorization status
 
