@@ -752,3 +752,11 @@ M3-02 remains **In progress** pending exact-head CI, complete diff review and ow
 ## M3-02 exact-head CI result — 2026-11-13
 
 PR #139 final head `6f5429f1fad0a8f892b66ec59ea4cc7bc8f7c6ff` passed PHP 8.5 foundation CI run #43389111061 and Project documentation validation run #43389111140. The candidate remains in progress pending Product Owner review and merge decision. No weighted completion percentage is claimed.
+
+
+
+## M3-02 Step 1–2 status reconciliation — 2026-11-13
+
+PR #139 is merged as bab5d7458b2820be2f93f242b925eaed2ae0ece0; exact-head PHP foundation CI and documentation validation passed, and the post-merge documentation check passed. The local/CI hardening package is delivered. M3-02 remains In progress and not formally accepted pending full architecture conformance, V2-specific environment/isolation and recovery evidence under separate authorization, final observability disposition and owner acceptance.
+
+Step 1 (repository/roadmap status reconciliation) and Step 2 (read-only main ruleset audit) are complete. Active ruleset 27043221 does not require PHP 8.5 foundation checks and has a zero approving-review count; required documentation validation, PRs, thread resolution, linear history, deletion/non-fast-forward protections and no-bypass behavior are present. No settings were changed. Any ruleset or review-policy change remains a separate owner decision. Refer to M3-02_STEP_01_02_RECONCILIATION_AND_GOVERNANCE_AUDIT_2026-11-13.md.
