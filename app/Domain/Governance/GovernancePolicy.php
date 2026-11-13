@@ -162,8 +162,6 @@ final class GovernancePolicy
         return $isDeeniMadaris === false || $deeniMadarisEnabled === true;
     }
 
-    /**
-     * @param array<string, mixed> $authorization */
     private function withinWindow(array $authorization, CarbonImmutable $now): bool
     {
         try {
