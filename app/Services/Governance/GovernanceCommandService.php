@@ -11,9 +11,7 @@ use Illuminate\Validation\ValidationException;
 
 final class GovernanceCommandService
 {
-    public function __construct(private readonly GovernancePolicy $policy)
-    {
-    }
+    public function __construct(private readonly GovernancePolicy $policy) {}
 
     /**
      * @param array<string, mixed> $actor
