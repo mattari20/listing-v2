@@ -15,7 +15,7 @@ class PersistedGovernanceWorkflowTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_workflow_tables_exist_and_rollback_is_ordered_by_foreign_keys(): void
+    public function test_workflow_tables_exist(): void
     {
         foreach (['adjudication_cases', 'adjudication_decisions', 'publication_decisions', 'publication_snapshots', 'public_projections', 'governance_outbox', 'publication_suppressions', 'publication_restorations'] as $table) {
             $this->assertTrue(Schema::hasTable($table));
@@ -87,6 +87,13 @@ class PersistedGovernanceWorkflowTest extends TestCase
         $this->assertDatabaseHas('publication_snapshots', ['status' => 'suppressed']);
         $this->assertDatabaseHas('public_projections', ['status' => 'suppressed']);
         $this->assertDatabaseHas('audit_events', ['target_id' => $fixture['authorization'], 'action' => 'source_authorization_revoked']);
+        $suppression = DB::table('publication_suppressions')->first();
+        try {
+            $service->restorePublication($this->actor('restorer', ['restore_publication']), $suppression->id, 'policy-v2', 'must_remain_suppressed');
+            $this->fail('Restoration after source authorization revocation must be denied.');
+        } catch (ValidationException) {
+            $this->assertDatabaseCount('publication_restorations', 0);
+        }
     }
 
     public function test_adjudicator_cannot_publish_their_own_accepted_decision(): void
