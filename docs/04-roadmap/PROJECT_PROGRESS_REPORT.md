@@ -760,3 +760,8 @@ FND-01 is merged and its exact-head CI passed. A separate [M3-02 FND-01 Gap Asse
 ## M3-02 local/CI hardening candidate — 2026-11-13
 
 The Product Owner authorized a bounded local workstation + GitHub CI foundation hardening increment. The candidate now adds a deterministic environment-default test suite, warning-level logging fallback, explicit PHPUnit local/test settings and environment/secret/diagnostics documentation. The read-only GitHub ruleset audit found one active main ruleset (ID 27043221) requiring the documentation validation check, but not the PHP foundation CI check; no ruleset changes were made. Exact-head CI and Product Owner review remain pending. No Hostinger/V1/production/database/real data/external APIs/AI/deployment/new spend are in scope. M3-02 remains in progress; no weighted percentage is claimed.
+
+
+## M3-02 exact-head CI result — 2026-11-13
+
+The final PR #139 head `6f5429f1fad0a8f892b66ec59ea4cc7bc8f7c6ff` passed the PHP 8.5 foundation workflow (run #43389111061) and project documentation validation (run #43389111140). PR #139 remains open and unmerged pending Product Owner review. No M3-02 weighted progress or full-step acceptance is claimed.
