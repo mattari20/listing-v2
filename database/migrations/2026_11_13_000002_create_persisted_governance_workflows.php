@@ -14,7 +14,7 @@ return new class extends Migration
             $table->string('status', 24);
             $table->string('opened_by_actor_id', 120);
             $table->string('case_kind', 24)->default('initial');
-            $table->uuid('parent_case_id')->nullable();
+            $table->foreignUuid('parent_case_id')->nullable()->constrained('adjudication_cases')->restrictOnDelete();
             $table->string('idempotency_key', 160)->unique();
             $table->timestamps();
             $table->index(['claim_version_id', 'status']);
