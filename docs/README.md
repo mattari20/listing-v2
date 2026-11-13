@@ -27,6 +27,9 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 ## Documentation tracking
 - [Documentation Completion Catalogue](04-roadmap/DOCUMENTATION_CATALOG.md) — owner-facing list of delivered, reviewed, accepted and planned documents; updated after every documentation PR update and merge.
 
+## Implementation records
+- [FND-01 Laravel 13 Foundation Implementation Record](05-implementation/FND-01_IMPLEMENTATION_RECORD.md) — local/CI-only foundation, synthetic tests, safety boundaries and pending acceptance evidence
+
 ## Research and delivery
 - [Open-Source Reuse Audit](03-research/OPEN_SOURCE_REUSE_AUDIT.md)
 - [M1 Student Journey Research](03-research/M1_STUDENT_JOURNEY_RESEARCH.md)
