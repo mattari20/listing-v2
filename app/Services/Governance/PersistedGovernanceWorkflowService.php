@@ -163,6 +163,48 @@ final class PersistedGovernanceWorkflowService
         });
     }
 
+    public function revokeSourceAuthorization(array $actor, string $authorizationId, string $reasonCode, string $rationale): int
+    {
+        $this->requireActor($actor, 'revoke_source_authorization');
+        if (($actor['actor_class'] ?? null) !== 'human' || $reasonCode === '' || trim($rationale) === '') {
+            $this->reject('revocation', 'Human authority, reason code and rationale are required.');
+        }
+        return DB::transaction(function () use ($actor, $authorizationId, $reasonCode, $rationale): int {
+            $authorization = DB::table('source_authorizations')->where('id', $authorizationId)->lockForUpdate()->first();
+            if ($authorization === null) {
+                $this->reject('authorization', 'Source authorization was not found.');
+            }
+            if ($authorization->revoked_at !== null) {
+                return 0;
+            }
+            $now = now();
+            DB::table('source_authorizations')->where('id', $authorizationId)->update([
+                'status' => 'revoked', 'revoked_at' => $now, 'revocation_reason' => $reasonCode, 'updated_at' => $now,
+            ]);
+            $evidenceIds = DB::table('evidence_references')->where('source_authorization_id', $authorizationId)->pluck('id');
+            DB::table('evidence_references')->whereIn('id', $evidenceIds)->update(['status' => 'quarantined', 'updated_at' => $now]);
+            $versionIds = DB::table('claim_evidence_links')->whereIn('evidence_reference_id', $evidenceIds)->distinct()->pluck('claim_version_id');
+            $snapshotIds = DB::table('publication_snapshots')->whereIn('claim_version_id', $versionIds)->pluck('id');
+            foreach ($snapshotIds as $snapshotId) {
+                $suppressionId = (string) Str::uuid();
+                DB::table('publication_suppressions')->insert([
+                    'id' => $suppressionId, 'publication_snapshot_id' => $snapshotId,
+                    'reason_code' => $reasonCode, 'rationale' => $rationale, 'actor_id' => $actor['actor_id'],
+                    'actor_class' => $actor['actor_class'], 'status' => 'active', 'suppressed_at' => $now,
+                    'created_at' => $now, 'updated_at' => $now,
+                ]);
+                DB::table('publication_snapshots')->where('id', $snapshotId)->update(['status' => 'suppressed']);
+                DB::table('public_projections')->where('publication_snapshot_id', $snapshotId)->update(['status' => 'suppressed', 'updated_at' => $now]);
+                $this->enqueue('publication.snapshot.suppressed', 'publication_snapshot', $snapshotId,
+                    ['snapshot_id' => $snapshotId, 'source_authorization_revoked' => true], 'revoke:'.$authorizationId.':'.$snapshotId);
+            }
+            $this->audit($actor, 'source_authorization_revoked', 'source_authorization', $authorizationId, $reasonCode, [
+                'affected_evidence_count' => $evidenceIds->count(), 'affected_snapshot_count' => $snapshotIds->count(),
+            ]);
+            return $snapshotIds->count();
+        });
+    }
+
     public function suppressPublication(array $actor, string $snapshotId, string $reasonCode, string $rationale): string
     {
         $this->requireActor($actor, 'suppress_publication');
