@@ -609,3 +609,7 @@ Official Hostinger documentation confirms Premium Web support for SSH, Composer 
 The Product Owner confirmed that the existing V1 website already uses the shared Hostinger Premium environment's PHP/CLI, Composer, PHP-extension support, hosted MySQL-compatible database service, SSH, cron and deployment/file-management capabilities. Record this as owner-supplied evidence only; do not access V1 to independently inspect it. Do not request screenshots merely to prove the existence of these general capabilities.
 
 This confirmation supports further V2 architecture planning but does not establish exact versions/limits, Laravel compatibility, V2 routing/document-root/configuration isolation, V2 capacity headroom or V2 restore readiness. P04 remains open pending those V2-specific gates and final owner stack approval. Existing no-V1-access, no-new-spend and no-implementation-authorization boundaries remain unchanged.
+
+## M3-01 P04 — conditional V2 architecture and schedule — 2026-11-13
+
+The [M3-01 P04 Hostinger V2 Architecture and Delivery Schedule](../04-roadmap/M3-01_P04_HOSTINGER_V2_ARCHITECTURE_AND_DELIVERY_SCHEDULE_2026-11-13.md) provides a conditional PHP/Laravel + MySQL-compatible initial architecture, V2-only isolation/deployment boundaries, a bounded synthetic-only foundation scope and indicative delivery ranges. It is a planning recommendation only. No final versioned stack or implementation authorization is issued. V1 remains untouched; no new spend is approved; P04 remains open pending owner decision and V2-specific checks.

@@ -723,3 +723,9 @@ Public Hostinger documentation makes Premium a credible candidate for a lean PHP
 The Product Owner confirmed that PHP/CLI, Composer, PHP-extension support, hosted MySQL-compatible database service, SSH, cron and the existing deployment/file-management workflow are already available and in use for V1 on the same Hostinger Premium environment. This owner confirmation is recorded without accessing V1. Screenshots are no longer required merely to prove general availability of those capabilities.
 
 Remaining checks are V2-specific: exact PHP/DB versions and limits relevant to the selected framework, Laravel compatibility, isolated V2 routing/document root and configuration, resource headroom, and V2 backup/restore. P04 is advanced but OPEN. M3 overall remains 5%; no M3-01 weighted progress is claimed. No implementation, technical spike, package installation, V1 inspection, database creation, deployment or spend is authorized.
+
+## P04 conditional Hostinger architecture and delivery schedule — 2026-11-13
+
+The [M3-01 P04 Hostinger V2 Architecture and Delivery Schedule](M3-01_P04_HOSTINGER_V2_ARCHITECTURE_AND_DELIVERY_SCHEDULE_2026-11-13.md) recommends a lean Laravel 13/PHP 8.5 + Hostinger MySQL-compatible modular monolith, server-rendered HTML, database-native search, bounded cron only, and AI-off operation. It specifies V2-only document-root, code, secrets, database/user, storage and deployment boundaries; V1 must remain untouched. It provides indicative staged effort/calendar ranges and a bounded foundation slice.
+
+This is planning-only. The stack remains conditional and requires owner approval; P04 remains OPEN, M3 remains 5%, and implementation authorization is NOT ISSUED.
