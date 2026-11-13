@@ -130,6 +130,23 @@ class GovernanceServiceContractTest extends TestCase
         }
     }
 
+
+    public function test_evidence_registration_requires_separate_retention_permission(): void
+    {
+        $authorizationId = $this->insertAuthorization([
+            'permitted_scopes' => ['acquisition' => true, 'retention' => false, 'processing' => true, 'reuse' => false, 'publication' => false],
+        ]);
+
+        $this->expectException(ValidationException::class);
+        app(GovernanceCommandService::class)->registerEvidenceReference(
+            $authorizationId,
+            $this->actor('retention-denied-collector', ['register_evidence']),
+            $this->context(),
+            'retention-denied-key',
+            ['content_included' => false],
+        );
+    }
+
     public function test_claim_registration_is_proposed_and_audited_with_quarantined_evidence_linked(): void
     {
         $authorizationId = $this->insertAuthorization();
@@ -278,7 +295,7 @@ class GovernanceServiceContractTest extends TestCase
             'permitted_purposes' => ['synthetic_test_only'],
             'permitted_methods' => ['fixture_reference'],
             'territories' => ['synthetic'],
-            'permitted_scopes' => ['acquisition' => true, 'retention' => false, 'processing' => true, 'reuse' => false, 'publication' => false],
+            'permitted_scopes' => ['acquisition' => true, 'retention' => true, 'processing' => true, 'reuse' => false, 'publication' => false],
             'valid_from' => '2026-11-13T00:00:00Z',
             'valid_to' => '2026-11-14T00:00:00Z',
             'revoked_at' => null,
