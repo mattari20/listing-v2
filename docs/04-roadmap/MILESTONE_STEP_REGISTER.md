@@ -694,3 +694,8 @@ M3-01 has started as a documentation/planning step following M3-00 owner accepta
 The Product Owner confirmed a ChatGPT-assisted development model and approved Django/Python, PostgreSQL, PostGIS, modular monolith, HTML-first server-rendered frontend and provider-neutral AI/AI-off architecture as the **preferred planning direction**. The exact rationale and boundaries are recorded in [M3-01 P04 Product Owner Preferred Technology Direction](M3-01_P04_OWNER_PREFERRED_TECHNOLOGY_DIRECTION_2026-11-13.md).
 
 P04 is advanced but remains Open: no final versions, hosting provider/region, database-extension compatibility, backup/restore evidence, data terms, support, portability or dated total-cost evidence are approved. Owner skill evidence means reliance on ChatGPT, not hands-on framework proficiency. No M3-01 task completion percentage is claimed; M3 remains 5%; implementation authorization NOT ISSUED.
+
+
+## M3-01 P04 Hostinger Premium constraint update — 2026-11-13
+
+The Product Owner directed that initial V2 use only the existing Hostinger Premium Web Hosting resources, with no VPS, hosting upgrade or new paid infrastructure. This supersedes the earlier Django/PostgreSQL/PostGIS preferred initial deployment direction. PHP/Laravel and the included MySQL/MariaDB database are candidates only pending exact runtime, Composer, extensions, SSH/cron, database engine/limits, backup/restore, isolated deployment and synthetic resource-headroom verification. PostGIS, dedicated search, external workers, paid maps/geocoding and AI providers are deferred. P04 remains open; no implementation authorization or spend is created. Evidence and gates: [M3-01 P04 Existing Hostinger Premium Constraint](M3-01_P04_EXISTING_HOSTINGER_PREMIUM_CONSTRAINT_2026-11-13.md).

@@ -705,3 +705,10 @@ The owner's hands-on language/framework proficiency is not established in the pr
 The Product Owner confirmed that they mainly rely on ChatGPT for writing, understanding and debugging code and agreed with Django/Python, PostgreSQL, PostGIS, modular monolith, HTML-first server-rendered frontend and provider-neutral AI/AI-off operation as the preferred planning direction. The decision is recorded in [M3-01 P04 Product Owner Preferred Technology Direction](M3-01_P04_OWNER_PREFERRED_TECHNOLOGY_DIRECTION_2026-11-13.md).
 
 This is not a final versioned stack or hosting decision. It does not claim hands-on Python proficiency. Hosting/provider/region, PostgreSQL/PostGIS availability, backup/restore, data terms, support, portability and full cost evidence remain open; P04 is advanced but not closed. No M3-01 weighted progress is claimed; M3 remains 5%. No implementation authorization, package installation, environment activation, external/production access or spend is authorized.
+
+
+## P04 owner hosting constraint update — 2026-11-13
+
+The Product Owner confirmed the initial V2 infrastructure constraint: use only the existing Hostinger Premium Web Hosting resources, with no VPS, upgrade or additional paid infrastructure. This supersedes the earlier Django/PostgreSQL/PostGIS preferred initial deployment direction. PHP/Laravel and the plan's MySQL/MariaDB service are candidates only; exact compatibility, CLI/Composer/extensions, SSH/cron, database limits, V2 isolation, backup/restore and synthetic resource headroom remain unverified. PostGIS, dedicated search, external workers, paid maps/geocoding and AI providers are deferred.
+
+P04 remains open pending verification. P05–P08 remain independently gated. M3 overall weighted progress remains 5%; no M3-01 weighted completion is claimed. Implementation authorization remains NOT ISSUED and no new spend is approved. See [M3-01 P04 Existing Hostinger Premium Constraint](M3-01_P04_EXISTING_HOSTINGER_PREMIUM_CONSTRAINT_2026-11-13.md).
