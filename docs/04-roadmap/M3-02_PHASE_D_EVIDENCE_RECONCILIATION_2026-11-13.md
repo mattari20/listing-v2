@@ -15,8 +15,8 @@ This report is deliberately limited to evidence that was actually observed:
 
 - PR #143, which adds the V2-only non-production isolation plan, is merged into `main` as `1479fbba6edbf10e668ab57bcdf3a6bdd49f1ae2`.
 - PR #144 records the Phase A static isolation review. It remains an open draft PR, not merged. Both exact-head checks passed: `PHP 8.5 foundation checks` and `Validate project control documents`.
-- Phase B was run in the existing Codespaces workspace on branch `m3-02-phase-b-verification`, at commit `1479fbba6edbf10e668ab57bcdf3a6bdd49f1ae2`. The user-provided outputs show successful local prerequisites, PHP syntax checks, Composer platform checks, PHPUnit assertions and a local-only HTTP health response.
-- The local workspace was returned to a clean Git state. The temporary local server was stopped, the two identified generated view-cache files were removed, and `composer.json` / `composer.lock` remained unchanged.
+- Phase B was run in the existing Codespaces workspace on branch `m3-02-phase-b-verification`, at commit `1479fbba6edbf10e668ab57bcdf3a6bdd49f1ae2`. The user-provided outputs show successful local prerequisites, PHP syntax checks, Composer platform checks and PHPUnit assertions. The only supplied standalone HTTP-server output showed an initial HTTP 500 caused by a missing application key; no successful retry output is available in the evidence supplied to this reconciliation.
+- The supplied output showed generated view-cache files as untracked. A final clean Git state and completed cache/process cleanup were not evidenced, so cleanup is not attested. `composer.json` / `composer.lock` remained unchanged.
 
 These results improve the local/CI evidence but do not establish hosting/runtime isolation, document-root mapping, capacity or recovery. A fresh read-only fetch of active ruleset 27043221 now confirms that both required status checks are configured on the main ruleset: `Validate project control documents` and `PHP 8.5 foundation checks`. The legacy branch-protection endpoint remains unreadable to the connected integration (HTTP 403), so this is a verified ruleset result, not a complete attestation of every possible protection mechanism.
 
@@ -63,25 +63,14 @@ The review records no tracked `.env`, `config/database.php`, `database/` directo
 
 **HTTP smoke evidence**
 
-The local server was bound to `127.0.0.1:18765` and started with synthetic environment values, including a synthetic `APP_KEY`. The local `GET /health` response was:
-
-```json
-{
-  "status": "ok",
-  "application": "estudent-institutes-v2",
-  "foundation": "fnd-01"
-}
-```
-
-The earlier HTTP 500 was caused by the standalone local server lacking an application key; the retry with synthetic environment variables succeeded. No `.env` file was created.
+The supplied local-server output showed an HTTP 500 because the standalone server had no application encryption key. A retry using process-only synthetic environment values was proposed, but the successful response was not included in the supplied evidence. Therefore, a successful standalone HTTP smoke test is **not verified** by this report. The CI feature test for `GET /health` did pass. No `.env` file was created.
 
 **Cleanup and no-change evidence**
 
-- Remaining local server process on port 18765 was stopped.
-- Only the two identified generated Laravel view-cache files were removed.
-- Final `git status --short` was empty.
+- The supplied terminal output showed generated Laravel view-cache files under `storage/framework/views/` as untracked.
+- A final process-stop confirmation, cache cleanup confirmation and empty final `git status --short` were not supplied; cleanup remains unverified.
 - `git diff --exit-code -- composer.json composer.lock` passed.
-- No application source, tracked configuration, dependencies, or Git history were changed by the local verification.
+- No application source, tracked configuration, dependency manifest or lockfile changes were evidenced.
 
 ## 3. ISO-01 through ISO-12 evidence register
 
@@ -95,10 +84,10 @@ The earlier HTTP 500 was caused by the standalone local server lacking an applic
 | ISO-06 | V2 document-root separation | **Not verified** | Repository places front controller in `public/`; actual host document-root mapping was not inspected. |
 | ISO-07 | Runtime config/secrets separation | **Not verified at hosting runtime** | No hosting secrets/config were accessed. Local synthetic key was process-only and not saved to `.env`. |
 | ISO-08 | Storage/session/cache/queue/log separation | **Partial — local defaults only** | Local/test defaults and generated view-cache location were observed inside the V2 workspace. Hosting and shared-resource boundaries remain unverified. |
-| ISO-09 | Routing/health | **Pass for local-only smoke test** | Local `GET /health` returned the exact expected response on loopback. No hosted endpoint was tested. |
+| ISO-09 | Routing/health | **Partial — CI feature test passed; standalone HTTP smoke not verified** | The CI feature test covers `GET /health`; supplied local-server output showed HTTP 500 and no confirmed successful retry. No hosted endpoint was tested. |
 | ISO-10 | Capacity | **Not verified** | No hosting/runtime capacity metadata or load test was collected. |
 | ISO-11 | Recovery readiness | **Not verified** | No runtime backup ownership, restore evidence or recovery exercise was performed. |
-| ISO-12 | No-impact attestation | **Pass for this Phase A/B activity only** | No V1, Hostinger, production, SSH, hPanel, DNS, deployment or database access occurred; no production writes or new spend. Composer package installation was limited to the authorized local lockfile install. |
+| ISO-12 | No-impact attestation | **Pass for observed access boundaries; local cleanup unverified** | No V1, Hostinger, production, SSH, hPanel, DNS, deployment or database access occurred; no production writes or new spend. Composer package installation was limited to the authorized local lockfile install. Final local process/cache cleanup is not attested. |
 
 ## 4. M3-02 exit criteria — updated disposition
 
@@ -108,7 +97,7 @@ The earlier HTTP 500 was caused by the standalone local server lacking an applic
 | Protected PR checks | Fresh read-only ruleset 27043221 includes both `Validate project control documents` and `PHP 8.5 foundation checks` as required status checks | **Met for the active readable ruleset; legacy endpoint limitation remains** |
 | Configuration and secret boundaries | Repository, PHPUnit and synthetic local process environment reviewed | **Met for local/CI scope only** |
 | Environment isolation | Phase A and B establish repository/local boundaries, not host/runtime separation | **Partial / open** |
-| Smoke tests | CI and local loopback `GET /health` evidence | **Met for local/CI foundation scope** |
+| Smoke tests | CI `GET /health` feature test passed; standalone local HTTP attempt returned 500 with no evidenced successful retry | **Partial — CI only** |
 | Reviewed architecture conformance | Step 3 review recorded as PARTIAL / FOUNDATION-ONLY | **Reviewed; downstream architecture remains assigned to later roadmap work** |
 | Minimal observability/diagnostics | Local/CI warning-level logging baseline | **Met only for local/CI diagnostics; production observability deferred** |
 
@@ -151,10 +140,10 @@ This operating model does not grant new production, hosting, database, deploymen
 
 ## 7. Final Phase D decision
 
-**Phase D — evidence reconciliation: COMPLETE as a documentation/evidence deliverable.**
+**Phase D — evidence reconciliation: PREPARED, with local HTTP/cleanup evidence explicitly qualified.**
 
 **M3-02 Platform Foundation: NOT ACCEPTED / NOT CLOSED.**
 
-The local/Codespaces evidence strengthens the build, test, configuration-default and smoke-test portions of the milestone. The active readable main ruleset now has both required checks, resolving that previously identified ruleset gap. Hosting/runtime isolation remains unresolved, and the legacy branch-protection endpoint remains unverified. No weighted completion percentage is assigned.
+The local/Codespaces evidence strengthens the build, test and configuration-default portions of the milestone. CI health coverage passed, but the standalone local HTTP smoke remains unverified and local cleanup was not evidenced. The active readable main ruleset now has both required checks, resolving that previously identified ruleset gap. Hosting/runtime isolation remains unresolved, and the legacy branch-protection endpoint remains unverified. No weighted completion percentage is assigned.
 
 No merge, ruleset mutation, hosting access, V1/production access, database operation, deployment, external API/AI integration, telemetry integration or new spend is performed or authorized by this report.
