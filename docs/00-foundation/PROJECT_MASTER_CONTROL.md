@@ -619,3 +619,7 @@ The [M3-01 P04 Hostinger V2 Architecture and Delivery Schedule](../04-roadmap/M3
 The Product Owner approved Laravel 13/PHP 8.5 with the existing Hostinger Premium MySQL-compatible database as the preferred initial V2 stack direction, subject to V2-specific compatibility checks. This supersedes the prior pending-owner-decision wording; it does not close P04 or authorize implementation.
 
 The P05 legal/privacy/source-rights/safeguarding/security assessment is delivered for owner review only. It is not legal advice, compliance certification, privacy sign-off, safeguarding approval or independent security certification. All source families remain RESEARCH ONLY; no real data or child interaction is authorized. V1 remains untouched; no new spend, implementation, production access, database creation or deployment is authorized.
+
+## M3-01 P06 environment and release planning — 2026-11-13
+
+The P06 plan defines synthetic-only local/CI boundaries, exact PR-head validation, security and suppression test gates, a no-deployment first foundation boundary, V2-only recovery requirements and Critical/High stop conditions. This is documentation only. No CI workflow, environment, package, V2 database or deployment is created; implementation authorization remains NOT ISSUED.
