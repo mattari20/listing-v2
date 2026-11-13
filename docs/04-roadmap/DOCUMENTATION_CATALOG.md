@@ -753,3 +753,13 @@ This records delivery and merge of FND-01 only. It does not claim Hostinger comp
 | [M3-02 Platform Foundation — FND-01 Gap Assessment](M3-02_PLATFORM_FOUNDATION_FND01_GAP_ASSESSMENT_2026-11-13.md) | Maps merged FND-01 evidence against M3-02 outcomes, distinguishes delivered/partial/not-delivered areas and defines a no-production, no-spend decision boundary for any next increment | Delivered for Product Owner review; no M3-02 implementation authorization |
 
 FND-01 is not treated as full M3-02 completion. The gap assessment awards no weighted completion credit and does not authorize Hostinger, V1, production, database, external-service, AI or deployment work.
+
+
+## M3-02 local/CI foundation hardening — 2026-11-13
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-02 Environment Configuration and Diagnostics Baseline](../05-implementation/M3-02_ENVIRONMENT_CONFIGURATION_AND_DIAGNOSTICS.md) | Defines local/test/CI configuration boundaries, non-secret variable inventory, secret lifecycle and privacy-safe logging/diagnostics | Delivered in implementation candidate; exact-head CI passed; Product Owner review pending |
+| [M3-02 Local/CI Foundation Hardening Implementation Record](../05-implementation/M3-02_LOCAL_CI_FOUNDATION_HARDENING_IMPLEMENTATION_RECORD.md) | Records warning-level logging defaults, deterministic PHPUnit environment, environment-default tests and read-only ruleset audit | Delivered in implementation candidate; exact-head CI and owner review pending |
+
+No repository ruleset was changed. The active main ruleset currently requires documentation validation but not the PHP foundation check; this governance gap is documented for separate owner decision.

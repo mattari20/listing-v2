@@ -622,7 +622,7 @@ See [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) for complete step scopes, task
 |---|---|---:|---|
 | M3-00 | Mobilization and Decision Closure | 5% | In progress; planning only |
 | M3-01 | Implementation Planning and Authorization | 7% | Not started; explicit implementation-start approval required |
-| M3-02 | Platform Foundation | 10% | Not started; post-authorization |
+| M3-02 | Platform Foundation | 10% | In progress — bounded local/CI foundation hardening candidate; exact-head CI and owner review pending |
 | M3-03 | Core Data and Governance | 12% | Not started; post-authorization |
 | M3-04 | Provider Management | 8% | Not started |
 | M3-05 | Public Directory and Search | 10% | Not started |
@@ -740,3 +740,15 @@ The FND-01 package is a bounded implementation artifact authorized under M3-01 P
 ## M3-02 foundation gap assessment — 2026-11-13
 
 The [M3-02 Platform Foundation — FND-01 Gap Assessment](M3-02_PLATFORM_FOUNDATION_FND01_GAP_ASSESSMENT_2026-11-13.md) maps the merged FND-01 artifact to M3-02 exit criteria. Reproducible CI checks, Laravel bootstrap, basic health smoke test and the default-off policy seam are evidenced. Repository protection, secret lifecycle, environment isolation, architecture conformance and security-check breadth are partial; a dedicated observability baseline is not delivered. No M3-02 completion percentage is claimed. A separate scope-specific owner authorization is required before implementation.
+
+
+## M3-02 bounded local/CI hardening — 2026-11-13
+
+The Product Owner authorized the local workstation + GitHub CI foundation hardening package only, retaining synthetic-only data, no new spend and all Hostinger/V1/production/database/external-service/AI/deployment exclusions. The implementation candidate adds warning-level logging defaults, deterministic non-production PHPUnit environment settings, environment-default tests and environment/diagnostics documentation. See [M3-02 implementation record](../05-implementation/M3-02_LOCAL_CI_FOUNDATION_HARDENING_IMPLEMENTATION_RECORD.md) and [environment/diagnostics baseline](../05-implementation/M3-02_ENVIRONMENT_CONFIGURATION_AND_DIAGNOSTICS.md).
+
+M3-02 remains **In progress** pending exact-head CI, complete diff review and owner acceptance. No M3-02 or M3 overall weighted percentage is claimed because M3-02 task weights and full exit evidence have not been reconciled. The read-only main ruleset audit found that PHP foundation CI is not a required status check; no ruleset change was made because it requires a separate decision.
+
+
+## M3-02 exact-head CI result — 2026-11-13
+
+PR #139 final head `6f5429f1fad0a8f892b66ec59ea4cc7bc8f7c6ff` passed PHP 8.5 foundation CI run #43389111061 and Project documentation validation run #43389111140. The candidate remains in progress pending Product Owner review and merge decision. No weighted completion percentage is claimed.

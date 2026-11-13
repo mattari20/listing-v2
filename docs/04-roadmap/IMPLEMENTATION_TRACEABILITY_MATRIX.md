@@ -276,3 +276,16 @@ All twenty entries remain planning proposals until owner acceptance and later sc
 | FND-05 | Protected, read-only GitHub CI quality checks | FND-01 implementation record | M3-01 P07 | PR #136; merge f61b4d17492294d45518493337f3fcd58fd78487 | CI run #43380176340 and docs validation run #43380176524 | Exact-head checks passed |
 
 FND-01 traceability applies only to the bounded local/CI package. It does not satisfy the separate M3-02 exit criteria or authorize Hostinger, production, database, source-data, external-service or deployment work.
+
+
+## M3-02 foundation hardening traceability — implementation candidate
+
+| Requirement ID | Requirement | Specification | Step | PR / commit | Test / evidence | Status |
+|---|---|---|---|---|---|---|
+| ENV-01 | Local/test/CI environment boundary and variable inventory | M3-02 Environment Configuration and Diagnostics Baseline | M3-02 | Pending PR; branch `feature/m3-02-foundation-hardening` | Environment matrix and non-secret variable inventory documented | Delivered in candidate; CI/review pending |
+| ENV-02 | Safe local/CI runtime defaults | Same | M3-02 | Pending PR | PHPUnit asserts testing/debug-off, array cache/session, sync queue, local filesystem, no database config, array mail and null broadcasting | Delivered in candidate; CI pending |
+| LOG-01 | Privacy-safe, non-verbose default logging | Same | M3-02 | Pending PR | Warning-level fallback and tests for local stack, warning threshold, null deprecation channel and disabled traces | Delivered in candidate; CI pending |
+| SEC-ENV-01 | Secret lifecycle and no production credentials in CI | Same | M3-02 | Pending PR | Documentation inventory; existing workflow remains contents:read and requires no secrets | Documented; exact-head workflow review pending |
+| GOV-PR-01 | Read-only audit of effective default-branch ruleset | Same | M3-02 | Read-only audit 2026-11-13 | Active ruleset ID 27043221 inspected; PHP foundation check not currently required; no settings changed | Audit delivered; governance change not authorized |
+
+These rows describe only the bounded M3-02 candidate and do not represent full M3-02 exit acceptance.

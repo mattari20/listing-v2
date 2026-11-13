@@ -151,3 +151,8 @@ Earlier M3-00 open/75% statements in this index are historical and superseded by
 
 ## M3-01 planning evidence
 - [M3-01 Detailed Planning Evidence Pack](04-roadmap/M3-01_DETAILED_PLANNING_EVIDENCE_PACK.md) — baseline reconciliation, proposed first-slice options, blocker matrix and synthetic-only test/release plan; no implementation authorization
+
+
+## M3-02 implementation
+- [M3-02 Local/CI Foundation Hardening Implementation Record](05-implementation/M3-02_LOCAL_CI_FOUNDATION_HARDENING_IMPLEMENTATION_RECORD.md) — bounded environment defaults, safe diagnostics/logging and read-only repository-protection audit; no production or database scope.
+- [M3-02 Environment Configuration and Diagnostics Baseline](05-implementation/M3-02_ENVIRONMENT_CONFIGURATION_AND_DIAGNOSTICS.md) — local/test/CI matrix, environment variable inventory, secret-handling and privacy-safe diagnostics rules.
