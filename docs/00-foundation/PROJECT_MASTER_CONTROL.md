@@ -613,3 +613,9 @@ This confirmation supports further V2 architecture planning but does not establi
 ## M3-01 P04 — conditional V2 architecture and schedule — 2026-11-13
 
 The [M3-01 P04 Hostinger V2 Architecture and Delivery Schedule](../04-roadmap/M3-01_P04_HOSTINGER_V2_ARCHITECTURE_AND_DELIVERY_SCHEDULE_2026-11-13.md) provides a conditional PHP/Laravel + MySQL-compatible initial architecture, V2-only isolation/deployment boundaries, a bounded synthetic-only foundation scope and indicative delivery ranges. It is a planning recommendation only. No final versioned stack or implementation authorization is issued. V1 remains untouched; no new spend is approved; P04 remains open pending owner decision and V2-specific checks.
+
+## M3-01 P04 owner stack approval and P05 planning assessment — 2026-11-13
+
+The Product Owner approved Laravel 13/PHP 8.5 with the existing Hostinger Premium MySQL-compatible database as the preferred initial V2 stack direction, subject to V2-specific compatibility checks. This supersedes the prior pending-owner-decision wording; it does not close P04 or authorize implementation.
+
+The P05 legal/privacy/source-rights/safeguarding/security assessment is delivered for owner review only. It is not legal advice, compliance certification, privacy sign-off, safeguarding approval or independent security certification. All source families remain RESEARCH ONLY; no real data or child interaction is authorized. V1 remains untouched; no new spend, implementation, production access, database creation or deployment is authorized.

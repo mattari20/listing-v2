@@ -106,3 +106,11 @@ P04 is advanced from "account capability unknown" to "shared-host capabilities o
 The conditional recommendation and V2 isolation plan are recorded in [M3-01 P04 Hostinger V2 Architecture and Delivery Schedule](M3-01_P04_HOSTINGER_V2_ARCHITECTURE_AND_DELIVERY_SCHEDULE_2026-11-13.md). It recommends Laravel 13/PHP 8.5 with the existing Hostinger MySQL-compatible database as the leading candidate, subject to owner stack approval and exact V2 runtime/database checks. It defines V2-only code, public document root, configuration, database/user, storage, cron and deployment boundaries; V1 remains untouched.
 
 The document also proposes a staged, range-based delivery schedule and a bounded first foundation slice. This remains planning only. P04 is OPEN; no implementation authorization or M3-01 weighted completion is claimed.
+
+## Product Owner stack decision and P05 gate assessment — 2026-11-13
+
+The Product Owner approved Laravel 13/PHP 8.5 with the existing Hostinger Premium MySQL-compatible database as the preferred initial V2 stack direction, subject to V2-specific compatibility checks. The owner also approved proceeding with the V2 isolation and staged delivery planning. Record this as the preferred stack decision, not as proof of runtime compatibility or implementation authorization.
+
+A new [P05 Legal, Privacy, Source-Rights, Safeguarding and Security Gate Assessment](M3-01_P05_LEGAL_PRIVACY_SOURCE_RIGHTS_SAFEGUARDING_SECURITY_GATE_ASSESSMENT_2026-11-13.md) provides the risk disposition and required preconditions. It is planning research only: no legal, privacy, safeguarding or independent security sign-off is claimed; no source family is approved; no real data or public pilot is authorized.
+
+P04 remains OPEN for exact V2 compatibility/isolation/capacity/recovery evidence. P05 is submitted for Product Owner review as a planning assessment. M3 remains 5%; implementation authorization NOT ISSUED.

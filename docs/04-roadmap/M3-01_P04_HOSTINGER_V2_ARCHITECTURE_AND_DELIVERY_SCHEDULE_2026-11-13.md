@@ -151,11 +151,11 @@ The Product Owner's confirmation removes the need for screenshots to prove gener
 
 ## 9. Decisions requested from the Product Owner
 
-1. Accept Laravel 13/PHP 8.5 + the existing Hostinger MySQL-compatible database as the **preferred conditional initial stack**, subject to the exact V2 checks above; or request a change.
-2. Accept the isolation principle: dedicated V2 public document root/subdomain preferred; V2-only code, secrets, database/user and storage; V1 untouched.
-3. Accept the staged schedule as a planning baseline only, to be recalibrated after the first authorized build.
+**Owner decision recorded 2026-11-13:** The Product Owner approved Laravel 13/PHP 8.5 + the existing Hostinger MySQL-compatible database as the preferred initial V2 stack direction, subject to exact V2 checks. The owner approved proceeding with the V2 isolation and staged delivery planning. The approval does not authorize implementation.
 
-No response to this document, including approval of its planning direction, will itself authorize implementation. A separate explicit implementation-start authorization is still mandatory.
+The isolation principle remains the required design: dedicated V2 public document root/subdomain preferred; V2-only code, secrets, database/user and storage; V1 untouched. The staged schedule is a planning baseline only and must be recalibrated after any separately authorized build.
+
+A separate explicit implementation-start authorization remains mandatory.
 
 ## 10. Authorization status
 
@@ -163,3 +163,11 @@ No response to this document, including approval of its planning direction, will
 **Spend authorization: NONE — no new spend.**  
 **P04 status: OPEN pending owner stack decision and V2-specific evidence.**  
 **M3 overall progress: 5%; no M3-01 weighted completion claimed.**
+
+## 11. Product Owner approval of preferred initial stack — 2026-11-13
+
+The Product Owner approved the recommended initial planning direction: **Laravel 13 / PHP 8.5 with the existing Hostinger Premium MySQL-compatible database service**, subject to exact V2 compatibility checks at implementation time. The Product Owner also approved moving forward with the documented V2 isolation and staged delivery planning.
+
+This is an owner-approved preferred stack direction, replacing the previous "owner decision pending" status. It is not evidence that the exact PHP CLI/web versions, extension set, Composer invocation, MySQL/MariaDB version/limits, separate V2 database quota, V2 public document-root routing, resource headroom or restore process have been verified. Laravel 13 remains the target; Laravel 12 is not an automatic fallback and would require a separate owner decision if necessary.
+
+**P04 disposition:** owner stack direction accepted; P04 remains OPEN for V2-specific compatibility, isolation, capacity and recovery evidence. Implementation authorization remains NOT ISSUED.

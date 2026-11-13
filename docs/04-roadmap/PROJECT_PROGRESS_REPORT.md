@@ -729,3 +729,9 @@ Remaining checks are V2-specific: exact PHP/DB versions and limits relevant to t
 The [M3-01 P04 Hostinger V2 Architecture and Delivery Schedule](M3-01_P04_HOSTINGER_V2_ARCHITECTURE_AND_DELIVERY_SCHEDULE_2026-11-13.md) recommends a lean Laravel 13/PHP 8.5 + Hostinger MySQL-compatible modular monolith, server-rendered HTML, database-native search, bounded cron only, and AI-off operation. It specifies V2-only document-root, code, secrets, database/user, storage and deployment boundaries; V1 must remain untouched. It provides indicative staged effort/calendar ranges and a bounded foundation slice.
 
 This is planning-only. The stack remains conditional and requires owner approval; P04 remains OPEN, M3 remains 5%, and implementation authorization is NOT ISSUED.
+
+## M3-01 P04 owner stack approval and P05 assessment — 2026-11-13
+
+The Product Owner approved Laravel 13/PHP 8.5 with the existing Hostinger Premium MySQL-compatible database as the preferred initial V2 stack direction, subject to V2-specific checks. The stack preference decision is resolved; P04 remains open for runtime/database compatibility, V2 isolation, resource headroom and recovery evidence.
+
+P05 planning assessment is delivered for owner review. It records Pakistan legal research sources, privacy and child-safeguarding boundaries, source-rights controls and security acceptance criteria. It does not constitute legal/privacy/security sign-off; no source family, real data, child interaction, pilot or launch is approved. M3 remains 5%; implementation authorization NOT ISSUED.

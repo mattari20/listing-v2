@@ -716,3 +716,9 @@ It does not prove exact runtime/database versions or limits, Laravel-specific co
 The new [Hostinger-Constrained V2 Architecture and Delivery Schedule](M3-01_P04_HOSTINGER_V2_ARCHITECTURE_AND_DELIVERY_SCHEDULE_2026-11-13.md) translates the current hosting constraint into a conditional Laravel/PHP + MySQL-compatible modular-monolith recommendation, V2-only isolation rules and staged delivery ranges. It keeps AI/maps/geocoding/vector search, persistent workers, real source data and public launch out of the first foundation package.
 
 This is a planning recommendation, not a final stack selection or implementation authorization. P04 remains OPEN pending owner decision and V2-specific runtime, isolation, capacity and recovery evidence. M3 remains 5%.
+
+## M3-01 P04 owner stack decision and P05 assessment — 2026-11-13
+
+The Product Owner approved Laravel 13/PHP 8.5 with the existing Hostinger Premium MySQL-compatible database as the preferred initial stack direction, subject to V2-specific compatibility checks. This resolves the pending owner preference only; P04 remains OPEN for exact runtime/database compatibility, V2 isolation, capacity and recovery evidence.
+
+The [P05 legal/privacy/source-rights/safeguarding/security assessment](M3-01_P05_LEGAL_PRIVACY_SOURCE_RIGHTS_SAFEGUARDING_SECURITY_GATE_ASSESSMENT_2026-11-13.md) is delivered for owner review. It makes no compliance claim or professional sign-off, approves no source families and authorizes no real data, child interaction, public pilot or launch. M3 remains 5%; implementation authorization NOT ISSUED.
