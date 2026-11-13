@@ -42,7 +42,7 @@ The review records no tracked `.env`, `config/database.php`, `database/` directo
 - Repository directory: `/workspaces/listing-v2`
 - Branch: `m3-02-phase-b-verification`
 - HEAD: `1479fbba6edbf10e668ab57bcdf3a6bdd49f1ae2`
-- Final `git status --short`: empty
+- Final `git status --short`: **not evidenced**; supplied output showed untracked generated view-cache files
 
 **Toolchain and dependency evidence**
 
@@ -79,7 +79,7 @@ The supplied local-server output showed an HTTP 500 because the standalone serve
 | ISO-01 | Repository and commit identity | **Pass for repository/local scope** | V2 remote/workspace identity and exact main/workspace SHA recorded. |
 | ISO-02 | Tracked paths and configuration review | **Pass for inspected current snapshot** | Phase A static review found no tracked `.env`, database config/directory/artifact, or obvious direct V1 runtime reference. Not a historical or runtime attestation. |
 | ISO-03 | Local runtime/toolchain | **Pass with parity qualification** | PHP 8.4.27 and Composer 2.10.3 recorded; manifest and lock platform checks passed. CI uses PHP 8.5, so exact parity is not established. |
-| ISO-04 | Synthetic environment defaults | **Pass for local/test defaults; runtime hosting unknown** | PHPUnit and local HTTP test used synthetic values; no `.env` was created. Static config review supports safe local defaults. |
+| ISO-04 | Synthetic environment defaults | **Pass for local/test defaults; runtime hosting unknown** | PHPUnit used the reviewed synthetic test defaults; the supplied standalone HTTP attempt lacked an application key. No `.env` was created. Static config review supports safe local defaults. |
 | ISO-05 | Database-free tests | **Pass with warning qualification** | PHPUnit: 5 test methods / 17 assertions, no failures/errors, 5 benign missing-`.env` warnings. CI foundation checks passed on PR #144 exact head. No database command or connection was used. |
 | ISO-06 | V2 document-root separation | **Not verified** | Repository places front controller in `public/`; actual host document-root mapping was not inspected. |
 | ISO-07 | Runtime config/secrets separation | **Not verified at hosting runtime** | No hosting secrets/config were accessed. Local synthetic key was process-only and not saved to `.env`. |
