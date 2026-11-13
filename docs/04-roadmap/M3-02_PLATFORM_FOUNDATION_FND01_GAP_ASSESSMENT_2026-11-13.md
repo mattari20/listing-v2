@@ -80,3 +80,11 @@ The Product Owner may review the gap matrix and decide whether to authorize a na
 The Product Owner subsequently authorized the bounded local workstation + GitHub CI foundation hardening package described in Section 4, with synthetic fixtures only, no new spend and all listed exclusions retained. Implementation is recorded in [M3-02 Local/CI Foundation Hardening Implementation Record](../05-implementation/M3-02_LOCAL_CI_FOUNDATION_HARDENING_IMPLEMENTATION_RECORD.md) and [M3-02 Environment Configuration and Diagnostics Baseline](../05-implementation/M3-02_ENVIRONMENT_CONFIGURATION_AND_DIAGNOSTICS.md).
 
 The implementation candidate is on branch `feature/m3-02-foundation-hardening`. Exact-head CI, complete diff review and owner acceptance remain pending. The active ruleset audit is read-only and no repository setting was changed. M3-02 remains in progress; no weighted completion percentage is claimed.
+
+
+
+## Superseding reconciliation — PR #139 merged and Step 1–2 completed (2026-11-13)
+
+This addendum supersedes the pending/open implementation wording in Section 7. PR #139 is closed and merged into main as bab5d7458b2820be2f93f242b925eaed2ae0ece0. Its final head b5f8761f0d1607571bf85dd10f259e4a159ab099 passed PHP 8.5 foundation CI run #43389214026 and Project documentation validation run #43389213905. The post-merge documentation check also passed on main merge commit (run #43402302580).
+
+The local/CI hardening package is delivered. M3-02 remains in progress and is not formally accepted: architecture conformance, effective environment isolation, complete observability/operational evidence and final exit review remain outstanding or limited as described in the M3-02 Step 1–2 Reconciliation and Repository Governance Audit. The Step 2 ruleset audit confirms PHP foundation CI is not required by active ruleset 27043221; no ruleset or branch-protection settings were changed. Any governance change requires separate explicit owner authorization.
