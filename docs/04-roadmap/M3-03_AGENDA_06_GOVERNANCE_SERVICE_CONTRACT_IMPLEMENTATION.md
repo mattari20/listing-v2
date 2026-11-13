@@ -29,6 +29,7 @@ The policy boundary provides executable decisions for:
 - human-only adjudication, with high-impact evidence submitter separation;
 - human-only publication, requiring accepted disposition, admissible evidence, current claim version, distinct adjudicator and evidence submitter, explicit surface/audience and policy version;
 - evidence admissibility (only `eligible_for_review` can support acceptance);
+- evidence-status aggregation that refuses claim acceptance when evidence is absent or quarantined;
 - conflict detection that preserves incompatible candidates without latest-wins;
 - Deeni Madaris default-OFF visibility;
 - approved-projection-only anonymous reads;
