@@ -162,3 +162,9 @@ Earlier M3-00 open/75% statements in this index are historical and superseded by
 - [M3-02 Step 1–2 Reconciliation and Repository Governance Audit](04-roadmap/M3-02_STEP_01_02_RECONCILIATION_AND_GOVERNANCE_AUDIT_2026-11-13.md) — reconciles PR #139 merge, maps current M3-02 exit evidence, and records the read-only active ruleset audit and separately gated recommendations.
 
 PR #139 is merged. M3-02 remains in progress and is not formally accepted; governance settings were not changed.
+
+
+## M3-02 Step 3 — architecture conformance review (2026-11-13)
+- [M3-02 Step 3 Architecture Conformance Review](04-roadmap/M3-02_STEP_03_ARCHITECTURE_CONFORMANCE_REVIEW_2026-11-13.md) — compares the current merged Laravel foundation against accepted M2 logical architecture and AI-era readiness criteria; records implemented, partial, not-implemented and unverified areas. Read-only review; no application changes.
+
+Step 3 is complete as a review/documentation deliverable. The repository remains a foundation-only scaffold; M3-02 remains in progress and is not formally accepted.

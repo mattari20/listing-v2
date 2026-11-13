@@ -772,3 +772,12 @@ No repository ruleset was changed. The active main ruleset currently requires do
 | [M3-02 Step 1–2 Reconciliation and Repository Governance Audit](M3-02_STEP_01_02_RECONCILIATION_AND_GOVERNANCE_AUDIT_2026-11-13.md) | Reconciles merged PR #139, maps remaining M3-02 exit evidence and records the read-only active main ruleset audit and recommendations | Delivered in documentation follow-up; M3-02 remains in progress; no ruleset setting changed |
 
 The local/CI hardening package is merged in PR #139. Prior pending-review wording in this catalogue is superseded by the 2026-11-13 reconciliation. The PHP foundation CI check is not currently required by active ruleset 27043221; any change requires separate owner authorization.
+
+
+## M3-02 Step 3 architecture conformance review — 2026-11-13
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-02 Step 3 Architecture Conformance Review](M3-02_STEP_03_ARCHITECTURE_CONFORMANCE_REVIEW_2026-11-13.md) | Evidence-based comparison of current V2 foundation code/configuration/tests/CI against accepted M2 architecture and M3 AI-era requirements | Completed as read-only review; identifies foundation-only conformance and remaining implementation/verification gaps |
+
+Step 3 does not authorize application changes or close M3-02. Hostinger/V1/production, database, real/source data, external integrations, AI activation and deployment remain excluded.
