@@ -11,8 +11,6 @@ use Illuminate\Validation\ValidationException;
 
 final class GovernanceCommandService
 {
-    public function __construct(private readonly GovernancePolicy $policy) {}
-
     /**
      * @param array<string, mixed> $actor
      * @param array<string, mixed> $context
@@ -39,7 +37,7 @@ final class GovernanceCommandService
             if ($authorization === []) {
                 throw ValidationException::withMessages(['authorization' => 'Source authorization was not found.']);
             }
-            $decision = $this->policy->authorizeSourceAction($authorization, 'acquisition', $context);
+            $decision = $this->policy()->authorizeSourceAction($authorization, 'acquisition', $context);
             if ($decision['allowed'] === false) {
                 throw ValidationException::withMessages(['authorization' => $decision['reason']]);
             }
@@ -99,7 +97,7 @@ final class GovernanceCommandService
             }
             foreach ($evidence as $reference) {
                 $authorization = (array) DB::table('source_authorizations')->where('id', $reference->source_authorization_id)->first();
-                $decision = $this->policy->authorizeSourceAction($authorization, 'processing', $context);
+                $decision = $this->policy()->authorizeSourceAction($authorization, 'processing', $context);
                 if ($decision['allowed'] === false) {
                     throw ValidationException::withMessages(['authorization' => $decision['reason']]);
                 }
@@ -147,9 +145,14 @@ final class GovernanceCommandService
         });
     }
 
+    private function policy(): GovernancePolicy
+    {
+        return new GovernancePolicy;
+    }
+
     private function requireActor(array $actor, string $capability): void
     {
-        $decision = $this->policy->requireCapability($actor, $capability);
+        $decision = $this->policy()->requireCapability($actor, $capability);
         if ($decision['allowed'] === false) {
             throw ValidationException::withMessages(['actor' => $decision['reason']]);
         }
