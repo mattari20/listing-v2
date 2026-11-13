@@ -355,7 +355,18 @@ final class PersistedGovernanceWorkflowService
                 ->lockForUpdate()
                 ->first();
 
-            if ($event === null || (int) $event->attempts >= 10) {
+            if ($event === null) {
+                return null;
+            }
+            if ((int) $event->attempts >= 10) {
+                DB::table('governance_outbox')->where('id', $event->id)->update([
+                    'status' => 'dead_letter',
+                    'claim_token' => null,
+                    'claimed_at' => null,
+                    'last_error' => 'Worker lease expired after the maximum claim attempts.',
+                    'updated_at' => $now,
+                ]);
+
                 return null;
             }
 
