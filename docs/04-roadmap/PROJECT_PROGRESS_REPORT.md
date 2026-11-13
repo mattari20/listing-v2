@@ -802,3 +802,12 @@ M3-01 is **CLOSED as an implementation-planning and authorization milestone**. T
 PR #149 passed exact-head Project documentation validation (run #356; GitHub run ID 43440848522) and FND-01 foundation CI (run #50; GitHub run ID 43440848520), with no outstanding review threads, and was squash-merged into `main` as `ce0ecb71d8fd8ca0f7f235b5ff998025e37abd2a`.
 
 M3-01 closure is limited to the planning/reconciliation/authorization milestone. P04 V2 hosted compatibility/isolation/capacity/recovery, P05 qualified specialist clearances and P06 hosted execution/recovery remain open for relevant future activities; they are not marked complete and do not block closure of this planning milestone. The next agenda is the bounded M3-03 logical domain model and provenance work package, under the exclusions recorded in Section 8. No physical schema/migrations/database persistence, real/source/personal data, hosting/live access, external services or new spend is authorized.
+
+
+## M3-03 Agenda 1 — Logical Domain Model and Provenance Work Package (2026-11-13)
+
+The bounded M3-03 Agenda 1 work package has been prepared in three artifacts: `M3-03_LOGICAL_DOMAIN_MODEL_AND_GOVERNANCE.md`, `M3-03_SYNTHETIC_FIXTURES.json` and `M3-03_SYNTHETIC_FIXTURES_AND_DETERMINISTIC_TEST_SPEC.md`. The package defines logical entities and relationships, temporal claim versioning, evidence provenance and source authorization gates, deterministic validation, conflict handling, human adjudication, audit, publication, correction, withdrawal and rollback. It contains 20 deterministic test vectors and fabricated fixtures only.
+
+Fixture integrity review passed: valid JSON; 5 entities, 4 relationships, 5 claims, 2 evidence references and 20 test IDs; all relationship endpoints and provenance references resolve; restricted category default is false. This is a structural fixture check, not application-level test execution. No application code, physical schema, migrations, DB connection, persistence, real/source/personal data, source collection, external service/AI, hosting, deployment or spend was used.
+
+**Agenda disposition:** deliverables prepared; internal consistency review passed; exact M1/M2 requirement/component ID crosswalk remains unresolved because canonical acceptance source documents were not discoverable in the connected repository lookup. Theme-level traceability is stated transparently in the model. M3-03 as a whole remains in progress; only this bounded Agenda 1 work package is delivered. See the three artifacts above and the M3 master step plan.
