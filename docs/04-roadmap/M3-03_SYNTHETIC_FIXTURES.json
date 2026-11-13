@@ -28,6 +28,36 @@
       "id": "auth-synth-001",
       "type": "authority",
       "label": "Synthetic Authority Q"
+    },
+    {
+      "id": "qual-synth-001",
+      "type": "qualification",
+      "label": "Synthetic Qualification Level Q"
+    },
+    {
+      "id": "award-synth-001",
+      "type": "awarding_body",
+      "label": "Synthetic Awarding Body Z"
+    },
+    {
+      "id": "cycle-synth-001",
+      "type": "admission_cycle",
+      "label": "Synthetic Intake 2026"
+    },
+    {
+      "id": "offer-synth-001",
+      "type": "programme_offer",
+      "label": "Synthetic Programme A at Site One for Intake 2026"
+    },
+    {
+      "id": "fee-synth-001",
+      "type": "fee_component",
+      "label": "Synthetic One-Time Fee"
+    },
+    {
+      "id": "aid-synth-001",
+      "type": "scholarship_offer",
+      "label": "Synthetic Aid Offer"
     }
   ],
   "relationships": [
@@ -62,6 +92,62 @@
       "to": "inst-synth-001",
       "valid_from": "2025-01-01",
       "valid_to": "2026-01-01"
+    },
+    {
+      "id": "rel-synth-005",
+      "type": "may_lead_to",
+      "from": "prog-synth-001",
+      "to": "qual-synth-001",
+      "valid_from": "2025-01-01",
+      "valid_to": null
+    },
+    {
+      "id": "rel-synth-006",
+      "type": "awards",
+      "from": "award-synth-001",
+      "to": "qual-synth-001",
+      "valid_from": "2025-01-01",
+      "valid_to": null
+    },
+    {
+      "id": "rel-synth-007",
+      "type": "offers_at",
+      "from": "prog-synth-001",
+      "to": "offer-synth-001",
+      "valid_from": "2026-01-01",
+      "valid_to": "2027-01-01"
+    },
+    {
+      "id": "rel-synth-008",
+      "type": "offer_at_site",
+      "from": "offer-synth-001",
+      "to": "site-synth-001",
+      "valid_from": "2026-01-01",
+      "valid_to": "2027-01-01"
+    },
+    {
+      "id": "rel-synth-009",
+      "type": "offer_for_cycle",
+      "from": "offer-synth-001",
+      "to": "cycle-synth-001",
+      "valid_from": "2026-01-01",
+      "valid_to": "2027-01-01"
+    },
+    {
+      "id": "rel-synth-010",
+      "type": "has_fee_component",
+      "from": "offer-synth-001",
+      "to": "fee-synth-001",
+      "valid_from": "2026-01-01",
+      "valid_to": "2027-01-01"
+    },
+    {
+      "id": "rel-synth-011",
+      "type": "has_aid_offer",
+      "from": "offer-synth-001",
+      "to": "aid-synth-001",
+      "valid_from": "2026-01-01",
+      "valid_to": "2027-01-01"
     }
   ],
   "authorizations": [
@@ -236,6 +322,10 @@
     "T-017",
     "T-018",
     "T-019",
-    "T-020"
+    "T-020",
+    "T-021",
+    "T-022",
+    "T-023",
+    "T-024"
   ]
 }
