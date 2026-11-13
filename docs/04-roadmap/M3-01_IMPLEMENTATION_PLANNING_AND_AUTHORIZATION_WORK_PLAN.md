@@ -114,3 +114,7 @@ The Product Owner approved Laravel 13/PHP 8.5 with the existing Hostinger Premiu
 A new [P05 Legal, Privacy, Source-Rights, Safeguarding and Security Gate Assessment](M3-01_P05_LEGAL_PRIVACY_SOURCE_RIGHTS_SAFEGUARDING_SECURITY_GATE_ASSESSMENT_2026-11-13.md) provides the risk disposition and required preconditions. It is planning research only: no legal, privacy, safeguarding or independent security sign-off is claimed; no source family is approved; no real data or public pilot is authorized.
 
 P04 remains OPEN for exact V2 compatibility/isolation/capacity/recovery evidence. P05 is submitted for Product Owner review as a planning assessment. M3 remains 5%; implementation authorization NOT ISSUED.
+
+## P06 environment, test, CI, release and rollback plan — 2026-11-13
+
+The [P06 Environment, Test, CI, Release and Rollback Plan](M3-01_P06_ENVIRONMENT_TEST_CI_RELEASE_ROLLBACK_PLAN_2026-11-13.md) specifies local + GitHub CI synthetic-only environments, runtime/dependency policy, test matrix, branch/review controls, no-deployment first foundation boundary, recovery prerequisites and stop conditions. It does not create CI workflows, install packages, activate environments or deploy. P06 is delivered for owner review; implementation authorization remains NOT ISSUED.
