@@ -130,7 +130,6 @@ class GovernanceServiceContractTest extends TestCase
         }
     }
 
-
     public function test_evidence_registration_requires_separate_retention_permission(): void
     {
         $authorizationId = $this->insertAuthorization([
