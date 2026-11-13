@@ -60,7 +60,7 @@ final class GovernancePolicy
         if ($capability['allowed'] === false) {
             return $capability;
         }
-        if (in_array($actor['actor_class'] ?? '', ['automated', 'system', 'agent'], true)) {
+        if (($actor['actor_class'] ?? null) !== 'human') {
             return $this->deny('automated_adjudication_prohibited');
         }
         if ($highImpact && ($actor['actor_id'] ?? null) === $evidenceActorId) {
@@ -91,7 +91,7 @@ final class GovernancePolicy
         if ($capability['allowed'] === false) {
             return $capability;
         }
-        if (in_array($actor['actor_class'] ?? '', ['automated', 'system', 'agent'], true)) {
+        if (($actor['actor_class'] ?? null) !== 'human') {
             return $this->deny('automated_publication_prohibited');
         }
         if (($adjudication['outcome'] ?? null) !== 'accepted' || ($adjudication['claim_disposition'] ?? null) !== 'accepted') {
@@ -122,7 +122,7 @@ final class GovernancePolicy
         if ($capability['allowed'] === false) {
             return $capability;
         }
-        if (in_array($actor['actor_class'] ?? '', ['automated', 'system', 'agent'], true)) {
+        if (($actor['actor_class'] ?? null) !== 'human') {
             return $this->deny('automated_restoration_prohibited');
         }
         if (($actor['actor_id'] ?? '') === $suppressorActorId) {
@@ -140,6 +140,9 @@ final class GovernancePolicy
         $capability = $this->requireCapability($actor, 'withdraw_evidence');
         if ($capability['allowed'] === false) {
             return $capability;
+        }
+        if (($actor['actor_class'] ?? null) !== 'human') {
+            return $this->deny('human_evidence_withdrawal_required');
         }
         if ($retentionPolicyApproved === false) {
             return $this->deny('retention_policy_decision_missing');
