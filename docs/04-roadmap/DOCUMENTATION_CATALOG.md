@@ -811,3 +811,12 @@ The acceptance pack confirms that reproducible GitHub CI, local/CI configuration
 | [M3-03 Agenda 6 Governance Service Contract Implementation](M3-03_AGENDA_06_GOVERNANCE_SERVICE_CONTRACT_IMPLEMENTATION.md) | Executable policy/service implementation and explicit workflow deferrals | Complete — implementation merged in PR #160 |
 
 PR #160 merged as `9fd14f069f71e17d34a5392caf6977df9674fd4d`; exact-head PHP 8.5 foundation CI run #87 and Project documentation validation run #404 passed. The 22 test-run warnings are non-fatal missing-local-.env harness warnings; 104 assertions were recorded.
+
+
+## M3-03 Agenda 7 — Persisted Adjudication and Publication Workflows
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-03 Agenda 7 Persisted Adjudication and Publication Workflows](M3-03_AGENDA_07_PERSISTED_ADJUDICATION_AND_PUBLICATION_WORKFLOWS.md) | Scope, persisted workflow design, separation-of-duties feasibility, technical limitations and acceptance gates | Implementation candidate in PR #162; exact-head validation pending |
+
+PR [#162](https://github.com/mattari20/listing-v2/pull/162) contains the additive migration, persisted workflow service and synthetic feature tests. Do not mark complete until exact-head PHP 8.5 foundation CI and documentation validation pass and merge evidence is reconciled.
