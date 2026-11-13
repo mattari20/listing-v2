@@ -921,3 +921,14 @@ A gap review of the M3-03 exit criteria and merged workflow code found no persis
 Candidate branch: `feature/m3-03-agenda-09-claim-lifecycle`. The implementation adds human-capability-gated correction with temporal successor lineage, evidence references, audit/idempotency and superseded-version publication denial; human-only withdrawal with audited suppression records, immediate projection freeze and outbox suppression; and synthetic feature tests for these paths.
 
 Exact-head PHP 8.5 foundation CI, Project documentation validation, review reconciliation, merge and final completion evidence remain pending. No real/source/personal data, source access, real role provisioning, production, external API/AI, public endpoint, deployment or spend is included. M3-03 remains **In progress**.
+
+
+## M3-03 Agenda 9 — final completion reconciliation (2026-11-14)
+
+Agenda 9 is **COMPLETED** for its bounded authorized local/CI synthetic claim-version lifecycle scope. PR [#167](https://github.com/mattari20/listing-v2/pull/167) merged as `91c15204fb41ba5cc5a29b99a2dca80e983adc9d` from exact validated head `3d01e87643aa838e55e07a1a20c67ada9078415b`.
+
+Exact-head PHP 8.5 foundation CI run [#43529328306](https://github.com/mattari20/listing-v2/actions/runs/43529328306) and Project documentation validation run [#43529328427](https://github.com/mattari20/listing-v2/actions/runs/43529328427) both passed. The PHP workflow completed toolchain/SQLite, Composer, dependency audit, Pint, Laravel bootstrap/routes, synthetic tests and artifact hygiene. The test suite reported 176 assertions with no failures and 42 non-fatal warnings caused by the existing test harness reading an absent local `.env` file. No `.env` or database artifact was added.
+
+Review threads were clear, no review submissions were present and the PR was merged using an expected-head SHA guard. Delivered behavior covers immutable correction successors with temporal ranges and evidence lineage, idempotency, stale-version publication denial, persisted disputed disposition denial, and audited human withdrawal with dependent snapshot suppression, projection freeze and outbox propagation.
+
+No global temporal-overlap policy, automated conflict resolution, real role provisioning, retention/deletion schedule, specialist sign-off, source access, production concurrency, public endpoint, deployment or spend is claimed. M3-03 overall remains **In progress**.
