@@ -765,3 +765,13 @@ The Product Owner authorized a bounded local workstation + GitHub CI foundation 
 ## M3-02 exact-head CI result — 2026-11-13
 
 The final PR #139 head `6f5429f1fad0a8f892b66ec59ea4cc7bc8f7c6ff` passed the PHP 8.5 foundation workflow (run #43389111061) and project documentation validation (run #43389111140). PR #139 remains open and unmerged pending Product Owner review. No M3-02 weighted progress or full-step acceptance is claimed.
+
+
+
+## M3-02 Step 1–2 reconciliation — 2026-11-13
+
+The Product Owner approved and PR #139 was squash-merged into main as bab5d7458b2820be2f93f242b925eaed2ae0ece0. The exact PR head b5f8761f0d1607571bf85dd10f259e4a159ab099 passed PHP 8.5 foundation CI (run #43389214026) and Project documentation validation (run #43389213905); post-merge documentation validation passed on main (run #43402302580). This supersedes prior statements that PR #139 was open, pending review, or awaiting merge.
+
+M3-02 remains **In progress; not formally accepted**. The merged package evidences reproducible GitHub CI, safe local/CI defaults, basic smoke validation and a minimal local/CI diagnostics policy. Remaining evidence includes full accepted-architecture conformance, V2-specific runtime/document-root/configuration isolation, capacity/recovery evidence under a separate authorization, complete operational observability disposition and formal owner acceptance. No weighted M3-02 or M3 overall percentage is claimed by this reconciliation.
+
+The read-only audit of active ruleset 27043221 confirms that Validate project control documents is the only required status check; PHP 8.5 foundation checks is not required. Required approval count is zero; thread resolution, linear history, deletion and non-fast-forward protections are active; bypass actors are none. The legacy branch-protection API returned HTTP 403 to the connected integration. No repository settings were changed. Adding PHP CI as a required check or changing review requirements needs separate explicit Product Owner authorization. See M3-02_STEP_01_02_RECONCILIATION_AND_GOVERNANCE_AUDIT_2026-11-13.md.

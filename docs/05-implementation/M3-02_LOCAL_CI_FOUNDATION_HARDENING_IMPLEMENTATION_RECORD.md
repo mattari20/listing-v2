@@ -45,3 +45,11 @@ This is a bounded M3-02 implementation candidate. M3-02 is not complete until al
 ## Exact-head CI update — 2026-11-13
 
 Final PR head `6f5429f1fad0a8f892b66ec59ea4cc7bc8f7c6ff` passed both required checks: PHP 8.5 foundation CI run [#43389111061](https://github.com/mattari20/listing-v2/actions/runs/43389111061) and Project documentation validation run [#43389111140](https://github.com/mattari20/listing-v2/actions/runs/43389111140). The earlier test failures were corrected before this final head; they are retained in workflow history but are not the final result. The PR remains open and unmerged pending Product Owner diff review/acceptance.
+
+
+
+## Superseding delivery and merge reconciliation — 2026-11-13
+
+The implementation candidate described above was delivered in PR #139 and is now **merged**. PR #139 final head b5f8761f0d1607571bf85dd10f259e4a159ab099 passed PHP 8.5 foundation CI run #43389214026 and Project documentation validation run #43389213905. PR #139 was squash-merged as bab5d7458b2820be2f93f242b925eaed2ae0ece0, which is verified as current main HEAD at the time of this reconciliation. Post-merge documentation validation passed on main (run #43402302580).
+
+This confirms delivery of the bounded local/CI hardening package only. It does not close M3-02 or prove Hostinger/production isolation, runtime compatibility, database readiness, persistent observability, or independent legal/privacy/security review. See the M3-02 Step 1–2 Reconciliation and Repository Governance Audit for the remaining exit evidence and read-only ruleset findings.

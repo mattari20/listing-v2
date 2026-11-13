@@ -156,3 +156,9 @@ Earlier M3-00 open/75% statements in this index are historical and superseded by
 ## M3-02 implementation
 - [M3-02 Local/CI Foundation Hardening Implementation Record](05-implementation/M3-02_LOCAL_CI_FOUNDATION_HARDENING_IMPLEMENTATION_RECORD.md) — bounded environment defaults, safe diagnostics/logging and read-only repository-protection audit; no production or database scope.
 - [M3-02 Environment Configuration and Diagnostics Baseline](05-implementation/M3-02_ENVIRONMENT_CONFIGURATION_AND_DIAGNOSTICS.md) — local/test/CI matrix, environment variable inventory, secret-handling and privacy-safe diagnostics rules.
+
+
+## M3-02 reconciliation and governance audit — 2026-11-13
+- [M3-02 Step 1–2 Reconciliation and Repository Governance Audit](04-roadmap/M3-02_STEP_01_02_RECONCILIATION_AND_GOVERNANCE_AUDIT_2026-11-13.md) — reconciles PR #139 merge, maps current M3-02 exit evidence, and records the read-only active ruleset audit and separately gated recommendations.
+
+PR #139 is merged. M3-02 remains in progress and is not formally accepted; governance settings were not changed.

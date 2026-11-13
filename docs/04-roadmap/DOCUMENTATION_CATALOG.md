@@ -763,3 +763,12 @@ FND-01 is not treated as full M3-02 completion. The gap assessment awards no wei
 | [M3-02 Local/CI Foundation Hardening Implementation Record](../05-implementation/M3-02_LOCAL_CI_FOUNDATION_HARDENING_IMPLEMENTATION_RECORD.md) | Records warning-level logging defaults, deterministic PHPUnit environment, environment-default tests and read-only ruleset audit | Delivered in implementation candidate; exact-head CI and owner review pending |
 
 No repository ruleset was changed. The active main ruleset currently requires documentation validation but not the PHP foundation check; this governance gap is documented for separate owner decision.
+
+
+## M3-02 Step 1–2 reconciliation and governance audit — 2026-11-13
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-02 Step 1–2 Reconciliation and Repository Governance Audit](M3-02_STEP_01_02_RECONCILIATION_AND_GOVERNANCE_AUDIT_2026-11-13.md) | Reconciles merged PR #139, maps remaining M3-02 exit evidence and records the read-only active main ruleset audit and recommendations | Delivered in documentation follow-up; M3-02 remains in progress; no ruleset setting changed |
+
+The local/CI hardening package is merged in PR #139. Prior pending-review wording in this catalogue is superseded by the 2026-11-13 reconciliation. The PHP foundation CI check is not currently required by active ruleset 27043221; any change requires separate owner authorization.

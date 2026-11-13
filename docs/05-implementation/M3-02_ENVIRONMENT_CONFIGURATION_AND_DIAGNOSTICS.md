@@ -106,3 +106,13 @@ This baseline does not provide:
 - Independent security certification, legal/privacy/safeguarding sign-off or production readiness.
 
 Any step that needs a live service, real data, remote credentials, a database, external endpoint, paid service, deployment or material policy change is outside this authorization and must stop for a new owner decision.
+
+
+
+## Post-merge and governance reconciliation — 2026-11-13
+
+The documented local/CI baseline was merged in PR #139 as bab5d7458b2820be2f93f242b925eaed2ae0ece0. Exact-head PHP foundation CI and documentation validation both passed before merge; the post-merge documentation validation also passed on main (run #43402302580).
+
+The active main ruleset 27043221 was re-read after merge. It still requires only Validate project control documents; PHP 8.5 foundation checks is not a required status check. Required approving review count remains zero, thread resolution and linear history remain required, bypass actors remain empty, and no ruleset settings were changed. The legacy branch-protection endpoint remains inaccessible to the connected integration (HTTP 403), so this record does not claim a complete branch-protection attestation beyond the visible ruleset. Governance changes require separate owner authorization.
+
+The logging/configuration work is a minimal local/CI diagnostics baseline only. It does not provide production observability, metrics, traces, alerts, retention, or incident operations.
