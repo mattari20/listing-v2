@@ -898,3 +898,10 @@ Agenda 7 is **COMPLETED** for its authorized local/CI synthetic workflow scope. 
 Exact-head PHP 8.5 foundation CI run #111 (`43458056872`) and Project documentation validation run #430 (`43458057006`) both passed. The PHP workflow completed all steps; the synthetic suite recorded 137 assertions with no failures and 32 non-fatal missing-local-`.env` warnings from existing test harness checks. Review threads were clear and PR #162 was closed as superseded.
 
 Deliverables include persisted adjudication/appeal and publication decisions, versioned immutable snapshots, internal projections/outbox, suppression/restoration, source-revocation propagation, strict command idempotency and synthetic workflow tests. Outbox processing remains a local/CI seam, not production queue delivery. No public endpoint, real role provisioning, source access, production, deployment or spend occurred. Specialist reviews, human coverage, retention/deletion, production recovery and public release remain separate gates. M3-03 overall remains **In progress**.
+
+
+## M3-03 Agenda 8 — Outbox reliability and recovery hardening (2026-11-14)
+
+The Product Owner authorized a bounded local/CI-only Agenda 8 to harden the Agenda 7 transactional outbox. The candidate introduces lease/token claims, stale worker claim recovery, per-event transactional processing, bounded retry with backoff, dead-letter disposition, fail-closed unknown-event handling, latest-snapshot-wins ordering, and suppression/restoration lifecycle guards. Synthetic tests cover stale lease recovery, retry/error capture, dead-letter handling, pending approval versus suppression, and multiple pending snapshots.
+
+Candidate branch: `feature/m3-03-agenda-08-outbox-reliability`. The additive lease migration and service/test changes are committed on that branch. Exact-head PHP 8.5 foundation CI, documentation validation, review reconciliation and merge remain pending. No production worker concurrency, external delivery, queue broker, public endpoint, real data, deployment or spend is claimed. Agenda 8 remains **In progress** until exact-head evidence and merge closeout are complete; M3-03 remains **In progress**.
