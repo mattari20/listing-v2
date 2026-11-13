@@ -709,3 +709,12 @@ A new [M3-01 P04 Stack, Hosting and Cost Decision Dossier](M3-01_P04_STACK_HOSTI
 | [M3-01 P04 Product Owner Preferred Technology Direction](M3-01_P04_OWNER_PREFERRED_TECHNOLOGY_DIRECTION_2026-11-13.md) | Records owner-confirmed ChatGPT-assisted development model and preferred Django/Python, PostgreSQL/PostGIS, modular monolith, HTML-first and provider-neutral AI planning direction, with remaining hosting/cost gates | Delivered through PR; preferred planning direction accepted; P04 remains open; no implementation authorized |
 
 The decision does not claim hands-on framework proficiency or select final versions, host, region, vendor or budget. Implementation authorization remains NOT ISSUED.
+
+
+## P04 Hostinger Premium owner constraint — 2026-11-13
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-01 P04 Existing Hostinger Premium Constraint](M3-01_P04_EXISTING_HOSTINGER_PREMIUM_CONSTRAINT_2026-11-13.md) | Records hPanel plan evidence, owner's no-new-spend constraint, initial PHP/Laravel + existing database candidate, deferred capabilities, portability principles and verification gates | Delivered in planning PR; P04 remains open; no implementation authorized |
+
+This supersedes the earlier Django/PostgreSQL/PostGIS preference for initial deployment only. Exact Premium compatibility remains unverified; no additional infrastructure spend is approved.
