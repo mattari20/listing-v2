@@ -69,6 +69,15 @@ For every case, the same rule-set version and same fixture input must yield the 
 | T-023 | Fee component is attached to an offer but omits currency, period or effective-time context | FAIL: incomplete_fee_scope; do not expose an unscoped total |
 | T-024 | Awarding body is inferred from provider identity or regulator label without an explicit relationship | FAIL: unsupported_awarding_body_inference |
 
+| T-025 | Synthetic authorization is active but its permitted purpose does not cover the requested processing purpose | FAIL: authorization_purpose_mismatch |
+| T-026 | Synthetic authorization does not permit the requested acquisition/processing method | FAIL: authorization_method_mismatch |
+| T-027 | Synthetic authorization territory/jurisdiction does not cover the requested activity | FAIL: authorization_territory_mismatch |
+| T-028 | Authorization is revoked after a claim was accepted and included in a publication snapshot | BLOCK: quarantine affected evidence, revalidate dependent claims and review/suppress current projection where continued publication is not authorized; retain only permitted audit lineage |
+| T-029 | Restricted-category flag is missing or unknown rather than explicitly false/approved | SUPPRESS: fail closed; no public projection |
+| T-030 | Two identity candidates are proposed as a possible match without a human resolution decision | BLOCK: retain separate identities; no automatic merge |
+| T-031 | A human-approved identity merge is later reversed/split | PASS: append split/reversal event; preserve original identifiers, lineage and prior decisions |
+| T-032 | A stale, withdrawn or superseded claim version is selected for a new publication snapshot | BLOCK: not eligible for publication; superseded version may remain historical but cannot be newly published as current |
+
 ## 5. Test oracle and result semantics
 
 - **PASS:** invariant holds for the fixture.
@@ -82,10 +91,17 @@ Validation findings must include stable rule identifier, rule-set version, fixtu
 
 ## 6. Expected-result review summary
 
-The 24 test vectors above cover entity/relationship integrity, vocabulary, temporal validity, provenance authorization, immutable versioning, conflict detection, human decision separation, restricted-category suppression, public field allowlisting, audit completeness, correction/withdrawal, rollback and deterministic repeatability.
+The 32 test vectors above cover entity/relationship integrity, vocabulary, temporal validity, provenance authorization, immutable versioning, conflict detection, human decision separation, restricted-category suppression, public field allowlisting, audit completeness, correction/withdrawal, rollback and deterministic repeatability.
 
 **Execution status:** specification-level expected results are defined. No application-level test code was added or run because the bounded authorization excludes persistence and application implementation. These are design acceptance vectors for a later separately authorized implementation test suite.
 
 ## 7. Implementation boundary
 
 The fixture JSON and test cases are not database seed data. Do not import them into an application database. Do not use real or public-source records to “improve” the fixtures. Any runtime implementation or integration with Laravel, persistence, migrations, source acquisition or public output requires a separate authorization.
+
+
+## 8. Accepted Agenda 2 coverage extension
+
+The Product Owner accepted the Agenda 2 recommendations. T-025–T-032 are synthetic mutation-based cases derived from the existing fabricated fixture set; they do not add real entities, source content or live locators. The fixture manifest version is 1.1.0 and lists all 32 test identifiers. The new cases explicitly cover authorization purpose/method/territory mismatch, revocation after publication, fail-closed handling of unknown restricted-category state, human identity merge/split and exclusion of stale/withdrawn/superseded versions from new publication snapshots.
+
+These remain design-level expected outcomes. Runtime execution requires a separate implementation authorization.
