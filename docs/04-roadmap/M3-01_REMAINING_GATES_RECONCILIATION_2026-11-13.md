@@ -2,7 +2,7 @@
 
 **Repository:** `mattari20/listing-v2`  
 **Agenda:** M3-01 remaining-work reconciliation  
-**Status:** Reconciliation prepared; M3-01 remains open pending exact next-scope decision and authorization  
+**Status:** CLOSED — planning, reconciliation and bounded authorization deliverables complete  
 **Scope:** Documentation and evidence reconciliation only  
 **Implementation authorization created by this record:** NONE  
 **Spend / production / V1 / source access:** NOT AUTHORIZED
@@ -120,3 +120,20 @@ The Product Owner explicitly approved the proposed next scope in the conversatio
 **Expiry/review:** this authorization expires at completion of the bounded work package or immediately upon a scope change, whichever occurs first. It does not authorize implementation beyond the listed activities.
 
 This is an explicit bounded authorization, not a blanket M3-03 or M3 milestone authorization. P04 hosted proof-of-fit and P05 specialist/source gates remain open for later affected activities. M3-01 is considered closed only for the planning/reconciliation and issuance of this bounded authorization; no claim is made that all later-stage gates have been cleared.
+
+
+## 9. Formal M3-01 closeout — 2026-11-13
+
+**Status: CLOSED — planning, reconciliation and bounded authorization deliverables complete.**
+
+The Product Owner's exact next-scope decision is recorded in Section 8. The remaining formal delivery action, PR #149, has been validated and merged:
+- PR: https://github.com/mattari20/listing-v2/pull/149
+- Exact validated head: `0b91f69698c6f01896efe8f8bdae7adaff630f77`
+- Project documentation validation: workflow run #356, completed successfully (GitHub run ID 43440848522).
+- FND-01 foundation CI: workflow run #50, completed successfully (GitHub run ID 43440848520).
+- Review threads: none outstanding; review submissions: none. The active repository ruleset did not require a human approval for this PR; GitHub accepted the merge under the existing protections.
+- Squash merge commit on `main`: `ce0ecb71d8fd8ca0f7f235b5ff998025e37abd2a`.
+
+M3-01 is closed as an **implementation-planning and authorization milestone**. This closure means its planning outputs, task reconciliation, next-scope decision, authorization record and formal PR delivery are complete. It does **not** mean every future operational or specialist gate is cleared. P04 V2 hosted compatibility/isolation/capacity/recovery evidence and P05 qualified legal/privacy/source-rights/safeguarding/security clearances remain open prerequisites for the later activities to which they apply; P06 hosted execution/recovery evidence likewise remains separately gated. These unresolved gates do not prevent closure of the planning milestone and must not be represented as completed.
+
+The bounded M3-03 work package authorized in Section 8 is the next agenda. Its exclusions and expiry remain binding. No physical schema, migrations, database/persistence work, real/source/personal data, hosting/live access, external services or new spend is authorized.
