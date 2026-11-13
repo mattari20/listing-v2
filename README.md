@@ -5,8 +5,8 @@ An independent, greenfield education discovery and decision-support platform for
 ## Project status
 
 - **Repository:** `mattari20/listing-v2`
-- **Project phase:** M3 — Mobilization and Decision Closure; M0, M1 and M2 accepted and closed
-- **Application implementation:** FND-01 foundation candidate committed on `feature/m3-foundation-01`; PR/CI and owner acceptance pending
+- **Project phase:** M3 — Controlled Implementation; M0, M1, M2 and M3-00 accepted/closed
+- **Application implementation:** FND-01 delivered and merged; bounded M3-02 local/CI foundation hardening in progress on `feature/m3-02-foundation-hardening`
 - **Production connection or deployment:** Not authorized
 - **Governing documentation:** Established in `docs/`; see the Documentation Index and Completion Catalogue
 
@@ -18,7 +18,7 @@ The platform will also maintain a continuously refreshed, evidence-based educati
 
 ## Current milestone
 
-M0, M1 and M2 are accepted and closed; M2 is 100% complete. M3-00 — Mobilization and Decision Closure — is active as documentation/planning only. Application implementation requires separate explicit authorization after M3-01.
+M0, M1, M2 and M3-00 are accepted and closed. M3-01's bounded FND-01 package is delivered and merged; remaining M3-01 gates remain open. M3-02 has a separate bounded local/CI-only foundation hardening authorization; it does not authorize Hostinger/V1/production, database work, real data, external APIs/AI or deployment.
 
 ## Start here
 
@@ -72,3 +72,8 @@ python3 scripts/validate_project_docs.py
 \`\`\`
 
 The synthetic-only \`GET /health\` endpoint returns fixed status metadata. The Deeni Madaris visibility policy seam defaults to false. No migrations, database setup, deployment, Hostinger/V1 access or real data are part of FND-01. See [FND-01 implementation record](docs/05-implementation/FND-01_IMPLEMENTATION_RECORD.md).
+
+
+## M3-02 foundation hardening — 2026-11-13
+
+The bounded local/CI-only M3-02 hardening candidate is under review on `feature/m3-02-foundation-hardening`. It adds safe environment defaults, warning-level logging, deterministic PHPUnit environment checks and an environment/diagnostics policy. No new dependency, paid service, database, production secret, external telemetry or deployment is added. See [M3-02 implementation record](docs/05-implementation/M3-02_LOCAL_CI_FOUNDATION_HARDENING_IMPLEMENTATION_RECORD.md) and [environment/diagnostics baseline](docs/05-implementation/M3-02_ENVIRONMENT_CONFIGURATION_AND_DIAGNOSTICS.md). Exact-head CI and owner review are pending.
