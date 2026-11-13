@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: fnd-01-\${{ github.workflow }}-\${{ github.ref }}
+  group: fnd-01-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -26,14 +26,16 @@ jobs:
         uses: shivammathur/setup-php@eb7c497e18156a6bbabfef1d3a82760b9eda3962 # 2.40.0
         with:
           php-version: '8.5'
+          extensions: sqlite3, pdo_sqlite
           coverage: none
           tools: composer:2
 
-      - name: Verify toolchain
+      - name: Verify toolchain and disposable SQLite driver
         run: |
           php --version
           composer --version
           php -r 'exit(PHP_VERSION_ID >= 80500 ? 0 : 1);'
+          php -r 'exit(extension_loaded("sqlite3") && extension_loaded("pdo_sqlite") ? 0 : 1);'
 
       - name: Validate Composer manifest
         run: composer validate --strict
@@ -57,6 +59,11 @@ jobs:
           php artisan config:clear
 
       - name: Run synthetic-only test suite
+        env:
+          APP_ENV: testing
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ':memory:'
+          DB_FOREIGN_KEYS: 'true'
         run: php artisan test
 
       - name: Check repository artifact hygiene
@@ -64,7 +71,7 @@ jobs:
         run: |
           set -euo pipefail
           test ! -e .env
-          if git ls-files | grep -E '(^database/|^vendor/|^node_modules/|(^|/)\.env$|(^|/)\.env\.(backup|production)$|\.log$|\.sqlite$|\.db$)'; then
+          if git ls-files | grep -E '(^vendor/|^node_modules/|(^|/)\.env$|(^|/)\.env\.(backup|production)$|\.log$|\.sqlite$|\.db$)'; then
             echo "Prohibited database, environment, dependency, or log artifact is tracked."
             exit 1
           fi
