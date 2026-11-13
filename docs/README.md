@@ -168,3 +168,9 @@ PR #139 is merged. M3-02 remains in progress and is not formally accepted; gover
 - [M3-02 Step 3 Architecture Conformance Review](04-roadmap/M3-02_STEP_03_ARCHITECTURE_CONFORMANCE_REVIEW_2026-11-13.md) — compares the current merged Laravel foundation against accepted M2 logical architecture and AI-era readiness criteria; records implemented, partial, not-implemented and unverified areas. Read-only review; no application changes.
 
 Step 3 is complete as a review/documentation deliverable. The repository remains a foundation-only scaffold; M3-02 remains in progress and is not formally accepted.
+
+
+## M3-02 Step 4 — final exit review and acceptance pack (2026-11-13)
+- [M3-02 Step 4 Final Exit Review and Acceptance Pack](04-roadmap/M3-02_STEP_04_FINAL_EXIT_REVIEW_AND_ACCEPTANCE_PACK_2026-11-13.md) — final criterion-by-criterion evidence reconciliation and closure decision.
+
+Step 4 is complete as a documentation/evidence deliverable. M3-02 remains in progress, not accepted and not closed: PHP foundation CI is not a required main ruleset check, and V2-specific environment isolation/recovery evidence remains unverified. The local/CI diagnostics baseline is accepted only at that bounded level.
