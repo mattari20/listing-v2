@@ -57,14 +57,14 @@ class GovernanceServiceContractTest extends TestCase
     public function test_publication_requires_distinct_human_approval_after_adjudication(): void
     {
         $publisher = $this->actor('publisher-1', ['authorize_publication']);
-        $accepted = ['outcome' => 'accepted', 'actor_id' => 'reviewer-1', 'policy_version' => 'synthetic-policy-v1', 'surface' => 'synthetic_test', 'audience' => 'synthetic_reviewers'];
+        $accepted = ['outcome' => 'accepted', 'claim_disposition' => 'accepted', 'evidence_admissible' => true, 'version_current' => true, 'actor_id' => 'reviewer-1', 'policy_version' => 'synthetic-policy-v1', 'surface' => 'synthetic_test', 'audience' => 'synthetic_reviewers'];
 
         $this->assertTrue($this->policy->authorizePublication($publisher, $accepted, ['collector-1'])['allowed']);
         $this->assertFalse($this->policy->authorizePublication($publisher, ['outcome' => 'proposed'] + $accepted, ['collector-1'])['allowed']);
-        $this->assertFalse($this->policy->authorizePublication($publisher, ['outcome' => 'accepted', 'actor_id' => 'publisher-1', 'policy_version' => 'v1', 'surface' => 'synthetic_test', 'audience' => 'synthetic_reviewers'], [])['allowed']);
+        $this->assertFalse($this->policy->authorizePublication($publisher, ['outcome' => 'accepted', 'claim_disposition' => 'accepted', 'evidence_admissible' => true, 'version_current' => true, 'actor_id' => 'publisher-1', 'policy_version' => 'v1', 'surface' => 'synthetic_test', 'audience' => 'synthetic_reviewers'], [])['allowed']);
         $this->assertFalse($this->policy->authorizePublication($this->actor('bot', ['authorize_publication'], 'automated'), $accepted, [])['allowed']);
         $this->assertFalse($this->policy->authorizePublication($publisher, $accepted, ['publisher-1'])['allowed']);
-        $this->assertFalse($this->policy->authorizePublication($publisher, ['outcome' => 'accepted', 'actor_id' => 'reviewer-1', 'surface' => 'synthetic_test', 'audience' => 'synthetic_reviewers'], [])['allowed']);
+        $this->assertFalse($this->policy->authorizePublication($publisher, ['outcome' => 'accepted', 'claim_disposition' => 'accepted', 'evidence_admissible' => true, 'version_current' => true, 'actor_id' => 'reviewer-1', 'surface' => 'synthetic_test', 'audience' => 'synthetic_reviewers'], [])['allowed']);
     }
 
     public function test_restricted_category_visibility_defaults_to_suppressed(): void
