@@ -24,27 +24,27 @@ class GovernanceServiceContractTest extends TestCase
         $now = CarbonImmutable::parse('2026-11-13T12:00:00Z');
         $base = $this->authorization();
 
-        $this->assertTrue(new GovernancePolicy->authorizeSourceAction($base, 'acquisition', $this->context(), $now)['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizeSourceAction([], 'acquisition', $this->context(), $now)['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizeSourceAction(array_replace($base, ['valid_to' => '2026-11-13T11:59:59Z']), 'acquisition', $this->context(), $now)['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizeSourceAction(array_replace($base, ['revoked_at' => '2026-11-13T11:00:00Z']), 'acquisition', $this->context(), $now)['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizeSourceAction($base, 'publication', $this->context(), $now)['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizeSourceAction($base, 'acquisition', ['purpose' => 'other', 'method' => 'fixture_reference', 'territory' => 'synthetic'], $now)['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizeSourceAction($base, 'acquisition', ['purpose' => 'synthetic_test_only', 'method' => 'scrape', 'territory' => 'synthetic'], $now)['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizeSourceAction($base, 'acquisition', ['purpose' => 'synthetic_test_only', 'method' => 'fixture_reference', 'territory' => 'unknown'], $now)['allowed']);
+        $this->assertTrue((new GovernancePolicy)->authorizeSourceAction($base, 'acquisition', $this->context(), $now)['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizeSourceAction([], 'acquisition', $this->context(), $now)['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizeSourceAction(array_replace($base, ['valid_to' => '2026-11-13T11:59:59Z']), 'acquisition', $this->context(), $now)['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizeSourceAction(array_replace($base, ['revoked_at' => '2026-11-13T11:00:00Z']), 'acquisition', $this->context(), $now)['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizeSourceAction($base, 'publication', $this->context(), $now)['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizeSourceAction($base, 'acquisition', ['purpose' => 'other', 'method' => 'fixture_reference', 'territory' => 'synthetic'], $now)['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizeSourceAction($base, 'acquisition', ['purpose' => 'synthetic_test_only', 'method' => 'scrape', 'territory' => 'synthetic'], $now)['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizeSourceAction($base, 'acquisition', ['purpose' => 'synthetic_test_only', 'method' => 'fixture_reference', 'territory' => 'unknown'], $now)['allowed']);
     }
 
     public function test_actor_capability_and_separation_of_duties_are_enforced(): void
     {
         $collector = $this->actor('collector-1', ['register_evidence', 'register_claim']);
         $automated = $this->actor('validator-1', ['adjudicate_claim'], 'automated');
-        $sameCollector = new GovernancePolicy->authorizeAdjudication(array_replace($collector, ['capabilities' => ['adjudicate_claim']]), 'collector-1');
-        $differentHuman = new GovernancePolicy->authorizeAdjudication($this->actor('reviewer-1', ['adjudicate_claim']), 'collector-1');
+        $sameCollector = (new GovernancePolicy)->authorizeAdjudication(array_replace($collector, ['capabilities' => ['adjudicate_claim']]), 'collector-1');
+        $differentHuman = (new GovernancePolicy)->authorizeAdjudication($this->actor('reviewer-1', ['adjudicate_claim']), 'collector-1');
 
         $this->assertFalse($sameCollector['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizeAdjudication($automated, 'collector-1')['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizeAdjudication($automated, 'collector-1')['allowed']);
         $this->assertTrue($differentHuman['allowed']);
-        $this->assertFalse(new GovernancePolicy->requireCapability($collector, 'authorize_publication')['allowed']);
+        $this->assertFalse((new GovernancePolicy)->requireCapability($collector, 'authorize_publication')['allowed']);
     }
 
     public function test_publication_requires_distinct_human_approval_after_adjudication(): void
@@ -52,21 +52,21 @@ class GovernanceServiceContractTest extends TestCase
         $publisher = $this->actor('publisher-1', ['authorize_publication']);
         $accepted = ['outcome' => 'accepted', 'claim_disposition' => 'accepted', 'evidence_admissible' => true, 'version_current' => true, 'actor_id' => 'reviewer-1', 'policy_version' => 'synthetic-policy-v1', 'surface' => 'synthetic_test', 'audience' => 'synthetic_reviewers'];
 
-        $this->assertTrue(new GovernancePolicy->authorizePublication($publisher, $accepted, ['collector-1'])['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizePublication($publisher, ['outcome' => 'proposed'] + $accepted, ['collector-1'])['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizePublication($publisher, ['outcome' => 'accepted', 'claim_disposition' => 'accepted', 'evidence_admissible' => true, 'version_current' => true, 'actor_id' => 'publisher-1', 'policy_version' => 'v1', 'surface' => 'synthetic_test', 'audience' => 'synthetic_reviewers'], [])['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizePublication($this->actor('bot', ['authorize_publication'], 'automated'), $accepted, [])['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizePublication($publisher, $accepted, ['publisher-1'])['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizePublication($publisher, ['outcome' => 'accepted', 'claim_disposition' => 'accepted', 'evidence_admissible' => true, 'version_current' => true, 'actor_id' => 'reviewer-1', 'surface' => 'synthetic_test', 'audience' => 'synthetic_reviewers'], [])['allowed']);
+        $this->assertTrue((new GovernancePolicy)->authorizePublication($publisher, $accepted, ['collector-1'])['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizePublication($publisher, ['outcome' => 'proposed'] + $accepted, ['collector-1'])['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizePublication($publisher, ['outcome' => 'accepted', 'claim_disposition' => 'accepted', 'evidence_admissible' => true, 'version_current' => true, 'actor_id' => 'publisher-1', 'policy_version' => 'v1', 'surface' => 'synthetic_test', 'audience' => 'synthetic_reviewers'], [])['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizePublication($this->actor('bot', ['authorize_publication'], 'automated'), $accepted, [])['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizePublication($publisher, $accepted, ['publisher-1'])['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizePublication($publisher, ['outcome' => 'accepted', 'claim_disposition' => 'accepted', 'evidence_admissible' => true, 'version_current' => true, 'actor_id' => 'reviewer-1', 'surface' => 'synthetic_test', 'audience' => 'synthetic_reviewers'], [])['allowed']);
     }
 
     public function test_restricted_category_visibility_defaults_to_suppressed(): void
     {
-        $this->assertTrue(new GovernancePolicy->isPubliclyVisible(null, false));
-        $this->assertTrue(new GovernancePolicy->isPubliclyVisible(false, false));
-        $this->assertFalse(new GovernancePolicy->isPubliclyVisible(null, true));
-        $this->assertFalse(new GovernancePolicy->isPubliclyVisible(false, true));
-        $this->assertTrue(new GovernancePolicy->isPubliclyVisible(true, true));
+        $this->assertTrue((new GovernancePolicy)->isPubliclyVisible(null, false));
+        $this->assertTrue((new GovernancePolicy)->isPubliclyVisible(false, false));
+        $this->assertFalse((new GovernancePolicy)->isPubliclyVisible(null, true));
+        $this->assertFalse((new GovernancePolicy)->isPubliclyVisible(false, true));
+        $this->assertTrue((new GovernancePolicy)->isPubliclyVisible(true, true));
     }
 
     public function test_evidence_registration_is_metadata_only_quarantined_audited_and_idempotent(): void
@@ -238,48 +238,48 @@ class GovernanceServiceContractTest extends TestCase
         ];
 
         // GS-001 through GS-006: source scope is exact, independent and deny-by-default.
-        $this->assertFalse(new GovernancePolicy->authorizeSourceAction([], 'acquisition', $this->context(), $now)['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizeSourceAction(array_replace($authorization, ['valid_to' => '2026-11-13T11:00:00Z']), 'acquisition', $this->context(), $now)['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizeSourceAction($authorization, 'acquisition', ['purpose' => 'synthetic_test_only', 'method' => 'scrape', 'territory' => 'synthetic'], $now)['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizeSourceAction($authorization, 'acquisition', ['purpose' => 'other', 'method' => 'fixture_reference', 'territory' => 'synthetic'], $now)['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizeSourceAction($authorization, 'acquisition', ['purpose' => 'synthetic_test_only', 'method' => 'fixture_reference', 'territory' => 'elsewhere'], $now)['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizeSourceAction($authorization, 'publication', $this->context(), $now)['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizeSourceAction([], 'acquisition', $this->context(), $now)['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizeSourceAction(array_replace($authorization, ['valid_to' => '2026-11-13T11:00:00Z']), 'acquisition', $this->context(), $now)['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizeSourceAction($authorization, 'acquisition', ['purpose' => 'synthetic_test_only', 'method' => 'scrape', 'territory' => 'synthetic'], $now)['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizeSourceAction($authorization, 'acquisition', ['purpose' => 'other', 'method' => 'fixture_reference', 'territory' => 'synthetic'], $now)['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizeSourceAction($authorization, 'acquisition', ['purpose' => 'synthetic_test_only', 'method' => 'fixture_reference', 'territory' => 'elsewhere'], $now)['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizeSourceAction($authorization, 'publication', $this->context(), $now)['allowed']);
 
         // GS-007 through GS-011: quarantine, admissibility and validation never imply acceptance.
-        $this->assertFalse(new GovernancePolicy->evidenceCanSupportClaim('quarantined'));
-        $this->assertFalse(new GovernancePolicy->canAcceptClaim(['quarantined']));
-        $this->assertFalse(new GovernancePolicy->authorizePublication($publisher, ['outcome' => 'proposed'], ['collector'])['allowed']);
-        $this->assertSame(['conflict' => true, 'candidate_count' => 2], new GovernancePolicy->detectClaimConflict([
+        $this->assertFalse((new GovernancePolicy)->evidenceCanSupportClaim('quarantined'));
+        $this->assertFalse((new GovernancePolicy)->canAcceptClaim(['quarantined']));
+        $this->assertFalse((new GovernancePolicy)->authorizePublication($publisher, ['outcome' => 'proposed'], ['collector'])['allowed']);
+        $this->assertSame(['conflict' => true, 'candidate_count' => 2], (new GovernancePolicy)->detectClaimConflict([
             ['value' => 'synthetic-A'], ['value' => 'synthetic-B'],
         ]));
-        $this->assertFalse(new GovernancePolicy->canAcceptClaim([]));
+        $this->assertFalse((new GovernancePolicy)->canAcceptClaim([]));
 
         // GS-012 through GS-019: actor, human decision, separation and publication scope.
-        $this->assertFalse(new GovernancePolicy->requireCapability($this->actor('limited', []), 'adjudicate_claim')['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizePublication($publisher, $adjudication, ['publisher'])['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizePublication($this->actor('robot', ['authorize_publication'], 'automated'), $adjudication, ['collector'])['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizePublication($publisher, array_replace($adjudication, ['actor_id' => 'publisher']), ['collector'])['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizePublication($publisher, array_replace($adjudication, ['version_current' => false]), ['collector'])['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizePublication($publisher, array_replace($adjudication, ['surface' => '', 'audience' => 'synthetic-public']), ['collector'])['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizePublication($publisher, array_replace($adjudication, ['policy_version' => '']), ['collector'])['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizePublication($publisher, array_replace($adjudication, ['evidence_admissible' => false]), ['collector'])['allowed']);
+        $this->assertFalse((new GovernancePolicy)->requireCapability($this->actor('limited', []), 'adjudicate_claim')['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizePublication($publisher, $adjudication, ['publisher'])['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizePublication($this->actor('robot', ['authorize_publication'], 'automated'), $adjudication, ['collector'])['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizePublication($publisher, array_replace($adjudication, ['actor_id' => 'publisher']), ['collector'])['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizePublication($publisher, array_replace($adjudication, ['version_current' => false]), ['collector'])['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizePublication($publisher, array_replace($adjudication, ['surface' => '', 'audience' => 'synthetic-public']), ['collector'])['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizePublication($publisher, array_replace($adjudication, ['policy_version' => '']), ['collector'])['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizePublication($publisher, array_replace($adjudication, ['evidence_admissible' => false]), ['collector'])['allowed']);
 
         // GS-020 through GS-024: retry safety, audit atomicity, conflict and version guards.
-        $this->assertTrue(new GovernancePolicy->detectClaimConflict([['value' => 'old'], ['value' => 'new']])['conflict']);
-        $this->assertTrue(new GovernancePolicy->canAcceptClaim(['eligible_for_review']));
-        $this->assertFalse(new GovernancePolicy->authorizePublication($publisher, array_replace($adjudication, ['claim_disposition' => 'stale']), ['collector'])['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizePublication($publisher, array_replace($adjudication, ['version_current' => false]), ['collector'])['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizeSourceAction(array_replace($authorization, ['revoked_at' => '2026-11-13T11:00:00Z']), 'acquisition', $this->context(), $now)['allowed']);
+        $this->assertTrue((new GovernancePolicy)->detectClaimConflict([['value' => 'old'], ['value' => 'new']])['conflict']);
+        $this->assertTrue((new GovernancePolicy)->canAcceptClaim(['eligible_for_review']));
+        $this->assertFalse((new GovernancePolicy)->authorizePublication($publisher, array_replace($adjudication, ['claim_disposition' => 'stale']), ['collector'])['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizePublication($publisher, array_replace($adjudication, ['version_current' => false]), ['collector'])['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizeSourceAction(array_replace($authorization, ['revoked_at' => '2026-11-13T11:00:00Z']), 'acquisition', $this->context(), $now)['allowed']);
 
         // GS-025 through GS-032: suppression, restoration, retention, policy and public boundary.
-        $this->assertFalse(new GovernancePolicy->isPubliclyVisible(false, true));
-        $this->assertFalse(new GovernancePolicy->authorizeRestore($this->actor('restorer', ['restore_publication']), 'suppressor', false, true)['allowed']);
-        $this->assertTrue(new GovernancePolicy->authorizeRestore($this->actor('restorer', ['restore_publication']), 'suppressor', true, true)['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizeEvidenceWithdrawal($this->actor('withdrawer', ['withdraw_evidence']), false)['allowed']);
-        $this->assertFalse(new GovernancePolicy->authorizePublicRead(false));
-        $this->assertTrue(new GovernancePolicy->authorizePublicRead(true));
-        $this->assertFalse(new GovernancePolicy->isPubliclyVisible(null, true));
-        $this->assertFalse(new GovernancePolicy->isPubliclyVisible(false, true));
+        $this->assertFalse((new GovernancePolicy)->isPubliclyVisible(false, true));
+        $this->assertFalse((new GovernancePolicy)->authorizeRestore($this->actor('restorer', ['restore_publication']), 'suppressor', false, true)['allowed']);
+        $this->assertTrue((new GovernancePolicy)->authorizeRestore($this->actor('restorer', ['restore_publication']), 'suppressor', true, true)['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizeEvidenceWithdrawal($this->actor('withdrawer', ['withdraw_evidence']), false)['allowed']);
+        $this->assertFalse((new GovernancePolicy)->authorizePublicRead(false));
+        $this->assertTrue((new GovernancePolicy)->authorizePublicRead(true));
+        $this->assertFalse((new GovernancePolicy)->isPubliclyVisible(null, true));
+        $this->assertFalse((new GovernancePolicy)->isPubliclyVisible(false, true));
     }
 
     /** @return array<string, mixed> */
