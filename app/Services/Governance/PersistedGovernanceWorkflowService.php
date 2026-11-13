@@ -60,7 +60,7 @@ final class PersistedGovernanceWorkflowService
                 ->where('claim_evidence_links.claim_version_id', $case->claim_version_id)
                 ->get(['evidence_references.status']);
             $statuses = $evidence->pluck('status')->all();
-            if ($outcome === 'accepted' && ! (new GovernancePolicy)->canAcceptClaim($statuses)) {
+            if ($outcome === 'accepted' && !(new GovernancePolicy)->canAcceptClaim($statuses)) {
                 $this->reject('evidence', 'Claim cannot be accepted without admissible evidence.');
             }
             $evidenceActorIds = $this->evidenceActorIds($case->claim_version_id);
@@ -111,7 +111,7 @@ final class PersistedGovernanceWorkflowService
                 ->join('evidence_references', 'evidence_references.id', '=', 'claim_evidence_links.evidence_reference_id')
                 ->where('claim_evidence_links.claim_version_id', $claimVersionId)->get(['evidence_references.id', 'evidence_references.status', 'evidence_references.source_authorization_id']);
             $statuses = $evidenceRows->pluck('status')->all();
-            if (! (new GovernancePolicy)->canAcceptClaim($statuses)) {
+            if (!(new GovernancePolicy)->canAcceptClaim($statuses)) {
                 $this->reject('evidence', 'Evidence is not currently admissible for publication.');
             }
             $authorizationActors = $this->evidenceActorIds($claimVersionId);
@@ -136,7 +136,7 @@ final class PersistedGovernanceWorkflowService
             $entity = DB::table('claims')->join('directory_entities', 'directory_entities.id', '=', 'claims.subject_entity_id')
                 ->where('claims.id', $version->claim_id)->first(['directory_entities.entity_type', 'directory_entities.label']);
             $isDeeniMadaris = $entity !== null && $entity->entity_type === 'deeni_madaris';
-            if (! (new GovernancePolicy)->isPubliclyVisible(false, $isDeeniMadaris)) {
+            if (!(new GovernancePolicy)->isPubliclyVisible(false, $isDeeniMadaris)) {
                 $this->reject('visibility', 'Restricted-category publication is disabled by default.');
             }
             if ($surface === '' || $audience === '' || $policyVersion === '' || $idempotencyKey === '') {
