@@ -12,7 +12,7 @@
 
 - Harden default log verbosity: `LOG_LEVEL` falls back to `warning` across configured channels when not supplied.
 - Add deterministic PHPUnit environment values for debug mode, local filesystem, logging channel and warning threshold.
-- Add `FoundationEnvironmentDefaultsTest` covering testing environment, debug-off behavior, array cache/session, synchronous queue, local filesystem, absence of database config, array mail, null broadcasting, local log stack, warning level and disabled deprecation tracing.
+- Add `FoundationEnvironmentDefaultsTest` covering testing environment, debug-off behavior, array cache/session, synchronous queue, local filesystem, absence of database config, array mail, local log stack, warning level and disabled deprecation tracing.
 - Add [Environment Configuration and Diagnostics Baseline](M3-02_ENVIRONMENT_CONFIGURATION_AND_DIAGNOSTICS.md), including environment matrix, safe variable inventory, secret lifecycle, logging restrictions, static-analysis decision and read-only repository ruleset audit.
 - Preserve existing locked dependencies and immutable GitHub Action pins; no new Composer dependency or paid service added.
 
