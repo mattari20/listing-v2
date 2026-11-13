@@ -65,3 +65,12 @@ Candidate A remains isolated, offline, synthetic-only and no-spend. Deeni Madari
 The owner has approved a preferred technology direction for planning. P04 is **advanced but not closed** because hosting/provider/region, database-extension support, backup/restore, data terms, full cost evidence and final version choices remain unresolved.
 
 No M3-01 weighted completion percentage is claimed from this decision alone. P05/P06/P07/P08 retain their separate gates. Overall M3 remains 5% until the authoritative weighted register is updated on accepted evidence. Implementation authorization remains **NOT ISSUED**.
+
+
+## Superseding owner hosting constraint — 2026-11-13
+
+The Product Owner subsequently directed that initial V2 use only resources already included in the existing Hostinger Premium Web Hosting subscription, with no VPS, upgrade or additional paid infrastructure. This supersedes the earlier Django/Python + PostgreSQL/PostGIS preference as the initial deployment direction. The earlier preference remains historical decision context, not the current initial-stack direction.
+
+Current planning candidate: PHP with Laravel only after exact Premium compatibility checks; the hosting-plan database (MySQL/MariaDB) only after engine/version/limits verification; HTML-first server-rendered frontend; modular monolith; database-native search; basic portable locality/coordinate fields; AI disabled. PostGIS, dedicated search, external workers, paid geocoding/maps and AI services are deferred. PHP 8.5 is shown in the hPanel dashboard but does not prove CLI, Composer, extension or Laravel compatibility. SSH and cron are not yet verified.
+
+The detailed hPanel evidence, limitations, portability rules and P04 verification gates are recorded in [M3-01 P04 Existing Hostinger Premium Constraint](M3-01_P04_EXISTING_HOSTINGER_PREMIUM_CONSTRAINT_2026-11-13.md). P04 remains open; no framework version is selected; no implementation, package installation, environment activation, account change, production access, deployment or spend is authorized.
