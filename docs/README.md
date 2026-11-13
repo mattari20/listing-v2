@@ -126,6 +126,9 @@ S04-S06 are owner-accepted and closed. S07-S09 design tasks are complete; S10 fi
 M2 is 100% complete, owner-accepted and closed. M3 implementation requires separate authorization.
 
 
+## M3-02 platform foundation gap assessment
+- [M3-02 Platform Foundation — FND-01 Gap Assessment](04-roadmap/M3-02_PLATFORM_FOUNDATION_FND01_GAP_ASSESSMENT_2026-11-13.md) — maps merged FND-01 evidence to M3-02 exit criteria, identifies remaining gaps and preserves the separate implementation authorization gate.
+
 ## M3 — Mobilization and implementation roadmap
 
 - [M3 Master Step Plan](04-roadmap/M3_MASTER_STEP_PLAN.md) — authoritative M3 steps, weights, dependencies, task/acceptance criteria, binding controls and authorization gates.
