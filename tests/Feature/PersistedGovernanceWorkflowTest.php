@@ -72,6 +72,23 @@ class PersistedGovernanceWorkflowTest extends TestCase
         $this->assertDatabaseHas('public_projections', ['publication_snapshot_id' => $snapshot->id, 'status' => 'approved']);
     }
 
+    public function test_source_authorization_revocation_quarantines_evidence_and_freezes_every_dependent_projection(): void
+    {
+        $fixture = $this->fixture();
+        $service = new PersistedGovernanceWorkflowService();
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-revoke');
+        $decisionId = $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted before revocation.', 'policy-v1');
+        $service->authorizePublication($this->actor('publisher', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'publish-revoke');
+        $service->processOutbox();
+
+        $affected = $service->revokeSourceAuthorization($this->actor('rights_officer', ['revoke_source_authorization']), $fixture['authorization'], 'synthetic_rights_change', 'Synthetic authorization revocation.');
+        $this->assertSame(1, $affected);
+        $this->assertDatabaseHas('evidence_references', ['id' => $fixture['evidence'], 'status' => 'quarantined']);
+        $this->assertDatabaseHas('publication_snapshots', ['status' => 'suppressed']);
+        $this->assertDatabaseHas('public_projections', ['status' => 'suppressed']);
+        $this->assertDatabaseHas('audit_events', ['target_id' => $fixture['authorization'], 'action' => 'source_authorization_revoked']);
+    }
+
     public function test_automated_adjudication_and_same_actor_publication_are_denied(): void
     {
         $fixture = $this->fixture();
@@ -121,7 +138,7 @@ class PersistedGovernanceWorkflowTest extends TestCase
             'id' => (string) str()->uuid(), 'claim_version_id' => $version, 'evidence_reference_id' => $evidence,
             'relationship_type' => 'supports', 'created_at' => $now, 'updated_at' => $now,
         ]);
-        return ['version' => $version];
+        return ['version' => $version, 'authorization' => $authorization, 'evidence' => $evidence];
     }
 
     private function actor(string $id, array $capabilities, string $class = 'human'): array
