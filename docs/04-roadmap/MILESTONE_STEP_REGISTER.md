@@ -687,3 +687,10 @@ The Product Owner explicitly accepted all three bounded closeout decisions: T07 
 ## M3-01 active planning evidence — 2026-11-12
 
 M3-01 has started as a documentation/planning step following M3-00 owner acceptance. See [M3-01 Detailed Planning Evidence Pack](M3-01_DETAILED_PLANNING_EVIDENCE_PACK.md): P01 baseline/dependency reconciliation delivered for owner review; P02 first-slice options documented but not approved; P06 synthetic-only test/release framework delivered for review; P03–P05 blocked; P07/P08 not ready. No weighted M3-01 completion percentage is claimed. M3 overall remains 5%. No implementation authorization is issued.
+
+
+## M3-01 P04 owner preferred technology direction — 2026-11-13
+
+The Product Owner confirmed a ChatGPT-assisted development model and approved Django/Python, PostgreSQL, PostGIS, modular monolith, HTML-first server-rendered frontend and provider-neutral AI/AI-off architecture as the **preferred planning direction**. The exact rationale and boundaries are recorded in [M3-01 P04 Product Owner Preferred Technology Direction](M3-01_P04_OWNER_PREFERRED_TECHNOLOGY_DIRECTION_2026-11-13.md).
+
+P04 is advanced but remains Open: no final versions, hosting provider/region, database-extension compatibility, backup/restore evidence, data terms, support, portability or dated total-cost evidence are approved. Owner skill evidence means reliance on ChatGPT, not hands-on framework proficiency. No M3-01 task completion percentage is claimed; M3 remains 5%; implementation authorization NOT ISSUED.
