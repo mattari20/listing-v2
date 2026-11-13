@@ -54,6 +54,30 @@ class PersistedGovernanceWorkflowTest extends TestCase
         $this->assertDatabaseHas('publication_snapshots', ['id' => $snapshot->id, 'status' => 'projected']);
     }
 
+    public function test_publication_idempotency_rejects_changed_surface_or_decision(): void
+    {
+        $fixture = $this->fixture();
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-idempotency');
+        $decisionId = $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted after synthetic review.', 'policy-v1');
+        $service->authorizePublication($this->actor('publisher', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'publish-idempotency');
+
+        $this->expectException(ValidationException::class);
+        $service->authorizePublication($this->actor('publisher', ['authorize_publication']), $fixture['version'], $decisionId, 'partner-feed', 'anonymous', 'policy-v1', 'publish-idempotency');
+    }
+
+    public function test_same_claim_can_have_distinct_immutable_snapshots_for_multiple_surfaces(): void
+    {
+        $fixture = $this->fixture();
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-multi-surface');
+        $decisionId = $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted after synthetic review.', 'policy-v1');
+        $service->authorizePublication($this->actor('publisher-one', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'publish-surface-one');
+        $service->authorizePublication($this->actor('publisher-two', ['authorize_publication']), $fixture['version'], $decisionId, 'partner-feed', 'anonymous', 'policy-v1', 'publish-surface-two');
+
+        $this->assertSame([1, 2], DB::table('publication_snapshots')->orderBy('snapshot_version')->pluck('snapshot_version')->all());
+    }
+
     public function test_suppression_freezes_projection_and_distinct_human_can_restore_after_recheck(): void
     {
         $fixture = $this->fixture();
