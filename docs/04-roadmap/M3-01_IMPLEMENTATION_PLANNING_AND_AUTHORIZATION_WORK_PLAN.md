@@ -100,3 +100,9 @@ P04 remains open until compatibility, isolation, backup/restore and synthetic re
 The Product Owner confirmed that PHP execution/CLI, Composer, PHP-extension support, the hosted MySQL-compatible database service, SSH, cron and the current deployment/file-management workflow are already available and in use for V1 on the same Hostinger Premium environment. This is owner-supplied operational evidence; no V1 inspection or access was performed.
 
 P04 is advanced from "account capability unknown" to "shared-host capabilities owner-confirmed." Exact versions/limits, Laravel-specific compatibility, isolated V2 routing/configuration, V2 resource headroom and V2 backup/restore remain unverified. The next planning action is to produce the conditional versioned stack recommendation, V2 isolation/deployment design and realistic solo-founder delivery schedule. No M3-01 weighted completion is claimed from this confirmation alone. Implementation authorization remains NOT ISSUED.
+
+## P04 Hostinger-constrained V2 architecture and delivery schedule — 2026-11-13
+
+The conditional recommendation and V2 isolation plan are recorded in [M3-01 P04 Hostinger V2 Architecture and Delivery Schedule](M3-01_P04_HOSTINGER_V2_ARCHITECTURE_AND_DELIVERY_SCHEDULE_2026-11-13.md). It recommends Laravel 13/PHP 8.5 with the existing Hostinger MySQL-compatible database as the leading candidate, subject to owner stack approval and exact V2 runtime/database checks. It defines V2-only code, public document root, configuration, database/user, storage, cron and deployment boundaries; V1 remains untouched.
+
+The document also proposes a staged, range-based delivery schedule and a bounded first foundation slice. This remains planning only. P04 is OPEN; no implementation authorization or M3-01 weighted completion is claimed.
