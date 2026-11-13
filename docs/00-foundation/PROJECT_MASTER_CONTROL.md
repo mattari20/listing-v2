@@ -644,3 +644,11 @@ The [M3-02 Platform Foundation — FND-01 Gap Assessment](../04-roadmap/M3-02_PL
 The Product Owner authorized the bounded follow-on described in the M3-02 FND-01 Gap Assessment: local workstation and GitHub CI only, synthetic fixtures only, no new spend, no Hostinger/V1/production access or changes, no database/schema/migrations, no real/source/personal data, no external APIs/AI, no deployment and no scope expansion. The implementation candidate adds safe environment defaults, warning-level logging fallback, deterministic environment tests and documentation. See [M3-02 implementation record](../05-implementation/M3-02_LOCAL_CI_FOUNDATION_HARDENING_IMPLEMENTATION_RECORD.md).
 
 The active main ruleset was inspected read-only. It requires the project documentation validation check but does not require the PHP foundation CI check. No ruleset or branch-protection setting was changed; any such change remains a separate owner decision. M3-02 remains in progress pending exact-head CI and owner review. The M3-01 P04/P05 gates remain open and are not closed by this M3-02 authorization.
+
+
+
+## M3-02 Step 1–2 reconciliation and governance audit — 2026-11-13
+
+PR #139 is merged into main as bab5d7458b2820be2f93f242b925eaed2ae0ece0. Its exact-head PHP foundation CI and Project documentation validation passed (runs #43389214026 and #43389213905); post-merge documentation validation passed (run #43402302580). The bounded local/CI hardening package is delivered, but M3-02 remains in progress and is not formally accepted. Full architecture conformance, V2-specific runtime/isolation and recovery evidence, final observability disposition and owner acceptance remain open.
+
+Read-only audit of active main ruleset 27043221: required check is Validate project control documents; PHP 8.5 foundation checks is not required; required approving-review count is zero; PRs, thread resolution, linear history, deletion/non-fast-forward protection and no-bypass behavior are active. The legacy branch-protection endpoint returned HTTP 403 to the connected integration. No repository governance settings were changed. Any change requires separate explicit owner authorization. Detailed evidence is recorded in docs/04-roadmap/M3-02_STEP_01_02_RECONCILIATION_AND_GOVERNANCE_AUDIT_2026-11-13.md.
