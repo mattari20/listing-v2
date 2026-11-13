@@ -92,7 +92,6 @@ class GovernanceServiceContractTest extends TestCase
         $this->assertSame(1, DB::table('audit_events')->where('action', 'evidence_reference_registered')->count());
     }
 
-
     public function test_idempotency_key_cannot_be_reused_for_a_different_command(): void
     {
         $authorizationId = $this->insertAuthorization();
@@ -194,7 +193,7 @@ class GovernanceServiceContractTest extends TestCase
         $this->assertTrue(method_exists(app(GovernanceCommandService::class), 'registerProposedClaim'));
 
         foreach ([app_path('Http/Controllers'), app_path('Console/Commands')] as $directory) {
-            if (!File::isDirectory($directory)) {
+            if (File::isDirectory($directory) === false) {
                 continue;
             }
             foreach (File::allFiles($directory) as $file) {
@@ -203,7 +202,6 @@ class GovernanceServiceContractTest extends TestCase
             }
         }
     }
-
 
     public function test_gs_001_through_gs_032_synthetic_acceptance_contract_matrix(): void
     {
