@@ -116,7 +116,7 @@ final class GovernancePolicy
             return $this->deny('automated_publication_prohibited');
         }
 
-        if (($adjudication['outcome'] ?? null) !== 'accepted') {
+        if (($adjudication['outcome'] ?? null) !== 'accepted' || ($adjudication['claim_disposition'] ?? null) !== 'accepted') {
             return $this->deny('claim_not_human_accepted');
         }
 
@@ -128,7 +128,7 @@ final class GovernancePolicy
             return $this->deny('evidence_submitter_cannot_publish');
         }
 
-        if (($adjudication['surface'] ?? '') === '' || ($adjudication['audience'] ?? '') === '') {\n            return $this->deny('publication_surface_and_audience_required');\n        }\n\n        if (($adjudication['policy_version'] ?? '') === '') {
+        if (($adjudication['evidence_admissible'] ?? false) !== true || ($adjudication['version_current'] ?? false) !== true) {\n            return $this->deny('evidence_or_claim_version_not_publishable');\n        }\n\n        if (($adjudication['surface'] ?? '') === '' || ($adjudication['audience'] ?? '') === '') {\n            return $this->deny('publication_surface_and_audience_required');\n        }\n\n        if (($adjudication['policy_version'] ?? '') === '') {
             return $this->deny('policy_version_missing');
         }
 
