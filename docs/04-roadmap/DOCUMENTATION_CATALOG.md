@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-13 — M0/M1/M2 and M3-00 accepted/closed; M3-03 Agenda 6 bounded service-contract increment merged and closed; PR #160 exact-head evidence reconciled
+**Last reconciled:** 2026-11-14 — M0/M1/M2 and M3-00 accepted/closed; M3-03 Agendas 6, 7 and 8 bounded synthetic implementation scopes merged and evidence-reconciled; PR #165 exact-head evidence reconciled
 
 ## Purpose and maintenance rule
 
@@ -839,3 +839,12 @@ PR #163 merged as `a16d6564e5f5190a841c5596ddb47638d1ec735c`. Exact-head PHP 8.5
 | [M3-03 Agenda 8 Outbox Reliability and Recovery](M3-03_AGENDA_08_OUTBOX_RELIABILITY_AND_RECOVERY.md) | Bounded scope, lease/retry/recovery semantics, synthetic acceptance and explicit operational limitations | Implementation candidate; PR/CI closeout pending |
 
 Candidate branch: `feature/m3-03-agenda-08-outbox-reliability`. Exact-head PHP 8.5 foundation CI, project documentation validation, review-thread reconciliation and merge evidence must be recorded before this agenda is marked complete.
+
+## M3-03 Agenda 8 — final completion evidence
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-03 Agenda 8 Outbox Reliability and Recovery](M3-03_AGENDA_08_OUTBOX_RELIABILITY_AND_RECOVERY.md) | Bounded reliability/recovery implementation, lease/retry/order safeguards and limitations | Complete — PR #165 |
+| [M3-03 Agenda 8 Completion and Evidence Record](M3-03_AGENDA_08_COMPLETION_AND_EVIDENCE_RECORD.md) | Owner authorization, exact validated head, CI/test evidence, review state, merge SHA and residual gates | Complete — documentation closeout |
+
+PR #165 merged as `3f547ca7b925c5445c296c5a6311bac2fa7d744d` from exact head `e11abda10ed8a2aefe69e66c9740544c9bdb4d2a`. PHP 8.5 foundation CI run #43527123064 and Project documentation validation run #43527123066 passed. Agenda 8 is complete for its bounded synthetic scope; M3-03 remains in progress.

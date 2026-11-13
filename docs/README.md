@@ -199,3 +199,9 @@ PR #163 is merged. Exact-head PHP 8.5 foundation CI run #111 and Project documen
 - [M3-03 Agenda 8 Outbox Reliability and Recovery](04-roadmap/M3-03_AGENDA_08_OUTBOX_RELIABILITY_AND_RECOVERY.md) — bounded synthetic claim leasing, stale-worker recovery, retries, dead-letter handling, event ordering and suppression race safeguards.
 
 Agenda 8 is in progress on `feature/m3-03-agenda-08-outbox-reliability`; exact-head CI, documentation validation, review and merge evidence remain pending.
+
+## M3-03 Agenda 8 — outbox reliability closeout
+- [M3-03 Agenda 8 Outbox Reliability and Recovery](04-roadmap/M3-03_AGENDA_08_OUTBOX_RELIABILITY_AND_RECOVERY.md) — completed bounded local/CI synthetic claim, retry, recovery and projection-ordering safeguards.
+- [M3-03 Agenda 8 Completion and Evidence Record](04-roadmap/M3-03_AGENDA_08_COMPLETION_AND_EVIDENCE_RECORD.md) — PR #165 merge SHA, exact-head CI runs, review reconciliation, limitations and remaining gates.
+
+PR #165 merged as `3f547ca7b925c5445c296c5a6311bac2fa7d744d`. Exact-head PHP 8.5 foundation CI run #43527123064 and Project documentation validation run #43527123066 passed. Agenda 8 is complete for its authorized scope; M3-03 remains in progress.

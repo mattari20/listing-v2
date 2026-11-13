@@ -4,9 +4,9 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-03 — Core Data and Governance; Agendas 1–7 delivered within their separately authorized scopes; Agenda 7 persisted adjudication/publication implementation merged and closed; Agenda 8 outbox reliability candidate in progress  
-**Plan status:** Agenda 4 Slices A and B, Agenda 5 design and Agenda 6 bounded policy/service-contract implementation were separately authorized, delivered and evidence-reconciled  
-**Application implementation:** Local/CI-only synthetic implementation has been separately authorized and completed for Agenda 4 Slices A/B, Agenda 6 service contracts and Agenda 7 persisted workflows; Agenda 8 is separately authorized for bounded outbox reliability/recovery hardening. Real/source data, external services, production and deployment remain separately gated.
+**Current step:** M3-03 — Core Data and Governance; Agendas 1–8 delivered within their separately authorized scopes; Agenda 8 outbox reliability and recovery implementation merged and closed  
+**Plan status:** Agenda 4 Slices A and B, Agenda 5 design, Agenda 6 service contracts, Agenda 7 persisted workflows and Agenda 8 outbox reliability/recovery were separately authorized, delivered and evidence-reconciled  
+**Application implementation:** Local/CI-only synthetic implementation has been separately authorized and completed for Agenda 4 Slices A/B, Agenda 6 service contracts and Agenda 7 persisted workflows; Agenda 8 bounded outbox reliability/recovery hardening is complete. Real/source data, external services, production and deployment remain separately gated.
 
 ## 1. Purpose and governance
 
@@ -288,3 +288,14 @@ Agenda 7 is **COMPLETED** for its bounded scope. The detailed completion/evidenc
 The Product Owner authorized Agenda 8 for bounded local/CI-only synthetic hardening of the Agenda 7 transactional outbox. The candidate adds claim-token fencing, short-transaction event claiming, stale-lease recovery, per-event transactional application, bounded retry/backoff, terminal dead-letter disposition, fail-closed unknown-event handling, latest-snapshot ordering and suppression/restoration race safeguards. The scope record is `M3-03_AGENDA_08_OUTBOX_RELIABILITY_AND_RECOVERY.md`.
 
 Implementation and synthetic tests are on `feature/m3-03-agenda-08-outbox-reliability`. Exact-head PHP 8.5 foundation CI, documentation validation, review reconciliation and merge are pending. This does not prove production multi-process concurrency, broker delivery, exactly-once external effects or production recovery. No production, source data, external service, deployment or spend is included. M3-03 remains **IN PROGRESS**.
+
+## M3-03 Agenda 8 — completed bounded outbox reliability implementation (2026-11-14)
+
+The Product Owner authorized Agenda 8. PR [#165](https://github.com/mattari20/listing-v2/pull/165) merged as `3f547ca7b925c5445c296c5a6311bac2fa7d744d` from exact validated head `e11abda10ed8a2aefe69e66c9740544c9bdb4d2a`.
+
+- PHP 8.5 foundation CI run #43527123064: **success**, all configured steps passed, including Pint, Laravel bootstrap/routes, synthetic-only tests and artifact hygiene.
+- Project documentation validation run #43527123066: **success**.
+- No unresolved review threads; no review submissions were present. Exact-head SHA was rechecked and guarded at merge.
+- Completion/evidence record: `M3-03_AGENDA_08_COMPLETION_AND_EVIDENCE_RECORD.md`.
+
+Agenda 8 is **COMPLETED** for its bounded local/CI synthetic reliability/recovery scope. Production multi-process locking, broker/worker operations, downstream exactly-once effects, dead-letter operator tooling, real role coverage, specialist reviews, public surfaces and deployment remain separate gates. M3-03 remains **IN PROGRESS**.
