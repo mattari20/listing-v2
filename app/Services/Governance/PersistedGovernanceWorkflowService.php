@@ -64,9 +64,11 @@ final class PersistedGovernanceWorkflowService
                 $this->reject('evidence', 'Claim cannot be accepted without admissible evidence.');
             }
             $evidenceActorIds = $this->evidenceActorIds($case->claim_version_id);
-            $authorization = (new GovernancePolicy)->authorizeAdjudication($actor, $evidenceActorIds[0] ?? '', true);
-            if ($authorization['allowed'] === false) {
-                $this->reject('actor', $authorization['reason']);
+            foreach ($evidenceActorIds as $evidenceActorId) {
+                $authorization = (new GovernancePolicy)->authorizeAdjudication($actor, $evidenceActorId, true);
+                if ($authorization['allowed'] === false) {
+                    $this->reject('actor', $authorization['reason']);
+                }
             }
             $id = (string) Str::uuid();
             $now = now();
@@ -96,8 +98,13 @@ final class PersistedGovernanceWorkflowService
                 return (string) $existing->id;
             }
             $version = DB::table('claim_versions')->where('id', $claimVersionId)->lockForUpdate()->first();
-            $decision = DB::table('adjudication_decisions')->where('id', $adjudicationDecisionId)->first();
-            if ($version === null || $version->disposition !== 'accepted' || $decision === null || $decision->outcome !== 'accepted') {
+            $decision = DB::table('adjudication_decisions')
+                ->join('adjudication_cases', 'adjudication_cases.id', '=', 'adjudication_decisions.adjudication_case_id')
+                ->where('adjudication_decisions.id', $adjudicationDecisionId)
+                ->where('adjudication_cases.claim_version_id', $claimVersionId)
+                ->first(['adjudication_decisions.*']);
+            $hasSuccessor = DB::table('claim_versions')->where('supersedes_version_id', $claimVersionId)->exists();
+            if ($version === null || $version->disposition !== 'accepted' || $decision === null || $decision->outcome !== 'accepted' || $hasSuccessor) {
                 $this->reject('adjudication', 'A current accepted human adjudication is required.');
             }
             $evidenceRows = DB::table('claim_evidence_links')
