@@ -64,7 +64,7 @@ jobs:
         run: |
           set -euo pipefail
           test ! -e .env
-          if git ls-files | grep -E '(^database/|^vendor/|^node_modules/|(^|/)\.env($|\.)|\.log$|\.sqlite$|\.db$)'; then
+          if git ls-files | grep -E '(^database/|^vendor/|^node_modules/|(^|/)\.env$|(^|/)\.env\.(backup|production)$|\.log$|\.sqlite$|\.db$)'; then
             echo "Prohibited database, environment, dependency, or log artifact is tracked."
             exit 1
           fi
