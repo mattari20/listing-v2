@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-12 — M0/M1/M2 and M3-00 accepted/closed; M3-01 planning in progress
+**Last reconciled:** 2026-11-13 — M0/M1/M2 and M3-00 accepted/closed; FND-01 bounded package merged; remaining M3-01 gates open
 
 ## Purpose and maintenance rule
 
@@ -734,6 +734,13 @@ The existing [P04 Hostinger Premium constraint record](M3-01_P04_EXISTING_HOSTIN
 
 | Document | Purpose | Status |
 |---|---|---|
-| [FND-01 Laravel 13 Foundation Implementation Record](../05-implementation/FND-01_IMPLEMENTATION_RECORD.md) | Records the bounded local/CI Laravel foundation, health endpoint, default-OFF visibility seam, synthetic tests, immutable CI action pins and acceptance evidence | Delivered on feature branch; exact-head CI and Product Owner review pending |
+| [FND-01 Laravel 13 Foundation Implementation Record](../05-implementation/FND-01_IMPLEMENTATION_RECORD.md) | Records the bounded local/CI Laravel foundation, health endpoint, default-OFF visibility seam, synthetic tests, immutable CI action pins and acceptance evidence | Merged in PR #136 as `f61b4d17492294d45518493337f3fcd58fd78487`; exact-head CI passed and Product Owner approved the exact PR for merge |
 
 The application scaffold commit is \`4a6d4d262e36d5d60fad77bc6c3895f77bc183a4\`. This is not a merge or acceptance record. FND-01 remains unaccepted until the implementation PR's exact-head checks pass and the Product Owner reviews the complete diff. No merge or deployment is authorized by this status entry.
+
+
+## FND-01 merge and owner decision — 2026-11-13
+
+The Product Owner issued the exact bounded FND-01 authorization on 2026-11-13. Implementation was delivered in PR [#136](https://github.com/mattari20/listing-v2/pull/136), whose exact head was `d9b8eb8bb04c394d2b08e1a451fcb2d338158662`. The required exact-head checks passed: **FND-01 foundation CI** (run [#43380176340](https://github.com/mattari20/listing-v2/actions/runs/43380176340)) and **Project documentation validation** (run [#43380176524](https://github.com/mattari20/listing-v2/actions/runs/43380176524)). Following the Product Owner's explicit approval, PR #136 was squash-merged into `main` as `f61b4d17492294d45518493337f3fcd58fd78487`; GitHub confirms `main` points to that merge commit and PR #136 is merged.
+
+This records delivery and merge of FND-01 only. It does not claim Hostinger compatibility, V2 runtime isolation, capacity, backup/restore, legal/privacy/source-rights/safeguarding/security sign-off, production readiness or completion of M3-01 as a whole. No Hostinger/V1/production access, database work, migrations, real/source/personal data, external APIs/AI, deployment or new spend occurred. M3-02 and all later implementation remain separately gated and unauthorized.
