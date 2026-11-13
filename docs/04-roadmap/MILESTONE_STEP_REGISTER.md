@@ -726,3 +726,12 @@ The [P05 legal/privacy/source-rights/safeguarding/security assessment](M3-01_P05
 ## M3-01 P06 environment and release plan — 2026-11-13
 
 The [P06 Environment, Test, CI, Release and Rollback Plan](M3-01_P06_ENVIRONMENT_TEST_CI_RELEASE_ROLLBACK_PLAN_2026-11-13.md) defines synthetic-only local/CI environments, required quality/security/visibility tests, PR gates, local/CI-only first-slice release boundary, V2-only recovery prerequisites and severity-based stop conditions. P06 is delivered for owner review only; no environment activation, CI application workflow, package install, database creation or deployment is authorized.
+
+
+## FND-01 merge and owner decision — 2026-11-13
+
+The Product Owner issued the exact bounded FND-01 authorization on 2026-11-13. Implementation was delivered in PR [#136](https://github.com/mattari20/listing-v2/pull/136), whose exact head was `d9b8eb8bb04c394d2b08e1a451fcb2d338158662`. The required exact-head checks passed: **FND-01 foundation CI** (run [#43380176340](https://github.com/mattari20/listing-v2/actions/runs/43380176340)) and **Project documentation validation** (run [#43380176524](https://github.com/mattari20/listing-v2/actions/runs/43380176524)). Following the Product Owner's explicit approval, PR #136 was squash-merged into `main` as `f61b4d17492294d45518493337f3fcd58fd78487`; GitHub confirms `main` points to that merge commit and PR #136 is merged.
+
+This records delivery and merge of FND-01 only. It does not claim Hostinger compatibility, V2 runtime isolation, capacity, backup/restore, legal/privacy/source-rights/safeguarding/security sign-off, production readiness or completion of M3-01 as a whole. No Hostinger/V1/production access, database work, migrations, real/source/personal data, external APIs/AI, deployment or new spend occurred. M3-02 and all later implementation remain separately gated and unauthorized.
+
+The FND-01 package is a bounded implementation artifact authorized under M3-01 P07; it is not a substitution for the full M3-02 Platform Foundation scope in the M3 Master Step Plan. Do not award M3-02 completion credit from FND-01. M3 overall weighted progress remains 5% pending formal task-weight reconciliation and acceptance of the remaining M3-01/M3-02 gates.
