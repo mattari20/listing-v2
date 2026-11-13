@@ -210,7 +210,7 @@ class GovernanceServiceContractTest extends TestCase
         $this->assertTrue(method_exists(app(GovernanceCommandService::class), 'registerEvidenceReference'));
         $this->assertTrue(method_exists(app(GovernanceCommandService::class), 'registerProposedClaim'));
 
-        foreach ([app_path('Http/Controllers'), app_path('Console/Commands')] as $directory) {
+        foreach ([app_path('Http/Controllers'), app_path('Console/Commands'), app_path('Jobs')] as $directory) {
             if (File::isDirectory($directory) === false) {
                 continue;
             }
