@@ -4,9 +4,9 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-03 — Core Data and Governance; Agendas 1–5 delivered (Agenda 5 governance service boundary/enforcement design completed; implementation remains separately gated)  
-**Plan status:** Proposed execution baseline; Agenda 4 Slices A and B and Agenda 5 design were separately authorized and delivered; no service implementation is implied  
-**Application implementation:** Limited local/CI-only synthetic implementation authorized for Agenda 4 Slices A and B only. Agenda 5 delivered design documentation only; governance service implementation and all later implementation remain unauthorized
+**Current step:** M3-03 — Core Data and Governance; Agendas 1–5 delivered; Agenda 6 bounded governance service-contract implementation is in PR #160 pending exact-head CI and merge  
+**Plan status:** Agenda 4 Slices A and B, Agenda 5 design and the bounded Agenda 6 policy/service-contract increment were separately authorized; Agenda 6 validation and closeout remain pending  
+**Application implementation:** Local/CI-only synthetic implementation is authorized for Agenda 4 Slices A/B and the bounded Agenda 6 contract increment only. Agenda 6 does not authorize persisted adjudication/publication workflows, real/source data, external services, production or deployment.
 
 ## 1. Purpose and governance
 
@@ -250,3 +250,14 @@ The design defines logical application-service boundaries in a modular monolith;
 **Agenda disposition:** design activity completed and closed. The 32 GS scenarios are specifications only, not executed application tests. No service code, role provisioning, runtime enforcement, physical schema change, source access, real data, external integration, public surface, deployment, procurement or spend was performed or authorized. The detailed role/permission matrix, human coverage, specialist clearances, source-specific rights, retention policy, projection architecture and runtime transaction/recovery evidence remain open.
 
 M3-03 remains **In progress**; no whole-step weighted completion percentage is claimed. Agenda 5 authorization is exhausted. Any implementation-readiness or service implementation activity requires a new explicit Product Owner authorization.
+
+
+## M3-03 Agenda 6 — Governance Service Contract Implementation (2026-11-13)
+
+The Product Owner authorized a bounded local/CI-only synthetic implementation of the Agenda 5 policy/service boundary. PR [#160](https://github.com/mattari20/listing-v2/pull/160) adds executable source-authorization and capability policies, human adjudication/publication gates, evidence admissibility, conflict handling, Deeni Madaris default-OFF and approved-projection read policies. It adds transactional metadata-only evidence-reference and proposed-claim commands using the existing Agenda 4 tables, with audit events and payload-bound idempotency.
+
+The PR includes the GS-001–GS-032 policy acceptance matrix plus persistence tests for quarantine, proposed claim lineage, idempotent evidence intake, audit-failure rollback and application entry-point boundaries. The matrix is policy-level verification, not 32 end-to-end workflow tests.
+
+**Validation status:** exact-head PHP 8.5 foundation CI and Project documentation validation are pending verifiable GitHub results. PR #160 is open and unmerged. Do not mark Agenda 6 closed until both exact-head checks pass, review threads are clear and merge evidence is reconciled.
+
+**Explicitly outside this authorization:** persisted adjudication decisions, publication snapshots/projections, outbox/queue delivery, suppression propagation, restoration persistence, real role provisioning, source access, real data, external services/AI, public endpoints, production, deployment, procurement and spend. M3-03 remains in progress; no whole-step completion percentage is claimed.
