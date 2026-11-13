@@ -269,3 +269,15 @@ Agenda 6 is **Complete** for the bounded local/CI synthetic policy/service-contr
 The Product Owner authorized the next bounded local/CI-only synthetic implementation increment. PR [#162](https://github.com/mattari20/listing-v2/pull/162) adds persistence for adjudication cases/decisions and appeal lineage, publication decisions and immutable snapshots, internal public-projection state, transactional outbox events, emergency suppression and restoration. The service implements human adjudication and publication gates, evidence/authorization rechecks, actor separation, source-authorization revocation propagation, idempotent projection processing and audit/outbox atomicity.
 
 The implementation candidate and scope/limitations record is `M3-03_AGENDA_07_PERSISTED_ADJUDICATION_AND_PUBLICATION_WORKFLOWS.md`. Synthetic feature tests cover the new workflows. Exact-head PHP 8.5 foundation CI and documentation validation are pending; do not mark Agenda 7 complete or merge until both pass, review threads are clear and the exact head is rechecked. No public route, real role provisioning, real/source data, production, external services, deployment or spend is included. M3-03 remains in progress; no whole-step completion percentage is claimed.
+
+
+## M3-03 Agenda 7 — completed bounded persisted workflow implementation (2026-11-13)
+
+The Product Owner authorized Agenda 7 and the bounded local/CI synthetic implementation is complete. PR [#163](https://github.com/mattari20/listing-v2/pull/163) merged as `a16d6564e5f5190a841c5596ddb47638d1ec735c` from exact head `ede649e53878facd8906e19b6a57e2d5019caaed`.
+
+- PHP 8.5 foundation CI run #111 (`43458056872`): **success**; all configured steps passed, including Pint, Laravel bootstrap/routes, dependency audit, synthetic tests and artifact hygiene.
+- Project documentation validation run #430 (`43458057006`): **success**.
+- Synthetic tests: 137 assertions, no failures; 32 existing missing-local-`.env` warnings. No `.env` or database artifact was created.
+- Review threads: none unresolved. PR #162 was closed as superseded by validated PR #163.
+
+Agenda 7 is **COMPLETED** for its bounded scope. The detailed completion/evidence record is `M3-03_AGENDA_07_COMPLETION_AND_EVIDENCE_RECORD.md`. M3-03 overall remains **IN PROGRESS**; no whole-step completion percentage is claimed. Production queue/recovery, real role/permission coverage, retention/deletion, specialist reviews, public surfaces and deployment remain separate gates.
