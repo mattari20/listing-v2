@@ -20,6 +20,7 @@ class PersistedGovernanceWorkflowTest extends TestCase
         foreach (['adjudication_cases', 'adjudication_decisions', 'publication_decisions', 'publication_snapshots', 'public_projections', 'governance_outbox', 'publication_suppressions', 'publication_restorations'] as $table) {
             $this->assertTrue(Schema::hasTable($table));
         }
+        $this->assertTrue(Schema::hasColumns('governance_outbox', ['claim_token', 'claimed_at']));
     }
 
     public function test_human_adjudication_is_persisted_with_appeal_lineage_and_audit(): void
@@ -155,6 +156,122 @@ class PersistedGovernanceWorkflowTest extends TestCase
         } catch (ValidationException) {
             $this->assertDatabaseCount('adjudication_decisions', 0);
         }
+    }
+
+    public function test_outbox_reclaims_a_stale_worker_lease_after_a_crash(): void
+    {
+        $fixture = $this->fixture();
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-stale-lease');
+        $decisionId = $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted after synthetic review.', 'policy-v1');
+        $service->authorizePublication($this->actor('publisher', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'publish-stale-lease');
+        $event = DB::table('governance_outbox')->first();
+
+        DB::table('governance_outbox')->where('id', $event->id)->update([
+            'status' => 'processing',
+            'attempts' => 1,
+            'claim_token' => (string) str()->uuid(),
+            'claimed_at' => now()->subMinutes(10),
+        ]);
+
+        $this->assertSame(1, $service->processOutbox(10, 5, 5));
+        $this->assertDatabaseHas('governance_outbox', [
+            'id' => $event->id,
+            'status' => 'processed',
+            'attempts' => 2,
+            'claim_token' => null,
+            'claimed_at' => null,
+        ]);
+    }
+
+    public function test_failed_outbox_event_is_retried_with_backoff_and_error_evidence(): void
+    {
+        $id = (string) str()->uuid();
+        DB::table('governance_outbox')->insert([
+            'id' => $id,
+            'event_type' => 'unsupported.synthetic.event',
+            'aggregate_type' => 'synthetic',
+            'aggregate_id' => (string) str()->uuid(),
+            'payload' => json_encode([], JSON_THROW_ON_ERROR),
+            'idempotency_key' => 'retry-test-'.$id,
+            'status' => 'pending',
+            'attempts' => 0,
+            'available_at' => now(),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $service = new PersistedGovernanceWorkflowService;
+        $this->assertSame(0, $service->processOutbox(1, 3));
+        $event = DB::table('governance_outbox')->where('id', $id)->first();
+
+        $this->assertSame('pending', $event->status);
+        $this->assertSame(1, (int) $event->attempts);
+        $this->assertNotNull($event->last_error);
+        $this->assertNotNull($event->available_at);
+        $this->assertNull($event->claim_token);
+        $this->assertNull($event->claimed_at);
+    }
+
+    public function test_outbox_moves_permanently_failing_event_to_dead_letter(): void
+    {
+        $id = (string) str()->uuid();
+        DB::table('governance_outbox')->insert([
+            'id' => $id,
+            'event_type' => 'unsupported.synthetic.event',
+            'aggregate_type' => 'synthetic',
+            'aggregate_id' => (string) str()->uuid(),
+            'payload' => json_encode([], JSON_THROW_ON_ERROR),
+            'idempotency_key' => 'dead-letter-test-'.$id,
+            'status' => 'pending',
+            'attempts' => 0,
+            'available_at' => now(),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $service = new PersistedGovernanceWorkflowService;
+        $this->assertSame(0, $service->processOutbox(1, 1));
+        $this->assertDatabaseHas('governance_outbox', [
+            'id' => $id,
+            'status' => 'dead_letter',
+            'attempts' => 1,
+        ]);
+        $this->assertNotNull(DB::table('governance_outbox')->where('id', $id)->value('last_error'));
+    }
+
+    public function test_pending_approval_event_cannot_resurrect_a_suppressed_snapshot(): void
+    {
+        $fixture = $this->fixture();
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-suppress-before-project');
+        $decisionId = $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted after synthetic review.', 'policy-v1');
+        $service->authorizePublication($this->actor('publisher', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'publish-suppress-before-project');
+        $snapshot = DB::table('publication_snapshots')->first();
+        $service->suppressPublication($this->actor('suppressor', ['suppress_publication']), $snapshot->id, 'synthetic_safety_hold', 'Suppress before pending projection is processed.');
+
+        $this->assertSame(2, $service->processOutbox());
+        $this->assertDatabaseCount('public_projections', 0);
+        $this->assertDatabaseHas('publication_snapshots', ['id' => $snapshot->id, 'status' => 'suppressed']);
+    }
+
+    public function test_only_latest_snapshot_for_a_surface_is_projected_when_older_event_is_pending(): void
+    {
+        $fixture = $this->fixture();
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'case-latest-snapshot');
+        $decisionId = $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted after synthetic review.', 'policy-v1');
+        $service->authorizePublication($this->actor('publisher-one', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'publish-old-snapshot');
+        $service->authorizePublication($this->actor('publisher-two', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'publish-new-snapshot');
+        $snapshots = DB::table('publication_snapshots')->orderBy('snapshot_version')->get();
+
+        $this->assertSame(2, $service->processOutbox());
+        $this->assertDatabaseCount('public_projections', 1);
+        $this->assertDatabaseHas('public_projections', [
+            'projection_key' => $fixture['version'].':directory:anonymous',
+            'publication_snapshot_id' => $snapshots[1]->id,
+            'status' => 'approved',
+        ]);
     }
 
     private function fixture(string $entityType = 'institution'): array

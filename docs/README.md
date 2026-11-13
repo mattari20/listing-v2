@@ -193,3 +193,9 @@ PR #162 contains the implementation candidate. Exact-head CI and documentation v
 - [M3-03 Agenda 7 Completion and Evidence Record](04-roadmap/M3-03_AGENDA_07_COMPLETION_AND_EVIDENCE_RECORD.md) — merged PR #163, exact-head CI/test evidence, limitations and remaining approval gates.
 
 PR #163 is merged. Exact-head PHP 8.5 foundation CI run #111 and Project documentation validation run #430 passed. Agenda 7 is complete for its authorized scope; M3-03 remains in progress.
+
+
+## M3-03 Agenda 8 — transactional outbox reliability and recovery
+- [M3-03 Agenda 8 Outbox Reliability and Recovery](04-roadmap/M3-03_AGENDA_08_OUTBOX_RELIABILITY_AND_RECOVERY.md) — bounded synthetic claim leasing, stale-worker recovery, retries, dead-letter handling, event ordering and suppression race safeguards.
+
+Agenda 8 is in progress on `feature/m3-03-agenda-08-outbox-reliability`; exact-head CI, documentation validation, review and merge evidence remain pending.

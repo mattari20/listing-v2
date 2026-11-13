@@ -301,38 +301,191 @@ final class PersistedGovernanceWorkflowService
         });
     }
 
-    public function processOutbox(int $limit = 50): int
+    public function processOutbox(int $limit = 50, int $maxAttempts = 5, int $leaseMinutes = 5): int
     {
         if ($limit < 1 || $limit > 100) {
             throw ValidationException::withMessages(['limit' => 'Outbox batch size must be between 1 and 100.']);
         }
+        if ($maxAttempts < 1 || $maxAttempts > 10) {
+            throw ValidationException::withMessages(['max_attempts' => 'Maximum attempts must be between 1 and 10.']);
+        }
+        if ($leaseMinutes < 1 || $leaseMinutes > 60) {
+            throw ValidationException::withMessages(['lease_minutes' => 'Outbox lease must be between 1 and 60 minutes.']);
+        }
 
-        return DB::transaction(function () use ($limit): int {
-            $events = DB::table('governance_outbox')->where('status', 'pending')->where('available_at', '<=', now())
-                ->orderBy('created_at')->limit($limit)->lockForUpdate()->get();
-            $processed = 0;
-            foreach ($events as $event) {
-                $payload = json_decode($event->payload, true) ?: [];
-                if ($event->event_type === 'publication.snapshot.approved' || $event->event_type === 'publication.snapshot.restored') {
-                    $snapshot = DB::table('publication_snapshots')->where('id', $event->aggregate_id)->first();
-                    if ($snapshot !== null && in_array($snapshot->status, ['approved_pending_projection'], true)) {
-                        DB::table('public_projections')->updateOrInsert(
-                            ['projection_key' => $snapshot->claim_version_id.':'.$snapshot->surface.':'.$snapshot->audience],
-                            ['id' => (string) Str::uuid(), 'publication_snapshot_id' => $snapshot->id,
-                                'surface' => $snapshot->surface, 'audience' => $snapshot->audience, 'status' => 'approved',
-                                'is_deeni_madaris' => (bool) ($payload['is_deeni_madaris'] ?? false),
-                                'projected_at' => now(), 'created_at' => now(), 'updated_at' => now()]
-                        );
-                        DB::table('publication_snapshots')->where('id', $snapshot->id)->update(['status' => 'projected']);
-                    }
-                } elseif ($event->event_type === 'publication.snapshot.suppressed') {
-                    DB::table('public_projections')->where('publication_snapshot_id', $event->aggregate_id)->update(['status' => 'suppressed', 'updated_at' => now()]);
-                }
-                DB::table('governance_outbox')->where('id', $event->id)->update(['status' => 'processed', 'attempts' => $event->attempts + 1, 'processed_at' => now(), 'updated_at' => now()]);
-                $processed++;
+        $processed = 0;
+        for ($index = 0; $index < $limit; $index++) {
+            $claim = $this->claimOutboxEvent($leaseMinutes);
+            if ($claim === null) {
+                break;
             }
 
-            return $processed;
+            try {
+                $this->applyOutboxEvent($claim['id'], $claim['token']);
+                $processed++;
+            } catch (\Throwable $exception) {
+                $this->recordOutboxFailure($claim, $exception, $maxAttempts);
+            }
+        }
+
+        return $processed;
+    }
+
+    /**
+     * Claim one event in a short transaction. A stale processing lease can be
+     * reclaimed after a worker crash; the token fences the previous worker.
+     *
+     * @return array{id: string, token: string, attempts: int}|null
+     */
+    private function claimOutboxEvent(int $leaseMinutes): ?array
+    {
+        return DB::transaction(function () use ($leaseMinutes): ?array {
+            $now = now();
+            $staleBefore = $now->copy()->subMinutes($leaseMinutes);
+            $event = DB::table('governance_outbox')
+                ->where(function ($query) use ($now, $staleBefore): void {
+                    $query->where(function ($pending) use ($now): void {
+                        $pending->where('status', 'pending')->where('available_at', '<=', $now);
+                    })->orWhere(function ($stale) use ($staleBefore): void {
+                        $stale->where('status', 'processing')->where('claimed_at', '<=', $staleBefore);
+                    });
+                })
+                ->orderBy('created_at')
+                ->orderBy('id')
+                ->lockForUpdate()
+                ->first();
+
+            if ($event === null) {
+                return null;
+            }
+            if ((int) $event->attempts >= 10) {
+                DB::table('governance_outbox')->where('id', $event->id)->update([
+                    'status' => 'dead_letter',
+                    'claim_token' => null,
+                    'claimed_at' => null,
+                    'last_error' => 'Worker lease expired after the maximum claim attempts.',
+                    'updated_at' => $now,
+                ]);
+
+                return null;
+            }
+
+            $token = (string) Str::uuid();
+            $attempts = (int) $event->attempts + 1;
+            DB::table('governance_outbox')->where('id', $event->id)->update([
+                'status' => 'processing',
+                'attempts' => $attempts,
+                'claim_token' => $token,
+                'claimed_at' => $now,
+                'updated_at' => $now,
+            ]);
+
+            return ['id' => (string) $event->id, 'token' => $token, 'attempts' => $attempts];
+        });
+    }
+
+    private function applyOutboxEvent(string $eventId, string $claimToken): void
+    {
+        DB::transaction(function () use ($eventId, $claimToken): void {
+            $event = DB::table('governance_outbox')->where('id', $eventId)
+                ->where('status', 'processing')->where('claim_token', $claimToken)
+                ->lockForUpdate()->first();
+            if ($event === null) {
+                return;
+            }
+
+            $payload = json_decode($event->payload, true, 512, JSON_THROW_ON_ERROR);
+            if (in_array($event->event_type, ['publication.snapshot.approved', 'publication.snapshot.restored'], true)) {
+                $snapshot = DB::table('publication_snapshots')->where('id', $event->aggregate_id)->lockForUpdate()->first();
+                if ($snapshot !== null && $snapshot->status === 'approved_pending_projection') {
+                    $snapshotPayload = json_decode($snapshot->payload, true, 512, JSON_THROW_ON_ERROR);
+                    if (($snapshotPayload['is_deeni_madaris'] ?? false) === true) {
+                        throw new \RuntimeException('Restricted Deeni Madaris snapshots cannot be projected.');
+                    }
+
+                    $latestSnapshotId = DB::table('publication_snapshots')
+                        ->where('claim_version_id', $snapshot->claim_version_id)
+                        ->where('surface', $snapshot->surface)
+                        ->where('audience', $snapshot->audience)
+                        ->orderByDesc('snapshot_version')
+                        ->value('id');
+
+                    // A delayed retry for an older snapshot must never replace a newer publication.
+                    if ((string) $latestSnapshotId === (string) $snapshot->id) {
+                        $projectionKey = $snapshot->claim_version_id.':'.$snapshot->surface.':'.$snapshot->audience;
+                        $projection = DB::table('public_projections')->where('projection_key', $projectionKey)->first();
+                        if ($projection !== null) {
+                            $currentSnapshotVersion = DB::table('publication_snapshots')
+                                ->where('id', $projection->publication_snapshot_id)->value('snapshot_version');
+                            if ($currentSnapshotVersion === null || (int) $currentSnapshotVersion <= (int) $snapshot->snapshot_version) {
+                                DB::table('public_projections')->where('id', $projection->id)->update([
+                                    'publication_snapshot_id' => $snapshot->id,
+                                    'surface' => $snapshot->surface,
+                                    'audience' => $snapshot->audience,
+                                    'status' => 'approved',
+                                    'is_deeni_madaris' => false,
+                                    'projected_at' => now(),
+                                    'updated_at' => now(),
+                                ]);
+                            }
+                        } else {
+                            DB::table('public_projections')->insert([
+                                'id' => (string) Str::uuid(),
+                                'publication_snapshot_id' => $snapshot->id,
+                                'projection_key' => $projectionKey,
+                                'surface' => $snapshot->surface,
+                                'audience' => $snapshot->audience,
+                                'status' => 'approved',
+                                'is_deeni_madaris' => false,
+                                'projected_at' => now(),
+                                'created_at' => now(),
+                                'updated_at' => now(),
+                            ]);
+                        }
+                        DB::table('publication_snapshots')->where('id', $snapshot->id)->update(['status' => 'projected']);
+                    }
+                }
+            } elseif ($event->event_type === 'publication.snapshot.suppressed') {
+                $snapshot = DB::table('publication_snapshots')->where('id', $event->aggregate_id)->first();
+                if ($snapshot !== null && $snapshot->status === 'suppressed') {
+                    DB::table('public_projections')->where('publication_snapshot_id', $snapshot->id)
+                        ->update(['status' => 'suppressed', 'updated_at' => now()]);
+                }
+            } else {
+                throw new \RuntimeException('Unsupported governance outbox event type: '.$event->event_type);
+            }
+
+            DB::table('governance_outbox')->where('id', $eventId)->where('claim_token', $claimToken)->update([
+                'status' => 'processed',
+                'processed_at' => now(),
+                'claim_token' => null,
+                'claimed_at' => null,
+                'last_error' => null,
+                'updated_at' => now(),
+            ]);
+        });
+    }
+
+    private function recordOutboxFailure(array $claim, \Throwable $exception, int $maxAttempts): void
+    {
+        DB::transaction(function () use ($claim, $exception, $maxAttempts): void {
+            $event = DB::table('governance_outbox')->where('id', $claim['id'])
+                ->where('status', 'processing')->where('claim_token', $claim['token'])
+                ->lockForUpdate()->first();
+            if ($event === null) {
+                return;
+            }
+
+            $deadLetter = (int) $claim['attempts'] >= $maxAttempts;
+            $delayMinutes = min(2 ** max(0, (int) $claim['attempts'] - 1), 60);
+            DB::table('governance_outbox')->where('id', $claim['id'])->update([
+                'status' => $deadLetter ? 'dead_letter' : 'pending',
+                'available_at' => $deadLetter ? $event->available_at : now()->addMinutes($delayMinutes),
+                'claim_token' => null,
+                'claimed_at' => null,
+                'last_error' => substr($exception->getMessage(), 0, 2000),
+                'updated_at' => now(),
+            ]);
         });
     }
 

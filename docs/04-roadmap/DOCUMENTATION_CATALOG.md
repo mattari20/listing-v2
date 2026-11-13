@@ -830,3 +830,12 @@ PR [#162](https://github.com/mattari20/listing-v2/pull/162) contains the additiv
 | [M3-03 Agenda 7 Completion and Evidence Record](M3-03_AGENDA_07_COMPLETION_AND_EVIDENCE_RECORD.md) | Owner authorization, merged SHA, exact-head CI, test results, warnings and residual gates | Complete — documentation closeout |
 
 PR #163 merged as `a16d6564e5f5190a841c5596ddb47638d1ec735c`. Exact-head PHP 8.5 foundation CI run #111 and documentation validation run #430 both passed. Agenda 7 is complete for the bounded synthetic scope; M3-03 remains in progress.
+
+
+## M3-03 Agenda 8 — Transactional Outbox Reliability and Recovery Hardening
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-03 Agenda 8 Outbox Reliability and Recovery](M3-03_AGENDA_08_OUTBOX_RELIABILITY_AND_RECOVERY.md) | Bounded scope, lease/retry/recovery semantics, synthetic acceptance and explicit operational limitations | Implementation candidate; PR/CI closeout pending |
+
+Candidate branch: `feature/m3-03-agenda-08-outbox-reliability`. Exact-head PHP 8.5 foundation CI, project documentation validation, review-thread reconciliation and merge evidence must be recorded before this agenda is marked complete.
