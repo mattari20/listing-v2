@@ -4,9 +4,9 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-03 — Core Data and Governance; Agenda 1 logical domain model and provenance work package (bounded synthetic/offline scope)  
+**Current step:** M3-03 — Core Data and Governance; Agenda 2 logical model review and Product Owner design-baseline decision (documentation-only)  
 **Plan status:** Proposed execution baseline, owner-authorized for documentation/planning only  
-**Application implementation:** Only the exact bounded M3-03 logical-model/provenance work-package preparation is authorized; physical schema, migrations, persistence and all excluded activities remain unauthorized
+**Application implementation:** Not authorized. Agenda 1 documentation/synthetic specification is delivered; Agenda 2 review is recorded. Physical schema, migrations, persistence and all excluded activities remain unauthorized
 
 ## 1. Purpose and governance
 
@@ -205,3 +205,12 @@ A bounded Product Owner authorization permits repository-local documentation and
 The fixture JSON was parsed and structurally checked: 11 entities, 11 relationships, 5 claims, 2 evidence references, 2 synthetic authorization fixtures and 24 test IDs; all relationship endpoints, claim-evidence links and evidence-authorization references resolve; restricted category default is false. These are fixture integrity checks, not application/runtime test execution.
 
 Agenda 1 deliverables are prepared for review. The focused M1 SR-01–SR-14 / M1 G-control / M2 AR-001–AR-025 crosswalk was completed against canonical M1 product/acceptance records and M2-S01/S02/S05/S10 architecture documents. The fixture JSON structural review passed with 11 entities, 11 relationships, 5 claims, 2 evidence references, 2 authorization fixtures and 24 test IDs; all endpoints and provenance references resolve and the restricted category default is false. These are specification and fixture-integrity results, not application/runtime test execution. No physical schema, migrations, database connection, persistence, application code, real/source/personal data, source collection, external services/AI, hosting, deployment or new spend was performed or authorized. M3-03 as a whole remains in progress; this agenda completes only the bounded Agenda 1 work package.
+
+
+## M3-03 Agenda 2 — Logical Model Review and Governance Decision Closure (2026-11-13)
+
+The Agenda 1 logical model, synthetic fixtures, 24-vector test specification and evidence record were reviewed against their own invariants and the focused accepted M1/M2 traceability baseline. The review found the model directionally aligned and did not recommend restart. Seven clarifications were recorded: Provider–Institution cardinality; canonical claim disposition versus lifecycle events; identity candidate/merge/split governance; controlled authority relationship vocabulary; downstream consequences of source-authorization revocation; minimum separation-of-duties/role matrix; and missing synthetic edge-case oracles.
+
+The review and five Product Owner decision prompts are recorded in `M3-03_AGENDA_02_LOGICAL_MODEL_REVIEW_AND_GOVERNANCE_DECISIONS.md`, merged through PR [#153](https://github.com/mattari20/listing-v2/pull/153) as `9d83d0a21b9ae5e741196a5b49326d1295edc240`. PR #153 exact head `86470c3d76fe886e506f0895f285616fc5611cda` passed Project documentation validation run #364 (GitHub run ID 43444709815) and FND-01 foundation CI run #54 (GitHub run ID 43444709623); no review threads were outstanding.
+
+**Agenda disposition:** review activity delivered and merged; Product Owner design-baseline acceptance remains pending. The review recommendation is not owner acceptance. M3-03 remains In progress. No physical schema, migrations, persistence, real/source/personal data, source acquisition, external services/AI, hosting, deployment, pilot, launch or spend is authorized. P04/P05/P06 gates remain separate and open as applicable.
