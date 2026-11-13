@@ -33,8 +33,8 @@ class GovernanceServiceContractTest extends TestCase
 
         $this->assertTrue($this->policy->authorizeSourceAction($base, 'acquisition', $this->context(), $now)['allowed']);
         $this->assertFalse($this->policy->authorizeSourceAction([], 'acquisition', $this->context(), $now)['allowed']);
-        $this->assertFalse($this->policy->authorizeSourceAction($base + ['valid_to' => '2026-11-13T11:59:59Z'], 'acquisition', $this->context(), $now)['allowed']);
-        $this->assertFalse($this->policy->authorizeSourceAction($base + ['revoked_at' => '2026-11-13T11:00:00Z'], 'acquisition', $this->context(), $now)['allowed']);
+        $this->assertFalse($this->policy->authorizeSourceAction(array_replace($base, ['valid_to' => '2026-11-13T11:59:59Z']), 'acquisition', $this->context(), $now)['allowed']);
+        $this->assertFalse($this->policy->authorizeSourceAction(array_replace($base, ['revoked_at' => '2026-11-13T11:00:00Z']), 'acquisition', $this->context(), $now)['allowed']);
         $this->assertFalse($this->policy->authorizeSourceAction($base, 'publication', $this->context(), $now)['allowed']);
         $this->assertFalse($this->policy->authorizeSourceAction($base, 'acquisition', ['purpose' => 'other', 'method' => 'fixture_reference', 'territory' => 'synthetic'], $now)['allowed']);
         $this->assertFalse($this->policy->authorizeSourceAction($base, 'acquisition', ['purpose' => 'synthetic_test_only', 'method' => 'scrape', 'territory' => 'synthetic'], $now)['allowed']);
@@ -45,7 +45,7 @@ class GovernanceServiceContractTest extends TestCase
     {
         $collector = $this->actor('collector-1', ['register_evidence', 'register_claim']);
         $automated = $this->actor('validator-1', ['adjudicate_claim'], 'automated');
-        $sameCollector = $this->policy->authorizeAdjudication($collector + ['capabilities' => ['adjudicate_claim']], 'collector-1');
+        $sameCollector = $this->policy->authorizeAdjudication(array_replace($collector, ['capabilities' => ['adjudicate_claim']]), 'collector-1');
         $differentHuman = $this->policy->authorizeAdjudication($this->actor('reviewer-1', ['adjudicate_claim']), 'collector-1');
 
         $this->assertFalse($sameCollector['allowed']);
@@ -57,14 +57,14 @@ class GovernanceServiceContractTest extends TestCase
     public function test_publication_requires_distinct_human_approval_after_adjudication(): void
     {
         $publisher = $this->actor('publisher-1', ['authorize_publication']);
-        $accepted = ['outcome' => 'accepted', 'actor_id' => 'reviewer-1', 'policy_version' => 'synthetic-policy-v1'];
+        $accepted = ['outcome' => 'accepted', 'actor_id' => 'reviewer-1', 'policy_version' => 'synthetic-policy-v1', 'surface' => 'synthetic_test', 'audience' => 'synthetic_reviewers'];
 
         $this->assertTrue($this->policy->authorizePublication($publisher, $accepted, ['collector-1'])['allowed']);
         $this->assertFalse($this->policy->authorizePublication($publisher, ['outcome' => 'proposed'] + $accepted, ['collector-1'])['allowed']);
-        $this->assertFalse($this->policy->authorizePublication($publisher, ['outcome' => 'accepted', 'actor_id' => 'publisher-1', 'policy_version' => 'v1'], [])['allowed']);
+        $this->assertFalse($this->policy->authorizePublication($publisher, ['outcome' => 'accepted', 'actor_id' => 'publisher-1', 'policy_version' => 'v1', 'surface' => 'synthetic_test', 'audience' => 'synthetic_reviewers'], [])['allowed']);
         $this->assertFalse($this->policy->authorizePublication($this->actor('bot', ['authorize_publication'], 'automated'), $accepted, [])['allowed']);
         $this->assertFalse($this->policy->authorizePublication($publisher, $accepted, ['publisher-1'])['allowed']);
-        $this->assertFalse($this->policy->authorizePublication($publisher, ['outcome' => 'accepted', 'actor_id' => 'reviewer-1'], [])['allowed']);
+        $this->assertFalse($this->policy->authorizePublication($publisher, ['outcome' => 'accepted', 'actor_id' => 'reviewer-1', 'surface' => 'synthetic_test', 'audience' => 'synthetic_reviewers'], [])['allowed']);
     }
 
     public function test_restricted_category_visibility_defaults_to_suppressed(): void
