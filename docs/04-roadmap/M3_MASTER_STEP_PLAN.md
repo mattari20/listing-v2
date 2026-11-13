@@ -4,9 +4,9 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-03 — Core Data and Governance; Agendas 1–8 delivered within their separately authorized scopes; Agenda 9 claim-version lifecycle candidate in progress  
-**Plan status:** Agenda 4 Slices A and B, Agenda 5 design, Agenda 6 service contracts, Agenda 7 persisted workflows and Agenda 8 outbox reliability/recovery were separately authorized, delivered and evidence-reconciled; Agenda 9 correction/withdrawal lifecycle is in progress  
-**Application implementation:** Local/CI-only synthetic implementation has been separately authorized and completed for Agenda 4 Slices A/B, Agenda 6 service contracts and Agenda 7 persisted workflows; Agenda 8 bounded outbox reliability/recovery hardening is complete; Agenda 9 claim-version correction/withdrawal is limited to synthetic local/CI work. Real/source data, external services, production and deployment remain separately gated.
+**Current step:** M3-03 — Core Data and Governance; Agendas 1–9 delivered within their separately authorized bounded scopes; Agenda 9 claim-version lifecycle correction and withdrawal merged and closed  
+**Plan status:** Agenda 4 Slices A and B, Agenda 5 design, Agenda 6 service contracts, Agenda 7 persisted workflows, Agenda 8 outbox reliability/recovery and Agenda 9 claim-version correction/withdrawal were separately authorized, delivered and evidence-reconciled  
+**Application implementation:** Local/CI-only synthetic implementation has been separately authorized and completed for Agenda 4 Slices A/B, Agenda 6 service contracts and Agenda 7 persisted workflows; Agenda 8 bounded outbox reliability/recovery and Agenda 9 bounded claim-version correction/withdrawal are complete for synthetic local/CI scope. Real/source data, external services, production and deployment remain separately gated.
 
 ## 1. Purpose and governance
 
@@ -307,3 +307,12 @@ A repository audit against the M3-03 exit evidence identified that the persisted
 The implementation candidate is on `feature/m3-03-agenda-09-claim-lifecycle`. It adds human-gated correction with temporal successor lineage, eligible synthetic evidence links, idempotency and stale-version publication denial; explicit human withdrawal with audit, dependent snapshot suppression and outbox propagation; and synthetic tests for disputed-state publication denial. Scope and evidence records: `M3-03_AGENDA_09_CLAIM_VERSION_LIFECYCLE_CORRECTION_AND_WITHDRAWAL.md` and `M3-03_AGENDA_09_COMPLETION_AND_EVIDENCE_RECORD.md`.
 
 Agenda 9 remains in progress pending exact-head PHP 8.5 foundation CI, Project documentation validation, review reconciliation, merge and final evidence update. No real/source data, source access, real roles, production, external services/AI, public endpoint, deployment or spend is included. M3-03 remains in progress.
+
+
+## M3-03 Agenda 9 — final completion reconciliation (2026-11-14)
+
+Agenda 9 is **COMPLETED** for its bounded authorized synthetic local/CI scope. PR [#167](https://github.com/mattari20/listing-v2/pull/167) merged as `91c15204fb41ba5cc5a29b99a2dca80e983adc9d` from exact validated head `3d01e87643aa838e55e07a1a20c67ada9078415b`.
+
+Exact-head PHP 8.5 foundation CI run [#43529328306](https://github.com/mattari20/listing-v2/actions/runs/43529328306) and Project documentation validation run [#43529328427](https://github.com/mattari20/listing-v2/actions/runs/43529328427) both passed. The synthetic test suite reported 176 assertions and no failures, with 42 non-fatal missing-local-`.env` warnings from the existing test harness. Review threads were clear, no review submissions were present and merge used an expected-head SHA guard.
+
+Delivered behavior includes human-gated immutable correction successors with effective dates and evidence lineage, idempotency, superseded-version publication denial, explicit disputed-state denial, and human-only withdrawal with audit, dependent suppression records, projection freeze and outbox propagation. Global temporal-overlap policy, automated conflict resolution, real roles, retention/deletion, specialist approvals, production concurrency, public surfaces and deployment remain separate gates. M3-03 overall remains **IN PROGRESS**.

@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
-**Status:** Implementation candidate — exact-head validation and closeout pending  
+**Status:** **COMPLETED** for bounded authorized local/CI synthetic implementation  
 **Baseline:** M3-03 Agendas 1–8 merged on `main`
 
 ## 1. Objective
@@ -45,6 +45,6 @@ No V1, Hostinger/hPanel, production/live database, real/source/institute/student
 
 ## 6. Acceptance and closeout
 
-Exact-head PHP 8.5 foundation CI and Project documentation validation must both pass. Review threads must be clear, the exact PR head rechecked and merge guarded by the expected head SHA. The completion record must identify the validated head, checks, merge commit and any residual limitations.
+Exact-head PHP 8.5 foundation CI run #43529328306 and Project documentation validation run #43529328427 both passed on PR head `3d01e87643aa838e55e07a1a20c67ada9078415b`. PR #167 was merged with the expected-head SHA guard as `91c15204fb41ba5cc5a29b99a2dca80e983adc9d`. See the completion/evidence record for full CI, test and review reconciliation.
 
-**Agenda 9 remains in progress until those conditions are evidenced and merged. M3-03 overall remains in progress.**
+**Agenda 9 is COMPLETED** for its bounded authorized scope. M3-03 overall remains in progress.
