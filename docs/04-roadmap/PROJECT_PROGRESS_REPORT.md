@@ -820,3 +820,10 @@ Agenda 2 reviewed the merged logical domain model, synthetic fixture catalogue, 
 PR [#153](https://github.com/mattari20/listing-v2/pull/153) was merged as `9d83d0a21b9ae5e741196a5b49326d1295edc240`. Exact head `86470c3d76fe886e506f0895f285616fc5611cda` passed Project documentation validation run #364 (GitHub run ID 43444709815) and FND-01 foundation CI run #54 (GitHub run ID 43444709623). No outstanding review threads were found.
 
 **Current M3-03 status:** Agenda 1 deliverables merged; Agenda 2 review deliverable merged; design-baseline acceptance is **Blocked — pending Product Owner decisions**. No M3-03 completion percentage is claimed. No physical schema/migrations/persistence, real/source/personal data, source collection, external services/AI, hosting, deployment, pilot, launch or new spend is authorized. P04/P05/P06 remain independent future gates.
+
+
+## M3-03 Agenda 2 — Product Owner decision and design-baseline acceptance (2026-11-13)
+
+The Product Owner accepted all five recommendations D-01 through D-05. The logical model is accepted as the working design baseline subject to the documented clarifications. R-01–R-06 are incorporated as explicit design invariants; R-07 is addressed by expanding the synthetic deterministic test specification from 24 to 32 cases (T-025–T-032). The synthetic fixture manifest is version 1.1.0 and remains fabricated-only.
+
+The decision and acceptance record is in `M3-03_AGENDA_02_LOGICAL_MODEL_REVIEW_AND_GOVERNANCE_DECISIONS.md`. This is design acceptance only. No physical schema, migrations, persistence, application implementation, real/source/personal data, source acquisition, external services/AI, hosting, deployment, pilot, launch or new spend is authorized. M3-03 remains **In progress**; no unsupported completion percentage is claimed.

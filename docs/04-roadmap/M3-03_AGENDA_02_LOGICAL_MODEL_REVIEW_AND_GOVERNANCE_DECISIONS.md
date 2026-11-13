@@ -72,3 +72,25 @@ P04 V2 runtime/isolation/capacity/recovery evidence, P05 specialist clearances a
 **Design-baseline acceptance:** blocked pending Product Owner decisions D-01 through D-05 and resolution/deferment of R-01 through R-07.  
 **M3-03 overall:** In progress.  
 **Next action:** Product Owner decision on the review recommendations. Do not begin Agenda 3, physical design, schema, migrations or persistence until the design baseline is accepted and the exact next scope is separately authorized.
+
+
+## 8. Product Owner decision and acceptance record — 2026-11-13
+
+The Product Owner explicitly accepted D-01 through D-05 as recommended:
+
+- **D-01 — Accepted:** Agenda 1 logical model accepted as the working design baseline, subject to the recorded clarifications below. This is design acceptance only.
+- **D-02 — Accepted:** identity resolution requires human decisions; merge/split lineage is preserved and reversible; automated merge is prohibited.
+- **D-03 — Accepted:** authority relationship types remain distinct and are not inferred from name similarity.
+- **D-04 — Accepted:** authorization revocation triggers quarantine, revalidation and publication review; suppression applies where continued publication is not authorized or safety/privacy requires it.
+- **D-05 — Accepted:** minimum separation of duties is binding; a detailed role/permission matrix is required before real source handling, editorial workflow or public release.
+
+The seven findings R-01–R-07 are resolved at the logical design/specification level in the revised model and companion synthetic test specification. R-01–R-06 are incorporated as explicit invariants; R-07 is addressed by extending the deterministic specification from 24 to 32 cases (T-025–T-032). These changes are design clarification only, not application implementation.
+
+**Owner acceptance:** accepted as the M3-03 logical design baseline on 2026-11-13.  
+**Implementation authorization:** not granted.  
+**Physical schema/migrations/persistence:** not authorized.  
+**Real/source/personal data, source acquisition, external services/AI, hosting, deployment, pilot, launch or spend:** not authorized.
+
+## 9. Agenda disposition
+
+Agenda 2 Product Owner decision and design-baseline acceptance is complete once the accepted clarifications, revised fixture manifest, 32-vector specification and this decision record are merged and validated. M3-03 as a whole remains In progress. A subsequent agenda must be separately scoped and authorized; no physical implementation follows automatically from this acceptance.
