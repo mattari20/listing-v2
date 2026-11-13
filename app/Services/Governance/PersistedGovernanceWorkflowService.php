@@ -188,6 +188,9 @@ final class PersistedGovernanceWorkflowService
     public function withdrawClaimVersion(array $actor, string $claimVersionId, string $reasonCode, string $rationale, string $idempotencyKey): void
     {
         $this->requireActor($actor, 'withdraw_claim');
+        if (($actor['actor_class'] ?? null) !== 'human') {
+            $this->reject('actor', 'Claim withdrawal requires a human actor.');
+        }
         if (trim($reasonCode) === '' || trim($rationale) === '' || trim($idempotencyKey) === '') {
             $this->reject('withdrawal', 'A reason, rationale and idempotency key are required.');
         }
@@ -225,8 +228,29 @@ final class PersistedGovernanceWorkflowService
             $snapshots = DB::table('publication_snapshots')->where('claim_version_id', $claimVersionId)->get(['id', 'status']);
             foreach ($snapshots as $snapshot) {
                 if ($snapshot->status !== 'suppressed') {
+                    $suppressionId = (string) Str::uuid();
+                    DB::table('publication_suppressions')->insert([
+                        'id' => $suppressionId,
+                        'publication_snapshot_id' => $snapshot->id,
+                        'reason_code' => $reasonCode,
+                        'rationale' => $rationale,
+                        'actor_id' => $actor['actor_id'],
+                        'actor_class' => $actor['actor_class'],
+                        'status' => 'active',
+                        'suppressed_at' => $now,
+                        'created_at' => $now,
+                        'updated_at' => $now,
+                    ]);
                     DB::table('publication_snapshots')->where('id', $snapshot->id)->update([
                         'status' => 'suppressed',
+                    ]);
+                    DB::table('public_projections')->where('publication_snapshot_id', $snapshot->id)->update([
+                        'status' => 'suppressed',
+                        'updated_at' => $now,
+                    ]);
+                    $this->audit($actor, 'publication_suppressed', 'publication_suppression', $suppressionId, $reasonCode, [
+                        'snapshot_id' => (string) $snapshot->id,
+                        'claim_withdrawal' => true,
                     ]);
                     $this->enqueue(
                         'publication.snapshot.suppressed',
