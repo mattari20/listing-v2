@@ -31,6 +31,7 @@ final class AuthorityRelationshipService
                 if (($metadata['fingerprint'] ?? null) !== $fingerprint || ($metadata['actor_id'] ?? null) !== $actor['actor_id']) {
                     throw ValidationException::withMessages(['idempotency_key' => 'Key reused for a different authority identity.']);
                 }
+
                 return (string) $prior->target_id;
             }
 
@@ -53,6 +54,7 @@ final class AuthorityRelationshipService
                     'idempotency_key' => $idempotencyKey, 'fingerprint' => $fingerprint,
                 ], JSON_THROW_ON_ERROR), 'created_at' => $now, 'updated_at' => $now,
             ]);
+
             return $id;
         });
     }
@@ -105,6 +107,7 @@ final class AuthorityRelationshipService
                 if (($metadata['fingerprint'] ?? null) !== $fingerprint || ($metadata['actor_id'] ?? null) !== $actor['actor_id']) {
                     throw ValidationException::withMessages(['idempotency_key' => 'Key reused for a different authority relationship command.']);
                 }
+
                 return (string) $prior->target_id;
             }
 
@@ -197,6 +200,7 @@ final class AuthorityRelationshipService
                     'predicate' => $value['relationship_type'], 'scope' => $scope, 'jurisdiction' => $jurisdiction,
                 ], JSON_THROW_ON_ERROR), 'created_at' => $now, 'updated_at' => $now,
             ]);
+
             return $id;
         });
     }

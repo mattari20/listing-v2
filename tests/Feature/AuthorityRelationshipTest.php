@@ -183,6 +183,7 @@ class AuthorityRelationshipTest extends TestCase
         $workflow = app(PersistedGovernanceWorkflowService::class);
         $case = $workflow->openAdjudicationCase($this->actor('case-opener', ['open_adjudication']), $version, 'p03-case-'.str()->uuid());
         $workflow->decideAdjudication($this->actor('human-adjudicator', ['adjudicate_claim']), $case, 'accepted', 'synthetic_acceptance', 'Synthetic P03 evidence accepted.', 'synthetic-policy-p03-v1');
+
         return ['version' => $version, 'evidence' => $evidence, 'authorization' => $authorization];
     }
 
@@ -216,6 +217,7 @@ class AuthorityRelationshipTest extends TestCase
             'valid_from' => now()->subDay(), 'valid_to' => now()->addDay(),
             'created_at' => $now, 'updated_at' => $now,
         ]);
+
         return $id;
     }
 
@@ -224,6 +226,7 @@ class AuthorityRelationshipTest extends TestCase
         $authorization = $this->authorization();
         $id = app(GovernanceCommandService::class)->registerEvidenceReference($authorization, $this->actor('collector', ['register_evidence']), $this->context(), 'p03-evidence-'.str()->uuid(), ['content_included' => false]);
         DB::table('evidence_references')->where('id', $id)->update(['status' => 'eligible_for_review']);
+
         return $id;
     }
 
