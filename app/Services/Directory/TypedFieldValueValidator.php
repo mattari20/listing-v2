@@ -66,13 +66,13 @@ final class TypedFieldValueValidator
         $scope = $definition['scope_key'] ?? null;
         $requestedScope = $context['scope_key'] ?? null;
 
-        if (! is_array($entityTypes) || $entityTypes === [] ||
-            ! is_string($entityType) || ! in_array($entityType, $entityTypes, true)) {
+        if (!is_array($entityTypes) || $entityTypes === [] ||
+            !is_string($entityType) || !in_array($entityType, $entityTypes, true)) {
             $errors[] = ['code' => 'entity_type_not_applicable', 'path' => 'entity_type'];
         }
 
-        if (! is_array($providerCategories) || $providerCategories === [] ||
-            ! is_string($providerCategory) || ! in_array($providerCategory, $providerCategories, true)) {
+        if (!is_array($providerCategories) || $providerCategories === [] ||
+            !is_string($providerCategory) || !in_array($providerCategory, $providerCategories, true)) {
             $errors[] = ['code' => 'provider_category_not_applicable', 'path' => 'provider_category'];
         }
 
@@ -81,8 +81,8 @@ final class TypedFieldValueValidator
             $errors[] = ['code' => 'restricted_provider_category_disabled', 'path' => 'provider_category'];
         }
 
-        if (! is_string($scope) || $scope === '' ||
-            ! is_string($requestedScope) || $requestedScope !== $scope) {
+        if (!is_string($scope) || $scope === '' ||
+            !is_string($requestedScope) || $requestedScope !== $scope) {
             $errors[] = ['code' => 'scope_mismatch', 'path' => 'scope_key'];
         }
 
@@ -104,7 +104,7 @@ final class TypedFieldValueValidator
         $errors = [];
         $total = $existingValueCount + $incomingValueCount;
 
-        if (! in_array($cardinality, self::CARDINALITIES, true) ||
+        if (!in_array($cardinality, self::CARDINALITIES, true) ||
             $existingValueCount < 0 || $incomingValueCount < 0) {
             $errors[] = ['code' => 'invalid_cardinality_context', 'path' => 'cardinality'];
         } elseif ($cardinality === 'one' && $total !== 1) {
@@ -137,7 +137,7 @@ final class TypedFieldValueValidator
         $errors = array_merge($errors, $keyResult['errors']);
 
         $type = $definition['value_type'] ?? null;
-        if (! is_string($type) || ! in_array($type, self::VALUE_TYPES, true)) {
+        if (!is_string($type) || !in_array($type, self::VALUE_TYPES, true)) {
             $errors[] = ['code' => 'unsupported_value_type', 'path' => 'value_type'];
         }
 
@@ -146,7 +146,7 @@ final class TypedFieldValueValidator
         $rawSchema = $definition['validation_schema'] ?? [];
         $schemaForLimits = is_array($rawSchema) ? $rawSchema : [];
         $maximumValues = $context['maximum_values'] ?? ($schemaForLimits['max_values'] ?? 100);
-        if (! is_int($existingCount) || ! is_int($maximumValues)) {
+        if (!is_int($existingCount) || !is_int($maximumValues)) {
             $errors[] = ['code' => 'invalid_cardinality_context', 'path' => 'cardinality'];
         } else {
             $cardinalityResult = $this->validateCardinality(
@@ -165,7 +165,7 @@ final class TypedFieldValueValidator
         $errors = array_merge($errors, $privacyResult['errors']);
 
         $schema = $definition['validation_schema'] ?? null;
-        if (! is_array($schema) || ! is_int($schema['schema_version'] ?? null) ||
+        if (!is_array($schema) || !is_int($schema['schema_version'] ?? null) ||
             $schema['schema_version'] < 1) {
             $errors[] = ['code' => 'invalid_validation_schema', 'path' => 'validation_schema'];
             $schema = [];
@@ -192,7 +192,7 @@ final class TypedFieldValueValidator
         $audience = $context['audience'] ?? 'internal';
         $dataClasses = $context['data_classes'] ?? [];
 
-        if (! is_string($privacy) || ! in_array($privacy, self::PRIVACY_CLASSES, true)) {
+        if (!is_string($privacy) || !in_array($privacy, self::PRIVACY_CLASSES, true)) {
             $errors[] = ['code' => 'unknown_privacy_class', 'path' => 'privacy_class'];
         } elseif ($privacy === 'sensitive_prohibited') {
             $errors[] = ['code' => 'sensitive_data_class_prohibited', 'path' => 'privacy_class'];
@@ -202,16 +202,16 @@ final class TypedFieldValueValidator
             $errors[] = ['code' => 'editorial_restricted_value_not_public', 'path' => 'privacy_class'];
         }
 
-        if (! in_array($visibility, ['public_eligible', 'editorial_restricted', 'internal_only', 'restricted'], true)) {
+        if (!in_array($visibility, ['public_eligible', 'editorial_restricted', 'internal_only', 'restricted'], true)) {
             $errors[] = ['code' => 'unknown_visibility_class', 'path' => 'visibility_class'];
         } elseif ($audience === 'public' && in_array($visibility, ['internal_only', 'restricted', 'editorial_restricted'], true)) {
             $errors[] = ['code' => 'restricted_visibility_not_public', 'path' => 'visibility_class'];
         }
-        if (! in_array($audience, ['internal', 'editorial', 'public'], true)) {
+        if (!in_array($audience, ['internal', 'editorial', 'public'], true)) {
             $errors[] = ['code' => 'unknown_validation_audience', 'path' => 'audience'];
         }
 
-        if (! is_array($dataClasses)) {
+        if (!is_array($dataClasses)) {
             $errors[] = ['code' => 'invalid_data_class_context', 'path' => 'data_classes'];
         } elseif (array_intersect($dataClasses, self::PROHIBITED_DATA_CLASSES) !== []) {
             $errors[] = ['code' => 'prohibited_personal_or_secret_data', 'path' => 'data_classes'];
@@ -236,17 +236,17 @@ final class TypedFieldValueValidator
         $required = ($schema['locale_required'] ?? false) === true;
         $allowed = $schema['allowed_locales'] ?? null;
 
-        if ($required && (! is_string($locale) || $locale === '')) {
+        if ($required && (!is_string($locale) || $locale === '')) {
             $errors[] = ['code' => 'locale_required', 'path' => 'locale'];
         }
 
-        if ($allowed !== null && (! is_array($allowed) || $allowed === [])) {
+        if ($allowed !== null && (!is_array($allowed) || $allowed === [])) {
             $errors[] = ['code' => 'invalid_locale_allowlist', 'path' => 'validation_schema.allowed_locales'];
         }
         if ($locale !== null) {
-            if (! is_string($locale) || preg_match('/^[a-z]{2,3}(?:-[A-Z]{2})?$/D', $locale) !== 1) {
+            if (!is_string($locale) || preg_match('/^[a-z]{2,3}(?:-[A-Z]{2})?$/D', $locale) !== 1) {
                 $errors[] = ['code' => 'invalid_locale', 'path' => 'locale'];
-            } elseif (is_array($allowed) && ! in_array($locale, $allowed, true)) {
+            } elseif (is_array($allowed) && !in_array($locale, $allowed, true)) {
                 $errors[] = ['code' => 'locale_not_allowed', 'path' => 'locale'];
             }
         }
@@ -264,7 +264,7 @@ final class TypedFieldValueValidator
     private function validateFreshness(array $definition, array $context): array
     {
         $policy = $definition['freshness_policy'] ?? [];
-        if (! is_array($policy)) {
+        if (!is_array($policy)) {
             return [['code' => 'invalid_freshness_policy', 'path' => 'freshness_policy']];
         }
 
@@ -272,7 +272,7 @@ final class TypedFieldValueValidator
         if ($maximumAge === null) {
             return [];
         }
-        if (! is_int($maximumAge) || $maximumAge < 0) {
+        if (!is_int($maximumAge) || $maximumAge < 0) {
             return [['code' => 'invalid_freshness_limit', 'path' => 'freshness_policy.max_age_days']];
         }
 
@@ -309,8 +309,8 @@ final class TypedFieldValueValidator
             case 'long_text':
                 $max = $schema['max_length'] ?? null;
                 $limit = $type === 'short_text' ? 500 : 10000;
-                if (! is_string($value) || preg_match('//u', $value) !== 1 ||
-                    ! is_int($max) || $max < 1 || $max > $limit ||
+                if (!is_string($value) || preg_match('//u', $value) !== 1 ||
+                    !is_int($max) || $max < 1 || $max > $limit ||
                     $this->characterLength($value) > $max ||
                     str_contains($value, "\0")) {
                     $errors[] = ['code' => 'invalid_bounded_text', 'path' => $path];
@@ -322,7 +322,7 @@ final class TypedFieldValueValidator
                 break;
 
             case 'integer':
-                if (! is_int($value) ||
+                if (!is_int($value) ||
                     (isset($schema['minimum']) && $value < $schema['minimum']) ||
                     (isset($schema['maximum']) && $value > $schema['maximum'])) {
                     $errors[] = ['code' => 'invalid_integer', 'path' => $path];
@@ -332,10 +332,10 @@ final class TypedFieldValueValidator
             case 'decimal':
                 $scale = $schema['scale'] ?? null;
                 $precision = $schema['precision'] ?? null;
-                if ((! is_string($value) && ! is_int($value)) ||
-                    ! is_int($scale) || $scale < 0 || $scale > 8 ||
-                    ! is_int($precision) || $precision < 1 || $precision > 18 ||
-                    ! $this->matchesDecimal((string) $value, $scale, $precision) ||
+                if ((!is_string($value) && !is_int($value)) ||
+                    !is_int($scale) || $scale < 0 || $scale > 8 ||
+                    !is_int($precision) || $precision < 1 || $precision > 18 ||
+                    !$this->matchesDecimal((string) $value, $scale, $precision) ||
                     (isset($schema['minimum']) && (float) $value < (float) $schema['minimum']) ||
                     (isset($schema['maximum']) && (float) $value > (float) $schema['maximum'])) {
                     $errors[] = ['code' => 'invalid_fixed_precision_decimal', 'path' => $path];
@@ -343,22 +343,22 @@ final class TypedFieldValueValidator
                 break;
 
             case 'boolean':
-                if (! is_bool($value)) {
+                if (!is_bool($value)) {
                     $errors[] = ['code' => 'invalid_boolean', 'path' => $path];
                 }
                 break;
 
             case 'date':
-                if (! $this->isIsoDate($value)) {
+                if (!$this->isIsoDate($value)) {
                     $errors[] = ['code' => 'invalid_iso_date', 'path' => $path];
                 }
                 break;
 
             case 'date_range':
-                if (! is_array($value) || array_is_list($value) ||
-                    ! $this->isIsoDate($value['start'] ?? null) ||
-                    ! $this->isIsoDate($value['end'] ?? null) ||
-                    ! is_bool($schema['end_inclusive'] ?? null) ||
+                if (!is_array($value) || array_is_list($value) ||
+                    !$this->isIsoDate($value['start'] ?? null) ||
+                    !$this->isIsoDate($value['end'] ?? null) ||
+                    !is_bool($schema['end_inclusive'] ?? null) ||
                     $value['start'] > $value['end'] ||
                     ($value['start'] === $value['end'] && $schema['end_inclusive'] === false)) {
                     $errors[] = ['code' => 'invalid_date_range', 'path' => $path];
@@ -366,11 +366,11 @@ final class TypedFieldValueValidator
                 break;
 
             case 'url':
-                if (! is_string($value) || filter_var($value, FILTER_VALIDATE_URL) === false) {
+                if (!is_string($value) || filter_var($value, FILTER_VALIDATE_URL) === false) {
                     $errors[] = ['code' => 'invalid_http_url', 'path' => $path];
                 } else {
                     $parts = parse_url($value);
-                    if (! is_array($parts) || ! in_array(strtolower((string) ($parts['scheme'] ?? '')), ['http', 'https'], true) ||
+                    if (!is_array($parts) || !in_array(strtolower((string) ($parts['scheme'] ?? '')), ['http', 'https'], true) ||
                         empty($parts['host']) || isset($parts['user']) || isset($parts['pass'])) {
                         $errors[] = ['code' => 'invalid_http_url', 'path' => $path];
                     }
@@ -380,52 +380,52 @@ final class TypedFieldValueValidator
             case 'email':
                 $allowedDomains = $schema['allowed_domains'] ?? null;
                 $domain = is_string($value) && str_contains($value, '@') ? strtolower(substr(strrchr($value, '@'), 1)) : '';
-                if (! is_string($value) || filter_var($value, FILTER_VALIDATE_EMAIL) === false ||
-                    strlen($value) > 254 || ! is_array($allowedDomains) || $allowedDomains === [] ||
-                    ! in_array($domain, array_map('strtolower', $allowedDomains), true)) {
+                if (!is_string($value) || filter_var($value, FILTER_VALIDATE_EMAIL) === false ||
+                    strlen($value) > 254 || !is_array($allowedDomains) || $allowedDomains === [] ||
+                    !in_array($domain, array_map('strtolower', $allowedDomains), true)) {
                     $errors[] = ['code' => 'invalid_or_unapproved_institutional_email', 'path' => $path];
                 }
                 break;
 
             case 'phone':
-                if (! is_string($value) || preg_match('/^\+[1-9][0-9]{7,14}$/D', $value) !== 1) {
+                if (!is_string($value) || preg_match('/^\+[1-9][0-9]{7,14}$/D', $value) !== 1) {
                     $errors[] = ['code' => 'phone_must_be_normalized_e164', 'path' => $path];
                 }
                 break;
 
             case 'enum':
                 $allowed = $schema['allowed_values'] ?? null;
-                if (! is_string($value) || ! is_array($allowed) || $allowed === [] ||
-                    ! in_array($value, $allowed, true)) {
+                if (!is_string($value) || !is_array($allowed) || $allowed === [] ||
+                    !in_array($value, $allowed, true)) {
                     $errors[] = ['code' => 'enum_value_not_allowed', 'path' => $path];
                 }
                 break;
 
             case 'money':
-                if (! is_array($value) || array_is_list($value) ||
-                    (! is_string($value['amount'] ?? null) && ! is_int($value['amount'] ?? null)) ||
-                    ! is_int($schema['scale'] ?? null) || ! is_int($schema['precision'] ?? null) ||
+                if (!is_array($value) || array_is_list($value) ||
+                    (!is_string($value['amount'] ?? null) && !is_int($value['amount'] ?? null)) ||
+                    !is_int($schema['scale'] ?? null) || !is_int($schema['precision'] ?? null) ||
                     str_starts_with((string) ($value['amount'] ?? ''), '-') ||
-                    ! $this->matchesDecimal((string) ($value['amount'] ?? ''), $schema['scale'] ?? -1, $schema['precision'] ?? 0) ||
-                    ! is_string($value['currency'] ?? null) ||
+                    !$this->matchesDecimal((string) ($value['amount'] ?? ''), $schema['scale'] ?? -1, $schema['precision'] ?? 0) ||
+                    !is_string($value['currency'] ?? null) ||
                     preg_match('/^[A-Z]{3}$/D', $value['currency']) !== 1 ||
-                    ! is_string($value['period'] ?? null) || trim($value['period']) === '' ||
-                    ! is_string($value['component'] ?? null) || trim($value['component']) === '') {
+                    !is_string($value['period'] ?? null) || trim($value['period']) === '' ||
+                    !is_string($value['component'] ?? null) || trim($value['component']) === '') {
                     $errors[] = ['code' => 'invalid_money_context', 'path' => $path];
-                } elseif (! is_array($schema['allowed_currencies'] ?? null) ||
+                } elseif (!is_array($schema['allowed_currencies'] ?? null) ||
                     $schema['allowed_currencies'] === [] ||
-                    ! in_array($value['currency'], $schema['allowed_currencies'], true)) {
+                    !in_array($value['currency'], $schema['allowed_currencies'], true)) {
                     $errors[] = ['code' => 'currency_not_allowed', 'path' => $path.'.currency'];
                 }
                 break;
 
             case 'duration':
                 $units = $schema['allowed_units'] ?? null;
-                if (! is_array($value) || array_is_list($value) ||
-                    (! is_int($value['amount'] ?? null) && ! is_string($value['amount'] ?? null)) ||
-                    ! is_string($value['unit'] ?? null) || ! is_array($units) ||
-                    ! in_array($value['unit'], $units, true) ||
-                    ! is_string((string) $value['amount']) ||
+                if (!is_array($value) || array_is_list($value) ||
+                    (!is_int($value['amount'] ?? null) && !is_string($value['amount'] ?? null)) ||
+                    !is_string($value['unit'] ?? null) || !is_array($units) ||
+                    !in_array($value['unit'], $units, true) ||
+                    !is_string((string) $value['amount']) ||
                     preg_match('/^[0-9]+(?:\\.[0-9]+)?$/D', (string) $value['amount']) !== 1 ||
                     (float) $value['amount'] <= 0) {
                     $errors[] = ['code' => 'invalid_duration_or_unit', 'path' => $path];
@@ -434,20 +434,20 @@ final class TypedFieldValueValidator
 
             case 'language_code':
                 $languageAllowlist = $schema['allowed_values'] ?? null;
-                if (! is_string($value) || preg_match('/^[a-z]{2,3}(?:-[A-Z]{2})?$/D', $value) !== 1 ||
-                    ! is_array($languageAllowlist) || $languageAllowlist === [] ||
-                    ! in_array($value, $languageAllowlist, true)) {
+                if (!is_string($value) || preg_match('/^[a-z]{2,3}(?:-[A-Z]{2})?$/D', $value) !== 1 ||
+                    !is_array($languageAllowlist) || $languageAllowlist === [] ||
+                    !in_array($value, $languageAllowlist, true)) {
                     $errors[] = ['code' => 'invalid_or_unapproved_language_code', 'path' => $path];
                 }
                 break;
 
             case 'entity_reference':
                 $targets = $schema['allowed_target_entity_types'] ?? null;
-                if (! is_array($value) || array_is_list($value) ||
-                    ! is_string($value['id'] ?? null) ||
+                if (!is_array($value) || array_is_list($value) ||
+                    !is_string($value['id'] ?? null) ||
                     preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/iD', $value['id']) !== 1 ||
-                    ! is_string($value['entity_type'] ?? null) || ! is_array($targets) ||
-                    ! in_array($value['entity_type'], $targets, true)) {
+                    !is_string($value['entity_type'] ?? null) || !is_array($targets) ||
+                    !in_array($value['entity_type'], $targets, true)) {
                     $errors[] = ['code' => 'invalid_entity_reference', 'path' => $path];
                 }
                 break;
@@ -458,10 +458,10 @@ final class TypedFieldValueValidator
                 $maxDepth = $schema['max_depth'] ?? 3;
                 $maxKeys = $schema['max_keys'] ?? 20;
                 $maxBytes = $schema['max_bytes'] ?? 4096;
-                if (! is_array($value) || array_is_list($value) || ! is_array($properties) ||
-                    ! is_array($required) || ! is_int($maxDepth) || $maxDepth < 1 || $maxDepth > 5 ||
-                    ! is_int($maxKeys) || $maxKeys < 1 || $maxKeys > 50 ||
-                    ! is_int($maxBytes) || $maxBytes < 1 || $maxBytes > 16384) {
+                if (!is_array($value) || array_is_list($value) || !is_array($properties) ||
+                    !is_array($required) || !is_int($maxDepth) || $maxDepth < 1 || $maxDepth > 5 ||
+                    !is_int($maxKeys) || $maxKeys < 1 || $maxKeys > 50 ||
+                    !is_int($maxBytes) || $maxBytes < 1 || $maxBytes > 16384) {
                     $errors[] = ['code' => 'invalid_bounded_object', 'path' => $path];
                     break;
                 }
@@ -480,7 +480,7 @@ final class TypedFieldValueValidator
                 }
                 foreach ($value as $key => $item) {
                     $property = $properties[$key] ?? null;
-                    if (! is_array($property) || ! is_string($property['type'] ?? null)) {
+                    if (!is_array($property) || !is_string($property['type'] ?? null)) {
                         $errors[] = ['code' => 'invalid_object_property_schema', 'path' => $path.'.'.$key];
                         continue;
                     }
@@ -492,11 +492,11 @@ final class TypedFieldValueValidator
                 $maxItems = $schema['max_items'] ?? null;
                 $minItems = $schema['min_items'] ?? 0;
                 $itemSchema = $schema['item_schema'] ?? null;
-                if (! is_array($value) || ! array_is_list($value) ||
-                    ! is_int($maxItems) || $maxItems < 1 || $maxItems > 100 ||
-                    ! is_int($minItems) || $minItems < 0 || $minItems > $maxItems ||
+                if (!is_array($value) || !array_is_list($value) ||
+                    !is_int($maxItems) || $maxItems < 1 || $maxItems > 100 ||
+                    !is_int($minItems) || $minItems < 0 || $minItems > $maxItems ||
                     count($value) < $minItems || count($value) > $maxItems ||
-                    ! is_array($itemSchema) || ! is_string($itemSchema['type'] ?? null)) {
+                    !is_array($itemSchema) || !is_string($itemSchema['type'] ?? null)) {
                     $errors[] = ['code' => 'bounded_collection_constraints_failed', 'path' => $path];
                     break;
                 }
@@ -516,7 +516,7 @@ final class TypedFieldValueValidator
         }
 
         if (isset($schema['allowed_units']) && is_array($value) && isset($value['unit']) &&
-            is_array($schema['allowed_units']) && ! in_array($value['unit'], $schema['allowed_units'], true)) {
+            is_array($schema['allowed_units']) && !in_array($value['unit'], $schema['allowed_units'], true)) {
             $errors[] = ['code' => 'unit_not_allowed', 'path' => $path.'.unit'];
         }
 
@@ -539,7 +539,7 @@ final class TypedFieldValueValidator
 
     private function isIsoDate(mixed $value): bool
     {
-        if (! is_string($value)) {
+        if (!is_string($value)) {
             return false;
         }
         $date = DateTimeImmutable::createFromFormat('!Y-m-d', $value);
@@ -554,7 +554,7 @@ final class TypedFieldValueValidator
         if ($value instanceof DateTimeInterface) {
             return DateTimeImmutable::createFromInterface($value);
         }
-        if (! is_string($value) || trim($value) === '') {
+        if (!is_string($value) || trim($value) === '') {
             return null;
         }
         try {
