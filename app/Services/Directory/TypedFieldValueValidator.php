@@ -406,6 +406,7 @@ final class TypedFieldValueValidator
 
                 if (is_string($value) === false || filter_var($value, FILTER_VALIDATE_EMAIL) === false ||
                     strlen($value) > 254 || is_array($allowedDomains) === false || $allowedDomains === [] ||
+                    count(array_filter($allowedDomains, 'is_string')) !== count($allowedDomains) ||
                     in_array($domain, array_map('strtolower', $allowedDomains), true) === false) {
                     $errors[] = ['code' => 'invalid_or_unapproved_institutional_email', 'path' => $path];
                 }
