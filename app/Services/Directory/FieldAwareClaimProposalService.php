@@ -130,7 +130,7 @@ final class FieldAwareClaimProposalService
 
         return DB::transaction(function () use (
             $actor, $subjectEntityId, $fieldKey, $definitionVersion, $definition, $value,
-            $uniqueEvidenceIds, $sourceContext, $idempotencyKey, $validFrom, $validTo, $fingerprint, $providerCategory
+            $uniqueEvidenceIds, $sourceContext, $idempotencyKey, $validFrom, $validTo, $fingerprint, $providerCategory, $scopeKey
         ): array {
             $prior = DB::table('audit_events')
                 ->where('action', 'field_aware_claim_proposed')
@@ -258,6 +258,8 @@ final class FieldAwareClaimProposalService
                     'claim_id' => $claimId,
                     'field_key' => $fieldKey,
                     'field_definition_version_id' => $definition['field_definition_version_id'],
+                    'provider_category' => $providerCategory,
+                    'scope_key' => $scopeKey,
                     'editorial_review_case_id' => $editorialCaseId,
                     'idempotency_key' => $idempotencyKey,
                     'idempotency_fingerprint' => $fingerprint,
