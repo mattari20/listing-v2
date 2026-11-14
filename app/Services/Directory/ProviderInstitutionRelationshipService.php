@@ -13,21 +13,15 @@ use Illuminate\Validation\ValidationException;
 
 final class ProviderInstitutionRelationshipService
 {
-    public function __construct(
-        private readonly GovernanceCommandService $governance,
-        private readonly ProviderInstitutionRelationshipPolicy $policy
-    ) {
-    }
-
     public function propose(array $actor, string $providerId, string $institutionId, string $predicate, array $evidenceIds, array $context, string $idempotencyKey, ?string $scope = null, ?string $jurisdiction = null, ?string $validFrom = null, ?string $validTo = null): string
     {
-        $this->policy->assertPredicate($predicate);
+        (new ProviderInstitutionRelationshipPolicy)->assertPredicate($predicate);
         $this->policy->assertValidDates($validFrom, $validTo);
         $this->assertEndpoints($providerId, $institutionId, $predicate);
         if ($providerId === $institutionId || $evidenceIds === []) {
             throw ValidationException::withMessages(['relationship' => 'Distinct endpoints and supporting evidence are required.']);
         }
-        return $this->governance->registerProposedClaim(
+        return app(GovernanceCommandService::class)->registerProposedClaim(
             $actor,
             $providerId,
             'provider_institution_relationship',

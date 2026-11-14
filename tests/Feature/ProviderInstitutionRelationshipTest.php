@@ -27,7 +27,10 @@ class ProviderInstitutionRelationshipTest extends TestCase
 
     public function test_reversed_or_incompatible_endpoint_types_are_rejected(): void
     {
-        $provider = $this->entity('provider'); $institution = $this->entity('institution'); $campus = $this->entity('campus'); $evidence = $this->evidence();
+        $provider = $this->entity('provider');
+        $institution = $this->entity('institution');
+        $campus = $this->entity('campus');
+        $evidence = $this->evidence();
         foreach ([[$institution, $provider], [$provider, $campus]] as [$from, $to]) {
             try {
                 app(ProviderInstitutionRelationshipService::class)->propose($this->actor('author', ['register_claim']), $from, $to, 'operates', [$evidence], $this->context(), 'bad-endpoint-'.str()->uuid());
@@ -40,7 +43,9 @@ class ProviderInstitutionRelationshipTest extends TestCase
 
     public function test_unknown_and_reserved_predicates_fail_closed(): void
     {
-        $provider = $this->entity('provider'); $institution = $this->entity('institution'); $evidence = $this->evidence();
+        $provider = $this->entity('provider');
+        $institution = $this->entity('institution');
+        $evidence = $this->evidence();
         foreach (['unknown_predicate', 'affiliated_with', 'regulated_by'] as $predicate) {
             try {
                 app(ProviderInstitutionRelationshipService::class)->propose($this->actor('author', ['register_claim']), $provider, $institution, $predicate, [$evidence], $this->context(), 'bad-predicate-'.$predicate);
@@ -51,7 +56,8 @@ class ProviderInstitutionRelationshipTest extends TestCase
 
     public function test_missing_endpoints_and_missing_evidence_are_rejected(): void
     {
-        $provider = $this->entity('provider'); $institution = $this->entity('institution');
+        $provider = $this->entity('provider');
+        $institution = $this->entity('institution');
         try {
             app(ProviderInstitutionRelationshipService::class)->propose($this->actor('author', ['register_claim']), $provider, (string) str()->uuid(), 'operates', [$this->evidence()], $this->context(), 'missing-endpoint');
             $this->fail('Missing endpoint must fail.');
@@ -112,7 +118,8 @@ class ProviderInstitutionRelationshipTest extends TestCase
 
     public function test_materialization_requires_human_capability_and_is_idempotent(): void
     {
-        $f = $this->accepted(); $service = app(ProviderInstitutionRelationshipService::class);
+        $f = $this->accepted();
+        $service = app(ProviderInstitutionRelationshipService::class);
         $actor = $this->actor('materializer', ['materialize_relationship']);
         $id = $service->materializeAcceptedRelationship($actor, $f['version'], 'same-key');
         $this->assertSame($id, $service->materializeAcceptedRelationship($actor, $f['version'], 'same-key'));
@@ -150,7 +157,8 @@ class ProviderInstitutionRelationshipTest extends TestCase
         app(PersistedGovernanceWorkflowService::class)->withdrawClaimVersion($this->actor('withdrawer', ['withdraw_claim']), $f['version'], 'synthetic_withdrawal', 'Synthetic withdrawal.', 'withdraw-key');
         $this->assertDatabaseHas('entity_relationships', ['id' => $id, 'status' => 'withdrawn']);
 
-        $g = $this->accepted(); $id2 = $service->materializeAcceptedRelationship($this->actor('materializer-two', ['materialize_relationship']), $g['version'], 'revoke-projection');
+        $g = $this->accepted();
+        $id2 = $service->materializeAcceptedRelationship($this->actor('materializer-two', ['materialize_relationship']), $g['version'], 'revoke-projection');
         app(PersistedGovernanceWorkflowService::class)->revokeSourceAuthorization($this->actor('rights-officer', ['revoke_source_authorization']), $g['authorization'], 'synthetic_revocation', 'Synthetic rights change.');
         $this->assertDatabaseHas('entity_relationships', ['id' => $id2, 'status' => 'suppressed']);
     }
@@ -186,7 +194,9 @@ class ProviderInstitutionRelationshipTest extends TestCase
 
     private function accepted(string $predicate = 'operates', ?string $from = '2026-01-01', ?string $to = null, ?string $scope = null, ?string $jurisdiction = null, ?string $institutionId = null): array
     {
-        $provider = $this->entity('provider'); $institution = $institutionId ?? $this->entity('institution'); $authorization = $this->authorization();
+        $provider = $this->entity('provider');
+        $institution = $institutionId ?? $this->entity('institution');
+        $authorization = $this->authorization();
         $evidence = app(GovernanceCommandService::class)->registerEvidenceReference($authorization, $this->actor('collector', ['register_evidence']), $this->context(), 'evidence-'.str()->uuid(), ['content_included' => false]);
         DB::table('evidence_references')->where('id', $evidence)->update(['status' => 'eligible_for_review']);
         $version = app(ProviderInstitutionRelationshipService::class)->propose($this->actor('author', ['register_claim']), $provider, $institution, $predicate, [$evidence], $this->context(), 'claim-'.str()->uuid(), $scope, $jurisdiction, $from, $to);
@@ -198,7 +208,8 @@ class ProviderInstitutionRelationshipTest extends TestCase
 
     private function authorization(): string
     {
-        $id = (string) str()->uuid(); $now = now();
+        $id = (string) str()->uuid();
+        $now = now();
         DB::table('source_authorizations')->insert([
             'id' => $id, 'source_family_id' => 'synthetic-only', 'status' => 'approved_for_defined_purpose_and_method',
             'permitted_purposes' => json_encode(['synthetic_test_only']), 'permitted_methods' => json_encode(['fixture_reference']),
