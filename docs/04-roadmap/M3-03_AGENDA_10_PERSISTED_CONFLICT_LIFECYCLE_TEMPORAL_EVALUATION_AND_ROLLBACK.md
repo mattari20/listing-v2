@@ -34,7 +34,7 @@ Foreign keys restrict deletion so conflict candidates and rollback history canno
 
 ### Temporal conflict evaluation and resolution
 
-\`PersistedConflictAndRollbackService\` accepts a set of claim-version IDs and requires a human actor with the \`evaluate_conflicts\` capability. It verifies that candidates exist, belong to one claim, contain incompatible values, have valid intervals and overlap pairwise in valid time. Non-overlapping assertions are treated as temporal succession and do not create a conflict record.
+\`PersistedConflictAndRollbackService\` accepts a set of claim-version IDs and requires a human actor with the \`evaluate_conflicts\` capability. It verifies that candidates exist, belong to one claim, contain incompatible values, have valid intervals and overlap pairwise in valid time. Date bounds are inclusive; a null bound is treated as open-ended. Non-overlapping assertions are treated as temporal succession and do not create a conflict record.
 
 Recorded-time differences classify the persisted conflict as \`recorded_time_valid_time_overlap\`; they do not select a winning candidate. Every candidate is preserved. A separate human resolver with \`resolve_conflict\` must link a candidate-specific persisted accepted adjudication decision, provide rationale and differ from the adjudicator. Resolution does not delete or rewrite candidate history.
 
