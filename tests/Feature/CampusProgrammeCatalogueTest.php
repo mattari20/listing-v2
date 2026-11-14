@@ -6,6 +6,7 @@ namespace Tests\Feature;
 
 use App\Services\Directory\CampusProgrammeCatalogueService;
 use App\Services\Governance\PersistedGovernanceWorkflowService;
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
@@ -178,7 +179,7 @@ class CampusProgrammeCatalogueTest extends TestCase
         try {
             app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord($this->actor('catalogue-manager'), $version, 'audit-failure');
             $this->fail('Audit failure must abort materialization.');
-        } catch (\Illuminate\Database\QueryException) {
+        } catch (QueryException) {
             $this->assertDatabaseCount('programme_catalogue_entries', 0);
         } finally {
             DB::unprepared('DROP TRIGGER IF EXISTS fail_p02_audit');
