@@ -15,7 +15,6 @@ final class CampusProgrammeCatalogueService
         'campus' => 'campus',
         'delivery_site' => 'delivery_site',
         'programme' => 'programme',
-        'qualification' => 'qualification',
         'programme_qualification' => 'programme',
         'programme_offer' => 'programme',
     ];
@@ -117,8 +116,9 @@ final class CampusProgrammeCatalogueService
                     if ($title === '' || mb_strlen($title) > 255) {
                         throw ValidationException::withMessages(['title' => 'A programme title of 1–255 characters is required.']);
                     }
+                    $institution = $this->requireEntity($value['institution_entity_id'] ?? null, 'institution');
                     DB::table('programme_catalogue_entries')->insert([
-                        'entity_id' => $targetId, 'title' => $title,
+                        'entity_id' => $targetId, 'institution_entity_id' => $institution, 'title' => $title,
                         'description' => $this->nullableText($value['description'] ?? null),
                         'level' => $this->nullableText($value['level'] ?? null),
                         'status' => 'active', 'claim_version_id' => $claimVersionId,
@@ -127,6 +127,9 @@ final class CampusProgrammeCatalogueService
                     break;
                 case 'programme_qualification':
                     $programme = $this->requireEntity($value['programme_entity_id'] ?? null, 'programme');
+                    if (DB::table('programme_catalogue_entries')->where('entity_id', $programme)->exists() === false) {
+                        throw ValidationException::withMessages(['programme' => 'A programme catalogue entry must exist before linking a qualification.']);
+                    }
                     $qualification = $this->requireEntity($value['qualification_entity_id'] ?? null, 'qualification');
                     $awarder = $this->requireEntity($value['awarding_body_entity_id'] ?? null, 'awarding_body');
                     $id = (string) Str::uuid();
@@ -139,7 +142,11 @@ final class CampusProgrammeCatalogueService
                     break;
                 case 'programme_offer':
                     $programme = $this->requireEntity($value['programme_entity_id'] ?? null, 'programme');
-                    $location = $this->requireDeliveryLocation($value['delivery_location_entity_id'] ?? null);
+                    $programmeRecord = DB::table('programme_catalogue_entries')->where('entity_id', $programme)->first(['institution_entity_id']);
+                    if ($programmeRecord === null) {
+                        throw ValidationException::withMessages(['programme' => 'A programme catalogue entry must exist before creating an offer.']);
+                    }
+                    $location = $this->requireDeliveryLocation($value['delivery_location_entity_id'] ?? null, (string) $programmeRecord->institution_entity_id);
                     $cycle = trim((string) ($value['admission_cycle'] ?? ''));
                     if ($cycle === '' || mb_strlen($cycle) > 80) {
                         throw ValidationException::withMessages(['admission_cycle' => 'An explicit admission cycle is required.']);
@@ -184,7 +191,7 @@ final class CampusProgrammeCatalogueService
         return (string) $entity->id;
     }
 
-    private function requireDeliveryLocation(mixed $id): string
+    private function requireDeliveryLocation(mixed $id, string $institutionId): string
     {
         if (is_string($id) === false) {
             throw ValidationException::withMessages(['delivery_location' => 'An explicit campus or delivery-site identity is required.']);
@@ -192,6 +199,12 @@ final class CampusProgrammeCatalogueService
         $entity = DB::table('directory_entities')->where('id', $id)->first(['id', 'entity_type']);
         if ($entity === null || in_array($entity->entity_type, ['campus', 'delivery_site'], true) === false) {
             throw ValidationException::withMessages(['delivery_location' => 'Programme offers require a campus or delivery-site identity.']);
+        }
+
+        $table = $entity->entity_type === 'campus' ? 'directory_campuses' : 'directory_delivery_sites';
+        $location = DB::table($table)->where('entity_id', $entity->id)->first(['institution_entity_id']);
+        if ($location === null || $location->institution_entity_id !== $institutionId) {
+            throw ValidationException::withMessages(['delivery_location' => 'The offer location must belong to the programme institution.']);
         }
 
         return (string) $entity->id;
