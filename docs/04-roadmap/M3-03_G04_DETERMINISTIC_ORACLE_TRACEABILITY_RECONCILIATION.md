@@ -34,7 +34,7 @@ M3-03 remains **IN PROGRESS** pending Product Owner review/acceptance of this re
 | Oracle | Runtime evidence / disposition | Assessment |
 |---|---|---|
 | T-001 provider operates institution with compatible typed endpoints and active interval | No runtime relationship/cardinality/interval validator test identified. | **Deferred** — logical model only |
-| T-002 institution-site relationship references missing institution | No runtime relationship endpoint integrity oracle identified. | **Deferred** — logical model only |
+| T-002 institution-site relationship references missing institution | `CoreGovernancePersistenceTest::test_relationships_reject_missing_entity_endpoints` verifies the schema rejects relationships whose entity endpoints do not exist; the test is structural/FK-level and does not validate institution-specific semantics. | **Covered** — structural endpoint integrity only |
 | T-003 relationship uses unknown predicate | No runtime relationship-vocabulary validator test identified. | **Deferred** — logical model only |
 | T-004 claim valid-from is later than valid-to | `PersistedGovernanceWorkflowTest::test_claim_correction_rejects_invalid_temporal_ranges_and_reused_keys` checks invalid correction intervals; this is narrower than a general claim validator. | **Partial** |
 | T-005 incompatible single-valued claims overlap in valid time | `PersistedConflictAndRollbackTest::test_overlapping_incompatible_assertions_persist_both_candidates_and_recorded_time_conflict`. | **Covered** — bounded supplied-candidate set |
