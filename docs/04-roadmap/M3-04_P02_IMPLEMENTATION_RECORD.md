@@ -23,7 +23,7 @@ P03 authority/recognition relationships and P04 editorial capability/lifecycle w
 - **Programme–qualification link:** explicit and separately records the programme, qualification and awarding body.
 - **Programme offer:** an explicit programme/location/admission-cycle assertion. It is the only P02 record that represents a programme being offered at a specific campus or delivery site for a particular cycle.
 
-A programme catalogue entry by itself does not imply campus availability, current admissions or an offer.
+A programme catalogue entry by itself does not imply campus availability, current admissions or an offer. Existing governance correction, withdrawal and source-authorization revocation workflows propagate superseded, withdrawn and suppressed states to the P02 projection tables.
 
 ## 3. Governance and fail-closed rules
 
@@ -43,6 +43,7 @@ Similar names remain separate identities; there is no fuzzy matching, automatic 
 
 - `database/migrations/2026_11_14_000004_create_campus_programme_catalogue.php`
 - `app/Services/Directory/CampusProgrammeCatalogueService.php`
+- `app/Services/Governance/PersistedGovernanceWorkflowService.php` — correction, withdrawal and source-authorization revocation propagate status changes to P02 projections
 - `tests/Feature/CampusProgrammeCatalogueTest.php`
 - `docs/04-roadmap/M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md`
 - `docs/04-roadmap/M3-04_P02_IMPLEMENTATION_RECORD.md`
@@ -64,6 +65,7 @@ The feature test suite covers:
 9. Cross-institution campus offer rejected.
 10. Unadjudicated claim rejected.
 11. Audit failure rolls back catalogue projection.
+12. Claim withdrawal propagates to the campus catalogue projection.
 
 Tests use fabricated identifiers, labels, dates, actors, evidence and authorization rows only.
 
