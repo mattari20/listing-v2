@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
-**Status:** **RECONCILIATION COMPLETE — M3-03 EXIT NOT YET SATISFIED**  
+**Status:** **G-04 TRACEABILITY DELIVERED — PRODUCT OWNER ACCEPTANCE PENDING; M3-03 EXIT NOT YET ACCEPTED**  
 **Baseline:** `main` at `82c215844766470859c1ddd2000ebd271d0f9cf7`
 
 ## 1. Purpose and decision
@@ -127,3 +127,16 @@ Exact-head FND-01 PHP 8.5 foundation CI [#43531770613](https://github.com/mattar
 - G-04 deterministic-oracle traceability: **open**. T-001–T-032 and GS-001–GS-032 still require explicit mapping to runtime tests, partial coverage or deferral; the catalogues are not 32 completed end-to-end workflows.
 
 Therefore M3-03 remains **IN PROGRESS**. M3-04 Provider Management entry remains closed until G-04 is reconciled and the complete M3-03 exit criteria are reviewed and accepted. No M3-04 implementation or production/source/external/deployment activity is authorized by this closeout.
+
+
+## 9. G-04 deterministic oracle traceability reconciliation — 2026-11-14
+
+The full traceability matrix is delivered in [M3-03 G-04 Deterministic Oracle Traceability Reconciliation](M3-03_G04_DETERMINISTIC_ORACLE_TRACEABILITY_RECONCILIATION.md). It maps every T-001–T-032 vector and GS-001–GS-032 case to exact runtime test methods/assertion groups or an explicit partial/deferred disposition.
+
+The matrix confirms that GS-001–GS-032 are grouped policy-level assertions in one test method, not 32 persisted end-to-end workflows. T vectors have mixed coverage: persisted evidence exists for temporal overlap/non-overlap/recorded-time conflict, immutable correction, human adjudication/publication, withdrawal/suppression and prior-snapshot rollback; other vectors are partial or deferred, including relationship validation, public field allowlisting, deterministic normalized validator output, identity merge/split and programme/offer/fee/awarding-body contracts.
+
+**G-04 disposition:** traceability reconciliation delivered; Product Owner acceptance pending. The document recommends accepting the traceability deliverable with its partial/deferred statuses, without accepting the deferred behaviors as implemented. The owner may instead request a separately scoped runtime increment before M3-03 exit.
+
+**M3-03 exit:** remains **IN PROGRESS / NOT ACCEPTED** until the owner explicitly decides the G-04 matrix and the final exit evidence is reviewed. M3-04 Provider Management remains **BLOCKED / NOT STARTED**. No M3-04 implementation is authorized.
+
+No application code, schema, migration, fixture or test assertion changed in G-04. No test suite was rerun. No production, source data/acquisition, external services/AI, V1, Hostinger, public endpoint, deployment, procurement or spend was used or authorized.
