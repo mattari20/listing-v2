@@ -14,8 +14,7 @@ final class FieldAwareClaimProposalService
     public function __construct(
         private readonly FieldDefinitionRegistryReader $registry,
         private readonly TypedFieldValueValidator $validator,
-    ) {
-    }
+    ) {}
 
     /**
      * Create one synthetic/local proposal against an exact active field version.
