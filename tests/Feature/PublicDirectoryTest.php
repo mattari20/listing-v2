@@ -164,6 +164,38 @@ final class PublicDirectoryTest extends TestCase
         $response->assertDontSee('href="javascript:alert(1)"', false);
     }
 
+
+    public function test_older_snapshot_is_hidden_while_a_newer_snapshot_is_not_yet_projected(): void
+    {
+        $entity = $this->createEntity();
+        $published = $this->publishFact($entity, 'display_name', 'Synthetic Snapshot Academy');
+        $workflow = new PersistedGovernanceWorkflowService;
+        $workflow->authorizePublication(
+            $this->actor('publisher-second-snapshot', ['authorize_publication']),
+            $published['version_id'],
+            $published['decision_id'],
+            'directory',
+            'anonymous',
+            'policy-v2',
+            'synthetic-new-snapshot-pending'
+        );
+
+        $this->get('/directory?q=Snapshot')->assertOk()->assertDontSee('Synthetic Snapshot Academy');
+        $this->get('/directory/'.$entity)->assertNotFound();
+    }
+
+    public function test_expired_source_authorization_removes_a_previously_published_fact(): void
+    {
+        $entity = $this->createEntity();
+        $published = $this->publishFact($entity, 'display_name', 'Synthetic Expired Academy');
+        DB::table('source_authorizations')->where('id', $published['authorization_id'])->update([
+            'valid_to' => now()->subDay(),
+        ]);
+
+        $this->get('/directory?q=Expired')->assertOk()->assertDontSee('Synthetic Expired Academy');
+        $this->get('/directory/'.$entity)->assertNotFound();
+    }
+
     private function createEntity(string $type = 'institution'): string
     {
         $id = (string) Str::uuid();
@@ -280,6 +312,7 @@ final class PublicDirectoryTest extends TestCase
 
         return [
             'version_id' => $versionId,
+            'decision_id' => $decisionId,
             'evidence_id' => $evidenceId,
             'authorization_id' => $authorizationId,
             'snapshot_id' => $snapshotId,
