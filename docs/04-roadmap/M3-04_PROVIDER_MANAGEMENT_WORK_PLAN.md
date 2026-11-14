@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
-**Status:** **PLANNING STARTED — IMPLEMENTATION NOT AUTHORIZED**  
+**Status:** **PLANNING STARTED — P01 CONTRACT DESIGN DELIVERED; IMPLEMENTATION NOT AUTHORIZED**  
 **M3-03 dependency:** Owner-accepted and closed for its bounded synthetic local/CI scope  
 **Baseline:** `main` at `eebfc20a1adac14d4911ed92175366af81cf2e43`
 
@@ -189,3 +189,12 @@ No Listing V1 changes; no Hostinger/hPanel or production access; no live databas
 
 **Decision:** M3-04 planning is started. The next eligible activity is P01 detailed contract/fixture design and implementation proposal. Do not change application code, schema, migrations or tests until P01 is separately authorized. M3-04 implementation remains **BLOCKED pending explicit authorization**.
 
+
+
+## 11. P01 detailed contract design
+
+The first detailed design artifact is [M3-04 P01 — Provider/Institution Identity and Typed Relationship Contract](M3-04_P01_PROVIDER_INSTITUTION_IDENTITY_AND_RELATIONSHIP_CONTRACT.md). It records the existing entity/relationship schema boundary, controlled entity-type and predicate proposal, endpoint compatibility matrix, inclusive/open-ended temporal rules, evidence/adjudication integration decision required, duplicate/merge/split rules, 22 proposed synthetic test cases, migration portability questions and P01 acceptance criteria.
+
+The design confirms that current foreign keys establish endpoint existence only; they do not prove endpoint-type compatibility, valid predicate vocabulary, relationship cardinality or temporal validity. T-001/T-003 and the semantic limitation of T-002 remain explicit P01 targets.
+
+**P01 status:** detailed design prepared for Product Owner review. Implementation authorization remains **NOT ISSUED**.
