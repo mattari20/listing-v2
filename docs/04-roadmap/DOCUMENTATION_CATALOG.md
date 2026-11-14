@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-14 — M3-03 Agendas 6–10 closed within bounded synthetic scopes; G-04 oracle traceability record delivered; Product Owner acceptance pending
+**Last reconciled:** 2026-11-14 — M3-03 Agendas 6–10 closed within bounded synthetic scopes; G-04 traceability PR #172 merged and exact-head CI passed; Product Owner acceptance pending
 
 ## Purpose and maintenance rule
 
@@ -887,3 +887,6 @@ PR #170 merged as \`1a4f37303913163a4866f660c469078802a7a4ed\` from exact head \
 | [M3-03 G-04 Deterministic Oracle Traceability Reconciliation](M3-03_G04_DETERMINISTIC_ORACLE_TRACEABILITY_RECONCILIATION.md) | Maps T-001–T-032 and GS-001–GS-032 to exact runtime test methods/assertion groups or explicit partial/deferred dispositions; records remaining risk and owner decision | Delivered — Product Owner acceptance pending |
 
 The record is documentation-only. It does not claim 64 completed runtime workflows. GS cases are grouped policy-level assertions; T vectors have mixed runtime coverage. M3-03 remains in progress pending owner acceptance and final exit review; M3-04 remains blocked.
+
+
+G-04 PR [#172](https://github.com/mattari20/listing-v2/pull/172) merged as `f8d9613eec6dca8356b0780ea871245104365736` from exact head `0f6f8a961133d1cf3bac5a4f1e0a62b228114c85`. Exact-head Project documentation validation #43533801162 and PHP 8.5 foundation CI #43533801164 passed. The unchanged synthetic suite reported 209 assertions, no failures and 50 non-fatal missing-local-`.env` warnings. G-04 is delivered; Product Owner acceptance remains pending.

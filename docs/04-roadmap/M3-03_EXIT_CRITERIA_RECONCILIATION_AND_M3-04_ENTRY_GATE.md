@@ -140,3 +140,14 @@ The matrix confirms that GS-001–GS-032 are grouped policy-level assertions in 
 **M3-03 exit:** remains **IN PROGRESS / NOT ACCEPTED** until the owner explicitly decides the G-04 matrix and the final exit evidence is reviewed. M3-04 Provider Management remains **BLOCKED / NOT STARTED**. No M3-04 implementation is authorized.
 
 No application code, schema, migration, fixture or test assertion changed in G-04. No test suite was rerun. No production, source data/acquisition, external services/AI, V1, Hostinger, public endpoint, deployment, procurement or spend was used or authorized.
+
+
+## 10. G-04 PR #172 merge and exact-head validation — 2026-11-14
+
+PR [#172](https://github.com/mattari20/listing-v2/pull/172) merged as `f8d9613eec6dca8356b0780ea871245104365736` from exact validated head `0f6f8a961133d1cf3bac5a4f1e0a62b228114c85`.
+
+- Project documentation validation run [#43533801162](https://github.com/mattari20/listing-v2/actions/runs/43533801162): **success**.
+- PHP 8.5 foundation CI run [#43533801164](https://github.com/mattari20/listing-v2/actions/runs/43533801164): **success**; 209 assertions, no failures and 50 non-fatal missing-local-`.env` warnings.
+- Review threads and review submissions: none; expected-head SHA guard used.
+
+The G-04 traceability deliverable is now merged and validated. This does not grant Product Owner acceptance of M3-03 or of the retained deferred behaviors. M3-03 remains **IN PROGRESS / NOT ACCEPTED** pending the owner's explicit decision and final exit review. M3-04 remains **BLOCKED / NOT STARTED**.

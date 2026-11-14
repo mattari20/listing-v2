@@ -235,3 +235,6 @@ Agenda 10 is complete. M3-03 remains in progress solely for G-04 deterministic-o
 - [M3-03 G-04 Deterministic Oracle Traceability Reconciliation](04-roadmap/M3-03_G04_DETERMINISTIC_ORACLE_TRACEABILITY_RECONCILIATION.md) — complete T-001–T-032 and GS-001–GS-032 mapping to runtime tests, partial coverage and explicit deferrals; Product Owner acceptance remains pending.
 
 M3-03 remains in progress pending G-04 owner acceptance and final exit review. M3-04 Provider Management remains blocked/not started.
+
+
+G-04 traceability closeout: PR [#172](https://github.com/mattari20/listing-v2/pull/172) merged as `f8d9613eec6dca8356b0780ea871245104365736`; exact-head Project documentation validation #43533801162 and PHP 8.5 foundation CI #43533801164 passed. Product Owner acceptance remains pending; M3-03 is not yet accepted.

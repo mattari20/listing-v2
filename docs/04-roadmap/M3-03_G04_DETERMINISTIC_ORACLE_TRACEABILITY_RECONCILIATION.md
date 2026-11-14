@@ -26,6 +26,8 @@ M3-03 remains **IN PROGRESS** pending Product Owner review/acceptance of this re
 - Agenda 10 exact-head PHP 8.5 foundation CI: run [#43531770613](https://github.com/mattari20/listing-v2/actions/runs/43531770613), success.
 - Agenda 10 exact-head Project documentation validation: run [#43531770710](https://github.com/mattari20/listing-v2/actions/runs/43531770710), success.
 - Agenda 10 synthetic suite: 209 assertions, no failures; 50 non-fatal missing-local-`.env` harness warnings.
+- G-04 PR #172 exact-head PHP 8.5 foundation CI [#43533801164](https://github.com/mattari20/listing-v2/actions/runs/43533801164): success; the unchanged synthetic suite completed with 209 assertions, no failures and 50 non-fatal missing-local-`.env` warnings.
+- G-04 PR #172 exact-head Project documentation validation [#43533801162](https://github.com/mattari20/listing-v2/actions/runs/43533801162): success.
 
 **Interpretation rule:** a test is marked *covered* only where a runtime test exercises the material oracle behavior. *Partial* means an adjacent invariant is tested but the full stated oracle is not. *Deferred* means no matching runtime test or implementation was found in the inspected repository baseline. Policy-only assertions are never represented as persisted end-to-end workflows.
 
@@ -111,7 +113,7 @@ The line references above are the current `main` file's source lines. If the tes
 
 The following are retained as deferred or partial; they are not silently treated as passed:
 
-1. Entity/relationship endpoint and predicate validation (T-001–T-003).
+1. Positive provider/institution relationship semantics and interval validation (T-001), plus unknown relationship predicate validation (T-003). T-002 is covered only at structural foreign-key endpoint integrity level; institution-specific semantics remain unverified.
 2. General temporal claim validation beyond correction command range checks (T-004 partial).
 3. Complete accepted-claim provenance path and admissible evidence promotion (T-008/T-009 partial).
 4. Full temporal staleness evaluation and exhaustive per-field publication provenance (T-013/T-016/T-032 partial).
@@ -139,7 +141,7 @@ No new application tests were added because G-04 was authorized as a traceabilit
 
 ## 7. Safety and execution boundary
 
-This reconciliation inspected only V2 repository documentation and synthetic test source. No test suite was rerun as part of this documentation-only pass. No code, schema, migration, fixtures, test assertions, workflow, branch protection or repository settings were changed.
+This reconciliation inspected only V2 repository documentation and synthetic test source. No test code or assertions were authored or changed. The required PR #172 PHP 8.5 foundation CI did execute the unchanged synthetic suite and passed. No application code, schema, migration, fixtures, workflow, branch protection or repository settings were changed.
 
 No Listing V1, Hostinger/hPanel, production/live database, real/source/personal/institute/student/child/staff data, source acquisition, external API/AI, real role provisioning, public endpoint, deployment, procurement or new spend was accessed or authorized.
 
@@ -148,3 +150,16 @@ No Listing V1, Hostinger/hPanel, production/live database, real/source/personal/
 **Owner decision:** Pending.  
 **Decision requested:** accept the G-04 traceability record as complete with the explicit partial/deferred cases above, or identify which deferred cases should be separately scoped for implementation before M3-03 exit.  
 **M3-03 acceptance:** not granted by this document.  
+
+
+## 9. Final delivery and merge evidence — 2026-11-14
+
+- PR [#172](https://github.com/mattari20/listing-v2/pull/172) merged successfully.
+- Exact validated PR head: `0f6f8a961133d1cf3bac5a4f1e0a62b228114c85`.
+- Merge commit on `main`: `f8d9613eec6dca8356b0780ea871245104365736`.
+- Exact-head Project documentation validation run [#43533801162](https://github.com/mattari20/listing-v2/actions/runs/43533801162): **success**.
+- Exact-head PHP 8.5 foundation CI run [#43533801164](https://github.com/mattari20/listing-v2/actions/runs/43533801164): **success**; 209 assertions, no failures, 50 non-fatal missing-local-`.env` warnings.
+- Review threads: none unresolved; review submissions: none; expected-head SHA merge guard used.
+- Post-merge `main` commit history confirms `f8d9613eec6dca8356b0780ea871245104365736` as the latest commit at verification.
+
+G-04's traceability deliverable is merged and CI-validated. **Product Owner acceptance remains pending**, so M3-03 remains in progress and M3-04 remains blocked/not started.
