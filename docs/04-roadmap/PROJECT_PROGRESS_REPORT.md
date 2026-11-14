@@ -2,7 +2,7 @@
 
 **As of:** 2026-11-14  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 remains in progress — Agendas 1–10 completed within bounded authorized scopes; G-04 deterministic-oracle traceability and final M3-03 exit acceptance remain open
+**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 remains in progress — Agendas 1–10 completed within bounded authorized scopes; G-04 traceability delivered with explicit partial/deferred dispositions, Product Owner acceptance pending
 
 ## Verified current M3 position — 2026-11-12 (post PR #114 owner-approved deferrals)
 
@@ -968,3 +968,14 @@ Agenda 10 is **COMPLETED** for its bounded synthetic local/CI scope. PR [#170](h
 G-01 persisted conflict lifecycle, G-02 temporal conflict evaluation and G-03 prior-snapshot rollback are closed for the bounded synthetic scope. G-04 deterministic-oracle traceability remains outstanding; the 32 T-vectors and 32 GS policy cases are not to be represented as 32 completed end-to-end workflows. M3-03 remains **IN PROGRESS** pending G-04 and owner acceptance. M3-04 Provider Management remains blocked.
 
 **Next recommended activity:** M3-03 G-04 — deterministic-oracle traceability reconciliation only. No M3-04 implementation, production/source data, external services/AI, deployment or spend.
+
+
+## M3-03 G-04 — deterministic oracle traceability (2026-11-14)
+
+The G-04 reconciliation record is delivered: [M3-03 G-04 Deterministic Oracle Traceability Reconciliation](M3-03_G04_DETERMINISTIC_ORACLE_TRACEABILITY_RECONCILIATION.md). It maps every original T-001–T-032 vector and GS-001–GS-032 policy case to runtime test methods/assertion groups or an explicit partial/deferred disposition.
+
+**Evidence distinction:** GS-001–GS-032 remain grouped policy-level assertions in `GovernanceServiceContractTest::test_gs_001_through_gs_032_synthetic_acceptance_contract_matrix`; they are not 32 separate end-to-end tests. T-001–T-032 are mixed: some have bounded persisted feature evidence (notably T-005/T-006/T-011/T-018), some are partially covered, and others remain explicitly deferred (entity relationships, public field allowlist, deterministic validator output, identity merge/split and programme/offer/fee/awarding-body contracts).
+
+**Current status:** G-01, G-02 and G-03 remain closed for bounded synthetic local/CI scope. G-04's traceability deliverable is prepared and awaits Product Owner acceptance. M3-03 remains **IN PROGRESS**; no whole-step completion percentage or owner acceptance is claimed. M3-04 Provider Management remains blocked/not started.
+
+This was a documentation-only reconciliation. No code or tests changed and no test suite was rerun. No V1, Hostinger/hPanel, production/live DB, real/source/personal/institute/student/child/staff data, source acquisition, external API/AI, real role provisioning, public endpoint, deployment, procurement or new spend was accessed or authorized.

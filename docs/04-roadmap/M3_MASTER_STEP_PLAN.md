@@ -4,9 +4,9 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-03 — Core Data and Governance; Agendas 1–9 delivered within their separately authorized bounded scopes; Agenda 9 claim-version lifecycle correction and withdrawal merged and closed  
-**Plan status:** Agenda 4 Slices A and B, Agenda 5 design, Agenda 6 service contracts, Agenda 7 persisted workflows, Agenda 8 outbox reliability/recovery and Agenda 9 claim-version correction/withdrawal were separately authorized, delivered and evidence-reconciled  
-**Application implementation:** Local/CI-only synthetic implementation has been separately authorized and completed for Agenda 4 Slices A/B, Agenda 6 service contracts and Agenda 7 persisted workflows; Agenda 8 bounded outbox reliability/recovery and Agenda 9 bounded claim-version correction/withdrawal are complete for synthetic local/CI scope. Real/source data, external services, production and deployment remain separately gated.
+**Current step:** M3-03 — Core Data and Governance; Agendas 1–10 delivered within their separately authorized bounded scopes; G-04 deterministic-oracle traceability reconciled and awaiting Product Owner acceptance  
+**Plan status:** Agendas 4 Slices A/B and 5–10 were separately authorized, delivered and evidence-reconciled within bounded scopes; G-01–G-03 closed for synthetic local/CI scope; G-04 traceability delivered with partial/deferred cases explicitly retained  
+**Application implementation:** Local/CI-only synthetic implementation has been separately authorized and completed for the bounded Agendas 4, 6–10 scopes. G-04 is documentation-only; it adds no code or tests. Real/source data, external services, production and deployment remain separately gated.
 
 ## 1. Purpose and governance
 
@@ -351,3 +351,10 @@ Delivered first-class persisted conflict/candidate lifecycle, pairwise valid-tim
 Authoritative record: [M3-03 Agenda 10 Completion and Evidence Record](M3-03_AGENDA_10_COMPLETION_AND_EVIDENCE_RECORD.md).
 
 Agenda 10 closes reconciliation gaps G-01, G-02 and G-03 for the bounded scope. G-04 deterministic-oracle traceability remains open. M3-03 remains **IN PROGRESS** and M3-04 Provider Management remains blocked until the complete M3-03 exit evidence is accepted. No production, source data, external service/AI, public endpoint, deployment or spend is included.
+
+
+## M3-03 G-04 — deterministic oracle traceability reconciliation (2026-11-14)
+
+The G-04 traceability record is delivered in [M3-03 G-04 Deterministic Oracle Traceability Reconciliation](M3-03_G04_DETERMINISTIC_ORACLE_TRACEABILITY_RECONCILIATION.md). It maps all T-001–T-032 and GS-001–GS-032 to exact runtime test methods/assertion groups or explicit partial/deferred dispositions. The matrix distinguishes policy-only assertions from persisted workflows and identifies remaining deferred model/publication/identity/offer/fee behaviors.
+
+**Status:** traceability deliverable prepared; Product Owner acceptance pending. G-01–G-03 remain closed for bounded synthetic scope. M3-03 remains **IN PROGRESS** until the owner reviews the G-04 dispositions and the final step-level exit evidence. M3-04 Provider Management remains blocked/not started. No application code, test behavior, M3-04 work, production, source access, external service/AI, deployment or spend is authorized by this documentation reconciliation.
