@@ -20,6 +20,7 @@ final class ProviderInstitutionRelationshipService
         return $this->governance->registerProposedClaim($actor, $providerId, 'provider_institution_relationship',
             $this->policy->value($providerId, $institutionId, $predicate, $scope, $jurisdiction), $evidenceIds, $context, $idempotencyKey, $validFrom, $validTo);
     }
+
     public function materializeAcceptedRelationship(array $actor, string $versionId, string $idempotencyKey): string
     {
         $capability = (new GovernancePolicy)->requireCapability($actor, 'materialize_relationship');
@@ -74,6 +75,7 @@ final class ProviderInstitutionRelationshipService
             return $id;
         });
     }
+
     private function assertEndpoints(string $providerId, string $institutionId, string $predicate): void
     {
         $entities = DB::table('directory_entities')->whereIn('id', [$providerId, $institutionId])->get(['id', 'entity_type'])->keyBy('id');
