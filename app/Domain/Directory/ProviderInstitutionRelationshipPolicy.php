@@ -29,7 +29,9 @@ final class ProviderInstitutionRelationshipPolicy
             if ($date === null) {
                 continue;
             }
-            try { $parsed = CarbonImmutable::parse($date); } catch (\Throwable) {
+            try {
+                $parsed = CarbonImmutable::parse($date);
+            } catch (\Throwable) {
                 throw ValidationException::withMessages([$field => 'A valid ISO calendar date is required.']);
             }
             if ($parsed->format('Y-m-d') !== $date) {

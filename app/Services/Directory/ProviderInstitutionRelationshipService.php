@@ -20,8 +20,17 @@ final class ProviderInstitutionRelationshipService
         if ($providerId === $institutionId || $evidenceIds === []) {
             throw ValidationException::withMessages(['relationship' => 'Distinct endpoints and supporting evidence are required.']);
         }
-        return $this->governance->registerProposedClaim($actor, $providerId, 'provider_institution_relationship',
-            $this->policy->value($providerId, $institutionId, $predicate, $scope, $jurisdiction), $evidenceIds, $context, $idempotencyKey, $validFrom, $validTo);
+        return $this->governance->registerProposedClaim(
+            $actor,
+            $providerId,
+            'provider_institution_relationship',
+            $this->policy->value($providerId, $institutionId, $predicate, $scope, $jurisdiction),
+            $evidenceIds,
+            $context,
+            $idempotencyKey,
+            $validFrom,
+            $validTo
+        );
     }
 
     public function materializeAcceptedRelationship(array $actor, string $versionId, string $idempotencyKey): string

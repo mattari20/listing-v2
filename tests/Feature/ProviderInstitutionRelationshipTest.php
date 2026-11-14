@@ -11,7 +11,6 @@ use Illuminate\Validation\ValidationException;
 use Tests\TestCase;
 class ProviderInstitutionRelationshipTest extends TestCase
 {
-
     use RefreshDatabase;
 
     public function test_provider_institution_predicates_materialize_only_after_human_acceptance(): void
