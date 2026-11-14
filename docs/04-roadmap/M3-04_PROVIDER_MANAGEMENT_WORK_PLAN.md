@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
-**Status:** **P01 IMPLEMENTED AND VALIDATED — PR #176; P02 IMPLEMENTED, VALIDATED AND MERGED — PR #177; P03 IMPLEMENTED, VALIDATED AND MERGED — PR #179; P04 IMPLEMENTED ON ISOLATED BRANCH; EXACT-HEAD VALIDATION PENDING**  
+**Status:** **P01 IMPLEMENTED AND VALIDATED — PR #176; P02 IMPLEMENTED, VALIDATED AND MERGED — PR #177; P03 IMPLEMENTED, VALIDATED AND MERGED — PR #179; P04 IMPLEMENTED, VALIDATED AND MERGED — PR #187**  
 **M3-03 dependency:** Owner-accepted and closed for its bounded synthetic local/CI scope  
 **Baseline:** `main` at `a51860e904dc57ea47702ed75a2d44c612ac9b2f` for P02
 
@@ -10,7 +10,7 @@
 
 This work plan starts the next roadmap step, M3-04 Provider Management, at the planning and scope-definition level. It defines the initial bounded work packages, domain contracts, acceptance criteria, synthetic fixture approach, permission constraints and CI evidence expected before implementation.
 
-The Product Owner accepted G-04 and separately authorized the bounded M3-04 P01, P02 and P03 implementation slices on 2026-11-14. Each was implemented on an isolated feature branch under synthetic local/CI-only restrictions and passed exact-head PHP 8.5 foundation CI plus documentation validation before merge. P04 was separately authorized by the Product Owner on 2026-11-14 for synthetic local/CI implementation only. No authorization extends to production, V1, Hostinger, external APIs/AI, deployment or additional spend.
+The Product Owner accepted G-04 and separately authorized the bounded M3-04 P01, P02 and P03 implementation slices on 2026-11-14. Each was implemented on an isolated feature branch under synthetic local/CI-only restrictions and passed exact-head PHP 8.5 foundation CI plus documentation validation before merge. P04 was separately authorized by the Product Owner on 2026-11-14 for synthetic local/CI implementation only and merged after exact-head PHP 8.5 foundation CI and documentation validation passed. No authorization extends to production, V1, Hostinger, external APIs/AI, deployment or additional spend.
 
 ## 2. M3-04 outcome
 
@@ -235,4 +235,4 @@ Review outcomes are limited to ready-for-adjudication, changes-requested or held
 
 P04 introduces no merge/split adjudication, public routes, public projection, real account/role provisioning or staffing claims. It does not establish real-world human coverage. Synthetic fixtures only.
 
-**Implementation status:** code, additive migration and feature tests are committed to the P04 feature branch; exact-head CI, review and merge evidence remain pending. P04 must not be marked complete until those gates pass.
+**Implementation status:** P04 is implemented, validated and merged as PR #187 (`bd240e81d0be362cf84dcab2f2b9e61875f6b59e`). Both required exact-head checks passed; review threads were empty. P04 is complete for its bounded synthetic local/CI scope. Operational human coverage, real account provisioning, public UI/projection, source rights and production controls remain separate gates.

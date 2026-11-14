@@ -259,3 +259,10 @@ P03 closeout: PR [#179](https://github.com/mattari20/listing-v2/pull/179) merged
 ## M3-04 P04 — Status History and Editorial Review
 
 - [M3-04 P04 Implementation Record](04-roadmap/M3-04_P04_STATUS_HISTORY_EDITORIAL_REVIEW_IMPLEMENTATION_RECORD.md) — implementation scope, capability matrix, separation-of-duties rules, synthetic test coverage and validation status.
+
+
+## M3-04 P04 — Status History and Editorial Review
+
+- [M3-04 P04 Implementation Record](04-roadmap/M3-04_P04_STATUS_HISTORY_EDITORIAL_REVIEW_IMPLEMENTATION_RECORD.md) — merged PR #187, exact-head CI evidence, capability matrix, independent review/adjudication/publisher roles and synthetic-only limits.
+
+P01–P04 are delivered and validated for their bounded synthetic local/CI scopes. M3-05 requires a separate scope review and authorization.
