@@ -255,3 +255,8 @@ The detailed field registry, typed value, entity-scope, add/edit/correct/retire/
 ## 17. Existing architecture reconciliation
 
 The repository baseline was inspected read-only. The current identity, claim/version, evidence, source authorization, adjudication, publication, audit, correction/withdrawal, conflict and editorial-review mechanisms should be reused. The main identified gap is a governed, versioned field-definition registry with deterministic type, cardinality, entity-scope, privacy, freshness and public/search validation. See [M3-07 Existing Architecture Reconciliation and Extensible Storage Decision](M3-07_EXISTING_ARCHITECTURE_RECONCILIATION_AND_STORAGE_DECISION.md) for the inspected files, reuse/gap matrix, recommended design and implementation sequence. This inspection made no code/schema changes and does not lift any M3-07 approval gate.
+
+
+## 18. D1 field registry contract
+
+The logical field-definition contract, immutable key/version rules, provider/entity applicability, supported typed values, privacy/evidence/freshness policy, visibility/search allowlists, approval/activation and retirement semantics are specified in [M3-07 D1 Field Registry Contract and Definition Lifecycle](M3-07_D1_FIELD_REGISTRY_CONTRACT.md). D1 is a design artifact; D2 must select the physical representation and exact immutable association between a field-definition version and each claim version. No schema or application implementation is authorized by D1.
