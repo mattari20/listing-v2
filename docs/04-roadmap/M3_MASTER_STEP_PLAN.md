@@ -4,9 +4,9 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-03 — Core Data and Governance; Agendas 1–10 delivered within their separately authorized bounded scopes; G-04 deterministic-oracle traceability reconciled and awaiting Product Owner acceptance  
-**Plan status:** Agendas 4 Slices A/B and 5–10 were separately authorized, delivered and evidence-reconciled within bounded scopes; G-01–G-03 closed for synthetic local/CI scope; G-04 traceability delivered with partial/deferred cases explicitly retained  
-**Application implementation:** Local/CI-only synthetic implementation has been separately authorized and completed for the bounded Agendas 4, 6–10 scopes. G-04 is documentation-only; it adds no code or tests. Real/source data, external services, production and deployment remain separately gated.
+**Current step:** M3-04 — Provider Management; M3-03 accepted and closed for bounded synthetic local/CI scope; M3-04 planning started, implementation not authorized  
+**Plan status:** M3-03 final exit review accepted by Product Owner on 2026-11-14; G-01–G-03 closed for bounded synthetic scope and G-04 traceability owner-accepted with explicit residual deferrals; M3-04 P01–P04 planning prepared  
+**Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 planning only is in progress; no M3-04 code, schema, migrations or tests are authorized until a separate P01 implementation approval. Real/source data, external services, production and deployment remain separately gated.
 
 ## 1. Purpose and governance
 
@@ -365,3 +365,12 @@ The G-04 traceability record is delivered in [M3-03 G-04 Deterministic Oracle Tr
 PR [#172](https://github.com/mattari20/listing-v2/pull/172) merged as `f8d9613eec6dca8356b0780ea871245104365736` from exact validated head `0f6f8a961133d1cf3bac5a4f1e0a62b228114c85`. Exact-head Project documentation validation run #43533801162 and PHP 8.5 foundation CI run #43533801164 both passed. The unchanged synthetic suite reported 209 assertions, no failures and 50 non-fatal missing-local-`.env` warnings. Review threads and submissions were absent; expected-head merge guard used.
 
 G-04 traceability is delivered and merged. Product Owner acceptance and final M3-03 exit acceptance remain pending; M3-04 remains blocked/not started.
+
+
+## M3-03 final acceptance and M3-04 planning start — 2026-11-14
+
+The Product Owner accepted G-04 and directed progression. The final exit review in [M3-03 Final Owner Acceptance and Exit Review](M3-03_FINAL_OWNER_ACCEPTANCE_AND_EXIT_REVIEW_2026-11-14.md) confirms that the M3-03 step-level exit criteria have bounded synthetic local/CI evidence. M3-03 is **ACCEPTED AND CLOSED** within that scope. Explicit partial/deferred T-vectors remain residual risks, not completed features.
+
+M3-04 Provider Management planning has started under [M3-04 Provider Management Work Plan](M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md). P01 addresses provider/institution identity, typed relationship semantics and the T-001/T-003/T-002 semantic gaps. P02–P04 cover campus/site and programme catalogue, authority/affiliation/recognition, and status/editorial review. Scope, acceptance criteria, synthetic fixture families, CI and permission constraints are prepared.
+
+**Authorization boundary:** M3-04 application implementation, schema/migrations and tests are **NOT AUTHORIZED**. A separate explicit Product Owner authorization naming P01's exact implementation scope is required. No production, V1, Hostinger, real/source data, external APIs/AI, real role provisioning, public endpoint, deployment or spend.

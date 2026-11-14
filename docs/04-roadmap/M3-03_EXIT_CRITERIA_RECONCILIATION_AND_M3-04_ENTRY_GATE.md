@@ -2,12 +2,12 @@
 
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
-**Status:** **G-04 TRACEABILITY DELIVERED — PRODUCT OWNER ACCEPTANCE PENDING; M3-03 EXIT NOT YET ACCEPTED**  
-**Baseline:** `main` at `82c215844766470859c1ddd2000ebd271d0f9cf7`
+**Status:** **M3-03 ACCEPTED AND CLOSED — BOUNDED SYNTHETIC LOCAL/CI SCOPE; M3-04 PLANNING STARTED**  
+**Final closeout baseline:** `main` at `eebfc20a1adac14d4911ed92175366af81cf2e43`
 
 ## 1. Purpose and decision
 
-This record reconciles the M3-03 step-level exit evidence in `M3_MASTER_STEP_PLAN.md` against the accepted logical model, merged schema/service/workflow implementation and existing synthetic tests after Agenda 9.
+This record reconciles the M3-03 step-level exit evidence in `M3_MASTER_STEP_PLAN.md` against the accepted logical model, merged schema/service/workflow implementation and synthetic tests through Agenda 10 and G-04.
 
 The roadmap exit evidence requires tests for:
 1. lineage;
@@ -19,7 +19,7 @@ The roadmap exit evidence requires tests for:
 7. rollback;
 8. no unauthorized source data.
 
-**Decision:** M3-03 must remain **IN PROGRESS**. Agendas 1–9 are closed within their separately authorized scopes, but Agenda completion does not by itself satisfy every step-level exit criterion. In particular, conflict handling and rollback are not yet demonstrated as complete persisted application workflows. Temporal conflict behavior remains largely specification/policy-level rather than persisted end-to-end evidence.
+**Final decision:** Following Agenda 10, G-04 reconciliation and the Product Owner's explicit G-04 acceptance on 2026-11-14, the final exit review finds the M3-03 exit criteria satisfied for the bounded synthetic local/CI scope. The Product Owner accepts the documented partial/deferred cases as residual risks, not as implemented features. M3-03 is therefore **ACCEPTED AND CLOSED** within that bounded scope. This does not imply production readiness or complete coverage of every original oracle.
 
 This is a documentation and evidence reconciliation only. It does not authorize additional application code, migrations, source access, real data, production, external services, public endpoints, deployment or spend.
 
@@ -126,7 +126,7 @@ Exact-head FND-01 PHP 8.5 foundation CI [#43531770613](https://github.com/mattar
 - G-03 explicit prior-approved-snapshot rollback with audit/outbox lineage and current-policy rechecks: **closed** for bounded synthetic scope.
 - G-04 deterministic-oracle traceability: **open**. T-001–T-032 and GS-001–GS-032 still require explicit mapping to runtime tests, partial coverage or deferral; the catalogues are not 32 completed end-to-end workflows.
 
-Therefore M3-03 remains **IN PROGRESS**. M3-04 Provider Management entry remains closed until G-04 is reconciled and the complete M3-03 exit criteria are reviewed and accepted. No M3-04 implementation or production/source/external/deployment activity is authorized by this closeout.
+Therefore M3-03 remains **IN PROGRESS**. M3-04 Provider Management planning may proceed after M3-03 closeout. Implementation remains separately gated by the M3-04 scope, acceptance, synthetic-fixture, CI and permission prerequisites and a distinct explicit implementation authorization.
 
 
 ## 9. G-04 deterministic oracle traceability reconciliation — 2026-11-14
@@ -151,3 +151,14 @@ PR [#172](https://github.com/mattari20/listing-v2/pull/172) merged as `f8d9613ee
 - Review threads and review submissions: none; expected-head SHA guard used.
 
 The G-04 traceability deliverable is now merged and validated. This does not grant Product Owner acceptance of M3-03 or of the retained deferred behaviors. M3-03 remains **IN PROGRESS / NOT ACCEPTED** pending the owner's explicit decision and final exit review. M3-04 remains **BLOCKED / NOT STARTED**.
+
+
+## 11. Product Owner acceptance and final exit review — 2026-11-14
+
+The Product Owner explicitly accepted G-04 and directed that work move to the next roadmap step. The final exit review is recorded in [M3-03 Final Owner Acceptance and Exit Review](M3-03_FINAL_OWNER_ACCEPTANCE_AND_EXIT_REVIEW_2026-11-14.md).
+
+**M3-03 disposition:** **ACCEPTED AND CLOSED** for the bounded synthetic local/CI scope. The exit criteria—lineage, temporal facts, conflicts, authorization, auditability, publication/withdrawal, rollback and no unauthorized source data—have corresponding bounded implementation/test evidence. G-04 provides the required honest mapping of every T/GS oracle to runtime test evidence, partial coverage or deferral. The owner accepts those documented deferrals as residual risk; none is reclassified as implemented.
+
+**M3-04 disposition:** planning is started under [M3-04 Provider Management Work Plan](M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md). P01 is designed to resolve provider/institution relationship gaps T-001/T-003 and the semantic limitation of T-002 before dependent management workflows. The work plan defines scope, acceptance, synthetic fixtures, CI and permission constraints. **No M3-04 application implementation is authorized yet**; a separate explicit authorization naming the exact P01 implementation scope is required.
+
+No production, V1, Hostinger/hPanel, real/source data, external services/AI, real role provisioning, public endpoint, deployment, procurement or new spend is included.

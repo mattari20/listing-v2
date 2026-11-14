@@ -2,7 +2,7 @@
 
 **As of:** 2026-11-14  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 remains in progress — Agendas 1–10 completed within bounded authorized scopes; G-04 traceability delivered with explicit partial/deferred dispositions, Product Owner acceptance pending
+**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 accepted and closed for bounded synthetic local/CI scope on 2026-11-14; M3-04 Provider Management planning started, implementation authorization pending
 
 ## Verified current M3 position — 2026-11-12 (post PR #114 owner-approved deferrals)
 
@@ -990,3 +990,14 @@ PR [#172](https://github.com/mattari20/listing-v2/pull/172) merged as `f8d9613ee
 - Review threads: none unresolved; no review submissions; expected-head SHA guard used.
 
 G-04 traceability is merged. Product Owner acceptance is pending; M3-03 remains **IN PROGRESS** and M3-04 Provider Management remains blocked/not started.
+
+
+## M3-03 owner acceptance and M3-04 planning start — 2026-11-14
+
+The Product Owner explicitly accepted G-04 and directed progression to the next roadmap step. The final M3-03 exit review is recorded in [M3-03 Final Owner Acceptance and Exit Review](M3-03_FINAL_OWNER_ACCEPTANCE_AND_EXIT_REVIEW_2026-11-14.md). M3-03 is **ACCEPTED AND CLOSED** for its bounded synthetic local/CI scope. The exit criteria have evidence for lineage, temporal facts, conflicts, authorization, auditability, publication/withdrawal, rollback and no unauthorized source data. The accepted G-04 matrix retains all partial/deferred oracle cases as residual risk; they are not claimed as implemented.
+
+M3-04 Provider Management planning has started: [M3-04 Provider Management Work Plan](M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md). The plan defines four work packages (P01 provider/institution identity and typed relationships; P02 campus/site and programme catalogue; P03 authority/affiliation/recognition; P04 status history and editorial review), acceptance criteria, synthetic fixture families, CI gates and permission/human-review constraints.
+
+**Current M3-04 state:** planning started; application implementation **NOT AUTHORIZED**. P01 specifically carries T-001/T-003 and the semantic portion of T-002 into provider/institution relationship contract work. A separate explicit Product Owner authorization naming exact P01 implementation scope is required before code, schema, migration or tests change.
+
+No V1, Hostinger/hPanel, production/live database, real/source/personal/institute/student/child/staff data, source acquisition, external API/AI, real role provisioning, public endpoint, deployment, procurement or new spend was accessed or authorized.
