@@ -177,6 +177,7 @@ class PersistedConflictAndRollbackTest extends TestCase
             'policy-v1',
         );
         $workflow->authorizePublication($this->actor('publisher-one', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'rollback-publish-one');
+        $workflow->processOutbox();
         $workflow->authorizePublication($this->actor('publisher-two', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'rollback-publish-two');
         $workflow->processOutbox();
 
@@ -218,6 +219,7 @@ class PersistedConflictAndRollbackTest extends TestCase
         $caseId = $workflow->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'rollback-recheck-case');
         $decisionId = $workflow->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Accepted for rollback recheck.', 'policy-v1');
         $workflow->authorizePublication($this->actor('publisher-one', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'rollback-recheck-publish-one');
+        $workflow->processOutbox();
         $workflow->authorizePublication($this->actor('publisher-two', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'rollback-recheck-publish-two');
         $workflow->processOutbox();
         $snapshots = DB::table('publication_snapshots')->orderBy('snapshot_version')->get();
