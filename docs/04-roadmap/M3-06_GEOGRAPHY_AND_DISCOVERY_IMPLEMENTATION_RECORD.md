@@ -1,9 +1,12 @@
 # M3-06 — Geography and Discovery Implementation Record
 
 **Repository:** `mattari20/listing-v2`  
-**Status:** Implemented for bounded synthetic local/CI scope; pending exact-head CI, PR merge and documentation closeout  
+**Status:** Complete for bounded synthetic local/CI scope; implementation PR merged and exact-head CI passed  
 **Implementation branch:** `feature/m3-06-locality-discovery`  
-**Baseline main commit:** `e608ac30ceb03698f7f632433c01b7387e9b5f11`
+**Baseline main commit:** `e608ac30ceb03698f7f632433c01b7387e9b5f11`  
+**Implementation PR:** [#192](https://github.com/mattari20/listing-v2/pull/192)  
+**Exact PR head:** `9761e52747e0f2b15fbfee58ac2528ec4f96c57c`  
+**Merge commit / verified main:** `e959adb578df6b60f2c308cd0b1f12391f6cb043`
 
 ## Delivered implementation
 
@@ -35,4 +38,9 @@ No production, V1, Hostinger/hPanel, live database, real/source/provider/student
 
 ## Exact-head verification and merge
 
-To be completed after the implementation PR is opened: record exact PR head, required FND-01 PHP 8.5 CI result, Project documentation validation result, review/thread state, merge commit SHA and final `main` SHA here.
+- FND-01 PHP 8.5 foundation CI [run #43559187297](https://github.com/mattari20/listing-v2/actions/runs/43559187297): **SUCCESS** on exact PR head.
+- Project documentation validation [run #43559187312](https://github.com/mattari20/listing-v2/actions/runs/43559187312): **SUCCESS** on exact PR head.
+- Review threads: none unresolved; submitted reviews: none.
+- PR #192 squash-merged with expected-head guard as `e959adb578df6b60f2c308cd0b1f12391f6cb043`.
+- Verified `main` commit: `e959adb578df6b60f2c308cd0b1f12391f6cb043`.
+- Complete synthetic-only FND-01 suite passed; no live or real/source data was used.
