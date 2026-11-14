@@ -2,9 +2,9 @@
 
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
-**Status:** **P01 IMPLEMENTED AND VALIDATED — PR #176; P02–P04 NOT STARTED**  
+**Status:** **P01 IMPLEMENTED AND VALIDATED — PR #176; P02 IMPLEMENTED ON ISOLATED BRANCH — VALIDATION PENDING; P03–P04 NOT STARTED**  
 **M3-03 dependency:** Owner-accepted and closed for its bounded synthetic local/CI scope  
-**Baseline:** `main` at `eebfc20a1adac14d4911ed92175366af81cf2e43`
+**Baseline:** `main` at `a51860e904dc57ea47702ed75a2d44c612ac9b2f` for P02
 
 ## 1. Purpose and authorization boundary
 
@@ -187,7 +187,7 @@ No Listing V1 changes; no Hostinger/hPanel or production access; no live databas
 | Permission and human editorial constraints | **Prepared as plan** | Capability matrix and independent-human decision rules above |
 | Separate implementation authorization | **ISSUED 2026-11-14** | Owner authorized bounded P01 implementation only; P02–P04 remain unauthorized |
 
-**Decision:** M3-04 planning is complete for the entry gate. P01 implementation is delivered and validated in PR #176 for the bounded synthetic scope; P02–P04 remain blocked pending separate authorization.
+**Decision:** M3-04 planning is complete for the entry gate. P01 implementation is delivered and validated in PR #176. P02 implementation is authorized by the Product Owner on 2026-11-14 and is recorded in `M3-04_P02_IMPLEMENTATION_RECORD.md`; P03–P04 remain outside this authorization.
 
 
 
@@ -198,3 +198,10 @@ The first detailed design artifact is [M3-04 P01 — Provider/Institution Identi
 The design confirms that current foreign keys establish endpoint existence only; they do not prove endpoint-type compatibility, valid predicate vocabulary, relationship cardinality or temporal validity. T-001/T-003 and the semantic limitation of T-002 remain explicit P01 targets.
 
 **P01 status:** implementation and synthetic feature tests are delivered in PR #176; exact-head PHP 8.5 foundation CI and documentation validation passed. See M3-04_P01_IMPLEMENTATION_RECORD.md. P02–P04 are not started.
+
+
+## 12. P02 implementation status
+
+P02 is authorized for bounded synthetic local/CI implementation. Its implementation adds distinct institution-owned campus and delivery-site profiles, institution-scoped programme catalogue entries, explicit programme–qualification–awarding-body links, and cycle-scoped programme offers. All materialization requires a current accepted claim version, admissible unrevoked evidence, a distinct human adjudicator, a human materializer and transactional audit. Similar labels do not merge identities. A programme catalogue entry alone never asserts current campus availability.
+
+See [M3-04 P02 Implementation Record](M3-04_P02_IMPLEMENTATION_RECORD.md) for files, invariants, tests and remaining limitations. No P03/P04 authority, public API, production, V1, Hostinger, external service, deployment or spending scope is included.
