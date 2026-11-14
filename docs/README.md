@@ -251,3 +251,6 @@ G-04 traceability closeout: PR [#172](https://github.com/mattari20/listing-v2/pu
 ## M3-04 P03 — Authority, Affiliation and Recognition Relationships
 - [M3-04 Provider Management Work Plan](04-roadmap/M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md) — P03 implementation is separately authorized and submitted for exact-head CI/review; P04 remains separately gated.
 - [M3-04 P03 Implementation Record](04-roadmap/M3-04_P03_IMPLEMENTATION_RECORD.md) — authority-type vocabulary, relationship endpoint compatibility, evidence/adjudication/audit contract, tests and exclusions.
+
+
+P03 closeout: PR [#179](https://github.com/mattari20/listing-v2/pull/179) merged as `727cc3c91f9761bbb24954b8777e033f577ec75c`. Exact-head PHP 8.5 foundation CI #43555121150 and Project documentation validation #43555121154 passed. See [M3-04 P03 Implementation Record](04-roadmap/M3-04_P03_IMPLEMENTATION_RECORD.md). P04 remains separately gated.
