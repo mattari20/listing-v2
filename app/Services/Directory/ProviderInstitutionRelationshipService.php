@@ -95,7 +95,7 @@ final class ProviderInstitutionRelationshipService
                 if (($metadata['fingerprint'] ?? null) !== $fingerprint || ($metadata['actor_id'] ?? null) !== $actor['actor_id']) {
                     throw ValidationException::withMessages(['idempotency_key' => 'Key reused for a different materialization.']);
                 }
-                
+
                 return (string) $prior->target_id;
             }
             $version = DB::table('claim_versions')->where('id', $versionId)->lockForUpdate()->first();
