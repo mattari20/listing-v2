@@ -75,7 +75,7 @@ final class CampusProgrammeCatalogueService
                 $event = DB::table('audit_events')->where('target_type', 'evidence_reference')->where('target_id', $item->id)->where('action', 'evidence_reference_registered')->first(['metadata']);
                 $eventMetadata = $event === null ? null : json_decode((string) $event->metadata, true);
                 $evidenceActor = is_array($eventMetadata) ? ($eventMetadata['actor_id'] ?? null) : null;
-                if (is_string($evidenceActor) === false || $evidenceActor === '' || $evidenceActor === $actor['actor_id']) {
+                if (is_string($evidenceActor) === false || $evidenceActor === '' || $evidenceActor === $actor['actor_id'] || $evidenceActor === $decision->actor_id) {
                     throw ValidationException::withMessages(['actor' => 'An evidence submitter cannot materialize the catalogue record.']);
                 }
             }
