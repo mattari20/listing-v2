@@ -27,7 +27,7 @@ final class ProviderInstitutionRelationshipService
     public function materializeAcceptedRelationship(array $actor, string $versionId, string $idempotencyKey): string
     {
         $capability = (new GovernancePolicy)->requireCapability($actor, 'materialize_relationship');
-        if (! $capability['allowed'] || ($actor['actor_class'] ?? null) !== 'human') {
+        if ($capability['allowed'] === false || ($actor['actor_class'] ?? null) !== 'human') {
             throw ValidationException::withMessages(['actor' => 'A human materialize_relationship capability is required.']);
         }
         if (trim($idempotencyKey) === '') {
@@ -52,7 +52,7 @@ final class ProviderInstitutionRelationshipService
                 throw ValidationException::withMessages(['claim' => 'Not a Provider–Institution assertion.']);
             }
             $accepted = DB::table('adjudication_decisions')->join('adjudication_cases', 'adjudication_cases.id', '=', 'adjudication_decisions.adjudication_case_id')->where('adjudication_cases.claim_version_id', $versionId)->where('adjudication_decisions.outcome', 'accepted')->where('adjudication_decisions.actor_class', 'human')->exists();
-            if (! $accepted) {
+            if ($accepted === false) {
                 throw ValidationException::withMessages(['adjudication' => 'Persisted human acceptance is required.']);
             }
             $evidence = DB::table('claim_evidence_links')->join('evidence_references', 'evidence_references.id', '=', 'claim_evidence_links.evidence_reference_id')->join('source_authorizations', 'source_authorizations.id', '=', 'evidence_references.source_authorization_id')->where('claim_evidence_links.claim_version_id', $versionId)->get(['evidence_references.status', 'source_authorizations.revoked_at']);
@@ -65,7 +65,7 @@ final class ProviderInstitutionRelationshipService
                 }
             }
             $value = json_decode((string) $version->value, true);
-            if (! is_array($value)) {
+            if (is_array($value) === false) {
                 throw ValidationException::withMessages(['claim_value' => 'Invalid relationship value.']);
             }
             $from = (string) ($value['from_entity_id'] ?? '');
@@ -106,7 +106,7 @@ final class ProviderInstitutionRelationshipService
     private function assertEndpoints(string $providerId, string $institutionId, string $predicate): void
     {
         $entities = DB::table('directory_entities')->whereIn('id', [$providerId, $institutionId])->get(['id', 'entity_type'])->keyBy('id');
-        if (! $entities->has($providerId) || ! $entities->has($institutionId)) {
+        if ($entities->has($providerId) === false || $entities->has($institutionId) === false) {
             throw ValidationException::withMessages(['endpoints' => 'Both endpoints must exist.']);
         }
         $this->policy->assertEndpoints((string) $entities[$providerId]->entity_type, (string) $entities[$institutionId]->entity_type, $predicate);

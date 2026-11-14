@@ -14,7 +14,6 @@ class ProviderInstitutionRelationshipTest extends TestCase
 
     use RefreshDatabase;
 
-
     public function test_provider_institution_predicates_materialize_only_after_human_acceptance(): void
     {
         foreach (['operates', 'owns', 'administers'] as $predicate) {
@@ -23,7 +22,6 @@ class ProviderInstitutionRelationshipTest extends TestCase
             $this->assertDatabaseHas('entity_relationships', ['id' => $id, 'from_entity_id' => $f['provider'], 'to_entity_id' => $f['institution'], 'relationship_type' => $predicate, 'claim_version_id' => $f['version'], 'status' => 'active']);
         }
     }
-
 
     public function test_reversed_or_incompatible_endpoint_types_are_rejected(): void
     {
@@ -36,7 +34,6 @@ class ProviderInstitutionRelationshipTest extends TestCase
         }
     }
 
-
     public function test_unknown_and_reserved_predicates_fail_closed(): void
     {
         $provider = $this->entity('provider'); $institution = $this->entity('institution'); $evidence = $this->evidence();
@@ -47,7 +44,6 @@ class ProviderInstitutionRelationshipTest extends TestCase
             } catch (ValidationException) { $this->assertDatabaseCount('claims', 0); }
         }
     }
-
 
     public function test_missing_endpoints_and_missing_evidence_are_rejected(): void
     {
@@ -60,13 +56,11 @@ class ProviderInstitutionRelationshipTest extends TestCase
         app(ProviderInstitutionRelationshipService::class)->propose($this->actor('author', ['register_claim']), $provider, $institution, 'operates', [], $this->context(), 'missing-evidence');
     }
 
-
     public function test_institution_may_have_no_provider_relationship(): void
     {
         $this->entity('institution');
         $this->assertDatabaseCount('entity_relationships', 0);
     }
-
 
     public function test_non_overlapping_historical_provider_relationships_are_preserved(): void
     {
@@ -79,7 +73,6 @@ class ProviderInstitutionRelationshipTest extends TestCase
         $this->assertDatabaseHas('entity_relationships', ['id' => $two, 'valid_from' => '2023-01-01', 'valid_to' => null]);
     }
 
-
     public function test_distinct_scope_jurisdiction_assertions_are_preserved(): void
     {
         $a = $this->accepted('operates', null, null, 'operations', 'synthetic-north');
@@ -90,14 +83,12 @@ class ProviderInstitutionRelationshipTest extends TestCase
         $this->assertDatabaseCount('entity_relationships', 2);
     }
 
-
     public function test_invalid_date_interval_is_rejected_and_null_bounds_are_open(): void
     {
         $provider = $this->entity('provider'); $institution = $this->entity('institution'); $evidence = $this->evidence();
         $this->expectException(ValidationException::class);
         app(ProviderInstitutionRelationshipService::class)->propose($this->actor('author', ['register_claim']), $provider, $institution, 'operates', [$evidence], $this->context(), 'bad-interval', null, null, '2026-12-31', '2026-01-01');
     }
-
 
     public function test_open_ended_relationship_interval_is_retained(): void
     {
@@ -106,7 +97,6 @@ class ProviderInstitutionRelationshipTest extends TestCase
         $this->assertDatabaseHas('entity_relationships', ['id' => $id, 'valid_from' => null, 'valid_to' => '2026-12-31']);
     }
 
-
     public function test_materialization_requires_current_admissible_evidence(): void
     {
         $f = $this->accepted();
@@ -114,7 +104,6 @@ class ProviderInstitutionRelationshipTest extends TestCase
         $this->expectException(ValidationException::class);
         app(ProviderInstitutionRelationshipService::class)->materializeAcceptedRelationship($this->actor('materializer', ['materialize_relationship']), $f['version'], 'quarantined-evidence');
     }
-
 
     public function test_materialization_requires_human_capability_and_is_idempotent(): void
     {
@@ -127,7 +116,6 @@ class ProviderInstitutionRelationshipTest extends TestCase
         $service->materializeAcceptedRelationship($this->actor('robot', ['materialize_relationship'], 'automated'), $f['version'], 'robot-key');
     }
 
-
     public function test_similar_labels_do_not_merge_distinct_provider_identities(): void
     {
         $one = $this->entity('provider', 'Synthetic Provider Same Name');
@@ -135,7 +123,6 @@ class ProviderInstitutionRelationshipTest extends TestCase
         $this->assertNotSame($one, $two);
         $this->assertDatabaseCount('directory_entities', 2);
     }
-
 
     public function test_audit_failure_rolls_back_relationship_projection(): void
     {
@@ -147,7 +134,6 @@ class ProviderInstitutionRelationshipTest extends TestCase
         } catch (QueryException) { $this->assertDatabaseCount('entity_relationships', 0); }
         finally { DB::unprepared('DROP TRIGGER IF EXISTS fail_relationship_audit'); }
     }
-
 
     public function test_claim_withdrawal_and_source_revocation_update_relationship_projection_status(): void
     {
@@ -161,7 +147,6 @@ class ProviderInstitutionRelationshipTest extends TestCase
         $this->assertDatabaseHas('entity_relationships', ['id' => $id2, 'status' => 'suppressed']);
     }
 
-
     private function accepted(string $predicate = 'operates', ?string $from = '2026-01-01', ?string $to = null, ?string $scope = null, ?string $jurisdiction = null): array
     {
         $provider = $this->entity('provider'); $institution = $this->entity('institution'); $authorization = $this->authorization();
@@ -173,7 +158,6 @@ class ProviderInstitutionRelationshipTest extends TestCase
         $workflow->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $case, 'accepted', 'synthetic_acceptance', 'Synthetic fixture accepted after review.', 'synthetic-policy-v1');
         return ['provider' => $provider, 'institution' => $institution, 'version' => $version, 'authorization' => $authorization, 'evidence' => $evidence];
     }
-
 
     private function authorization(): string
     {
@@ -187,7 +171,6 @@ class ProviderInstitutionRelationshipTest extends TestCase
         return $id;
     }
 
-
     private function evidence(): string
     {
         $authorization = $this->authorization();
@@ -196,14 +179,12 @@ class ProviderInstitutionRelationshipTest extends TestCase
         return $id;
     }
 
-
     private function entity(string $type, ?string $label = null): string
     {
         $id = (string) str()->uuid();
         DB::table('directory_entities')->insert(['id' => $id, 'entity_type' => $type, 'label' => $label ?? 'Synthetic '.$type.' '.str()->random(6), 'created_at' => now(), 'updated_at' => now()]);
         return $id;
     }
-
 
     private function context(): array { return ['purpose' => 'synthetic_test_only', 'method' => 'fixture_reference', 'territory' => 'synthetic']; }
 

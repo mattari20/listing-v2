@@ -10,7 +10,7 @@ final class ProviderInstitutionRelationshipPolicy
 
     public function assertPredicate(string $predicate): void
     {
-        if (! in_array($predicate, self::PREDICATES, true)) {
+        if (in_array($predicate, self::PREDICATES, true) === false) {
             throw ValidationException::withMessages(['relationship_type' => 'Predicate is not enabled for M3-04 P01.']);
         }
     }
