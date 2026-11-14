@@ -335,7 +335,7 @@ final class TypedFieldValueValidator
                 if ((!is_string($value) && !is_int($value)) ||
                     !is_int($scale) || $scale < 0 || $scale > 8 ||
                     !is_int($precision) || $precision < 1 || $precision > 18 ||
-                    ! $this->matchesDecimal((string) $value, $scale, $precision) ||
+                    $this->matchesDecimal((string) $value, $scale, $precision) === false ||
                     (isset($schema['minimum']) && (float) $value < (float) $schema['minimum']) ||
                     (isset($schema['maximum']) && (float) $value > (float) $schema['maximum'])) {
                     $errors[] = ['code' => 'invalid_fixed_precision_decimal', 'path' => $path];
@@ -349,15 +349,15 @@ final class TypedFieldValueValidator
                 break;
 
             case 'date':
-                if (! $this->isIsoDate($value)) {
+                if ($this->isIsoDate($value) === false) {
                     $errors[] = ['code' => 'invalid_iso_date', 'path' => $path];
                 }
                 break;
 
             case 'date_range':
                 if (!is_array($value) || array_is_list($value) ||
-                    ! $this->isIsoDate($value['start'] ?? null) ||
-                    ! $this->isIsoDate($value['end'] ?? null) ||
+                    $this->isIsoDate($value['start'] ?? null) === false ||
+                    $this->isIsoDate($value['end'] ?? null) === false ||
                     !is_bool($schema['end_inclusive'] ?? null) ||
                     $value['start'] > $value['end'] ||
                     ($value['start'] === $value['end'] && $schema['end_inclusive'] === false)) {
@@ -406,7 +406,7 @@ final class TypedFieldValueValidator
                     (!is_string($value['amount'] ?? null) && !is_int($value['amount'] ?? null)) ||
                     !is_int($schema['scale'] ?? null) || !is_int($schema['precision'] ?? null) ||
                     str_starts_with((string) ($value['amount'] ?? ''), '-') ||
-                    ! $this->matchesDecimal((string) ($value['amount'] ?? ''), $schema['scale'] ?? -1, $schema['precision'] ?? 0) ||
+                    $this->matchesDecimal((string) ($value['amount'] ?? ''), $schema['scale'] ?? -1, $schema['precision'] ?? 0) === false ||
                     !is_string($value['currency'] ?? null) ||
                     preg_match('/^[A-Z]{3}$/D', $value['currency']) !== 1 ||
                     !is_string($value['period'] ?? null) || trim($value['period']) === '' ||
