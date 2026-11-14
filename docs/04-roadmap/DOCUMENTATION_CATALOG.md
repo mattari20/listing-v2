@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-14 — M3-03 accepted and closed for bounded synthetic local/CI scope; M3-04 P01 validated in PR #176; P02 merged as PR #177; P03 merged as PR #179; P04 merged as PR #187; exact-head checks passed
+**Last reconciled:** 2026-11-14 — M3-03 accepted and closed; M3-04 P01–P04 merged and validated; M3-05 Public Directory and Search merged and validated as PR #189
 
 ## Purpose and maintenance rule
 
@@ -945,3 +945,13 @@ P04 is separately authorized as of 2026-11-14. The implementation candidate is o
 | [M3-04 P04 Implementation Record](M3-04_P04_STATUS_HISTORY_EDITORIAL_REVIEW_IMPLEMENTATION_RECORD.md) | Editorial review cases, append-only status history, capability matrix, role separation, tests and CI/merge evidence | **Merged and validated — PR #187** |
 
 PR #187 merged as `bd240e81d0be362cf84dcab2f2b9e61875f6b59e` from validated head `6a871e5a8b23c86fa7f7f674edabd600bce5abf0`. Exact-head PHP 8.5 foundation CI #43556525425 and Project documentation validation #43556525412 passed. Synthetic suite: 300 assertions, no failures, 95 non-fatal missing-`.env` warnings. No unresolved review threads.
+
+
+## M3-05 — Public Directory and Search final closeout
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-05 Public Directory and Search Work Plan](M3-05_PUBLIC_DIRECTORY_SEARCH_WORK_PLAN.md) | Scope, public-field allowlist, eligibility contract, user journeys and acceptance criteria | **Complete — PR #189** |
+| [M3-05 Public Directory and Search Implementation Record](M3-05_PUBLIC_DIRECTORY_SEARCH_IMPLEMENTATION_RECORD.md) | Routes, query service, profile views, privacy/publication checks, synthetic tests and validation evidence | **Merged and validated — PR #189** |
+
+PR [#189](https://github.com/mattari20/listing-v2/pull/189) merged as `8a89c5666501e5cc1f8565b32fd40a2a3370d634` from validated head `1e4bd3be1d92ca1ba3a06fd7190d3a20de340c58`. Exact-head PHP 8.5 foundation CI #43557559498 and Project documentation validation #43557559518 passed. Synthetic suite: 351 assertions, no failures, 107 non-fatal warnings from the existing missing-`.env` test-harness reads. No unresolved review threads.

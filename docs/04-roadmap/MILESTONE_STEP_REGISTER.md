@@ -620,13 +620,13 @@ See [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) for complete step scopes, task
 
 | Step | Scope | Weight | Status / gate |
 |---|---|---:|---|
-| M3-00 | Mobilization and Decision Closure | 5% | In progress; planning only |
-| M3-01 | Implementation Planning and Authorization | 7% | Not started; explicit implementation-start approval required |
-| M3-02 | Platform Foundation | 10% | In progress — bounded local/CI foundation hardening candidate; exact-head CI and owner review pending |
-| M3-03 | Core Data and Governance | 12% | Not started; post-authorization |
-| M3-04 | Provider Management | 8% | Not started |
-| M3-05 | Public Directory and Search | 10% | Not started |
-| M3-06 | Geography and Discovery | 7% | Not started |
+| M3-00 | Mobilization and Decision Closure | 5% | Accepted and closed; owner-approved deferrals retained |
+| M3-01 | Implementation Planning and Authorization | 7% | Closed as planning/authorization milestone; later steps separately authorized |
+| M3-02 | Platform Foundation | 10% | Accepted as bounded Laravel platform foundation only; no production readiness implied |
+| M3-03 | Core Data and Governance | 12% | Accepted and closed for bounded synthetic local/CI scope |
+| M3-04 | Provider Management | 8% | P01–P04 implemented, validated and merged for bounded synthetic local/CI scope |
+| M3-05 | Public Directory and Search | 10% | Complete for bounded synthetic local/CI scope — PR #189 merged |
+| M3-06 | Geography and Discovery | 7% | Not started; separate scope review and implementation authorization required |
 | M3-07 | AI Data-Agent | 10% | Not started; source-specific authorization required |
 | M3-08 | Identity, Reviews and Security | 10% | Not started; reviews post-launch only |
 | M3-09 | Quality and Operational Hardening | 8% | Not started |

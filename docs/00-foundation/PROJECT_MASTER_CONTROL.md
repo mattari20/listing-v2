@@ -2,15 +2,15 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0, M1, M2 and M3-00 accepted/closed; FND-01 bounded M3-01 P07 package merged; M3-01 remaining gates open; M3-02 bounded local/CI hardening in progress  
-**Last reconciled:** 2026-11-13
+**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03, M3-04 and M3-05 delivered for bounded synthetic local/CI scope  
+**Last reconciled:** 2026-11-14
 
 ## Authoritative current position
 - Public V2 repository visibility verified; owner selected public visibility on 2026-11-11.
 - Repository auto-merge is enabled; active `main` ruleset requires the documentation validation check.
 - Founding documentation PR #1 merged into `main` as `0f2165f3d18e43f10cf6d6f717f145d3433769a4`.
 - Documentation Completion Catalogue: `../04-roadmap/DOCUMENTATION_CATALOG.md`; update after every documentation PR update and merge.
-- No application code, database schema or migrations have been approved or started.
+- Bounded synthetic local/CI application implementation has been approved and merged for M3-02 foundation, M3-03 governance, M3-04 provider management and M3-05 public directory/search. No production, V1, Hostinger, real/source data, external services, deployment or release is authorized.
 - Legacy repository inspection is read-only and limited to a metadata inventory for explicit exclusion.
 - No connection to legacy production systems or data is permitted.
 - No production deployment, URL cutover or replacement is authorized.
@@ -22,7 +22,7 @@ Build a student-first education discovery, admissions information and comparison
 The Documentation Completion Catalogue is the owner-facing inventory of delivered, updated, accepted and planned documents. A merged PR records delivery, not automatic content acceptance. Every documentation PR update and merge must reconcile the catalogue, index, controller, step register, traceability and progress report.
 
 ## Current milestone
-**M3 — M3-00 accepted/closed; M3-01 Implementation Planning and Authorization (documentation only)**
+**M3 — M3-05 Public Directory and Search complete for bounded synthetic local/CI scope; M3-06 Geography and Discovery is the next unstarted step and requires separate scope review/authorization**
 
 ## M0 closeout
 M0 was accepted after review of the founding controls, strict legacy non-interference boundary, project planning records, repository rules and the PR delivery workflow. Evidence is recorded in the catalogue, progress report and traceability matrix. M0-S02 acceptance is limited to the documented metadata-only exclusion audit; it is not an exhaustive inventory of the legacy repository. Repository auto-merge is enabled, but automatic merge execution has not yet been independently demonstrated. Production access, deployment and cutover remain unauthorized.
@@ -662,3 +662,10 @@ Step 3 completed as a read-only comparison of the current main repository agains
 ## M3-02 Step 4 final exit review — 2026-11-13
 
 Step 4 completed as a final evidence/acceptance-pack deliverable. M3-02 is not eligible for formal closure on current evidence: the active main ruleset does not require PHP foundation CI, and V2-specific environment isolation/recovery has not been verified. Reproducible GitHub CI, local/CI secret/configuration boundaries, foundation smoke tests, minimal local/CI diagnostics and the Step 3 architecture review are recorded with their exact limits. No ruleset change, Hostinger/V1/production access or deployment occurred. **M3-02 remains In progress — not accepted — not closed.** No weighted percentage is assigned. See docs/04-roadmap/M3-02_STEP_04_FINAL_EXIT_REVIEW_AND_ACCEPTANCE_PACK_2026-11-13.md.
+
+
+## Superseding current position — 2026-11-14
+
+M3-03 is accepted and closed for bounded synthetic local/CI scope. M3-04 P01–P04 are implemented, validated and merged for the same bounded scope. M3-05 Public Directory and Search is implemented, validated and merged as PR #189 (`8a89c5666501e5cc1f8565b32fd40a2a3370d634`). Exact PR head `1e4bd3be1d92ca1ba3a06fd7190d3a20de340c58` passed FND-01 PHP 8.5 foundation CI #43557559498 and Project documentation validation #43557559518; synthetic tests reported 351 assertions, no failures and 107 non-fatal missing-`.env` warnings.
+
+The next eligible step is M3-06 Geography and Discovery, which requires a separate scope review and explicit authorization before implementation. No maps/geocoder, external search engine, source acquisition, production access, V1/Hostinger changes, deployment, public release or additional spend is authorized by the M3-05 closeout.

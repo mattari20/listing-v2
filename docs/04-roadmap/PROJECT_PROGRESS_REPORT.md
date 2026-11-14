@@ -2,7 +2,7 @@
 
 **As of:** 2026-11-14  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 accepted and closed for bounded synthetic local/CI scope on 2026-11-14; M3-04 Provider Management P01–P04 implemented, validated and merged for bounded synthetic local/CI scope
+**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 accepted and closed for bounded synthetic local/CI scope on 2026-11-14; M3-04 Provider Management P01–P04 and M3-05 Public Directory and Search implemented, validated and merged for bounded synthetic local/CI scope
 
 ## Verified current M3 position — 2026-11-12 (post PR #114 owner-approved deferrals)
 
@@ -1040,3 +1040,22 @@ The full synthetic suite reported **300 assertions, no failures and 95 non-fatal
 **M3-04 delivery status:** P01 PR #176, P02 PR #177, P03 PR #179 and P04 PR #187 are merged and validated. All four planned work packages are delivered for their bounded synthetic local/CI scopes. This is not a claim of real human staffing, real account provisioning, source approval, public directory readiness or production readiness. No public route/projection, production/V1/Hostinger access, external API/AI, deployment or additional spend was introduced.
 
 **Next eligible roadmap step:** M3-05 Public Directory and Search requires its own scope review and explicit authorization before implementation. No M3-05 code is started by this closeout.
+
+
+## M3-05 — Public Directory and Search closeout (2026-11-14)
+
+**Status:** Complete for the separately authorized synthetic local/CI scope.
+
+PR [#189](https://github.com/mattari20/listing-v2/pull/189) merged as `8a89c5666501e5cc1f8565b32fd40a2a3370d634`. Validated PR head: `1e4bd3be1d92ca1ba3a06fd7190d3a20de340c58`.
+
+Exact-head checks:
+- FND-01 PHP 8.5 foundation CI [#43557559498](https://github.com/mattari20/listing-v2/actions/runs/43557559498) — **SUCCESS**.
+- Project documentation validation [#43557559518](https://github.com/mattari20/listing-v2/actions/runs/43557559518) — **SUCCESS**.
+
+The full synthetic suite completed with **351 assertions and no failures**; it emitted **107 non-fatal warnings** because the existing test harness attempts to read the intentionally absent local `.env` file. Formatting, dependency advisory checks, Laravel bootstrap/routes and artifact hygiene passed. Review-thread inspection found no unresolved threads or submitted reviews.
+
+Delivered: anonymous browse/search, provider/institution/campus/programme/qualification filters and facets, UUID profile pages, allowlisted public fields, current publication/evidence/source-authorization checks, suppression/supersession handling, fail-closed Deeni Madaris exclusion and accessible server-rendered pages without external assets.
+
+Deferred: maps/geography (M3-06), external search engine, fuzzy/transliteration search, ranking/recommendations, comparison, accounts/reviews, saved lists, alerts, admissions workflow, performance/load targets, formal accessibility/security audit and operational hardening. No production release or public URL cutover is authorized.
+
+**Next:** M3-06 scope review and separate authorization; no M3-06 code is started by this closeout.
