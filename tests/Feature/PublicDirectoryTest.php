@@ -164,7 +164,6 @@ final class PublicDirectoryTest extends TestCase
         $response->assertDontSee('href="javascript:alert(1)"', false);
     }
 
-
     public function test_older_snapshot_is_hidden_while_a_newer_snapshot_is_not_yet_projected(): void
     {
         $entity = $this->createEntity();
