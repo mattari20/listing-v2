@@ -63,7 +63,9 @@ class ProviderInstitutionRelationshipTest extends TestCase
         try {
             app(ProviderInstitutionRelationshipService::class)->propose($this->actor('author', ['register_claim']), $provider, (string) str()->uuid(), 'operates', [$this->evidence()], $this->context(), 'missing-endpoint');
             $this->fail('Missing endpoint must fail.');
-        } catch (ValidationException) { $this->assertDatabaseCount('claims', 0); }
+        } catch (ValidationException) {
+            $this->assertDatabaseCount('claims', 0);
+        }
         $this->expectException(ValidationException::class);
         app(ProviderInstitutionRelationshipService::class)->propose($this->actor('author', ['register_claim']), $provider, $institution, 'operates', [], $this->context(), 'missing-evidence');
     }

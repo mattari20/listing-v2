@@ -21,11 +21,12 @@ final class ProviderInstitutionRelationshipService
         if ($providerId === $institutionId || $evidenceIds === []) {
             throw ValidationException::withMessages(['relationship' => 'Distinct endpoints and supporting evidence are required.']);
         }
+
         return app(GovernanceCommandService::class)->registerProposedClaim(
             $actor,
             $providerId,
             'provider_institution_relationship',
-            $this->policy->value($providerId, $institutionId, $predicate, $scope, $jurisdiction),
+            (new ProviderInstitutionRelationshipPolicy)->value($providerId, $institutionId, $predicate, $scope, $jurisdiction),
             $evidenceIds,
             $context,
             $idempotencyKey,
@@ -43,6 +44,7 @@ final class ProviderInstitutionRelationshipService
         if (trim($idempotencyKey) === '') {
             throw ValidationException::withMessages(['idempotency_key' => 'An idempotency key is required.']);
         }
+
         return DB::transaction(function () use ($actor, $versionId, $idempotencyKey): string {
             $fingerprint = hash('sha256', json_encode([$actor['actor_id'], $versionId], JSON_THROW_ON_ERROR));
             $prior = DB::table('audit_events')->where('action', 'provider_institution_relationship_materialized')->where('metadata->idempotency_key', $idempotencyKey)->first(['target_id', 'metadata']);
