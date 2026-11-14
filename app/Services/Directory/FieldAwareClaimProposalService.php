@@ -84,6 +84,10 @@ final class FieldAwareClaimProposalService
             $this->reject('subject', 'Claim subject does not exist.');
         }
 
+        if ($entity->entity_type !== 'institution' || $scopeKey !== 'institution') {
+            $this->reject('scope', 'I3 currently accepts institution-level claims only; campus and programme scopes remain excluded.');
+        }
+
         $providerCategory = $this->registry->providerCategoryForEntity($subjectEntityId);
         if ($providerCategory === null) {
             $this->reject('provider_category', 'No human-governed provider category is assigned to this institution.');
