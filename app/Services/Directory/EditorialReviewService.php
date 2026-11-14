@@ -40,7 +40,7 @@ final class EditorialReviewService
             $claim = DB::table('claim_versions')->join('claims', 'claims.id', '=', 'claim_versions.claim_id')
                 ->where('claim_versions.id', $claimVersionId)->first(['claims.subject_entity_id']);
             if ($claim === null || (string) $claim->subject_entity_id !== $entityId ||
-                !DB::table('directory_entities')->where('id', $entityId)->exists()) {
+                ! DB::table('directory_entities')->where('id', $entityId)->exists()) {
                 $this->reject('proposal', 'The claim version must belong to the submitted directory entity.');
             }
 
@@ -85,7 +85,7 @@ final class EditorialReviewService
     {
         $this->requireHuman($actor, 'review_directory_proposal');
         $this->required($idempotencyKey, 'idempotency_key');
-        if (!in_array($outcome, ['ready_for_adjudication', 'changes_requested', 'held'], true) ||
+        if (! in_array($outcome, ['ready_for_adjudication', 'changes_requested', 'held'], true) ||
             trim($reasonCode) === '' || trim($rationale) === '') {
             $this->reject('review', 'A supported review outcome, reason and rationale are required.');
         }
@@ -276,7 +276,7 @@ final class EditorialReviewService
             $event = DB::table('audit_events')->where('target_type', 'evidence_reference')->where('target_id', $id)
                 ->where('action', 'evidence_reference_registered')->first();
             $metadata = $event === null ? [] : (json_decode((string) $event->metadata, true) ?: []);
-            if (! empty($metadata['actor_id'])) {
+            if (!empty($metadata['actor_id'])) {
                 $actors[] = (string) $metadata['actor_id'];
             }
         }
