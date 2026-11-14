@@ -98,13 +98,10 @@ class CampusProgrammeCatalogueTest extends TestCase
 
     public function test_wrong_identity_types_and_missing_cycle_fail_closed(): void
     {
-        $institution = $this->entity('institution');
         $programme = $this->entity('programme');
-        $qualification = $this->entity('qualification');
         $this->expectException(ValidationException::class);
         $this->materialize('campus', $this->entity('campus'), ['institution_entity_id' => $programme], 'wrong-institution-type');
     }
-
 
     public function test_programme_offer_without_an_admission_cycle_is_rejected(): void
     {
@@ -142,7 +139,6 @@ class CampusProgrammeCatalogueTest extends TestCase
         $this->expectException(ValidationException::class);
         app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord($this->actor('catalogue-manager'), $version, 'unaccepted');
     }
-
 
     public function test_claim_withdrawal_propagates_to_campus_catalogue_projection(): void
     {
