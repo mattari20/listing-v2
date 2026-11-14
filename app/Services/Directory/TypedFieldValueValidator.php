@@ -358,7 +358,9 @@ final class TypedFieldValueValidator
                 if (! is_array($value) || array_is_list($value) ||
                     ! $this->isIsoDate($value['start'] ?? null) ||
                     ! $this->isIsoDate($value['end'] ?? null) ||
-                    $value['start'] > $value['end']) {
+                    ! is_bool($schema['end_inclusive'] ?? null) ||
+                    $value['start'] > $value['end'] ||
+                    ($value['start'] === $value['end'] && $schema['end_inclusive'] === false)) {
                     $errors[] = ['code' => 'invalid_date_range', 'path' => $path];
                 }
                 break;
@@ -376,9 +378,12 @@ final class TypedFieldValueValidator
                 break;
 
             case 'email':
+                $allowedDomains = $schema['allowed_domains'] ?? null;
+                $domain = is_string($value) && str_contains($value, '@') ? strtolower(substr(strrchr($value, '@'), 1)) : '';
                 if (! is_string($value) || filter_var($value, FILTER_VALIDATE_EMAIL) === false ||
-                    strlen($value) > 254) {
-                    $errors[] = ['code' => 'invalid_institutional_email', 'path' => $path];
+                    strlen($value) > 254 || ! is_array($allowedDomains) || $allowedDomains === [] ||
+                    ! in_array($domain, array_map('strtolower', $allowedDomains), true)) {
+                    $errors[] = ['code' => 'invalid_or_unapproved_institutional_email', 'path' => $path];
                 }
                 break;
 
@@ -425,9 +430,10 @@ final class TypedFieldValueValidator
                 break;
 
             case 'language_code':
+                $languageAllowlist = $schema['allowed_values'] ?? null;
                 if (! is_string($value) || preg_match('/^[a-z]{2,3}(?:-[A-Z]{2})?$/D', $value) !== 1 ||
-                    (is_array($schema['allowed_values'] ?? null) &&
-                        ! in_array($value, $schema['allowed_values'], true))) {
+                    ! is_array($languageAllowlist) || $languageAllowlist === [] ||
+                    ! in_array($value, $languageAllowlist, true)) {
                     $errors[] = ['code' => 'invalid_or_unapproved_language_code', 'path' => $path];
                 }
                 break;
