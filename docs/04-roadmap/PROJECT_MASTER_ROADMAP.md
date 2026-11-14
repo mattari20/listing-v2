@@ -60,13 +60,13 @@ The [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) is the authoritative detailed 
 
 | Step | Name | Weight | Status |
 |---|---|---:|---|
-| M3-00 | Mobilization and Decision Closure | 5% | In progress — documentation/planning only |
-| M3-01 | Implementation Planning and Authorization | 7% | Not started; explicit authorization gate |
-| M3-02 | Platform Foundation | 10% | Not started |
-| M3-03 | Core Data and Governance | 12% | Not started |
-| M3-04 | Provider Management | 8% | Not started |
-| M3-05 | Public Directory and Search | 10% | Not started |
-| M3-06 | Geography and Discovery | 7% | Not started |
+| M3-00 | Mobilization and Decision Closure | 5% | Accepted and closed; approved deferrals retained |
+| M3-01 | Implementation Planning and Authorization | 7% | Closed as planning/authorization milestone; later steps separately gated |
+| M3-02 | Platform Foundation | 10% | Accepted as Laravel platform foundation only |
+| M3-03 | Core Data and Governance | 12% | Complete for bounded synthetic local/CI scope |
+| M3-04 | Provider Management | 8% | P01–P04 complete for bounded synthetic local/CI scope |
+| M3-05 | Public Directory and Search | 10% | Complete for bounded synthetic local/CI scope — PR #189 |
+| M3-06 | Geography and Discovery | 7% | Not started; separate scope review and authorization required |
 | M3-07 | AI Data-Agent | 10% | Not started; source-specific gates |
 | M3-08 | Identity, Reviews and Security | 10% | Not started; reviews post-launch only |
 | M3-09 | Quality and Operational Hardening | 8% | Not started |

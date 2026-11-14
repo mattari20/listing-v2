@@ -4,9 +4,9 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-04 — Provider Management; P01–P04 merged and validated for bounded synthetic local/CI scope; M3-05 not started  
-**Plan status:** M3-03 final exit review accepted by Product Owner on 2026-11-14; G-01–G-03 closed for bounded synthetic scope and G-04 traceability owner-accepted with explicit residual deferrals; M3-04 P01–P04 implemented and merged; M3-05 awaits separate scope review and authorization  
-**Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 P01–P04 are implemented, validated and merged for bounded synthetic local/CI scope. M3-05 implementation, real/source data, external services, production and deployment remain separately gated.
+**Current step:** M3-05 — Public Directory and Search complete for bounded synthetic local/CI scope; M3-06 Geography and Discovery not started  
+**Plan status:** M3-03 final exit review accepted by Product Owner on 2026-11-14; G-01–G-03 closed for bounded synthetic scope and G-04 traceability owner-accepted with explicit residual deferrals; M3-04 P01–P04 implemented and merged; M3-05 separately authorized, implemented and merged as PR #189  
+**Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 P01–P04 and M3-05 are implemented, validated and merged for bounded synthetic local/CI scope. M3-06 geography/maps, real/source data, external services, production and deployment remain separately gated.
 
 ## 1. Purpose and governance
 
@@ -150,18 +150,24 @@ Conditional step. Requires separate explicit written approval for production acc
 - Keep blocked items visible with the precise owner input or external evidence required.
 - Do not reopen M2 unless a material defect is found; any correction must be tracked separately without silently changing accepted scope.
 
-## 8. Current execution status
+## 8. Current execution status — reconciled 2026-11-14
 
 - M0: Accepted and closed.
-- M1: Accepted and closed; primary participant research deferred.
+- M1: Accepted and closed as the documented research baseline; primary participant research remains deferred.
 - M2: 100% owner-accepted and closed.
-- M3-00: In progress at 10% weighted completion (T01 complete; T02 in progress after owner-approved owner-led/ChatGPT-assisted delivery model; T03 in progress after owner confirmed 10–15 hours/week as a planning baseline, flexible according to project demand and priority, with demand-led reviews/approvals; T02-T06 in progress with supporting frameworks delivered for T04-T06; T07-T08 open); owner acceptance pending.
-- M3-01 onward: Not started.
-- Application implementation: Not authorized.
-- Production access/deployment/launch: Not authorized.
+- M3-00: Accepted and closed as the mobilization/decision record, with approved deferrals preserved.
+- M3-01: Closed as the planning/authorization milestone; implementation scope remains separately gated by step.
+- M3-02: Accepted as the bounded Laravel platform foundation only; this does not imply production readiness.
+- M3-03: Accepted and closed for its bounded synthetic local/CI scope.
+- M3-04: P01–P04 implemented, validated and merged for bounded synthetic local/CI scope.
+- M3-05: Public Directory and Search implemented, validated and merged for bounded synthetic local/CI scope (PR #189).
+- M3-06: Geography and Discovery not started; requires its own scope review and explicit authorization.
+- M3-07–M3-10: Not started; source-specific, security, operational and pilot gates remain applicable.
+- M3-11: Conditional; production access, deployment, URL cutover and launch remain unauthorized.
 
-**M3-00 supporting artifact:** `M3-00_OWNER_DECISION_PACK.md` contains the owner/team input and decision templates. **Next eligible work:** resolve the open owner inputs and decision gates, then complete M3-00 readiness evidence. Do not begin M3-01 implementation work or application coding until the required authorization is recorded.
+**M3-05 evidence:** implementation PR #189 merged as `8a89c5666501e5cc1f8565b32fd40a2a3370d634`; exact PR head `1e4bd3be1d92ca1ba3a06fd7190d3a20de340c58` passed PHP 8.5 foundation CI #43557559498 and Project documentation validation #43557559518. Synthetic suite: 351 assertions, no failures, 107 non-fatal missing-`.env` warnings.
 
+**Next eligible work:** prepare M3-06 Geography and Discovery scope and acceptance gates, then obtain its separate implementation authorization. No M3-06 implementation is authorized by this closeout.
 
 ## PR #102 merge reconciliation — 2026-11-12
 

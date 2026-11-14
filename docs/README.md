@@ -28,7 +28,9 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [Documentation Completion Catalogue](04-roadmap/DOCUMENTATION_CATALOG.md) — owner-facing list of delivered, reviewed, accepted and planned documents; updated after every documentation PR update and merge.
 
 ## Implementation records
-- [FND-01 Laravel 13 Foundation Implementation Record](05-implementation/FND-01_IMPLEMENTATION_RECORD.md) — local/CI-only foundation, synthetic tests, safety boundaries and pending acceptance evidence
+- [FND-01 Laravel 13 Foundation Implementation Record](05-implementation/FND-01_IMPLEMENTATION_RECORD.md) — local/CI-only foundation, synthetic tests and safety boundaries
+- [M3-05 Public Directory and Search Work Plan](04-roadmap/M3-05_PUBLIC_DIRECTORY_SEARCH_WORK_PLAN.md) — completed public browsing/search scope, allowlist and acceptance contract
+- [M3-05 Public Directory and Search Implementation Record](04-roadmap/M3-05_PUBLIC_DIRECTORY_SEARCH_IMPLEMENTATION_RECORD.md) — merged anonymous directory routes, query service, profile pages and exact-head CI evidence
 
 ## Research and delivery
 - [Open-Source Reuse Audit](03-research/OPEN_SOURCE_REUSE_AUDIT.md)

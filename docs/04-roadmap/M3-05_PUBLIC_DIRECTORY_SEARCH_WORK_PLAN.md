@@ -1,14 +1,14 @@
 # M3-05 — Public Directory and Search Work Plan
 
 **Date:** 2026-11-14  
-**Repository:** \`mattari20/listing-v2\`  
-**Status:** Implementation in progress on an isolated branch; exact-head CI and merge pending  
-**Baseline:** \`1dd0b89084a45c3b89ad2663760964522b5c6ff6\`  
+**Repository:** `mattari20/listing-v2`  
+**Status:** COMPLETE — implementation merged and exact-head validation passed (PR #189)  
+**Baseline:** `1dd0b89084a45c3b89ad2663760964522b5c6ff6`  
 **Authorization:** Product Owner authorized M3-05 implementation and closeout in the current conversation on 2026-11-14, bounded to synthetic local/CI implementation and the approved roadmap scope.
 
 ## 1. Outcome and scope
 
-Deliver anonymous-first, server-rendered public directory browsing, text search, category filters and entity profile pages. Every displayed fact must originate from a current, accepted claim version and a current approved publication projection for surface \`directory\` and audience \`anonymous\`.
+Deliver anonymous-first, server-rendered public directory browsing, text search, category filters and entity profile pages. Every displayed fact must originate from a current, accepted claim version and a current approved publication projection for surface `directory` and audience `anonymous`.
 
 Included:
 - Anonymous HTML directory landing/search page and UUID profile page.
@@ -31,23 +31,23 @@ Excluded / separately gated:
 ## 2. Public-field allowlist
 
 Only these published claim predicates may be returned:
-- Identity: \`display_name\`, \`common_name\`, \`official_name\`.
-- Public description: \`overview\`.
-- Public contact/location: \`official_website\`, \`public_contact_phone\`, \`public_contact_email\`, \`public_address\`.
-- Education classification: \`education_level\`, \`provider_type\`, \`programme_title\`, \`programme_level\`.
+- Identity: `display_name`, `common_name`, `official_name`.
+- Public description: `overview`.
+- Public contact/location: `official_website`, `public_contact_phone`, `public_contact_email`, `public_address`.
+- Education classification: `education_level`, `provider_type`, `programme_title`, `programme_level`.
 
-Every other predicate is omitted even if an approved snapshot exists. Values must be scalar strings/numbers (or a scalar \`value\` member), non-empty and capped at 2,000 characters. Profile name is chosen conservatively from a single unambiguous display name, then common name, then official name; conflicting values in the selected name predicate suppress that entity from public results.
+Every other predicate is omitted even if an approved snapshot exists. Values must be scalar strings/numbers (or a scalar `value` member), non-empty and capped at 2,000 characters. Profile name is chosen conservatively from a single unambiguous display name, then common name, then official name; conflicting values in the selected name predicate suppress that entity from public results.
 
 ## 3. Eligibility contract
 
 A result is visible only when:
-1. Projection status is \`approved\`, surface \`directory\`, audience \`anonymous\`.
-2. Snapshot status is \`projected\`, and its surface/audience match.
-3. Publication decision is \`approved\` for the same surface/audience.
-4. Claim version is \`accepted\`, has no successor, and its snapshot is the latest snapshot for that version/surface/audience.
+1. Projection status is `approved`, surface `directory`, audience `anonymous`.
+2. Snapshot status is `projected`, and its surface/audience match.
+3. Publication decision is `approved` for the same surface/audience.
+4. Claim version is `accepted`, has no successor, and its snapshot is the latest snapshot for that version/surface/audience.
 5. No active suppression exists for the snapshot.
-6. Every linked evidence reference remains \`eligible_for_review\`; every source authorization remains approved, unrevoked, within its validity window and permits publication for the directory purpose and approved-projection method.
-7. Snapshot payload confirms the anonymous directory surface, the same predicate and \`is_deeni_madaris=false\`.
+6. Every linked evidence reference remains `eligible_for_review`; every source authorization remains approved, unrevoked, within its validity window and permits publication for the directory purpose and approved-projection method.
+7. Snapshot payload confirms the anonymous directory surface, the same predicate and `is_deeni_madaris=false`.
 8. Entity type is one of provider, institution, campus, programme or qualification. Deeni Madaris and authority-only entities are not public result categories in this step.
 9. The predicate is allowlisted and value safely serializable.
 
@@ -55,7 +55,7 @@ No raw evidence, unapproved claim, private metadata or unsupported entity label 
 
 ## 4. User journeys and acceptance criteria
 
-- Anonymous visitor can load \`/directory\` without login or location permission.
+- Anonymous visitor can load `/directory` without login or location permission.
 - Visitor can search by a name or allowlisted published fact using conservative Unicode substring matching.
 - Visitor can filter by the five supported entity categories; category facets/counts are calculated from the same eligible population.
 - Visitor can open an entity profile only when it has a current published, unambiguous public name.
@@ -68,7 +68,7 @@ No raw evidence, unapproved claim, private metadata or unsupported entity label 
 
 ## 5. Architecture and implementation
 
-Use a read-only \`PublicDirectoryQueryService\` over the existing authoritative publication/projection tables. No new physical table, migration, write workflow, search index or third-party service is required for this first database-native slice. A controller and Blade views provide anonymous HTML. Search is a conservative database-backed read over eligible projections with server-side pagination and request throttling; a dedicated engine remains undecided. Dataset-scale query optimization and load benchmarking remain M3-09 work.
+Use a read-only `PublicDirectoryQueryService` over the existing authoritative publication/projection tables. No new physical table, migration, write workflow, search index or third-party service is required for this first database-native slice. A controller and Blade views provide anonymous HTML. Search is a conservative database-backed read over eligible projections with server-side pagination and request throttling; a dedicated engine remains undecided. Dataset-scale query optimization and load benchmarking remain M3-09 work.
 
 ## 6. Risks and limitations
 
@@ -81,3 +81,24 @@ Use a read-only \`PublicDirectoryQueryService\` over the existing authoritative 
 ## 7. Safety
 
 No production, V1, Hostinger/hPanel, live database, real/source/provider/student/person data, source acquisition, external API/AI, map/geocoder, deployment, procurement or additional spend is included.
+
+
+## 8. Completion evidence — 2026-11-14
+
+Implementation PR [#189](https://github.com/mattari20/listing-v2/pull/189) merged as `8a89c5666501e5cc1f8565b32fd40a2a3370d634`. Validated PR head: `1e4bd3be1d92ca1ba3a06fd7190d3a20de340c58`.
+
+Exact-head required checks:
+- FND-01 PHP 8.5 foundation CI [#43557559498](https://github.com/mattari20/listing-v2/actions/runs/43557559498) — **SUCCESS**.
+- Project documentation validation [#43557559518](https://github.com/mattari20/listing-v2/actions/runs/43557559518) — **SUCCESS**.
+
+The full synthetic suite completed with **351 assertions and no test failures**. It reported **107 non-fatal warnings** from the existing test harness attempting to read the intentionally absent local `.env` file. PHP formatting, Composer/dependency advisory checks, Laravel bootstrap/routes and repository artifact hygiene passed. The first CI attempt identified that Laravel's compiled Blade view directory was not tracked; `storage/framework/views/.gitignore` was added and the rerun passed.
+
+Review-thread inspection found no unresolved threads and no submitted reviews. PR #189 was merged using the expected-head SHA guard. M3-05 is complete for its bounded synthetic local/CI scope.
+
+## 9. Exit disposition
+
+- Anonymous browse/search, category facets and UUID profile pages are implemented.
+- Only current approved anonymous-directory projections and allowlisted predicates are exposed.
+- Suppressed, superseded, pending-newer-snapshot, revoked/expired-source and restricted-category fixtures are excluded.
+- Geography/maps remain M3-06; performance/load and formal accessibility/security hardening remain M3-09; production release remains M3-11 with separate authorization.
+- No real/source data, V1, Hostinger/hPanel, production database, external service, deployment, public release or additional spend was used.
