@@ -9,7 +9,16 @@ use Illuminate\Validation\ValidationException;
 
 final class ProviderInstitutionRelationshipPolicy
 {
+    private const ENTITY_TYPES = ['provider', 'institution', 'campus', 'delivery_site', 'programme', 'qualification', 'authority', 'awarding_body'];
+
     private const PREDICATES = ['operates', 'owns', 'administers'];
+
+    public function assertEntityType(string $entityType): void
+    {
+        if (in_array($entityType, self::ENTITY_TYPES, true) === false) {
+            throw ValidationException::withMessages(['entity_type' => 'Entity type is not part of the controlled directory vocabulary.']);
+        }
+    }
 
     public function assertPredicate(string $predicate): void
     {
@@ -20,6 +29,8 @@ final class ProviderInstitutionRelationshipPolicy
 
     public function assertEndpoints(string $fromType, string $toType, string $predicate): void
     {
+        $this->assertEntityType($fromType);
+        $this->assertEntityType($toType);
         $this->assertPredicate($predicate);
         if ($fromType !== 'provider' || $toType !== 'institution') {
             throw ValidationException::withMessages(['endpoints' => 'P01 relationships must be directed from Provider to Institution.']);
