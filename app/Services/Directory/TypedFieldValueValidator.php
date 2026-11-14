@@ -348,13 +348,19 @@ final class TypedFieldValueValidator
             case 'decimal':
                 $scale = $schema['scale'] ?? null;
                 $precision = $schema['precision'] ?? null;
+                $minimumComparison = isset($schema['minimum'])
+                    ? $this->compareDecimalValues($value, $schema['minimum'])
+                    : 0;
+                $maximumComparison = isset($schema['maximum'])
+                    ? $this->compareDecimalValues($value, $schema['maximum'])
+                    : 0;
 
                 if ((is_string($value) === false && is_int($value) === false) ||
                     is_int($scale) === false || $scale < 0 || $scale > 8 ||
                     is_int($precision) === false || $precision < 1 || $precision > 18 ||
                     $this->matchesDecimal((string) $value, $scale, $precision) === false ||
-                    (isset($schema['minimum']) && (float) $value < (float) $schema['minimum']) ||
-                    (isset($schema['maximum']) && (float) $value > (float) $schema['maximum'])) {
+                    (isset($schema['minimum']) && ($minimumComparison === null || $minimumComparison < 0)) ||
+                    (isset($schema['maximum']) && ($maximumComparison === null || $maximumComparison > 0))) {
                     $errors[] = ['code' => 'invalid_fixed_precision_decimal', 'path' => $path];
                 }
 
@@ -571,6 +577,59 @@ final class TypedFieldValueValidator
         }
 
         return $errors;
+    }
+
+    /**
+     * Compare decimal strings without converting through binary floating point.
+     * Returns null for unsupported or malformed operands.
+     */
+    private function compareDecimalValues(mixed $left, mixed $right): ?int
+    {
+        if ((is_string($left) === false && is_int($left) === false) ||
+            (is_string($right) === false && is_int($right) === false)) {
+            return null;
+        }
+
+        $normalize = static function (string $value): ?array {
+            if (preg_match('/^(-?)([0-9]+)(?:\\.([0-9]+))?$/D', $value, $matches) !== 1) {
+                return null;
+            }
+
+            $integer = ltrim($matches[2], '0');
+            $fraction = rtrim($matches[3] ?? '', '0');
+
+            return [
+                'negative' => $matches[1] === '-' && ($integer !== '' || $fraction !== ''),
+                'integer' => $integer === '' ? '0' : $integer,
+                'fraction' => $fraction,
+            ];
+        };
+
+        $a = $normalize((string) $left);
+        $b = $normalize((string) $right);
+
+        if ($a === null || $b === null) {
+            return null;
+        }
+
+        if ($a['negative'] !== $b['negative']) {
+            return $a['negative'] ? -1 : 1;
+        }
+
+        $magnitude = strlen($a['integer']) <=> strlen($b['integer']);
+
+        if ($magnitude === 0) {
+            $magnitude = strcmp($a['integer'], $b['integer']) <=> 0;
+        }
+
+        if ($magnitude === 0) {
+            $fractionLength = max(strlen($a['fraction']), strlen($b['fraction']));
+            $leftFraction = str_pad($a['fraction'], $fractionLength, '0');
+            $rightFraction = str_pad($b['fraction'], $fractionLength, '0');
+            $magnitude = strcmp($leftFraction, $rightFraction) <=> 0;
+        }
+
+        return $a['negative'] ? -$magnitude : $magnitude;
     }
 
     private function matchesDecimal(string $value, int $scale, int $precision): bool
