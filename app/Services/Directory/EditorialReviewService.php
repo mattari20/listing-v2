@@ -40,7 +40,7 @@ final class EditorialReviewService
             $claim = DB::table('claim_versions')->join('claims', 'claims.id', '=', 'claim_versions.claim_id')
                 ->where('claim_versions.id', $claimVersionId)->first(['claims.subject_entity_id']);
             if ($claim === null || (string) $claim->subject_entity_id !== $entityId ||
-                ! DB::table('directory_entities')->where('id', $entityId)->exists()) {
+                !DB::table('directory_entities')->where('id', $entityId)->exists()) {
                 $this->reject('proposal', 'The claim version must belong to the submitted directory entity.');
             }
 
@@ -61,6 +61,7 @@ final class EditorialReviewService
     public function startReview(array $actor, string $caseId, string $idempotencyKey): void
     {
         $this->requireHuman($actor, 'review_directory_proposal');
+        $this->required($idempotencyKey, 'idempotency_key');
         DB::transaction(function () use ($actor, $caseId, $idempotencyKey): void {
             $case = $this->caseFor($caseId);
             $fingerprint = $this->fingerprint(['review_started', $caseId, $actor['actor_id']]);
@@ -83,7 +84,8 @@ final class EditorialReviewService
     public function completeReview(array $actor, string $caseId, string $outcome, string $reasonCode, string $rationale, string $idempotencyKey): void
     {
         $this->requireHuman($actor, 'review_directory_proposal');
-        if (! in_array($outcome, ['ready_for_adjudication', 'changes_requested', 'held'], true) ||
+        $this->required($idempotencyKey, 'idempotency_key');
+        if (!in_array($outcome, ['ready_for_adjudication', 'changes_requested', 'held'], true) ||
             trim($reasonCode) === '' || trim($rationale) === '') {
             $this->reject('review', 'A supported review outcome, reason and rationale are required.');
         }
@@ -122,6 +124,7 @@ final class EditorialReviewService
         string $reasonCode, string $rationale, string $policyVersion, string $idempotencyKey): string
     {
         $this->requireHuman($actor, 'adjudicate_claim');
+        $this->required($idempotencyKey, 'idempotency_key');
         return DB::transaction(function () use ($actor, $caseId, $adjudicationCaseId, $outcome, $reasonCode, $rationale, $policyVersion, $idempotencyKey): string {
             $case = $this->caseFor($caseId);
             $fingerprint = $this->fingerprint(['adjudicate', $caseId, $adjudicationCaseId, $actor['actor_id'], $outcome, $reasonCode, $rationale, $policyVersion]);
@@ -152,6 +155,7 @@ final class EditorialReviewService
     public function approve(array $actor, string $caseId, string $surface, string $audience, string $policyVersion, string $idempotencyKey): string
     {
         $this->requireHuman($actor, 'authorize_publication');
+        $this->required($idempotencyKey, 'idempotency_key');
         return DB::transaction(function () use ($actor, $caseId, $surface, $audience, $policyVersion, $idempotencyKey): string {
             $case = $this->caseFor($caseId);
             $fingerprint = $this->fingerprint(['approve', $caseId, $actor['actor_id'], $surface, $audience, $policyVersion]);
@@ -182,7 +186,7 @@ final class EditorialReviewService
         return DB::transaction(function () use ($actor, $caseId, $snapshotId, $reasonCode, $rationale): string {
             $case = $this->caseFor($caseId);
             $snapshot = DB::table('publication_snapshots')->where('id', $snapshotId)->first();
-            if (! in_array($case->status, ['approved', 'restored'], true) || $snapshot === null ||
+            if (!in_array($case->status, ['approved', 'restored'], true) || $snapshot === null ||
                 $snapshot->claim_version_id !== $case->claim_version_id) {
                 $this->reject('suppression', 'Only the approved case publication may be suppressed.');
             }
@@ -264,7 +268,7 @@ final class EditorialReviewService
             $event = DB::table('audit_events')->where('target_type', 'evidence_reference')->where('target_id', $id)
                 ->where('action', 'evidence_reference_registered')->first();
             $metadata = $event === null ? [] : (json_decode((string) $event->metadata, true) ?: []);
-            if (! empty($metadata['actor_id'])) {
+            if (!empty($metadata['actor_id'])) {
                 $actors[] = (string) $metadata['actor_id'];
             }
         }
