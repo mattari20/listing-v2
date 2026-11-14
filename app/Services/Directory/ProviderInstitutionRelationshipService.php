@@ -17,7 +17,9 @@ final class ProviderInstitutionRelationshipService
         $this->policy->assertPredicate($predicate);
         $this->policy->assertValidDates($validFrom, $validTo);
         $this->assertEndpoints($providerId, $institutionId, $predicate);
-        if ($providerId === $institutionId || $evidenceIds === []) throw ValidationException::withMessages(['relationship' => 'Distinct endpoints and supporting evidence are required.']);
+        if ($providerId === $institutionId || $evidenceIds === []) {
+            throw ValidationException::withMessages(['relationship' => 'Distinct endpoints and supporting evidence are required.']);
+        }
         return $this->governance->registerProposedClaim($actor, $providerId, 'provider_institution_relationship',
             $this->policy->value($providerId, $institutionId, $predicate, $scope, $jurisdiction), $evidenceIds, $context, $idempotencyKey, $validFrom, $validTo);
     }
@@ -25,27 +27,47 @@ final class ProviderInstitutionRelationshipService
     public function materializeAcceptedRelationship(array $actor, string $versionId, string $idempotencyKey): string
     {
         $capability = (new GovernancePolicy)->requireCapability($actor, 'materialize_relationship');
-        if (!$capability['allowed'] || ($actor['actor_class'] ?? null) !== 'human') throw ValidationException::withMessages(['actor' => 'A human materialize_relationship capability is required.']);
-        if (trim($idempotencyKey) === '') throw ValidationException::withMessages(['idempotency_key' => 'An idempotency key is required.']);
+        if (! $capability['allowed'] || ($actor['actor_class'] ?? null) !== 'human') {
+            throw ValidationException::withMessages(['actor' => 'A human materialize_relationship capability is required.']);
+        }
+        if (trim($idempotencyKey) === '') {
+            throw ValidationException::withMessages(['idempotency_key' => 'An idempotency key is required.']);
+        }
         return DB::transaction(function () use ($actor, $versionId, $idempotencyKey): string {
             $fingerprint = hash('sha256', json_encode([$actor['actor_id'], $versionId], JSON_THROW_ON_ERROR));
             $prior = DB::table('audit_events')->where('action', 'provider_institution_relationship_materialized')->where('metadata->idempotency_key', $idempotencyKey)->first(['target_id', 'metadata']);
             if ($prior !== null) {
                 $metadata = json_decode((string) $prior->metadata, true) ?: [];
-                if (($metadata['fingerprint'] ?? null) !== $fingerprint || ($metadata['actor_id'] ?? null) !== $actor['actor_id']) throw ValidationException::withMessages(['idempotency_key' => 'Key reused for a different materialization.']);
+                if (($metadata['fingerprint'] ?? null) !== $fingerprint || ($metadata['actor_id'] ?? null) !== $actor['actor_id']) {
+                    throw ValidationException::withMessages(['idempotency_key' => 'Key reused for a different materialization.']);
+                }
                 return (string) $prior->target_id;
             }
             $version = DB::table('claim_versions')->where('id', $versionId)->lockForUpdate()->first();
-            if ($version === null || $version->disposition !== 'accepted' || DB::table('claim_versions')->where('supersedes_version_id', $versionId)->exists()) throw ValidationException::withMessages(['claim_version' => 'A current accepted claim version is required.']);
+            if ($version === null || $version->disposition !== 'accepted' || DB::table('claim_versions')->where('supersedes_version_id', $versionId)->exists()) {
+                throw ValidationException::withMessages(['claim_version' => 'A current accepted claim version is required.']);
+            }
             $claim = DB::table('claims')->where('id', $version->claim_id)->first();
-            if ($claim === null || $claim->predicate !== 'provider_institution_relationship') throw ValidationException::withMessages(['claim' => 'Not a Provider–Institution assertion.']);
+            if ($claim === null || $claim->predicate !== 'provider_institution_relationship') {
+                throw ValidationException::withMessages(['claim' => 'Not a Provider–Institution assertion.']);
+            }
             $accepted = DB::table('adjudication_decisions')->join('adjudication_cases', 'adjudication_cases.id', '=', 'adjudication_decisions.adjudication_case_id')->where('adjudication_cases.claim_version_id', $versionId)->where('adjudication_decisions.outcome', 'accepted')->where('adjudication_decisions.actor_class', 'human')->exists();
-            if (!$accepted) throw ValidationException::withMessages(['adjudication' => 'Persisted human acceptance is required.']);
+            if (! $accepted) {
+                throw ValidationException::withMessages(['adjudication' => 'Persisted human acceptance is required.']);
+            }
             $evidence = DB::table('claim_evidence_links')->join('evidence_references', 'evidence_references.id', '=', 'claim_evidence_links.evidence_reference_id')->join('source_authorizations', 'source_authorizations.id', '=', 'evidence_references.source_authorization_id')->where('claim_evidence_links.claim_version_id', $versionId)->get(['evidence_references.status', 'source_authorizations.revoked_at']);
-            if ($evidence->isEmpty()) throw ValidationException::withMessages(['evidence' => 'Admissible evidence is required.']);
-            foreach ($evidence as $row) if ($row->status !== 'eligible_for_review' || $row->revoked_at !== null) throw ValidationException::withMessages(['evidence' => 'Evidence must remain admissible and unrevoked.']);
+            if ($evidence->isEmpty()) {
+                throw ValidationException::withMessages(['evidence' => 'Admissible evidence is required.']);
+            }
+            foreach ($evidence as $row) {
+                if ($row->status !== 'eligible_for_review' || $row->revoked_at !== null) {
+                    throw ValidationException::withMessages(['evidence' => 'Evidence must remain admissible and unrevoked.']);
+                }
+            }
             $value = json_decode((string) $version->value, true);
-            if (!is_array($value)) throw ValidationException::withMessages(['claim_value' => 'Invalid relationship value.']);
+            if (! is_array($value)) {
+                throw ValidationException::withMessages(['claim_value' => 'Invalid relationship value.']);
+            }
             $from = (string) ($value['from_entity_id'] ?? '');
             $to = (string) ($value['to_entity_id'] ?? '');
             $predicate = (string) ($value['relationship_type'] ?? '');
@@ -53,14 +75,18 @@ final class ProviderInstitutionRelationshipService
             $jurisdiction = $value['jurisdiction'] ?? null;
             $this->policy->assertPredicate($predicate);
             $this->policy->assertValidDates($version->valid_from, $version->valid_to);
-            if ($claim->subject_entity_id !== $from || $from === $to) throw ValidationException::withMessages(['endpoints' => 'Claim subject must be the distinct Provider source.']);
+            if ($claim->subject_entity_id !== $from || $from === $to) {
+                throw ValidationException::withMessages(['endpoints' => 'Claim subject must be the distinct Provider source.']);
+            }
             $this->assertEndpoints($from, $to, $predicate);
             $duplicate = DB::table('entity_relationships')->where('from_entity_id', $from)->where('to_entity_id', $to)->where('relationship_type', $predicate);
             $scope === null ? $duplicate->whereNull('scope') : $duplicate->where('scope', $scope);
             $jurisdiction === null ? $duplicate->whereNull('jurisdiction') : $duplicate->where('jurisdiction', $jurisdiction);
             $version->valid_from === null ? $duplicate->whereNull('valid_from') : $duplicate->where('valid_from', $version->valid_from);
             $version->valid_to === null ? $duplicate->whereNull('valid_to') : $duplicate->where('valid_to', $version->valid_to);
-            if ($duplicate->exists()) throw ValidationException::withMessages(['relationship' => 'An identical relationship assertion already exists.']);
+            if ($duplicate->exists()) {
+                throw ValidationException::withMessages(['relationship' => 'An identical relationship assertion already exists.']);
+            }
             $id = (string) Str::uuid(); $now = now();
             DB::table('entity_relationships')->insert([
                 'id' => $id, 'from_entity_id' => $from, 'to_entity_id' => $to, 'relationship_type' => $predicate,
@@ -80,7 +106,9 @@ final class ProviderInstitutionRelationshipService
     private function assertEndpoints(string $providerId, string $institutionId, string $predicate): void
     {
         $entities = DB::table('directory_entities')->whereIn('id', [$providerId, $institutionId])->get(['id', 'entity_type'])->keyBy('id');
-        if (!$entities->has($providerId) || !$entities->has($institutionId)) throw ValidationException::withMessages(['endpoints' => 'Both endpoints must exist.']);
+        if (! $entities->has($providerId) || ! $entities->has($institutionId)) {
+            throw ValidationException::withMessages(['endpoints' => 'Both endpoints must exist.']);
+        }
         $this->policy->assertEndpoints((string) $entities[$providerId]->entity_type, (string) $entities[$institutionId]->entity_type, $predicate);
     }
 }

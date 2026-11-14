@@ -26,7 +26,9 @@ final class ProviderInstitutionRelationshipPolicy
     public function assertValidDates(?string $from, ?string $to): void
     {
         foreach (['valid_from' => $from, 'valid_to' => $to] as $field => $date) {
-            if ($date === null) continue;
+            if ($date === null) {
+                continue;
+            }
             try { $parsed = CarbonImmutable::parse($date); } catch (\Throwable) {
                 throw ValidationException::withMessages([$field => 'A valid ISO calendar date is required.']);
             }
