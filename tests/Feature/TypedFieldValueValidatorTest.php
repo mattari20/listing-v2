@@ -75,8 +75,12 @@ class TypedFieldValueValidatorTest extends TestCase
 
     public function test_date_range_requires_valid_ordered_iso_dates(): void
     {
-        self::assertTrue($this->validateType('date_range', ['start' => '2026-01-01', 'end' => '2026-12-31'])['valid']);
-        self::assertFalse($this->validateType('date_range', ['start' => '2026-12-31', 'end' => '2026-01-01'])['valid']);
+        self::assertTrue($this->validateType('date_range', ['start' => '2026-01-01', 'end' => '2026-12-31'], [
+            'schema_version' => 1, 'end_inclusive' => true,
+        ])['valid']);
+        self::assertFalse($this->validateType('date_range', ['start' => '2026-12-31', 'end' => '2026-01-01'], [
+            'schema_version' => 1, 'end_inclusive' => true,
+        ])['valid']);
     }
 
     public function test_urls_email_and_phone_are_restricted_to_safe_normalized_forms(): void
@@ -84,7 +88,9 @@ class TypedFieldValueValidatorTest extends TestCase
         self::assertTrue($this->validateType('url', 'https://example.edu')['valid']);
         self::assertFalse($this->validateType('url', 'javascript:alert(1)')['valid']);
         self::assertFalse($this->validateType('url', 'https://user:pass@example.edu')['valid']);
-        self::assertTrue($this->validateType('email', 'office@example.edu')['valid']);
+        self::assertTrue($this->validateType('email', 'office@example.edu', [
+            'schema_version' => 1, 'allowed_domains' => ['example.edu'],
+        ])['valid']);
         self::assertFalse($this->validateType('email', 'not-an-email')['valid']);
         self::assertTrue($this->validateType('phone', '+923001234567')['valid']);
         self::assertFalse($this->validateType('phone', '03001234567')['valid']);
@@ -94,8 +100,12 @@ class TypedFieldValueValidatorTest extends TestCase
     {
         self::assertTrue($this->validateType('enum', 'onsite', ['schema_version' => 1, 'allowed_values' => ['onsite', 'online']])['valid']);
         self::assertFalse($this->validateType('enum', 'hybrid', ['schema_version' => 1, 'allowed_values' => ['onsite', 'online']])['valid']);
-        self::assertTrue($this->validateType('language_code', 'ur-PK')['valid']);
-        self::assertFalse($this->validateType('language_code', 'unknown_language')['valid']);
+        self::assertTrue($this->validateType('language_code', 'ur-PK', [
+            'schema_version' => 1, 'allowed_values' => ['en', 'ur-PK'],
+        ])['valid']);
+        self::assertFalse($this->validateType('language_code', 'unknown_language', [
+            'schema_version' => 1, 'allowed_values' => ['en', 'ur-PK'],
+        ])['valid']);
         self::assertTrue($this->validateType('entity_reference', [
             'id' => '123e4567-e89b-42d3-a456-426614174000',
             'entity_type' => 'campus',
@@ -174,6 +184,14 @@ class TypedFieldValueValidatorTest extends TestCase
         self::assertFalse($this->validator->validate($this->definition(), 'synthetic', $this->context([
             'data_classes' => ['student_record'],
         ]))['valid']);
+    }
+
+    public function test_malformed_schema_fails_closed_without_runtime_errors(): void
+    {
+        $definition = $this->definition(['validation_schema' => 'not-a-schema']);
+        $result = $this->validator->validate($definition, 'valid', $this->context());
+        self::assertFalse($result['valid']);
+        self::assertContains('invalid_validation_schema', array_column($result['errors'], 'code'));
     }
 
     public function test_validation_is_pure_and_returns_safe_reason_codes_only(): void
