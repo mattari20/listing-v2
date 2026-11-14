@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-14 — M3-03 Agendas 6–9 closed within bounded synthetic scopes; PR #169 exit reconciliation merged; Agenda 10 authorized and implementation candidate pending exact-head CI
+**Last reconciled:** 2026-11-14 — M3-03 Agendas 6–10 closed within bounded synthetic scopes; PR #169 exit reconciliation and PR #170 Agenda 10 implementation merged; G-04 remains open
 
 ## Purpose and maintenance rule
 
@@ -868,3 +868,13 @@ Agenda 9 closeout: PR #167 merged as `91c15204fb41ba5cc5a29b99a2dca80e983adc9d`;
 | [Agenda 10 Persisted Conflict Lifecycle, Temporal Evaluation and Prior-Snapshot Rollback](M3-03_AGENDA_10_PERSISTED_CONFLICT_LIFECYCLE_TEMPORAL_EVALUATION_AND_ROLLBACK.md) | Authorized synthetic-only implementation scope, persisted conflict/candidate model, temporal evaluation, human resolution, prior-snapshot rollback, test evidence and remaining gates | Delivered — implementation candidate; exact-head CI/review/merge pending |
 
 PR #169 exit reconciliation merged as \`799adb9c64f6ad45739b847f4bab80e947f83752\`. Agenda 10 is authorized and in implementation review; do not mark accepted/closed until exact-head PHP 8.5 foundation CI and Project documentation validation pass, reviews are reconciled and the expected-head merge is verified.
+
+
+## M3-03 Agenda 10 — completed implementation and closeout
+
+| Document | Purpose | Status |
+|---|---|---|
+| [Agenda 10 Persisted Conflict Lifecycle, Temporal Evaluation and Prior-Snapshot Rollback](M3-03_AGENDA_10_PERSISTED_CONFLICT_LIFECYCLE_TEMPORAL_EVALUATION_AND_ROLLBACK.md) | Authorized implementation scope, conflict/candidate persistence, temporal evaluation, human resolution, rollback and limitations | Accepted — bounded synthetic scope; PR #170 merged |
+| [Agenda 10 Completion and Evidence Record](M3-03_AGENDA_10_COMPLETION_AND_EVIDENCE_RECORD.md) | PR #170 merge SHA, exact-head CI/test evidence, review reconciliation, acceptance matrix and retained M3-03 gates | Accepted — 2026-11-14 |
+
+PR #170 merged as \`1a4f37303913163a4866f660c469078802a7a4ed\` from exact head \`390bead3f28ccc64520d92b7c636455c08fd93a4\`. Exact-head FND-01 run #43531770613 and Project documentation validation #43531770710 passed. Agenda 10 is closed for its bounded scope; M3-03 remains in progress pending G-04 and owner acceptance.

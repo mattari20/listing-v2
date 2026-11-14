@@ -112,3 +112,18 @@ The Product Owner explicitly authorized the exact bounded Agenda 10 scope descri
 Agenda 10 implementation is now on \`feature/m3-03-agenda-10-conflicts-rollback\`. The implementation candidate adds first-class persisted conflicts/candidates, pairwise valid-time overlap evaluation, recorded-time provenance without recency winner selection, human adjudication linkage and independent resolution, and a separately audited prior-approved-snapshot rollback delivered through the existing transactional outbox with current-policy rechecks.
 
 The candidate addresses G-01, G-02 and G-03 subject to passing exact-head CI. G-04 remains outstanding: the original T-001–T-032 and GS-001–GS-032 catalogues still require explicit runtime-test/deferral traceability and must not be described as 32 persisted end-to-end workflows. M3-03 remains **IN PROGRESS**; M3-04 remains blocked. Agenda 10 is not closed until its exact-head checks, review reconciliation and expected-head merge are complete.
+
+
+## 8. Agenda 10 completion reconciliation — 2026-11-14
+
+Agenda 10 is **COMPLETED** for the authorized bounded synthetic local/CI scope. PR [#170](https://github.com/mattari20/listing-v2/pull/170) merged as \`1a4f37303913163a4866f660c469078802a7a4ed\` from exact validated head \`390bead3f28ccc64520d92b7c636455c08fd93a4\`.
+
+Exact-head FND-01 PHP 8.5 foundation CI [#43531770613](https://github.com/mattari20/listing-v2/actions/runs/43531770613) and Project documentation validation [#43531770710](https://github.com/mattari20/listing-v2/actions/runs/43531770710) passed. Synthetic suite: 209 assertions, no failures; 50 non-fatal missing-local-\`.env\` warnings. Review threads were clear, no review submissions were present, and the expected-head SHA merge guard was used.
+
+**Gap disposition:**
+- G-01 persisted conflict/candidate lifecycle: **closed** for bounded synthetic scope.
+- G-02 valid-time overlap/non-overlap and recorded-time conflict evaluation: **closed** for bounded synthetic scope.
+- G-03 explicit prior-approved-snapshot rollback with audit/outbox lineage and current-policy rechecks: **closed** for bounded synthetic scope.
+- G-04 deterministic-oracle traceability: **open**. T-001–T-032 and GS-001–GS-032 still require explicit mapping to runtime tests, partial coverage or deferral; the catalogues are not 32 completed end-to-end workflows.
+
+Therefore M3-03 remains **IN PROGRESS**. M3-04 Provider Management entry remains closed until G-04 is reconciled and the complete M3-03 exit criteria are reviewed and accepted. No M3-04 implementation or production/source/external/deployment activity is authorized by this closeout.

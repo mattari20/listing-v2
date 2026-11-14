@@ -1,7 +1,7 @@
 # M3-03 Agenda 10 — Persisted Conflict Lifecycle, Temporal Evaluation and Prior-Snapshot Rollback
 
 **Date:** 2026-11-14  
-**Status:** IMPLEMENTATION CANDIDATE — exact-head CI and review pending  
+**Status:** COMPLETED — bounded synthetic local/CI scope  
 **Repository:** \`mattari20/listing-v2\`  
 **Branch:** \`feature/m3-03-agenda-10-conflicts-rollback\`  
 **Baseline:** PR #169 merge \`799adb9c64f6ad45739b847f4bab80e947f83752\`
@@ -82,3 +82,15 @@ Before merge:
 Until that protocol is complete, Agenda 10 is an implementation candidate, not closed.
 
 No production, source data, external service/AI, public endpoint, deployment or spend was used.
+
+
+## 6. Final completion evidence — 2026-11-14
+
+Agenda 10 is **COMPLETED**. Implementation PR [#170](https://github.com/mattari20/listing-v2/pull/170) merged as \`1a4f37303913163a4866f660c469078802a7a4ed\` from exact validated head \`390bead3f28ccc64520d92b7c636455c08fd93a4\`.
+
+- FND-01 PHP 8.5 foundation CI [#43531770613](https://github.com/mattari20/listing-v2/actions/runs/43531770613): **success**.
+- Project documentation validation [#43531770710](https://github.com/mattari20/listing-v2/actions/runs/43531770710): **success**.
+- Synthetic suite: 209 assertions, no failures; 50 non-fatal missing-local-\`.env\` warnings.
+- Review threads clear; no review submissions; expected-head SHA merge guard used.
+
+See [Agenda 10 Completion and Evidence Record](M3-03_AGENDA_10_COMPLETION_AND_EVIDENCE_RECORD.md). G-01 through G-03 are closed for the bounded synthetic scope. G-04 deterministic-oracle traceability remains open; M3-03 remains in progress and M3-04 remains blocked.
