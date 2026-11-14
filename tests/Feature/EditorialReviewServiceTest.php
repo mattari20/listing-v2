@@ -95,10 +95,10 @@ class EditorialReviewServiceTest extends TestCase
 
         $suppression = $service->suppress(
             $this->actor('suppressor', ['suppress_publication']), $case, $snapshot->id,
-            'synthetic_hold', 'Synthetic suppression test.'
+            'synthetic_hold', 'Synthetic suppression test.', 'suppress-full'
         );
         $restoration = $service->restore(
-            $this->actor('restorer', ['restore_publication']), $case, $suppression, 'policy-v2', 'synthetic_restore'
+            $this->actor('restorer', ['restore_publication']), $case, $suppression, 'policy-v2', 'synthetic_restore', 'restore-full'
         );
 
         $this->assertNotSame('', $decision);
