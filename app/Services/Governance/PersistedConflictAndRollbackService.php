@@ -15,8 +15,6 @@ final class PersistedConflictAndRollbackService
      * Persist a conflict only when distinct assertions for the same claim
      * disagree over an overlapping valid-time interval. Recorded time is
      * retained as provenance; it never selects a winner.
-     *
-     * @param array<int, string> $claimVersionIds
      */
     public function evaluateTemporalConflict(array $actor, array $claimVersionIds, string $idempotencyKey): ?string
     {
