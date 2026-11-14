@@ -245,3 +245,8 @@ The owner is asked to confirm the following G1 direction:
 - no source collection, AI activation, spending or publication is authorized by this scope decision.
 
 Until G1 is confirmed and G2–G9 are separately satisfied, M3-07 remains in planning/readiness and implementation remains blocked.
+
+
+## 16. Extensible information storage and lifecycle
+
+The detailed field registry, typed value, entity-scope, add/edit/correct/retire/restore/remove, profile-template, completeness, search/projection and AI-agent constraints are specified in [M3-07 Extensible Institution Information Model and Change Lifecycle](M3-07_EXTENSIBLE_INSTITUTION_INFORMATION_MODEL.md). This is a design artifact only. It does not authorize schema changes, migrations, application code, admin UI, dynamic field CRUD or agent activation. Implementation must reuse the existing claim/evidence/adjudication/publication/audit governance boundary and first inspect the current schema before choosing any additive persistence structure.
