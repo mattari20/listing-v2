@@ -268,7 +268,7 @@ final class EditorialReviewService
             $event = DB::table('audit_events')->where('target_type', 'evidence_reference')->where('target_id', $id)
                 ->where('action', 'evidence_reference_registered')->first();
             $metadata = $event === null ? [] : (json_decode((string) $event->metadata, true) ?: []);
-            if (!empty($metadata['actor_id'])) {
+            if (! empty($metadata['actor_id'])) {
                 $actors[] = (string) $metadata['actor_id'];
             }
         }
