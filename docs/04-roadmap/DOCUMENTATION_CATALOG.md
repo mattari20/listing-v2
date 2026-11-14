@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-14 — M3-03 Agendas 6–10 closed within bounded synthetic scopes; G-04 traceability PR #172 merged and exact-head CI passed; Product Owner acceptance pending
+**Last reconciled:** 2026-11-14 — M3-03 accepted and closed for bounded synthetic local/CI scope; G-04 owner-accepted; M3-04 Provider Management planning started
 
 ## Purpose and maintenance rule
 
@@ -890,3 +890,18 @@ The record is documentation-only. It does not claim 64 completed runtime workflo
 
 
 G-04 PR [#172](https://github.com/mattari20/listing-v2/pull/172) merged as `f8d9613eec6dca8356b0780ea871245104365736` from exact head `0f6f8a961133d1cf3bac5a4f1e0a62b228114c85`. Exact-head Project documentation validation #43533801162 and PHP 8.5 foundation CI #43533801164 passed. The unchanged synthetic suite reported 209 assertions, no failures and 50 non-fatal missing-local-`.env` warnings. G-04 is delivered; Product Owner acceptance remains pending.
+
+
+## M3-03 final owner acceptance
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-03 Final Owner Acceptance and Exit Review](M3-03_FINAL_OWNER_ACCEPTANCE_AND_EXIT_REVIEW_2026-11-14.md) | Final exit criteria evidence, explicit G-04 owner acceptance, accepted residual deferrals, CI/merge evidence and bounded closure decision | Accepted — 2026-11-14; M3-03 closed for synthetic local/CI scope |
+
+## M3-04 Provider Management — planning started
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-04 Provider Management Work Plan](M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md) | P01–P04 work packages, provider/institution domain rules, T-001/T-003/T-002 carry-forward, acceptance criteria, synthetic fixtures, CI and permission constraints | Planning delivered — implementation authorization not issued |
+
+M3-04 P01 is the next eligible work package. No application code, schema, migration or test implementation may begin until a separate explicit Product Owner authorization names the exact P01 scope.
