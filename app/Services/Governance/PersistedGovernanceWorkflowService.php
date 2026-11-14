@@ -644,7 +644,7 @@ final class PersistedGovernanceWorkflowService
                 if ($version === null || $version->disposition !== 'proposed' ||
                     $version->field_definition_version_id === null || $reviewCase === null ||
                     (string) $version->field_definition_version_id !== (string) ($payload['field_definition_version_id'] ?? '')) {
-                    throw new \\RuntimeException('Field claim proposal outbox event failed its proposal integrity checks.');
+                    throw new \RuntimeException('Field claim proposal outbox event failed its proposal integrity checks.');
                 }
                 // Proposal notification is intentionally a no-op: this event never adjudicates,
                 // publishes, projects or materializes the proposed claim.
