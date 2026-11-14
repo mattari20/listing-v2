@@ -280,6 +280,7 @@ class CampusProgrammeCatalogueTest extends TestCase
             'label' => $label ?? 'Synthetic '.$type.' '.str()->random(6),
             'created_at' => $now, 'updated_at' => $now,
         ]);
+
         return $id;
     }
 
