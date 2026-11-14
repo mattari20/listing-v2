@@ -16,7 +16,8 @@ final class CampusProgrammeCatalogueService
         'delivery_site' => 'delivery_site',
         'programme' => 'programme',
         'qualification' => 'qualification',
-        'awarding_body' => 'awarding_body',
+        'programme_qualification' => 'programme',
+        'programme_offer' => 'programme',
     ];
 
     public function materializeAcceptedRecord(array $actor, string $claimVersionId, string $idempotencyKey): string
@@ -124,9 +125,6 @@ final class CampusProgrammeCatalogueService
                         'created_at' => $now, 'updated_at' => $now,
                     ]);
                     break;
-                case 'qualification':
-                case 'awarding_body':
-                    throw ValidationException::withMessages(['claim' => 'Qualification and awarding-body identities are reserved for explicit programme qualification links; no implicit association is materialized.']);
                 case 'programme_qualification':
                     $programme = $this->requireEntity($value['programme_entity_id'] ?? null, 'programme');
                     $qualification = $this->requireEntity($value['qualification_entity_id'] ?? null, 'qualification');
