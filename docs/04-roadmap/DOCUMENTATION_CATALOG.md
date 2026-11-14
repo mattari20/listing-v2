@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-14 — M3-03 accepted and closed; M3-04 P01–P04 merged and validated; M3-05 Public Directory and Search merged and validated as PR #189
+**Last reconciled:** 2026-11-14 — M3-03 accepted and closed; M3-04 P01–P04, M3-05 Public Directory and Search, and M3-06 Geography and Discovery merged and validated (M3-06 PR #192; documentation closeout in progress)
 
 ## Purpose and maintenance rule
 
@@ -131,7 +131,17 @@ For every merge:
 
 PR [#160](https://github.com/mattari20/listing-v2/pull/160) is open at the time of this reconciliation. GitHub status lookup returned no workflow runs or commit statuses for the then-current head; required checks are pending/not evidenced. Do not mark accepted or merged until exact-head CI and review evidence are available.
 
+## M3-06 Geography and Discovery
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-06 Geography and Discovery Work Plan](M3-06_GEOGRAPHY_AND_DISCOVERY_WORK_PLAN.md) | Bounded Pakistan-first manual locality discovery, privacy/provenance controls, acceptance criteria and explicit geospatial deferrals | Delivered — implementation merged; closeout evidence being reconciled |
+| [M3-06 Geography and Discovery Implementation Record](M3-06_GEOGRAPHY_AND_DISCOVERY_IMPLEMENTATION_RECORD.md) | Approved text-only geography facts, manual locality filter, synthetic tests, safety boundaries and exact-head CI evidence | Delivered — implementation merged; closeout evidence being reconciled |
+
 ## PR delivery history
+
+| [#192](https://github.com/mattari20/listing-v2/pull/192) | M3-06 bounded text-only locality discovery, approved geography fields, synthetic privacy/restricted-category tests, work plan and implementation record | Merged as `e959adb578df6b60f2c308cd0b1f12391f6cb043`; exact head `9761e52747e0f2b15fbfee58ac2528ec4f96c57c`; FND-01 CI #43559187297 and documentation validation #43559187312 passed | Merged — bounded synthetic local/CI scope; geospatial services deferred |
+
 
 | PR | Scope | Merge / head evidence | Status |
 |---|---|---|---|
