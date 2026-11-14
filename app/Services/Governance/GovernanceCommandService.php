@@ -12,7 +12,7 @@ use Illuminate\Validation\ValidationException;
 final class GovernanceCommandService
 {
     /** Existing generic predicates retained during the controlled registry migration. */
-    private const LEGACY_CLAIM_PREDICATES = ['display_name'];
+    private const LEGACY_CLAIM_PREDICATES = ['display_name', 'authority_relationship', 'provider_institution_relationship'];
 
     public function registerEvidenceReference(string $authorizationId, array $actor, array $context, string $idempotencyKey, array $metadata): string
     {
