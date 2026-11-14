@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
-**Status:** **P01 IMPLEMENTED AND VALIDATED — PR #176; P02 IMPLEMENTED, VALIDATED AND MERGED — PR #177; P03 IMPLEMENTED, VALIDATED AND MERGED — PR #179; P04 NOT STARTED**  
+**Status:** **P01 IMPLEMENTED AND VALIDATED — PR #176; P02 IMPLEMENTED, VALIDATED AND MERGED — PR #177; P03 IMPLEMENTED, VALIDATED AND MERGED — PR #179; P04 IMPLEMENTED ON ISOLATED BRANCH; EXACT-HEAD VALIDATION PENDING**  
 **M3-03 dependency:** Owner-accepted and closed for its bounded synthetic local/CI scope  
 **Baseline:** `main` at `a51860e904dc57ea47702ed75a2d44c612ac9b2f` for P02
 
@@ -10,7 +10,7 @@
 
 This work plan starts the next roadmap step, M3-04 Provider Management, at the planning and scope-definition level. It defines the initial bounded work packages, domain contracts, acceptance criteria, synthetic fixture approach, permission constraints and CI evidence expected before implementation.
 
-The Product Owner accepted G-04 and separately authorized the bounded M3-04 P01, P02 and P03 implementation slices on 2026-11-14. Each was implemented on an isolated feature branch under synthetic local/CI-only restrictions and passed exact-head PHP 8.5 foundation CI plus documentation validation before merge. P04 remains unauthorized. No authorization extends to production, V1, Hostinger, external APIs/AI, deployment or additional spend.
+The Product Owner accepted G-04 and separately authorized the bounded M3-04 P01, P02 and P03 implementation slices on 2026-11-14. Each was implemented on an isolated feature branch under synthetic local/CI-only restrictions and passed exact-head PHP 8.5 foundation CI plus documentation validation before merge. P04 was separately authorized by the Product Owner on 2026-11-14 for synthetic local/CI implementation only. No authorization extends to production, V1, Hostinger, external APIs/AI, deployment or additional spend.
 
 ## 2. M3-04 outcome
 
@@ -212,3 +212,27 @@ See [M3-04 P02 Implementation Record](M3-04_P02_IMPLEMENTATION_RECORD.md) for fi
 P03 was separately authorized by the Product Owner on 2026-11-14, implemented on an isolated feature branch, passed exact-head PHP 8.5 foundation CI and documentation validation, and merged as PR #179. It adds typed authority profiles and governed relationship assertions for regulation, licensing, accreditation, recognition, examination, awarding and affiliation. Predicate compatibility is checked against both endpoint identity types and, for authority endpoints, the registered authority type. Scope, jurisdiction, evidence, human adjudication, current accepted claim version, valid-time and transactional audit are mandatory.
 
 See [M3-04 P03 Implementation Record](M3-04_P03_IMPLEMENTATION_RECORD.md). P03 is closed for its bounded synthetic scope; exact-head foundation CI and documentation validation passed, review threads were empty, and PR #179 merged with an expected-head SHA guard. P04 remains not started and separately gated.
+
+
+## 14. P04 — Status History and Editorial Review implementation
+
+The Product Owner separately authorized P04 on 2026-11-14. Implementation is on `feature/m3-04-p04-status-editorial-review`, based on `e29eaa3439e5baa977ad923b75bd2eeed742b22a`.
+
+The candidate adds an editorial review case linked to a directory entity and current claim version, plus append-only `directory_status_history` events. The service coordinates the existing M3-03 adjudication/publication/suppression/restoration services rather than creating a parallel publication authority.
+
+Capability matrix:
+| Action | Required capability | Additional control |
+|---|---|---|
+| Submit | `submit_directory_proposal` | Human actor; claim subject must match entity |
+| Edit returned proposal | `edit_directory_proposal` and `correct_claim` | Original submitter only; correction creates a successor version and a new review case |
+| Review | `review_directory_proposal` | Human reviewer distinct from submitter and evidence submitters |
+| Adjudicate | `adjudicate_claim` | Human distinct from submitter and assigned reviewer; existing evidence/adjudication checks remain authoritative |
+| Approve | `authorize_publication` | Human publisher distinct from submitter, reviewer and adjudicator; existing publication checks remain authoritative |
+| Suppress | `suppress_publication` | Human action against the case's own approved snapshot |
+| Restore | `restore_publication` | Human distinct from suppressor; existing current-policy and eligibility rechecks remain authoritative |
+
+Review outcomes are limited to ready-for-adjudication, changes-requested or held. Disputed/rejected adjudications cannot be approved. Every case transition writes a status-history event and audit event transactionally with its case update. Command keys are fingerprinted; changed reuse is rejected. Automated actors are denied at every editorial action.
+
+P04 introduces no merge/split adjudication, public routes, public projection, real account/role provisioning or staffing claims. It does not establish real-world human coverage. Synthetic fixtures only.
+
+**Implementation status:** code, additive migration and feature tests are committed to the P04 feature branch; exact-head CI, review and merge evidence remain pending. P04 must not be marked complete until those gates pass.

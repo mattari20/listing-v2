@@ -1016,3 +1016,12 @@ P01, P02 and P03 are implemented and merged for their bounded synthetic-only sco
 ## M3-04 Provider Management — P03 closeout
 
 P03 is merged and validated in PR #179 (`727cc3c91f9761bbb24954b8777e033f577ec75c`). Exact-head FND-01 PHP 8.5 foundation CI run #43555121150 and Project documentation validation run #43555121154 passed on head `99fdbbc80463262b785bb56eb4e6f56a9b927baf`. The synthetic-only suite completed with 287 assertions and 90 non-fatal missing-local-`.env` warnings; no failures. M3-04 P01 and P02 remain complete; P03 is complete for its bounded scope; P04 remains not started and separately gated.
+
+
+## M3-04 P04 — current implementation status (2026-11-14)
+
+The Product Owner separately authorized P04 — Status History and Editorial Review — for synthetic local/CI implementation only. The implementation candidate is on `feature/m3-04-p04-status-editorial-review`, based on main `e29eaa3439e5baa977ad923b75bd2eeed742b22a`.
+
+The candidate introduces an editorial review case and append-only directory status-history events, with a capability matrix for submit, edit, review, adjudicate, approve, suppress and restore. Submitter, reviewer, adjudicator and publisher are separated; evidence submitters remain excluded by the existing governance checks. Adjudication, publication, suppression and restoration delegate to the existing M3-03 governance service, preserving its evidence, current-version, source-authorization and audit controls.
+
+**Current disposition:** implementation candidate prepared; exact-head PHP 8.5 foundation CI, documentation validation, review-thread reconciliation and expected-head merge remain pending. P04 is not yet complete or merged. No production/V1/Hostinger access, real/source data, external API/AI, deployment or new spend occurred.
