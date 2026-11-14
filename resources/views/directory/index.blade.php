@@ -11,7 +11,7 @@
         main { max-width: 58rem; margin: 0 auto; padding: 1.25rem; }
         h1, h2 { line-height: 1.2; }
         form, .result, .facets { background: #fff; border: 1px solid #d9dee7; border-radius: .65rem; padding: 1rem; }
-        form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(10rem, .45fr) auto; gap: .75rem; align-items: end; }
+        form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(10rem, .55fr) minmax(10rem, .55fr) auto; gap: .75rem; align-items: end; }
         label { display: block; font-weight: 600; margin-bottom: .25rem; }
         input, select, button { width: 100%; min-height: 2.75rem; padding: .55rem; border: 1px solid #8b95a5; border-radius: .35rem; font: inherit; }
         button { cursor: pointer; background: #172033; color: #fff; border-color: #172033; }
@@ -44,6 +44,10 @@
                 @endforeach
             </select>
         </div>
+        <div>
+            <label for="locality">Province, district, city or locality</label>
+            <input id="locality" name="locality" type="search" maxlength="120" value="{{ $locality }}" autocomplete="off">
+        </div>
         <button type="submit">Search</button>
     </form>
 
@@ -51,7 +55,7 @@
         <nav class="facets" aria-label="Available categories">
             <strong>Categories:</strong>
             @foreach ($facets as $key => $count)
-                <a href="{{ route('directory.index', ['q' => $query, 'type' => $key]) }}">{{ $typeOptions[$key] ?? $key }} ({{ $count }})</a>
+                <a href="{{ route('directory.index', ['q' => $query, 'type' => $key, 'locality' => $locality]) }}">{{ $typeOptions[$key] ?? $key }} ({{ $count }})</a>
             @endforeach
         </nav>
     @endif
@@ -62,6 +66,10 @@
             <article class="result">
                 <h3><a href="{{ route('directory.show', ['entity' => $result['id']]) }}">{{ $result['name'] }}</a></h3>
                 <p class="meta">{{ $result['type_label'] }}</p>
+                @php($locationFacts = collect($result['facts'])->whereIn('key', ['province', 'district', 'city', 'locality']))
+                @if ($locationFacts->isNotEmpty())
+                    <p class="meta">{{ $locationFacts->pluck('value')->implode(', ') }}</p>
+                @endif
                 @php($overview = collect($result['facts'])->firstWhere('key', 'overview'))
                 @if ($overview !== null)
                     <p dir="auto">{{ $overview['value'] }}</p>
@@ -78,7 +86,7 @@
         {{ $results->links() }}
     </section>
     <footer>
-        <p class="notice">Only current, approved anonymous-directory projections are shown. Map and location-based discovery are not part of this directory view.</p>
+        <p class="notice">Only current, approved anonymous-directory projections are shown. Locality search uses published text only; precise device location, distance sorting and maps are not enabled.</p>
     </footer>
 </main>
 </body>
