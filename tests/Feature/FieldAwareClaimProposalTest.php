@@ -7,6 +7,7 @@ namespace Tests\Feature;
 use App\Services\Directory\FieldAwareClaimProposalService;
 use App\Services\Directory\ProviderCategoryAssignmentService;
 use App\Services\Governance\GovernanceCommandService;
+use App\Services\Governance\PersistedGovernanceWorkflowService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
