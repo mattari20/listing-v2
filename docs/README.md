@@ -238,3 +238,8 @@ M3-03 remains in progress pending G-04 owner acceptance and final exit review. M
 
 
 G-04 traceability closeout: PR [#172](https://github.com/mattari20/listing-v2/pull/172) merged as `f8d9613eec6dca8356b0780ea871245104365736`; exact-head Project documentation validation #43533801162 and PHP 8.5 foundation CI #43533801164 passed. Product Owner acceptance remains pending; M3-03 is not yet accepted.
+
+
+## M3-03 final acceptance and M3-04 planning
+- [M3-03 Final Owner Acceptance and Exit Review](04-roadmap/M3-03_FINAL_OWNER_ACCEPTANCE_AND_EXIT_REVIEW_2026-11-14.md) — Product Owner acceptance of G-04 and final M3-03 closure for bounded synthetic local/CI scope; deferred cases remain explicit residual risk.
+- [M3-04 Provider Management Work Plan](04-roadmap/M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md) — planning started for P01–P04, with acceptance criteria, synthetic fixtures, CI and permission constraints; implementation remains separately gated.
