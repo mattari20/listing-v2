@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-06 — Geography and Discovery complete for bounded synthetic local/CI scope; M3-07 AI Data-Agent is the next roadmap step, subject to source-specific authorization  
+**Current step:** M3-07 — AI Data-Agent readiness review delivered as documentation; application implementation is blocked pending exact source/model/provider and qualified rights/privacy/security approvals  
 **Plan status:** M3-03 final exit review accepted by Product Owner on 2026-11-14; G-01–G-03 closed for bounded synthetic scope and G-04 traceability owner-accepted with explicit residual deferrals; M3-04 P01–P04, M3-05 and M3-06 implemented, validated and merged for bounded synthetic local/CI scope (M3-06 PR #192)  
 **Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 P01–P04, M3-05 and M3-06 are implemented, validated and merged for bounded synthetic local/CI scope. M3-06 delivery is limited to approved text-only province/district/city/locality facts and manual locality filtering; coordinates, distance search, device location, maps, geocoding, real/source data, external services, production and deployment remain separately gated.
 
@@ -89,9 +89,11 @@ Deliver anonymous-first directory pages, search, categories, filters and institu
 **Exit evidence:** PR #192 merged as `e959adb578df6b60f2c308cd0b1f12391f6cb043`; exact PR head `9761e52747e0f2b15fbfee58ac2528ec4f96c57c` passed FND-01 PHP 8.5 CI #43559187297 and Project documentation validation #43559187312. Synthetic locality/privacy/restricted-category tests passed in the full suite.
 
 ### M3-07 — AI Data-Agent
-Implement only after model/provider and each source-specific access/reuse approval. AI remains proposal-only. Capture is bounded and quarantined; deterministic validation and human adjudication precede publication.
+**Readiness review delivered; implementation blocked.** See [M3-07 Work Plan](M3-07_AI_DATA_AGENT_WORK_PLAN.md) and [Readiness Review Record](M3-07_AI_DATA_AGENT_READINESS_REVIEW_RECORD.md). The review confirms the source-rights register still marks candidate sources research-only, no permission requests/approvals are recorded, no model/provider is selected, no paid service is authorized and qualified source/privacy/security reviewers are not assigned.
 
-**Exit evidence:** prompt-injection and malicious-file tests, least-privilege tests, provenance completeness, extraction evaluation, human approval enforcement, cost limits and source-specific authorization proof. No blanket source authorization.
+Once the conjunctive gates pass, implement only a bounded proposal-only workflow: exact source manifest and access-method gate; permitted retrieval into quarantine; provenance and integrity; extraction with exact supporting evidence; deterministic validation; cautious entity matching; conflict/freshness routing; human review; and reversible publication. The agent must have no autonomous publication permission.
+
+**Exit evidence:** current source/asset-specific rights manifest; model/provider/data-handling approval or separately approved offline approach; privacy/security and operational sign-offs; named human reviewers; prompt-injection/malicious-file and least-privilege tests; provenance completeness; field-level extraction/entity-resolution evaluation; human approval enforcement; cost/usage caps; kill switch; correction/withdrawal/rollback; exact-head CI; and owner acceptance. No blanket source authorization. No blanket source authorization.
 
 ### M3-08 — Identity, Reviews and Security
 Implement least-privilege identity and contextual authorization, moderation, appeal and safeguarding workflows. Reviews are post-launch only; login is not proof of attendance. No pre-launch participant surveys/interviews/recruitment unless the owner explicitly changes that decision.
@@ -164,14 +166,17 @@ Conditional step. Requires separate explicit written approval for production acc
 - M3-04: P01–P04 implemented, validated and merged for bounded synthetic local/CI scope.
 - M3-05: Public Directory and Search implemented, validated and merged for bounded synthetic local/CI scope (PR #189).
 - M3-06: Geography and Discovery implemented, validated and merged for bounded synthetic local/CI scope (PR #192); coordinates, distance search, maps, geocoding and national locality data remain deferred.
-- M3-07–M3-10: Not started; source-specific, security, operational and pilot gates remain applicable.
+- M3-07: Readiness review/documentation delivered; application implementation blocked pending source-specific rights, model/provider, qualified privacy/security/operational and owner activation approvals. No agent or connector is active.
+- M3-08–M3-10: Not started; identity/security, operational and pilot gates remain applicable.
 - M3-11: Conditional; production access, deployment, URL cutover and launch remain unauthorized.
 
 **M3-05 evidence:** implementation PR #189 merged as `8a89c5666501e5cc1f8565b32fd40a2a3370d634`; exact PR head `1e4bd3be1d92ca1ba3a06fd7190d3a20de340c58` passed PHP 8.5 foundation CI #43557559498 and Project documentation validation #43557559518. Synthetic suite: 351 assertions, no failures, 107 non-fatal missing-`.env` warnings.
 
 **M3-06 evidence:** implementation PR #192 merged as `e959adb578df6b60f2c308cd0b1f12391f6cb043`; exact PR head `9761e52747e0f2b15fbfee58ac2528ec4f96c57c` passed PHP 8.5 foundation CI #43559187297 and Project documentation validation #43559187312. Review inspection found no unresolved threads or submitted reviews. The new synthetic locality/privacy/restricted-category tests passed in the full FND-01 suite.
 
-**Next eligible work:** review M3-07 AI Data-Agent scope/readiness and source-specific authorization prerequisites. No source access, collection, ingestion, AI/model activation, external service, production access, deployment or spend is authorized by M3-06 closeout.
+**M3-07 readiness evidence:** Work plan and readiness record prepared on branch `docs/m3-07-agent-readiness` from verified main `4775b9c0fbd50f264cb573253626e3786a6655ad`. The source-rights register states all candidate sources remain RESEARCH ONLY, no source is approved for manual verification/ingestion and no permission request has been sent. No model/provider, data terms or qualified reviewers are approved. This is a documentation/readiness result only; no source access, model/agent/connector activation, application implementation or spend is authorized.
+
+**Next eligible work:** owner-led source-specific and model/provider decision pack for one exact candidate asset, with qualified rights/privacy/security review. Until that decision is approved, M3-07 application implementation remains blocked; no source access, collection, ingestion, AI/model activation, external service, production access, deployment or spend is authorized.
 
 ## PR #102 merge reconciliation — 2026-11-12
 
