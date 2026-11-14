@@ -47,6 +47,12 @@ final class FieldAwareClaimProposalService
             $this->reject('proposal', 'Field key, exact version, scope, evidence and bounded idempotency key are required.');
         }
 
+        if (($sourceContext['purpose'] ?? null) !== 'synthetic_test_only' ||
+            ($sourceContext['method'] ?? null) !== 'fixture_reference' ||
+            ($sourceContext['territory'] ?? null) !== 'synthetic' || count($sourceContext) !== 3) {
+            $this->reject('source_context', 'I3 accepts synthetic fixture processing context only.');
+        }
+
         $fingerprint = hash('sha256', json_encode([
             $actor['actor_id'], $actor['actor_class'], $subjectEntityId, $fieldKey,
             $definitionVersion, $value, array_values($evidenceReferenceIds), $sourceContext,
@@ -181,6 +187,9 @@ final class FieldAwareClaimProposalService
             }
             $policy = new GovernancePolicy;
             foreach ($evidence as $reference) {
+                if ($reference->source_type !== 'synthetic' || (bool) $reference->content_included !== false) {
+                    $this->reject('evidence', 'I3 accepts metadata-only synthetic evidence references only.');
+                }
                 $authorization = (array) DB::table('source_authorizations')
                     ->where('id', $reference->source_authorization_id)->first();
                 $decision = $policy->authorizeSourceAction($authorization, 'processing', $sourceContext);
