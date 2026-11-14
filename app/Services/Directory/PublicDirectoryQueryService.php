@@ -28,6 +28,10 @@ final class PublicDirectoryQueryService
         'public_contact_phone' => 'Public contact phone',
         'public_contact_email' => 'Public contact email',
         'public_address' => 'Public address',
+        'province' => 'Province',
+        'district' => 'District',
+        'city' => 'City',
+        'locality' => 'Locality',
         'education_level' => 'Education level',
         'provider_type' => 'Provider type',
         'programme_title' => 'Programme',
@@ -39,6 +43,8 @@ final class PublicDirectoryQueryService
     {
         return self::TYPE_LABELS;
     }
+
+    private const LOCALITY_FIELDS = ['province', 'district', 'city', 'locality'];
 
     /**
      * @return array{
@@ -56,6 +62,16 @@ final class PublicDirectoryQueryService
             $searchable = $entity['name'].' '.implode(' ', array_column($entity['facts'], 'value'));
             if ($query !== '' && mb_stripos($searchable, $query) === false) {
                 continue;
+            }
+            if ($locality !== '') {
+                $publishedLocalities = array_column(array_values(array_filter(
+                    $entity['facts'],
+                    static fn (array $fact): bool => in_array($fact['key'], self::LOCALITY_FIELDS, true)
+                )), 'value');
+                $localityText = implode(' ', $publishedLocalities);
+                if ($localityText === '' || mb_stripos($localityText, $locality) === false) {
+                    continue;
+                }
             }
             $matching[] = $entity;
         }
