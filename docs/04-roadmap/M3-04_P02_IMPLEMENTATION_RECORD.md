@@ -3,9 +3,10 @@
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
 **Work package:** M3-04 P02  
-**Status:** Implemented on isolated branch; exact-head CI and review pending  
+**Status:** **MERGED AND VALIDATED — PR #177; exact-head PHP 8.5 foundation CI and documentation validation passed**  
 **Base:** `a51860e904dc57ea47702ed75a2d44c612ac9b2f`  
-**Branch:** `feature/m3-04-p02-campus-programme-catalogue`
+**Branch:** `feature/m3-04-p02-campus-programme-catalogue`  
+**Merged commit:** `d62a9df02843621f934af3e7b8be2efcdf3c1d80`
 
 ## 1. Authorization and boundaries
 
@@ -78,7 +79,7 @@ Tests use fabricated identifiers, labels, dates, actors, evidence and authorizat
 - P03 must implement authority identity and distinct regulatory/accreditation/recognition/affiliation semantics.
 - P04 must complete the wider status-history, editorial review and capability matrix.
 - Identity merge/split and general temporal conflict evaluation remain deferred.
-- Exact-head PHP 8.5 foundation CI and project documentation validation must pass before P02 can be accepted as complete.
+- Exact-head PHP 8.5 foundation CI and project documentation validation passed for PR #177 head `dcd20d3c7c985d7b76688ab58381fb32eb29a66f` (foundation run #43550153070; documentation run #43550153108). The synthetic suite completed with 262 assertions and 80 non-fatal warnings. The merged `main` commit is `d62a9df02843621f934af3e7b8be2efcdf3c1d80`.
 - This implementation record is not a production-readiness or deployment approval.
 
 ## 7. Acceptance checklist
@@ -94,6 +95,6 @@ Tests use fabricated identifiers, labels, dates, actors, evidence and authorizat
 | Catalogue does not imply availability | Separate cycle-scoped offer table | Implemented |
 | Offer location belongs to programme institution | Service-level ownership validation | Implemented |
 | Human adjudication/evidence/audit preserved | Fail-closed materialization service | Implemented |
-| Synthetic tests and exact-head CI | Feature tests authored; GitHub CI pending | Pending validation |
+| Synthetic tests and exact-head CI | 262 assertions; PHP 8.5 foundation CI and documentation validation passed at exact PR head | **Passed — PR #177 merged** |
 
-**P02 completion decision:** Implementation is prepared on the isolated branch. Final acceptance is conditional on exact-head CI, documentation validation, review reconciliation and merge guard. No claim of passing CI or merged completion is made in this record until GitHub reports those results.
+**P02 completion decision:** **Completed and merged** in PR #177 using expected-head SHA guard. Exact-head PHP 8.5 foundation CI and project documentation validation passed. The work remains bounded to synthetic local/CI scope and does not authorize production or deployment.
