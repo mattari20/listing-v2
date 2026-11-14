@@ -128,6 +128,9 @@ final class CampusProgrammeCatalogueService
                     break;
                 case 'programme_qualification':
                     $programme = $this->requireEntity($value['programme_entity_id'] ?? null, 'programme');
+                    if ($programme !== $targetId) {
+                        throw ValidationException::withMessages(['programme' => 'The qualification-link claim subject must be the linked programme.']);
+                    }
                     if (DB::table('programme_catalogue_entries')->where('entity_id', $programme)->exists() === false) {
                         throw ValidationException::withMessages(['programme' => 'A programme catalogue entry must exist before linking a qualification.']);
                     }
@@ -143,6 +146,9 @@ final class CampusProgrammeCatalogueService
                     break;
                 case 'programme_offer':
                     $programme = $this->requireEntity($value['programme_entity_id'] ?? null, 'programme');
+                    if ($programme !== $targetId) {
+                        throw ValidationException::withMessages(['programme' => 'The offer claim subject must be the offered programme.']);
+                    }
                     $programmeRecord = DB::table('programme_catalogue_entries')->where('entity_id', $programme)->first(['institution_entity_id']);
                     if ($programmeRecord === null) {
                         throw ValidationException::withMessages(['programme' => 'A programme catalogue entry must exist before creating an offer.']);
