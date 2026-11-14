@@ -627,7 +627,7 @@ See [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) for complete step scopes, task
 | M3-04 | Provider Management | 8% | P01–P04 implemented, validated and merged for bounded synthetic local/CI scope |
 | M3-05 | Public Directory and Search | 10% | Complete for bounded synthetic local/CI scope — PR #189 merged |
 | M3-06 | Geography and Discovery | 7% | Complete for bounded synthetic local/CI scope — PR #192 merged; text-only locality filtering; geospatial services/coordinates deferred |
-| M3-07 | AI Data-Agent | 10% | Not started; source-specific authorization required |
+| M3-07 | AI Data-Agent | 10% | Blocked — readiness review delivered; source-specific rights, model/provider, qualified privacy/security and owner activation approvals outstanding |
 | M3-08 | Identity, Reviews and Security | 10% | Not started; reviews post-launch only |
 | M3-09 | Quality and Operational Hardening | 8% | Not started |
 | M3-10 | Pilot and Launch Readiness | 7% | Not started; separate pilot approval |
@@ -635,6 +635,8 @@ See [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) for complete step scopes, task
 
 
 **M3-06 closeout — 2026-11-14:** PR [#192](https://github.com/mattari20/listing-v2/pull/192) merged as `e959adb578df6b60f2c308cd0b1f12391f6cb043`. Exact head `9761e52747e0f2b15fbfee58ac2528ec4f96c57c` passed FND-01 PHP 8.5 CI #43559187297 and Project documentation validation #43559187312. Scope is approved text-only province/district/city/locality facts and manual locality filtering over the eligible anonymous public projection. Coordinates, distance/nearby search, device location, maps, geocoding and a national locality gazetteer remain deferred. No production, V1, Hostinger, real/source data, external service, deployment or new spend was used. Documentation closeout PR #193 merged as `f1c58a5405960cc86816d9c5aef77fee944987b0`; exact head `8d65f9e19fbde64e68f4a8087ababc08f99a312b` passed FND-01 CI #43559397988 and documentation validation #43559398059. Overall M3 percentage is not recalculated by counting milestone packages.
+
+**M3-07 readiness review — 2026-11-14:** Documentation-only work plan and readiness record prepared on branch `docs/m3-07-agent-readiness` from main `4775b9c0fbd50f264cb573253626e3786a6655ad`. Source-rights register continues to mark every candidate RESEARCH ONLY; no permission requests or approvals are recorded. No model/provider or data-handling terms are selected, and qualified reviewers are not assigned. M3-07 application implementation and activation remain BLOCKED. No source access, external model/API, connector, ingestion, production activity or spend is authorized. Do not count the readiness documents as application implementation progress.
 M3-00 is accepted and closed with the Product Owner's documented, explicit deferrals. The historical task-evidence snapshots below retain their original dates and must not be read as the current step status.
 
 
