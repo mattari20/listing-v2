@@ -34,8 +34,6 @@ final class PublicDirectoryQueryService
         'programme_level' => 'Programme level',
     ];
 
-    private const MAX_CANDIDATE_ROWS = 5000;
-
     /** @return array<string, string> */
     public function typeOptions(): array
     {
@@ -55,7 +53,7 @@ final class PublicDirectoryQueryService
         $entities = $this->publishedEntities();
         $matching = [];
 
-        foreach ($entities['items'] as $entity) {
+        foreach ($entities as $entity) {
             $searchable = $entity['name'].' '.implode(' ', array_column($entity['facts'], 'value'));
             if ($query !== '' && mb_stripos($searchable, $query) === false) {
                 continue;
@@ -83,14 +81,13 @@ final class PublicDirectoryQueryService
         return [
             'results' => $matching,
             'facets' => $facets,
-            'limited' => $entities['limited'],
         ];
     }
 
     /** @return array<string, mixed>|null */
     public function find(string $entityId): ?array
     {
-        foreach ($this->publishedEntities()['items'] as $entity) {
+        foreach ($this->publishedEntities() as $entity) {
             if ($entity['id'] === $entityId) {
                 return $entity;
             }
@@ -103,7 +100,7 @@ final class PublicDirectoryQueryService
      * Read only the current, approved, anonymous directory projection.
      * Raw evidence and unpublished assertions are never returned to callers.
      *
-     * @return array{items: array<int, array<string, mixed>>, limited: bool}
+     * @return array<int, array<string, mixed>>
      */
     private function publishedEntities(): array
     {
@@ -116,9 +113,11 @@ final class PublicDirectoryQueryService
             ->where('public_projections.status', 'approved')
             ->where('public_projections.surface', 'directory')
             ->where('public_projections.audience', 'anonymous')
+            ->where('public_projections.is_deeni_madaris', false)
             ->where('publication_snapshots.status', 'projected')
             ->where('publication_snapshots.surface', 'directory')
             ->where('publication_snapshots.audience', 'anonymous')
+            ->whereColumn('publication_decisions.claim_version_id', 'publication_snapshots.claim_version_id')
             ->where('publication_decisions.decision', 'approved')
             ->where('publication_decisions.surface', 'directory')
             ->where('publication_decisions.audience', 'anonymous')
@@ -145,7 +144,6 @@ final class PublicDirectoryQueryService
             })
             ->orderBy('directory_entities.id')
             ->orderBy('claims.predicate')
-            ->limit(self::MAX_CANDIDATE_ROWS + 1)
             ->get([
                 'directory_entities.id as entity_id',
                 'directory_entities.entity_type',
@@ -154,12 +152,8 @@ final class PublicDirectoryQueryService
                 'publication_snapshots.payload',
             ]);
 
-        $limited = $rows->count() > self::MAX_CANDIDATE_ROWS;
-        if ($limited) {
-            $rows = $rows->take(self::MAX_CANDIDATE_ROWS);
-        }
         if ($rows->isEmpty()) {
-            return ['items' => [], 'limited' => false];
+            return [];
         }
 
         $versionIds = $rows->pluck('claim_version_id')->unique()->values()->all();
@@ -198,6 +192,7 @@ final class PublicDirectoryQueryService
             if (is_array($payload) === false ||
                 ($payload['surface'] ?? null) !== 'directory' ||
                 ($payload['audience'] ?? null) !== 'anonymous' ||
+                ($payload['claim_version_id'] ?? null) !== (string) $row->claim_version_id ||
                 ($payload['is_deeni_madaris'] ?? null) !== false ||
                 ($payload['predicate'] ?? null) !== $row->predicate ||
                 array_key_exists('value', $payload) === false) {
@@ -246,7 +241,7 @@ final class PublicDirectoryQueryService
             $items[] = $entity;
         }
 
-        return ['items' => $items, 'limited' => $limited];
+        return $items;
     }
 
     private function evidenceIsCurrentlyPublishable(Collection $evidenceRows, GovernancePolicy $policy): bool
