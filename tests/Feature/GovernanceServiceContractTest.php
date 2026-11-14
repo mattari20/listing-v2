@@ -290,7 +290,7 @@ class GovernanceServiceContractTest extends TestCase
             'territories' => ['synthetic'],
             'permitted_scopes' => ['acquisition' => true, 'retention' => true, 'processing' => true, 'reuse' => false, 'publication' => false],
             'valid_from' => '2026-11-13T00:00:00Z',
-            'valid_to' => '2026-11-14T00:00:00Z',
+            'valid_to' => '2026-11-15T00:00:00Z',
             'revoked_at' => null,
         ], $overrides);
     }
