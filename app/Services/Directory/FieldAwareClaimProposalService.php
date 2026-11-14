@@ -124,7 +124,7 @@ final class FieldAwareClaimProposalService
 
         return DB::transaction(function () use (
             $actor, $subjectEntityId, $fieldKey, $definitionVersion, $definition, $value,
-            $uniqueEvidenceIds, $sourceContext, $idempotencyKey, $validFrom, $validTo, $fingerprint
+            $uniqueEvidenceIds, $sourceContext, $idempotencyKey, $validFrom, $validTo, $fingerprint, $providerCategory
         ): array {
             $prior = DB::table('audit_events')
                 ->where('action', 'field_aware_claim_proposed')
@@ -142,6 +142,20 @@ final class FieldAwareClaimProposalService
                     'claim_version_id' => (string) $prior->target_id,
                     'editorial_review_case_id' => (string) ($metadata['editorial_review_case_id'] ?? ''),
                 ];
+            }
+
+            $lockedEntity = DB::table('directory_entities')->where('id', $subjectEntityId)->lockForUpdate()->first(['entity_type']);
+            $lockedCategory = DB::table('directory_provider_category_assignments')
+                ->where('entity_id', $subjectEntityId)->lockForUpdate()->value('provider_category');
+            if ($lockedEntity === null || $lockedCategory !== $providerCategory) {
+                $this->reject('provider_category', 'Provider category changed during proposal validation; retry against the current governed assignment.');
+            }
+            $currentApplicability = $this->registry->resolveApplicable(
+                $fieldKey, $definitionVersion, (string) $lockedEntity->entity_type, (string) $lockedCategory
+            );
+            if ($currentApplicability['allowed'] === false ||
+                $currentApplicability['definition']['field_definition_version_id'] !== $definition['field_definition_version_id']) {
+                $this->reject('applicability', 'Exact field definition is no longer applicable at proposal commit time.');
             }
 
             $existingCount = DB::table('claims')
