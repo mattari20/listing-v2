@@ -16,12 +16,14 @@ final class PublicDirectoryController extends Controller
         $validated = $request->validate([
             'q' => ['nullable', 'string', 'max:120'],
             'type' => ['nullable', 'string', 'max:40'],
+            'locality' => ['nullable', 'string', 'max:120'],
             'page' => ['nullable', 'integer', 'min:1'],
         ]);
 
         $query = trim((string) ($validated['q'] ?? ''));
         $type = ($validated['type'] ?? '') !== '' ? (string) $validated['type'] : null;
-        $data = $directory->search($query, $type);
+        $locality = trim((string) ($validated['locality'] ?? ''));
+        $data = $directory->search($query, $type, $locality);
         $perPage = 20;
         $page = LengthAwarePaginator::resolveCurrentPage();
         $results = new LengthAwarePaginator(
@@ -35,6 +37,7 @@ final class PublicDirectoryController extends Controller
         return view('directory.index', [
             'query' => $query,
             'type' => $type,
+            'locality' => $locality,
             'typeOptions' => $directory->typeOptions(),
             'facets' => $data['facets'],
             'results' => $results,
