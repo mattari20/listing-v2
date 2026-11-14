@@ -1006,3 +1006,8 @@ No V1, Hostinger/hPanel, production/live database, real/source/personal/institut
 ### M3-04 P01 detailed design — 2026-11-14
 
 P01's detailed Provider/Institution identity and typed relationship contract is prepared in [M3-04 P01 — Provider/Institution Identity and Typed Relationship Contract](M3-04_P01_PROVIDER_INSTITUTION_IDENTITY_AND_RELATIONSHIP_CONTRACT.md). It records the current schema limitations, proposed predicate/endpoint matrix, inclusive temporal semantics, evidence/adjudication integration decision, duplicate/merge/split controls, 22 proposed synthetic test cases and migration portability questions. This is design evidence only; no code, schema, migrations, fixtures or tests changed. P01 is ready for owner review; implementation authorization remains **NOT ISSUED**.
+
+
+## M3-04 Provider Management — P03 implementation
+
+P01 is validated, P02 is merged, and P03 has been implemented on an isolated synthetic-only feature branch and submitted for exact-head CI/review. P03 introduces typed authority profiles and governed relationship projections with explicit scope, jurisdiction, subject and valid-time. P04 remains not started. Do not count P03 as closed until required checks, review reconciliation and expected-head merge are verified.

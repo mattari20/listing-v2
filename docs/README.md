@@ -246,3 +246,8 @@ G-04 traceability closeout: PR [#172](https://github.com/mattari20/listing-v2/pu
 
 - [M3-04 P01 — Provider/Institution Identity and Typed Relationship Contract](04-roadmap/M3-04_P01_PROVIDER_INSTITUTION_IDENTITY_AND_RELATIONSHIP_CONTRACT.md) — selected claim/version integration, endpoint/predicate matrix, temporal/evidence rules and broader synthetic acceptance contract.
 - [M3-04 P01 Implementation Record](04-roadmap/M3-04_P01_IMPLEMENTATION_RECORD.md) — implemented Provider–Institution relationship projection, governance lifecycle, synthetic test coverage, validation evidence and deferred scope.
+
+
+## M3-04 P03 — Authority, Affiliation and Recognition Relationships
+- [M3-04 Provider Management Work Plan](04-roadmap/M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md) — P03 implementation is separately authorized and submitted for exact-head CI/review; P04 remains separately gated.
+- [M3-04 P03 Implementation Record](04-roadmap/M3-04_P03_IMPLEMENTATION_RECORD.md) — authority-type vocabulary, relationship endpoint compatibility, evidence/adjudication/audit contract, tests and exclusions.
