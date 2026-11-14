@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Base:** `f767bcb8f8b5e55a4d80225ce05c4f3842d8295d`  
 **Authorization:** Owner approved Option A in chat on 2026-11-14.  
-**Status:** Implementation candidate on a feature branch; pending exact-head CI and review.
+**Status:** Implementation complete on the feature branch; exact-head CI passed at the code head recorded below; unmerged pending owner review.
 
 ## 1. Bounded authorization and scope
 
@@ -99,3 +99,14 @@ Do not merge until:
 - no production, V1, Hostinger, deployment, external API/AI, real data or spend activity has occurred.
 
 I3 completion does not authorize I4 or any later package.
+
+## 9. Validation record
+
+The implementation code at commit `02aa7c7175d8373ade69f91b087525cf39526fbd` passed:
+
+- PHP 8.5 foundation CI: run `43626025786` — success.
+- Project documentation validation: run `43626025844` — success.
+- Formatting, Laravel bootstrap/routes, full synthetic test command and artifact-hygiene checks completed.
+- Test output: zero failures, 15 passed, 524 assertions and 131 warnings. The warnings are the existing test-harness attempts to read the deliberately absent `.env` file; CI confirms no `.env` file is created or tracked.
+
+The subsequent documentation-only closeout update does not change application code. Required checks must still pass on the resulting PR head before merge. This record does not authorize merge or I4.
