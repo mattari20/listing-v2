@@ -54,8 +54,8 @@ final class PublicDirectoryQueryService
      */
     public function search(string $query = '', ?string $type = null, string $locality = ''): array
     {
-        $query = trim(preg_replace('/\s+/u'        $locality = trim(preg_replace('/\\s+/u', ' ', $locality) ?? '');
-, ' ', $query) ?? '');
+        $query = trim(preg_replace('/\s+/u', ' ', $query) ?? '');
+        $locality = trim(preg_replace('/\s+/u', ' ', $locality) ?? '');
         $entities = $this->publishedEntities();
         $matching = [];
 
