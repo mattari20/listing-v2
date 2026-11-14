@@ -114,6 +114,19 @@ class FieldAwareClaimProposalTest extends TestCase
         $this->assertNotSame('', $versionId);
     }
 
+    public function test_non_synthetic_source_context_is_rejected_before_claim_writes(): void
+    {
+        [$entityId, , $evidenceId] = $this->fixture();
+
+        $this->expectException(ValidationException::class);
+        app(FieldAwareClaimProposalService::class)->propose(
+            $this->proposalActor(), $entityId, 'institution_display_name', 1,
+            'Synthetic Institute Epsilon', [$evidenceId],
+            ['purpose' => 'production_collection', 'method' => 'web_access', 'territory' => 'Pakistan'],
+            'institution', 'non-synthetic-source-key'
+        );
+    }
+
     public function test_generic_claim_registration_cannot_bypass_registry_or_add_unknown_predicates(): void
     {
         [$entityId, , $evidenceId] = $this->fixture();
