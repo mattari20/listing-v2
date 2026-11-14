@@ -2,7 +2,7 @@
 
 **As of:** 2026-11-14  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 in progress — Agendas 1–6 delivered within separately authorized scopes; Agenda 6 bounded governance service-contract implementation merged and closed
+**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 remains in progress — Agendas 1–10 completed within bounded authorized scopes; G-04 deterministic-oracle traceability and final M3-03 exit acceptance remain open
 
 ## Verified current M3 position — 2026-11-12 (post PR #114 owner-approved deferrals)
 
@@ -954,3 +954,17 @@ The Agenda 10 candidate is on \`feature/m3-03-agenda-10-conflicts-rollback\`. It
 **Status:** implementation candidate; exact-head PHP 8.5 foundation CI, Project documentation validation, review reconciliation and merge remain pending. Agenda 10 is not yet closed. G-01 through G-03 are addressed by this candidate if CI confirms the tests. G-04 deterministic-oracle traceability remains outstanding; therefore M3-03 remains **IN PROGRESS** and M3-04 Provider Management remains blocked.
 
 No V1, Hostinger/hPanel, production/live DB, real/source/personal/institute/student/child/staff data, source acquisition, external API/AI, real role provisioning, public endpoint, deployment, procurement or new spend was used or authorized.
+
+
+## M3-03 Agenda 10 — final completion and current position (2026-11-14)
+
+Agenda 10 is **COMPLETED** for its bounded synthetic local/CI scope. PR [#170](https://github.com/mattari20/listing-v2/pull/170) merged as \`1a4f37303913163a4866f660c469078802a7a4ed\` from exact validated head \`390bead3f28ccc64520d92b7c636455c08fd93a4\`.
+
+- FND-01 PHP 8.5 foundation CI [#43531770613](https://github.com/mattari20/listing-v2/actions/runs/43531770613): **success**.
+- Project documentation validation [#43531770710](https://github.com/mattari20/listing-v2/actions/runs/43531770710): **success**.
+- Synthetic suite: 209 assertions, no failures; 50 non-fatal warnings caused by the existing harness reading an absent local \`.env\` file. No \`.env\` or database artifact was created.
+- Review threads clear; no review submissions; exact-head recheck and expected-head SHA merge guard completed.
+
+G-01 persisted conflict lifecycle, G-02 temporal conflict evaluation and G-03 prior-snapshot rollback are closed for the bounded synthetic scope. G-04 deterministic-oracle traceability remains outstanding; the 32 T-vectors and 32 GS policy cases are not to be represented as 32 completed end-to-end workflows. M3-03 remains **IN PROGRESS** pending G-04 and owner acceptance. M3-04 Provider Management remains blocked.
+
+**Next recommended activity:** M3-03 G-04 — deterministic-oracle traceability reconciliation only. No M3-04 implementation, production/source data, external services/AI, deployment or spend.
