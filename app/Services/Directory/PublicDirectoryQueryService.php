@@ -52,9 +52,10 @@ final class PublicDirectoryQueryService
      *   facets: array<string, int>
      * }
      */
-    public function search(string $query = '', ?string $type = null): array
+    public function search(string $query = '', ?string $type = null, string $locality = ''): array
     {
-        $query = trim(preg_replace('/\s+/u', ' ', $query) ?? '');
+        $query = trim(preg_replace('/\s+/u'        $locality = trim(preg_replace('/\\s+/u', ' ', $locality) ?? '');
+, ' ', $query) ?? '');
         $entities = $this->publishedEntities();
         $matching = [];
 
