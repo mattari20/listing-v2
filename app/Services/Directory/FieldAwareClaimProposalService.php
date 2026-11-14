@@ -11,10 +11,17 @@ use Illuminate\Validation\ValidationException;
 
 final class FieldAwareClaimProposalService
 {
+    private readonly FieldDefinitionRegistryReader $registry;
+
+    private readonly TypedFieldValueValidator $validator;
+
     public function __construct(
-        private readonly FieldDefinitionRegistryReader $registry,
-        private readonly TypedFieldValueValidator $validator,
-    ) {}
+        FieldDefinitionRegistryReader $registry,
+        TypedFieldValueValidator $validator
+    ) {
+        $this->registry = $registry;
+        $this->validator = $validator;
+    }
 
     /**
      * Create one synthetic/local proposal against an exact active field version.
@@ -37,7 +44,8 @@ final class FieldAwareClaimProposalService
         array $validationContext = [],
         ?string $validFrom = null,
         ?string $validTo = null,
-    ): array {
+    ): array
+    {
         $this->requireHumanCapability($actor, 'propose_field_value');
         $this->requireHumanCapability($actor, 'submit_directory_proposal');
 
@@ -133,7 +141,8 @@ final class FieldAwareClaimProposalService
         return DB::transaction(function () use (
             $actor, $subjectEntityId, $fieldKey, $definitionVersion, $definition, $value,
             $uniqueEvidenceIds, $sourceContext, $idempotencyKey, $validFrom, $validTo, $fingerprint, $providerCategory, $scopeKey
-        ): array {
+        ): array
+        {
             $prior = DB::table('audit_events')
                 ->where('action', 'field_aware_claim_proposed')
                 ->where('metadata->idempotency_key', $idempotencyKey)
