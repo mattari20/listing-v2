@@ -310,7 +310,7 @@ final class FieldAwareClaimProposalService
                 continue;
             }
 
-            $parsed = \\DateTimeImmutable::createFromFormat('!Y-m-d', $date);
+            $parsed = \DateTimeImmutable::createFromFormat('!Y-m-d', $date);
             if (preg_match('/^\\d{4}-\\d{2}-\\d{2}$/D', $date) !== 1 ||
                 $parsed === false || $parsed->format('Y-m-d') !== $date) {
                 $this->reject($key, 'Validity dates must be valid ISO calendar dates.');
