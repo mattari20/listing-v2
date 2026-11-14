@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-14 — M3-03 accepted and closed; M3-04 P01–P04, M3-05 and M3-06 complete for bounded synthetic local/CI scope; M3-07 readiness review delivered, implementation blocked pending source/model approvals
+**Last reconciled:** 2026-11-14 — M3-03 accepted and closed; M3-04 P01–P04, M3-05 and M3-06 complete for bounded synthetic local/CI scope; M3-07 readiness documentation merged, application implementation blocked pending source/model approvals
 
 ## Purpose and maintenance rule
 
@@ -145,10 +145,12 @@ PR [#160](https://github.com/mattari20/listing-v2/pull/160) is open at the time 
 | [M3-07 AI Data-Agent Work Plan](M3-07_AI_DATA_AGENT_WORK_PLAN.md) | Conjunctive source/model approval gates, proposal-only workflow, privacy/security controls and synthetic-only test plan | Delivered — readiness review; implementation blocked pending owner/source/model approvals |
 | [M3-07 AI Data-Agent Readiness Review Record](M3-07_AI_DATA_AGENT_READINESS_REVIEW_RECORD.md) | Evidence-based readiness finding and explicit no-source/no-model/no-activation decision | Delivered — readiness review; implementation not authorized |
 
+
 ## PR delivery history
 
 | PR | Scope | Merge / head evidence | Status |
 |---|---|---|---|
+| [#195](https://github.com/mattari20/listing-v2/pull/195) | M3-07 AI Data-Agent readiness plan, source/model/privacy/security gates, proposal-only workflow, threat controls, synthetic-only test plan and project-control reconciliation | Merged as `1f4298f9136771f3b2ff6c8008d07b58a1113724`; exact head `53d0d2d715ff23d08197946227f62b8b0a34d38e`; FND-01 CI #43560066318 and documentation validation #43560066325 passed | Merged — readiness documentation only; application implementation blocked |
 | [#192](https://github.com/mattari20/listing-v2/pull/192) | M3-06 bounded text-only locality discovery, approved geography fields, synthetic privacy/restricted-category tests, work plan and implementation record | Merged as `e959adb578df6b60f2c308cd0b1f12391f6cb043`; exact head `9761e52747e0f2b15fbfee58ac2528ec4f96c57c`; FND-01 CI #43559187297 and documentation validation #43559187312 passed | Merged — bounded synthetic local/CI scope; geospatial services deferred |
 | [#193](https://github.com/mattari20/listing-v2/pull/193) | M3-06 closeout reconciliation across roadmap, step register, traceability, progress, controller, index, catalogue and implementation record | Merged as `f1c58a5405960cc86816d9c5aef77fee944987b0`; exact head `8d65f9e19fbde64e68f4a8087ababc08f99a312b`; FND-01 CI #43559397988 and documentation validation #43559398059 passed | Merged — M3-06 documentation closeout |
 | [#1](https://github.com/mattari20/listing-v2/pull/1) | Founding documentation, V2 governance, product/data requirements, roadmap, isolation audit and repository templates/CI | Merged as `0f2165f3d18e43f10cf6d6f717f145d3433769a4`; 36 commits; 26 changed files; one required check passed | Merged |
