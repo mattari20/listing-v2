@@ -114,7 +114,7 @@ class ProviderInstitutionRelationshipTest extends TestCase
     public function test_distinct_scope_jurisdiction_assertions_are_preserved(): void
     {
         $a = $this->accepted('operates', null, null, 'operations', 'synthetic-north');
-        $b = $this->accepted('owns', null, null, 'ownership', 'synthetic-north', $a['institution'], $a['provider']);
+        $b = $this->accepted('operates', null, null, 'administration', 'synthetic-south', $a['institution'], $a['provider']);
         $service = app(ProviderInstitutionRelationshipService::class);
         $service->materializeAcceptedRelationship($this->actor('materializer-a', ['materialize_relationship']), $a['version'], 'scope-a');
         $service->materializeAcceptedRelationship($this->actor('materializer-b', ['materialize_relationship']), $b['version'], 'scope-b');
