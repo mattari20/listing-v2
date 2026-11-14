@@ -164,8 +164,7 @@ final class TypedFieldValueValidator
         $applicabilityResult = $this->validateApplicability($definition, $context);
         $errors = array_merge($errors, $applicabilityResult['errors']);
 
-        $privacyResult = $this->validatePrivacy($definition, $context);
-        $errors = array_merge($errors, $privacyResult['errors']);
+        $errors = array_merge($errors, $this->validatePrivacy($definition, $context));
 
         $schema = $definition['validation_schema'] ?? null;
 
