@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-14 — M3-03 Agendas 6–10 closed within bounded synthetic scopes; PR #169 exit reconciliation and PR #170 Agenda 10 implementation merged; G-04 remains open
+**Last reconciled:** 2026-11-14 — M3-03 Agendas 6–10 closed within bounded synthetic scopes; G-04 oracle traceability record delivered; Product Owner acceptance pending
 
 ## Purpose and maintenance rule
 
@@ -878,3 +878,12 @@ PR #169 exit reconciliation merged as \`799adb9c64f6ad45739b847f4bab80e947f83752
 | [Agenda 10 Completion and Evidence Record](M3-03_AGENDA_10_COMPLETION_AND_EVIDENCE_RECORD.md) | PR #170 merge SHA, exact-head CI/test evidence, review reconciliation, acceptance matrix and retained M3-03 gates | Accepted — 2026-11-14 |
 
 PR #170 merged as \`1a4f37303913163a4866f660c469078802a7a4ed\` from exact head \`390bead3f28ccc64520d92b7c636455c08fd93a4\`. Exact-head FND-01 run #43531770613 and Project documentation validation #43531770710 passed. Agenda 10 is closed for its bounded scope; M3-03 remains in progress pending G-04 and owner acceptance.
+
+
+## M3-03 G-04 — deterministic oracle traceability reconciliation
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-03 G-04 Deterministic Oracle Traceability Reconciliation](M3-03_G04_DETERMINISTIC_ORACLE_TRACEABILITY_RECONCILIATION.md) | Maps T-001–T-032 and GS-001–GS-032 to exact runtime test methods/assertion groups or explicit partial/deferred dispositions; records remaining risk and owner decision | Delivered — Product Owner acceptance pending |
+
+The record is documentation-only. It does not claim 64 completed runtime workflows. GS cases are grouped policy-level assertions; T vectors have mixed runtime coverage. M3-03 remains in progress pending owner acceptance and final exit review; M3-04 remains blocked.
