@@ -6,6 +6,7 @@ use Illuminate\Validation\ValidationException;
 final class ProviderInstitutionRelationshipPolicy
 {
     private const PREDICATES = ['operates', 'owns', 'administers'];
+
     public function assertPredicate(string $predicate): void
     {
         if (! in_array($predicate, self::PREDICATES, true)) {

@@ -10,6 +10,7 @@ use Illuminate\Validation\ValidationException;
 final class ProviderInstitutionRelationshipService
 {
     public function __construct(private readonly GovernanceCommandService $governance, private readonly ProviderInstitutionRelationshipPolicy $policy) {}
+
     public function propose(array $actor, string $providerId, string $institutionId, string $predicate, array $evidenceIds, array $context, string $idempotencyKey, ?string $scope = null, ?string $jurisdiction = null, ?string $validFrom = null, ?string $validTo = null): string
     {
         $this->policy->assertPredicate($predicate);
