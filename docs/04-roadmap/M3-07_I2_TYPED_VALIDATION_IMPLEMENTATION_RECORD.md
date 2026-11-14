@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Package:** I2 — Typed Validation and Applicability  
 **Baseline:** I1 PR #198, branch `feature/m3-07-i1-field-registry`, validated head `b6036687c219f79234609d549669448ca84fb3a5`  
-**Status:** Local/CI implementation candidate; exact-head validation pending.
+**Status:** Implementation and first exact-head CI validation passed; final PR metadata closeout pending.
 
 ## 1. Owner decision and bounded scope
 
@@ -118,9 +118,11 @@ I2 acceptance requires all of the following on the exact final PR head:
 - [ ] project documentation validation passes;
 - [ ] no I3 or excluded capability is introduced.
 
-**Exact PR head:** pending  
-**Focused/full test result:** pending  
-**PHP 8.5 foundation CI run:** pending  
-**Documentation validation run:** pending
+**Validated implementation head:** `e61a93f3ef66efe4dfcfe7a4222c1d48a2d1091d`  
+**Focused/full test result:** 15 validator tests passed; full synthetic suite passed with 478 assertions and 118 pre-existing missing-`.env` warnings.  
+**PHP 8.5 foundation CI run:** #43576235840 — SUCCESS  
+**Documentation validation run:** #43576235849 — SUCCESS
+
+The PR closeout commit will update this record and trigger a final exact-head rerun. The final head and its run IDs will also be recorded in the PR evidence comment.
 
 A successful I2 PR does not authorize I3. I3 requires separate owner approval and a separate bounded package.
