@@ -18,8 +18,7 @@ final class FieldAwareClaimProposalService
     public function __construct(
         FieldDefinitionRegistryReader $registry,
         TypedFieldValueValidator $validator
-    )
-    {
+    ) {
         $this->registry = $registry;
         $this->validator = $validator;
     }
@@ -27,9 +26,9 @@ final class FieldAwareClaimProposalService
     /**
      * Create one synthetic/local proposal against an exact active field version.
      *
-     * @param list<string> $evidenceReferenceIds
-     * @param array<string, mixed> $sourceContext
-     * @param array<string, mixed> $validationContext
+     * @param  list<string>  $evidenceReferenceIds
+     * @param  array<string, mixed>  $sourceContext
+     * @param  array<string, mixed>  $validationContext
      * @return array{claim_id: string, claim_version_id: string, editorial_review_case_id: string}
      */
     public function propose(
@@ -141,8 +140,7 @@ final class FieldAwareClaimProposalService
         return DB::transaction(function () use (
             $actor, $subjectEntityId, $fieldKey, $definitionVersion, $definition, $value,
             $uniqueEvidenceIds, $sourceContext, $idempotencyKey, $validFrom, $validTo, $fingerprint, $providerCategory, $scopeKey
-        ): array
-        {
+        ): array {
             $prior = DB::table('audit_events')
                 ->where('action', 'field_aware_claim_proposed')
                 ->where('metadata->idempotency_key', $idempotencyKey)
