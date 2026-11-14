@@ -196,8 +196,8 @@ class FieldDefinitionRegistryReaderTest extends TestCase
     }
 
     /**
-     * @param list<string> $entityTypes
-     * @param list<string> $providerCategories
+     * @param list<string>  $entityTypes
+     * @param list<string>  $providerCategories
      */
     private function definition(
         string $fieldKey,
