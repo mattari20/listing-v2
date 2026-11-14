@@ -38,7 +38,6 @@ final class PublicDirectoryController extends Controller
             'typeOptions' => $directory->typeOptions(),
             'facets' => $data['facets'],
             'results' => $results,
-            'limited' => $data['limited'],
         ]);
     }
 
