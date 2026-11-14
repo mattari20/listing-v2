@@ -250,3 +250,8 @@ Until G1 is confirmed and G2–G9 are separately satisfied, M3-07 remains in pla
 ## 16. Extensible information storage and lifecycle
 
 The detailed field registry, typed value, entity-scope, add/edit/correct/retire/restore/remove, profile-template, completeness, search/projection and AI-agent constraints are specified in [M3-07 Extensible Institution Information Model and Change Lifecycle](M3-07_EXTENSIBLE_INSTITUTION_INFORMATION_MODEL.md). This is a design artifact only. It does not authorize schema changes, migrations, application code, admin UI, dynamic field CRUD or agent activation. Implementation must reuse the existing claim/evidence/adjudication/publication/audit governance boundary and first inspect the current schema before choosing any additive persistence structure.
+
+
+## 17. Existing architecture reconciliation
+
+The repository baseline was inspected read-only. The current identity, claim/version, evidence, source authorization, adjudication, publication, audit, correction/withdrawal, conflict and editorial-review mechanisms should be reused. The main identified gap is a governed, versioned field-definition registry with deterministic type, cardinality, entity-scope, privacy, freshness and public/search validation. See [M3-07 Existing Architecture Reconciliation and Extensible Storage Decision](M3-07_EXISTING_ARCHITECTURE_RECONCILIATION_AND_STORAGE_DECISION.md) for the inspected files, reuse/gap matrix, recommended design and implementation sequence. This inspection made no code/schema changes and does not lift any M3-07 approval gate.
