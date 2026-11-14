@@ -233,6 +233,7 @@ class ProviderInstitutionRelationshipTest extends TestCase
         $workflow = app(PersistedGovernanceWorkflowService::class);
         $case = $workflow->openAdjudicationCase($this->actor('case-opener', ['open_adjudication']), $version, 'case-'.str()->uuid());
         $workflow->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $case, 'accepted', 'synthetic_acceptance', 'Synthetic fixture accepted after review.', 'synthetic-policy-v1');
+
         return ['provider' => $provider, 'institution' => $institution, 'version' => $version, 'authorization' => $authorization, 'evidence' => $evidence];
     }
 
@@ -246,6 +247,7 @@ class ProviderInstitutionRelationshipTest extends TestCase
             'territories' => json_encode(['synthetic']), 'permitted_scopes' => json_encode(['acquisition' => true, 'retention' => true, 'processing' => true, 'reuse' => false, 'publication' => false]),
             'valid_from' => now()->subDay(), 'valid_to' => now()->addDay(), 'created_at' => $now, 'updated_at' => $now,
         ]);
+
         return $id;
     }
 
@@ -254,11 +256,13 @@ class ProviderInstitutionRelationshipTest extends TestCase
         $authorization = $this->authorization();
         $id = app(GovernanceCommandService::class)->registerEvidenceReference($authorization, $this->actor('collector', ['register_evidence']), $this->context(), 'evidence-'.str()->uuid(), ['content_included' => false]);
         DB::table('evidence_references')->where('id', $id)->update(['status' => 'eligible_for_review']);
+
         return $id;
     }
 
     private function entity(string $type, ?string $label = null): string
     {
+
         return app(ProviderInstitutionRelationshipService::class)->registerEntity(
             $this->actor('identity-registrar', ['register_directory_entity']),
             $type,
@@ -269,11 +273,13 @@ class ProviderInstitutionRelationshipTest extends TestCase
 
     private function context(): array
     {
+
         return ['purpose' => 'synthetic_test_only', 'method' => 'fixture_reference', 'territory' => 'synthetic'];
     }
 
     private function actor(string $id, array $capabilities, string $class = 'human'): array
     {
+
         return ['actor_id' => $id, 'actor_class' => $class, 'capabilities' => $capabilities];
     }
 }
