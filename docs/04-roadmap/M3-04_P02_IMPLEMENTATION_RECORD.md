@@ -66,7 +66,8 @@ The feature test suite covers:
 10. Unadjudicated claim rejected.
 11. Audit failure rolls back catalogue projection.
 12. Claim withdrawal propagates to the campus catalogue projection.
-13. Source-authorization revocation suppresses the campus catalogue projection.
+12. Source-authorization revocation suppresses the campus catalogue projection.
+13. Campus provenance and valid-time are retained from the accepted claim version.
 
 Tests use fabricated identifiers, labels, dates, actors, evidence and authorization rows only.
 
