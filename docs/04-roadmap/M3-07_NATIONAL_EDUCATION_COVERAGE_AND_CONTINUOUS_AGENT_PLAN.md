@@ -260,3 +260,8 @@ The repository baseline was inspected read-only. The current identity, claim/ver
 ## 18. D1 field registry contract
 
 The logical field-definition contract, immutable key/version rules, provider/entity applicability, supported typed values, privacy/evidence/freshness policy, visibility/search allowlists, approval/activation and retirement semantics are specified in [M3-07 D1 Field Registry Contract and Definition Lifecycle](M3-07_D1_FIELD_REGISTRY_CONTRACT.md). D1 is a design artifact; D2 must select the physical representation and exact immutable association between a field-definition version and each claim version. No schema or application implementation is authorized by D1.
+
+
+## 19. D2 field registry storage decision
+
+The recommended physical architecture is a normalized field-definition registry plus the existing claims/claim-version store, with each registry-managed claim version bound to the exact immutable definition version used for validation. The proposal compares alternatives, defines additive migration boundaries, review workflow, indexes, concurrency, compatibility and synthetic acceptance criteria in [M3-07 D2 Field Registry Physical Storage Decision](M3-07_D2_FIELD_REGISTRY_STORAGE_DECISION.md). This remains a design proposal only; no migration or code change is authorized.
