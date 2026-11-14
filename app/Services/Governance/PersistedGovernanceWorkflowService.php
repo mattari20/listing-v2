@@ -163,6 +163,7 @@ final class PersistedGovernanceWorkflowService
             ]);
 
             DB::table('entity_relationships')->where('claim_version_id', $priorVersionId)->where('status', 'active')->update(['status' => 'superseded', 'updated_at' => $now]);
+            $this->updateP02ProjectionsForVersions([$priorVersionId], 'superseded', $now);
 
             foreach ($evidenceReferenceIds as $evidenceId) {
                 DB::table('claim_evidence_links')->insert([
@@ -230,6 +231,7 @@ final class PersistedGovernanceWorkflowService
                 'updated_at' => $now,
             ]);
             DB::table('entity_relationships')->where('claim_version_id', $claimVersionId)->where('status', 'active')->update(['status' => 'withdrawn', 'updated_at' => $now]);
+            $this->updateP02ProjectionsForVersions([$claimVersionId], 'withdrawn', $now);
 
             $snapshots = DB::table('publication_snapshots')->where('claim_version_id', $claimVersionId)->get(['id', 'status']);
             foreach ($snapshots as $snapshot) {
@@ -389,6 +391,7 @@ final class PersistedGovernanceWorkflowService
             DB::table('evidence_references')->whereIn('id', $evidenceIds)->update(['status' => 'quarantined', 'updated_at' => $now]);
             $versionIds = DB::table('claim_evidence_links')->whereIn('evidence_reference_id', $evidenceIds)->distinct()->pluck('claim_version_id');
             DB::table('entity_relationships')->whereIn('claim_version_id', $versionIds)->where('status', 'active')->update(['status' => 'suppressed', 'updated_at' => $now]);
+            $this->updateP02ProjectionsForVersions($versionIds->all(), 'suppressed', $now);
             $snapshotIds = DB::table('publication_snapshots')->whereIn('claim_version_id', $versionIds)->pluck('id');
             foreach ($snapshotIds as $snapshotId) {
                 $suppressionId = (string) Str::uuid();
@@ -690,6 +693,25 @@ final class PersistedGovernanceWorkflowService
         }
 
         return $value;
+    }
+
+    private function updateP02ProjectionsForVersions(array $versionIds, string $status, $now): void
+    {
+        if ($versionIds === []) {
+            return;
+        }
+        foreach ([
+            'directory_campuses',
+            'directory_delivery_sites',
+            'programme_catalogue_entries',
+            'programme_qualification_links',
+            'programme_offers',
+        ] as $table) {
+            DB::table($table)->whereIn('claim_version_id', $versionIds)->where('status', 'active')->update([
+                'status' => $status,
+                'updated_at' => $now,
+            ]);
+        }
     }
 
     private function evidenceActorIds(string $claimVersionId): array
