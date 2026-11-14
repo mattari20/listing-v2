@@ -97,7 +97,6 @@ class CampusProgrammeCatalogueTest extends TestCase
         $this->assertDatabaseHas('programme_offers', ['id' => $offerB, 'delivery_location_entity_id' => $site, 'admission_cycle' => 'synthetic-2028']);
     }
 
-
     public function test_campus_projection_retains_claim_provenance_and_valid_time(): void
     {
         $institution = $this->entity('institution');
