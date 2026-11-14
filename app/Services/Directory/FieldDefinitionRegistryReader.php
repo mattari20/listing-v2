@@ -90,6 +90,24 @@ final class FieldDefinitionRegistryReader
     }
 
     /**
+     * Resolve the current human-governed provider category for an institution.
+     * No request-supplied category or label inference is accepted.
+     */
+    public function providerCategoryForEntity(string $entityId): ?string
+    {
+        $entity = DB::table('directory_entities')->where('id', $entityId)->first(['entity_type']);
+        if ($entity === null || $entity->entity_type !== 'institution') {
+            return null;
+        }
+
+        $category = DB::table('directory_provider_category_assignments')
+            ->where('entity_id', $entityId)
+            ->value('provider_category');
+
+        return is_string($category) && $category !== '' ? $category : null;
+    }
+
+    /**
      * Resolve exact-version applicability. Entity and provider applicability are explicit;
      * neither is inherited from a parent or inferred from a label.
      *
