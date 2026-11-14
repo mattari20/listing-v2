@@ -164,6 +164,7 @@ final class ProviderInstitutionRelationshipService
                 'occurred_at' => $now, 'metadata' => json_encode(['actor_id' => $actor['actor_id'], 'claim_version_id' => $versionId, 'idempotency_key' => $idempotencyKey, 'fingerprint' => $fingerprint], JSON_THROW_ON_ERROR),
                 'created_at' => $now, 'updated_at' => $now,
             ]);
+
             return $id;
         });
     }
