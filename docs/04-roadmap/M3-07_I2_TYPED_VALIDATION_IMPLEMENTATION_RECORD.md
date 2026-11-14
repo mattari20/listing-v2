@@ -93,7 +93,7 @@ All fixtures are synthetic literals. No real provider/student data, URLs, source
 
 A final code review identified that decimal `minimum`/`maximum` comparisons must not pass through PHP binary floating-point conversion. The validator now compares normalized decimal strings (sign, integer digits and fractional digits) exactly and rejects malformed or non-string/non-integer bounds. Regression cases cover values above the IEEE-754 exact-integer boundary (2^53), inclusive equality, and a floating-point schema bound. This preserves fixed-precision semantics for the supported precision range.
 
-## 7. Explicit non-actions
+## 8. Explicit non-actions
 
 I2 does not:
 - add or modify migrations/tables/columns/indexes;
