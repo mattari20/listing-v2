@@ -104,7 +104,7 @@ class ProviderInstitutionRelationshipTest extends TestCase
     public function test_overlapping_same_predicate_and_scope_is_rejected_but_distinct_predicates_are_separate(): void
     {
         $first = $this->accepted('operates');
-        $second = $this->accepted('operates');
+        $second = $this->accepted('operates', '2026-01-01', null, null, null, $first['institution'], $first['provider']);
         $service = app(ProviderInstitutionRelationshipService::class);
         $service->materializeAcceptedRelationship($this->actor('materializer-one', ['materialize_relationship']), $first['version'], 'overlap-one');
         $this->expectException(ValidationException::class);
@@ -114,7 +114,7 @@ class ProviderInstitutionRelationshipTest extends TestCase
     public function test_distinct_scope_jurisdiction_assertions_are_preserved(): void
     {
         $a = $this->accepted('operates', null, null, 'operations', 'synthetic-north');
-        $b = $this->accepted('operates', null, null, 'administration', 'synthetic-south');
+        $b = $this->accepted('owns', null, null, 'ownership', 'synthetic-north', $a['institution'], $a['provider']);
         $service = app(ProviderInstitutionRelationshipService::class);
         $service->materializeAcceptedRelationship($this->actor('materializer-a', ['materialize_relationship']), $a['version'], 'scope-a');
         $service->materializeAcceptedRelationship($this->actor('materializer-b', ['materialize_relationship']), $b['version'], 'scope-b');
@@ -222,9 +222,9 @@ class ProviderInstitutionRelationshipTest extends TestCase
         $this->assertDatabaseHas('entity_relationships', ['id' => $id, 'status' => 'superseded']);
     }
 
-    private function accepted(string $predicate = 'operates', ?string $from = '2026-01-01', ?string $to = null, ?string $scope = null, ?string $jurisdiction = null, ?string $institutionId = null): array
+    private function accepted(string $predicate = 'operates', ?string $from = '2026-01-01', ?string $to = null, ?string $scope = null, ?string $jurisdiction = null, ?string $institutionId = null, ?string $providerId = null): array
     {
-        $provider = $this->entity('provider');
+        $provider = $providerId ?? $this->entity('provider');
         $institution = $institutionId ?? $this->entity('institution');
         $authorization = $this->authorization();
         $evidence = app(GovernanceCommandService::class)->registerEvidenceReference($authorization, $this->actor('collector', ['register_evidence']), $this->context(), 'evidence-'.str()->uuid(), ['content_included' => false]);
