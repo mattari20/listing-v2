@@ -358,3 +358,10 @@ Agenda 10 closes reconciliation gaps G-01, G-02 and G-03 for the bounded scope. 
 The G-04 traceability record is delivered in [M3-03 G-04 Deterministic Oracle Traceability Reconciliation](M3-03_G04_DETERMINISTIC_ORACLE_TRACEABILITY_RECONCILIATION.md). It maps all T-001–T-032 and GS-001–GS-032 to exact runtime test methods/assertion groups or explicit partial/deferred dispositions. The matrix distinguishes policy-only assertions from persisted workflows and identifies remaining deferred model/publication/identity/offer/fee behaviors.
 
 **Status:** traceability deliverable prepared; Product Owner acceptance pending. G-01–G-03 remain closed for bounded synthetic scope. M3-03 remains **IN PROGRESS** until the owner reviews the G-04 dispositions and the final step-level exit evidence. M3-04 Provider Management remains blocked/not started. No application code, test behavior, M3-04 work, production, source access, external service/AI, deployment or spend is authorized by this documentation reconciliation.
+
+
+### G-04 final delivery evidence
+
+PR [#172](https://github.com/mattari20/listing-v2/pull/172) merged as `f8d9613eec6dca8356b0780ea871245104365736` from exact validated head `0f6f8a961133d1cf3bac5a4f1e0a62b228114c85`. Exact-head Project documentation validation run #43533801162 and PHP 8.5 foundation CI run #43533801164 both passed. The unchanged synthetic suite reported 209 assertions, no failures and 50 non-fatal missing-local-`.env` warnings. Review threads and submissions were absent; expected-head merge guard used.
+
+G-04 traceability is delivered and merged. Product Owner acceptance and final M3-03 exit acceptance remain pending; M3-04 remains blocked/not started.
