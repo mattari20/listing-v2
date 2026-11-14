@@ -86,9 +86,9 @@ class ProviderCategoryAssignmentTest extends TestCase
             'target_id' => $entityId,
             'reason_code' => 'synthetic_reclassification',
         ]);
-        $history = DB::table('audit_events')->where('action', 'provider_category_assigned')
-            ->orderBy('occurred_at')->get();
-        $this->assertSame('private_school', json_decode($history[1]->metadata, true)['previous_provider_category']);
+        $latestAudit = DB::table('audit_events')->where('action', 'provider_category_assigned')
+            ->where('metadata->idempotency_key', 'category-key-6')->first();
+        $this->assertSame('private_school', json_decode($latestAudit->metadata, true)['previous_provider_category']);
     }
 
     private function institution(string $label = 'Synthetic Institution', string $type = 'institution'): string
