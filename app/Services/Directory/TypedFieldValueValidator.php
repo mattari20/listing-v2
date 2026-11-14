@@ -599,7 +599,7 @@ final class TypedFieldValueValidator
             $fraction = rtrim($matches[3] ?? '', '0');
 
             return [
-                'negative' => $matches[1] === '-' && ($integer !== '0' || $fraction !== ''),
+                'negative' => $matches[1] === '-' && ($integer !== '' || $fraction !== ''),
                 'integer' => $integer === '' ? '0' : $integer,
                 'fraction' => $fraction,
             ];
