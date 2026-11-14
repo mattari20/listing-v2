@@ -2,7 +2,25 @@
 
 **As of:** 2026-11-14  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 accepted and closed for bounded synthetic local/CI scope on 2026-11-14; M3-04 Provider Management P01–P04 and M3-05 Public Directory and Search implemented, validated and merged for bounded synthetic local/CI scope
+**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03, M3-04, M3-05 and M3-06 implemented, validated and merged for bounded synthetic local/CI scope
+
+
+
+## Latest verified position — M3-06 closeout (2026-11-14)
+
+**Latest main commit:** `e959adb578df6b60f2c308cd0b1f12391f6cb043` (M3-06 implementation PR #192).  
+**M3-06:** Complete for bounded synthetic local/CI scope.  
+**Next roadmap step:** M3-07 AI Data-Agent — scope/readiness review only until each source has separate rights, security, privacy and owner authorization.
+
+PR [#192](https://github.com/mattari20/listing-v2/pull/192) merged from exact head `9761e52747e0f2b15fbfee58ac2528ec4f96c57c`. Required exact-head checks:
+- FND-01 PHP 8.5 foundation CI [#43559187297](https://github.com/mattari20/listing-v2/actions/runs/43559187297) — **SUCCESS**.
+- Project documentation validation [#43559187312](https://github.com/mattari20/listing-v2/actions/runs/43559187312) — **SUCCESS**.
+
+No unresolved review threads or submitted reviews were present. The full synthetic-only FND-01 suite passed, including new locality tests. Delivered: approved text-only `province`, `district`, `city` and `locality` facts; manual locality filtering limited to those fields; public profile/result-card display; preserved publication/evidence/source-authorization/suppression/supersession checks; and Deeni Madaris exclusion. Manual search requires no location permission, JavaScript, maps or external assets.
+
+Deferred: coordinates and precision/confidence models, distance/nearby search, device geolocation, maps/tiles/geocoding, national locality gazetteer/boundaries, hierarchy inference and place-name disambiguation. These require separate data-quality, privacy, licensing, operational and owner-authorization decisions. No production, V1, Hostinger/hPanel, live database, real/source data, external APIs/AI, deployment, release, procurement or additional spend was used.
+
+No overall M3 percentage is recalculated by counting completed packages; step/milestone progress remains evidence-weighted and must not be inferred from PR counts.
 
 ## Verified current M3 position — 2026-11-12 (post PR #114 owner-approved deferrals)
 
@@ -1058,4 +1076,4 @@ Delivered: anonymous browse/search, provider/institution/campus/programme/qualif
 
 Deferred: maps/geography (M3-06), external search engine, fuzzy/transliteration search, ranking/recommendations, comparison, accounts/reviews, saved lists, alerts, admissions workflow, performance/load targets, formal accessibility/security audit and operational hardening. No production release or public URL cutover is authorized.
 
-**Next:** M3-06 scope review and separate authorization; no M3-06 code is started by this closeout.
+**Next:** M3-07 AI Data-Agent scope/readiness review; implementation remains blocked until each source has separate rights/security/privacy review and explicit owner authorization. No AI/model or source connector is activated.

@@ -2,7 +2,7 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03, M3-04 and M3-05 delivered for bounded synthetic local/CI scope  
+**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03, M3-04, M3-05 and M3-06 delivered for bounded synthetic local/CI scope  
 **Last reconciled:** 2026-11-14
 
 ## Authoritative current position
@@ -10,7 +10,7 @@
 - Repository auto-merge is enabled; active `main` ruleset requires the documentation validation check.
 - Founding documentation PR #1 merged into `main` as `0f2165f3d18e43f10cf6d6f717f145d3433769a4`.
 - Documentation Completion Catalogue: `../04-roadmap/DOCUMENTATION_CATALOG.md`; update after every documentation PR update and merge.
-- Bounded synthetic local/CI application implementation has been approved and merged for M3-02 foundation, M3-03 governance, M3-04 provider management and M3-05 public directory/search. No production, V1, Hostinger, real/source data, external services, deployment or release is authorized.
+- Bounded synthetic local/CI application implementation has been approved and merged for M3-02 foundation, M3-03 governance, M3-04 provider management, M3-05 public directory/search and M3-06 text-only locality discovery. M3-06 does not include coordinates, distance search, device location, maps, geocoding or national locality data. No production, V1, Hostinger, real/source data, external services, deployment or release is authorized.
 - Legacy repository inspection is read-only and limited to a metadata inventory for explicit exclusion.
 - No connection to legacy production systems or data is permitted.
 - No production deployment, URL cutover or replacement is authorized.
@@ -22,7 +22,11 @@ Build a student-first education discovery, admissions information and comparison
 The Documentation Completion Catalogue is the owner-facing inventory of delivered, updated, accepted and planned documents. A merged PR records delivery, not automatic content acceptance. Every documentation PR update and merge must reconcile the catalogue, index, controller, step register, traceability and progress report.
 
 ## Current milestone
-**M3 — M3-05 Public Directory and Search complete for bounded synthetic local/CI scope; M3-06 Geography and Discovery is the next unstarted step and requires separate scope review/authorization**
+**M3 — M3-06 Geography and Discovery complete for bounded synthetic local/CI scope; M3-07 AI Data-Agent is the next roadmap step, subject to source-specific authorization**
+
+
+## M3-06 closeout — 2026-11-14
+PR [#192](https://github.com/mattari20/listing-v2/pull/192) merged as `e959adb578df6b60f2c308cd0b1f12391f6cb043`; exact head `9761e52747e0f2b15fbfee58ac2528ec4f96c57c` passed FND-01 PHP 8.5 CI #43559187297 and Project documentation validation #43559187312. The bounded feature supports approved text-only province/district/city/locality facts and manual locality filtering. Coordinates, distance/nearby search, device geolocation, maps, tiles, geocoding, national locality gazetteer/boundaries and place-name disambiguation remain deferred. No production, V1, Hostinger/hPanel, live database, real/source data, external APIs/AI, deployment, release or new spend was used or authorized.
 
 ## M0 closeout
 M0 was accepted after review of the founding controls, strict legacy non-interference boundary, project planning records, repository rules and the PR delivery workflow. Evidence is recorded in the catalogue, progress report and traceability matrix. M0-S02 acceptance is limited to the documented metadata-only exclusion audit; it is not an exhaustive inventory of the legacy repository. Repository auto-merge is enabled, but automatic merge execution has not yet been independently demonstrated. Production access, deployment and cutover remain unauthorized.

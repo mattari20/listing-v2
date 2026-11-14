@@ -626,13 +626,15 @@ See [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) for complete step scopes, task
 | M3-03 | Core Data and Governance | 12% | Accepted and closed for bounded synthetic local/CI scope |
 | M3-04 | Provider Management | 8% | P01–P04 implemented, validated and merged for bounded synthetic local/CI scope |
 | M3-05 | Public Directory and Search | 10% | Complete for bounded synthetic local/CI scope — PR #189 merged |
-| M3-06 | Geography and Discovery | 7% | Not started; separate scope review and implementation authorization required |
+| M3-06 | Geography and Discovery | 7% | Complete for bounded synthetic local/CI scope — PR #192 merged; text-only locality filtering; geospatial services/coordinates deferred |
 | M3-07 | AI Data-Agent | 10% | Not started; source-specific authorization required |
 | M3-08 | Identity, Reviews and Security | 10% | Not started; reviews post-launch only |
 | M3-09 | Quality and Operational Hardening | 8% | Not started |
 | M3-10 | Pilot and Launch Readiness | 7% | Not started; separate pilot approval |
 | M3-11 | Controlled Production Launch | 6% | Conditional; separate explicit launch authorization |
 
+
+**M3-06 closeout — 2026-11-14:** PR [#192](https://github.com/mattari20/listing-v2/pull/192) merged as `e959adb578df6b60f2c308cd0b1f12391f6cb043`. Exact head `9761e52747e0f2b15fbfee58ac2528ec4f96c57c` passed FND-01 PHP 8.5 CI #43559187297 and Project documentation validation #43559187312. Scope is approved text-only province/district/city/locality facts and manual locality filtering over the eligible anonymous public projection. Coordinates, distance/nearby search, device location, maps, geocoding and a national locality gazetteer remain deferred. No production, V1, Hostinger, real/source data, external service, deployment or new spend was used. Overall M3 percentage is not recalculated by counting milestone packages.
 M3-00 is accepted and closed with the Product Owner's documented, explicit deferrals. The historical task-evidence snapshots below retain their original dates and must not be read as the current step status.
 
 

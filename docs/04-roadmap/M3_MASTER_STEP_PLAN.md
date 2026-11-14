@@ -4,9 +4,9 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-05 — Public Directory and Search complete for bounded synthetic local/CI scope; M3-06 Geography and Discovery not started  
-**Plan status:** M3-03 final exit review accepted by Product Owner on 2026-11-14; G-01–G-03 closed for bounded synthetic scope and G-04 traceability owner-accepted with explicit residual deferrals; M3-04 P01–P04 implemented and merged; M3-05 separately authorized, implemented and merged as PR #189  
-**Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 P01–P04 and M3-05 are implemented, validated and merged for bounded synthetic local/CI scope. M3-06 geography/maps, real/source data, external services, production and deployment remain separately gated.
+**Current step:** M3-06 — Geography and Discovery complete for bounded synthetic local/CI scope; M3-07 AI Data-Agent is the next roadmap step, subject to source-specific authorization  
+**Plan status:** M3-03 final exit review accepted by Product Owner on 2026-11-14; G-01–G-03 closed for bounded synthetic scope and G-04 traceability owner-accepted with explicit residual deferrals; M3-04 P01–P04, M3-05 and M3-06 implemented, validated and merged for bounded synthetic local/CI scope (M3-06 PR #192)  
+**Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 P01–P04, M3-05 and M3-06 are implemented, validated and merged for bounded synthetic local/CI scope. M3-06 delivery is limited to approved text-only province/district/city/locality facts and manual locality filtering; coordinates, distance search, device location, maps, geocoding, real/source data, external services, production and deployment remain separately gated.
 
 ## 1. Purpose and governance
 
@@ -82,9 +82,11 @@ Deliver anonymous-first directory pages, search, categories, filters and institu
 **Exit evidence:** user-journey tests, search correctness, accessibility checks, low-bandwidth behavior, freshness display and public/private boundary tests.
 
 ### M3-06 — Geography and Discovery
-Implement locality quality, approximate location handling, distance/search behavior and optional map/geocoder adapters. Core discovery must work without precise location, maps or third-party geography services.
+**Delivered for bounded synthetic local/CI scope:** allowlisted approved text facts for province, district, city and locality; manual locality filtering restricted to those facts; approved geography display on profile/result views; existing publication/evidence/source-authorization/suppression/supersession controls preserved; and Deeni Madaris exclusion retained. Manual search requires no device location, maps, JavaScript or external service.
 
-**Exit evidence:** geo-quality tests, privacy tests, graceful degradation and Deeni Madaris suppression tests across all affected public surfaces.
+**Explicitly deferred:** coordinate storage/precision/confidence, distance/nearby search, device geolocation, map/tile/geocoder adapters, national gazetteer/boundary source, authoritative hierarchy and place-name disambiguation. These require separate data-quality, privacy, licensing, operational and owner-authorization decisions.
+
+**Exit evidence:** PR #192 merged as `e959adb578df6b60f2c308cd0b1f12391f6cb043`; exact PR head `9761e52747e0f2b15fbfee58ac2528ec4f96c57c` passed FND-01 PHP 8.5 CI #43559187297 and Project documentation validation #43559187312. Synthetic locality/privacy/restricted-category tests passed in the full suite.
 
 ### M3-07 — AI Data-Agent
 Implement only after model/provider and each source-specific access/reuse approval. AI remains proposal-only. Capture is bounded and quarantined; deterministic validation and human adjudication precede publication.
@@ -161,13 +163,15 @@ Conditional step. Requires separate explicit written approval for production acc
 - M3-03: Accepted and closed for its bounded synthetic local/CI scope.
 - M3-04: P01–P04 implemented, validated and merged for bounded synthetic local/CI scope.
 - M3-05: Public Directory and Search implemented, validated and merged for bounded synthetic local/CI scope (PR #189).
-- M3-06: Geography and Discovery not started; requires its own scope review and explicit authorization.
+- M3-06: Geography and Discovery implemented, validated and merged for bounded synthetic local/CI scope (PR #192); coordinates, distance search, maps, geocoding and national locality data remain deferred.
 - M3-07–M3-10: Not started; source-specific, security, operational and pilot gates remain applicable.
 - M3-11: Conditional; production access, deployment, URL cutover and launch remain unauthorized.
 
 **M3-05 evidence:** implementation PR #189 merged as `8a89c5666501e5cc1f8565b32fd40a2a3370d634`; exact PR head `1e4bd3be1d92ca1ba3a06fd7190d3a20de340c58` passed PHP 8.5 foundation CI #43557559498 and Project documentation validation #43557559518. Synthetic suite: 351 assertions, no failures, 107 non-fatal missing-`.env` warnings.
 
-**Next eligible work:** prepare M3-06 Geography and Discovery scope and acceptance gates, then obtain its separate implementation authorization. No M3-06 implementation is authorized by this closeout.
+**M3-06 evidence:** implementation PR #192 merged as `e959adb578df6b60f2c308cd0b1f12391f6cb043`; exact PR head `9761e52747e0f2b15fbfee58ac2528ec4f96c57c` passed PHP 8.5 foundation CI #43559187297 and Project documentation validation #43559187312. Review inspection found no unresolved threads or submitted reviews. The new synthetic locality/privacy/restricted-category tests passed in the full FND-01 suite.
+
+**Next eligible work:** review M3-07 AI Data-Agent scope/readiness and source-specific authorization prerequisites. No source access, collection, ingestion, AI/model activation, external service, production access, deployment or spend is authorized by M3-06 closeout.
 
 ## PR #102 merge reconciliation — 2026-11-12
 
