@@ -143,7 +143,9 @@ final class TypedFieldValueValidator
 
         $cardinality = $definition['cardinality'] ?? null;
         $existingCount = $context['existing_value_count'] ?? 0;
-        $maximumValues = $context['maximum_values'] ?? ($definition['validation_schema']['max_values'] ?? 100);
+        $rawSchema = $definition['validation_schema'] ?? [];
+        $schemaForLimits = is_array($rawSchema) ? $rawSchema : [];
+        $maximumValues = $context['maximum_values'] ?? ($schemaForLimits['max_values'] ?? 100);
         if (! is_int($existingCount) || ! is_int($maximumValues)) {
             $errors[] = ['code' => 'invalid_cardinality_context', 'path' => 'cardinality'];
         } else {
@@ -166,6 +168,7 @@ final class TypedFieldValueValidator
         if (! is_array($schema) || ! is_int($schema['schema_version'] ?? null) ||
             $schema['schema_version'] < 1) {
             $errors[] = ['code' => 'invalid_validation_schema', 'path' => 'validation_schema'];
+            $schema = [];
         } elseif (in_array($type, self::VALUE_TYPES, true)) {
             $errors = array_merge($errors, $this->validateType($type, $value, $schema, 'value'));
         }
@@ -199,8 +202,13 @@ final class TypedFieldValueValidator
             $errors[] = ['code' => 'editorial_restricted_value_not_public', 'path' => 'privacy_class'];
         }
 
-        if ($audience === 'public' && in_array($visibility, ['internal_only', 'restricted'], true)) {
+        if (! in_array($visibility, ['public_eligible', 'editorial_restricted', 'internal_only', 'restricted'], true)) {
+            $errors[] = ['code' => 'unknown_visibility_class', 'path' => 'visibility_class'];
+        } elseif ($audience === 'public' && in_array($visibility, ['internal_only', 'restricted', 'editorial_restricted'], true)) {
             $errors[] = ['code' => 'restricted_visibility_not_public', 'path' => 'visibility_class'];
+        }
+        if (! in_array($audience, ['internal', 'editorial', 'public'], true)) {
+            $errors[] = ['code' => 'unknown_validation_audience', 'path' => 'audience'];
         }
 
         if (! is_array($dataClasses)) {
@@ -232,6 +240,9 @@ final class TypedFieldValueValidator
             $errors[] = ['code' => 'locale_required', 'path' => 'locale'];
         }
 
+        if ($allowed !== null && (! is_array($allowed) || $allowed === [])) {
+            $errors[] = ['code' => 'invalid_locale_allowlist', 'path' => 'validation_schema.allowed_locales'];
+        }
         if ($locale !== null) {
             if (! is_string($locale) || preg_match('/^[a-z]{2,3}(?:-[A-Z]{2})?$/D', $locale) !== 1) {
                 $errors[] = ['code' => 'invalid_locale', 'path' => 'locale'];
@@ -388,13 +399,15 @@ final class TypedFieldValueValidator
             case 'money':
                 if (! is_array($value) || array_is_list($value) ||
                     (! is_string($value['amount'] ?? null) && ! is_int($value['amount'] ?? null)) ||
-                    ! $this->matchesDecimal((string) ($value['amount'] ?? ''), (int) ($schema['scale'] ?? 2), (int) ($schema['precision'] ?? 12)) ||
+                    ! is_int($schema['scale'] ?? null) || ! is_int($schema['precision'] ?? null) ||
+                    ! $this->matchesDecimal((string) ($value['amount'] ?? ''), $schema['scale'] ?? -1, $schema['precision'] ?? 0) ||
                     ! is_string($value['currency'] ?? null) ||
                     preg_match('/^[A-Z]{3}$/D', $value['currency']) !== 1 ||
                     ! is_string($value['period'] ?? null) || trim($value['period']) === '' ||
                     ! is_string($value['component'] ?? null) || trim($value['component']) === '') {
                     $errors[] = ['code' => 'invalid_money_context', 'path' => $path];
-                } elseif (is_array($schema['allowed_currencies'] ?? null) &&
+                } elseif (! is_array($schema['allowed_currencies'] ?? null) ||
+                    $schema['allowed_currencies'] === [] ||
                     ! in_array($value['currency'], $schema['allowed_currencies'], true)) {
                     $errors[] = ['code' => 'currency_not_allowed', 'path' => $path.'.currency'];
                 }
@@ -486,6 +499,10 @@ final class TypedFieldValueValidator
                         $path.'.'.$index
                     ));
                 }
+                break;
+
+            default:
+                $errors[] = ['code' => 'unsupported_nested_value_type', 'path' => $path];
                 break;
         }
 
