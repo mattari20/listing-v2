@@ -43,8 +43,7 @@ final class PublicDirectoryQueryService
     /**
      * @return array{
      *   results: array<int, array<string, mixed>>,
-     *   facets: array<string, int>,
-     *   limited: bool
+     *   facets: array<string, int>
      * }
      */
     public function search(string $query = '', ?string $type = null): array
@@ -353,6 +352,10 @@ final class PublicDirectoryQueryService
             return false;
         }
 
-        return in_array(strtolower((string) parse_url($value, PHP_URL_SCHEME)), ['http', 'https'], true);
+        $parts = parse_url($value);
+
+        return is_array($parts) &&
+            in_array(strtolower((string) ($parts['scheme'] ?? '')), ['http', 'https'], true) &&
+            empty($parts['user']) && empty($parts['pass']);
     }
 }
