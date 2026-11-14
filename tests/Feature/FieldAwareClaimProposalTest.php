@@ -61,6 +61,14 @@ class FieldAwareClaimProposalTest extends TestCase
         ]);
         $this->assertSame(0, DB::table('publication_decisions')->count());
         $this->assertSame(0, DB::table('public_projections')->count());
+        $this->assertSame(1, app(PersistedGovernanceWorkflowService::class)->processOutbox());
+        $this->assertDatabaseHas('governance_outbox', [
+            'event_type' => 'field_claim.proposal.submitted',
+            'aggregate_id' => $result['claim_version_id'],
+            'status' => 'processed',
+        ]);
+        $this->assertSame(0, DB::table('publication_decisions')->count());
+        $this->assertSame(0, DB::table('public_projections')->count());
     }
 
     public function test_exact_definition_provider_category_and_scope_are_mandatory(): void
