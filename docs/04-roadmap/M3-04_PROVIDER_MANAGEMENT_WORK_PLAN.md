@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
-**Status:** **P01 IMPLEMENTATION SUBMITTED — EXACT-HEAD CI AND REVIEW PENDING; P02–P04 NOT STARTED**  
+**Status:** **P01 IMPLEMENTED AND VALIDATED — PR #176; P02–P04 NOT STARTED**  
 **M3-03 dependency:** Owner-accepted and closed for its bounded synthetic local/CI scope  
 **Baseline:** `main` at `eebfc20a1adac14d4911ed92175366af81cf2e43`
 
@@ -10,7 +10,7 @@
 
 This work plan starts the next roadmap step, M3-04 Provider Management, at the planning and scope-definition level. It defines the initial bounded work packages, domain contracts, acceptance criteria, synthetic fixture approach, permission constraints and CI evidence expected before implementation.
 
-The Product Owner accepted G-04 and subsequently explicitly authorized the bounded M3-04 P01 implementation slice on 2026-11-14. P01 is being implemented on an isolated feature branch under synthetic local/CI-only restrictions. This authorization does not extend to P02–P04, production, V1, Hostinger, external APIs/AI, deployment or additional spend.
+The Product Owner accepted G-04 and subsequently explicitly authorized the bounded M3-04 P01 implementation slice on 2026-11-14. P01 was implemented on an isolated feature branch under synthetic local/CI-only restrictions and passed exact-head PHP 8.5 foundation CI plus documentation validation. The implementation record preserves the exact evidence and limitations. This authorization does not extend to P02–P04, production, V1, Hostinger, external APIs/AI, deployment or additional spend.
 
 ## 2. M3-04 outcome
 
@@ -187,7 +187,7 @@ No Listing V1 changes; no Hostinger/hPanel or production access; no live databas
 | Permission and human editorial constraints | **Prepared as plan** | Capability matrix and independent-human decision rules above |
 | Separate implementation authorization | **ISSUED 2026-11-14** | Owner authorized bounded P01 implementation only; P02–P04 remain unauthorized |
 
-**Decision:** M3-04 planning is complete for the entry gate. P01 implementation is authorized and submitted for exact-head CI/review; P02–P04 remain blocked.
+**Decision:** M3-04 planning is complete for the entry gate. P01 implementation is delivered and validated in PR #176 for the bounded synthetic scope; P02–P04 remain blocked pending separate authorization.
 
 
 
@@ -197,4 +197,4 @@ The first detailed design artifact is [M3-04 P01 — Provider/Institution Identi
 
 The design confirms that current foreign keys establish endpoint existence only; they do not prove endpoint-type compatibility, valid predicate vocabulary, relationship cardinality or temporal validity. T-001/T-003 and the semantic limitation of T-002 remain explicit P01 targets.
 
-**P01 status:** detailed design owner-authorized for implementation; implementation record is in M3-04_P01_IMPLEMENTATION_RECORD.md. Exact-head CI/review remains pending.
+**P01 status:** implementation and synthetic feature tests are delivered in PR #176; exact-head PHP 8.5 foundation CI and documentation validation passed. See M3-04_P01_IMPLEMENTATION_RECORD.md. P02–P04 are not started.
