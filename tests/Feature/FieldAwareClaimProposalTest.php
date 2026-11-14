@@ -152,6 +152,18 @@ class FieldAwareClaimProposalTest extends TestCase
         }
     }
 
+    public function test_validity_dates_reject_calendar_overflow(): void
+    {
+        [$entityId, , $evidenceId] = $this->fixture();
+
+        $this->expectException(ValidationException::class);
+        app(FieldAwareClaimProposalService::class)->propose(
+            $this->proposalActor(), $entityId, 'institution_display_name', 1,
+            'Synthetic Institute Theta', [$evidenceId], $this->sourceContext(),
+            'institution', 'invalid-calendar-date-key', [], '2026-02-30'
+        );
+    }
+
     public function test_source_processing_authorization_is_required_for_each_evidence_reference(): void
     {
         [$entityId, , $evidenceId] = $this->fixture();
