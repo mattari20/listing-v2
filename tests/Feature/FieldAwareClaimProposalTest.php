@@ -123,6 +123,51 @@ class FieldAwareClaimProposalTest extends TestCase
         $this->assertNotSame('', $versionId);
     }
 
+    public function test_inactive_definition_and_scope_mismatch_are_rejected(): void
+    {
+        [$entityId, $versionId, $evidenceId] = $this->fixture();
+
+        DB::table('field_definition_versions')->where('id', $versionId)->update(['lifecycle_state' => 'proposed']);
+        try {
+            app(FieldAwareClaimProposalService::class)->propose(
+                $this->proposalActor(), $entityId, 'institution_display_name', 1,
+                'Synthetic Institute Zeta', [$evidenceId], $this->sourceContext(),
+                'institution', 'inactive-definition-key'
+            );
+            $this->fail('Inactive definition versions must be rejected.');
+        } catch (ValidationException) {
+            $this->assertSame(0, DB::table('claims')->count());
+        }
+
+        DB::table('field_definition_versions')->where('id', $versionId)->update(['lifecycle_state' => 'active']);
+        try {
+            app(FieldAwareClaimProposalService::class)->propose(
+                $this->proposalActor(), $entityId, 'institution_display_name', 1,
+                'Synthetic Institute Zeta', [$evidenceId], $this->sourceContext(),
+                'campus', 'scope-mismatch-key'
+            );
+            $this->fail('Scope mismatch must be rejected.');
+        } catch (ValidationException) {
+            $this->assertSame(0, DB::table('claims')->count());
+        }
+    }
+
+    public function test_source_processing_authorization_is_required_for_each_evidence_reference(): void
+    {
+        [$entityId, , $evidenceId] = $this->fixture();
+        $authorizationId = DB::table('evidence_references')->where('id', $evidenceId)->value('source_authorization_id');
+        DB::table('source_authorizations')->where('id', $authorizationId)->update([
+            'permitted_scopes' => json_encode(['processing' => false], JSON_THROW_ON_ERROR),
+        ]);
+
+        $this->expectException(ValidationException::class);
+        app(FieldAwareClaimProposalService::class)->propose(
+            $this->proposalActor(), $entityId, 'institution_display_name', 1,
+            'Synthetic Institute Eta', [$evidenceId], $this->sourceContext(),
+            'institution', 'processing-denied-key'
+        );
+    }
+
     public function test_non_synthetic_source_context_is_rejected_before_claim_writes(): void
     {
         [$entityId, , $evidenceId] = $this->fixture();
