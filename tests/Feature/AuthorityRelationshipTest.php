@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Tests\Feature;
 
 use App\Services\Directory\AuthorityRelationshipService;
+use App\Services\Directory\ProviderInstitutionRelationshipService;
 use App\Services\Governance\GovernanceCommandService;
 use App\Services\Governance\PersistedGovernanceWorkflowService;
 use Illuminate\Database\QueryException;
@@ -195,7 +196,7 @@ class AuthorityRelationshipTest extends TestCase
 
     private function entity(string $type): string
     {
-        return app(\App\Services\Directory\ProviderInstitutionRelationshipService::class)->registerEntity(
+        return app(ProviderInstitutionRelationshipService::class)->registerEntity(
             $this->actor('identity-registrar', ['register_directory_entity']),
             $type, 'Synthetic '.$type.' '.str()->random(8), 'p03-entity-'.str()->uuid()
         );
