@@ -32,6 +32,14 @@ The M3-07 requirements were checked against:
 
 The attached M3-07 Work Plan and Readiness Decision defines conjunctive gates, exact source manifest fields, model/provider approval requirements, data exclusions, threat controls, synthetic-only tests and the criteria required before implementation can begin.
 
+## PR and CI evidence
+
+- Readiness PR [#195](https://github.com/mattari20/listing-v2/pull/195) merged as `1f4298f9136771f3b2ff6c8008d07b58a1113724`.
+- Exact PR head: `53d0d2d715ff23d08197946227f62b8b0a34d38e`.
+- FND-01 PHP 8.5 CI [run #43560066318](https://github.com/mattari20/listing-v2/actions/runs/43560066318): **SUCCESS**.
+- Project documentation validation [run #43560066325](https://github.com/mattari20/listing-v2/actions/runs/43560066325): **SUCCESS**.
+- No unresolved review threads or submitted reviews.
+
 ## What was not done
 
 No source website or API was accessed. No permission request or external contact was made. No agent, crawler, connector, scheduler, model or external API was activated. No real/source/provider/student/applicant data was collected or used. No code, schema or migration was changed for an agent. No production or V1 system was accessed. No new spend occurred.
