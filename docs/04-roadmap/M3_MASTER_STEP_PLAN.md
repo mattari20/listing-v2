@@ -4,9 +4,9 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-04 — Provider Management; M3-03 accepted and closed for bounded synthetic local/CI scope; M3-04 planning started, implementation not authorized  
-**Plan status:** M3-03 final exit review accepted by Product Owner on 2026-11-14; G-01–G-03 closed for bounded synthetic scope and G-04 traceability owner-accepted with explicit residual deferrals; M3-04 P01–P04 planning prepared  
-**Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 planning only is in progress; no M3-04 code, schema, migrations or tests are authorized until a separate P01 implementation approval. Real/source data, external services, production and deployment remain separately gated.
+**Current step:** M3-04 — Provider Management; P01–P03 merged and validated; P04 separately authorized and in exact-head validation  
+**Plan status:** M3-03 final exit review accepted by Product Owner on 2026-11-14; G-01–G-03 closed for bounded synthetic scope and G-04 traceability owner-accepted with explicit residual deferrals; M3-04 P01–P03 implemented and merged; P04 implementation candidate on isolated branch  
+**Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 P01–P03 are merged; P04 is separately authorized for synthetic local/CI implementation only. Real/source data, external services, production and deployment remain separately gated.
 
 ## 1. Purpose and governance
 

@@ -929,3 +929,10 @@ M3-04 P01 implementation is delivered and validated in PR #176. P02 merged as PR
 | [M3-04 P03 Implementation Record](M3-04_P03_IMPLEMENTATION_RECORD.md) | Controlled authority identities, authority-type/predicate matrix, governed claim projection, scope/jurisdiction/valid-time, evidence, human adjudication, audit and synthetic acceptance evidence | Implemented and merged as PR #179; exact-head PHP 8.5 foundation CI and documentation validation passed |
 
 P03 merged as PR #179 (`727cc3c91f9761bbb24954b8777e033f577ec75c`). Exact-head PHP 8.5 foundation CI #43555121150 and Project documentation validation #43555121154 passed on `99fdbbc80463262b785bb56eb4e6f56a9b927baf`; 287 assertions completed with 90 non-fatal missing-local-`.env` warnings. The code uses the existing claim/version and entity-relationship lifecycle so correction, withdrawal and source-authorization revocation propagate to the P03 relationship projection. P04 remains not started.
+
+
+## M3-04 P04 — Status History and Editorial Review
+
+- [M3-04 P04 Implementation Record](M3-04_P04_STATUS_HISTORY_EDITORIAL_REVIEW_IMPLEMENTATION_RECORD.md) — bounded synthetic-only editorial review cases, capability matrix, independent role separation, append-only status history, existing governance-service integration and pending exact-head validation evidence.
+
+P04 is separately authorized as of 2026-11-14. The implementation candidate is on `feature/m3-04-p04-status-editorial-review`; it is not complete until exact-head CI, review and merge gates are evidenced.

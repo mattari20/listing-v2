@@ -254,3 +254,8 @@ G-04 traceability closeout: PR [#172](https://github.com/mattari20/listing-v2/pu
 
 
 P03 closeout: PR [#179](https://github.com/mattari20/listing-v2/pull/179) merged as `727cc3c91f9761bbb24954b8777e033f577ec75c`. Exact-head PHP 8.5 foundation CI #43555121150 and Project documentation validation #43555121154 passed. See [M3-04 P03 Implementation Record](04-roadmap/M3-04_P03_IMPLEMENTATION_RECORD.md). P04 remains separately gated.
+
+
+## M3-04 P04 — Status History and Editorial Review
+
+- [M3-04 P04 Implementation Record](04-roadmap/M3-04_P04_STATUS_HISTORY_EDITORIAL_REVIEW_IMPLEMENTATION_RECORD.md) — implementation scope, capability matrix, separation-of-duties rules, synthetic test coverage and validation status.
