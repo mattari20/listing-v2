@@ -33,6 +33,8 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [M3-05 Public Directory and Search Implementation Record](04-roadmap/M3-05_PUBLIC_DIRECTORY_SEARCH_IMPLEMENTATION_RECORD.md) — merged anonymous directory routes, query service, profile pages and exact-head CI evidence
 - [M3-06 Geography and Discovery Work Plan](04-roadmap/M3-06_GEOGRAPHY_AND_DISCOVERY_WORK_PLAN.md) — bounded Pakistan-first text locality search scope, privacy controls and explicit geospatial deferrals
 - [M3-06 Geography and Discovery Implementation Record](04-roadmap/M3-06_GEOGRAPHY_AND_DISCOVERY_IMPLEMENTATION_RECORD.md) — merged locality filtering, synthetic verification and exact-head CI evidence
+- [M3-07 AI Data-Agent Work Plan](04-roadmap/M3-07_AI_DATA_AGENT_WORK_PLAN.md) — source/model authorization gates, proposal-only workflow, threat controls and synthetic-only test plan
+- [M3-07 AI Data-Agent Readiness Review Record](04-roadmap/M3-07_AI_DATA_AGENT_READINESS_REVIEW_RECORD.md) — documented readiness blockers and explicit no-activation decision
 
 ## Research and delivery
 - [Open-Source Reuse Audit](03-research/OPEN_SOURCE_REUSE_AUDIT.md)
