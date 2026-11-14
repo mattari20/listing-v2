@@ -50,6 +50,43 @@ final class PublicDirectoryTest extends TestCase
             ->assertSee('Programme (1)');
     }
 
+    public function test_manual_locality_filter_uses_only_approved_public_geography_facts(): void
+    {
+        $lahore = $this->createEntity();
+        $karachi = $this->createEntity();
+        $this->publishFact($lahore, 'display_name', 'Synthetic Lahore Academy');
+        $this->publishFact($lahore, 'province', 'Punjab');
+        $this->publishFact($lahore, 'district', 'Lahore');
+        $this->publishFact($lahore, 'city', 'Lahore');
+        $this->publishFact($lahore, 'locality', 'Gulberg');
+        $this->publishFact($lahore, 'internal_notes', 'Private Lahore address note');
+        $this->publishFact($karachi, 'display_name', 'Synthetic Karachi Academy');
+        $this->publishFact($karachi, 'province', 'Sindh');
+        $this->publishFact($karachi, 'district', 'Karachi East');
+        $this->publishFact($karachi, 'city', 'Karachi');
+        $this->publishFact($karachi, 'locality', 'Gulshan');
+
+        $this->get('/directory?locality=lahore')
+            ->assertOk()
+            ->assertSee('Synthetic Lahore Academy')
+            ->assertDontSee('Synthetic Karachi Academy')
+            ->assertDontSee('Private Lahore address note');
+
+        $this->get('/directory?locality=Gulberg')
+            ->assertOk()
+            ->assertSee('Synthetic Lahore Academy')
+            ->assertDontSee('Synthetic Karachi Academy');
+
+        $this->get('/directory/'.$lahore)
+            ->assertOk()
+            ->assertSee('Province')
+            ->assertSee('Punjab')
+            ->assertSee('District')
+            ->assertSee('Lahore')
+            ->assertSee('Locality')
+            ->assertSee('Gulberg');
+    }
+
     public function test_unpublished_entity_has_no_search_result_or_direct_profile(): void
     {
         $entity = $this->createEntity();
@@ -118,6 +155,7 @@ final class PublicDirectoryTest extends TestCase
     {
         $entity = $this->createEntity();
         $this->publishFact($entity, 'display_name', 'Synthetic Restricted Academy');
+        $this->publishFact($entity, 'city', 'Lahore');
         DB::table('directory_entities')->where('id', $entity)->update(['entity_type' => 'deeni_madaris']);
 
         config(['directory.deeni_madaris_public' => true]);
@@ -126,6 +164,7 @@ final class PublicDirectoryTest extends TestCase
             ->assertOk()
             ->assertDontSee('Synthetic Restricted Academy')
             ->assertDontSee('Deeni Madaris');
+        $this->get('/directory?locality=Lahore')->assertOk()->assertDontSee('Synthetic Restricted Academy');
         $this->get('/directory/'.$entity)->assertNotFound();
     }
 
