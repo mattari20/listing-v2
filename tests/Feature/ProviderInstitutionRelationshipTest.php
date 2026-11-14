@@ -50,7 +50,9 @@ class ProviderInstitutionRelationshipTest extends TestCase
             try {
                 app(ProviderInstitutionRelationshipService::class)->propose($this->actor('author', ['register_claim']), $provider, $institution, $predicate, [$evidence], $this->context(), 'bad-predicate-'.$predicate);
                 $this->fail('Unknown and reserved predicates must fail closed.');
-            } catch (ValidationException) { $this->assertDatabaseCount('claims', 0); }
+            } catch (ValidationException) {
+                $this->assertDatabaseCount('claims', 0);
+            }
         }
     }
 
