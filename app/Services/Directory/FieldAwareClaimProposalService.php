@@ -44,8 +44,7 @@ final class FieldAwareClaimProposalService
         string $idempotencyKey,
         array $validationContext = [],
         ?string $validFrom = null,
-        ?string $validTo = null,
-    ): array
+        ?string $validTo = null): array
     {
         $this->requireHumanCapability($actor, 'propose_field_value');
         $this->requireHumanCapability($actor, 'submit_directory_proposal');
