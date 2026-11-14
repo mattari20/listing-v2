@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Package:** I2 — Typed Validation and Applicability  
 **Baseline:** I1 PR #198, branch `feature/m3-07-i1-field-registry`, validated head `b6036687c219f79234609d549669448ca84fb3a5`  
-**Status:** Implementation and first exact-head CI validation passed; final PR metadata closeout pending.
+**Status:** Implementation candidate; decimal-bound precision hardening added and final exact-head CI validation pending.
 
 ## 1. Owner decision and bounded scope
 
@@ -89,6 +89,10 @@ The synthetic test suite covers:
 
 All fixtures are synthetic literals. No real provider/student data, URLs, source content or external services are used.
 
+## 7. Decimal-bound precision hardening
+
+A final code review identified that decimal `minimum`/`maximum` comparisons must not pass through PHP binary floating-point conversion. The validator now compares normalized decimal strings (sign, integer digits and fractional digits) exactly and rejects malformed or non-string/non-integer bounds. Regression cases cover values above the IEEE-754 exact-integer boundary (2^53), inclusive equality, and a floating-point schema bound. This preserves fixed-precision semantics for the supported precision range.
+
 ## 7. Explicit non-actions
 
 I2 does not:
@@ -103,7 +107,7 @@ I2 does not:
 - deploy, publish, procure services or incur additional spend;
 - authorize I3 or any later package.
 
-## 8. Acceptance and validation record
+## 9. Acceptance and validation record
 
 I2 acceptance requires all of the following on the exact final PR head:
 - [ ] only the three listed I2 files are changed;
@@ -123,6 +127,6 @@ I2 acceptance requires all of the following on the exact final PR head:
 **PHP 8.5 foundation CI run:** #43576235840 — SUCCESS  
 **Documentation validation run:** #43576235849 — SUCCESS
 
-The PR closeout commit will update this record and trigger a final exact-head rerun. The final head and its run IDs will also be recorded in the PR evidence comment.
+The decimal precision hardening commit and this record update require a new exact-head PHP 8.5 foundation CI and documentation-validation run. Record the resulting final head and run IDs here before acceptance.
 
 A successful I2 PR does not authorize I3. I3 requires separate owner approval and a separate bounded package.
