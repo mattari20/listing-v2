@@ -65,7 +65,7 @@ The proposal transaction re-locks the institution and current category assignmen
 
 ## 4. Generic bypass prevention
 
-`GovernanceCommandService::registerProposedClaim()` now rejects any predicate that matches a registered field key. It also rejects predicates outside the finite legacy compatibility allowlist, currently `display_name`, preserving the existing synthetic legacy test path while preventing arbitrary new predicates.
+`GovernanceCommandService::registerProposedClaim()` now rejects any predicate that matches a registered field key. It also rejects predicates outside the finite legacy compatibility allowlist, currently `display_name`, `authority_relationship` and `provider_institution_relationship`. The two relationship predicates are retained only because the existing AuthorityRelationshipService and ProviderInstitutionRelationshipService are the only repository callers; their controlled policies and materializers remain in place. This preserves the finite compatibility paths while preventing arbitrary new predicates.
 
 This allowlist is intentionally minimal. Any additional legacy predicate must be justified by a reviewed existing caller and added through a separate bounded change; it must not become an extensible dynamic-field path.
 
