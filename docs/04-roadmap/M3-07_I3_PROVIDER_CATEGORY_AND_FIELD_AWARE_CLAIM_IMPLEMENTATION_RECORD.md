@@ -14,6 +14,7 @@ Included:
 - a single current provider-category assignment per institution entity;
 - human-only assignment capability and audit history;
 - an initial controlled vocabulary limited to D4's four synthetic pilot categories: `private_school`, `college`, `academy`, `university`;
+- institution-entity and `institution`-scope proposals only; campus, delivery-site and programme scopes remain excluded;
 - exact field-definition-version binding on new registry-managed claim versions;
 - typed, privacy, scope, entity-type, provider-category, evidence and source-processing validation;
 - a single field-aware proposal service and generic claim-registration bypass guard;
@@ -47,7 +48,7 @@ Each assignment or reclassification also writes a `provider_category_assigned` a
 
 ## 3. Field-aware proposal path
 
-`FieldAwareClaimProposalService` is the only new path for registry-managed claims. It requires a human actor with both `propose_field_value` and `submit_directory_proposal`.
+`FieldAwareClaimProposalService` is the only new path for registry-managed claims. It requires a human actor with both `propose_field_value` and `submit_directory_proposal`. This initial I3 path accepts institution entities and `institution` scope only; campus, delivery-site and programme scopes require a later bounded package.
 
 Before writing, it:
 1. validates the canonical I2 lowercase snake_case field key;
@@ -60,7 +61,7 @@ Before writing, it:
 
 The transaction then creates the claim, proposed claim version with `field_definition_version_id`, evidence links, editorial review case, audit event and identifier-only outbox event. The existing editorial review lifecycle is entered and the command stops. It does not adjudicate, publish, project or materialize the claim.
 
-The proposal transaction re-locks the institution and current category assignment, then rechecks exact definition applicability before inserting. Existing claim versions remain nullable/unbound; there is no backfill.
+The proposal transaction re-locks the institution and current category assignment, then rechecks exact definition applicability before inserting. The outbox worker also verifies aggregate type, payload claim-version identity, proposed disposition, exact definition binding and submitted editorial-case status before marking the event processed. Existing claim versions remain nullable/unbound; there is no backfill.
 
 ## 4. Generic bypass prevention
 
