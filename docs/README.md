@@ -242,7 +242,7 @@ G-04 traceability closeout: PR [#172](https://github.com/mattari20/listing-v2/pu
 
 ## M3-03 final acceptance and M3-04 planning
 - [M3-03 Final Owner Acceptance and Exit Review](04-roadmap/M3-03_FINAL_OWNER_ACCEPTANCE_AND_EXIT_REVIEW_2026-11-14.md) — Product Owner acceptance of G-04 and final M3-03 closure for bounded synthetic local/CI scope; deferred cases remain explicit residual risk.
-- [M3-04 Provider Management Work Plan](04-roadmap/M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md) — planning delivered for P01–P04; P01 implementation is authorized and submitted, while P02–P04 remain separately gated.
+- [M3-04 Provider Management Work Plan](04-roadmap/M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md) — planning delivered for P01–P04; P01 implementation is delivered and validated in PR #176, while P02–P04 remain separately gated.
 
 - [M3-04 P01 — Provider/Institution Identity and Typed Relationship Contract](04-roadmap/M3-04_P01_PROVIDER_INSTITUTION_IDENTITY_AND_RELATIONSHIP_CONTRACT.md) — selected claim/version integration, endpoint/predicate matrix, temporal/evidence rules and broader synthetic acceptance contract.
-- [M3-04 P01 Implementation Record](04-roadmap/M3-04_P01_IMPLEMENTATION_RECORD.md) — implemented Provider–Institution relationship projection, governance lifecycle, changed files and deferred scope; exact-head CI pending.
+- [M3-04 P01 Implementation Record](04-roadmap/M3-04_P01_IMPLEMENTATION_RECORD.md) — implemented Provider–Institution relationship projection, governance lifecycle, synthetic test coverage, validation evidence and deferred scope.
