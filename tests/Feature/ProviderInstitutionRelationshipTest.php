@@ -12,6 +12,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\ValidationException;
 use Tests\TestCase;
+
 class ProviderInstitutionRelationshipTest extends TestCase
 {
     use RefreshDatabase;
@@ -70,6 +71,18 @@ class ProviderInstitutionRelationshipTest extends TestCase
         app(ProviderInstitutionRelationshipService::class)->propose($this->actor('author', ['register_claim']), $provider, $institution, 'operates', [], $this->context(), 'missing-evidence');
     }
 
+    public function test_entity_type_vocabulary_is_controlled_and_identity_registration_is_idempotent(): void
+    {
+        $service = app(ProviderInstitutionRelationshipService::class);
+        $actor = $this->actor('registrar', ['register_directory_entity']);
+        $id = $service->registerEntity($actor, 'provider', 'Synthetic Provider Identity', 'identity-key');
+        $this->assertSame($id, $service->registerEntity($actor, 'provider', 'Synthetic Provider Identity', 'identity-key'));
+        $this->assertDatabaseHas('directory_entities', ['id' => $id, 'entity_type' => 'provider']);
+        $this->assertDatabaseCount('directory_entities', 1);
+        $this->expectException(ValidationException::class);
+        $service->registerEntity($actor, 'unknown_entity', 'Synthetic Invalid', 'invalid-identity');
+    }
+
     public function test_institution_may_have_no_provider_relationship(): void
     {
         $this->entity('institution');
@@ -86,6 +99,16 @@ class ProviderInstitutionRelationshipTest extends TestCase
         $two = $service->materializeAcceptedRelationship($this->actor('materializer-b', ['materialize_relationship']), $b['version'], 'history-b');
         $this->assertDatabaseHas('entity_relationships', ['id' => $one, 'valid_to' => '2022-12-31']);
         $this->assertDatabaseHas('entity_relationships', ['id' => $two, 'valid_from' => '2023-01-01', 'valid_to' => null]);
+    }
+
+    public function test_overlapping_same_predicate_and_scope_is_rejected_but_distinct_predicates_are_separate(): void
+    {
+        $first = $this->accepted('operates');
+        $second = $this->accepted('operates');
+        $service = app(ProviderInstitutionRelationshipService::class);
+        $service->materializeAcceptedRelationship($this->actor('materializer-one', ['materialize_relationship']), $first['version'], 'overlap-one');
+        $this->expectException(ValidationException::class);
+        $service->materializeAcceptedRelationship($this->actor('materializer-two', ['materialize_relationship']), $second['version'], 'overlap-two');
     }
 
     public function test_distinct_scope_jurisdiction_assertions_are_preserved(): void
@@ -236,9 +259,12 @@ class ProviderInstitutionRelationshipTest extends TestCase
 
     private function entity(string $type, ?string $label = null): string
     {
-        $id = (string) str()->uuid();
-        DB::table('directory_entities')->insert(['id' => $id, 'entity_type' => $type, 'label' => $label ?? 'Synthetic '.$type.' '.str()->random(6), 'created_at' => now(), 'updated_at' => now()]);
-        return $id;
+        return app(ProviderInstitutionRelationshipService::class)->registerEntity(
+            $this->actor('identity-registrar', ['register_directory_entity']),
+            $type,
+            $label ?? 'Synthetic '.$type.' '.str()->random(6),
+            'identity-'.str()->uuid()
+        );
     }
 
     private function context(): array
