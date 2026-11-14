@@ -192,7 +192,7 @@ final class EditorialReviewService
                 return (string) (json_decode($prior->metadata, true)['result_id'] ?? '');
             }
             $snapshot = DB::table('publication_snapshots')->where('id', $snapshotId)->first();
-            if (!in_array($case->status, ['approved', 'restored'], true) || $snapshot === null ||
+            if (in_array($case->status, ['approved', 'restored'], true) === false || $snapshot === null ||
                 $snapshot->claim_version_id !== $case->claim_version_id) {
                 $this->reject('suppression', 'Only the approved case publication may be suppressed.');
             }
