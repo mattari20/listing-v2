@@ -8,7 +8,7 @@
 
 ## Latest verified position — M3-07 readiness review (2026-11-14)
 
-**Baseline main commit:** `4775b9c0fbd50f264cb573253626e3786a6655ad`.  
+**Latest main commit:** `1f4298f9136771f3b2ff6c8008d07b58a1113724` (M3-07 readiness PR #195).  
 **M3-07 readiness review:** Documentation package prepared; application implementation remains **BLOCKED**.  
 **Reason:** The source-rights register marks candidate sources RESEARCH ONLY; no permission request or approved source is recorded. No model/provider/version/region or data-handling terms are selected or approved. Qualified rights/privacy/security/operational reviewers are not assigned. The no-new-spend boundary remains binding.
 
@@ -19,6 +19,8 @@ Delivered as documentation-only readiness artifacts:
 No source site/API was accessed; no permission request/contact was made; no model, agent, connector, crawler, scheduler or external API was activated; no source data or model call was used; no code/schema/migration, production/V1/Hostinger activity, deployment or spend occurred. The work plan is not an implementation authorization.
 
 **Next action:** prepare an owner-specific decision pack for one exact source/asset and one model/provider or explicitly approved offline approach, with qualified rights/privacy/security review. No implementation begins until all conjunctive gates pass.
+
+Readiness documentation PR [#195](https://github.com/mattari20/listing-v2/pull/195) merged as `1f4298f9136771f3b2ff6c8008d07b58a1113724`; exact head `53d0d2d715ff23d08197946227f62b8b0a34d38e` passed FND-01 PHP 8.5 CI #43560066318 and Project documentation validation #43560066325. No unresolved review threads or submitted reviews were present.
 
 ## Latest verified position — M3-06 closeout (2026-11-14)
 
