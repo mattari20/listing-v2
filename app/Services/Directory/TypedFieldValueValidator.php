@@ -53,8 +53,8 @@ final class TypedFieldValueValidator
      * Validate explicit entity/provider/scope applicability without resolving or
      * inferring any relationship. All allowlists must be supplied by the caller.
      *
-     * @param array<string, mixed> $definition
-     * @param array<string, mixed> $context
+     * @param  array<string, mixed>  $definition
+     * @param  array<string, mixed>  $context
      * @return array{valid: bool, errors: list<array{code: string, path: string}>}
      */
     public function validateApplicability(array $definition, array $context): array
@@ -127,8 +127,8 @@ final class TypedFieldValueValidator
      * Optional context: locale, audience, data_classes, observed_at,
      * evaluation_at, existing_value_count and maximum_values.
      *
-     * @param array<string, mixed> $definition
-     * @param array<string, mixed> $context
+     * @param  array<string, mixed>  $definition
+     * @param  array<string, mixed>  $context
      * @return array{valid: bool, errors: list<array{code: string, path: string}>}
      */
     public function validate(array $definition, mixed $value, array $context): array
@@ -184,8 +184,8 @@ final class TypedFieldValueValidator
     }
 
     /**
-     * @param array<string, mixed> $definition
-     * @param array<string, mixed> $context
+     * @param  array<string, mixed>  $definition
+     * @param  array<string, mixed>  $context
      * @return list<array{code: string, path: string}>
      */
     private function validatePrivacy(array $definition, array $context): array
@@ -230,8 +230,8 @@ final class TypedFieldValueValidator
     }
 
     /**
-     * @param array<string, mixed> $schema
-     * @param array<string, mixed> $context
+     * @param  array<string, mixed>  $schema
+     * @param  array<string, mixed>  $context
      * @return list<array{code: string, path: string}>
      */
     private function validateLocale(array $schema, array $context): array
@@ -263,8 +263,8 @@ final class TypedFieldValueValidator
     /**
      * Freshness checks are deterministic: the caller supplies both timestamps.
      *
-     * @param array<string, mixed> $definition
-     * @param array<string, mixed> $context
+     * @param  array<string, mixed>  $definition
+     * @param  array<string, mixed>  $context
      * @return list<array{code: string, path: string}>
      */
     private function validateFreshness(array $definition, array $context): array
@@ -306,7 +306,7 @@ final class TypedFieldValueValidator
     }
 
     /**
-     * @param array<string, mixed> $schema
+     * @param  array<string, mixed>  $schema
      * @return list<array{code: string, path: string}>
      */
     private function validateType(string $type, mixed $value, array $schema, string $path): array
@@ -639,7 +639,7 @@ final class TypedFieldValueValidator
     }
 
     /**
-     * @param list<array{code: string, path: string}> $errors
+     * @param  list<array{code: string, path: string}>  $errors
      * @return array{valid: bool, errors: list<array{code: string, path: string}>}
      */
     private function result(array $errors): array
