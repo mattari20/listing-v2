@@ -141,13 +141,13 @@ final class AuthorityRelationshipService
                 }
                 $event = DB::table('audit_events')->where('target_type', 'evidence_reference')->where('target_id', $item->id)->where('action', 'evidence_reference_registered')->value('metadata');
                 $evidenceActor = is_string($event) ? (json_decode($event, true)['actor_id'] ?? null) : null;
-                if (! is_string($evidenceActor) || $evidenceActor === '' || $evidenceActor === $actor['actor_id'] || $evidenceActor === $decision->actor_id) {
+                if (!is_string($evidenceActor) || $evidenceActor === '' || $evidenceActor === $actor['actor_id'] || $evidenceActor === $decision->actor_id) {
                     throw ValidationException::withMessages(['actor' => 'Evidence submitter, adjudicator and materializer must be distinct.']);
                 }
             }
 
             $value = json_decode((string) $version->value, true);
-            if (! is_array($value) || ($claim->subject_entity_id ?? null) !== ($value['subject_entity_id'] ?? null)) {
+            if (!is_array($value) || ($claim->subject_entity_id ?? null) !== ($value['subject_entity_id'] ?? null)) {
                 throw ValidationException::withMessages(['claim_value' => 'Claim subject must match the explicit relationship subject.']);
             }
             $subject = DB::table('directory_entities')->where('id', $value['subject_entity_id'])->first(['entity_type']);
@@ -204,7 +204,7 @@ final class AuthorityRelationshipService
     private function assertEndpoints(string $subjectId, string $targetId, string $predicate): void
     {
         $entities = DB::table('directory_entities')->whereIn('id', [$subjectId, $targetId])->get(['id', 'entity_type'])->keyBy('id');
-        if (! $entities->has($subjectId) || ! $entities->has($targetId)) {
+        if (!$entities->has($subjectId) || !$entities->has($targetId)) {
             throw ValidationException::withMessages(['endpoints' => 'Both relationship endpoints must exist.']);
         }
         $targetType = (string) $entities[$targetId]->entity_type;
