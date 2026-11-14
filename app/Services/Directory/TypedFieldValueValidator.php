@@ -406,7 +406,7 @@ final class TypedFieldValueValidator
                     (is_string($value['amount'] ?? null) === false && is_int($value['amount'] ?? null) === false) ||
                     is_int($schema['scale'] ?? null) === false || is_int($schema['precision'] ?? null) === false ||
                     str_starts_with((string) ($value['amount'] ?? ''), '-') ||
-                    $this->matchesDecimal((string) ($value['amount'] ?? ''), $schema['scale'] ?? -1, $schema['precision'] ?? 0) === false ||
+                    $this->matchesDecimal((string) ($value['amount'] ?? ''), $schema['scale'] ?? 0, $schema['precision'] ?? 0) === false ||
                     is_string($value['currency'] ?? null) === false ||
                     preg_match('/^[A-Z]{3}$/D', $value['currency']) !== 1 ||
                     is_string($value['period'] ?? null) === false || trim($value['period']) === '' ||
@@ -425,7 +425,6 @@ final class TypedFieldValueValidator
                     (is_int($value['amount'] ?? null) === false && is_string($value['amount'] ?? null) === false) ||
                     is_string($value['unit'] ?? null) === false || is_array($units) === false ||
                     in_array($value['unit'], $units, true) === false ||
-                    is_string((string) $value['amount']) === false ||
                     preg_match('/^[0-9]+(?:\\.[0-9]+)?$/D', (string) $value['amount']) !== 1 ||
                     (float) $value['amount'] <= 0) {
                     $errors[] = ['code' => 'invalid_duration_or_unit', 'path' => $path];
