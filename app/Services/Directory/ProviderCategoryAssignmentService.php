@@ -53,19 +53,22 @@ final class ProviderCategoryAssignmentService
 
             $now = now();
             $previous = DB::table('directory_provider_category_assignments')->where('entity_id', $entityId)->value('provider_category');
-            DB::table('directory_provider_category_assignments')->updateOrInsert(
-                ['entity_id' => $entityId],
-                [
-                    'provider_category' => $providerCategory,
-                    'assigned_by_actor_id' => $actor['actor_id'],
-                    'reason_code' => $reasonCode,
-                    'idempotency_key' => $idempotencyKey,
-                    'fingerprint' => $fingerprint,
-                    'assigned_at' => $now,
-                    'created_at' => $previous === null ? $now : DB::raw('created_at'),
-                    'updated_at' => $now,
-                ]
-            );
+            $assignment = [
+                'provider_category' => $providerCategory,
+                'assigned_by_actor_id' => $actor['actor_id'],
+                'reason_code' => $reasonCode,
+                'idempotency_key' => $idempotencyKey,
+                'fingerprint' => $fingerprint,
+                'assigned_at' => $now,
+                'updated_at' => $now,
+            ];
+            if ($previous === null) {
+                DB::table('directory_provider_category_assignments')->insert(
+                    ['entity_id' => $entityId, 'created_at' => $now] + $assignment
+                );
+            } else {
+                DB::table('directory_provider_category_assignments')->where('entity_id', $entityId)->update($assignment);
+            }
 
             DB::table('audit_events')->insert([
                 'id' => (string) Str::uuid(),
