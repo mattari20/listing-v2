@@ -265,3 +265,8 @@ The logical field-definition contract, immutable key/version rules, provider/ent
 ## 19. D2 field registry storage decision
 
 The recommended physical architecture is a normalized field-definition registry plus the existing claims/claim-version store, with each registry-managed claim version bound to the exact immutable definition version used for validation. The proposal compares alternatives, defines additive migration boundaries, review workflow, indexes, concurrency, compatibility and synthetic acceptance criteria in [M3-07 D2 Field Registry Physical Storage Decision](M3-07_D2_FIELD_REGISTRY_STORAGE_DECISION.md). This remains a design proposal only; no migration or code change is authorized.
+
+
+## 20. D3 field-aware service boundary
+
+The required single write path for registry-managed institution facts, generic claim-registration bypass prevention, definition/value lifecycle separation, actor capabilities, correction/withdrawal, profile assembly and synthetic acceptance tests are specified in [M3-07 D3 Field-Aware Claim Service Boundary and Governance Contract](M3-07_D3_FIELD_AWARE_CLAIM_SERVICE_BOUNDARY.md). This is design only; code changes require separate bounded authorization.
