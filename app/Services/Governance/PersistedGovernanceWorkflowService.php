@@ -641,8 +641,11 @@ final class PersistedGovernanceWorkflowService
                     ->where('id', $payload['editorial_review_case_id'] ?? '')
                     ->where('claim_version_id', $event->aggregate_id)
                     ->first();
-                if ($version === null || $version->disposition !== 'proposed' ||
+                if ($event->aggregate_type !== 'claim_version' ||
+                    (string) ($payload['claim_version_id'] ?? '') !== (string) $event->aggregate_id ||
+                    $version === null || $version->disposition !== 'proposed' ||
                     $version->field_definition_version_id === null || $reviewCase === null ||
+                    $reviewCase->status !== 'submitted' ||
                     (string) $version->field_definition_version_id !== (string) ($payload['field_definition_version_id'] ?? '')) {
                     throw new \RuntimeException('Field claim proposal outbox event failed its proposal integrity checks.');
                 }
