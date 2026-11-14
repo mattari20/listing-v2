@@ -76,7 +76,7 @@ The new event type `field_claim.proposal.submitted` contains only the claim-vers
 ## 6. Tests added/updated
 
 - `ProviderCategoryAssignmentTest`: no inference, human capability, category allowlist, institution-only assignment, idempotency, reassignment and audit history.
-- `FieldAwareClaimProposalTest`: exact binding, evidence and editorial submission, category mismatch, missing category, typed-value failure, generic bypass rejection and idempotent retry.
+- `FieldAwareClaimProposalTest`: exact binding, evidence and editorial submission, category mismatch, missing category, inactive definition, scope mismatch, invalid typed value/date, source-processing denial, synthetic-only source enforcement, generic bypass rejection, outbox integrity processing and idempotent retry.
 - `FieldDefinitionRegistryReaderTest`: updated for the additive I3 claim-version binding and exercises I1 rollback only after temporarily removing I3's dependent schema in the disposable test database.
 
 All fixtures are synthetic. The migration is additive; its down path is only exercised in disposable CI/test databases. It must never be run against a shared or production database.
