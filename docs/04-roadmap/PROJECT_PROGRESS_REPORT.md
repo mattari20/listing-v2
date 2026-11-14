@@ -998,7 +998,7 @@ The Product Owner explicitly accepted G-04 and directed progression to the next 
 
 M3-04 Provider Management planning has started: [M3-04 Provider Management Work Plan](M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md). The plan defines four work packages (P01 provider/institution identity and typed relationships; P02 campus/site and programme catalogue; P03 authority/affiliation/recognition; P04 status history and editorial review), acceptance criteria, synthetic fixture families, CI gates and permission/human-review constraints.
 
-**Current M3-04 state:** planning started; application implementation **NOT AUTHORIZED**. P01 specifically carries T-001/T-003 and the semantic portion of T-002 into provider/institution relationship contract work. A separate explicit Product Owner authorization naming exact P01 implementation scope is required before code, schema, migration or tests change.
+**Current M3-04 state:** P01, P02 and P03 are implemented and merged for their bounded synthetic local/CI scopes; P04 remains not started and separately gated. P01 carried T-001/T-003 and the semantic portion of T-002 into provider/institution relationship contract work. Each work package required and received separate Product Owner authorization before implementation.
 
 No V1, Hostinger/hPanel, production/live database, real/source/personal/institute/student/child/staff data, source acquisition, external API/AI, real role provisioning, public endpoint, deployment, procurement or new spend was accessed or authorized.
 
@@ -1010,7 +1010,7 @@ P01's detailed Provider/Institution identity and typed relationship contract is 
 
 ## M3-04 Provider Management — P03 implementation
 
-P01 is validated, P02 is merged, and P03 has been implemented on an isolated synthetic-only feature branch and submitted for exact-head CI/review. P03 introduces typed authority profiles and governed relationship projections with explicit scope, jurisdiction, subject and valid-time. P04 remains not started. Do not count P03 as closed until required checks, review reconciliation and expected-head merge are verified.
+P01, P02 and P03 are implemented and merged for their bounded synthetic-only scopes. P03 introduced typed authority profiles and governed relationship projections with explicit scope, jurisdiction, subject and valid-time. Exact-head CI, documentation validation and expected-head merge are recorded in the P03 closeout section below. P04 remains not started.
 
 
 ## M3-04 Provider Management — P03 closeout

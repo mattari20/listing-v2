@@ -10,7 +10,7 @@
 
 This work plan starts the next roadmap step, M3-04 Provider Management, at the planning and scope-definition level. It defines the initial bounded work packages, domain contracts, acceptance criteria, synthetic fixture approach, permission constraints and CI evidence expected before implementation.
 
-The Product Owner accepted G-04 and subsequently explicitly authorized the bounded M3-04 P01 implementation slice on 2026-11-14. P01 was implemented on an isolated feature branch under synthetic local/CI-only restrictions and passed exact-head PHP 8.5 foundation CI plus documentation validation. The implementation record preserves the exact evidence and limitations. This authorization does not extend to P02–P04, production, V1, Hostinger, external APIs/AI, deployment or additional spend.
+The Product Owner accepted G-04 and separately authorized the bounded M3-04 P01, P02 and P03 implementation slices on 2026-11-14. Each was implemented on an isolated feature branch under synthetic local/CI-only restrictions and passed exact-head PHP 8.5 foundation CI plus documentation validation before merge. P04 remains unauthorized. No authorization extends to production, V1, Hostinger, external APIs/AI, deployment or additional spend.
 
 ## 2. M3-04 outcome
 
