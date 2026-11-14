@@ -1,7 +1,9 @@
 <?php
 
 declare(strict_types=1);
+
 namespace App\Domain\Directory;
+
 use Carbon\CarbonImmutable;
 use Illuminate\Validation\ValidationException;
 

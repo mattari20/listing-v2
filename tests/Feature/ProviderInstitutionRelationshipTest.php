@@ -1,7 +1,9 @@
 <?php
 
 declare(strict_types=1);
+
 namespace Tests\Feature;
+
 use App\Services\Directory\ProviderInstitutionRelationshipService;
 use App\Services\Governance\GovernanceCommandService;
 use App\Services\Governance\PersistedGovernanceWorkflowService;
@@ -30,7 +32,9 @@ class ProviderInstitutionRelationshipTest extends TestCase
             try {
                 app(ProviderInstitutionRelationshipService::class)->propose($this->actor('author', ['register_claim']), $from, $to, 'operates', [$evidence], $this->context(), 'bad-endpoint-'.str()->uuid());
                 $this->fail('Invalid endpoint types must be rejected.');
-            } catch (ValidationException) { $this->assertDatabaseCount('claims', 0); }
+            } catch (ValidationException) {
+                $this->assertDatabaseCount('claims', 0);
+            }
         }
     }
 
@@ -132,8 +136,11 @@ class ProviderInstitutionRelationshipTest extends TestCase
         try {
             app(ProviderInstitutionRelationshipService::class)->materializeAcceptedRelationship($this->actor('materializer', ['materialize_relationship']), $f['version'], 'audit-rollback');
             $this->fail('Audit failure must abort the projection.');
-        } catch (QueryException) { $this->assertDatabaseCount('entity_relationships', 0); }
-        finally { DB::unprepared('DROP TRIGGER IF EXISTS fail_relationship_audit'); }
+        } catch (QueryException) {
+            $this->assertDatabaseCount('entity_relationships', 0);
+        } finally {
+            DB::unprepared('DROP TRIGGER IF EXISTS fail_relationship_audit');
+        }
     }
 
     public function test_claim_withdrawal_and_source_revocation_update_relationship_projection_status(): void
@@ -216,7 +223,13 @@ class ProviderInstitutionRelationshipTest extends TestCase
         return $id;
     }
 
-    private function context(): array { return ['purpose' => 'synthetic_test_only', 'method' => 'fixture_reference', 'territory' => 'synthetic']; }
+    private function context(): array
+    {
+        return ['purpose' => 'synthetic_test_only', 'method' => 'fixture_reference', 'territory' => 'synthetic'];
+    }
 
-    private function actor(string $id, array $capabilities, string $class = 'human'): array { return ['actor_id' => $id, 'actor_class' => $class, 'capabilities' => $capabilities]; }
+    private function actor(string $id, array $capabilities, string $class = 'human'): array
+    {
+        return ['actor_id' => $id, 'actor_class' => $class, 'capabilities' => $capabilities];
+    }
 }
