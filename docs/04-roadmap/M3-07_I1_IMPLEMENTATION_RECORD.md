@@ -78,12 +78,22 @@ D1 recommends lowercase ASCII snake_case field keys, while D4's illustrative pil
 
 Provider-category values are stored as explicit taxonomy strings because the inspected main schema has no separate governed provider-category registry to reference. No category is inferred from entity labels, names or recognition status.
 
-## 7. Validation and remaining gates
+## 7. Validation evidence for implementation code head
 
-The required exact-head PHP 8.5 foundation CI and project documentation validation must pass before I1 can be accepted. The CI result, exact PR head, review state and final diff must be recorded in this file after those checks complete.
+The implementation code and test files at exact head `c60b17b5c4cd9bc68fc43c79106f0e10f5903cb0` passed:
+- FND-01 PHP 8.5 foundation CI run [#43571717911](https://github.com/mattari20/listing-v2/actions/runs/43571717911): **SUCCESS**. Pint, Laravel bootstrap/routes, synthetic-only test suite and artifact hygiene all passed.
+- Project documentation validation run [#43571717916](https://github.com/mattari20/listing-v2/actions/runs/43571717916): **SUCCESS**.
+- The complete PHPUnit suite reported **415 assertions, zero failures and 118 warnings**. The warnings are the repository's existing test-harness attempts to read a local `.env` file that is intentionally absent; no `.env` was created or committed. The new I1 test class completed all ten tests without a failure.
+- The earlier run #43571623185 failed at Pint's `phpdoc_align` check; the docblock was corrected, and the later exact implementation head passed formatting and all subsequent checks.
+
+This evidence update itself creates a documentation-only commit after the code head above. The final PR head must independently pass both required workflows before I1 can be accepted.
+
+## 8. Validation and remaining gates
+
+The exact-head PHP 8.5 foundation CI and project documentation validation must pass before I1 can be accepted. The final PR head, review state and final diff must be recorded after those checks complete.
 
 I1 is not accepted and must not be merged if any acceptance criterion fails. I2 remains unauthorized until separate owner approval.
 
-## 8. Safety statement
+## 9. Safety statement
 
 Only repository-local implementation and disposable local/CI test databases are in scope. No production, V1, Hostinger, hPanel, live database, source website, real data, external service, model, connector, scheduler, deployment or additional spend was accessed or used. No live data was collected or changed.
