@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-14 — M3-03 accepted and closed for bounded synthetic local/CI scope; M3-04 P01 implementation validated in PR #176
+**Last reconciled:** 2026-11-14 — M3-03 accepted and closed for bounded synthetic local/CI scope; M3-04 P01 validated in PR #176; P02 implementation on isolated branch pending exact-head validation
 
 ## Purpose and maintenance rule
 
@@ -902,9 +902,9 @@ G-04 PR [#172](https://github.com/mattari20/listing-v2/pull/172) merged as `f8d9
 
 | Artifact | Purpose | Status |
 |---|---|---|
-| [M3-04 Provider Management Work Plan](M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md) | P01–P04 work packages, provider/institution domain rules, T-001/T-003/T-002 carry-forward, acceptance criteria, synthetic fixtures, CI and permission constraints | Planning delivered — P01 implemented and validated in PR #176; P02–P04 not started |
+| [M3-04 Provider Management Work Plan](M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md) | P01–P04 work packages, provider/institution domain rules, T-001/T-003/T-002 carry-forward, acceptance criteria, synthetic fixtures, CI and permission constraints | Planning delivered — P01 validated in PR #176; P02 implementation authorized and under validation; P03–P04 not started |
 
-M3-04 P01 implementation is delivered on an isolated feature branch and passed exact-head PHP 8.5 foundation CI plus documentation validation. P02–P04 remain outside the implementation scope.
+M3-04 P01 implementation is delivered and passed exact-head PHP 8.5 foundation CI plus documentation validation. P02 implementation is on an isolated branch; exact-head validation and review are pending. P03–P04 remain outside the implementation scope.
 
 
 ### M3-04 P01 detailed design
@@ -913,3 +913,10 @@ M3-04 P01 implementation is delivered on an isolated feature branch and passed e
 |---|---|---|
 | [M3-04 P01 — Provider/Institution Identity and Typed Relationship Contract](M3-04_P01_PROVIDER_INSTITUTION_IDENTITY_AND_RELATIONSHIP_CONTRACT.md) | Existing schema assessment, identity types, controlled relationship vocabulary and endpoint matrix, temporal/evidence rules, duplicate resolution, synthetic test contract and P01 acceptance criteria | Updated — selected claim/version integration; implementation validated in PR #176 |
 | [M3-04 P01 Implementation Record](M3-04_P01_IMPLEMENTATION_RECORD.md) | Selected governance integration, changed files, projection lifecycle, deferred scope and safety boundaries | Delivered in PR #176 — exact-head PHP 8.5 foundation CI and documentation validation passed |
+
+
+### M3-04 P02 implementation
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-04 P02 Implementation Record](M3-04_P02_IMPLEMENTATION_RECORD.md) | Campus and delivery-site identities, institution-scoped programme catalogue, explicit qualification/awarding-body links, cycle-scoped offers, evidence/adjudication/audit invariants and synthetic tests | Implemented on isolated branch; exact-head CI and review pending |
