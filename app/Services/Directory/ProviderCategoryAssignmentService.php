@@ -24,7 +24,7 @@ final class ProviderCategoryAssignmentService
         if (in_array($providerCategory, self::PILOT_CATEGORIES, true) === false) {
             $this->reject('provider_category', 'Provider category is outside the controlled I3 pilot vocabulary.');
         }
-        if (trim($reasonCode) === '' || strlen($reasonCode) > 100 || trim($idempotencyKey) === '' || strlen($idempotencyKey) > 160) {
+        if (preg_match('/^[a-z][a-z0-9_]{2,99}$/D', $reasonCode) !== 1 || trim($idempotencyKey) === '' || strlen($idempotencyKey) > 160) {
             $this->reject('assignment', 'A bounded reason code and idempotency key are required.');
         }
 
