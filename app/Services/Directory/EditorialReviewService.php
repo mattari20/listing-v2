@@ -35,6 +35,7 @@ final class EditorialReviewService
         return DB::transaction(function () use ($actor, $entityId, $claimVersionId, $idempotencyKey, $fingerprint): string {
             $prior = $this->priorTransition($idempotencyKey, $fingerprint);
             if ($prior !== null) {
+
                 return (string) $prior->editorial_review_case_id;
             }
             $claim = DB::table('claim_versions')->join('claims', 'claims.id', '=', 'claim_versions.claim_id')
@@ -54,6 +55,7 @@ final class EditorialReviewService
             ]);
             $this->history($actor, $entityId, $claimVersionId, $id, 'proposal_submitted', null, 'submitted',
                 'editorial_proposal_submitted', $idempotencyKey, $fingerprint, []);
+
             return $id;
         });
     }
@@ -66,6 +68,7 @@ final class EditorialReviewService
             $case = $this->caseFor($caseId);
             $fingerprint = $this->fingerprint(['review_started', $caseId, $actor['actor_id']]);
             if ($this->priorTransition($idempotencyKey, $fingerprint) !== null) {
+
                 return;
             }
             if ($case->status !== 'submitted' || $case->submitted_by_actor_id === $actor['actor_id'] ||
@@ -93,6 +96,7 @@ final class EditorialReviewService
             $case = $this->caseFor($caseId);
             $fingerprint = $this->fingerprint(['review_completed', $caseId, $actor['actor_id'], $outcome, $reasonCode, $rationale]);
             if ($this->priorTransition($idempotencyKey, $fingerprint) !== null) {
+
                 return;
             }
             if ($case->status !== 'in_review' || $case->reviewer_actor_id !== $actor['actor_id']) {
@@ -117,6 +121,7 @@ final class EditorialReviewService
             $actor, $case->claim_version_id, $value, $evidenceIds, $validFrom, $validTo,
             $reasonCode, $rationale, $correctionKey
         );
+
         return $this->submit($actor, $case->entity_id, $newVersion, $submissionKey);
     }
 
@@ -125,11 +130,13 @@ final class EditorialReviewService
     {
         $this->requireHuman($actor, 'adjudicate_claim');
         $this->required($idempotencyKey, 'idempotency_key');
+
         return DB::transaction(function () use ($actor, $caseId, $adjudicationCaseId, $outcome, $reasonCode, $rationale, $policyVersion, $idempotencyKey): string {
             $case = $this->caseFor($caseId);
             $fingerprint = $this->fingerprint(['adjudicate', $caseId, $adjudicationCaseId, $actor['actor_id'], $outcome, $reasonCode, $rationale, $policyVersion]);
             $prior = $this->priorTransition($idempotencyKey, $fingerprint);
             if ($prior !== null) {
+
                 return (string) ($prior->metadata ? (json_decode($prior->metadata, true)['result_id'] ?? '') : '');
             }
             $adjudicationCase = DB::table('adjudication_cases')->where('id', $adjudicationCaseId)->first();
@@ -148,6 +155,7 @@ final class EditorialReviewService
             ]);
             $this->history($actor, $case->entity_id, $case->claim_version_id, $caseId, 'adjudication_recorded',
                 'ready_for_adjudication', $next, $reasonCode, $idempotencyKey, $fingerprint, ['result_id' => $decisionId]);
+
             return $decisionId;
         });
     }
@@ -156,11 +164,13 @@ final class EditorialReviewService
     {
         $this->requireHuman($actor, 'authorize_publication');
         $this->required($idempotencyKey, 'idempotency_key');
+
         return DB::transaction(function () use ($actor, $caseId, $surface, $audience, $policyVersion, $idempotencyKey): string {
             $case = $this->caseFor($caseId);
             $fingerprint = $this->fingerprint(['approve', $caseId, $actor['actor_id'], $surface, $audience, $policyVersion]);
             $prior = $this->priorTransition($idempotencyKey, $fingerprint);
             if ($prior !== null) {
+
                 return (string) (json_decode($prior->metadata, true)['result_id'] ?? '');
             }
             $decision = $case->adjudication_decision_id === null ? null : DB::table('adjudication_decisions')->where('id', $case->adjudication_decision_id)->first();
@@ -176,6 +186,7 @@ final class EditorialReviewService
             ]);
             $this->history($actor, $case->entity_id, $case->claim_version_id, $caseId, 'publication_approved',
                 'adjudicated_accepted', 'approved', 'editorial_publication_approved', $idempotencyKey, $fingerprint, ['result_id' => $publicationId]);
+
             return $publicationId;
         });
     }
@@ -184,11 +195,13 @@ final class EditorialReviewService
     {
         $this->requireHuman($actor, 'suppress_publication');
         $this->required($idempotencyKey, 'idempotency_key');
+
         return DB::transaction(function () use ($actor, $caseId, $snapshotId, $reasonCode, $rationale, $idempotencyKey): string {
             $case = $this->caseFor($caseId);
             $fingerprint = $this->fingerprint(['suppress', $caseId, $snapshotId, $actor['actor_id'], $reasonCode, $rationale]);
             $prior = $this->priorTransition($idempotencyKey, $fingerprint);
             if ($prior !== null) {
+
                 return (string) (json_decode($prior->metadata, true)['result_id'] ?? '');
             }
             $snapshot = DB::table('publication_snapshots')->where('id', $snapshotId)->first();
@@ -200,6 +213,7 @@ final class EditorialReviewService
             DB::table('editorial_review_cases')->where('id', $caseId)->update(['status' => 'suppressed', 'updated_at' => now()]);
             $this->history($actor, $case->entity_id, $case->claim_version_id, $caseId, 'publication_suppressed',
                 $case->status, 'suppressed', $reasonCode, $idempotencyKey, $fingerprint, ['result_id' => $id]);
+
             return $id;
         });
     }
@@ -208,11 +222,13 @@ final class EditorialReviewService
     {
         $this->requireHuman($actor, 'restore_publication');
         $this->required($idempotencyKey, 'idempotency_key');
+
         return DB::transaction(function () use ($actor, $caseId, $suppressionId, $policyVersion, $reasonCode, $idempotencyKey): string {
             $case = $this->caseFor($caseId);
             $fingerprint = $this->fingerprint(['restore', $caseId, $suppressionId, $actor['actor_id'], $policyVersion, $reasonCode]);
             $prior = $this->priorTransition($idempotencyKey, $fingerprint);
             if ($prior !== null) {
+
                 return (string) (json_decode($prior->metadata, true)['result_id'] ?? '');
             }
             $suppression = DB::table('publication_suppressions')->where('id', $suppressionId)->first();
@@ -224,6 +240,7 @@ final class EditorialReviewService
             DB::table('editorial_review_cases')->where('id', $caseId)->update(['status' => 'restored', 'updated_at' => now()]);
             $this->history($actor, $case->entity_id, $case->claim_version_id, $caseId, 'publication_restored',
                 'suppressed', 'restored', $reasonCode, $idempotencyKey, $fingerprint, ['result_id' => $id]);
+
             return $id;
         });
     }
@@ -234,6 +251,7 @@ final class EditorialReviewService
         if ($case === null) {
             $this->reject('case', 'Editorial review case was not found.');
         }
+
         return $case;
     }
 
@@ -265,6 +283,7 @@ final class EditorialReviewService
         if ($prior !== null && $prior->fingerprint !== $fingerprint) {
             $this->reject('idempotency_key', 'Editorial idempotency key was reused for a different command.');
         }
+
         return $prior;
     }
 
@@ -280,6 +299,7 @@ final class EditorialReviewService
                 $actors[] = (string) $metadata['actor_id'];
             }
         }
+
         return array_values(array_unique($actors));
     }
 
