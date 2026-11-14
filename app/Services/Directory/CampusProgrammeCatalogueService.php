@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\\Services\\Directory;
+namespace App\Services\Directory;
 
-use App\\Domain\\Governance\\GovernancePolicy;
-use Illuminate\\Support\\Facades\\DB;
-use Illuminate\\Support\\Str;
-use Illuminate\\Validation\\ValidationException;
+use App\Domain\Governance\GovernancePolicy;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 final class CampusProgrammeCatalogueService
 {
@@ -214,7 +214,7 @@ final class CampusProgrammeCatalogueService
     private function assertDates(?string $from, ?string $to): void
     {
         foreach (['valid_from' => $from, 'valid_to' => $to] as $field => $date) {
-            if ($date !== null && (preg_match('/^\\d{4}-\\d{2}-\\d{2}$/', $date) !== 1 || checkdate((int) substr($date, 5, 2), (int) substr($date, 8, 2), (int) substr($date, 0, 4)) === false)) {
+            if ($date !== null && (preg_match('/^\d{4}-\d{2}-\d{2}$/', $date) !== 1 || checkdate((int) substr($date, 5, 2), (int) substr($date, 8, 2), (int) substr($date, 0, 4)) === false)) {
                 throw ValidationException::withMessages([$field => 'A valid YYYY-MM-DD calendar date is required.']);
             }
         }
