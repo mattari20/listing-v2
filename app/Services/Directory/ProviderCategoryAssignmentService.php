@@ -44,7 +44,7 @@ final class ProviderCategoryAssignmentService
 
             if ($prior !== null) {
                 $metadata = json_decode((string) $prior->metadata, true);
-                if (!is_array($metadata) || !hash_equals((string) ($metadata['idempotency_fingerprint'] ?? ''), $fingerprint)) {
+                if (! is_array($metadata) || ! hash_equals((string) ($metadata['idempotency_fingerprint'] ?? ''), $fingerprint)) {
                     $this->reject('idempotency_key', 'The idempotency key was already used for a different assignment.');
                 }
 
