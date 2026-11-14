@@ -628,6 +628,8 @@ final class PersistedGovernanceWorkflowService
                         DB::table('publication_snapshots')->where('id', $snapshot->id)->update(['status' => 'projected']);
                     }
                 }
+            } elseif ($event->event_type === 'publication.snapshot.rollback') {
+                (new PersistedConflictAndRollbackService)->applyRollbackOutboxEvent((string) ($payload['rollback_id'] ?? $event->aggregate_id));
             } elseif ($event->event_type === 'publication.snapshot.suppressed') {
                 $snapshot = DB::table('publication_snapshots')->where('id', $event->aggregate_id)->first();
                 if ($snapshot !== null && $snapshot->status === 'suppressed') {

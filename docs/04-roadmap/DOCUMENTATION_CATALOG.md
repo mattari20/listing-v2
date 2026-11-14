@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-14 — M0/M1/M2 and M3-00 accepted/closed; M3-03 Agendas 6, 7 and 8 bounded synthetic implementation scopes merged and evidence-reconciled; PR #165 exact-head evidence reconciled
+**Last reconciled:** 2026-11-14 — M3-03 Agendas 6–9 closed within bounded synthetic scopes; PR #169 exit reconciliation merged; Agenda 10 authorized and implementation candidate pending exact-head CI
 
 ## Purpose and maintenance rule
 
@@ -859,3 +859,12 @@ Agenda 9 closeout: PR #167 merged as `91c15204fb41ba5cc5a29b99a2dca80e983adc9d`;
 
 ## M3-03 Exit Reconciliation
 - [M3-03 Exit-Criteria Reconciliation and M3-04 Entry Gate](M3-03_EXIT_CRITERIA_RECONCILIATION_AND_M3-04_ENTRY_GATE.md) — step-level evidence matrix, remaining gaps, proposed Agenda 10 and M3-04 prerequisite gate.
+
+
+## M3-03 Agenda 10 — implementation candidate
+
+| Document | Purpose | Status |
+|---|---|---|
+| [Agenda 10 Persisted Conflict Lifecycle, Temporal Evaluation and Prior-Snapshot Rollback](M3-03_AGENDA_10_PERSISTED_CONFLICT_LIFECYCLE_TEMPORAL_EVALUATION_AND_ROLLBACK.md) | Authorized synthetic-only implementation scope, persisted conflict/candidate model, temporal evaluation, human resolution, prior-snapshot rollback, test evidence and remaining gates | Delivered — implementation candidate; exact-head CI/review/merge pending |
+
+PR #169 exit reconciliation merged as \`799adb9c64f6ad45739b847f4bab80e947f83752\`. Agenda 10 is authorized and in implementation review; do not mark accepted/closed until exact-head PHP 8.5 foundation CI and Project documentation validation pass, reviews are reconciled and the expected-head merge is verified.

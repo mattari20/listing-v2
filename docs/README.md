@@ -216,3 +216,9 @@ Agenda 9 is completed for its bounded synthetic local/CI scope. PR #167 merged a
 
 ## M3-03 Exit Reconciliation
 - [M3-03 Exit-Criteria Reconciliation and M3-04 Entry Gate](04-roadmap/M3-03_EXIT_CRITERIA_RECONCILIATION_AND_M3-04_ENTRY_GATE.md)
+
+
+## M3-03 Agenda 10 — persisted conflicts, temporal evaluation and rollback
+- [M3-03 Agenda 10 Persisted Conflict Lifecycle, Temporal Evaluation and Prior-Snapshot Rollback](04-roadmap/M3-03_AGENDA_10_PERSISTED_CONFLICT_LIFECYCLE_TEMPORAL_EVALUATION_AND_ROLLBACK.md) — authorized synthetic-only implementation candidate, schema/service behavior, acceptance tests and retained gates.
+
+Agenda 10 is authorized and under exact-head CI/review validation. M3-03 remains in progress; G-04 deterministic-oracle traceability and M3-03 owner acceptance remain open. M3-04 Provider Management remains blocked.
