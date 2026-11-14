@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
-**Status:** **P01 IMPLEMENTED AND VALIDATED — PR #176; P02 IMPLEMENTED, VALIDATED AND MERGED — PR #177; P03–P04 NOT STARTED**  
+**Status:** **P01 IMPLEMENTED AND VALIDATED — PR #176; P02 IMPLEMENTED, VALIDATED AND MERGED — PR #177; P03 IMPLEMENTATION DELIVERED — PR pending; P04 NOT STARTED**  
 **M3-03 dependency:** Owner-accepted and closed for its bounded synthetic local/CI scope  
 **Baseline:** `main` at `a51860e904dc57ea47702ed75a2d44c612ac9b2f` for P02
 
@@ -185,9 +185,9 @@ No Listing V1 changes; no Hostinger/hPanel or production access; no live databas
 | M3-04 scope and acceptance criteria | **Prepared** | P01–P04 work packages above |
 | Synthetic fixtures and CI strategy | **Prepared as plan** | Fixture families and exact-head CI requirements above |
 | Permission and human editorial constraints | **Prepared as plan** | Capability matrix and independent-human decision rules above |
-| Separate implementation authorization | **ISSUED 2026-11-14** | Owner authorized bounded P01 implementation only; P02–P04 remain unauthorized |
+| Separate implementation authorization | **ISSUED 2026-11-14** | Owner authorized P01, P02 and P03 as separate bounded synthetic implementation slices; P04 remains unauthorized |
 
-**Decision:** M3-04 planning is complete for the entry gate. P01 implementation is delivered and validated in PR #176. P02 implementation was authorized by the Product Owner on 2026-11-14, passed exact-head PHP 8.5 foundation CI and documentation validation, and was merged as PR #177 (`d62a9df02843621f934af3e7b8be2efcdf3c1d80`). See `M3-04_P02_IMPLEMENTATION_RECORD.md`. P03–P04 remain outside this authorization.
+**Decision:** M3-04 planning is complete for the entry gate. P01 implementation is delivered and validated in PR #176. P02 implementation was authorized by the Product Owner on 2026-11-14, passed exact-head PHP 8.5 foundation CI and documentation validation, and was merged as PR #177 (`d62a9df02843621f934af3e7b8be2efcdf3c1d80`). See `M3-04_P02_IMPLEMENTATION_RECORD.md`. P03 is separately authorized and delivered for exact-head CI/review; P04 remains outside this authorization.
 
 
 
@@ -197,11 +197,18 @@ The first detailed design artifact is [M3-04 P01 — Provider/Institution Identi
 
 The design confirms that current foreign keys establish endpoint existence only; they do not prove endpoint-type compatibility, valid predicate vocabulary, relationship cardinality or temporal validity. T-001/T-003 and the semantic limitation of T-002 remain explicit P01 targets.
 
-**P01 status:** implementation and synthetic feature tests are delivered in PR #176; exact-head PHP 8.5 foundation CI and documentation validation passed. See M3-04_P01_IMPLEMENTATION_RECORD.md. P02–P04 are not started.
+**P01 status:** implementation and synthetic feature tests are delivered in PR #176; exact-head PHP 8.5 foundation CI and documentation validation passed. See M3-04_P01_IMPLEMENTATION_RECORD.md. P02 is merged; P03 implementation is submitted for exact-head CI/review; P04 is not started.
 
 
 ## 12. P02 implementation status
 
 P02 is authorized for bounded synthetic local/CI implementation. Its implementation adds distinct institution-owned campus and delivery-site profiles, institution-scoped programme catalogue entries, explicit programme–qualification–awarding-body links, and cycle-scoped programme offers. All materialization requires a current accepted claim version, admissible unrevoked evidence, a distinct human adjudicator, a human materializer and transactional audit. Similar labels do not merge identities. A programme catalogue entry alone never asserts current campus availability.
 
-See [M3-04 P02 Implementation Record](M3-04_P02_IMPLEMENTATION_RECORD.md) for files, invariants, tests and remaining limitations. No P03/P04 authority, public API, production, V1, Hostinger, external service, deployment or spending scope is included.
+See [M3-04 P02 Implementation Record](M3-04_P02_IMPLEMENTATION_RECORD.md) for files, invariants, tests and remaining limitations. P03 authority relationships are covered only by the separately authorized synthetic local/CI implementation. P04, public API, production, V1, Hostinger, external service, deployment and spending remain excluded.
+
+
+## 13. P03 implementation status
+
+P03 is separately authorized by the Product Owner on 2026-11-14 and has been implemented on an isolated feature branch for synthetic local/CI use. It adds typed authority profiles and governed relationship assertions for regulation, licensing, accreditation, recognition, examination, awarding and affiliation. Predicate compatibility is checked against both endpoint identity types and, for authority endpoints, the registered authority type. Scope, jurisdiction, evidence, human adjudication, current accepted claim version, valid-time and transactional audit are mandatory.
+
+See [M3-04 P03 Implementation Record](M3-04_P03_IMPLEMENTATION_RECORD.md). P03 is not accepted/closed until exact-head PHP 8.5 foundation CI, documentation validation, review reconciliation and expected-head merge succeed. P04 remains not started and separately gated.

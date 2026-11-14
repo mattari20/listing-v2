@@ -920,3 +920,12 @@ M3-04 P01 implementation is delivered and passed exact-head PHP 8.5 foundation C
 | Artifact | Purpose | Status |
 |---|---|---|
 | [M3-04 P02 Implementation Record](M3-04_P02_IMPLEMENTATION_RECORD.md) | Campus and delivery-site identities, institution-scoped programme catalogue, explicit qualification/awarding-body links, cycle-scoped offers, evidence/adjudication/audit invariants and synthetic tests | Implemented and merged as PR #177; exact-head PHP 8.5 foundation CI and documentation validation passed |
+
+
+### M3-04 P03 — Authority, Affiliation and Recognition Relationships
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-04 P03 Implementation Record](M3-04_P03_IMPLEMENTATION_RECORD.md) | Controlled authority identities, authority-type/predicate matrix, governed claim projection, scope/jurisdiction/valid-time, evidence, human adjudication, audit and synthetic acceptance evidence | Delivered in PR pending exact-head CI/review |
+
+P03 implementation is submitted for exact-head validation. The code uses the existing claim/version and entity-relationship lifecycle so correction, withdrawal and source-authorization revocation propagate to the P03 relationship projection. P04 remains not started.
