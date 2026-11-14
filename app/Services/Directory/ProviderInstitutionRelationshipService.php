@@ -16,7 +16,7 @@ final class ProviderInstitutionRelationshipService
     public function propose(array $actor, string $providerId, string $institutionId, string $predicate, array $evidenceIds, array $context, string $idempotencyKey, ?string $scope = null, ?string $jurisdiction = null, ?string $validFrom = null, ?string $validTo = null): string
     {
         (new ProviderInstitutionRelationshipPolicy)->assertPredicate($predicate);
-        $this->policy->assertValidDates($validFrom, $validTo);
+        (new ProviderInstitutionRelationshipPolicy)->assertValidDates($validFrom, $validTo);
         $this->assertEndpoints($providerId, $institutionId, $predicate);
         if ($providerId === $institutionId || $evidenceIds === []) {
             throw ValidationException::withMessages(['relationship' => 'Distinct endpoints and supporting evidence are required.']);

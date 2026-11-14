@@ -96,7 +96,9 @@ class ProviderInstitutionRelationshipTest extends TestCase
 
     public function test_invalid_date_interval_is_rejected_and_null_bounds_are_open(): void
     {
-        $provider = $this->entity('provider'); $institution = $this->entity('institution'); $evidence = $this->evidence();
+        $provider = $this->entity('provider');
+        $institution = $this->entity('institution');
+        $evidence = $this->evidence();
         $this->expectException(ValidationException::class);
         app(ProviderInstitutionRelationshipService::class)->propose($this->actor('author', ['register_claim']), $provider, $institution, 'operates', [$evidence], $this->context(), 'bad-interval', null, null, '2026-12-31', '2026-01-01');
     }
@@ -152,7 +154,8 @@ class ProviderInstitutionRelationshipTest extends TestCase
 
     public function test_claim_withdrawal_and_source_revocation_update_relationship_projection_status(): void
     {
-        $f = $this->accepted(); $service = app(ProviderInstitutionRelationshipService::class);
+        $f = $this->accepted();
+        $service = app(ProviderInstitutionRelationshipService::class);
         $id = $service->materializeAcceptedRelationship($this->actor('materializer', ['materialize_relationship']), $f['version'], 'withdraw-projection');
         app(PersistedGovernanceWorkflowService::class)->withdrawClaimVersion($this->actor('withdrawer', ['withdraw_claim']), $f['version'], 'synthetic_withdrawal', 'Synthetic withdrawal.', 'withdraw-key');
         $this->assertDatabaseHas('entity_relationships', ['id' => $id, 'status' => 'withdrawn']);
