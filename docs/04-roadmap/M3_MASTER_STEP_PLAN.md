@@ -327,3 +327,14 @@ The reconciliation found bounded evidence for lineage, authorization, auditabili
 Authoritative record: [M3-03 Exit-Criteria Reconciliation and M3-04 Entry Gate](M3-03_EXIT_CRITERIA_RECONCILIATION_AND_M3-04_ENTRY_GATE.md).
 
 **Recommended next bounded scope:** M3-03 Agenda 10 — Persisted Conflict Lifecycle, Temporal Conflict Evaluation and Prior-Snapshot Rollback. This is a proposal only and requires separate explicit Product Owner authorization before code, schema or tests are changed. M3-04 Provider Management remains blocked until M3-03 exit evidence is satisfied and accepted. No M3-04 implementation, production, real data, source access, external services/AI, deployment or spend is authorized by this reconciliation.
+
+
+## M3-03 Agenda 10 — authorized persisted conflict and rollback implementation (2026-11-14)
+
+The Product Owner authorized the exact bounded scope in Section 4 of the M3-03 exit reconciliation. Implementation is on \`feature/m3-03-agenda-10-conflicts-rollback\`.
+
+The candidate adds persisted conflict/candidate records, pairwise valid-time overlap evaluation that retains recorded-time provenance without selecting a winner, candidate-specific human adjudication linkage and independent resolution, and a separate prior-approved-snapshot rollback record with current-policy rechecks and outbox-driven projection. Synthetic tests cover overlap/non-overlap, recorded-time conflict, candidate preservation, human resolution, automated-action denial, audit atomicity, rollback idempotency, projection and authorization recheck.
+
+The detailed scope and implementation record is \`M3-03_AGENDA_10_PERSISTED_CONFLICT_LIFECYCLE_TEMPORAL_EVALUATION_AND_ROLLBACK.md\`. Exact-head PHP 8.5 foundation CI, Project documentation validation, review reconciliation and expected-head merge remain pending. Agenda 10 is not yet closed.
+
+This closes the implementation design for reconciliation gaps G-01 through G-03 if exact-head tests pass. G-04 — full deterministic oracle traceability — remains a separate evidence task. M3-03 remains **IN PROGRESS** and M3-04 Provider Management remains blocked pending full M3-03 exit acceptance. No production, V1, Hostinger, real/source data, external services/AI, public endpoints, deployment or spend is included.
