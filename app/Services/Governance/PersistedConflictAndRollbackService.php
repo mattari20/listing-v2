@@ -60,7 +60,7 @@ final class PersistedConflictAndRollbackService
                 }
             }
 
-            if (! $overlap) {
+            if (!$overlap) {
                 return null;
             }
 
@@ -312,7 +312,7 @@ final class PersistedConflictAndRollbackService
         if ($version === null || $version->disposition !== 'accepted'
             || DB::table('claim_versions')->where('supersedes_version_id', $claimVersionId)->exists()
             || $evidenceRows->isEmpty()
-            || ! (new GovernancePolicy)->canAcceptClaim($evidenceRows->pluck('status')->all())) {
+            || !(new GovernancePolicy)->canAcceptClaim($evidenceRows->pluck('status')->all())) {
             $this->reject('rollback_eligibility', 'Current claim and evidence policy no longer permits publication.');
         }
 
