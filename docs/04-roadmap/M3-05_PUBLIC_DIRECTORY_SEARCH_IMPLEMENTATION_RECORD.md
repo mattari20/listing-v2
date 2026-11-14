@@ -22,7 +22,7 @@ The Product Owner authorized M3-05 implementation and closeout on 2026-11-14 for
 
 ## 3. Validation and merge evidence
 
-Pending exact-head PHP 8.5 foundation CI, project documentation validation, review-thread reconciliation and expected-head SHA merge. No validation or merge success is claimed in this candidate record.
+Pending exact-head PHP 8.5 foundation CI, project documentation validation, review-thread reconciliation and expected-head SHA merge. The first exact-head CI attempt exposed a missing Blade compiled-view directory; this was corrected by adding the tracked storage placeholder. A second exact-head CI attempt passed formatter/bootstrap/routes and all synthetic tests; final run and merge evidence will be recorded after review.
 
 ## 4. Deferred boundaries
 
