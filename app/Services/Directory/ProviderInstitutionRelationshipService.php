@@ -8,6 +8,7 @@ use App\Services\Governance\GovernanceCommandService;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+
 final class ProviderInstitutionRelationshipService
 {
     public function __construct(private readonly GovernanceCommandService $governance, private readonly ProviderInstitutionRelationshipPolicy $policy) {}
@@ -97,7 +98,8 @@ final class ProviderInstitutionRelationshipService
             if ($duplicate->exists()) {
                 throw ValidationException::withMessages(['relationship' => 'An identical relationship assertion already exists.']);
             }
-            $id = (string) Str::uuid(); $now = now();
+            $id = (string) Str::uuid();
+            $now = now();
             DB::table('entity_relationships')->insert([
                 'id' => $id, 'from_entity_id' => $from, 'to_entity_id' => $to, 'relationship_type' => $predicate,
                 'scope' => $scope, 'jurisdiction' => $jurisdiction, 'valid_from' => $version->valid_from, 'valid_to' => $version->valid_to,

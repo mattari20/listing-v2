@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Domain\Directory;
 use Carbon\CarbonImmutable;
 use Illuminate\Validation\ValidationException;
+
 final class ProviderInstitutionRelationshipPolicy
 {
     private const PREDICATES = ['operates', 'owns', 'administers'];
