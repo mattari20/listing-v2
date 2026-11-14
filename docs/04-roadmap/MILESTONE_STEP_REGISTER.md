@@ -633,7 +633,7 @@ See [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) for complete step scopes, task
 | M3-10 | Pilot and Launch Readiness | 7% | Not started; separate pilot approval |
 | M3-11 | Controlled Production Launch | 6% | Conditional; separate explicit launch authorization |
 
-M3-00 task completion is 0% until weighted evidence is produced and accepted. Do not treat this register entry as evidence of completed work.
+M3-00 is accepted and closed with the Product Owner's documented, explicit deferrals. The historical task-evidence snapshots below retain their original dates and must not be read as the current step status.
 
 
 ## M3-00 current task evidence update — 2026-11-12
