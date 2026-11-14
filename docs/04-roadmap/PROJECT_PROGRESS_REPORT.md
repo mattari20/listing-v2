@@ -2,7 +2,7 @@
 
 **As of:** 2026-11-14  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 accepted and closed for bounded synthetic local/CI scope on 2026-11-14; M3-04 Provider Management planning started, implementation authorization pending
+**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03 accepted and closed for bounded synthetic local/CI scope on 2026-11-14; M3-04 Provider Management P01–P04 implemented, validated and merged for bounded synthetic local/CI scope
 
 ## Verified current M3 position — 2026-11-12 (post PR #114 owner-approved deferrals)
 
@@ -1025,3 +1025,18 @@ The Product Owner separately authorized P04 — Status History and Editorial Rev
 The candidate introduces an editorial review case and append-only directory status-history events, with a capability matrix for submit, edit, review, adjudicate, approve, suppress and restore. Submitter, reviewer, adjudicator and publisher are separated; evidence submitters remain excluded by the existing governance checks. Adjudication, publication, suppression and restoration delegate to the existing M3-03 governance service, preserving its evidence, current-version, source-authorization and audit controls.
 
 **Current disposition:** implementation candidate prepared; exact-head PHP 8.5 foundation CI, documentation validation, review-thread reconciliation and expected-head merge remain pending. P04 is not yet complete or merged. No production/V1/Hostinger access, real/source data, external API/AI, deployment or new spend occurred.
+
+
+## M3-04 P04 — final completion and current position (2026-11-14)
+
+P04 — Status History and Editorial Review — is complete for its separately authorized synthetic local/CI scope. PR [#187](https://github.com/mattari20/listing-v2/pull/187) merged as `bd240e81d0be362cf84dcab2f2b9e61875f6b59e`. Validated PR head: `6a871e5a8b23c86fa7f7f674edabd600bce5abf0`.
+
+Exact-head checks passed:
+- FND-01 PHP 8.5 foundation CI [#43556525425](https://github.com/mattari20/listing-v2/actions/runs/43556525425) — **SUCCESS**.
+- Project documentation validation [#43556525412](https://github.com/mattari20/listing-v2/actions/runs/43556525412) — **SUCCESS**.
+
+The full synthetic suite reported **300 assertions, no failures and 95 non-fatal warnings** from the intentionally absent local `.env` file. Formatting, dependency audit, Laravel bootstrap/routes and repository artifact hygiene passed. No unresolved review threads or review submissions were present.
+
+**M3-04 delivery status:** P01 PR #176, P02 PR #177, P03 PR #179 and P04 PR #187 are merged and validated. All four planned work packages are delivered for their bounded synthetic local/CI scopes. This is not a claim of real human staffing, real account provisioning, source approval, public directory readiness or production readiness. No public route/projection, production/V1/Hostinger access, external API/AI, deployment or additional spend was introduced.
+
+**Next eligible roadmap step:** M3-05 Public Directory and Search requires its own scope review and explicit authorization before implementation. No M3-05 code is started by this closeout.

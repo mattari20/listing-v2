@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-14 — M3-03 accepted and closed for bounded synthetic local/CI scope; M3-04 P01 validated in PR #176; P02 merged as PR #177; P03 merged as PR #179; exact-head checks passed
+**Last reconciled:** 2026-11-14 — M3-03 accepted and closed for bounded synthetic local/CI scope; M3-04 P01 validated in PR #176; P02 merged as PR #177; P03 merged as PR #179; P04 merged as PR #187; exact-head checks passed
 
 ## Purpose and maintenance rule
 
@@ -936,3 +936,12 @@ P03 merged as PR #179 (`727cc3c91f9761bbb24954b8777e033f577ec75c`). Exact-head P
 - [M3-04 P04 Implementation Record](M3-04_P04_STATUS_HISTORY_EDITORIAL_REVIEW_IMPLEMENTATION_RECORD.md) — bounded synthetic-only editorial review cases, capability matrix, independent role separation, append-only status history, existing governance-service integration and pending exact-head validation evidence.
 
 P04 is separately authorized as of 2026-11-14. The implementation candidate is on `feature/m3-04-p04-status-editorial-review`; it is not complete until exact-head CI, review and merge gates are evidenced.
+
+
+## M3-04 P04 — final closeout
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-04 P04 Implementation Record](M3-04_P04_STATUS_HISTORY_EDITORIAL_REVIEW_IMPLEMENTATION_RECORD.md) | Editorial review cases, append-only status history, capability matrix, role separation, tests and CI/merge evidence | **Merged and validated — PR #187** |
+
+PR #187 merged as `bd240e81d0be362cf84dcab2f2b9e61875f6b59e` from validated head `6a871e5a8b23c86fa7f7f674edabd600bce5abf0`. Exact-head PHP 8.5 foundation CI #43556525425 and Project documentation validation #43556525412 passed. Synthetic suite: 300 assertions, no failures, 95 non-fatal missing-`.env` warnings. No unresolved review threads.

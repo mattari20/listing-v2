@@ -3,9 +3,11 @@
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
 **Work package:** M3-04 P04  
-**Status:** IMPLEMENTATION CANDIDATE — exact-head validation and merge pending  
+**Status:** MERGED AND VALIDATED — PR #187; exact-head PHP 8.5 foundation CI and Project documentation validation passed  
 **Base:** `e29eaa3439e5baa977ad923b75bd2eeed742b22a`  
-**Branch:** `feature/m3-04-p04-status-editorial-review`
+**Branch:** `feature/m3-04-p04-final-validation-head`
+**Validated PR head:** `6a871e5a8b23c86fa7f7f674edabd600bce5abf0`
+**Merged commit:** `bd240e81d0be362cf84dcab2f2b9e61875f6b59e`
 
 ## 1. Authorization and boundaries
 
@@ -55,7 +57,16 @@ The new feature suite covers table/capability contract, idempotent submission, s
 
 ## 7. Validation and merge evidence
 
-Pending. This record will be reconciled after exact-head PHP 8.5 foundation CI, Project documentation validation, review-thread inspection and expected-head SHA merge. No validation or merge success is claimed in this candidate record.
+Both required checks passed on exact PR head `6a871e5a8b23c86fa7f7f674edabd600bce5abf0`:
+
+| Check | Run | Result |
+|---|---:|---|
+| FND-01 PHP 8.5 foundation CI | [#43556525425](https://github.com/mattari20/listing-v2/actions/runs/43556525425) | **SUCCESS** |
+| Project documentation validation | [#43556525412](https://github.com/mattari20/listing-v2/actions/runs/43556525412) | **SUCCESS** |
+
+Foundation CI passed Composer validation/install, dependency advisory audit, Pint formatting, Laravel bootstrap/routes, the synthetic test suite and artifact hygiene. The complete suite reported **300 assertions with no failures** and **95 non-fatal warnings** from the existing test harness attempting to read the intentionally absent local `.env` file. No `.env` or database artifact was added. Review-thread inspection found no unresolved threads and no review submissions. PR #187 was squash-merged with expected-head SHA `6a871e5a8b23c86fa7f7f674edabd600bce5abf0`; merge commit `bd240e81d0be362cf84dcab2f2b9e61875f6b59e`.
+
+P04 is complete for its bounded synthetic local/CI scope. The tests do not prove production concurrency, real staffing, real account provisioning, legal/privacy/source-rights clearance, public release or operational readiness.
 
 ## 8. Safety declaration
 
