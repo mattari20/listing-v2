@@ -159,8 +159,9 @@ class CampusProgrammeCatalogueTest extends TestCase
 
     public function test_audit_failure_rolls_back_catalogue_projection(): void
     {
+        $institution = $this->entity('institution');
         $programme = $this->entity('programme');
-        $version = $this->claim('programme', $programme, ['title' => 'Synthetic Rollback']);
+        $version = $this->claim('programme', $programme, ['institution_entity_id' => $institution, 'title' => 'Synthetic Rollback']);
         DB::unprepared("CREATE TRIGGER fail_p02_audit BEFORE INSERT ON audit_events BEGIN SELECT RAISE(ABORT, 'synthetic P02 audit failure'); END");
         try {
             app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord($this->actor('catalogue-manager'), $version, 'audit-failure');
