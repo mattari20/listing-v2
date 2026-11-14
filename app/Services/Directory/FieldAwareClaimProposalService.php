@@ -47,6 +47,29 @@ final class FieldAwareClaimProposalService
             $this->reject('proposal', 'Field key, exact version, scope, evidence and bounded idempotency key are required.');
         }
 
+        $fingerprint = hash('sha256', json_encode([
+            $actor['actor_id'], $actor['actor_class'], $subjectEntityId, $fieldKey,
+            $definitionVersion, $value, array_values($evidenceReferenceIds), $sourceContext,
+            $scopeKey, $validationContext, $validFrom, $validTo,
+        ], JSON_THROW_ON_ERROR));
+        $prior = DB::table('audit_events')
+            ->where('action', 'field_aware_claim_proposed')
+            ->where('metadata->idempotency_key', $idempotencyKey)
+            ->first(['target_id', 'metadata']);
+        if ($prior !== null) {
+            $metadata = json_decode((string) $prior->metadata, true);
+            if (! is_array($metadata) ||
+                ! hash_equals((string) ($metadata['idempotency_fingerprint'] ?? ''), $fingerprint)) {
+                $this->reject('idempotency_key', 'The idempotency key was already used for a different proposal.');
+            }
+
+            return [
+                'claim_id' => (string) ($metadata['claim_id'] ?? ''),
+                'claim_version_id' => (string) $prior->target_id,
+                'editorial_review_case_id' => (string) ($metadata['editorial_review_case_id'] ?? ''),
+            ];
+        }
+
         $keyResult = $this->validator->validateFieldKey($fieldKey);
         if ($keyResult['valid'] === false) {
             $this->reject('field_key', 'Field key must use the canonical lowercase snake_case format.');
@@ -103,11 +126,6 @@ final class FieldAwareClaimProposalService
             $actor, $subjectEntityId, $fieldKey, $definitionVersion, $definition, $value,
             $uniqueEvidenceIds, $sourceContext, $idempotencyKey, $validFrom, $validTo
         ): array {
-            $fingerprint = hash('sha256', json_encode([
-                $actor['actor_id'], $actor['actor_class'], $subjectEntityId, $fieldKey,
-                $definitionVersion, $value, $uniqueEvidenceIds, $sourceContext, $validFrom, $validTo,
-            ], JSON_THROW_ON_ERROR));
-
             $prior = DB::table('audit_events')
                 ->where('action', 'field_aware_claim_proposed')
                 ->where('metadata->idempotency_key', $idempotencyKey)
