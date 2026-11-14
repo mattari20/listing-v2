@@ -153,6 +153,23 @@ class CampusProgrammeCatalogueTest extends TestCase
         $this->assertDatabaseHas('directory_campuses', ['entity_id' => $campus, 'status' => 'withdrawn']);
     }
 
+
+    public function test_source_authorization_revocation_suppresses_campus_catalogue_projection(): void
+    {
+        $institution = $this->entity('institution');
+        $campus = $this->entity('campus');
+        $version = $this->claim('campus', $campus, ['institution_entity_id' => $institution]);
+        app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord($this->actor('catalogue-manager'), $version, 'revoke-campus');
+        $evidenceId = DB::table('claim_evidence_links')->where('claim_version_id', $version)->value('evidence_reference_id');
+        $authorizationId = DB::table('evidence_references')->where('id', $evidenceId)->value('source_authorization_id');
+
+        app(PersistedGovernanceWorkflowService::class)->revokeSourceAuthorization([
+            'actor_id' => 'synthetic-rights-officer', 'actor_class' => 'human', 'capabilities' => ['revoke_source_authorization'],
+        ], $authorizationId, 'synthetic_revocation', 'Synthetic authorization revoked.');
+
+        $this->assertDatabaseHas('directory_campuses', ['entity_id' => $campus, 'status' => 'suppressed']);
+    }
+
     public function test_audit_failure_rolls_back_catalogue_projection(): void
     {
         $institution = $this->entity('institution');
