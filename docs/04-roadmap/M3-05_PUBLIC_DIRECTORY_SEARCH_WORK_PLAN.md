@@ -68,7 +68,7 @@ No raw evidence, unapproved claim, private metadata or unsupported entity label 
 
 ## 5. Architecture and implementation
 
-Use a read-only \`PublicDirectoryQueryService\` over the existing authoritative publication/projection tables. No new physical table, migration, write workflow, search index or third-party service is required for this first database-native slice. A controller and Blade views provide anonymous HTML. Search is a conservative bounded database-backed read over eligible projections; a dedicated engine remains undecided.
+Use a read-only \`PublicDirectoryQueryService\` over the existing authoritative publication/projection tables. No new physical table, migration, write workflow, search index or third-party service is required for this first database-native slice. A controller and Blade views provide anonymous HTML. Search is a conservative database-backed read over eligible projections with server-side pagination and request throttling; a dedicated engine remains undecided. Dataset-scale query optimization and load benchmarking remain M3-09 work.
 
 ## 6. Risks and limitations
 
