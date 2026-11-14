@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
-**Status:** **DESIGN DELIVERED — IMPLEMENTATION AUTHORIZATION REQUIRED**  
+**Status:** **IMPLEMENTATION SUBMITTED — EXACT-HEAD CI AND REVIEW PENDING**  
 **Baseline:** `main` at `509f3c3150753c122467c50530f50347511bf6ab`  
 **Work package:** M3-04 P01
 
@@ -90,21 +90,15 @@ Use the already implemented Agenda 10 date semantics for P01 relationship interv
 
 The P01 contract should not implement automated conflict resolution. Competing incompatible assertions are preserved for human review.
 
-## 6. Evidence, review and audit integration — design decision required
+## 6. Evidence, review and audit integration — selected decision
 
-A relationship is a material assertion, not merely a database join. It must retain:
-- source/target identity and predicate;
-- scope and jurisdiction where relevant;
-- valid-time bounds and recorded-time provenance;
-- evidence references and their current authorization/admissibility state;
-- proposal/review/adjudication disposition;
-- actor, reason and audit lineage for material changes.
+P01 selects option 1: represent the relationship as a claim/version through the existing claim, evidence-link, adjudication and audit workflow, with the entity_relationships row acting only as a governed projection/identity record.
 
-P01 must not create a weaker parallel approval mechanism. Before implementation, select and document one consistent integration with M3-03 governance:
-1. Represent the relationship as a claim/version through the existing claim, evidence-link, adjudication and audit workflow, with the relationship row acting as a governed projection/identity record; or
-2. Add an explicit relationship-assertion/version and evidence-link model that reuses equivalent M3-03 authorization, human adjudication, audit atomicity and outbox controls.
+A proposal remains proposed and cannot create an active relationship row. Materialization requires a current accepted claim version, a persisted human accepted adjudication, currently admissible evidence linked to unrevoked source authorization, a human actor with the materialize_relationship capability, and an audit event committed in the same transaction. Materialization is idempotent and rejects idempotency-key reuse with a different fingerprint.
 
-The choice must be explicit before migration design. A relationship cannot be considered accepted or active merely because an `entity_relationships` row was inserted. Quarantined evidence is not admissible proof. Automated validation cannot approve a relationship, merge identities or publish facts.
+The projection stores a unique claim_version_id. Source authorization revocation suppresses linked active projections; claim withdrawal marks them withdrawn; claim correction marks the prior projection superseded. The claim/version workflow remains authoritative. No second approval state machine is introduced.
+
+Quarantined evidence is not admissible proof. Automated validation cannot approve a relationship or merge identities. The other predicates remain reserved and fail closed in P01.
 
 ## 7. Duplicate and identity resolution contract
 
@@ -164,7 +158,7 @@ No physical migration should be drafted as final until these choices and the tar
 
 ## 10. Acceptance criteria for P01
 
-P01 design is ready for implementation authorization only when:
+P01 implementation is subject to exact-head CI and review. The selected architecture and implemented slice are recorded in M3-04_P01_IMPLEMENTATION_RECORD.md. The remaining criteria below are tracked as implementation or deferred scope:
 - Provider/Institution identity boundaries and endpoint direction are unambiguous.
 - The controlled predicate registry and endpoint matrix are owner-reviewed.
 - Cardinality and concurrency rules preserve non-exclusive, time-bounded provider relationships.
@@ -180,4 +174,9 @@ P01 design is ready for implementation authorization only when:
 
 Design only. No application code, schema, migration, fixtures, tests or workflow changed. No real or source-derived data was used. No Listing V1, Hostinger/hPanel, production/live DB, external API/AI, real role provisioning, public endpoint, deployment, procurement or new spend is included.
 
-**Current disposition:** P01 design and test contract prepared for owner review. M3-04 implementation remains **NOT AUTHORIZED**.
+**Current disposition:** P01 implementation is submitted for exact-head CI and review. The implementation is limited to Provider–Institution predicates and synthetic local/CI evidence; P02–P04 remain unauthorized.
+
+
+## 12. Implementation test coverage note
+
+The first implementation adds synthetic feature coverage for enabled predicates, direction and endpoint compatibility, unknown/reserved predicate rejection, absent provider relationships, historical intervals, distinct scope/jurisdiction, date validation, admissible evidence, idempotent materialization, duplicate identity preservation, audit atomicity, withdrawal and source-revocation status propagation. The proposed R01–R22 matrix remains the broader acceptance contract; identity merge/split and candidate adjudication are explicitly deferred rather than represented as implemented.

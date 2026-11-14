@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
-**Status:** **PLANNING STARTED — P01 CONTRACT DESIGN DELIVERED; IMPLEMENTATION NOT AUTHORIZED**  
+**Status:** **P01 IMPLEMENTATION SUBMITTED — EXACT-HEAD CI AND REVIEW PENDING; P02–P04 NOT STARTED**  
 **M3-03 dependency:** Owner-accepted and closed for its bounded synthetic local/CI scope  
 **Baseline:** `main` at `eebfc20a1adac14d4911ed92175366af81cf2e43`
 
@@ -10,7 +10,7 @@
 
 This work plan starts the next roadmap step, M3-04 Provider Management, at the planning and scope-definition level. It defines the initial bounded work packages, domain contracts, acceptance criteria, synthetic fixture approach, permission constraints and CI evidence expected before implementation.
 
-The Product Owner's instruction on 2026-11-14 accepted the G-04 traceability reconciliation and authorized moving to the next work. The final M3-03 exit review is recorded separately. This plan does **not** authorize application code, schema changes, migrations, test changes or runtime behavior. A separate explicit authorization must name the exact M3-04 implementation slice before those changes begin.
+The Product Owner accepted G-04 and subsequently explicitly authorized the bounded M3-04 P01 implementation slice on 2026-11-14. P01 is being implemented on an isolated feature branch under synthetic local/CI-only restrictions. This authorization does not extend to P02–P04, production, V1, Hostinger, external APIs/AI, deployment or additional spend.
 
 ## 2. M3-04 outcome
 
@@ -62,7 +62,7 @@ Deliver:
 - Campus versus delivery-site distinctions and Institution–Campus cardinality.
 - Duplicate candidate policy and human merge/split decision requirements.
 - Synthetic fixtures and negative/positive contract cases for T-001–T-003.
-- Migration/service/test proposal, but no implementation until separately authorized.
+- Implement the Provider–Institution subset (operates, owns, administers), typed endpoint validation, inclusive temporal bounds, claim/version evidence and human-adjudication integration, governed projection lifecycle, audit atomicity, idempotency and synthetic feature tests.
 
 Acceptance:
 - Every relationship has valid typed endpoints and a recognized predicate.
@@ -185,9 +185,9 @@ No Listing V1 changes; no Hostinger/hPanel or production access; no live databas
 | M3-04 scope and acceptance criteria | **Prepared** | P01–P04 work packages above |
 | Synthetic fixtures and CI strategy | **Prepared as plan** | Fixture families and exact-head CI requirements above |
 | Permission and human editorial constraints | **Prepared as plan** | Capability matrix and independent-human decision rules above |
-| Separate implementation authorization | **NOT ISSUED** | Requires a further explicit Product Owner approval naming P01 scope |
+| Separate implementation authorization | **ISSUED 2026-11-14** | Owner authorized bounded P01 implementation only; P02–P04 remain unauthorized |
 
-**Decision:** M3-04 planning is started. The next eligible activity is P01 detailed contract/fixture design and implementation proposal. Do not change application code, schema, migrations or tests until P01 is separately authorized. M3-04 implementation remains **BLOCKED pending explicit authorization**.
+**Decision:** M3-04 planning is complete for the entry gate. P01 implementation is authorized and submitted for exact-head CI/review; P02–P04 remain blocked.
 
 
 
@@ -197,4 +197,4 @@ The first detailed design artifact is [M3-04 P01 — Provider/Institution Identi
 
 The design confirms that current foreign keys establish endpoint existence only; they do not prove endpoint-type compatibility, valid predicate vocabulary, relationship cardinality or temporal validity. T-001/T-003 and the semantic limitation of T-002 remain explicit P01 targets.
 
-**P01 status:** detailed design prepared for Product Owner review. Implementation authorization remains **NOT ISSUED**.
+**P01 status:** detailed design owner-authorized for implementation; implementation record is in M3-04_P01_IMPLEMENTATION_RECORD.md. Exact-head CI/review remains pending.

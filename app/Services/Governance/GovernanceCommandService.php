@@ -67,15 +67,15 @@ final class GovernanceCommandService
         });
     }
 
-    public function registerProposedClaim(array $actor, string $subjectEntityId, string $predicate, array $value, array $evidenceReferenceIds, array $context, string $idempotencyKey): string
+    public function registerProposedClaim(array $actor, string $subjectEntityId, string $predicate, array $value, array $evidenceReferenceIds, array $context, string $idempotencyKey, ?string $validFrom = null, ?string $validTo = null): string
     {
         $this->requireActor($actor, 'register_claim');
         if ($idempotencyKey === '' || $predicate === '' || $evidenceReferenceIds === []) {
             throw ValidationException::withMessages(['claim' => 'Predicate, evidence references and idempotency key are required.']);
         }
 
-        return DB::transaction(function () use ($actor, $subjectEntityId, $predicate, $value, $evidenceReferenceIds, $context, $idempotencyKey): string {
-            $fingerprint = hash('sha256', json_encode([$actor['actor_id'], $actor['actor_class'], $subjectEntityId, $predicate, $value, array_values($evidenceReferenceIds), $context], JSON_THROW_ON_ERROR));
+        return DB::transaction(function () use ($actor, $subjectEntityId, $predicate, $value, $evidenceReferenceIds, $context, $idempotencyKey, $validFrom, $validTo): string {
+            $fingerprint = hash('sha256', json_encode([$actor['actor_id'], $actor['actor_class'], $subjectEntityId, $predicate, $value, array_values($evidenceReferenceIds), $context, $validFrom, $validTo], JSON_THROW_ON_ERROR));
             $existing = $this->existingIdempotentTarget('claim_version_registered', $idempotencyKey, $fingerprint);
             if ($existing !== null) {
                 return $existing;
@@ -113,6 +113,8 @@ final class GovernanceCommandService
                 'version_number' => 1,
                 'value' => json_encode($value, JSON_THROW_ON_ERROR),
                 'recorded_at' => $now,
+                'valid_from' => $validFrom,
+                'valid_to' => $validTo,
                 'disposition' => 'proposed',
                 'created_at' => $now,
                 'updated_at' => $now,

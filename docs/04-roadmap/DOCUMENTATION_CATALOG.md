@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-14 — M3-03 accepted and closed for bounded synthetic local/CI scope; G-04 owner-accepted; M3-04 Provider Management planning started
+**Last reconciled:** 2026-11-14 — M3-03 accepted and closed for bounded synthetic local/CI scope; M3-04 P01 implementation submitted for exact-head validation
 
 ## Purpose and maintenance rule
 
@@ -904,11 +904,12 @@ G-04 PR [#172](https://github.com/mattari20/listing-v2/pull/172) merged as `f8d9
 |---|---|---|
 | [M3-04 Provider Management Work Plan](M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md) | P01–P04 work packages, provider/institution domain rules, T-001/T-003/T-002 carry-forward, acceptance criteria, synthetic fixtures, CI and permission constraints | Planning delivered — implementation authorization not issued |
 
-M3-04 P01 is the next eligible work package. No application code, schema, migration or test implementation may begin until a separate explicit Product Owner authorization names the exact P01 scope.
+M3-04 P01 implementation is authorized and submitted on an isolated feature branch. P02–P04 remain outside the implementation scope.
 
 
 ### M3-04 P01 detailed design
 
 | Artifact | Purpose | Status |
 |---|---|---|
-| [M3-04 P01 — Provider/Institution Identity and Typed Relationship Contract](M3-04_P01_PROVIDER_INSTITUTION_IDENTITY_AND_RELATIONSHIP_CONTRACT.md) | Existing schema assessment, identity types, controlled relationship vocabulary and endpoint matrix, temporal/evidence rules, duplicate resolution, proposed synthetic tests and P01 acceptance criteria | Delivered for owner review — implementation authorization not issued |
+| [M3-04 P01 — Provider/Institution Identity and Typed Relationship Contract](M3-04_P01_PROVIDER_INSTITUTION_IDENTITY_AND_RELATIONSHIP_CONTRACT.md) | Existing schema assessment, identity types, controlled relationship vocabulary and endpoint matrix, temporal/evidence rules, duplicate resolution, synthetic test contract and P01 acceptance criteria | Updated — selected claim/version integration; implementation submitted |
+| [M3-04 P01 Implementation Record](M3-04_P01_IMPLEMENTATION_RECORD.md) | Selected governance integration, changed files, projection lifecycle, deferred scope and safety boundaries | Delivered in implementation PR — exact-head CI pending |
