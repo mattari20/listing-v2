@@ -905,3 +905,10 @@ G-04 PR [#172](https://github.com/mattari20/listing-v2/pull/172) merged as `f8d9
 | [M3-04 Provider Management Work Plan](M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md) | P01–P04 work packages, provider/institution domain rules, T-001/T-003/T-002 carry-forward, acceptance criteria, synthetic fixtures, CI and permission constraints | Planning delivered — implementation authorization not issued |
 
 M3-04 P01 is the next eligible work package. No application code, schema, migration or test implementation may begin until a separate explicit Product Owner authorization names the exact P01 scope.
+
+
+### M3-04 P01 detailed design
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-04 P01 — Provider/Institution Identity and Typed Relationship Contract](M3-04_P01_PROVIDER_INSTITUTION_IDENTITY_AND_RELATIONSHIP_CONTRACT.md) | Existing schema assessment, identity types, controlled relationship vocabulary and endpoint matrix, temporal/evidence rules, duplicate resolution, proposed synthetic tests and P01 acceptance criteria | Delivered for owner review — implementation authorization not issued |

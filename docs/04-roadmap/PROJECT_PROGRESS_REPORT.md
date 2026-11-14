@@ -1001,3 +1001,8 @@ M3-04 Provider Management planning has started: [M3-04 Provider Management Work 
 **Current M3-04 state:** planning started; application implementation **NOT AUTHORIZED**. P01 specifically carries T-001/T-003 and the semantic portion of T-002 into provider/institution relationship contract work. A separate explicit Product Owner authorization naming exact P01 implementation scope is required before code, schema, migration or tests change.
 
 No V1, Hostinger/hPanel, production/live database, real/source/personal/institute/student/child/staff data, source acquisition, external API/AI, real role provisioning, public endpoint, deployment, procurement or new spend was accessed or authorized.
+
+
+### M3-04 P01 detailed design — 2026-11-14
+
+P01's detailed Provider/Institution identity and typed relationship contract is prepared in [M3-04 P01 — Provider/Institution Identity and Typed Relationship Contract](M3-04_P01_PROVIDER_INSTITUTION_IDENTITY_AND_RELATIONSHIP_CONTRACT.md). It records the current schema limitations, proposed predicate/endpoint matrix, inclusive temporal semantics, evidence/adjudication integration decision, duplicate/merge/split controls, 22 proposed synthetic test cases and migration portability questions. This is design evidence only; no code, schema, migrations, fixtures or tests changed. P01 is ready for owner review; implementation authorization remains **NOT ISSUED**.
