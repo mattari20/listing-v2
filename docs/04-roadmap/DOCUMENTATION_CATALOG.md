@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-14 — M3-03 accepted and closed; M3-04 P01–P04, M3-05 and M3-06 complete for bounded synthetic local/CI scope; M3-07 readiness review delivered, implementation blocked pending source/model approvals
+**Last reconciled:** 2026-11-14 — M3-03 accepted and closed; M3-04 P01–P04, M3-05 and M3-06 complete for bounded synthetic local/CI scope; M3-07 readiness documentation merged, application implementation blocked pending source/model approvals
 
 ## Purpose and maintenance rule
 
@@ -144,6 +144,8 @@ PR [#160](https://github.com/mattari20/listing-v2/pull/160) is open at the time 
 |---|---|---|
 | [M3-07 AI Data-Agent Work Plan](M3-07_AI_DATA_AGENT_WORK_PLAN.md) | Conjunctive source/model approval gates, proposal-only workflow, privacy/security controls and synthetic-only test plan | Delivered — readiness review; implementation blocked pending owner/source/model approvals |
 | [M3-07 AI Data-Agent Readiness Review Record](M3-07_AI_DATA_AGENT_READINESS_REVIEW_RECORD.md) | Evidence-based readiness finding and explicit no-source/no-model/no-activation decision | Delivered — readiness review; implementation not authorized |
+
+| [#195](https://github.com/mattari20/listing-v2/pull/195) | M3-07 AI Data-Agent readiness plan, source/model/privacy/security gates, proposal-only workflow, threat controls, synthetic-only test plan and project-control reconciliation | Merged as `1f4298f9136771f3b2ff6c8008d07b58a1113724`; exact head `53d0d2d715ff23d08197946227f62b8b0a34d38e`; FND-01 CI #43560066318 and documentation validation #43560066325 passed | Merged — readiness documentation only; application implementation blocked |
 
 ## PR delivery history
 
