@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\Directory;
 
 use App\Domain\Governance\GovernancePolicy;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -323,7 +324,7 @@ final class PublicDirectoryQueryService
     {
         $dates = $evidenceRows->pluck('observed_at')->filter()->map(static function (string $value): ?string {
             try {
-                return \Illuminate\Support\Carbon::parse($value)->toDateString();
+                return Carbon::parse($value)->toDateString();
             } catch (\Throwable) {
                 return null;
             }
