@@ -926,6 +926,6 @@ M3-04 P01 implementation is delivered and passed exact-head PHP 8.5 foundation C
 
 | Artifact | Purpose | Status |
 |---|---|---|
-| [M3-04 P03 Implementation Record](M3-04_P03_IMPLEMENTATION_RECORD.md) | Controlled authority identities, authority-type/predicate matrix, governed claim projection, scope/jurisdiction/valid-time, evidence, human adjudication, audit and synthetic acceptance evidence | Delivered in PR pending exact-head CI/review |
+| [M3-04 P03 Implementation Record](M3-04_P03_IMPLEMENTATION_RECORD.md) | Controlled authority identities, authority-type/predicate matrix, governed claim projection, scope/jurisdiction/valid-time, evidence, human adjudication, audit and synthetic acceptance evidence | Implemented and merged as PR #179; exact-head PHP 8.5 foundation CI and documentation validation passed |
 
-P03 implementation is submitted for exact-head validation. The code uses the existing claim/version and entity-relationship lifecycle so correction, withdrawal and source-authorization revocation propagate to the P03 relationship projection. P04 remains not started.
+P03 merged as PR #179 (`727cc3c91f9761bbb24954b8777e033f577ec75c`). Exact-head PHP 8.5 foundation CI #43555121150 and Project documentation validation #43555121154 passed on `99fdbbc80463262b785bb56eb4e6f56a9b927baf`; 287 assertions completed with 90 non-fatal missing-local-`.env` warnings. The code uses the existing claim/version and entity-relationship lifecycle so correction, withdrawal and source-authorization revocation propagate to the P03 relationship projection. P04 remains not started.

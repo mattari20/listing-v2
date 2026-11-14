@@ -3,9 +3,10 @@
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
 **Work package:** M3-04 P03  
-**Status:** **IMPLEMENTED — exact-head CI/review pending**  
+**Status:** **MERGED AND VALIDATED — PR #179; exact-head PHP 8.5 foundation CI and documentation validation passed**  
 **Base:** `0e1ce7036b849460e2a636f15d24d77c1e09dcec`  
-**Branch:** `feature/m3-04-p03-authority-recognition`
+**Branch:** `feature/m3-04-p03-authority-recognition`  
+**Merged commit:** `727cc3c91f9761bbb24954b8777e033f577ec75c`
 
 ## 1. Authorization and boundaries
 
@@ -94,7 +95,7 @@ Fixtures use synthetic names and synthetic jurisdiction/scope values only. The s
 
 ## 8. Acceptance and delivery evidence
 
-P03 is considered implementation-complete only after exact-head FND-01 PHP 8.5 foundation CI and Project documentation validation pass, review threads are reconciled, and the PR is merged with an expected-head SHA guard. Until those gates are recorded, this artifact remains **implementation delivered; validation/merge pending**.
+P03 passed exact-head FND-01 PHP 8.5 foundation CI run #43555121150 and Project documentation validation run #43555121154 on head `99fdbbc80463262b785bb56eb4e6f56a9b927baf`. Both checks succeeded. The synthetic-only suite completed with 287 assertions and 90 non-fatal missing-local-`.env` warnings; no test failures. No PR review comments or inline review threads were present. PR #179 was squash-merged using the expected-head SHA guard and produced merge commit `727cc3c91f9761bbb24954b8777e033f577ec75c`. P03 is closed for its bounded synthetic local/CI scope; the warnings remain recorded as environment noise, not as zero warnings.
 
 ## 9. Safety declaration
 

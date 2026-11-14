@@ -1011,3 +1011,8 @@ P01's detailed Provider/Institution identity and typed relationship contract is 
 ## M3-04 Provider Management — P03 implementation
 
 P01 is validated, P02 is merged, and P03 has been implemented on an isolated synthetic-only feature branch and submitted for exact-head CI/review. P03 introduces typed authority profiles and governed relationship projections with explicit scope, jurisdiction, subject and valid-time. P04 remains not started. Do not count P03 as closed until required checks, review reconciliation and expected-head merge are verified.
+
+
+## M3-04 Provider Management — P03 closeout
+
+P03 is merged and validated in PR #179 (`727cc3c91f9761bbb24954b8777e033f577ec75c`). Exact-head FND-01 PHP 8.5 foundation CI run #43555121150 and Project documentation validation run #43555121154 passed on head `99fdbbc80463262b785bb56eb4e6f56a9b927baf`. The synthetic-only suite completed with 287 assertions and 90 non-fatal missing-local-`.env` warnings; no failures. M3-04 P01 and P02 remain complete; P03 is complete for its bounded scope; P04 remains not started and separately gated.
