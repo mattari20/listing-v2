@@ -8,11 +8,11 @@
 
 ## Latest verified position — M3-06 closeout (2026-11-14)
 
-**Latest main commit:** `e959adb578df6b60f2c308cd0b1f12391f6cb043` (M3-06 implementation PR #192).  
+**Latest main commit:** `f1c58a5405960cc86816d9c5aef77fee944987b0` (M3-06 documentation closeout PR #193).  
 **M3-06:** Complete for bounded synthetic local/CI scope.  
 **Next roadmap step:** M3-07 AI Data-Agent — scope/readiness review only until each source has separate rights, security, privacy and owner authorization.
 
-PR [#192](https://github.com/mattari20/listing-v2/pull/192) merged from exact head `9761e52747e0f2b15fbfee58ac2528ec4f96c57c`. Required exact-head checks:
+Implementation PR [#192](https://github.com/mattari20/listing-v2/pull/192) merged from exact head `9761e52747e0f2b15fbfee58ac2528ec4f96c57c`. Required exact-head checks:
 - FND-01 PHP 8.5 foundation CI [#43559187297](https://github.com/mattari20/listing-v2/actions/runs/43559187297) — **SUCCESS**.
 - Project documentation validation [#43559187312](https://github.com/mattari20/listing-v2/actions/runs/43559187312) — **SUCCESS**.
 
@@ -21,6 +21,8 @@ No unresolved review threads or submitted reviews were present. The full synthet
 Deferred: coordinates and precision/confidence models, distance/nearby search, device geolocation, maps/tiles/geocoding, national locality gazetteer/boundaries, hierarchy inference and place-name disambiguation. These require separate data-quality, privacy, licensing, operational and owner-authorization decisions. No production, V1, Hostinger/hPanel, live database, real/source data, external APIs/AI, deployment, release, procurement or additional spend was used.
 
 No overall M3 percentage is recalculated by counting completed packages; step/milestone progress remains evidence-weighted and must not be inferred from PR counts.
+
+Documentation closeout PR [#193](https://github.com/mattari20/listing-v2/pull/193) merged as `f1c58a5405960cc86816d9c5aef77fee944987b0`; exact head `8d65f9e19fbde64e68f4a8087ababc08f99a312b` passed FND-01 CI #43559397988 and documentation validation #43559398059. The master plan, milestone register, traceability, progress report, controller, index, catalogue and implementation record are reconciled.
 
 ## Verified current M3 position — 2026-11-12 (post PR #114 owner-approved deferrals)
 
