@@ -153,7 +153,6 @@ class CampusProgrammeCatalogueTest extends TestCase
         $this->assertDatabaseHas('directory_campuses', ['entity_id' => $campus, 'status' => 'withdrawn']);
     }
 
-
     public function test_source_authorization_revocation_suppresses_campus_catalogue_projection(): void
     {
         $institution = $this->entity('institution');
