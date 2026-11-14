@@ -334,6 +334,7 @@ final class TypedFieldValueValidator
                     (stripos($value, '<script') !== false || stripos($value, '<iframe') !== false)) {
                     $errors[] = ['code' => 'active_markup_prohibited', 'path' => $path];
                 }
+
                 break;
 
             case 'integer':
@@ -342,6 +343,7 @@ final class TypedFieldValueValidator
                     (isset($schema['maximum']) && $value > $schema['maximum'])) {
                     $errors[] = ['code' => 'invalid_integer', 'path' => $path];
                 }
+
                 break;
 
             case 'decimal':
@@ -356,18 +358,21 @@ final class TypedFieldValueValidator
                     (isset($schema['maximum']) && (float) $value > (float) $schema['maximum'])) {
                     $errors[] = ['code' => 'invalid_fixed_precision_decimal', 'path' => $path];
                 }
+
                 break;
 
             case 'boolean':
                 if (is_bool($value) === false) {
                     $errors[] = ['code' => 'invalid_boolean', 'path' => $path];
                 }
+
                 break;
 
             case 'date':
                 if ($this->isIsoDate($value) === false) {
                     $errors[] = ['code' => 'invalid_iso_date', 'path' => $path];
                 }
+
                 break;
 
             case 'date_range':
@@ -379,6 +384,7 @@ final class TypedFieldValueValidator
                     ($value['start'] === $value['end'] && $schema['end_inclusive'] === false)) {
                     $errors[] = ['code' => 'invalid_date_range', 'path' => $path];
                 }
+
                 break;
 
             case 'url':
@@ -392,6 +398,7 @@ final class TypedFieldValueValidator
                         $errors[] = ['code' => 'invalid_http_url', 'path' => $path];
                     }
                 }
+
                 break;
 
             case 'email':
@@ -403,12 +410,14 @@ final class TypedFieldValueValidator
                     in_array($domain, array_map('strtolower', $allowedDomains), true) === false) {
                     $errors[] = ['code' => 'invalid_or_unapproved_institutional_email', 'path' => $path];
                 }
+
                 break;
 
             case 'phone':
                 if (is_string($value) === false || preg_match('/^\+[1-9][0-9]{7,14}$/D', $value) !== 1) {
                     $errors[] = ['code' => 'phone_must_be_normalized_e164', 'path' => $path];
                 }
+
                 break;
 
             case 'enum':
@@ -418,6 +427,7 @@ final class TypedFieldValueValidator
                     in_array($value, $allowed, true) === false) {
                     $errors[] = ['code' => 'enum_value_not_allowed', 'path' => $path];
                 }
+
                 break;
 
             case 'money':
@@ -436,6 +446,7 @@ final class TypedFieldValueValidator
                     in_array($value['currency'], $schema['allowed_currencies'], true) === false) {
                     $errors[] = ['code' => 'currency_not_allowed', 'path' => $path.'.currency'];
                 }
+
                 break;
 
             case 'duration':
@@ -449,6 +460,7 @@ final class TypedFieldValueValidator
                     (float) $value['amount'] <= 0) {
                     $errors[] = ['code' => 'invalid_duration_or_unit', 'path' => $path];
                 }
+
                 break;
 
             case 'language_code':
@@ -459,6 +471,7 @@ final class TypedFieldValueValidator
                     in_array($value, $languageAllowlist, true) === false) {
                     $errors[] = ['code' => 'invalid_or_unapproved_language_code', 'path' => $path];
                 }
+
                 break;
 
             case 'entity_reference':
@@ -471,6 +484,7 @@ final class TypedFieldValueValidator
                     in_array($value['entity_type'], $targets, true) === false) {
                     $errors[] = ['code' => 'invalid_entity_reference', 'path' => $path];
                 }
+
                 break;
 
             case 'bounded_object':
@@ -485,6 +499,7 @@ final class TypedFieldValueValidator
                     is_int($maxKeys) === false || $maxKeys < 1 || $maxKeys > 50 ||
                     is_int($maxBytes) === false || $maxBytes < 1 || $maxBytes > 16384) {
                     $errors[] = ['code' => 'invalid_bounded_object', 'path' => $path];
+
                     break;
                 }
 
@@ -492,6 +507,7 @@ final class TypedFieldValueValidator
                     $encoded = json_encode($value, JSON_THROW_ON_ERROR);
                 } catch (JsonException) {
                     $errors[] = ['code' => 'invalid_bounded_object_encoding', 'path' => $path];
+
                     break;
                 }
 
@@ -500,6 +516,7 @@ final class TypedFieldValueValidator
                     array_diff(array_keys($value), array_keys($properties)) !== [] ||
                     array_diff($required, array_keys($value)) !== []) {
                     $errors[] = ['code' => 'bounded_object_constraints_failed', 'path' => $path];
+
                     break;
                 }
 
@@ -508,10 +525,12 @@ final class TypedFieldValueValidator
 
                     if (is_array($property) === false || is_string($property['type'] ?? null) === false) {
                         $errors[] = ['code' => 'invalid_object_property_schema', 'path' => $path.'.'.$key];
+
                         continue;
                     }
                     $errors = array_merge($errors, $this->validateType($property['type'], $item, $property, $path.'.'.$key));
                 }
+
                 break;
 
             case 'bounded_collection':
@@ -525,6 +544,7 @@ final class TypedFieldValueValidator
                     count($value) < $minItems || count($value) > $maxItems ||
                     is_array($itemSchema) === false || is_string($itemSchema['type'] ?? null) === false) {
                     $errors[] = ['code' => 'bounded_collection_constraints_failed', 'path' => $path];
+
                     break;
                 }
 
@@ -536,10 +556,12 @@ final class TypedFieldValueValidator
                         $path.'.'.$index
                     ));
                 }
+
                 break;
 
             default:
                 $errors[] = ['code' => 'unsupported_nested_value_type', 'path' => $path];
+
                 break;
         }
 
