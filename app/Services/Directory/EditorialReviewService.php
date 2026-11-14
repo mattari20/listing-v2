@@ -180,11 +180,17 @@ final class EditorialReviewService
         });
     }
 
-    public function suppress(array $actor, string $caseId, string $snapshotId, string $reasonCode, string $rationale): string
+    public function suppress(array $actor, string $caseId, string $snapshotId, string $reasonCode, string $rationale, string $idempotencyKey): string
     {
         $this->requireHuman($actor, 'suppress_publication');
-        return DB::transaction(function () use ($actor, $caseId, $snapshotId, $reasonCode, $rationale): string {
+        $this->required($idempotencyKey, 'idempotency_key');
+        return DB::transaction(function () use ($actor, $caseId, $snapshotId, $reasonCode, $rationale, $idempotencyKey): string {
             $case = $this->caseFor($caseId);
+            $fingerprint = $this->fingerprint(['suppress', $caseId, $snapshotId, $actor['actor_id'], $reasonCode, $rationale]);
+            $prior = $this->priorTransition($idempotencyKey, $fingerprint);
+            if ($prior !== null) {
+                return (string) (json_decode($prior->metadata, true)['result_id'] ?? '');
+            }
             $snapshot = DB::table('publication_snapshots')->where('id', $snapshotId)->first();
             if (!in_array($case->status, ['approved', 'restored'], true) || $snapshot === null ||
                 $snapshot->claim_version_id !== $case->claim_version_id) {
@@ -192,19 +198,23 @@ final class EditorialReviewService
             }
             $id = app(PersistedGovernanceWorkflowService::class)->suppressPublication($actor, $snapshotId, $reasonCode, $rationale);
             DB::table('editorial_review_cases')->where('id', $caseId)->update(['status' => 'suppressed', 'updated_at' => now()]);
-            $key = 'editorial-suppress:'.$id;
-            $fingerprint = $this->fingerprint(['suppress', $caseId, $snapshotId, $actor['actor_id'], $reasonCode, $rationale]);
             $this->history($actor, $case->entity_id, $case->claim_version_id, $caseId, 'publication_suppressed',
-                $case->status, 'suppressed', $reasonCode, $key, $fingerprint, ['result_id' => $id]);
+                $case->status, 'suppressed', $reasonCode, $idempotencyKey, $fingerprint, ['result_id' => $id]);
             return $id;
         });
     }
 
-    public function restore(array $actor, string $caseId, string $suppressionId, string $policyVersion, string $reasonCode): string
+    public function restore(array $actor, string $caseId, string $suppressionId, string $policyVersion, string $reasonCode, string $idempotencyKey): string
     {
         $this->requireHuman($actor, 'restore_publication');
-        return DB::transaction(function () use ($actor, $caseId, $suppressionId, $policyVersion, $reasonCode): string {
+        $this->required($idempotencyKey, 'idempotency_key');
+        return DB::transaction(function () use ($actor, $caseId, $suppressionId, $policyVersion, $reasonCode, $idempotencyKey): string {
             $case = $this->caseFor($caseId);
+            $fingerprint = $this->fingerprint(['restore', $caseId, $suppressionId, $actor['actor_id'], $policyVersion, $reasonCode]);
+            $prior = $this->priorTransition($idempotencyKey, $fingerprint);
+            if ($prior !== null) {
+                return (string) (json_decode($prior->metadata, true)['result_id'] ?? '');
+            }
             $suppression = DB::table('publication_suppressions')->where('id', $suppressionId)->first();
             $snapshot = $suppression === null ? null : DB::table('publication_snapshots')->where('id', $suppression->publication_snapshot_id)->first();
             if ($case->status !== 'suppressed' || $snapshot === null || $snapshot->claim_version_id !== $case->claim_version_id) {
@@ -212,10 +222,8 @@ final class EditorialReviewService
             }
             $id = app(PersistedGovernanceWorkflowService::class)->restorePublication($actor, $suppressionId, $policyVersion, $reasonCode);
             DB::table('editorial_review_cases')->where('id', $caseId)->update(['status' => 'restored', 'updated_at' => now()]);
-            $key = 'editorial-restore:'.$id;
-            $fingerprint = $this->fingerprint(['restore', $caseId, $suppressionId, $actor['actor_id'], $policyVersion, $reasonCode]);
             $this->history($actor, $case->entity_id, $case->claim_version_id, $caseId, 'publication_restored',
-                'suppressed', 'restored', $reasonCode, $key, $fingerprint, ['result_id' => $id]);
+                'suppressed', 'restored', $reasonCode, $idempotencyKey, $fingerprint, ['result_id' => $id]);
             return $id;
         });
     }
