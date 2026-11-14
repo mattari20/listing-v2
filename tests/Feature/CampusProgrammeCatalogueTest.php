@@ -142,7 +142,20 @@ class CampusProgrammeCatalogueTest extends TestCase
         app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord($this->actor('catalogue-manager'), $version, 'unaccepted');
     }
 
-    public function test_audit_failure_rolls_back_catalogue_projection(): void
+
+    public function test_claim_withdrawal_propagates_to_campus_catalogue_projection(): void
+    {
+        $institution = $this->entity('institution');
+        $campus = $this->entity('campus');
+        $version = $this->claim('campus', $campus, ['institution_entity_id' => $institution]);
+        app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord($this->actor('catalogue-manager'), $version, 'withdraw-campus');
+        app(PersistedGovernanceWorkflowService::class)->withdrawClaimVersion([
+            'actor_id' => 'synthetic-withdrawer', 'actor_class' => 'human', 'capabilities' => ['withdraw_claim'],
+        ], $version, 'synthetic_withdrawal', 'Synthetic P02 withdrawal.', 'withdraw-campus-key');
+
+        $this->assertDatabaseHas('directory_campuses', ['entity_id' => $campus, 'status' => 'withdrawn']);
+    }
+\n    public function test_audit_failure_rolls_back_catalogue_projection(): void
     {
         $programme = $this->entity('programme');
         $version = $this->claim('programme', $programme, ['title' => 'Synthetic Rollback']);
