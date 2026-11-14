@@ -306,8 +306,13 @@ final class FieldAwareClaimProposalService
     private function assertValidityDates(?string $from, ?string $to): void
     {
         foreach (['valid_from' => $from, 'valid_to' => $to] as $key => $date) {
-            if ($date !== null && (preg_match('/^\d{4}-\d{2}-\d{2}$/D', $date) !== 1 ||
-                \DateTimeImmutable::createFromFormat('!Y-m-d', $date)?->format('Y-m-d') !== $date)) {
+            if ($date === null) {
+                continue;
+            }
+
+            $parsed = \\DateTimeImmutable::createFromFormat('!Y-m-d', $date);
+            if (preg_match('/^\\d{4}-\\d{2}-\\d{2}$/D', $date) !== 1 ||
+                $parsed === false || $parsed->format('Y-m-d') !== $date) {
                 $this->reject($key, 'Validity dates must be valid ISO calendar dates.');
             }
         }
