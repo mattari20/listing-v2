@@ -165,6 +165,7 @@ class EditorialReviewServiceTest extends TestCase
             'id' => (string) str()->uuid(), 'claim_version_id' => $version, 'evidence_reference_id' => $evidence,
             'relationship_type' => 'supports', 'created_at' => $now, 'updated_at' => $now,
         ]);
+
         return ['entity' => $entity, 'version' => $version];
     }
 
