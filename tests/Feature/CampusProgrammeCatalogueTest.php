@@ -156,7 +156,8 @@ class CampusProgrammeCatalogueTest extends TestCase
 
         $this->assertDatabaseHas('directory_campuses', ['entity_id' => $campus, 'status' => 'withdrawn']);
     }
-\n    public function test_audit_failure_rolls_back_catalogue_projection(): void
+
+    public function test_audit_failure_rolls_back_catalogue_projection(): void
     {
         $programme = $this->entity('programme');
         $version = $this->claim('programme', $programme, ['title' => 'Synthetic Rollback']);
