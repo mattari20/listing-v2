@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
-**Status:** **IMPLEMENTATION SUBMITTED — EXACT-HEAD CI AND REVIEW PENDING**  
+**Status:** **IMPLEMENTATION VALIDATED — PR #176**  
 **Baseline:** `main` at `509f3c3150753c122467c50530f50347511bf6ab`  
 **Work package:** M3-04 P01
 
@@ -139,7 +139,7 @@ All values must be fabricated and unmistakably synthetic. Suggested test IDs are
 | P01-R21 | Relationship predicate is `affiliated_with` but target is another Provider | Reject incompatible endpoint type |
 | P01-R22 | Relation corrected or withdrawn | Preserve previous version and audit lineage |
 
-The test IDs should be refined against the chosen governance integration and migration proposal before implementation. Do not claim these cases have passed until actual tests exist and exact-head CI runs.
+The 17 focused P01 feature tests cover the implemented core subset. They do not claim all 22 proposed cases are individually implemented; the broader design matrix retains deferred cases explicitly. Exact-head PHP 8.5 CI and documentation validation passed for PR #176.
 
 ## 9. Migration and service design questions to resolve before implementation
 
