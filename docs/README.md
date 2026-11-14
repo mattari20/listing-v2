@@ -229,3 +229,9 @@ Agenda 10 is authorized and under exact-head CI/review validation. M3-03 remains
 - [Agenda 10 Completion and Evidence Record](04-roadmap/M3-03_AGENDA_10_COMPLETION_AND_EVIDENCE_RECORD.md) — PR #170 merge, exact-head CI, 209 assertions, review and acceptance evidence.
 
 Agenda 10 is complete. M3-03 remains in progress solely for G-04 deterministic-oracle traceability and final exit acceptance; M3-04 Provider Management remains blocked.
+
+
+## M3-03 G-04 — deterministic oracle traceability reconciliation
+- [M3-03 G-04 Deterministic Oracle Traceability Reconciliation](04-roadmap/M3-03_G04_DETERMINISTIC_ORACLE_TRACEABILITY_RECONCILIATION.md) — complete T-001–T-032 and GS-001–GS-032 mapping to runtime tests, partial coverage and explicit deferrals; Product Owner acceptance remains pending.
+
+M3-03 remains in progress pending G-04 owner acceptance and final exit review. M3-04 Provider Management remains blocked/not started.
