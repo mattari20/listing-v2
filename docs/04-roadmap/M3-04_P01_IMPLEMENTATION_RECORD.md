@@ -1,6 +1,6 @@
 # M3-04 P01 — Provider/Institution Implementation Record
 
-**Status:** Implementation submitted; exact-head PHP 8.5 CI is being revalidated after formatting and contract hardening  
+**Status:** Implementation validated on PR #176; final documentation commit is undergoing the same exact-head checks  
 **Architecture decision:** Reuse the existing claim/version, evidence-link, human adjudication and audit workflow. The entity relationship row is a governed projection, not an approval record.  
 **Scope:** Provider → Institution predicates: operates, owns, administers.
 
@@ -33,6 +33,15 @@ The controlled entity vocabulary recognizes provider, institution, campus, deliv
 ## Synthetic test coverage
 
 The feature test file currently contains 17 focused tests covering controlled entity types and registration idempotency, Provider → Institution direction and endpoint compatibility, enabled/reserved predicates, evidence requirement and admissibility, human adjudication gating, inclusive/open-ended intervals, non-overlapping history, same-scope overlap rejection, distinct scopes, no implicit identity merge, audit rollback, and withdrawal/correction/revocation propagation. This is bounded feature coverage, not a claim that all 22 proposed P01-R01–R22 cases are individually implemented; the broader design matrix retains deferred cases explicitly.
+
+## Exact-head validation evidence
+
+Implementation code head: `d4a92a82b3882912cdddc57baca077d626989618`.
+
+- PHP 8.5 foundation CI: run [#43547829025](https://github.com/mattari20/listing-v2/actions/runs/43547829025) — **passed**, including Composer validation/audit, Pint formatting, Laravel bootstrap/routes, synthetic-only tests and artifact hygiene.
+- Project documentation validation: run [#43547829164](https://github.com/mattari20/listing-v2/actions/runs/43547829164) — **passed**.
+- Synthetic test suite: **240 assertions, no failures**. The suite reports 67 warnings caused by the intentionally absent `.env` file; these warnings also occur across the pre-existing test suite and do not fail CI.
+- PR reviews, inline comments and conversation comments: none outstanding at the time of reconciliation.
 
 ## Deferred scope
 
