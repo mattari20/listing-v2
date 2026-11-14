@@ -79,6 +79,7 @@ final class ProviderInstitutionRelationshipService
                 throw ValidationException::withMessages(['endpoints' => 'Claim subject must be the distinct Provider source.']);
             }
             $this->assertEndpoints($from, $to, $predicate);
+            DB::table('directory_entities')->whereIn('id', [$from, $to])->orderBy('id')->lockForUpdate()->get(['id']);
             $duplicate = DB::table('entity_relationships')->where('from_entity_id', $from)->where('to_entity_id', $to)->where('relationship_type', $predicate);
             $scope === null ? $duplicate->whereNull('scope') : $duplicate->where('scope', $scope);
             $jurisdiction === null ? $duplicate->whereNull('jurisdiction') : $duplicate->where('jurisdiction', $jurisdiction);

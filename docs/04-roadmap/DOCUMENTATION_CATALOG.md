@@ -902,7 +902,7 @@ G-04 PR [#172](https://github.com/mattari20/listing-v2/pull/172) merged as `f8d9
 
 | Artifact | Purpose | Status |
 |---|---|---|
-| [M3-04 Provider Management Work Plan](M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md) | P01–P04 work packages, provider/institution domain rules, T-001/T-003/T-002 carry-forward, acceptance criteria, synthetic fixtures, CI and permission constraints | Planning delivered — implementation authorization not issued |
+| [M3-04 Provider Management Work Plan](M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md) | P01–P04 work packages, provider/institution domain rules, T-001/T-003/T-002 carry-forward, acceptance criteria, synthetic fixtures, CI and permission constraints | Planning delivered — P01 authorized and submitted; P02–P04 not started |
 
 M3-04 P01 implementation is authorized and submitted on an isolated feature branch. P02–P04 remain outside the implementation scope.
 

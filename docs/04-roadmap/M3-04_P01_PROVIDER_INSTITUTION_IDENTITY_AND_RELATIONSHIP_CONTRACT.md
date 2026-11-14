@@ -172,7 +172,7 @@ P01 implementation is subject to exact-head CI and review. The selected architec
 
 ## 11. Safety and execution boundary
 
-Design only. No application code, schema, migration, fixtures, tests or workflow changed. No real or source-derived data was used. No Listing V1, Hostinger/hPanel, production/live DB, external API/AI, real role provisioning, public endpoint, deployment, procurement or new spend is included.
+Implementation is limited to the synthetic local/CI slice described in the implementation record. No real or source-derived data was used. No Listing V1, Hostinger/hPanel, production/live DB, external API/AI, real role provisioning, public endpoint, deployment, procurement or new spend is included.
 
 **Current disposition:** P01 implementation is submitted for exact-head CI and review. The implementation is limited to Provider–Institution predicates and synthetic local/CI evidence; P02–P04 remain unauthorized.
 

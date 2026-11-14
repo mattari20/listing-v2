@@ -64,8 +64,9 @@ class ProviderInstitutionRelationshipTest extends TestCase
 
     public function test_non_overlapping_historical_provider_relationships_are_preserved(): void
     {
-        $a = $this->accepted('operates', '2020-01-01', '2022-12-31');
-        $b = $this->accepted('operates', '2023-01-01', null);
+        $institution = $this->entity('institution');
+        $a = $this->accepted('operates', '2020-01-01', '2022-12-31', null, null, $institution);
+        $b = $this->accepted('operates', '2023-01-01', null, null, null, $institution);
         $service = app(ProviderInstitutionRelationshipService::class);
         $one = $service->materializeAcceptedRelationship($this->actor('materializer-a', ['materialize_relationship']), $a['version'], 'history-a');
         $two = $service->materializeAcceptedRelationship($this->actor('materializer-b', ['materialize_relationship']), $b['version'], 'history-b');
@@ -147,9 +148,38 @@ class ProviderInstitutionRelationshipTest extends TestCase
         $this->assertDatabaseHas('entity_relationships', ['id' => $id2, 'status' => 'suppressed']);
     }
 
-    private function accepted(string $predicate = 'operates', ?string $from = '2026-01-01', ?string $to = null, ?string $scope = null, ?string $jurisdiction = null): array
+    public function test_claim_correction_marks_prior_relationship_projection_superseded(): void
     {
-        $provider = $this->entity('provider'); $institution = $this->entity('institution'); $authorization = $this->authorization();
+        $f = $this->accepted();
+        $id = app(ProviderInstitutionRelationshipService::class)->materializeAcceptedRelationship(
+            $this->actor('materializer', ['materialize_relationship']),
+            $f['version'],
+            'correction-projection'
+        );
+        app(PersistedGovernanceWorkflowService::class)->correctClaimVersion(
+            $this->actor('corrector', ['correct_claim']),
+            $f['version'],
+            [
+                'from_entity_id' => $f['provider'],
+                'to_entity_id' => $f['institution'],
+                'relationship_type' => 'operates',
+                'scope' => null,
+                'jurisdiction' => null,
+            ],
+            [$f['evidence']],
+            '2026-02-01',
+            null,
+            'synthetic_correction',
+            'Synthetic correction to valid-time assertion.',
+            'correction-key'
+        );
+
+        $this->assertDatabaseHas('entity_relationships', ['id' => $id, 'status' => 'superseded']);
+    }
+
+    private function accepted(string $predicate = 'operates', ?string $from = '2026-01-01', ?string $to = null, ?string $scope = null, ?string $jurisdiction = null, ?string $institutionId = null): array
+    {
+        $provider = $this->entity('provider'); $institution = $institutionId ?? $this->entity('institution'); $authorization = $this->authorization();
         $evidence = app(GovernanceCommandService::class)->registerEvidenceReference($authorization, $this->actor('collector', ['register_evidence']), $this->context(), 'evidence-'.str()->uuid(), ['content_included' => false]);
         DB::table('evidence_references')->where('id', $evidence)->update(['status' => 'eligible_for_review']);
         $version = app(ProviderInstitutionRelationshipService::class)->propose($this->actor('author', ['register_claim']), $provider, $institution, $predicate, [$evidence], $this->context(), 'claim-'.str()->uuid(), $scope, $jurisdiction, $from, $to);
