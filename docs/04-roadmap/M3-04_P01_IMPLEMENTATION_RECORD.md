@@ -1,6 +1,6 @@
 # M3-04 P01 — Provider/Institution Implementation Record
 
-**Status:** Implementation submitted for exact-head CI and review  
+**Status:** Implementation submitted; exact-head PHP 8.5 CI is being revalidated after formatting and contract hardening  
 **Architecture decision:** Reuse the existing claim/version, evidence-link, human adjudication and audit workflow. The entity relationship row is a governed projection, not an approval record.  
 **Scope:** Provider → Institution predicates: operates, owns, administers.
 
@@ -8,9 +8,9 @@
 
 P01 uses the existing claim/version governance workflow. A proposal is a proposed provider_institution_relationship claim version containing structured source, target, predicate, scope and jurisdiction values, inclusive valid-time bounds, and evidence links. The existing adjudication workflow remains the sole acceptance authority.
 
-A relationship projection is created only after a persisted human accepted adjudication, a current accepted claim version, and currently admissible, unrevoked evidence. It stores a unique claim_version_id reference. Projection creation and its audit event share one transaction. Materialization requires a human actor with the materialize_relationship capability and uses audit-backed idempotency.
+A relationship projection is created only after a persisted human accepted adjudication, a current accepted claim version, and currently admissible, unrevoked evidence. It stores a unique claim_version_id reference. Projection creation and its audit event share one transaction. Materialization requires a human actor with the materialize_relationship capability, distinct from the adjudicator and evidence submitters, and uses audit-backed idempotency. Active overlapping assertions with the same endpoints, predicate, scope and jurisdiction are rejected; non-overlapping historical periods and explicitly distinct scopes remain representable.
 
-Unknown and reserved predicates fail closed. The only enabled predicates are operates, owns and administers. Authority, Campus, Programme, Qualification, Awarding Body and Delivery Site relationships remain reserved for later packages.
+The controlled entity vocabulary recognizes provider, institution, campus, delivery_site, programme, qualification, authority and awarding_body; identity registration is human-capability-gated, audited and idempotent. P01 relationship endpoint compatibility is strictly Provider → Institution. Unknown and reserved predicates fail closed. The only enabled predicates are operates, owns and administers. Authority, Campus, Programme, Qualification, Awarding Body and Delivery Site relationship workflows remain reserved for later packages.
 
 ## Lifecycle propagation
 
@@ -29,6 +29,10 @@ Unknown and reserved predicates fail closed. The only enabled predicates are ope
 - app/Services/Governance/PersistedGovernanceWorkflowService.php
 - database/migrations/2026_11_14_000003_link_relationship_projections_to_claim_versions.php
 - tests/Feature/ProviderInstitutionRelationshipTest.php
+
+## Synthetic test coverage
+
+The feature test file currently contains 17 focused tests covering controlled entity types and registration idempotency, Provider → Institution direction and endpoint compatibility, enabled/reserved predicates, evidence requirement and admissibility, human adjudication gating, inclusive/open-ended intervals, non-overlapping history, same-scope overlap rejection, distinct scopes, no implicit identity merge, audit rollback, and withdrawal/correction/revocation propagation. This is bounded feature coverage, not a claim that all 22 proposed P01-R01–R22 cases are individually implemented; the broader design matrix retains deferred cases explicitly.
 
 ## Deferred scope
 
