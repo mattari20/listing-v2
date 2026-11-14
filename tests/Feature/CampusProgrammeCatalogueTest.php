@@ -46,8 +46,9 @@ class CampusProgrammeCatalogueTest extends TestCase
 
     public function test_programme_catalogue_is_distinct_from_qualification_and_offer(): void
     {
+        $institution = $this->entity('institution');
         $programme = $this->entity('programme');
-        $this->materialize('programme', $programme, ['title' => 'Synthetic Applied Studies', 'level' => 'synthetic-level-5'], 'programme');
+        $this->materialize('programme', $programme, ['institution_entity_id' => $institution, 'title' => 'Synthetic Applied Studies', 'level' => 'synthetic-level-5'], 'programme');
         $this->assertDatabaseHas('programme_catalogue_entries', ['entity_id' => $programme, 'title' => 'Synthetic Applied Studies']);
         $this->assertDatabaseCount('programme_offers', 0);
         $this->assertDatabaseCount('programme_qualification_links', 0);
@@ -55,10 +56,11 @@ class CampusProgrammeCatalogueTest extends TestCase
 
     public function test_qualification_and_awarding_body_are_explicitly_linked(): void
     {
+        $institution = $this->entity('institution');
         $programme = $this->entity('programme');
         $qualification = $this->entity('qualification');
         $awarder = $this->entity('awarding_body');
-        $this->materialize('programme', $programme, ['title' => 'Synthetic Engineering Programme'], 'programme-link-base');
+        $this->materialize('programme', $programme, ['institution_entity_id' => $institution, 'title' => 'Synthetic Engineering Programme'], 'programme-link-base');
         $id = $this->materialize('programme_qualification', $programme, [
             'programme_entity_id' => $programme,
             'qualification_entity_id' => $qualification,
@@ -77,7 +79,7 @@ class CampusProgrammeCatalogueTest extends TestCase
         $programme = $this->entity('programme');
         $campus = $this->entity('campus');
         $site = $this->entity('delivery_site');
-        $this->materialize('programme', $programme, ['title' => 'Synthetic Computing'], 'offer-programme');
+        $this->materialize('programme', $programme, ['institution_entity_id' => $institution, 'title' => 'Synthetic Computing'], 'offer-programme');
         $this->materialize('campus', $campus, ['institution_entity_id' => $institution], 'offer-campus');
         $this->materialize('delivery_site', $site, ['institution_entity_id' => $institution], 'offer-site');
 
@@ -100,6 +102,36 @@ class CampusProgrammeCatalogueTest extends TestCase
         $qualification = $this->entity('qualification');
         $this->expectException(ValidationException::class);
         $this->materialize('campus', $this->entity('campus'), ['institution_entity_id' => $programme], 'wrong-institution-type');
+    }
+
+
+    public function test_programme_offer_without_an_admission_cycle_is_rejected(): void
+    {
+        $institution = $this->entity('institution');
+        $programme = $this->entity('programme');
+        $campus = $this->entity('campus');
+        $this->materialize('programme', $programme, ['institution_entity_id' => $institution, 'title' => 'Synthetic Cycle Test'], 'cycle-programme');
+        $this->materialize('campus', $campus, ['institution_entity_id' => $institution], 'cycle-campus');
+        $version = $this->claim('programme_offer', $programme, [
+            'programme_entity_id' => $programme, 'delivery_location_entity_id' => $campus,
+        ]);
+        $this->expectException(ValidationException::class);
+        app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord($this->actor('catalogue-manager'), $version, 'missing-cycle');
+    }
+
+    public function test_offer_cannot_be_assigned_to_another_institutions_campus(): void
+    {
+        $institutionA = $this->entity('institution');
+        $institutionB = $this->entity('institution');
+        $programme = $this->entity('programme');
+        $campus = $this->entity('campus');
+        $this->materialize('programme', $programme, ['institution_entity_id' => $institutionA, 'title' => 'Synthetic Cross Institution'], 'cross-programme');
+        $this->materialize('campus', $campus, ['institution_entity_id' => $institutionB], 'cross-campus');
+        $version = $this->claim('programme_offer', $programme, [
+            'programme_entity_id' => $programme, 'delivery_location_entity_id' => $campus, 'admission_cycle' => 'synthetic-2027',
+        ]);
+        $this->expectException(ValidationException::class);
+        app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord($this->actor('catalogue-manager'), $version, 'cross-institution-offer');
     }
 
     public function test_unadjudicated_claim_cannot_be_materialized(): void
