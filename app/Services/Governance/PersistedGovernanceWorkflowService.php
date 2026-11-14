@@ -162,6 +162,8 @@ final class PersistedGovernanceWorkflowService
                 'updated_at' => $now,
             ]);
 
+            DB::table('entity_relationships')->where('claim_version_id', $priorVersionId)->where('status', 'active')->update(['status' => 'superseded', 'updated_at' => $now]);
+
             foreach ($evidenceReferenceIds as $evidenceId) {
                 DB::table('claim_evidence_links')->insert([
                     'id' => (string) Str::uuid(),
@@ -227,6 +229,7 @@ final class PersistedGovernanceWorkflowService
                 'disposition' => 'withdrawn',
                 'updated_at' => $now,
             ]);
+            DB::table('entity_relationships')->where('claim_version_id', $claimVersionId)->where('status', 'active')->update(['status' => 'withdrawn', 'updated_at' => $now]);
 
             $snapshots = DB::table('publication_snapshots')->where('claim_version_id', $claimVersionId)->get(['id', 'status']);
             foreach ($snapshots as $snapshot) {
@@ -385,6 +388,7 @@ final class PersistedGovernanceWorkflowService
             $evidenceIds = DB::table('evidence_references')->where('source_authorization_id', $authorizationId)->pluck('id');
             DB::table('evidence_references')->whereIn('id', $evidenceIds)->update(['status' => 'quarantined', 'updated_at' => $now]);
             $versionIds = DB::table('claim_evidence_links')->whereIn('evidence_reference_id', $evidenceIds)->distinct()->pluck('claim_version_id');
+            DB::table('entity_relationships')->whereIn('claim_version_id', $versionIds)->where('status', 'active')->update(['status' => 'suppressed', 'updated_at' => $now]);
             $snapshotIds = DB::table('publication_snapshots')->whereIn('claim_version_id', $versionIds)->pluck('id');
             foreach ($snapshotIds as $snapshotId) {
                 $suppressionId = (string) Str::uuid();
