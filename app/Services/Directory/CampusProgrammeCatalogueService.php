@@ -64,17 +64,18 @@ final class CampusProgrammeCatalogueService
                 ->join('evidence_references', 'evidence_references.id', '=', 'claim_evidence_links.evidence_reference_id')
                 ->join('source_authorizations', 'source_authorizations.id', '=', 'evidence_references.source_authorization_id')
                 ->where('claim_evidence_links.claim_version_id', $claimVersionId)
-                ->get(['evidence_references.id', 'evidence_references.status', 'source_authorizations.revoked_at']);
+                ->get(['evidence_references.id', 'evidence_references.status', 'source_authorizations.status as authorization_status', 'source_authorizations.valid_from', 'source_authorizations.valid_to', 'source_authorizations.revoked_at']);
             if ($evidence->isEmpty()) {
                 throw ValidationException::withMessages(['evidence' => 'Supporting evidence is required.']);
             }
             foreach ($evidence as $item) {
-                if ($item->status !== 'eligible_for_review' || $item->revoked_at !== null) {
+                if ($item->status !== 'eligible_for_review' || $item->authorization_status !== 'approved_for_defined_purpose_and_method' || $item->revoked_at !== null || ($item->valid_from !== null && now()->lt($item->valid_from)) || ($item->valid_to !== null && now()->gte($item->valid_to))) {
                     throw ValidationException::withMessages(['evidence' => 'Evidence must remain admissible and unrevoked.']);
                 }
-                $event = DB::table('audit_events')->where('target_type', 'evidence_reference')->where('target_id', $item->id)->where('action', 'evidence_reference_registered')->value('metadata');
-                $evidenceActor = is_string($event) ? (json_decode($event, true)['actor_id'] ?? null) : null;
-                if ($evidenceActor === $actor['actor_id']) {
+                $event = DB::table('audit_events')->where('target_type', 'evidence_reference')->where('target_id', $item->id)->where('action', 'evidence_reference_registered')->first(['metadata']);
+                $eventMetadata = $event === null ? null : json_decode((string) $event->metadata, true);
+                $evidenceActor = is_array($eventMetadata) ? ($eventMetadata['actor_id'] ?? null) : null;
+                if (is_string($evidenceActor) === false || $evidenceActor === '' || $evidenceActor === $actor['actor_id']) {
                     throw ValidationException::withMessages(['actor' => 'An evidence submitter cannot materialize the catalogue record.']);
                 }
             }
@@ -212,6 +213,11 @@ final class CampusProgrammeCatalogueService
 
     private function assertDates(?string $from, ?string $to): void
     {
+        foreach (['valid_from' => $from, 'valid_to' => $to] as $field => $date) {
+            if ($date !== null && (preg_match('/^\\d{4}-\\d{2}-\\d{2}$/', $date) !== 1 || checkdate((int) substr($date, 5, 2), (int) substr($date, 8, 2), (int) substr($date, 0, 4)) === false)) {
+                throw ValidationException::withMessages([$field => 'A valid YYYY-MM-DD calendar date is required.']);
+            }
+        }
         if ($from !== null && $to !== null && $to < $from) {
             throw ValidationException::withMessages(['validity' => 'End date cannot precede start date.']);
         }
