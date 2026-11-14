@@ -97,6 +97,21 @@ class CampusProgrammeCatalogueTest extends TestCase
         $this->assertDatabaseHas('programme_offers', ['id' => $offerB, 'delivery_location_entity_id' => $site, 'admission_cycle' => 'synthetic-2028']);
     }
 
+
+    public function test_campus_projection_retains_claim_provenance_and_valid_time(): void
+    {
+        $institution = $this->entity('institution');
+        $campus = $this->entity('campus');
+        $version = $this->claim('campus', $campus, ['institution_entity_id' => $institution, 'location_label' => 'Synthetic Time-Bounded Site'], true, '2026-01-01', '2026-12-31');
+        app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord($this->actor('catalogue-manager'), $version, 'campus-valid-time');
+
+        $this->assertDatabaseHas('directory_campuses', [
+            'entity_id' => $campus, 'institution_entity_id' => $institution,
+            'location_label' => 'Synthetic Time-Bounded Site', 'valid_from' => '2026-01-01',
+            'valid_to' => '2026-12-31', 'claim_version_id' => $version,
+        ]);
+    }
+
     public function test_wrong_identity_types_and_missing_cycle_fail_closed(): void
     {
         $programme = $this->entity('programme');
@@ -192,7 +207,7 @@ class CampusProgrammeCatalogueTest extends TestCase
         return app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord($this->actor('catalogue-manager'), $version, $key);
     }
 
-    private function claim(string $predicate, string $subject, array $value, bool $accepted = true): string
+    private function claim(string $predicate, string $subject, array $value, bool $accepted = true, ?string $validFrom = null, ?string $validTo = null): string
     {
         $now = now();
         $authorization = (string) str()->uuid();
@@ -229,6 +244,7 @@ class CampusProgrammeCatalogueTest extends TestCase
         DB::table('claim_versions')->insert([
             'id' => $version, 'claim_id' => $claim, 'version_number' => 1,
             'value' => json_encode($value), 'recorded_at' => $now,
+            'valid_from' => $validFrom, 'valid_to' => $validTo,
             'disposition' => $accepted ? 'accepted' : 'proposed',
             'created_at' => $now, 'updated_at' => $now,
         ]);
