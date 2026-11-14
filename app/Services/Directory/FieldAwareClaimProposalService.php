@@ -181,7 +181,7 @@ final class FieldAwareClaimProposalService
                 $this->reject('cardinality', 'Field cardinality limit has been reached.');
             }
 
-            $evidence = DB::table('evidence_references')->whereIn('id', $uniqueEvidenceIds)->get();
+            $evidence = DB::table('evidence_references')->whereIn('id', $uniqueEvidenceIds)->lockForUpdate()->get();
             if ($evidence->count() !== count($uniqueEvidenceIds)) {
                 $this->reject('evidence', 'Every evidence reference must exist.');
             }
@@ -191,7 +191,7 @@ final class FieldAwareClaimProposalService
                     $this->reject('evidence', 'I3 accepts metadata-only synthetic evidence references only.');
                 }
                 $authorization = (array) DB::table('source_authorizations')
-                    ->where('id', $reference->source_authorization_id)->first();
+                    ->where('id', $reference->source_authorization_id)->lockForUpdate()->first();
                 $decision = $policy->authorizeSourceAction($authorization, 'processing', $sourceContext);
                 if ($decision['allowed'] === false) {
                     $this->reject('authorization', 'Evidence source is not authorized for this processing purpose.');
