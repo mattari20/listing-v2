@@ -92,6 +92,9 @@ class TypedFieldValueValidatorTest extends TestCase
             'schema_version' => 1, 'allowed_domains' => ['example.edu'],
         ])['valid']);
         self::assertFalse($this->validateType('email', 'not-an-email')['valid']);
+        self::assertFalse($this->validateType('email', 'office@example.edu', [
+            'schema_version' => 1, 'allowed_domains' => [123],
+        ])['valid']);
         self::assertTrue($this->validateType('phone', '+923001234567')['valid']);
         self::assertFalse($this->validateType('phone', '03001234567')['valid']);
     }
@@ -168,6 +171,9 @@ class TypedFieldValueValidatorTest extends TestCase
         ]))['valid']);
         self::assertFalse($this->validator->validate($definition, 'Admissions open', $this->context([
             'locale' => 'fr', 'observed_at' => '2026-10-01T00:00:00Z', 'evaluation_at' => '2026-11-14T00:00:00Z',
+        ]))['valid']);
+        self::assertFalse($this->validator->validate($definition, 'Admissions open', $this->context([
+            'locale' => 'en', 'observed_at' => '2026-11-01 00:00:00', 'evaluation_at' => '2026-11-14 00:00:00',
         ]))['valid']);
         self::assertFalse($this->validator->validate($definition, 'Admissions open', $this->context([
             'locale' => 'en', 'observed_at' => '2026-12-01T00:00:00Z', 'evaluation_at' => '2026-11-14T00:00:00Z',
