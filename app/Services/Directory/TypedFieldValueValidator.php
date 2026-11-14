@@ -606,7 +606,8 @@ final class TypedFieldValueValidator
             return DateTimeImmutable::createFromInterface($value);
         }
 
-        if (is_string($value) === false || trim($value) === '') {
+        if (is_string($value) === false || trim($value) === '' ||
+            preg_match('/(?:Z|[+-][0-9]{2}:[0-9]{2})$/D', $value) !== 1) {
             return null;
         }
 
