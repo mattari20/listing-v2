@@ -109,29 +109,33 @@ I2 does not:
 
 ## 9. Acceptance and validation record
 
-I2 acceptance requires all of the following on the exact final PR head:
-- [ ] only the three listed I2 files are changed;
-- [ ] validator has no database/network/clock side effects;
-- [ ] all D1 type families have deterministic bounded validation;
-- [ ] malformed or unknown policy/schema fails closed;
-- [ ] applicability is explicit and non-inheriting;
-- [ ] locale, unit, temporal/freshness and privacy rules are covered;
-- [ ] synthetic focused tests pass;
-- [ ] full repository synthetic suite passes;
-- [ ] PHP 8.5 foundation CI passes;
-- [ ] project documentation validation passes;
-- [ ] no I3 or excluded capability is introduced.
+I2 acceptance criteria were evaluated on the exact final PR head:
+- [x] only the three listed I2 files are changed;
+- [x] validator has no database/network/clock side effects;
+- [x] all D1 type families have deterministic bounded validation;
+- [x] malformed or unknown policy/schema fails closed;
+- [x] applicability is explicit and non-inheriting;
+- [x] locale, unit, temporal/freshness and privacy rules are covered;
+- [x] synthetic focused tests pass;
+- [x] full repository synthetic suite passes;
+- [x] PHP 8.5 foundation CI passes;
+- [x] project documentation validation passes;
+- [x] no I3 or excluded capability is introduced.
 
-**Validated implementation head:** `e61a93f3ef66efe4dfcfe7a4222c1d48a2d1091d`  
-**Focused/full test result:** 15 validator tests passed; full synthetic suite passed with 478 assertions and 118 pre-existing missing-`.env` warnings.  
-**PHP 8.5 foundation CI run:** #43576235840 — SUCCESS  
-**Documentation validation run:** #43576235849 — SUCCESS
+**Final validated I2 implementation head:** `7e950449263542279a79c7db0b916cf52f0f00ba`  
+**Focused/full test result:** 15 typed-validator tests passed; full synthetic suite passed with 484 assertions and 118 pre-existing missing-`.env` file-read warnings. No failures.  
+**PHP 8.5 foundation CI run:** [#43622671058](https://github.com/mattari20/listing-v2/actions/runs/43622671058) — SUCCESS.  
+**Project documentation validation run:** [#43622671032](https://github.com/mattari20/listing-v2/actions/runs/43622671032) — SUCCESS.  
+**PR:** [#199](https://github.com/mattari20/listing-v2/pull/199) — merged.  
+**I2 merge commit:** `45b9c45cf1b31a0f2f2a94f549f1a7ddddbb3f46`.
 
-The decimal precision hardening commit and this record update require a new exact-head PHP 8.5 foundation CI and documentation-validation run. Record the resulting final head and run IDs here before acceptance.
+The first current-head CI attempt on `f540f0d` exposed a failing signed-negative-zero regression. The normalization expression was corrected on the branch; the final exact-head CI above passed all tests and checks.
 
 A successful I2 PR does not authorize I3. I3 requires separate owner approval and a separate bounded package.
 
 
-## 10. Dependency integration note
+## 10. Dependency integration and closeout note
 
-I1 PR #198 was squash-merged to `main` at `d7d683d6044d269ce61c755d8d0fac61ba663555`. The I2 feature branch is being rebuilt directly on that merged `main` commit so the I2 PR contains only its three owned files and does not repeat I1 changes. This branch-base reconciliation does not expand I2 scope. Exact-head CI remains required after the rebuild.
+I1 PR #198 was squash-merged to `main` at `d7d683d6044d269ce61c755d8d0fac61ba663555`. The I2 branch was rebuilt directly on that merged I1 commit; the final I2 PR diff contained exactly its three owned files and did not repeat I1 changes. I2 PR #199 was then squash-merged after exact-head PHP 8.5 and documentation validation passed.
+
+I1 and I2 are merged. This closes only the I1/I2 implementation packages. No I3 work, production activity, V1/Hostinger access, deployment, external services, or additional spend was authorized or performed.
