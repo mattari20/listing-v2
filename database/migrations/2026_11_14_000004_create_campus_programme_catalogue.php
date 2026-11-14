@@ -37,6 +37,7 @@ return new class extends Migration
         Schema::create('programme_catalogue_entries', function (Blueprint $table): void {
             $table->uuid('entity_id')->primary();
             $table->foreign('entity_id')->references('id')->on('directory_entities')->restrictOnDelete();
+            $table->foreignUuid('institution_entity_id')->constrained('directory_entities')->restrictOnDelete();
             $table->string('title', 255);
             $table->text('description')->nullable();
             $table->string('level', 80)->nullable();
