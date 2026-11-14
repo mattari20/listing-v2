@@ -190,6 +190,7 @@ class CampusProgrammeCatalogueTest extends TestCase
         $programme = $this->entity('programme');
         $version = $this->claim('programme', $programme, ['institution_entity_id' => $institution, 'title' => 'Synthetic Rollback']);
         DB::unprepared("CREATE TRIGGER fail_p02_audit BEFORE INSERT ON audit_events BEGIN SELECT RAISE(ABORT, 'synthetic P02 audit failure'); END");
+
         try {
             app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord($this->actor('catalogue-manager'), $version, 'audit-failure');
             $this->fail('Audit failure must abort materialization.');
@@ -203,6 +204,7 @@ class CampusProgrammeCatalogueTest extends TestCase
     private function materialize(string $predicate, string $subject, array $value, string $key): string
     {
         $version = $this->claim($predicate, $subject, $value);
+
         return app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord($this->actor('catalogue-manager'), $version, $key);
     }
 
@@ -252,6 +254,7 @@ class CampusProgrammeCatalogueTest extends TestCase
             'evidence_reference_id' => $evidence, 'relationship_type' => 'supports',
             'created_at' => $now, 'updated_at' => $now,
         ]);
+
         if ($accepted) {
             DB::table('adjudication_cases')->insert([
                 'id' => $case, 'claim_version_id' => $version, 'status' => 'decided',
