@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-14  
 **Repository:** `mattari20/listing-v2`  
-**Status:** **P01 IMPLEMENTED AND VALIDATED — PR #176; P02 IMPLEMENTED ON ISOLATED BRANCH — VALIDATION PENDING; P03–P04 NOT STARTED**  
+**Status:** **P01 IMPLEMENTED AND VALIDATED — PR #176; P02 IMPLEMENTED, VALIDATED AND MERGED — PR #177; P03–P04 NOT STARTED**  
 **M3-03 dependency:** Owner-accepted and closed for its bounded synthetic local/CI scope  
 **Baseline:** `main` at `a51860e904dc57ea47702ed75a2d44c612ac9b2f` for P02
 
@@ -187,7 +187,7 @@ No Listing V1 changes; no Hostinger/hPanel or production access; no live databas
 | Permission and human editorial constraints | **Prepared as plan** | Capability matrix and independent-human decision rules above |
 | Separate implementation authorization | **ISSUED 2026-11-14** | Owner authorized bounded P01 implementation only; P02–P04 remain unauthorized |
 
-**Decision:** M3-04 planning is complete for the entry gate. P01 implementation is delivered and validated in PR #176. P02 implementation is authorized by the Product Owner on 2026-11-14 and is recorded in `M3-04_P02_IMPLEMENTATION_RECORD.md`; P03–P04 remain outside this authorization.
+**Decision:** M3-04 planning is complete for the entry gate. P01 implementation is delivered and validated in PR #176. P02 implementation was authorized by the Product Owner on 2026-11-14, passed exact-head PHP 8.5 foundation CI and documentation validation, and was merged as PR #177 (`d62a9df02843621f934af3e7b8be2efcdf3c1d80`). See `M3-04_P02_IMPLEMENTATION_RECORD.md`. P03–P04 remain outside this authorization.
 
 
 
