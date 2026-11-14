@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-14 — M3-03 accepted and closed; M3-04 P01–P04, M3-05 Public Directory and Search, and M3-06 Geography and Discovery implementation merged and validated; M3-06 documentation closeout in PR #193
+**Last reconciled:** 2026-11-14 — M3-03 accepted and closed; M3-04 P01–P04, M3-05 Public Directory and Search, and M3-06 Geography and Discovery implementation and documentation closeout merged and validated (PRs #192–#193)
 
 ## Purpose and maintenance rule
 
@@ -135,7 +135,7 @@ PR [#160](https://github.com/mattari20/listing-v2/pull/160) is open at the time 
 
 | Document | Purpose | Status |
 |---|---|---|
-| [M3-06 Geography and Discovery Work Plan](M3-06_GEOGRAPHY_AND_DISCOVERY_WORK_PLAN.md) | Bounded Pakistan-first manual locality discovery, privacy/provenance controls, acceptance criteria and explicit geospatial deferrals | Delivered — implementation PR #192 merged; closeout reconciliation in PR #193 |
+| [M3-06 Geography and Discovery Work Plan](M3-06_GEOGRAPHY_AND_DISCOVERY_WORK_PLAN.md) | Bounded Pakistan-first manual locality discovery, privacy/provenance controls, acceptance criteria and explicit geospatial deferrals | Accepted — bounded synthetic local/CI scope; PR #193 documentation closeout merged |
 | [M3-06 Geography and Discovery Implementation Record](M3-06_GEOGRAPHY_AND_DISCOVERY_IMPLEMENTATION_RECORD.md) | Approved text-only geography facts, manual locality filter, synthetic tests, safety boundaries and exact-head CI evidence | Delivered — implementation merged; closeout evidence being reconciled |
 
 ## PR delivery history
@@ -143,6 +143,7 @@ PR [#160](https://github.com/mattari20/listing-v2/pull/160) is open at the time 
 | PR | Scope | Merge / head evidence | Status |
 |---|---|---|---|
 | [#192](https://github.com/mattari20/listing-v2/pull/192) | M3-06 bounded text-only locality discovery, approved geography fields, synthetic privacy/restricted-category tests, work plan and implementation record | Merged as `e959adb578df6b60f2c308cd0b1f12391f6cb043`; exact head `9761e52747e0f2b15fbfee58ac2528ec4f96c57c`; FND-01 CI #43559187297 and documentation validation #43559187312 passed | Merged — bounded synthetic local/CI scope; geospatial services deferred |
+| [#193](https://github.com/mattari20/listing-v2/pull/193) | M3-06 closeout reconciliation across roadmap, step register, traceability, progress, controller, index, catalogue and implementation record | Merged as `f1c58a5405960cc86816d9c5aef77fee944987b0`; exact head `8d65f9e19fbde64e68f4a8087ababc08f99a312b`; FND-01 CI #43559397988 and documentation validation #43559398059 passed | Merged — M3-06 documentation closeout |
 | [#1](https://github.com/mattari20/listing-v2/pull/1) | Founding documentation, V2 governance, product/data requirements, roadmap, isolation audit and repository templates/CI | Merged as `0f2165f3d18e43f10cf6d6f717f145d3433769a4`; 36 commits; 26 changed files; one required check passed | Merged |
 | [#2](https://github.com/mattari20/listing-v2/pull/2) | Living documentation catalogue, index/controller/roadmap reconciliation, governance and progress updates | Merged as `975cd672378e8d30982d44d54d12e195e9c57d5d`; exact head `9ad0d3b361d6641dca2e94c3c9a52ac2fb4d1597`; required check passed ([run #43057131618](https://github.com/mattari20/listing-v2/actions/runs/43057131618)) | Merged |
 | [#3](https://github.com/mattari20/listing-v2/pull/3) | Correct legacy non-interference wording, repository status and M0 workflow evidence | Merged as `035503a3c0772f7b542d2986b3fa66b3fce970d6`; exact head `6571c678a5fdeff456257a01c6fc38576367a506`; required check passed ([run #43058113045](https://github.com/mattari20/listing-v2/actions/runs/43058113045)) | Merged |
