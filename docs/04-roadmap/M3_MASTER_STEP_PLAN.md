@@ -338,3 +338,16 @@ The candidate adds persisted conflict/candidate records, pairwise valid-time ove
 The detailed scope and implementation record is \`M3-03_AGENDA_10_PERSISTED_CONFLICT_LIFECYCLE_TEMPORAL_EVALUATION_AND_ROLLBACK.md\`. Exact-head PHP 8.5 foundation CI, Project documentation validation, review reconciliation and expected-head merge remain pending. Agenda 10 is not yet closed.
 
 This closes the implementation design for reconciliation gaps G-01 through G-03 if exact-head tests pass. G-04 — full deterministic oracle traceability — remains a separate evidence task. M3-03 remains **IN PROGRESS** and M3-04 Provider Management remains blocked pending full M3-03 exit acceptance. No production, V1, Hostinger, real/source data, external services/AI, public endpoints, deployment or spend is included.
+
+
+## M3-03 Agenda 10 — completed bounded persisted conflict and rollback implementation (2026-11-14)
+
+Agenda 10 is **COMPLETED** for its explicitly authorized synthetic local/CI scope. Implementation PR [#170](https://github.com/mattari20/listing-v2/pull/170) merged as \`1a4f37303913163a4866f660c469078802a7a4ed\` from exact validated head \`390bead3f28ccc64520d92b7c636455c08fd93a4\`.
+
+Exact-head FND-01 PHP 8.5 foundation CI [#43531770613](https://github.com/mattari20/listing-v2/actions/runs/43531770613) and Project documentation validation [#43531770710](https://github.com/mattari20/listing-v2/actions/runs/43531770710) passed. The synthetic suite reported 209 assertions with no failures and 50 non-fatal missing-local-\`.env\` warnings. No review threads or review submissions were present; merge used the expected-head SHA guard.
+
+Delivered first-class persisted conflict/candidate lifecycle, pairwise valid-time conflict evaluation with recorded-time provenance and no automatic winner, candidate-specific human adjudication and independent resolution, and distinct prior-approved-snapshot rollback with audit/outbox lineage and current-policy rechecks. The existing synthetic authorization fixture was extended by one day to avoid a midnight expiry in CI; application policy was not changed.
+
+Authoritative record: [M3-03 Agenda 10 Completion and Evidence Record](M3-03_AGENDA_10_COMPLETION_AND_EVIDENCE_RECORD.md).
+
+Agenda 10 closes reconciliation gaps G-01, G-02 and G-03 for the bounded scope. G-04 deterministic-oracle traceability remains open. M3-03 remains **IN PROGRESS** and M3-04 Provider Management remains blocked until the complete M3-03 exit evidence is accepted. No production, source data, external service/AI, public endpoint, deployment or spend is included.
