@@ -18,7 +18,8 @@ final class FieldAwareClaimProposalService
     public function __construct(
         FieldDefinitionRegistryReader $registry,
         TypedFieldValueValidator $validator
-    ) {
+    )
+    {
         $this->registry = $registry;
         $this->validator = $validator;
     }
@@ -141,8 +142,7 @@ final class FieldAwareClaimProposalService
         return DB::transaction(function () use (
             $actor, $subjectEntityId, $fieldKey, $definitionVersion, $definition, $value,
             $uniqueEvidenceIds, $sourceContext, $idempotencyKey, $validFrom, $validTo, $fingerprint, $providerCategory, $scopeKey
-        ): array
-        {
+        ): array {
             $prior = DB::table('audit_events')
                 ->where('action', 'field_aware_claim_proposed')
                 ->where('metadata->idempotency_key', $idempotencyKey)
