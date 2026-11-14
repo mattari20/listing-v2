@@ -67,6 +67,19 @@ class TypedFieldValueValidatorTest extends TestCase
         self::assertFalse($this->validateType('integer', '4')['valid']);
         self::assertTrue($this->validateType('decimal', '12.50', ['schema_version' => 1, 'precision' => 5, 'scale' => 2])['valid']);
         self::assertFalse($this->validateType('decimal', '12.500', ['schema_version' => 1, 'precision' => 5, 'scale' => 2])['valid']);
+        self::assertFalse($this->validateType('decimal', '9007199254740992', [
+            'schema_version' => 1, 'precision' => 18, 'scale' => 0, 'minimum' => '9007199254740993',
+        ])['valid']);
+        self::assertFalse($this->validateType('decimal', '9007199254740993', [
+            'schema_version' => 1, 'precision' => 18, 'scale' => 0, 'maximum' => '9007199254740992',
+        ])['valid']);
+        self::assertTrue($this->validateType('decimal', '9007199254740993', [
+            'schema_version' => 1, 'precision' => 18, 'scale' => 0, 'minimum' => '9007199254740993',
+            'maximum' => '9007199254740993',
+        ])['valid']);
+        self::assertFalse($this->validateType('decimal', '12.50', [
+            'schema_version' => 1, 'precision' => 5, 'scale' => 2, 'minimum' => 12.5,
+        ])['valid']);
         self::assertTrue($this->validateType('boolean', false)['valid']);
         self::assertFalse($this->validateType('boolean', 0)['valid']);
         self::assertTrue($this->validateType('date', '2026-11-14')['valid']);
