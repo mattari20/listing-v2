@@ -56,10 +56,6 @@
         </nav>
     @endif
 
-    @if ($limited)
-        <p class="notice" role="status">This search is limited to a bounded result window. Refine the search to explore a narrower set.</p>
-    @endif
-
     <section class="results" aria-labelledby="results-heading">
         <h2 id="results-heading">Directory results</h2>
         @forelse ($results as $result)
