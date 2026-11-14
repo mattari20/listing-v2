@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-14 — M3-03 accepted and closed; M3-04 P01–P04, M3-05 Public Directory and Search, and M3-06 Geography and Discovery implementation and documentation closeout merged and validated (PRs #192–#193)
+**Last reconciled:** 2026-11-14 — M3-03 accepted and closed; M3-04 P01–P04, M3-05 and M3-06 complete for bounded synthetic local/CI scope; M3-07 readiness review delivered, implementation blocked pending source/model approvals
 
 ## Purpose and maintenance rule
 
@@ -137,6 +137,13 @@ PR [#160](https://github.com/mattari20/listing-v2/pull/160) is open at the time 
 |---|---|---|
 | [M3-06 Geography and Discovery Work Plan](M3-06_GEOGRAPHY_AND_DISCOVERY_WORK_PLAN.md) | Bounded Pakistan-first manual locality discovery, privacy/provenance controls, acceptance criteria and explicit geospatial deferrals | Accepted — bounded synthetic local/CI scope; PR #193 documentation closeout merged |
 | [M3-06 Geography and Discovery Implementation Record](M3-06_GEOGRAPHY_AND_DISCOVERY_IMPLEMENTATION_RECORD.md) | Approved text-only geography facts, manual locality filter, synthetic tests, safety boundaries and exact-head CI evidence | Delivered — implementation merged; closeout evidence being reconciled |
+
+## M3-07 AI Data-Agent readiness
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-07 AI Data-Agent Work Plan](M3-07_AI_DATA_AGENT_WORK_PLAN.md) | Conjunctive source/model approval gates, proposal-only workflow, privacy/security controls and synthetic-only test plan | Delivered — readiness review; implementation blocked pending owner/source/model approvals |
+| [M3-07 AI Data-Agent Readiness Review Record](M3-07_AI_DATA_AGENT_READINESS_REVIEW_RECORD.md) | Evidence-based readiness finding and explicit no-source/no-model/no-activation decision | Delivered — readiness review; implementation not authorized |
 
 ## PR delivery history
 
