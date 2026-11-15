@@ -315,3 +315,12 @@ The owner's 2026-11-15 direction confirms the product-scope principles in G1: Pa
 
 No source access, collection, external contact, model/API/connector/scheduler activation, real data use, production/V1/Hostinger operation, migration, deployment, release or additional spend is authorized by this owner direction.
 
+
+
+## 18. Student-first discovery architecture clarification
+
+The product owner has clarified that M3-07 is primarily a student-facing discovery platform: students must be able to find nearby institutions and compare relevant programmes, subjects, fees, admissions and campus locations. The system must keep Search/Discovery, AI Data-Agent and Central Database as separate logical components with controlled interfaces. Search reads approved projections only; the AI agent proposes evidence-backed changes only; the central database retains approved current values, pending proposals and historical versions. Student-facing publication is a separate controlled projection step.
+
+The information model must be dynamically extensible. Authorized administrators must be able to add new field definitions, hide fields/sections, independently control search/filter eligibility, disable future collection, retire/restore definitions and introduce successor versions. Hiding or retiring a field must not silently erase its values or history. New source attributes require field-definition review before collection/publication. See [M3-07 Student Education Discovery Platform Architecture and Dynamic Field Governance](M3-07_STUDENT_DISCOVERY_PLATFORM_ARCHITECTURE_AND_DYNAMIC_FIELD_GOVERNANCE.md) and section 18 of [M3-07 Extensible Institution Information Model](M3-07_EXTENSIBLE_INSTITUTION_INFORMATION_MODEL.md).
+
+This clarification is documentation-only. Existing M3-07 source-rights, privacy, security, model/provider, cost, governance, synthetic-evaluation and owner-activation gates remain conjunctive; no live source access, data collection, agent activation, schema/application implementation, deployment, V1/Hostinger access or new spend is authorized.
