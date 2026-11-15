@@ -284,3 +284,16 @@ Use fictional institutions, fictional field values and deterministic synthetic e
 ## 17. Authorization boundary
 
 This document is a design proposal only. It does not authorize schema changes, migrations, application code, admin UI, dynamic field CRUD, source access, real data, agent/model/connector/scheduler activation, production, V1, Hostinger, deployment or new spend. Any implementation requires a separate explicit owner authorization naming the bounded local/CI synthetic scope and exact files/behaviors.
+
+
+## 18. Owner clarification — independently controllable field lifecycle
+
+The product owner has confirmed that the information model must remain open to future institution/course/subject/fee attributes. This reinforces the field registry design above and makes the following controls explicit and independently configurable:
+
+- **Profile visibility:** show or hide a field/section on public institution or programme profiles.
+- **Search/filter eligibility:** include or exclude the field from search, filters, facets and sorting independently of profile visibility.
+- **Collection eligibility:** allow or stop future AI/editor proposals for the field independently of whether historical/current values remain stored.
+- **Definition lifecycle:** propose, approve, activate, deprecate, retire or restore a versioned definition through authorized governance.
+- **Value lifecycle:** add, correct, supersede, withdraw or restore a value through the existing claim/evidence/adjudication/publication lifecycle.
+
+Hiding a field is not deletion. Disabling collection is not retirement. Retirement is not legal erasure. These operations must have distinct permissions, audit events and reversible projection behavior where permitted. A newly discovered website attribute must first become a reviewed field-definition proposal if no approved field exists; the AI agent must never create and publish it autonomously.
