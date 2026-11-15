@@ -973,3 +973,12 @@ PR #187 merged as `bd240e81d0be362cf84dcab2f2b9e61875f6b59e` from validated head
 | [M3-05 Public Directory and Search Implementation Record](M3-05_PUBLIC_DIRECTORY_SEARCH_IMPLEMENTATION_RECORD.md) | Routes, query service, profile views, privacy/publication checks, synthetic tests and validation evidence | **Merged and validated — PR #189** |
 
 PR [#189](https://github.com/mattari20/listing-v2/pull/189) merged as `8a89c5666501e5cc1f8565b32fd40a2a3370d634` from validated head `1e4bd3be1d92ca1ba3a06fd7190d3a20de340c58`. Exact-head PHP 8.5 foundation CI #43557559498 and Project documentation validation #43557559518 passed. Synthetic suite: 351 assertions, no failures, 107 non-fatal warnings from the existing missing-`.env` test-harness reads. No unresolved review threads.
+
+
+## M3-07 — Student-first discovery architecture clarification
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-07 Student Education Discovery Platform Architecture and Dynamic Field Governance](M3-07_STUDENT_DISCOVERY_PLATFORM_ARCHITECTURE_AND_DYNAMIC_FIELD_GOVERNANCE.md) | Student-first discovery experience; separate Search, AI Data-Agent and central database responsibilities; approved update workflow; historical value preservation; governed dynamic field add/hide/disable/retire/version lifecycle; global technical references and staged implementation plan | Updated — review pending in PR #197 |
+
+This addition records owner-directed product clarification. It does not authorize live source access, AI activation, schema/application implementation, deployment or additional spend.
