@@ -272,3 +272,7 @@ P03 closeout: PR [#179](https://github.com/mattari20/listing-v2/pull/179) merged
 - [M3-04 P04 Implementation Record](04-roadmap/M3-04_P04_STATUS_HISTORY_EDITORIAL_REVIEW_IMPLEMENTATION_RECORD.md) — merged PR #187, exact-head CI evidence, capability matrix, independent review/adjudication/publisher roles and synthetic-only limits.
 
 P01–P04 are delivered and validated for their bounded synthetic local/CI scopes. M3-05 requires a separate scope review and authorization.
+
+
+## M3-07 — Student-first discovery architecture
+- [M3-07 Student Education Discovery Platform Architecture and Dynamic Field Governance](04-roadmap/M3-07_STUDENT_DISCOVERY_PLATFORM_ARCHITECTURE_AND_DYNAMIC_FIELD_GOVERNANCE.md) — three-system separation (Search, AI Data-Agent and central database), student search requirements, approved update workflow, historical values, dynamic field lifecycle and global implementation references. Documentation only; activation remains blocked.
