@@ -270,3 +270,48 @@ The recommended physical architecture is a normalized field-definition registry 
 ## 20. D3 field-aware service boundary
 
 The required single write path for registry-managed institution facts, generic claim-registration bypass prevention, definition/value lifecycle separation, actor capabilities, correction/withdrawal, profile assembly and synthetic acceptance tests are specified in [M3-07 D3 Field-Aware Claim Service Boundary and Governance Contract](M3-07_D3_FIELD_AWARE_CLAIM_SERVICE_BOUNDARY.md). This is design only; code changes require separate bounded authorization.
+
+## 21. Owner-confirmed source strategy and initial coverage decision
+
+**Owner direction recorded:** 2026-11-15. The owner confirmed that M3-07 must not compromise its core objective: a comprehensive, expandable, Pakistan-wide education information database. HEC is an initial reference for the higher-education institution universe, not the boundary of the directory and not the sole source of information.
+
+### 21.1 Coverage decision
+
+The initial national catalogue must be designed to include both:
+- HEC-recognized universities and degree-awarding institutions; and
+- their separately identifiable campuses, linked to the relevant parent institution.
+
+This does not mean every campus is a separate university or degree-awarding institution. Campus identity, parent relationship, location and applicable recognition scope must remain distinct and evidence-backed.
+
+The wider catalogue remains open to public/private schools (including small/local providers), colleges (including affiliated and constituent colleges), academies, coaching and tuition providers, technical/vocational institutions, professional/specialist providers, early-learning centres and other relevant education providers. HEC omission must never be used to exclude or classify providers outside HEC's remit.
+
+### 21.2 Practical source hierarchy by information type
+
+The following is a source-selection policy, not blanket permission to access or reuse any source:
+
+| Information / claim | Preferred competent source | Role of other sources |
+|---|---|---|
+| Initial discovery of universities, degree-awarding institutions and HEC-recognized campuses | HEC reference/register, within HEC's remit | Other competent authorities and institution sources may identify omissions, changes or additional entities |
+| Institution's own programmes, admissions, eligibility, fee schedules, academic calendar, facilities and official notices | The institution's own official website, prospectus, admission portal or official publication | Relevant regulator/awarding/affiliating authority where the fact falls within its remit; other sources may corroborate |
+| Recognition, charter, accreditation, licensing or regulatory status | The competent government authority, regulator or accreditation body for that exact status | Institution website may provide a lead or supporting document, but does not independently settle the regulator's decision |
+| College affiliation and awarding relationship | The competent affiliating or awarding university/body | Institution website may corroborate the relationship and identify the claimed programme |
+| Campus identity, address and campus-specific offer | The institution's official campus page or official campus publication, with relevant authority records where applicable | Mapping/location sources may support location discovery/corroboration only, subject to their own terms |
+| School registration and local/provider status | The competent provincial/local education or registration authority | School's official website/publication may provide its own programme, admission and fee information |
+| Academy/training-provider identity and course offer | The provider's official source for its own offer; competent regulator where regulated | Third-party listings may support discovery, not automatically establish recognition or quality |
+
+The field registry must therefore support more than one source class and must preserve the source's authority scope. No source is universally authoritative for every field.
+
+### 21.3 Source-by-source authorization remains mandatory
+
+HEC, each institution-controlled website or portal, each regulator/authority, each social account, each mapping platform and each third-party source must have its own source/asset assessment and authorization manifest before any retrieval or collection. The owner’s confirmation of the product's broad source strategy does not grant legal permission, platform permission or technical authorization.
+
+The initial source decision pack may evaluate HEC as the first proposed reference and institution official websites as a first-class source family for institution-specific student information. It must not access those sources, contact source owners, retrieve content, or activate a connector, crawler, model or scheduler. Each candidate asset, intended fields, access method, permitted acts, privacy/security controls, retention, reviewers and expiry must be assessed separately.
+
+### 21.4 G1 status and unchanged blockers
+
+The owner's 2026-11-15 direction confirms the product-scope principles in G1: Pakistan-wide provider coverage; HEC is not the sole directory universe; institution-controlled official sources are central to institution-specific information; campuses are separately modelled and linked; and student-lifecycle information remains the core product objective.
+
+**G1 scope direction: OWNER-CONFIRMED; documentation reconciliation/PR review remains.** G2 source rights and methods, G3 privacy, G4 security, G5 model/provider, G6 cost/capacity, G7 qualified governance, G8 synthetic evaluation thresholds and G9 exact owner activation remain separate gates and are not approved by this decision.
+
+No source access, collection, external contact, model/API/connector/scheduler activation, real data use, production/V1/Hostinger operation, migration, deployment, release or additional spend is authorized by this owner direction.
+
