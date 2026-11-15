@@ -635,6 +635,22 @@ final class PersistedGovernanceWorkflowService
                         DB::table('publication_snapshots')->where('id', $snapshot->id)->update(['status' => 'projected']);
                     }
                 }
+            } elseif ($event->event_type === 'field_claim.proposal.submitted') {
+                $version = DB::table('claim_versions')->where('id', $event->aggregate_id)->first();
+                $reviewCase = DB::table('editorial_review_cases')
+                    ->where('id', $payload['editorial_review_case_id'] ?? '')
+                    ->where('claim_version_id', $event->aggregate_id)
+                    ->first();
+                if ($event->aggregate_type !== 'claim_version' ||
+                    (string) ($payload['claim_version_id'] ?? '') !== (string) $event->aggregate_id ||
+                    $version === null || $version->disposition !== 'proposed' ||
+                    $version->field_definition_version_id === null || $reviewCase === null ||
+                    $reviewCase->status !== 'submitted' ||
+                    (string) $version->field_definition_version_id !== (string) ($payload['field_definition_version_id'] ?? '')) {
+                    throw new \RuntimeException('Field claim proposal outbox event failed its proposal integrity checks.');
+                }
+                // Proposal notification is intentionally a no-op: this event never adjudicates,
+                // publishes, projects or materializes the proposed claim.
             } elseif ($event->event_type === 'publication.snapshot.rollback') {
                 (new PersistedConflictAndRollbackService)->applyRollbackOutboxEvent((string) ($payload['rollback_id'] ?? $event->aggregate_id));
             } elseif ($event->event_type === 'publication.snapshot.suppressed') {

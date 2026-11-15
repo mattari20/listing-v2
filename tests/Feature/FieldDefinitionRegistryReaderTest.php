@@ -170,14 +170,18 @@ class FieldDefinitionRegistryReaderTest extends TestCase
         $this->assertSame($beforeDefinitions, DB::table('field_definitions')->count());
         $this->assertDatabaseHas('claims', ['id' => $claimId, 'predicate' => 'legacy.synthetic_predicate']);
         $this->assertDatabaseHas('claim_versions', ['id' => $versionId, 'claim_id' => $claimId]);
-        $this->assertFalse(Schema::hasColumn('claim_versions', 'field_definition_version_id'));
+        $this->assertTrue(Schema::hasColumn('claim_versions', 'field_definition_version_id'));
         $this->assertNotSame('', $definitionId);
     }
 
     public function test_i1_migration_down_and_up_are_limited_to_its_four_owned_tables(): void
     {
+        $i3Migration = require base_path('database/migrations/2026_11_14_000008_add_provider_category_assignments_and_claim_field_binding.php');
         $migration = require base_path('database/migrations/2026_11_14_000007_create_field_registry_tables.php');
 
+        // Remove I3's dependent foreign key in the disposable test schema before
+        // exercising I1's isolated down/up contract, then restore I3 afterwards.
+        $i3Migration->down();
         $migration->down();
 
         foreach ($this->registryTables() as $table) {
@@ -193,6 +197,10 @@ class FieldDefinitionRegistryReaderTest extends TestCase
         }
         $this->assertTrue(Schema::hasTable('claims'));
         $this->assertTrue(Schema::hasTable('claim_versions'));
+
+        $i3Migration->up();
+        $this->assertTrue(Schema::hasColumn('claim_versions', 'field_definition_version_id'));
+        $this->assertTrue(Schema::hasTable('directory_provider_category_assignments'));
     }
 
     /**

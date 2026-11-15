@@ -11,6 +11,9 @@ use Illuminate\Validation\ValidationException;
 
 final class GovernanceCommandService
 {
+    /** Existing generic predicates retained during the controlled registry migration. */
+    private const LEGACY_CLAIM_PREDICATES = ['display_name', 'authority_relationship', 'provider_institution_relationship'];
+
     public function registerEvidenceReference(string $authorizationId, array $actor, array $context, string $idempotencyKey, array $metadata): string
     {
         $this->requireActor($actor, 'register_evidence');
@@ -79,6 +82,12 @@ final class GovernanceCommandService
             $existing = $this->existingIdempotentTarget('claim_version_registered', $idempotencyKey, $fingerprint);
             if ($existing !== null) {
                 return $existing;
+            }
+            if (DB::table('field_definitions')->where('field_key', $predicate)->exists()) {
+                throw ValidationException::withMessages(['predicate' => 'Registry-managed fields must use the field-aware proposal service.']);
+            }
+            if (in_array($predicate, self::LEGACY_CLAIM_PREDICATES, true) === false) {
+                throw ValidationException::withMessages(['predicate' => 'Predicate is not in the reviewed legacy compatibility allowlist.']);
             }
             if (DB::table('directory_entities')->where('id', $subjectEntityId)->exists() === false) {
                 throw ValidationException::withMessages(['subject' => 'Claim subject does not exist.']);
