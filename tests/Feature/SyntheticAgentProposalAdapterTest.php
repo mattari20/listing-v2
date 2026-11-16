@@ -24,11 +24,15 @@ class SyntheticAgentProposalAdapterTest extends TestCase
     public function test_fixed_fixture_creates_one_agent_proposal_and_allows_only_later_human_review(): void
     {
         [$entityId, $definitionVersionId, $evidenceId] = $this->fixture();
+        $secondEvidenceId = $this->evidence();
         $adapter = app(SyntheticAgentProposalAdapter::class);
-        $bindings = ['subject_entity_id' => $entityId, 'evidence_reference_ids' => [$evidenceId]];
+        $bindings = ['subject_entity_id' => $entityId, 'evidence_reference_ids' => [$evidenceId, $secondEvidenceId]];
 
         $first = $adapter->submitFixture(self::FIXTURE_ID, $bindings);
-        $retry = $adapter->submitFixture(self::FIXTURE_ID, $bindings);
+        $retry = $adapter->submitFixture(self::FIXTURE_ID, [
+            'subject_entity_id' => $entityId,
+            'evidence_reference_ids' => [$secondEvidenceId, $evidenceId],
+        ]);
 
         $this->assertSame($first, $retry);
         $this->assertDatabaseCount('claims', 1);
@@ -42,6 +46,11 @@ class SyntheticAgentProposalAdapterTest extends TestCase
         $this->assertDatabaseHas('claim_evidence_links', [
             'claim_version_id' => $first['claim_version_id'],
             'evidence_reference_id' => $evidenceId,
+            'relationship_type' => 'supports',
+        ]);
+        $this->assertDatabaseHas('claim_evidence_links', [
+            'claim_version_id' => $first['claim_version_id'],
+            'evidence_reference_id' => $secondEvidenceId,
             'relationship_type' => 'supports',
         ]);
         $this->assertDatabaseHas('editorial_review_cases', [
