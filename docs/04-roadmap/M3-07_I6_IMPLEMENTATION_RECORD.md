@@ -5,8 +5,9 @@
 **Implementation base:** `2d9e1c15df808c5e4679e0cd2d63d4fb98be2246`  
 **Implementation branch:** `feature/m3-07-i6-synthetic-agent-proposal`  
 **Pull request:** [#220 — feat(m3-07-i6): add synthetic agent proposal adapter](https://github.com/mattari20/listing-v2/pull/220)  
-**Exact implementation head validated:** `17d8938a7715d8bd07950ef2039e5cc95f174cc7`  
-**Status:** Implementation delivered on branch; exact-head validation passed; PR awaiting merge.
+**Exact PR head validated:** `6c09122c2223cc093393023019c3d9dc927fedf7`  
+**Merge commit / verified main:** `8acf05082187f854597aa6dd2d852d64e01e5581`  
+**Status:** **IMPLEMENTED, VALIDATED AND MERGED** in PR #220.
 
 ## 1. Authorized scope
 
@@ -97,10 +98,10 @@ The new feature test class contains five focused test methods covering valid sub
 
 Validated exact head: `17d8938a7715d8bd07950ef2039e5cc95f174cc7`.
 
-- FND-01 PHP 8.5 foundation CI: [run #43838413609](https://github.com/mattari20/listing-v2/actions/runs/43838413609) — **completed successfully**.
-- Project documentation validation: [run #43838413686](https://github.com/mattari20/listing-v2/actions/runs/43838413686) — **completed successfully**.
+- FND-01 PHP 8.5 foundation CI: [run #43838997569](https://github.com/mattari20/listing-v2/actions/runs/43838997569) — **completed successfully** on exact PR head.
+- Project documentation validation: [run #43838997658](https://github.com/mattari20/listing-v2/actions/runs/43838997658) — **completed successfully** on exact PR head.
 - FND-01 checks completed: PHP 8.5/Composer toolchain, SQLite, Composer manifest, documentation, locked dependency install, dependency advisory check, Pint formatting, Laravel bootstrap/routes, synthetic test suite and artifact hygiene.
-- `php artisan test` summary: **15 passed, 687 assertions, 164 warnings**; no failures. The warning output includes the repository's existing missing-local-`.env` test-harness warnings. No `.env` file was added or modified.
+- `php artisan test` summary on the exact PR head: **15 passed, 688 assertions, 164 warnings**; no failures. The warning output includes the repository's existing missing-local-`.env` test-harness warnings. No `.env` file was added or modified.
 - `git diff --check` and artifact hygiene passed.
 
 ## 6. Scope and safety reconciliation
@@ -115,9 +116,9 @@ Validated exact head: `17d8938a7715d8bd07950ef2039e5cc95f174cc7`.
 
 ## 7. PR disposition
 
-PR #220 is open against `main`, based on `2d9e1c15df808c5e4679e0cd2d63d4fb98be2246`. The exact head above has passed both required workflows. Merge remains subject to final changed-file, review-thread, mergeability and exact-head checks.
+PR [#220](https://github.com/mattari20/listing-v2/pull/220) was merged on 2026-11-16. Exact PR head `6c09122c2223cc093393023019c3d9dc927fedf7` passed FND-01 CI #43838997569 and Project documentation validation #43838997658; the merged main commit is `8acf05082187f854597aa6dd2d852d64e01e5581`.
 
-**I6 implementation:** Delivered within the authorized branch scope; exact-head CI and documentation validation passed.  
-**I6 merge/closeout:** Pending PR #220 merge and subsequent main verification.  
+**I6 implementation:** Delivered, exact-head validated and merged within the authorized scope.  
+**I6 closeout:** Main verified at merge commit `8acf05082187f854597aa6dd2d852d64e01e5581`; this record is the final implementation evidence.  
 **Live AI Data-Agent/source activation:** Not authorized; G2-G9 remain blocking.  
 **I7:** Not started and not authorized.

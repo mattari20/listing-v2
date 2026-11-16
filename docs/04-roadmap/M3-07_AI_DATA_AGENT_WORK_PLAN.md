@@ -3,7 +3,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Prepared:** 2026-11-14  
 **Baseline main:** `4775b9c0fbd50f264cb573253626e3786a6655ad`  
-**Status:** Readiness review delivered; bounded synthetic I6 proposal-adapter implementation explicitly authorized and in progress; live agent/source activation remains BLOCKED pending source-specific, model/provider, privacy/security and operational approvals  
+**Status:** Readiness review delivered; bounded synthetic I6 proposal-adapter implementation delivered, validated and merged; live agent/source activation remains BLOCKED pending source-specific, model/provider, privacy/security and operational approvals  
 **Owner direction:** Proceed with M3-07 readiness review and prepare the next implementation gate. This does not waive any source, model, budget, legal, privacy or security approval.
 
 ## 1. Purpose
