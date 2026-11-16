@@ -786,7 +786,7 @@ Step 1 (repository/roadmap status reconciliation) and Step 2 (read-only main rul
 
 The canonical D5 staged-delivery definition identifies I7 as a test-only package covering adversarial inputs, concurrency, migration, rollback, privacy, performance and full regression. I5 already delivered registry-aware public profiles and search/projection integration; I7 does not reopen that feature scope.
 
-Preflight base: main 1b4b58442807336bcf9905722b2a59a7a36606c1. Reviewed 19 test source files, 10 migrations and both existing CI workflows. The preflight maps existing I1-I6 coverage and identifies remaining hardening opportunities in adversarial payload/redaction, multi-connection contention, complete disposable SQLite migration rollback/reinstall, cross-phase no-side-effect checks and deterministic query-count budgets.
+Preflight base: main 1b4b58442807336bcf9905722b2a59a7a36606c1. Reviewed 19 test source files, 11 migrations and both existing CI workflows. The preflight maps existing I1-I6 coverage and identifies remaining hardening opportunities in adversarial payload/redaction, multi-connection contention, complete disposable SQLite migration rollback/reinstall, cross-phase no-side-effect checks and deterministic query-count budgets.
 
 See [I7 Full Regression and Hardening Preflight](M3-07_I7_FULL_REGRESSION_HARDENING_PREFLIGHT.md) for the allowed test/documentation paths, 13 acceptance gates, SQLite concurrency limitations, stop conditions and exact owner authorization template.
 
