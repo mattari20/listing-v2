@@ -2,11 +2,11 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03 through M3-06 delivered for bounded synthetic local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered; M3-08 identity/reviews/security scope preflight complete, implementation not authorized; live AI/source activation blocked by G2-G9  
-**Last reconciled:** 2026-11-16
+**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03 through M3-06 delivered for bounded synthetic local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered; M3-08 preflight complete; M3-08A/B identity/session and scoped authorization foundations merged in PR #232; M3-08C/D remain separately gated; live AI/source activation blocked by G2-G9  
+**Last reconciled:** 2026-11-16 — M3-08A/B PR #232 merged as `a693b2c701adb5328e755156e1900771400b1dca`
 
 ## Authoritative current position
-- M3-08 Identity, Reviews and Security scope/architecture preflight is complete as documentation-only on main baseline `a65027a673f4ba0d9a68fe4275151806bf50bc1e`; application implementation remains NOT AUTHORIZED and reviews remain post-launch only. See `../04-roadmap/M3-08_IDENTITY_REVIEWS_SECURITY_PREFLIGHT.md`.
+- M3-08 preflight documentation is complete and merged in PR #231. The separately authorized M3-08A/B first-party session identity and scoped authorization foundation is merged in PR #232 as `a693b2c701adb5328e755156e1900771400b1dca`; M3-08C/D remain unstarted and separately gated. Reviews remain post-launch only. See `../04-roadmap/M3-08A_B_IDENTITY_AUTHORIZATION_IMPLEMENTATION_RECORD.md`.
 - Public V2 repository visibility verified; owner selected public visibility on 2026-11-11.
 - Repository auto-merge is enabled; active `main` ruleset requires the documentation validation check.
 - Founding documentation PR #1 merged into `main` as `0f2165f3d18e43f10cf6d6f717f145d3433769a4`.
@@ -23,7 +23,7 @@ Build a student-first education discovery, admissions information and comparison
 The Documentation Completion Catalogue is the owner-facing inventory of delivered, updated, accepted and planned documents. A merged PR records delivery, not automatic content acceptance. Every documentation PR update and merge must reconcile the catalogue, index, controller, step register, traceability and progress report.
 
 ## Current milestone
-**M3 — M3-07 AI Data-Agent readiness review delivered; implementation blocked until exact source/asset rights, model/provider, qualified privacy/security review and owner activation approvals pass**
+**M3 — M3-08A/B identity and scoped authorization foundations merged; M3-08C/D and live AI/source activation remain separately gated pending their required decisions and approvals**
 
 
 ## M3-06 closeout — 2026-11-14

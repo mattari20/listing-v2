@@ -35,7 +35,8 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [M3-06 Geography and Discovery Implementation Record](04-roadmap/M3-06_GEOGRAPHY_AND_DISCOVERY_IMPLEMENTATION_RECORD.md) — merged locality filtering, synthetic verification and exact-head CI evidence
 - [M3-07 AI Data-Agent Work Plan](04-roadmap/M3-07_AI_DATA_AGENT_WORK_PLAN.md) — source/model authorization gates, proposal-only workflow, threat controls and synthetic-only test plan
 - [M3-07 AI Data-Agent Readiness Review Record](04-roadmap/M3-07_AI_DATA_AGENT_READINESS_REVIEW_RECORD.md) — documented readiness blockers and explicit no-activation decision
-- [M3-08 Identity, Reviews and Security Scope / Architecture Preflight](04-roadmap/M3-08_IDENTITY_REVIEWS_SECURITY_PREFLIGHT.md) — merged preflight and governing post-launch review/security constraints\n- [M3-08A/B Identity, Session Authentication and Scoped Authorization Implementation Record](04-roadmap/M3-08A_B_IDENTITY_AUTHORIZATION_IMPLEMENTATION_RECORD.md) — owner-authorized first-party session/authz implementation, additive identity schema, synthetic tests and exact-head CI passed; PR #232 open pending merge
+- [M3-08 Identity, Reviews and Security Scope / Architecture Preflight](04-roadmap/M3-08_IDENTITY_REVIEWS_SECURITY_PREFLIGHT.md) — merged preflight and governing post-launch review/security constraints
+- [M3-08A/B Identity, Session Authentication and Scoped Authorization Implementation Record](04-roadmap/M3-08A_B_IDENTITY_AUTHORIZATION_IMPLEMENTATION_RECORD.md) — owner-authorized first-party session/authz implementation, additive identity schema and synthetic tests; PR #232 merged with exact-head CI passed
 - [M3-07 R1 Pakistan National Education Source Master Inventory](04-roadmap/M3-07_R1_PAKISTAN_NATIONAL_EDUCATION_SOURCE_MASTER_INVENTORY.md) — consolidated national source families, seven-jurisdiction coverage, institution-controlled update sources, gaps and source-authorization boundaries
 - [M3-07 I5 Value Correction, Withdrawal and Profile Integration Implementation Record](04-roadmap/M3-07_I5_IMPLEMENTATION_RECORD.md) — merged I5-A through I5-C scope, exact-head CI, synthetic acceptance evidence and safety boundaries
 
@@ -64,7 +65,8 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [Milestone and Step Register](04-roadmap/MILESTONE_STEP_REGISTER.md)
 - [Traceability Matrix](04-roadmap/IMPLEMENTATION_TRACEABILITY_MATRIX.md)
 - [Progress Report](04-roadmap/PROJECT_PROGRESS_REPORT.md)
-- [M3-00 Owner Closeout Review and Decision Pack](04-roadmap/M3-00_OWNER_CLOSEOUT_REVIEW_AND_DECISION_PACK.md) — final M3-00 evidence, bounded planning dispositions and explicit owner acceptance gates\n- [M3-00 T07 Legal, Privacy, Source-Rights and Security Gate Register](04-roadmap/M3-00_T07_LEGAL_PRIVACY_SOURCE_RIGHTS_SECURITY_GATES.md) — deny-by-default gates; review ownership and source-specific approvals remain open
+- [M3-00 Owner Closeout Review and Decision Pack](04-roadmap/M3-00_OWNER_CLOSEOUT_REVIEW_AND_DECISION_PACK.md) — final M3-00 evidence, bounded planning dispositions and explicit owner acceptance gates
+- [M3-00 T07 Legal, Privacy, Source-Rights and Security Gate Register](04-roadmap/M3-00_T07_LEGAL_PRIVACY_SOURCE_RIGHTS_SECURITY_GATES.md) — deny-by-default gates; review ownership and source-specific approvals remain open
 - [Legacy Repository Isolation Audit](99-reference/LEGACY_REPOSITORY_ISOLATION_AUDIT.md)
 
 ## Governance rule

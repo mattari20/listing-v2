@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Base:** `4e453520b86fefc322a168de85f58d3cfddf18f1` (M3-08 preflight PR #231 merge)  
 **Branch:** `feat/m3-08a-identity-authz-foundation`  
-**Status:** Exact-head FND-01 CI and Project documentation validation passed on `2ab424882375a0c270b71d682dd97c9b32074222` (PR #232 head at validation). PR #232 remains open pending final merge. Not production-ready.  
+**Status:** Merged in PR #232 as `a693b2c701adb5328e755156e1900771400b1dca`; exact-head FND-01 CI #378 and Project documentation validation #757 passed on `751add37d59e42c43acadcdbffd9f81d174123cb`. Not production-ready.  
 **Authority:** Product Owner explicitly approved the interim first-party Laravel session-authentication design and additive synthetic-only SQLite schema for users, role assignments and privileged-action audit records on 2026-11-16.
 
 ## 1. Authorized scope
@@ -97,7 +97,7 @@ Exact-head GitHub validation passed for commit `dd332743be3f3cd53939c5f03c8d6744
 | Repository artifact hygiene | Passed; no `.env` or database artifact created/tracked |
 | Project documentation validation | Passed on the exact same head |
 
-FND-01 CI run #376 and Project documentation validation run #755 are the exact-head checks for this commit. The warnings are existing test-harness diagnostics for absent `.env`; no `.env` was created to suppress them. Both checks passed on the same PR head. The final reconciliation commit changes documentation only; application code remains identical to the validated head. No merge or production-readiness claim is made here; this record remains a pre-merge implementation status snapshot.
+FND-01 CI run #378 and Project documentation validation run #757 are the exact-head checks for the merged PR head. The warnings are existing test-harness diagnostics for absent `.env`; no `.env` was created to suppress them. Both checks passed on the exact PR head before merge. PR #232 was squash-merged as `a693b2c701adb5328e755156e1900771400b1dca`. No production-readiness claim is made here.
 
 ## 7. Remaining M3-08 work
 
