@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Tests\Feature;
 
 use App\Authorization\ScopedAuthorization;
-use App\Models\ModerationCase;
 use App\Models\RoleAssignment;
 use App\Models\User;
 use App\Services\Moderation\SyntheticModerationWorkflow;
