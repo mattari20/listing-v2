@@ -593,9 +593,20 @@ final class PersistedGovernanceWorkflowService
                 $decision = DB::table('field_definition_review_decisions')
                     ->where('id', $payload['decision_id'] ?? '')
                     ->where('review_case_id', $payload['review_case_id'] ?? '')->first();
+                $validDecisionOutcome = match ($payload['action'] ?? null) {
+                    'field_definition_proposed' => $decision?->outcome === 'proposed',
+                    'field_definition_reviewer_assigned' => $decision?->outcome === 'reviewer_assigned',
+                    'field_definition_reviewed' => in_array($decision?->outcome, ['recommend_approval', 'request_changes', 'reject'], true),
+                    'field_definition_proposal_edited' => $decision?->outcome === 'proposal_edited',
+                    'field_definition_approved' => $decision?->outcome === 'approve',
+                    'field_definition_activated' => $decision?->outcome === 'activate',
+                    'field_definition_deprecated' => $decision?->outcome === 'deprecate',
+                    'field_definition_retired' => $decision?->outcome === 'retire',
+                    default => false,
+                };
                 if ($event->aggregate_type !== 'field_definition_version' ||
                     (string) ($payload['field_definition_version_id'] ?? '') !== (string) $event->aggregate_id ||
-                    $version === null || $case === null || $decision === null ||
+                    $version === null || $case === null || $decision === null || $validDecisionOutcome === false ||
                     $version->lifecycle_state !== ($payload['lifecycle_state'] ?? null) ||
                     $case->status !== ($payload['review_case_status'] ?? null) ||
                     $decision->actor_class !== 'human' ||
