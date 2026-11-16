@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace App\\Services\\Directory;
+namespace App\Services\Directory;
 
-use Illuminate\\Support\\Facades\\DB;
-use Illuminate\\Support\\Str;
-use Illuminate\\Validation\\ValidationException;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 final class AgentFieldProposalSubmissionService
 {
