@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
+use App\Models\RoleAssignment;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -43,6 +44,22 @@ final class AccountSessionTest extends TestCase
 
         $this->postJson('/account/session', [
             'email' => 'inactive@example.test',
+            'password' => 'synthetic-password',
+        ])->assertUnprocessable();
+
+        $this->assertGuest('web');
+    }
+
+    public function test_service_identity_cannot_open_an_interactive_session(): void
+    {
+        $user = $this->makeUser('service@example.test');
+        RoleAssignment::query()->create([
+            'user_id' => $user->getKey(),
+            'role' => 'service_identity',
+        ]);
+
+        $this->postJson('/account/session', [
+            'email' => 'service@example.test',
             'password' => 'synthetic-password',
         ])->assertUnprocessable();
 

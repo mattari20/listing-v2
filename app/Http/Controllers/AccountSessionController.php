@@ -29,7 +29,17 @@ final class AccountSessionController extends Controller
             ->whereNotNull('email_verified_at')
             ->first();
 
-        if ($user === null || ! Hash::check($credentials['password'], $user->password)) {
+        if ($user !== null && $user->roleAssignments()
+            ->where('role', 'service_identity')
+            ->whereNull('revoked_at')
+            ->where(function ($query): void {
+                $query->whereNull('expires_at')->orWhere('expires_at', '>', now());
+            })
+            ->exists()) {
+            $user = null;
+        }
+
+        if ($user === null || Hash::check($credentials['password'], $user->password) === false) {
             return response()->json([
                 'message' => 'The supplied credentials are invalid or the account is unavailable.',
             ], 422);

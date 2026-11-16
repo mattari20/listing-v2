@@ -18,7 +18,7 @@ This package implements only the bounded M3-08A identity/session foundation and 
 - Sign-in is throttled. Unknown, inactive, unverified and wrong-password cases share a generic authentication failure response.
 - Server-side deny-by-default role/action/resource-scope authorization.
 - Role grants/revocations run transactionally and write bounded audit metadata with controlled reason codes.
-- Self-grant, self-revocation, self-review/self-publication, unknown capabilities, inactive targets, unknown roles and application-level administrator grants are denied.
+- Self-grant, self-revocation, self-review/self-publication, incompatible privileged-role combinations, interactive login by service identities, unknown capabilities, inactive targets, unknown roles and application-level administrator grants are denied.
 - Additive migration creates only the new identity/role/audit tables. Validation is expected only on disposable SQLite in CI.
 
 ## 2. Explicitly disabled or excluded
@@ -74,6 +74,7 @@ The audit model is append-only by application convention in this package; databa
 - Denial of unverified/inactive accounts.
 - Identical generic failure responses for unknown accounts and wrong passwords.
 - Exact resource-scope authorization and cross-scope denial.
+- Denial of incompatible privileged-role combinations and interactive service-identity sign-in.
 - Deny unknown action and role capability.
 - Administrator capability isolation.
 - Self-review/self-publication denial.

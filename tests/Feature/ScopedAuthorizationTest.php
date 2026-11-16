@@ -88,6 +88,25 @@ final class ScopedAuthorizationTest extends TestCase
         ]);
     }
 
+    public function test_conflicting_privileged_roles_cannot_be_combined(): void
+    {
+        $admin = $this->makeUser('admin-conflict@example.test');
+        $target = $this->makeUser('target-conflict@example.test');
+        $this->assign($admin, 'administrator');
+        $this->assign($target, 'data_reviewer');
+
+        $this->expectException(AuthorizationException::class);
+
+        app(RoleAssignmentService::class)->grant(
+            $admin,
+            $target,
+            'publisher',
+            'provider',
+            'provider-01',
+            'operational_need',
+        );
+    }
+
     public function test_role_revocation_is_audited_and_takes_effect_immediately(): void
     {
         $admin = $this->makeUser('admin-revoke@example.test');

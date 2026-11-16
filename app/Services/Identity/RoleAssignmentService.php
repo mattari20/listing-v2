@@ -22,6 +22,14 @@ final class RoleAssignmentService
         'service_identity',
     ];
 
+    private const INCOMPATIBLE_ROLES = [
+        'provider_representative' => ['data_reviewer', 'publisher', 'moderator', 'administrator', 'service_identity'],
+        'data_reviewer' => ['provider_representative', 'publisher', 'moderator', 'administrator', 'service_identity'],
+        'publisher' => ['provider_representative', 'data_reviewer', 'moderator', 'administrator', 'service_identity'],
+        'moderator' => ['provider_representative', 'data_reviewer', 'publisher', 'administrator', 'service_identity'],
+        'service_identity' => ['provider_representative', 'data_reviewer', 'publisher', 'moderator', 'administrator'],
+    ];
+
     private const REASON_CODES = [
         'operational_need',
         'correction',
@@ -64,6 +72,19 @@ final class RoleAssignmentService
 
             if ($existing !== null) {
                 return $existing;
+            }
+
+            $incompatibleRoles = self::INCOMPATIBLE_ROLES[$role] ?? [];
+
+            if ($incompatibleRoles !== [] && RoleAssignment::query()
+                ->where('user_id', $target->getKey())
+                ->whereIn('role', $incompatibleRoles)
+                ->whereNull('revoked_at')
+                ->where(function ($query): void {
+                    $query->whereNull('expires_at')->orWhere('expires_at', '>', now());
+                })
+                ->exists()) {
+                throw new AuthorizationException('The requested role conflicts with an existing separation-of-duties assignment.');
             }
 
             $assignment = RoleAssignment::query()->create([
