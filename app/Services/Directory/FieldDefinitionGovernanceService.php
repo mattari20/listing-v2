@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Services\Directory;
 
 use App\Domain\Governance\GovernancePolicy;
+use Carbon\CarbonImmutable;
+use DateTimeImmutable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
@@ -434,7 +436,7 @@ final class FieldDefinitionGovernanceService
             }
             DB::table('field_definitions')->where('id', $version->field_definition_id)->lockForUpdate()->first();
             $end = $this->parseDate($effectiveTo);
-            if ($end === null || now()->greaterThanOrEqualTo($end)) {
+            if ($end === null || CarbonImmutable::parse($end)->lessThanOrEqualTo(now())) {
                 $this->reject('effective_to', 'Deprecation must use a valid future effective boundary.');
             }
             DB::table('field_definition_versions')->where('id', $version->id)->update([
