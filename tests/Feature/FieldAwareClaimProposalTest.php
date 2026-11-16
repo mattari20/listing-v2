@@ -460,5 +460,4 @@ class FieldAwareClaimProposalTest extends TestCase
             'Invalid typed value must be rejected.'
         );
     }
-
 }
