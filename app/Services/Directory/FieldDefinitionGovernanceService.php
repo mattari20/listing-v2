@@ -80,7 +80,7 @@ final class FieldDefinitionGovernanceService
                 if ((int) $predecessor->version_number !== $latestVersionNumber) {
                     $this->reject('predecessor', 'A successor must reference the latest existing version for this stable field key.');
                 }
-                if (! in_array($predecessor->lifecycle_state, ['active', 'deprecated', 'retired'], true)) {
+                if (in_array($predecessor->lifecycle_state, ['active', 'deprecated', 'retired'], true) === false) {
                     $this->reject('predecessor', 'Only an active, deprecated or retired version can have a successor.');
                 }
                 $versionNumber = (int) DB::table('field_definition_versions')
@@ -212,7 +212,7 @@ final class FieldDefinitionGovernanceService
         string $idempotencyKey
     ): string {
         $this->requireHumanCapability($actor, 'review_field_definition');
-        if (! in_array($outcome, ['recommend_approval', 'request_changes', 'reject'], true)) {
+        if (in_array($outcome, ['recommend_approval', 'request_changes', 'reject'], true) === false) {
             $this->reject('outcome', 'Unsupported review outcome.');
         }
         $this->assertBoundedText($rationaleCode, 100, 'rationale_code');
@@ -470,7 +470,7 @@ final class FieldDefinitionGovernanceService
             }
             $case = $this->lockCase($reviewCaseId);
             $version = DB::table('field_definition_versions')->where('id', $case->field_definition_version_id)->lockForUpdate()->first();
-            if ($version === null || ! in_array($version->lifecycle_state, ['active', 'deprecated'], true)) {
+            if ($version === null || in_array($version->lifecycle_state, ['active', 'deprecated'], true) === false) {
                 $this->reject('definition', 'Only an active or deprecated definition may be retired.');
             }
             DB::table('field_definitions')->where('id', $version->field_definition_id)->lockForUpdate()->first();
@@ -533,54 +533,54 @@ final class FieldDefinitionGovernanceService
             $this->reject('definition', 'Definition contains unsupported properties.');
         }
         $fieldKey = $definition['field_key'] ?? null;
-        if (! is_string($fieldKey) || ! app(TypedFieldValueValidator::class)->validateFieldKey($fieldKey)['valid']) {
+        if (is_string($fieldKey) === false || app(TypedFieldValueValidator::class)->validateFieldKey($fieldKey)['valid'] === false) {
             $this->reject('field_key', 'Field key must use canonical lowercase snake_case.');
         }
         foreach (['semantic_version' => 40, 'compatibility_class' => 40, 'value_type' => 32, 'cardinality' => 24, 'scope_key' => 48, 'privacy_class' => 32, 'visibility_class' => 32] as $key => $max) {
-            if (! is_string($definition[$key] ?? null) || $definition[$key] === '' || strlen($definition[$key]) > $max) {
+            if (is_string($definition[$key] ?? null) === false || $definition[$key] === '' || strlen($definition[$key]) > $max) {
                 $this->reject($key, 'A bounded non-empty '.$key.' is required.');
             }
         }
-        if (! in_array($definition['value_type'], self::VALUE_TYPES, true) ||
-            ! in_array($definition['cardinality'], ['one', 'zero_or_one', 'many'], true) ||
-            ! in_array($definition['scope_key'], ['institution'], true) ||
-            ! in_array($definition['privacy_class'], ['public_eligible', 'editorial_restricted'], true) ||
-            ! in_array($definition['visibility_class'], ['public_eligible', 'editorial_restricted', 'internal_only', 'restricted'], true)) {
+        if (in_array($definition['value_type'], self::VALUE_TYPES, true) === false ||
+            in_array($definition['cardinality'], ['one', 'zero_or_one', 'many'], true) === false ||
+            in_array($definition['scope_key'], ['institution'], true) === false ||
+            in_array($definition['privacy_class'], ['public_eligible', 'editorial_restricted'], true) === false ||
+            in_array($definition['visibility_class'], ['public_eligible', 'editorial_restricted', 'internal_only', 'restricted'], true) === false) {
             $this->reject('definition', 'Type, cardinality, scope, privacy or visibility is unsupported by the bounded I4 package.');
         }
-        if (! preg_match('/^\d+\.\d+\.\d+(?:-[a-z0-9.-]+)?$/D', $definition['semantic_version']) ||
-            ! preg_match('/^[a-z][a-z0-9_]{0,39}$/D', $definition['compatibility_class'])) {
+        if (preg_match('/^\d+\.\d+\.\d+(?:-[a-z0-9.-]+)?$/D', $definition['semantic_version']) !== 1 ||
+            preg_match('/^[a-z][a-z0-9_]{0,39}$/D', $definition['compatibility_class']) !== 1) {
             $this->reject('definition', 'Semantic version or compatibility class is invalid.');
         }
         foreach (['searchable', 'filterable', 'sortable'] as $flag) {
-            if (! is_bool($definition[$flag] ?? null)) {
+            if (is_bool($definition[$flag] ?? null) === false) {
                 $this->reject($flag, 'Search/filter/sort eligibility must be explicitly boolean.');
             }
         }
         foreach (['validation_schema', 'presentation_metadata', 'evidence_policy', 'freshness_policy'] as $key) {
-            if (! is_array($definition[$key] ?? null) || strlen(json_encode($definition[$key], JSON_THROW_ON_ERROR)) > 16000) {
+            if (is_array($definition[$key] ?? null) === false || strlen(json_encode($definition[$key], JSON_THROW_ON_ERROR)) > 16000) {
                 $this->reject($key, 'A bounded JSON object is required.');
             }
         }
-        if (! is_int($definition['validation_schema']['schema_version'] ?? null) || $definition['validation_schema']['schema_version'] < 1) {
+        if (is_int($definition['validation_schema']['schema_version'] ?? null) === false || $definition['validation_schema']['schema_version'] < 1) {
             $this->reject('validation_schema', 'A positive validation schema version is required.');
         }
         if (isset($definition['freshness_policy']['max_age_days']) &&
-            (! is_int($definition['freshness_policy']['max_age_days']) || $definition['freshness_policy']['max_age_days'] < 0)) {
+            (is_int($definition['freshness_policy']['max_age_days']) === false || $definition['freshness_policy']['max_age_days'] < 0)) {
             $this->reject('freshness_policy', 'Freshness max_age_days must be a non-negative integer.');
         }
         if (isset($definition['evidence_policy']['accepted_reference_kinds']) &&
-            (! is_array($definition['evidence_policy']['accepted_reference_kinds']) || $definition['evidence_policy']['accepted_reference_kinds'] === [])) {
+            (is_array($definition['evidence_policy']['accepted_reference_kinds']) === false || $definition['evidence_policy']['accepted_reference_kinds'] === [])) {
             $this->reject('evidence_policy', 'Accepted evidence reference kinds must be a non-empty allowlist.');
         }
         $entityTypes = $definition['entity_types'] ?? null;
         $categories = $definition['provider_categories'] ?? null;
-        if (! is_array($entityTypes) || $entityTypes !== ['institution'] ||
-            ! is_array($categories) || $categories === [] || count($categories) > 30) {
+        if (is_array($entityTypes) === false || $entityTypes !== ['institution'] ||
+            is_array($categories) === false || $categories === [] || count($categories) > 30) {
             $this->reject('applicability', 'I4 supports explicit institution-only applicability and a bounded provider-category allowlist.');
         }
         foreach ($categories as $category) {
-            if (! is_string($category) || ! preg_match('/^[a-z][a-z0-9_]{1,63}$/D', $category) ||
+            if (is_string($category) === false || preg_match('/^[a-z][a-z0-9_]{1,63}$/D', $category) !== 1 ||
                 in_array($category, self::RESTRICTED_CATEGORIES, true)) {
                 $this->reject('provider_categories', 'Provider categories must be explicit and must exclude restricted categories.');
             }
@@ -746,7 +746,7 @@ final class FieldDefinitionGovernanceService
     {
         $decision = (new GovernancePolicy)->requireCapability($actor, $capability);
         if ($decision['allowed'] === false || ($actor['actor_class'] ?? null) !== 'human' ||
-            ! is_string($actor['actor_id'] ?? null) || $actor['actor_id'] === '' || strlen($actor['actor_id']) > 120) {
+            is_string($actor['actor_id'] ?? null) === false || $actor['actor_id'] === '' || strlen($actor['actor_id']) > 120) {
             $this->reject('actor', 'A human actor with the exact I4 capability is required.');
         }
     }
@@ -779,7 +779,7 @@ final class FieldDefinitionGovernanceService
 
     private function assertFingerprint(string $stored, string $provided): void
     {
-        if (! hash_equals($stored, $provided)) {
+        if (hash_equals($stored, $provided) === false) {
             $this->reject('idempotency_key', 'The idempotency key was reused with different command content.');
         }
     }
@@ -789,7 +789,7 @@ final class FieldDefinitionGovernanceService
         if ($value === null || $value === '') {
             return null;
         }
-        if (! is_string($value)) {
+        if (is_string($value) === false) {
             return null;
         }
         try {
