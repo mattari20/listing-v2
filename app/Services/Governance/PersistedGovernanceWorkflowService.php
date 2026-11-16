@@ -352,6 +352,129 @@ final class PersistedGovernanceWorkflowService
         });
     }
 
+    public function reinstateWithdrawnClaimVersion(
+        array $actor,
+        string $priorVersionId,
+        mixed $value,
+        array $evidenceReferenceIds,
+        string $validFrom,
+        ?string $validTo,
+        string $reasonCode,
+        string $rationale,
+        string $idempotencyKey,
+        string $fieldDefinitionVersionId
+    ): string {
+        $this->requireActor($actor, 'correct_claim');
+        if (($actor['actor_class'] ?? null) !== 'human') {
+            $this->reject('actor', 'Claim reinstatement requires a human actor.');
+        }
+
+        $validFrom = $this->normalizeEffectiveDate($validFrom);
+        $validTo = $validTo === null ? null : $this->normalizeEffectiveDate($validTo);
+        if ($validTo !== null && $validTo < $validFrom) {
+            $this->reject('validity', 'The reinstatement end date cannot precede its start date.');
+        }
+        if ($value === [] || $evidenceReferenceIds === [] || trim($reasonCode) === '' ||
+            trim($rationale) === '' || trim($idempotencyKey) === '' || trim($fieldDefinitionVersionId) === '') {
+            $this->reject('reinstatement', 'A value, fresh supporting evidence, reason, rationale, exact field binding and idempotency key are required.');
+        }
+
+        $evidenceReferenceIds = array_values(array_unique($evidenceReferenceIds));
+        $fingerprint = hash('sha256', json_encode([
+            'prior_version_id' => $priorVersionId,
+            'value' => $value,
+            'evidence_reference_ids' => $evidenceReferenceIds,
+            'valid_from' => $validFrom,
+            'valid_to' => $validTo,
+            'reason_code' => $reasonCode,
+            'rationale' => $rationale,
+            'field_definition_version_id' => $fieldDefinitionVersionId,
+        ], JSON_THROW_ON_ERROR));
+
+        return DB::transaction(function () use (
+            $actor, $priorVersionId, $value, $evidenceReferenceIds, $validFrom, $validTo,
+            $reasonCode, $rationale, $idempotencyKey, $fieldDefinitionVersionId, $fingerprint
+        ): string {
+            $priorAuditEvents = DB::table('audit_events')
+                ->where('target_type', 'claim_version')
+                ->where('action', 'claim_version_reinstated')
+                ->get();
+            foreach ($priorAuditEvents as $event) {
+                $metadata = json_decode((string) $event->metadata, true) ?: [];
+                if (($metadata['idempotency_key'] ?? null) === $idempotencyKey) {
+                    if (($metadata['fingerprint'] ?? null) !== $fingerprint ||
+                        ($metadata['actor_id'] ?? null) !== $actor['actor_id']) {
+                        $this->reject('idempotency_key', 'Reinstatement idempotency key was reused for a different command.');
+                    }
+
+                    return (string) $metadata['new_version_id'];
+                }
+            }
+
+            $prior = DB::table('claim_versions')->where('id', $priorVersionId)->lockForUpdate()->first();
+            if ($prior === null || $prior->disposition !== 'withdrawn' ||
+                $prior->field_definition_version_id !== $fieldDefinitionVersionId) {
+                $this->reject('claim_version', 'Reinstatement requires a withdrawn registry-bound version and its exact original definition binding.');
+            }
+            if (DB::table('claim_versions')->where('supersedes_version_id', $priorVersionId)->exists()) {
+                $this->reject('claim_version', 'A withdrawn version with an existing successor cannot be reinstated again.');
+            }
+
+            $evidenceRows = DB::table('evidence_references')
+                ->whereIn('id', $evidenceReferenceIds)
+                ->lockForUpdate()
+                ->get(['id', 'status']);
+            if ($evidenceRows->count() !== count($evidenceReferenceIds) ||
+                (new GovernancePolicy)->canAcceptClaim($evidenceRows->pluck('status')->all()) === false) {
+                $this->reject('evidence', 'Every reinstatement evidence reference must exist and be eligible for review.');
+            }
+
+            $newVersionId = (string) Str::uuid();
+            $nextVersion = (int) DB::table('claim_versions')->where('claim_id', $prior->claim_id)->max('version_number') + 1;
+            $now = now();
+            DB::table('claim_versions')->insert([
+                'id' => $newVersionId,
+                'claim_id' => $prior->claim_id,
+                'field_definition_version_id' => $fieldDefinitionVersionId,
+                'version_number' => $nextVersion,
+                'value' => json_encode($value, JSON_THROW_ON_ERROR),
+                'valid_from' => $validFrom,
+                'valid_to' => $validTo,
+                'recorded_at' => $now,
+                'disposition' => 'proposed',
+                'supersedes_version_id' => $priorVersionId,
+                'correction_reason' => $reasonCode,
+                'created_at' => $now,
+                'updated_at' => $now,
+            ]);
+
+            foreach ($evidenceReferenceIds as $evidenceId) {
+                DB::table('claim_evidence_links')->insert([
+                    'id' => (string) Str::uuid(),
+                    'claim_version_id' => $newVersionId,
+                    'evidence_reference_id' => $evidenceId,
+                    'relationship_type' => 'reinstatement_support',
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]);
+            }
+
+            $this->audit($actor, 'claim_version_reinstated', 'claim_version', $priorVersionId, $reasonCode, [
+                'prior_version_id' => $priorVersionId,
+                'new_version_id' => $newVersionId,
+                'version_number' => $nextVersion,
+                'field_definition_version_id' => $fieldDefinitionVersionId,
+                'valid_from' => $validFrom,
+                'valid_to' => $validTo,
+                'rationale' => $rationale,
+                'idempotency_key' => $idempotencyKey,
+                'fingerprint' => $fingerprint,
+            ]);
+
+            return $newVersionId;
+        });
+    }
+
     public function authorizePublication(array $actor, string $claimVersionId, string $adjudicationDecisionId, string $surface, string $audience, string $policyVersion, string $idempotencyKey): string
     {
         $this->requireActor($actor, 'authorize_publication');
