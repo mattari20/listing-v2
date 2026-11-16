@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-16 — M3-03 accepted and closed; M3-04 P01–P04, M3-05 and M3-06 complete for bounded synthetic local/CI scope; M3-07 I1-I5 bounded synthetic/local/CI packages delivered; I6 deterministic synthetic adapter implemented, validated and merged in PR #220; live AI Data-Agent/source activation remains gated
+**Last reconciled:** 2026-11-16 — M3-03 accepted and closed; M3-04 P01–P04, M3-05 and M3-06 complete for bounded synthetic local/CI scope; M3-07 I1-I6 bounded synthetic/local/CI packages delivered; I7 full regression/hardening tests implemented, exact-head validated and merged in PRs #224–#225; live AI Data-Agent/source activation remains gated
 
 ## Purpose and maintenance rule
 
@@ -1011,7 +1011,7 @@ R2 does not grant source access, reuse permission, model activation, external AP
 | [M3-07 D2 Field Registry Storage Decision](M3-07_D2_FIELD_REGISTRY_STORAGE_DECISION.md) | Normalized registry storage, claim reuse, migration/compatibility, indexing and transaction invariants | Design baseline; I1 persistence and I3 binding delivered in bounded scope |
 | [M3-07 D3 Field-aware Claim Service Boundary](M3-07_D3_FIELD_AWARE_CLAIM_SERVICE_BOUNDARY.md) | Single governed write path, bypass prevention, actor capabilities, correction/withdrawal and profile boundaries | Design baseline; I3 proposal path delivered in bounded scope |
 | [M3-07 D4 Synthetic Extensible-Institution Pilot](M3-07_D4_SYNTHETIC_EXTENSIBLE_INSTITUTION_PILOT_SPECIFICATION.md) | Fictional fixtures and synthetic lifecycle, validation, conflict, privacy and publication scenarios | Synthetic test-design baseline; real data/source access excluded |
-| [M3-07 D5 Implementation Readiness and Bounded Authorization Proposal](M3-07_D5_IMPLEMENTATION_READINESS_AND_BOUNDED_AUTHORIZATION_PROPOSAL.md) | Initial I1 boundary, migration/test safeguards and staged-package authorization model | Reconciled with merged I1-I3; I4-I7 separately gated |
+| [M3-07 D5 Implementation Readiness and Bounded Authorization Proposal](M3-07_D5_IMPLEMENTATION_READINESS_AND_BOUNDED_AUTHORIZATION_PROPOSAL.md) | Initial I1 boundary, migration/test safeguards and staged-package authorization model | Reconciled with merged I1-I3; I4-I6 separately gated; I7 test-only package delivered and closed |
 | [M3-07 R3 Source-Rights and Model-Feasibility Reconciliation](M3-07_R3_SOURCE_RIGHTS_AND_MODEL_FEASIBILITY_RECONCILIATION.md) | R1/R2 source/model gate disposition and I1-I3 delivery evidence | Complete as no-activation reconciliation; G2-G7 remain blocked |
 
 
@@ -1033,10 +1033,11 @@ R2 does not grant source access, reuse permission, model activation, external AP
 | [I5 Value Correction, Withdrawal and Profile Integration Implementation Record](M3-07_I5_IMPLEMENTATION_RECORD.md) | Records I5-A correction, I5-B withdrawal/reinstatement, I5-C registry-aware profiles, exact-head CI, synthetic acceptance evidence and safety boundaries | Delivered, merged and CI validated in PRs #213–#216; I5 closed as bounded synthetic/local/CI scope |
 
 ## M3-07 I7 — Full Regression and Hardening
+| [I7 Full Regression and Hardening Implementation Record](M3-07_I7_IMPLEMENTATION_RECORD.md) | Records synthetic-only adversarial/public-output tests, I6 agent boundary tests, 11-migration disposable-SQLite rollback/reinstall, independent-connection uniqueness/writer-lock checks, deterministic query-count comparison, exact-head CI and open concurrency limitations | Implemented, validated and merged in PRs #224–#225; 15 tests, 761 assertions; I7 closed for approved synthetic/local/CI scope |
 
 | Artifact | Purpose | Status |
 |---|---|---|
-| [I7 Full Regression and Hardening Preflight](M3-07_I7_FULL_REGRESSION_HARDENING_PREFLIGHT.md) | Canonical D5 I7 scope, current I1-I6 test coverage map, adversarial/concurrency/migration/rollback/privacy/performance/regression workstreams, test-only file boundary, 13 acceptance gates and separate owner authorization template | Scope/design preflight complete and merged in PR #222; exact-head CI passed; test implementation not authorized / not started |
+| [I7 Full Regression and Hardening Preflight](M3-07_I7_FULL_REGRESSION_HARDENING_PREFLIGHT.md) | Canonical D5 I7 scope, I1-I6 coverage map, adversarial/concurrency/migration/rollback/privacy/performance workstreams, test-only boundary and 13 acceptance gates | Preflight merged in PR #222; subsequent test-only implementation completed and merged in PRs #224–#225; exact-head CI passed |
 
 ## M3-07 I6 — Synthetic Agent Proposal Adapter
 
