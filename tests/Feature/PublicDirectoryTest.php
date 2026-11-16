@@ -592,4 +592,82 @@ final class PublicDirectoryTest extends TestCase
     {
         return ['actor_id' => $id, 'actor_class' => 'human', 'capabilities' => $capabilities];
     }
+
+    public function test_public_html_is_escaped_and_hostile_registry_metadata_or_values_are_excluded(): void
+    {
+        $entity = $this->createEntity();
+        $this->publishFact($entity, 'display_name', '<script>alert("synthetic")</script>');
+
+        $hostileLabelVersion = $this->registryDefinition('institution_hostile_label');
+        DB::table('field_definition_versions')->where('id', $hostileLabelVersion)->update([
+            'presentation_metadata' => json_encode([
+                'section_key' => 'additional_information',
+                'public_label' => '<img src=x onerror=alert(1)>Unsafe public label',
+            ], JSON_THROW_ON_ERROR),
+        ]);
+        $this->publishFact($entity, 'institution_hostile_label', 'Hostile registry value', '2026-11-13 10:00:00', $hostileLabelVersion);
+
+        $hostileTextVersion = $this->registryDefinition(
+            'institution_hostile_long_text',
+            [],
+            'public_eligible',
+            'public_eligible',
+            'long_text'
+        );
+        $this->publishFact(
+            $entity,
+            'institution_hostile_long_text',
+            '<script>alert("payload")</script>',
+            '2026-11-13 10:00:00',
+            $hostileTextVersion
+        );
+
+        $html = $this->get('/directory/'.$entity)->assertOk()->getContent();
+
+        $this->assertStringContainsString('&lt;script&gt;alert', $html);
+        $this->assertStringNotContainsString('<script>alert("synthetic")</script>', $html);
+        $this->assertStringNotContainsString('Unsafe public label', $html);
+        $this->assertStringNotContainsString('Hostile registry value', $html);
+        $this->assertStringNotContainsString('<script>alert("payload")</script>', $html);
+    }
+
+    public function test_public_directory_query_count_is_constant_as_synthetic_result_count_grows(): void
+    {
+        $first = $this->createEntity();
+        $this->publishFact($first, 'display_name', 'Synthetic Query Baseline Academy');
+
+        $recording = false;
+        $queryCount = 0;
+        DB::listen(static function ($query) use (&$recording, &$queryCount): void {
+            if ($recording) {
+                $queryCount++;
+            }
+        });
+
+        $measure = function () use (&$recording, &$queryCount): int {
+            $queryCount = 0;
+            $recording = true;
+            app(PublicDirectoryQueryService::class)->search();
+            $recording = false;
+
+            return $queryCount;
+        };
+
+        $baselineCount = $measure();
+        $this->assertGreaterThan(0, $baselineCount);
+
+        for ($index = 1; $index <= 4; $index++) {
+            $entity = $this->createEntity();
+            $this->publishFact($entity, 'display_name', 'Synthetic Query Academy '.$index);
+        }
+
+        $expandedCount = $measure();
+
+        $this->assertSame(
+            $baselineCount,
+            $expandedCount,
+            'The directory query count should remain bounded as the synthetic result set grows.'
+        );
+    }
+
 }
