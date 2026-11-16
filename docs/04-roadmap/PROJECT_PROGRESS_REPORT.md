@@ -3,8 +3,10 @@
 ## Latest verified position — M3-07 I7 scope/design preflight (2026-11-16)
 
 **Preflight base:** main 1b4b58442807336bcf9905722b2a59a7a36606c1.  
+**Preflight PR:** [#222](https://github.com/mattari20/listing-v2/pull/222), merged as `beaf5598fcfb21320023ae063c6b1d1a6e03a290`.  
+**Exact PR head:** `65276ffb6a483689e4974517479f67386ca7f952`.  
 **Canonical agenda:** I7 — Full Regression and Hardening (D5 staged plan).  
-**Status:** Scope/design preflight complete; test implementation not authorized / not started.
+**Status:** Scope/design preflight complete and merged; test implementation not authorized / not started.
 
 I7 is test-only and covers adversarial, concurrency, migration, rollback, privacy, performance and I1-I6 regression. It does not add search/profile functionality; I5 already delivered registry-aware public profiles and projection integration.
 
@@ -12,7 +14,7 @@ The preflight reviewed 19 test source files, 10 migration files and both existin
 
 Remaining hardening opportunities are systematic adversarial payload/redaction tests, multi-connection contention evidence, complete disposable-SQLite migration rollback/reinstall, cross-phase no-side-effect assertions and deterministic query-count performance baselines. SQLite in-memory CI cannot prove other database engines' row-lock behavior; unsupported concurrency claims must remain open.
 
-See [I7 Full Regression and Hardening Preflight](M3-07_I7_FULL_REGRESSION_HARDENING_PREFLIGHT.md) for the exact test/documentation boundary, 13 acceptance gates, stop conditions and authorization statement. No test code, application code, migration, schema, dependency, PHPUnit configuration or CI workflow has been changed. G2-G9 remain blocking for live source access and live model/agent activation.
+Exact-head FND-01 PHP 8.5 CI #43844490560 and Project documentation validation #43844490593 passed; suite output 15 passed, 688 assertions and 164 existing missing-local-.env warnings. See [I7 Full Regression and Hardening Preflight](M3-07_I7_FULL_REGRESSION_HARDENING_PREFLIGHT.md) for the exact test/documentation boundary, 13 acceptance gates, stop conditions and authorization statement. No test code, application code, migration, schema, dependency, PHPUnit configuration or CI workflow has been changed. G2-G9 remain blocking for live source access and live model/agent activation.
 
 
 **As of:** 2026-11-16  
@@ -54,7 +56,7 @@ No migrations, schema changes, backfills, dependencies, Composer changes, routes
 
 **I6 Implementation Record:** `M3-07_I6_IMPLEMENTATION_RECORD.md` records the full scope, files, tests, CI evidence and limitations.
 
-**Closeout:** PR #220 is merged and `main` is verified at `8acf05082187f854597aa6dd2d852d64e01e5581`. The I6 Implementation Record captures the final PR head, merge SHA, exact-head checks and scope limitations. **Next agenda:** I7 scope/design preflight is now complete under D5's test-only definition; test implementation requires separate explicit Product Owner authorization. G2-G9 continue to block live source access and live agent/model activation.
+**Closeout:** PR #220 is merged and `main` is verified at `8acf05082187f854597aa6dd2d852d64e01e5581`. The I6 Implementation Record captures the final PR head, merge SHA, exact-head checks and scope limitations. **Next agenda:** I7 scope/design preflight is complete and merged in PR #222 under D5's test-only definition; test implementation requires separate explicit Product Owner authorization. G2-G9 continue to block live source access and live agent/model activation.
 \n## Latest verified position — M3-07 readiness review (2026-11-14)
 
 **Latest main commit:** `1f4298f9136771f3b2ff6c8008d07b58a1113724` (M3-07 readiness PR #195).  
