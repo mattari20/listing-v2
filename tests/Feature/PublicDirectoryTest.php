@@ -35,6 +35,7 @@ final class PublicDirectoryTest extends TestCase
             ->assertDontSee('This private note')
             ->assertDontSee('Synthetic Internal Label');
     }
+
     public function test_category_filter_and_facets_are_derived_from_eligible_public_entities(): void
     {
         $institution = $this->createEntity('institution');
@@ -361,6 +362,7 @@ final class PublicDirectoryTest extends TestCase
     }
 
     /** @return array{version_id: string, evidence_id: string, authorization_id: string, snapshot_id: string} */
+
     private function publishFact(string $entityId, string $predicate, mixed $value, ?string $observedAt = '2026-11-13 10:00:00', ?string $fieldDefinitionVersionId = null): array
     {
         $now = now();
