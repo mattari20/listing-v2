@@ -24,6 +24,9 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [Data Rights and Provenance](02-data-strategy/DATA_RIGHTS_AND_PROVENANCE.md)
 - [M1 Source Rights, Access and Provenance Evidence Register](03-research/M1_SOURCE_RIGHTS_ACCESS_EVIDENCE_REGISTER.md)
 
+## Roadmap and implementation records
+- [M3-09 Quality and Operational Hardening](04-roadmap/M3-09_QUALITY_OPERATIONAL_HARDENING_RECORD.md)
+
 ## Documentation tracking
 - [Documentation Completion Catalogue](04-roadmap/DOCUMENTATION_CATALOG.md) — owner-facing list of delivered, reviewed, accepted and planned documents; updated after every documentation PR update and merge.
 
