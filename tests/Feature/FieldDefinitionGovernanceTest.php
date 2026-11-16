@@ -345,6 +345,7 @@ class FieldDefinitionGovernanceTest extends TestCase
     private function proposed(?array $definition = null, string $fieldKey = 'institution_test_field'): array
     {
         $definition ??= $this->definition($fieldKey);
+        $definition['field_key'] = $fieldKey;
         $versionId = app(FieldDefinitionGovernanceService::class)->propose(
             $this->actor('proposer', ['propose_field_definition']),
             $definition, 'synthetic_new_field', 'Create synthetic definition for tests.',
