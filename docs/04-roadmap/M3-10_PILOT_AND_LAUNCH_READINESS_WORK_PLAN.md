@@ -191,3 +191,10 @@ If the owner chooses not to authorize human participants or real data, the agend
 - [M3-07 D4 Synthetic Extensible-Institution Pilot Specification](M3-07_D4_SYNTHETIC_EXTENSIBLE_INSTITUTION_PILOT_SPECIFICATION.md)
 - [M3-08C/D Synthetic Moderation, Appeals and Privacy/Security Record](M3-08C_D_IMPLEMENTATION_RECORD.md)
 - [M3-09 Quality and Operational Hardening Record](M3-09_QUALITY_OPERATIONAL_HARDENING_RECORD.md)
+
+
+## 14. Initial readiness framework delivery evidence
+
+Readiness framework PR [#240](https://github.com/mattari20/listing-v2/pull/240) merged as `d733bca59e5cb519f0a3d74231145ee24d298ed4` from exact validated head `9248721ef7e50c0d68693c64a822866acc86d592`. FND-01 PHP 8.5 CI [#43893286963](https://github.com/mattari20/listing-v2/actions/runs/43893286963) and Project documentation validation [#43893048895](https://github.com/mattari20/listing-v2/actions/runs/43893048895) passed on that head. The full synthetic suite remained 15 passed / 953 assertions / 205 existing non-fatal missing-local-`.env` diagnostics; no `.env` was created. Post-merge documentation validation [#43893419189](https://github.com/mattari20/listing-v2/actions/runs/43893419189) passed on the merge commit.
+
+This merge records delivery of the M3-10 readiness plan only. It does not record approval or execution of a pilot, participant protocol, real-data scope, hosted preview, production deployment, public UGC/reviews/moderation or launch. The M3-10 status remains IN PROGRESS and M3-11 remains separately gated.

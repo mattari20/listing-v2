@@ -4,7 +4,7 @@
 **Current agenda:** M3-10 — Pilot and Launch Readiness  
 **Status:** IN PROGRESS — readiness planning and synthetic-only local/CI/tabletop work only  
 **Baseline main:** `60690f56ac1776a8320e5dffc70adf961b0219ca`  
-**Authorization:** Product Owner explicitly authorized moving into M3-10 on 2026-11-16.
+**Authorization:** Product Owner explicitly authorized moving into M3-10 on 2026-11-16. The readiness framework PR [#240](https://github.com/mattari20/listing-v2/pull/240) merged as `d733bca59e5cb519f0a3d74231145ee24d298ed4` from exact head `9248721ef7e50c0d68693c64a822866acc86d592`; FND-01 CI #43893286963 and docs validation #43893048895 passed; post-merge docs validation #43893419189 passed.
 
 The [M3-10 Pilot and Launch Readiness Work Plan](M3-10_PILOT_AND_LAUNCH_READINESS_WORK_PLAN.md) defines six packages: pilot charter/scope; participant eligibility and safeguarding; data/source/privacy; support/moderation/operational ownership; incident/recovery/rollback; and pilot acceptance/go/no-go evidence.
 
