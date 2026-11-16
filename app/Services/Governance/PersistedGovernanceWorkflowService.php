@@ -240,7 +240,12 @@ final class PersistedGovernanceWorkflowService
 
             $snapshots = DB::table('publication_snapshots')->where('claim_version_id', $claimVersionId)->get(['id', 'status']);
             foreach ($snapshots as $snapshot) {
-                if ($snapshot->status !== 'suppressed') {
+                $hasActiveSuppression = DB::table('publication_suppressions')
+                    ->where('publication_snapshot_id', $snapshot->id)
+                    ->where('status', 'active')
+                    ->exists();
+
+                if ($hasActiveSuppression === false) {
                     $suppressionId = (string) Str::uuid();
                     DB::table('publication_suppressions')->insert([
                         'id' => $suppressionId,
@@ -254,13 +259,6 @@ final class PersistedGovernanceWorkflowService
                         'created_at' => $now,
                         'updated_at' => $now,
                     ]);
-                    DB::table('publication_snapshots')->where('id', $snapshot->id)->update([
-                        'status' => 'suppressed',
-                    ]);
-                    DB::table('public_projections')->where('publication_snapshot_id', $snapshot->id)->update([
-                        'status' => 'suppressed',
-                        'updated_at' => $now,
-                    ]);
                     $this->audit($actor, 'publication_suppressed', 'publication_suppression', $suppressionId, $reasonCode, [
                         'snapshot_id' => (string) $snapshot->id,
                         'claim_withdrawal' => true,
@@ -270,9 +268,79 @@ final class PersistedGovernanceWorkflowService
                         'publication_snapshot',
                         (string) $snapshot->id,
                         ['snapshot_id' => (string) $snapshot->id, 'withdrawn_claim_version_id' => $claimVersionId],
-                        'claim-withdrawal:'.$idempotencyKey.':'.$snapshot->id,
+                        'claim-withdrawal:'.hash('sha256', $idempotencyKey.':'.$snapshot->id),
                     );
                 }
+
+                DB::table('publication_snapshots')->where('id', $snapshot->id)->update(['status' => 'suppressed']);
+                DB::table('public_projections')->where('publication_snapshot_id', $snapshot->id)->update([
+                    'status' => 'suppressed',
+                    'updated_at' => $now,
+                ]);
+            }
+
+            $editorialCases = DB::table('editorial_review_cases')
+                ->where('claim_version_id', $claimVersionId)
+                ->lockForUpdate()
+                ->get();
+            foreach ($editorialCases as $editorialCase) {
+                if ($editorialCase->status === 'withdrawn') {
+                    continue;
+                }
+
+                $historyKey = 'editorial-withdrawal:'.hash('sha256', $idempotencyKey.':'.$editorialCase->id);
+                $historyFingerprint = hash('sha256', json_encode([
+                    'claim_version_id' => $claimVersionId,
+                    'editorial_review_case_id' => $editorialCase->id,
+                    'previous_status' => $editorialCase->status,
+                    'new_status' => 'withdrawn',
+                    'actor_id' => $actor['actor_id'],
+                    'reason_code' => $reasonCode,
+                ], JSON_THROW_ON_ERROR));
+
+                DB::table('editorial_review_cases')->where('id', $editorialCase->id)->update([
+                    'status' => 'withdrawn',
+                    'updated_at' => $now,
+                ]);
+                DB::table('directory_status_history')->insert([
+                    'id' => (string) Str::uuid(),
+                    'entity_id' => $editorialCase->entity_id,
+                    'claim_version_id' => $claimVersionId,
+                    'editorial_review_case_id' => $editorialCase->id,
+                    'event_type' => 'claim_withdrawn',
+                    'previous_status' => $editorialCase->status,
+                    'new_status' => 'withdrawn',
+                    'actor_id' => $actor['actor_id'],
+                    'actor_class' => $actor['actor_class'],
+                    'reason_code' => $reasonCode,
+                    'idempotency_key' => $historyKey,
+                    'fingerprint' => $historyFingerprint,
+                    'metadata' => json_encode([
+                        'withdrawal_idempotency_key' => $idempotencyKey,
+                        'claim_version_id' => $claimVersionId,
+                    ], JSON_THROW_ON_ERROR),
+                    'occurred_at' => $now,
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]);
+                DB::table('audit_events')->insert([
+                    'id' => (string) Str::uuid(),
+                    'actor_class' => $actor['actor_class'],
+                    'action' => 'directory_editorial_claim_withdrawn',
+                    'target_type' => 'editorial_review_case',
+                    'target_id' => $editorialCase->id,
+                    'reason_code' => $reasonCode,
+                    'occurred_at' => $now,
+                    'metadata' => json_encode([
+                        'actor_id' => $actor['actor_id'],
+                        'claim_version_id' => $claimVersionId,
+                        'previous_status' => $editorialCase->status,
+                        'new_status' => 'withdrawn',
+                        'idempotency_key' => $historyKey,
+                    ], JSON_THROW_ON_ERROR),
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]);
             }
 
             $this->audit($actor, 'claim_version_withdrawn', 'claim_version', $claimVersionId, $reasonCode, [
