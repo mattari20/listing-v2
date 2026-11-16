@@ -35,6 +35,7 @@ No UI, public route/API, real role provisioning, claim-value changes, projection
 - Approval requires an independent human distinct from proposer and reviewer. Activation is a separate command by a human distinct from proposer and approver.
 - Only one active version per stable field key is permitted. Activation locks the parent field identity before checking the active version.
 - Changes-requested edits are restricted to the original proposer while the version remains proposed; the stable key cannot change. The case is resubmitted and reviewer assignment is cleared.
+- Deprecation effective boundaries are parsed and compared as date values; the future-effective fixture uses a normalized timestamp to avoid string/object comparison ambiguity.
 - Approved semantic content cannot be edited through the service. Semantic changes require a successor version.
 - Deprecation and retirement make a definition unavailable to I3's active-only reader. Retirement preserves all existing claims and claim-version history.
 - Restoration creates a new monotonically numbered version and a new review case; it never reactivates a retired version in place.
