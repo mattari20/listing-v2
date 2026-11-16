@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
-use App\Services\Directory\AgentFieldProposalSubmissionService;
 use App\Services\Directory\EditorialReviewService;
 use App\Services\Directory\FieldAwareClaimProposalService;
 use App\Services\Directory\ProviderCategoryAssignmentService;
