@@ -629,7 +629,7 @@ final class PublicDirectoryTest extends TestCase
             'public_eligible',
             'long_text'
         );
-        $controlText = "synthetic\\0control";
+        $controlText = "synthetic\0control";
         $this->publishFact($entity, 'institution_control_text', $controlText, '2026-11-13 10:00:00', $controlTextVersion);
 
         $oversizedTextVersion = $this->registryDefinition(
