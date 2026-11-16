@@ -427,8 +427,12 @@ The I4 bounded implementation proposal is prepared in [M3-07 I4 Field Definition
 **Authorization received 2026-11-16:** the Product Owner explicitly authorized the exact bounded I4 scope. Implementation is underway on branch `feature/m3-07-i4-field-definition-governance`. The I4 implementation record documents the two review tables, human-only lifecycle service, audit/outbox integrity checks and synthetic tests. I5-I7 remain separately gated.
 
 
-## M3-07 I4 implementation — 2026-11-16
+## M3-07 I4 implementation closeout — 2026-11-16
 
-The Product Owner authorized I4 exactly as scoped in the proposal. Implementation is in branch `feature/m3-07-i4-field-definition-governance`. The implementation adds only the two definition-review workflow tables, the bounded human-governed lifecycle service, integrity validation for identifier-only I4 outbox events and synthetic feature tests. See [I4 Implementation Record](M3-07_I4_FIELD_DEFINITION_GOVERNANCE_IMPLEMENTATION_RECORD.md). Exact-head CI and review are pending; do not mark I4 accepted until both pass.
+The Product Owner authorized I4 exactly as scoped in the proposal. I4 was delivered and merged through PR [#210](https://github.com/mattari20/listing-v2/pull/210) as `88345f0cfaea66bbdd841b0c18222b83307efac3`. The implementation adds only the two definition-review workflow tables, the bounded human-governed lifecycle service, integrity validation for identifier-only I4 outbox events and synthetic feature tests.
 
-I4 does not authorize I5-I7, live sources, external AI/model/provider, connectors/schedulers, production/V1/Hostinger, deployment or spend. G2-G9 remain blocking for source access and live agent activation.
+Exact-head `fd16bc469fd38121b5479c0dbfecdad03fe1cb9a` passed Project documentation validation #43819885652 and PHP 8.5 FND-01 foundation CI #43819885671. The synthetic suite had zero failures and 593 assertions, with 148 non-fatal warnings from the intentionally absent local `.env` test-harness reads. See [I4 Implementation Record](M3-07_I4_FIELD_DEFINITION_GOVERNANCE_IMPLEMENTATION_RECORD.md). I4 delivery is complete; separate Product Owner acceptance remains pending.
+
+**Next agenda:** I5 — Value Correction, Withdrawal and Profile Integration — scope/design preflight only. I5 implementation requires a separate explicit owner authorization. I5 must not be used to alter real claims or public projections until its exact boundary is separately approved. I6-I7 remain separately gated.
+
+I4 does not authorize live sources, external AI/model/provider, connectors/schedulers, production/V1/Hostinger, deployment or spend. G2-G9 remain blocking for source access and live agent activation.
