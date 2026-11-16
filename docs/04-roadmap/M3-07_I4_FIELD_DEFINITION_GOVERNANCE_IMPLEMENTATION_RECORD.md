@@ -61,16 +61,27 @@ The feature suite currently contains 17 I4 test methods covering:
 
 The exact-head CI run will establish actual pass/fail and assertion totals. Any failure will be diagnosed and corrected only within this approved I4 scope.
 
-## 5. Validation and merge evidence
+## 5. Exact-head validation — 2026-11-16
 
-Pending at record creation:
-- Project documentation validation;
-- PHP 8.5 FND-01 foundation CI;
-- migration up/down on disposable CI SQLite;
-- PHP formatting, dependency audit, Laravel bootstrap/routes, full synthetic suite and artifact hygiene;
-- review-thread check and exact-head reconciliation.
+Validated exact head: `1afd42adc9963ca81f6ab54966f34f5debe58e98`.
 
-Final run IDs, suite counts, warnings, merge SHA and acceptance status will be appended after exact-head CI/review.
+- Project documentation validation run #43819716922: **success**.
+- PHP 8.5 FND-01 foundation CI run #43819718160: **success**.
+- PHP 8.5.12 and Composer 2 toolchain checks passed.
+- Composer manifest validation and locked dependency audit passed; no security advisories found.
+- PHP formatting (Pint), Laravel bootstrap/routes and repository artifact hygiene passed.
+- Disposable SQLite migration/test path completed successfully.
+- Synthetic suite: **15 passed, zero failures, 593 assertions**. The runner also reported **148 non-fatal warnings**, all associated with existing test-harness reads of the intentionally absent local `.env`; no `.env` was created or committed.
+- I4 feature test file contains 17 lifecycle-focused methods; all completed without failures.
+- Review threads: none. Review submissions: none.
+
+The earlier failed exact-head run #43819303956 exposed the date parser import omission and deprecation comparison issue. Both were corrected within I4, and the final exact-head run above passed.
+
+## 6. Merge and acceptance
+
+PR #210 carries the complete I4 implementation and the narrow date correction; PR #209 is the superseded first implementation PR. The merge SHA and final main verification are recorded in the repository closeout after merge.
+
+I4 is ready for merge, subject to the final PR-head check and expected-head merge guard.
 
 ## 6. Non-interference
 
