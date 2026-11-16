@@ -179,3 +179,14 @@ Only synthetic tests under `tests/Feature/**` and `tests/Unit/**` plus I7 implem
 I7 verifies adversarial public/agent inputs, proposal-only and human-only governance, all 11 migrations on a disposable SQLite file through fresh install/full rollback/reinstall, SQLite independent-connection idempotency and writer-lock behavior, public privacy and Deeni Madaris default-OFF, and deterministic query-count equality for one versus five synthetic results. The SQLite tests do not prove simultaneous application service-command safety or other-engine row-lock semantics. See [I7 Implementation Record](M3-07_I7_IMPLEMENTATION_RECORD.md).
 
 **I7: IMPLEMENTED, VALIDATED AND MERGED for the approved synthetic/local/CI scope.** G2-G9 remain blocking for live source access and live agent activation. I7 does not authorize I8, live source/model activation, production or deployment.
+
+
+## 13. I8-A — Synthetic-only readiness and evaluation (2026-11-16)
+
+The Product Owner explicitly authorized I8-A. The bounded test addition independently evaluates eight source-authorization denial states against the existing fixed synthetic proposal adapter: research-only status, revocation, future validity, expiry, missing processing scope, purpose mismatch, method mismatch and territory mismatch. Every case must fail closed and produce no claim/version/editorial case/publication decision/public projection or successful proposal audit/outbox write.
+
+The detailed record is `M3-07_I8_SYNTHETIC_AGENT_READINESS_EVALUATION.md`; traceability is recorded in `IMPLEMENTATION_TRACEABILITY_MATRIX.md`. Existing I6 positive synthetic and human-review tests remain the positive governance control.
+
+I8-A is a deterministic policy-contract evaluation, not an LLM extraction benchmark. It does not establish precision/recall, hallucination rate, false entity merge rate or live-source readiness. No model/provider is selected or called. Candidate sources remain RESEARCH ONLY and G2-G9 remain conjunctive blockers.
+
+The implementation changes synthetic feature tests and I8/project documentation only. Exact-head focused test, full FND-01 PHP 8.5 suite, documentation validation and changed-file review are required before I8-A closeout. No source access, source-owner contact, permission request, external API/model, connector, scheduler, production/V1/Hostinger, deployment or additional spend is authorized.
