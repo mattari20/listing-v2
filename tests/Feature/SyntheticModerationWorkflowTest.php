@@ -190,6 +190,20 @@ final class SyntheticModerationWorkflowTest extends TestCase
         $this->assertFalse($authorization->allows($moderator, 'roles.manage', 'user', '1'));
     }
 
+    public function test_inactive_moderator_cannot_start_a_synthetic_case_review(): void
+    {
+        $reporter = $this->makeUser('inactive-reporter@example.test');
+        $moderator = $this->makeUser('inactive-moderator@example.test');
+        $this->assignModerator($moderator, 'inactive-scope');
+        $moderator->forceFill(['is_active' => false])->save();
+        $case = app(SyntheticModerationWorkflow::class)->createSyntheticCase(
+            $reporter, 'inactive-scope', 'spam', 'synthetic:inactive-001'
+        );
+
+        $this->expectException(AuthorizationException::class);
+        app(SyntheticModerationWorkflow::class)->startReview($moderator, $case);
+    }
+
     private function makeUser(string $email): User
     {
         return User::query()->create([
