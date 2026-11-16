@@ -244,131 +244,6 @@ class FieldAwareClaimProposalTest extends TestCase
         );
     }
 
-    private function fixture(string $assignedCategory = 'private_school'): array
-    {
-        $entityId = $this->entity();
-        app(ProviderCategoryAssignmentService::class)->assign(
-            $this->taxonomyActor(), $entityId, $assignedCategory, 'synthetic_assignment', 'category-'.$assignedCategory
-        );
-        $versionId = $this->definition(['private_school']);
-        $evidenceId = $this->evidence();
-
-        return [$entityId, $versionId, $evidenceId];
-    }
-
-    private function entity(): string
-    {
-        $id = (string) str()->uuid();
-        DB::table('directory_entities')->insert([
-            'id' => $id, 'entity_type' => 'institution', 'label' => 'Synthetic Institution',
-            'created_at' => now(), 'updated_at' => now(),
-        ]);
-
-        return $id;
-    }
-
-    private function definition(array $categories): string
-    {
-        $definitionId = (string) str()->uuid();
-        $versionId = (string) str()->uuid();
-        DB::table('field_definitions')->insert([
-            'id' => $definitionId, 'field_key' => 'institution_display_name',
-            'created_at' => now(), 'updated_at' => now(),
-        ]);
-        DB::table('field_definition_versions')->insert([
-            'id' => $versionId,
-            'field_definition_id' => $definitionId,
-            'version_number' => 1,
-            'lifecycle_state' => 'active',
-            'semantic_version' => '1.0.0',
-            'compatibility_class' => 'initial',
-            'value_type' => 'short_text',
-            'cardinality' => 'one',
-            'scope_key' => 'institution',
-            'privacy_class' => 'public_eligible',
-            'visibility_class' => 'public_eligible',
-            'searchable' => false,
-            'filterable' => false,
-            'sortable' => false,
-            'validation_schema' => json_encode(['schema_version' => 1, 'max_length' => 120], JSON_THROW_ON_ERROR),
-            'presentation_metadata' => json_encode(['section_key' => 'identity', 'label_key' => 'synthetic.display_name'], JSON_THROW_ON_ERROR),
-            'evidence_policy' => json_encode(['required' => true, 'accepted_reference_kinds' => ['synthetic_fixture']], JSON_THROW_ON_ERROR),
-            'freshness_policy' => json_encode(['class' => 'synthetic_test'], JSON_THROW_ON_ERROR),
-            'effective_from' => null,
-            'effective_to' => null,
-            'successor_field_definition_id' => null,
-            'proposed_by_actor_id' => 'synthetic-steward',
-            'rationale_reference' => 'SYN-I3-TEST',
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
-        DB::table('field_definition_version_entity_types')->insert([
-            'id' => (string) str()->uuid(), 'field_definition_version_id' => $versionId,
-            'entity_type' => 'institution', 'created_at' => now(), 'updated_at' => now(),
-        ]);
-        foreach ($categories as $category) {
-            DB::table('field_definition_version_provider_categories')->insert([
-                'id' => (string) str()->uuid(), 'field_definition_version_id' => $versionId,
-                'provider_category' => $category, 'created_at' => now(), 'updated_at' => now(),
-            ]);
-        }
-
-        return $versionId;
-    }
-
-    private function evidence(): string
-    {
-        $authorizationId = (string) str()->uuid();
-        $evidenceId = (string) str()->uuid();
-        $now = now();
-        DB::table('source_authorizations')->insert([
-            'id' => $authorizationId,
-            'source_family_id' => 'synthetic-family',
-            'status' => 'approved_for_defined_purpose_and_method',
-            'permitted_purposes' => json_encode(['synthetic_test_only'], JSON_THROW_ON_ERROR),
-            'permitted_methods' => json_encode(['fixture_reference'], JSON_THROW_ON_ERROR),
-            'territories' => json_encode(['synthetic'], JSON_THROW_ON_ERROR),
-            'permitted_scopes' => json_encode(['processing' => true], JSON_THROW_ON_ERROR),
-            'valid_from' => null, 'valid_to' => null, 'revoked_at' => null,
-            'revocation_reason' => null, 'created_at' => $now, 'updated_at' => $now,
-        ]);
-        DB::table('evidence_references')->insert([
-            'id' => $evidenceId,
-            'source_authorization_id' => $authorizationId,
-            'reference_kind' => 'synthetic_fixture',
-            'source_type' => 'synthetic',
-            'integrity_digest' => 'sha256:synthetic-fixture',
-            'status' => 'quarantined',
-            'content_included' => false,
-            'observed_at' => $now,
-            'recorded_at' => $now,
-            'created_at' => $now,
-            'updated_at' => $now,
-        ]);
-
-        return $evidenceId;
-    }
-
-    private function sourceContext(): array
-    {
-        return ['purpose' => 'synthetic_test_only', 'method' => 'fixture_reference', 'territory' => 'synthetic'];
-    }
-
-    private function taxonomyActor(): array
-    {
-        return $this->actor('synthetic-taxonomy-steward', ['assign_provider_category']);
-    }
-
-    private function proposalActor(): array
-    {
-        return $this->actor('synthetic-field-editor', ['propose_field_value', 'submit_directory_proposal']);
-    }
-
-    private function actor(string $id, array $capabilities, string $class = 'human'): array
-    {
-        return ['actor_id' => $id, 'actor_class' => $class, 'capabilities' => $capabilities];
-    }
-
     public function test_field_aware_correction_preserves_exact_binding_and_reenters_editorial_review_idempotently(): void
     {
         [$entityId, $definitionVersionId, $evidenceId] = $this->fixture();
@@ -579,5 +454,131 @@ class FieldAwareClaimProposalTest extends TestCase
         $this->assertSame(0, DB::table('publication_decisions')->count());
         $this->assertSame(0, DB::table('public_projections')->count());
     }
+
+    private function fixture(string $assignedCategory = 'private_school'): array
+    {
+        $entityId = $this->entity();
+        app(ProviderCategoryAssignmentService::class)->assign(
+            $this->taxonomyActor(), $entityId, $assignedCategory, 'synthetic_assignment', 'category-'.$assignedCategory
+        );
+        $versionId = $this->definition(['private_school']);
+        $evidenceId = $this->evidence();
+
+        return [$entityId, $versionId, $evidenceId];
+    }
+
+    private function entity(): string
+    {
+        $id = (string) str()->uuid();
+        DB::table('directory_entities')->insert([
+            'id' => $id, 'entity_type' => 'institution', 'label' => 'Synthetic Institution',
+            'created_at' => now(), 'updated_at' => now(),
+        ]);
+
+        return $id;
+    }
+
+    private function definition(array $categories): string
+    {
+        $definitionId = (string) str()->uuid();
+        $versionId = (string) str()->uuid();
+        DB::table('field_definitions')->insert([
+            'id' => $definitionId, 'field_key' => 'institution_display_name',
+            'created_at' => now(), 'updated_at' => now(),
+        ]);
+        DB::table('field_definition_versions')->insert([
+            'id' => $versionId,
+            'field_definition_id' => $definitionId,
+            'version_number' => 1,
+            'lifecycle_state' => 'active',
+            'semantic_version' => '1.0.0',
+            'compatibility_class' => 'initial',
+            'value_type' => 'short_text',
+            'cardinality' => 'one',
+            'scope_key' => 'institution',
+            'privacy_class' => 'public_eligible',
+            'visibility_class' => 'public_eligible',
+            'searchable' => false,
+            'filterable' => false,
+            'sortable' => false,
+            'validation_schema' => json_encode(['schema_version' => 1, 'max_length' => 120], JSON_THROW_ON_ERROR),
+            'presentation_metadata' => json_encode(['section_key' => 'identity', 'label_key' => 'synthetic.display_name'], JSON_THROW_ON_ERROR),
+            'evidence_policy' => json_encode(['required' => true, 'accepted_reference_kinds' => ['synthetic_fixture']], JSON_THROW_ON_ERROR),
+            'freshness_policy' => json_encode(['class' => 'synthetic_test'], JSON_THROW_ON_ERROR),
+            'effective_from' => null,
+            'effective_to' => null,
+            'successor_field_definition_id' => null,
+            'proposed_by_actor_id' => 'synthetic-steward',
+            'rationale_reference' => 'SYN-I3-TEST',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('field_definition_version_entity_types')->insert([
+            'id' => (string) str()->uuid(), 'field_definition_version_id' => $versionId,
+            'entity_type' => 'institution', 'created_at' => now(), 'updated_at' => now(),
+        ]);
+        foreach ($categories as $category) {
+            DB::table('field_definition_version_provider_categories')->insert([
+                'id' => (string) str()->uuid(), 'field_definition_version_id' => $versionId,
+                'provider_category' => $category, 'created_at' => now(), 'updated_at' => now(),
+            ]);
+        }
+
+        return $versionId;
+    }
+
+    private function evidence(): string
+    {
+        $authorizationId = (string) str()->uuid();
+        $evidenceId = (string) str()->uuid();
+        $now = now();
+        DB::table('source_authorizations')->insert([
+            'id' => $authorizationId,
+            'source_family_id' => 'synthetic-family',
+            'status' => 'approved_for_defined_purpose_and_method',
+            'permitted_purposes' => json_encode(['synthetic_test_only'], JSON_THROW_ON_ERROR),
+            'permitted_methods' => json_encode(['fixture_reference'], JSON_THROW_ON_ERROR),
+            'territories' => json_encode(['synthetic'], JSON_THROW_ON_ERROR),
+            'permitted_scopes' => json_encode(['processing' => true], JSON_THROW_ON_ERROR),
+            'valid_from' => null, 'valid_to' => null, 'revoked_at' => null,
+            'revocation_reason' => null, 'created_at' => $now, 'updated_at' => $now,
+        ]);
+        DB::table('evidence_references')->insert([
+            'id' => $evidenceId,
+            'source_authorization_id' => $authorizationId,
+            'reference_kind' => 'synthetic_fixture',
+            'source_type' => 'synthetic',
+            'integrity_digest' => 'sha256:synthetic-fixture',
+            'status' => 'quarantined',
+            'content_included' => false,
+            'observed_at' => $now,
+            'recorded_at' => $now,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+
+        return $evidenceId;
+    }
+
+    private function sourceContext(): array
+    {
+        return ['purpose' => 'synthetic_test_only', 'method' => 'fixture_reference', 'territory' => 'synthetic'];
+    }
+
+    private function taxonomyActor(): array
+    {
+        return $this->actor('synthetic-taxonomy-steward', ['assign_provider_category']);
+    }
+
+    private function proposalActor(): array
+    {
+        return $this->actor('synthetic-field-editor', ['propose_field_value', 'submit_directory_proposal']);
+    }
+
+    private function actor(string $id, array $capabilities, string $class = 'human'): array
+    {
+        return ['actor_id' => $id, 'actor_class' => $class, 'capabilities' => $capabilities];
+    }
+
 
 }
