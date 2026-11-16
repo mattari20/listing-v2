@@ -54,11 +54,12 @@ Added `tests/Feature/I7DisposableSqliteMigrationTest.php`:
 - creates a fresh disposable SQLite database file outside the repository;
 - runs all 11 migrations and verifies the expected core tables and SQLite foreign-key integrity;
 - opens a second independent PDO connection to the same disposable SQLite file and verifies the unique outbox idempotency key cannot be duplicated across those connections;
+- holds an immediate SQLite write transaction on the first connection, sets the peer connection's busy timeout to zero, and verifies the peer write is rejected with a database-lock error and leaves no row behind;
 - rolls back the complete migration batch, verifies the domain tables are absent and the migration ledger is empty;
 - re-runs all migrations and repeats the schema/foreign-key checks;
 - purges connections and removes the temporary database file in `finally`.
 
-The independent-connection assertion is a sequential uniqueness/constraint check. It is **not** evidence of simultaneous command contention, row-lock correctness or production-engine concurrency safety. No unsupported concurrency guarantee is claimed.
+The cross-connection checks cover SQLite's unique-key enforcement and deterministic database-level writer-lock contention. They do **not** exercise simultaneous application service commands, establish row-lock correctness for another database engine or prove production-engine concurrency safety. No unsupported concurrency guarantee is claimed.
 
 ## 4. Acceptance-gate disposition
 
@@ -69,7 +70,7 @@ The independent-connection assertion is a sequential uniqueness/constraint check
 | I7-AC-03 — adversarial/security inputs | Added hostile public output and agent binding tests; pending CI |
 | I7-AC-04 — proposal-only agent/human governance | Existing I6 tests retained; additional hostile binding test added; pending CI |
 | I7-AC-05 — idempotency and lineage | Existing I1-I6 idempotency/audit/outbox tests retained; SQLite cross-connection uniqueness added; pending CI |
-| I7-AC-06 — concurrency | **Partially evidenced only:** independent SQLite connections verify a unique-key constraint. Simultaneous service-command contention and other-engine row-lock semantics remain open |
+| I7-AC-06 — concurrency | **Supported SQLite checks pass:** independent connections verify unique-key enforcement and writer-lock contention. Simultaneous application service-command races and other-engine row-lock semantics remain open |
 | I7-AC-07 — disposable migration rollback/reinstall | Full 11-migration temporary-SQLite test added; pending CI |
 | I7-AC-08 — privacy/public projection/Deeni default-OFF | Existing tests retained; hostile output assertions added; pending CI |
 | I7-AC-09 — deterministic query-count regression | One-result versus five-result equality assertion added; pending CI. No wall-clock or scale guarantee |
@@ -80,7 +81,7 @@ The independent-connection assertion is a sequential uniqueness/constraint check
 
 ## 5. Known limitations and stop conditions
 
-- SQLite's independent-connection uniqueness check does not establish true concurrent service-command safety, row-lock semantics or cross-engine behavior. Those claims remain open.
+- SQLite's independent-connection checks establish unique-key enforcement and database-level writer-lock contention only. They do not establish simultaneous application service-command safety or row-lock semantics on another database engine. Those claims remain open.
 - The query-count test compares two deterministic synthetic fixture sizes on the configured test connection. It does not establish latency, throughput, memory or production-scale capacity.
 - Migration rollback/reinstall is scoped strictly to a temporary SQLite file. It is not evidence that rollback is safe against shared, staging, production or Hostinger databases.
 - If any new test fails because application behavior violates the expected invariant, do not edit `app/**`, migrations, Composer, PHPUnit configuration or workflows under I7. Preserve the failing reproduction and request separate corrective authorization.
