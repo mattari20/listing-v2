@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Branch:** `feature/m3-07-i4-field-definition-governance`  
 **Authorization:** Explicit owner authorization received 2026-11-16 for the exact scope in the I4 proposal  
-**Status:** Implementation prepared; exact-head validation pending
+**Status:** Merged and CI-validated; separate Product Owner acceptance pending
 
 ## 1. Authorized scope
 
@@ -59,14 +59,14 @@ The feature suite currently contains 17 I4 test methods covering:
 - outbox integrity failure and transactional rollback;
 - deprecation and retirement.
 
-The exact-head CI run will establish actual pass/fail and assertion totals. Any failure will be diagnosed and corrected only within this approved I4 scope.
+The exact-head CI results are recorded below. All 17 I4 lifecycle test methods completed without failures.
 
 ## 5. Exact-head validation — 2026-11-16
 
-Validated exact head: `1afd42adc9963ca81f6ab54966f34f5debe58e98`.
+Validated exact head: `fd16bc469fd38121b5479c0dbfecdad03fe1cb9a`.
 
-- Project documentation validation run #43819716922: **success**.
-- PHP 8.5 FND-01 foundation CI run #43819718160: **success**.
+- Project documentation validation run #43819885652: **success**.
+- PHP 8.5 FND-01 foundation CI run #43819885671: **success**.
 - PHP 8.5.12 and Composer 2 toolchain checks passed.
 - Composer manifest validation and locked dependency audit passed; no security advisories found.
 - PHP formatting (Pint), Laravel bootstrap/routes and repository artifact hygiene passed.
@@ -79,10 +79,10 @@ The earlier failed exact-head run #43819303956 exposed the date parser import om
 
 ## 6. Merge and acceptance
 
-PR #210 carries the complete I4 implementation and the narrow date correction; PR #209 is the superseded first implementation PR. The merge SHA and final main verification are recorded in the repository closeout after merge.
+PR [#210](https://github.com/mattari20/listing-v2/pull/210) was merged by expected-head squash merge as `88345f0cfaea66bbdd841b0c18222b83307efac3`. The earlier PR #209 was closed unmerged as superseded. The exact validated PR head was `fd16bc469fd38121b5479c0dbfecdad03fe1cb9a`.
 
-I4 is ready for merge, subject to the final PR-head check and expected-head merge guard.
+I4 implementation is **COMPLETED AND MERGED** for its bounded synthetic local/CI scope. Product Owner acceptance of the deliverable and residual risk remains a separate decision. I5 implementation has not started and requires separate authorization.
 
-## 6. Non-interference
+## 7. Non-interference
 
 No production/V1/Hostinger/hPanel, live database, real institution/provider/student/applicant/child/staff data, external source, model/provider, API, connector, crawler, scheduler, deployment or additional spend was accessed or used. The additive migration is tested only by the repository's disposable local/CI database workflow. I5-I7 remain separately gated.
