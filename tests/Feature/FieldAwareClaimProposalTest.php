@@ -461,6 +461,7 @@ class FieldAwareClaimProposalTest extends TestCase
             'Invalid typed value must be rejected.'
         );
     }
+
     public function test_withdrawal_acknowledges_stale_field_proposal_outbox_without_reactivating_review(): void
     {
         [$entityId, , $evidenceId] = $this->fixture();
