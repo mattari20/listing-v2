@@ -23,7 +23,8 @@ final class FieldAwareClaimCorrectionService
         private readonly TypedFieldValueValidator $validator,
         private readonly PersistedGovernanceWorkflowService $workflow,
         private readonly EditorialReviewService $editorial
-    ) {}
+    )
+    {}
 
     /**
      * @param list<string> $evidenceReferenceIds
