@@ -460,5 +460,5 @@ class SyntheticAgentProposalAdapterTest extends TestCase
         $this->assertSame(0, DB::table('publication_decisions')->count());
         $this->assertSame(0, DB::table('public_projections')->count());
 
-    }
+     }
 }
