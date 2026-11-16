@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-16 — M3-08 preflight PR #231 merged; M3-08A/B first-party session identity and scoped authorization implementation is in PR #232; exact-head FND-01 CI and documentation validation passed on `a09f17d4ef2a5e1e31a43c7735be2106db09e301`; merge pending; prior M3-07 live AI Data-Agent/source activation gates remain in force
+**Last reconciled:** 2026-11-16 — M3-08 preflight PR #231 merged; M3-08A/B first-party session identity and scoped authorization implementation is in PR #232; exact-head FND-01 CI and documentation validation passed on `2ab424882375a0c270b71d682dd97c9b32074222`; merge pending; prior M3-07 live AI Data-Agent/source activation gates remain in force
 
 ## Purpose and maintenance rule
 
@@ -150,9 +150,9 @@ PR [#160](https://github.com/mattari20/listing-v2/pull/160) is open at the time 
 
 | Artifact | Purpose | Status |
 |---|---|---|
-| [M3-08A/B Identity, Session Authentication and Scoped Authorization Implementation Record](M3-08A_B_IDENTITY_AUTHORIZATION_IMPLEMENTATION_RECORD.md) | Records owner-approved first-party session authentication, minimal account schema, scoped role authorization, privileged-action audit, synthetic tests and retained exclusions | Exact-head FND-01 CI and docs validation passed on `a09f17d4ef2a5e1e31a43c7735be2106db09e301`; PR #232 open, not merged |
+| [M3-08A/B Identity, Session Authentication and Scoped Authorization Implementation Record](M3-08A_B_IDENTITY_AUTHORIZATION_IMPLEMENTATION_RECORD.md) | Records owner-approved first-party session authentication, minimal account schema, scoped role authorization, privileged-action audit, synthetic tests and retained exclusions | Exact-head FND-01 CI and docs validation passed on `2ab424882375a0c270b71d682dd97c9b32074222`; PR #232 open, not merged |
 
-The M3-08 preflight documentation was merged in PR #231 as `4e453520b86fefc322a168de85f58d3cfddf18f1`; Project documentation validation and FND-01 foundation CI passed on its exact head. The subsequent M3-08A/B implementation branch passed exact-head FND-01 CI and documentation validation on `a09f17d4ef2a5e1e31a43c7735be2106db09e301`; PR #232 remains open and unmerged.
+The M3-08 preflight documentation was merged in PR #231 as `4e453520b86fefc322a168de85f58d3cfddf18f1`; Project documentation validation and FND-01 foundation CI passed on its exact head. The subsequent M3-08A/B implementation branch passed exact-head FND-01 CI and documentation validation on `2ab424882375a0c270b71d682dd97c9b32074222`; PR #232 remains open and unmerged.
 
 ## PR delivery history
 

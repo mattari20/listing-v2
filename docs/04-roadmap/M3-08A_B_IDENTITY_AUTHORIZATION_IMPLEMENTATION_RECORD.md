@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Base:** `4e453520b86fefc322a168de85f58d3cfddf18f1` (M3-08 preflight PR #231 merge)  
 **Branch:** `feat/m3-08a-identity-authz-foundation`  
-**Status:** Exact-head FND-01 CI and Project documentation validation passed on `a09f17d4ef2a5e1e31a43c7735be2106db09e301` (PR #232 head at validation). PR #232 remains open pending final merge. Not production-ready.  
+**Status:** Exact-head FND-01 CI and Project documentation validation passed on `2ab424882375a0c270b71d682dd97c9b32074222` (PR #232 head at validation). PR #232 remains open pending final merge. Not production-ready.  
 **Authority:** Product Owner explicitly approved the interim first-party Laravel session-authentication design and additive synthetic-only SQLite schema for users, role assignments and privileged-action audit records on 2026-11-16.
 
 ## 1. Authorized scope
@@ -92,12 +92,12 @@ Exact-head GitHub validation passed for commit `dd332743be3f3cd53939c5f03c8d6744
 | Locked dependency advisory audit | Passed; no advisories reported |
 | Pint formatting | Passed |
 | Laravel bootstrap and route listing | Passed |
-| Full synthetic PHPUnit suite | Passed — 15 passed, 856 assertions; 185 warnings remain from existing missing-`.env` test diagnostics |
+| Full synthetic PHPUnit suite | Passed — 15 passed, 863 assertions; 188 warnings remain from existing missing-`.env` test diagnostics |
 | Disposable SQLite migration rollback/reinstall | Passed as part of the full suite; 12 migrations and identity tables included |
 | Repository artifact hygiene | Passed; no `.env` or database artifact created/tracked |
 | Project documentation validation | Passed on the exact same head |
 
-FND-01 CI run #374 and Project documentation validation run #753 are the exact-head checks for this commit. The warnings are existing test-harness diagnostics for absent `.env`; no `.env` was created to suppress them. Both checks passed on the same PR head. No merge or production-readiness claim is made here; this record remains a pre-merge implementation status snapshot.
+FND-01 CI run #376 and Project documentation validation run #755 are the exact-head checks for this commit. The warnings are existing test-harness diagnostics for absent `.env`; no `.env` was created to suppress them. Both checks passed on the same PR head. No merge or production-readiness claim is made here; this record remains a pre-merge implementation status snapshot.
 
 ## 7. Remaining M3-08 work
 
