@@ -346,6 +346,65 @@ final class PublicDirectoryTest extends TestCase
         );
     }
 
+
+    public function test_retired_exact_definition_version_remains_interpretable_without_using_a_newer_private_version(): void
+    {
+        $entity = $this->createEntity();
+        $this->publishFact($entity, 'display_name', 'Synthetic Historical Definition Academy');
+        $versionOneId = $this->registryDefinition('institution_historical_fact');
+        $definitionId = DB::table('field_definition_versions')
+            ->where('id', $versionOneId)
+            ->value('field_definition_id');
+        $now = now();
+
+        DB::table('field_definition_versions')->insert([
+            'id' => (string) Str::uuid(),
+            'field_definition_id' => $definitionId,
+            'version_number' => 2,
+            'lifecycle_state' => 'active',
+            'semantic_version' => '2.0.0',
+            'compatibility_class' => 'breaking',
+            'value_type' => 'short_text',
+            'cardinality' => 'one',
+            'scope_key' => 'institution',
+            'privacy_class' => 'public_eligible',
+            'visibility_class' => 'internal_only',
+            'searchable' => false,
+            'filterable' => false,
+            'sortable' => false,
+            'validation_schema' => json_encode(['schema_version' => 1, 'max_length' => 120], JSON_THROW_ON_ERROR),
+            'presentation_metadata' => json_encode([
+                'section_key' => 'internal',
+                'public_label' => 'New private definition label',
+            ], JSON_THROW_ON_ERROR),
+            'evidence_policy' => json_encode(['required' => true], JSON_THROW_ON_ERROR),
+            'freshness_policy' => json_encode(['class' => 'synthetic_test'], JSON_THROW_ON_ERROR),
+            'effective_from' => null,
+            'effective_to' => null,
+            'successor_field_definition_id' => null,
+            'proposed_by_actor_id' => 'synthetic-registry-steward',
+            'rationale_reference' => 'SYN-I5-HISTORICAL-VERSION',
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        $this->publishFact(
+            $entity,
+            'institution_historical_fact',
+            'Value remains bound to version one.',
+            '2026-11-13 10:00:00',
+            $versionOneId
+        );
+        DB::table('field_definition_versions')->where('id', $versionOneId)->update([
+            'lifecycle_state' => 'retired',
+        ]);
+
+        $this->get('/directory/'.$entity)
+            ->assertOk()
+            ->assertSee('Institution historical fact')
+            ->assertSee('Value remains bound to version one.')
+            ->assertDontSee('New private definition label');
+    }
+
     private function createEntity(string $type = 'institution'): string
     {
         $id = (string) Str::uuid();
