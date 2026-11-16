@@ -579,5 +579,4 @@ class FieldAwareClaimProposalTest extends TestCase
         $this->assertSame(0, DB::table('public_projections')->count());
     }
 
-
 }
