@@ -622,6 +622,26 @@ final class PublicDirectoryTest extends TestCase
             $hostileTextVersion
         );
 
+        $controlTextVersion = $this->registryDefinition(
+            'institution_control_text',
+            [],
+            'public_eligible',
+            'public_eligible',
+            'long_text'
+        );
+        $controlText = "synthetic\\0control";
+        $this->publishFact($entity, 'institution_control_text', $controlText, '2026-11-13 10:00:00', $controlTextVersion);
+
+        $oversizedTextVersion = $this->registryDefinition(
+            'institution_oversized_text',
+            [],
+            'public_eligible',
+            'public_eligible',
+            'long_text'
+        );
+        $oversizedText = str_repeat('oversized-synthetic-', 110);
+        $this->publishFact($entity, 'institution_oversized_text', $oversizedText, '2026-11-13 10:00:00', $oversizedTextVersion);
+
         $html = $this->get('/directory/'.$entity)->assertOk()->getContent();
 
         $this->assertStringContainsString('&lt;script&gt;alert', $html);
@@ -629,6 +649,8 @@ final class PublicDirectoryTest extends TestCase
         $this->assertStringNotContainsString('Unsafe public label', $html);
         $this->assertStringNotContainsString('Hostile registry value', $html);
         $this->assertStringNotContainsString('<script>alert("payload")</script>', $html);
+        $this->assertStringNotContainsString($controlText, $html);
+        $this->assertStringNotContainsString($oversizedText, $html);
     }
 
     public function test_public_directory_query_count_is_constant_as_synthetic_result_count_grows(): void
