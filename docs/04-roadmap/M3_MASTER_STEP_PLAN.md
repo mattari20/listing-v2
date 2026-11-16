@@ -461,4 +461,16 @@ All four exact-head foundation CI and documentation validation workflows passed.
 
 See [M3-07 I5 Implementation Record](M3-07_I5_IMPLEMENTATION_RECORD.md) for detailed scope, acceptance disposition, limitations and exact evidence. **I5 is closed as a bounded synthetic/local/CI implementation agenda.** M3-07 live AI Data-Agent/source activation remains blocked by G2-G9; no agent, model, connector, scheduler or source access is active.
 
-**Next agenda:** I6 scope/design preflight against current `main`. I6 implementation remains separately gated and requires its own explicit Product Owner authorization. I7 remains separately gated.
+**Next agenda at I5 closeout:** I6 scope/design preflight against current `main`. This preflight has now been completed; see the I6 preflight record below. I6 implementation remains separately gated and requires its own explicit Product Owner authorization. I7 remains separately gated.
+
+## M3-07 I6 — Synthetic Agent Proposal Adapter preflight (2026-11-16)
+
+The I6 scope/design preflight is complete against verified `main` `3f76f2758768ba331711de36bbc2dbe9b0aab17a`. It reconciles D3's `submit_agent_field_proposal` capability and D4 S17 with the actual I3/I5 implementation.
+
+The key implementation gap is explicit: I3 `FieldAwareClaimProposalService::propose()` and `EditorialReviewService::submit()` currently require human actors. I6 must add a dedicated agent-submission entry point and a dedicated editorial-case submission path without weakening the existing human proposal path or any human-only review, adjudication, publication, correction, withdrawal, restoration or definition-governance operation.
+
+The proposed I6 package is deterministic and offline: one synthetic fixture adapter, one fixed server-owned agent identity with only `submit_agent_field_proposal`, reuse of I3's exact field-version/typed validation/evidence/source-authorization/cardinality/idempotency/audit/outbox path, and a submitted editorial review case. The agent creates only a proposed claim version; a distinct human must review it. No source retrieval, live model, API, network, parser, browser, scheduler, route, UI, migration, schema change, backfill, dependency or spend is proposed. Current I3 institution-level scope remains the limit; campus/programme expansion is excluded.
+
+Deliverable: [M3-07 I6 Synthetic Agent Proposal Adapter Preflight](M3-07_I6_SYNTHETIC_AGENT_PROPOSAL_ADAPTER_PREFLIGHT.md). It defines the exact touch-point boundary, 22 synthetic acceptance criteria, denial-audit behavior, stop conditions and explicit implementation authorization template.
+
+**Disposition:** I6 scope/design preflight COMPLETE. I6 application implementation NOT AUTHORIZED / NOT STARTED pending separate explicit Product Owner approval of the exact scope. I7 remains separately gated. G2-G9 remain blocking for live source access and live agent activation.
