@@ -585,7 +585,56 @@ final class PersistedGovernanceWorkflowService
             }
 
             $payload = json_decode($event->payload, true, 512, JSON_THROW_ON_ERROR);
-            if (in_array($event->event_type, ['publication.snapshot.approved', 'publication.snapshot.restored'], true)) {
+            if ($event->event_type === 'field_definition.lifecycle.changed') {
+                $version = DB::table('field_definition_versions')->where('id', $event->aggregate_id)->first();
+                $case = DB::table('field_definition_review_cases')
+                    ->where('id', $payload['review_case_id'] ?? '')
+                    ->where('field_definition_version_id', $event->aggregate_id)->first();
+                $decision = DB::table('field_definition_review_decisions')
+                    ->where('id', $payload['decision_id'] ?? '')
+                    ->where('review_case_id', $payload['review_case_id'] ?? '')->first();
+                $validDecisionOutcome = match ($payload['action'] ?? null) {
+                    'field_definition_proposed' => $decision?->outcome === 'proposed',
+                    'field_definition_reviewer_assigned' => $decision?->outcome === 'reviewer_assigned',
+                    'field_definition_reviewed' => in_array($decision?->outcome, ['recommend_approval', 'request_changes', 'reject'], true),
+                    'field_definition_proposal_edited' => $decision?->outcome === 'proposal_edited',
+                    'field_definition_approved' => $decision?->outcome === 'approve',
+                    'field_definition_activated' => $decision?->outcome === 'activate',
+                    'field_definition_deprecated' => $decision?->outcome === 'deprecate',
+                    'field_definition_retired' => $decision?->outcome === 'retire',
+                    default => false,
+                };
+                $validLifecycleProgression = match ($payload['lifecycle_state'] ?? null) {
+                    'proposed' => in_array($version?->lifecycle_state, ['proposed', 'approved', 'active', 'deprecated', 'retired'], true),
+                    'approved' => in_array($version?->lifecycle_state, ['approved', 'active', 'deprecated', 'retired'], true),
+                    'active' => in_array($version?->lifecycle_state, ['active', 'deprecated', 'retired'], true),
+                    'deprecated' => in_array($version?->lifecycle_state, ['deprecated', 'retired'], true),
+                    'retired' => $version?->lifecycle_state === 'retired',
+                    default => false,
+                };
+                $validCaseProgression = match ($payload['review_case_status'] ?? null) {
+                    'submitted' => in_array($case?->status, ['submitted', 'in_review', 'awaiting_approval', 'changes_requested', 'rejected', 'approved'], true),
+                    'in_review' => in_array($case?->status, ['in_review', 'awaiting_approval', 'changes_requested', 'rejected', 'approved'], true),
+                    'awaiting_approval' => in_array($case?->status, ['awaiting_approval', 'approved'], true),
+                    'changes_requested' => in_array($case?->status, ['changes_requested', 'submitted', 'in_review', 'awaiting_approval', 'rejected', 'approved'], true),
+                    'rejected' => $case?->status === 'rejected',
+                    'approved' => $case?->status === 'approved',
+                    default => false,
+                };
+                if ($event->aggregate_type !== 'field_definition_version' ||
+                    (string) ($payload['field_definition_version_id'] ?? '') !== (string) $event->aggregate_id ||
+                    $version === null || $case === null || $decision === null || $validDecisionOutcome === false ||
+                    $validLifecycleProgression === false || $validCaseProgression === false ||
+                    $decision->actor_class !== 'human' ||
+                    $decision->actor_id !== ($payload['actor_id'] ?? null) ||
+                    ($payload['actor_class'] ?? null) !== 'human' ||
+                    $decision->idempotency_key !== ($payload['idempotency_key'] ?? null) ||
+                    ! hash_equals((string) $decision->command_fingerprint, (string) ($payload['idempotency_fingerprint'] ?? ''))) {
+                    throw new \RuntimeException('Field definition lifecycle outbox event failed its integrity checks.');
+                }
+                // This event is an integrity checkpoint only. It never changes definitions,
+                // claims, evidence, adjudication, publication or public projections.
+            } elseif (in_array($event->event_type, ['publication.snapshot.approved', 'publication.snapshot.restored'], true)) {
                 $snapshot = DB::table('publication_snapshots')->where('id', $event->aggregate_id)->lockForUpdate()->first();
                 if ($snapshot !== null && $snapshot->status === 'approved_pending_projection') {
                     $snapshotPayload = json_decode($snapshot->payload, true, 512, JSON_THROW_ON_ERROR);
