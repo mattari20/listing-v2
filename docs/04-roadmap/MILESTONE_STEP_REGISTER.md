@@ -804,3 +804,12 @@ The Product Owner authorized the bounded synthetic-only I7 implementation after 
 - Deterministic directory query counts matched for one versus five synthetic results.
 
 The only changed paths were synthetic tests and the I7 implementation record. No application, schema/migration, Composer/dependency, PHPUnit, CI workflow, route/UI, source, production, external service, deployment or spend changes occurred. SQLite tests do not establish simultaneous application service-command safety or other-engine row-lock semantics; those limitations remain open. **I7 is complete and closed for its approved synthetic/local/CI scope.** G2-G9 remain blocking for live source access and live model/agent activation.
+
+
+## M3-07 I8-A synthetic readiness evaluation — 2026-11-16
+
+The Product Owner authorized the bounded synthetic-only evaluation. One new feature-test method exercises eight independently reset source-authorization denial states (research-only, revoked, future-valid, expired, missing processing scope, purpose mismatch, method mismatch and territory mismatch). Each denial must leave zero claim, claim-version, editorial-case, publication-decision, public-projection, successful proposal audit and proposal outbox writes.
+
+The implementation and evaluation record are `M3-07_I8_SYNTHETIC_AGENT_READINESS_EVALUATION.md`. Exact-head focused test, full FND-01 PHP 8.5 suite, Project documentation validation and changed-file review remain pending until CI completes. No pass/merge claim is made before GitHub evidence.
+
+I8-A is a bounded synthetic readiness/evaluation deliverable only. It does not approve a source, model/provider, external API, connector, scheduler, spend or live agent. G2-G9 remain blocking; M3-07 live AI Data-Agent activation remains incomplete.
