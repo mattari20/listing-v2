@@ -400,7 +400,6 @@ class PersistedGovernanceWorkflowTest extends TestCase
         $service->restorePublication($this->actor('restorer', ['restore_publication']), $suppression->id, 'policy-v2', 'withdrawn_claim_cannot_restore');
     }
 
-
     public function test_withdrawal_reconciles_all_open_editorial_cases_idempotently(): void
     {
         $fixture = $this->fixture();
