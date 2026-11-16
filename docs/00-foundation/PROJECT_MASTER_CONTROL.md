@@ -2,8 +2,8 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03, M3-04, M3-05 and M3-06 delivered for bounded synthetic local/CI scope; M3-07 readiness review documented but application implementation blocked  
-**Last reconciled:** 2026-11-14
+**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03, M3-04, M3-05 and M3-06 delivered for bounded synthetic local/CI scope; M3-07 I1-I7 bounded synthetic/local/CI packages merged; I8-A synthetic source-authorization evaluation submitted for exact-head CI; live source/model activation blocked by G2-G9  
+**Last reconciled:** 2026-11-16
 
 ## Authoritative current position
 - Public V2 repository visibility verified; owner selected public visibility on 2026-11-11.
@@ -678,3 +678,12 @@ Step 4 completed as a final evidence/acceptance-pack deliverable. M3-02 is not e
 M3-03 is accepted and closed for bounded synthetic local/CI scope. M3-04 P01–P04 are implemented, validated and merged for the same bounded scope. M3-05 Public Directory and Search is implemented, validated and merged as PR #189 (`8a89c5666501e5cc1f8565b32fd40a2a3370d634`). Exact PR head `1e4bd3be1d92ca1ba3a06fd7190d3a20de340c58` passed FND-01 PHP 8.5 foundation CI #43557559498 and Project documentation validation #43557559518; synthetic tests reported 351 assertions, no failures and 107 non-fatal missing-`.env` warnings.
 
 The next eligible step is M3-06 Geography and Discovery, which requires a separate scope review and explicit authorization before implementation. No maps/geocoder, external search engine, source acquisition, production access, V1/Hostinger changes, deployment, public release or additional spend is authorized by the M3-05 closeout.
+
+
+## M3-07 I8-A current control position — 2026-11-16
+
+The Product Owner authorized I8-A — Synthetic-Only AI Data-Agent Readiness and Evaluation. Its test-only implementation adds eight independent negative source-authorization cases against the fixed synthetic I6 adapter. The evaluation record is `../04-roadmap/M3-07_I8_SYNTHETIC_AGENT_READINESS_EVALUATION.md`.
+
+I8-A is limited to synthetic feature tests and project documentation. It does not authorize runtime/application changes, schema/migrations, external model/API/source access, connectors, schedulers, production/V1/Hostinger, deployment or spend. Exact-head CI and documentation validation remain pending until reported by GitHub.
+
+GOV-04 and all candidate source families remain RESEARCH ONLY. G2-G9 remain conjunctive blockers for live source access and model/agent activation. I8-A does not complete the live AI Data-Agent milestone.
