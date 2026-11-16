@@ -2,11 +2,11 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03 through M3-06 delivered for bounded synthetic local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered; M3-08 preflight complete; M3-08A/B identity/session and scoped authorization foundations merged in PR #232; M3-08C/D remain separately gated; live AI/source activation blocked by G2-G9  
-**Last reconciled:** 2026-11-16 — M3-08A/B PR #232 merged as `a693b2c701adb5328e755156e1900771400b1dca`
+**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03 through M3-06 delivered for bounded synthetic local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered; M3-08 preflight complete; M3-08A/B identity/session and scoped authorization foundations merged in PR #232; M3-08C/D synthetic moderation/appeals and privacy/security foundations merged in PR #234; live AI/source activation blocked by G2-G9  
+**Last reconciled:** 2026-11-16 — M3-08C/D PR #234 merged as `42eabe8a5757e6b4c291baa52d1c01df4e08bb15`
 
 ## Authoritative current position
-- M3-08 preflight documentation is complete and merged in PR #231. The separately authorized M3-08A/B first-party session identity and scoped authorization foundation is merged in PR #232 as `a693b2c701adb5328e755156e1900771400b1dca`; M3-08C/D remain unstarted and separately gated. Reviews remain post-launch only. See `../04-roadmap/M3-08A_B_IDENTITY_AUTHORIZATION_IMPLEMENTATION_RECORD.md`.
+- M3-08 preflight documentation is complete and merged in PR #231. The separately authorized M3-08A/B first-party session identity and scoped authorization foundation is merged in PR #232 as `a693b2c701adb5328e755156e1900771400b1dca`; M3-08C/D synthetic moderation, appeals and privacy/security foundations are merged in PR #234 as `42eabe8a5757e6b4c291baa52d1c01df4e08bb15` for bounded local/CI scope. Public UGC, reviews and moderation activation remain disabled; reviews are post-launch only. Independent security and qualified legal/privacy/child-safeguarding release reviews remain open. See `../04-roadmap/M3-08C_D_IMPLEMENTATION_RECORD.md`.
 - Public V2 repository visibility verified; owner selected public visibility on 2026-11-11.
 - Repository auto-merge is enabled; active `main` ruleset requires the documentation validation check.
 - Founding documentation PR #1 merged into `main` as `0f2165f3d18e43f10cf6d6f717f145d3433769a4`.
@@ -23,7 +23,7 @@ Build a student-first education discovery, admissions information and comparison
 The Documentation Completion Catalogue is the owner-facing inventory of delivered, updated, accepted and planned documents. A merged PR records delivery, not automatic content acceptance. Every documentation PR update and merge must reconcile the catalogue, index, controller, step register, traceability and progress report.
 
 ## Current milestone
-**M3 — M3-08A/B identity and scoped authorization foundations merged; M3-08C/D and live AI/source activation remain separately gated pending their required decisions and approvals**
+**M3 — M3-08A/B/C/D bounded synthetic/local/CI foundations merged; M3-09 Quality and Operational Hardening is next; independent release reviews and live AI/source activation remain gated**
 
 
 ## M3-06 closeout — 2026-11-14
