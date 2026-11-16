@@ -346,7 +346,6 @@ final class PublicDirectoryTest extends TestCase
         );
     }
 
-
     public function test_retired_exact_definition_version_remains_interpretable_without_using_a_newer_private_version(): void
     {
         $entity = $this->createEntity();
