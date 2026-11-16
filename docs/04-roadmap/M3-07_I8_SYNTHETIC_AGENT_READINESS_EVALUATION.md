@@ -5,7 +5,7 @@
 **Implementation base:** `252e33e15d023985e180ea225996c0953af316b4`  
 **Branch:** `test/m3-07-i8-synthetic-agent-readiness`  
 **Authorization:** Product Owner explicitly authorized I8-A — Synthetic-Only AI Data-Agent Readiness and Evaluation on 2026-11-16.  
-**Status:** Synthetic evaluation implementation submitted for exact-head CI; no live AI/source activation.
+**Status:** Initial exact-head PHP 8.5 CI and documentation validation passed; final evidence reconciliation is being validated on the updated PR head. No live AI/source activation.
 
 ## 1. Objective and decision boundary
 
@@ -102,7 +102,7 @@ The I8 package is accepted only after:
 4. changed-file review confirms the test-only and I8 documentation boundary;
 5. project progress, milestone register, master plan, roadmap, documentation catalogue and index are reconciled.
 
-Final run identifiers, exact PR head, merge SHA and final test totals must be added after GitHub reports them. Until then, implementation is submitted for validation, not claimed as CI-passing or merged.
+Initial exact-head validation on PR #228 head `e50eb6a7a4515481aede723ddb5a106daa7a22f4` passed: FND-01 PHP 8.5 foundation CI run [#43856909227](https://github.com/mattari20/listing-v2/actions/runs/43856909227) and Project documentation validation run [#43856909213](https://github.com/mattari20/listing-v2/actions/runs/43856909213). The full suite reported **15 passed, 803 assertions and 169 warnings**. Warnings are the existing missing-local-`.env` test-harness warnings; no `.env` file was created or modified. The focused I8 method passed as part of the suite. These results apply to the stated exact head; the evidence-reconciliation commit must also pass both required checks before merge. No merge SHA is recorded until GitHub confirms it.
 
 ## 8. Final I8 disposition
 
