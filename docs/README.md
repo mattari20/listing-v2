@@ -273,3 +273,13 @@ P03 closeout: PR [#179](https://github.com/mattari20/listing-v2/pull/179) merged
 - [M3-04 P04 Implementation Record](04-roadmap/M3-04_P04_STATUS_HISTORY_EDITORIAL_REVIEW_IMPLEMENTATION_RECORD.md) — merged PR #187, exact-head CI evidence, capability matrix, independent review/adjudication/publisher roles and synthetic-only limits.
 
 P01–P04 are delivered and validated for their bounded synthetic local/CI scopes. M3-05 requires a separate scope review and authorization.
+
+
+## M3-07 R1 and R2 — source and model decision readiness
+
+- [R1 Pakistan National Education Source Master Inventory](04-roadmap/M3-07_R1_PAKISTAN_NATIONAL_EDUCATION_SOURCE_MASTER_INVENTORY.md) — merged in PR #204 as `08f2a7c68e327058b34fc8a9b49ec90e616a65c3`; exact-head PHP 8.5 foundation CI #43815723304 and documentation validation #43815723282 passed. The inventory is a research/decision baseline, not a national census or source-use permission.
+- [R2 HEC Source-Specific Decision Pack](04-roadmap/M3-07_R2_SOURCE_SPECIFIC_DECISION_PACK_HEC_RECOGNISED_UNIVERSITIES.md) — desk assessment of GOV-04 HEC Recognised Universities/DAIs page; remains RESEARCH ONLY, with G2 rights and G4 retrieval gates blocked.
+- [R2 Model and Provider Decision Pack](04-roadmap/M3-07_R2_MODEL_PROVIDER_DECISION_PACK.md) — options and approval criteria; no model/provider selected, no external inference, no spend.
+- [R2 Completion and Decision Record](04-roadmap/M3-07_R2_COMPLETION_AND_DECISION_RECORD.md) — records R2 preparation completion and the remaining owner/qualified-review decisions.
+
+R2 is complete as documentation/decision-pack preparation only. The next agenda is R3 source-rights and model-feasibility decision reconciliation. No source access, permission request, model activation, connector, scheduler, production activity or spend is authorized.
