@@ -1044,3 +1044,10 @@ R2 does not grant source access, reuse permission, model activation, external AP
 |---|---|---|
 | [I6 Synthetic Agent Proposal Adapter Preflight](M3-07_I6_SYNTHETIC_AGENT_PROPOSAL_ADAPTER_PREFLIGHT.md) | Current-main integration review of I3 human-only submission, D3 agent capability and D4 S17; deterministic offline fixture adapter design, fixed agent identity, narrow submission path, 22 synthetic acceptance criteria and explicit authorization gate | Scope/design preflight complete and merged in PR #218 |
 | [I6 Synthetic Agent Proposal Adapter Implementation Record](M3-07_I6_IMPLEMENTATION_RECORD.md) | Records the authorized fixed-fixture adapter, agent identity/capability, I3 and editorial integration, denied-action audit, five focused synthetic tests, exact-head CI and safety boundaries | Implemented, validated and merged in PR #220; I6 closed for bounded synthetic/local/CI scope |
+
+
+## M3-07 I8 — Synthetic Agent Readiness and Evaluation
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [I8 Synthetic Agent Readiness and Evaluation](M3-07_I8_SYNTHETIC_AGENT_READINESS_EVALUATION.md) | Records the authorized deterministic synthetic source-authorization evaluation, eight negative cases, zero-write acceptance contract, live activation blockers and explicit limitations | Implemented on the I8 branch; exact-head focused test, full FND-01 CI, documentation validation and changed-file review pending |
