@@ -157,7 +157,7 @@ final class PublicDirectoryQueryService
     {
         foreach ($this->publishedEntities() as $entity) {
             if ($entity['id'] === $entityId) {
-                return $entity;
+                return $this->publicProfile($entity);
             }
         }
 
@@ -176,6 +176,8 @@ final class PublicDirectoryQueryService
             ->join('publication_snapshots', 'publication_snapshots.id', '=', 'public_projections.publication_snapshot_id')
             ->join('publication_decisions', 'publication_decisions.id', '=', 'publication_snapshots.publication_decision_id')
             ->join('claim_versions', 'claim_versions.id', '=', 'publication_snapshots.claim_version_id')
+            ->leftJoin('field_definition_versions as registry_versions', 'registry_versions.id', '=', 'claim_versions.field_definition_version_id')
+            ->leftJoin('field_definitions as registry_definitions', 'registry_definitions.id', '=', 'registry_versions.field_definition_id')
             ->join('claims', 'claims.id', '=', 'claim_versions.claim_id')
             ->join('directory_entities', 'directory_entities.id', '=', 'claims.subject_entity_id')
             ->where('public_projections.status', 'approved')
@@ -217,6 +219,17 @@ final class PublicDirectoryQueryService
                 'directory_entities.entity_type',
                 'claims.predicate',
                 'claim_versions.id as claim_version_id',
+                'claim_versions.field_definition_version_id',
+                'registry_versions.id as registry_version_id',
+                'registry_definitions.field_key as registry_field_key',
+                'registry_versions.visibility_class as registry_visibility_class',
+                'registry_versions.privacy_class as registry_privacy_class',
+                'registry_versions.searchable as registry_searchable',
+                'registry_versions.filterable as registry_filterable',
+                'registry_versions.sortable as registry_sortable',
+                'registry_versions.value_type as registry_value_type',
+                'registry_versions.validation_schema as registry_validation_schema',
+                'registry_versions.presentation_metadata as registry_presentation_metadata',
                 'publication_snapshots.payload',
             ]);
 
