@@ -265,6 +265,51 @@ class SyntheticAgentProposalAdapterTest extends TestCase
         ]);
     }
 
+    public function test_i8_source_authorization_evaluation_denies_unapproved_expired_and_scope_mismatched_evidence(): void
+    {
+        [$entityId, , $evidenceId] = $this->fixture();
+        $authorizationId = (string) DB::table('evidence_references')
+            ->where('id', $evidenceId)
+            ->value('source_authorization_id');
+        $adapter = app(SyntheticAgentProposalAdapter::class);
+
+        $deniedCases = [
+            'research_only_status' => ['status' => 'research_only'],
+            'revoked_authorization' => ['revoked_at' => now()],
+            'not_yet_valid' => ['valid_from' => now()->addDay()],
+            'expired_authorization' => ['valid_to' => now()->subDay()],
+            'processing_scope_missing' => ['permitted_scopes' => json_encode(['processing' => false], JSON_THROW_ON_ERROR)],
+            'purpose_mismatch' => ['permitted_purposes' => json_encode(['manual_review'], JSON_THROW_ON_ERROR)],
+            'method_mismatch' => ['permitted_methods' => json_encode(['http_get'], JSON_THROW_ON_ERROR)],
+            'territory_mismatch' => ['territories' => json_encode(['PK'], JSON_THROW_ON_ERROR)],
+        ];
+
+        foreach ($deniedCases as $case => $changes) {
+            DB::table('source_authorizations')->where('id', $authorizationId)->update($changes);
+
+            try {
+                $adapter->submitFixture(self::FIXTURE_ID, [
+                    'subject_entity_id' => $entityId,
+                    'evidence_reference_ids' => [$evidenceId],
+                ]);
+                $this->fail("I8 evaluation case [{$case}] must fail closed.");
+            } catch (ValidationException) {
+                $this->assertDatabaseCount('claims', 0, "I8 case [{$case}] must not create a claim.");
+                $this->assertDatabaseCount('claim_versions', 0, "I8 case [{$case}] must not create a claim version.");
+                $this->assertDatabaseCount('editorial_review_cases', 0, "I8 case [{$case}] must not create an editorial case.");
+                $this->assertDatabaseCount('publication_decisions', 0, "I8 case [{$case}] must not create a publication decision.");
+                $this->assertDatabaseCount('public_projections', 0, "I8 case [{$case}] must not create a public projection.");
+            }
+        }
+
+        $this->assertSame(0, DB::table('audit_events')
+            ->where('action', 'field_aware_claim_proposed')
+            ->count());
+        $this->assertSame(0, DB::table('governance_outbox')
+            ->where('event_type', 'field_claim.proposal.submitted')
+            ->count());
+    }
+
     private function fixture(): array
     {
         $entityId = $this->entity('Synthetic Institute Alpha');
