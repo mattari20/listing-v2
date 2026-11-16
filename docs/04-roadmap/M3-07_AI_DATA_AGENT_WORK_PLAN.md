@@ -151,9 +151,9 @@ No blanket source authorization or blanket AI activation is created by this docu
 
 ## 11. Current next action — reconciled 2026-11-16
 
-R1 National Source Master Inventory is delivered and merged in PR #204. R2 has prepared the exact GOV-04 HEC Recognised Universities/DAIs source-specific decision pack and the model/provider decision pack, without accessing the source or activating a model. See `M3-07_R2_SOURCE_SPECIFIC_DECISION_PACK_HEC_RECOGNISED_UNIVERSITIES.md`, `M3-07_R2_MODEL_PROVIDER_DECISION_PACK.md` and `M3-07_R2_COMPLETION_AND_DECISION_RECORD.md`.
+R1 and R2 are delivered in PRs #204 and #206. R3 is complete as a no-activation gate reconciliation: GOV-04 remains RESEARCH ONLY; no model/provider is selected; G2-G7 remain blocked and G9 is not authorized. See M3-07_R3_SOURCE_RIGHTS_AND_MODEL_FEASIBILITY_RECONCILIATION.md.
 
-The next eligible agenda is R3 — source-rights and model-feasibility decision reconciliation. The owner must decide whether to pursue GOV-04 and whether a zero-additional-spend local/offline proof-of-fit should be investigated after the hosting/compute baseline is evidenced. Qualified rights/privacy/security/operational reviewers remain unassigned. Preserve G2-G7 blockers if evidence is unavailable. Until all conjunctive gates and exact owner activation approval pass, keep the agent and every connector disabled. No source access, owner contact, permission request, external model/API, collection, ingestion or spend is authorized.
+I1-I3 are merged for bounded synthetic local/CI scopes. The next technical package is I4 — Field Definition Governance Lifecycle. Its exact proposed scope and owner authorization statement are in M3-07_I4_FIELD_DEFINITION_GOVERNANCE_LIFECYCLE_PROPOSAL.md. I4 implementation remains NOT AUTHORIZED until the owner explicitly approves that scope. Keep the agent and every connector disabled. No source access, owner contact, permission request, external model/API, collection, ingestion or spend is authorized.
 
 ## 12. Binding non-interference
 

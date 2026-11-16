@@ -417,4 +417,11 @@ The Pakistan-wide coverage and student-first dynamic-field architecture records,
 
 I1 field registry persistence/read path was merged in PR #198 (`d7d683d6044d269ce61c755d8d0fac61ba663555`); I2 typed validation/applicability in PR #199 (`45b9c45cf1b31a0f2f2a94f549f1a7ddddbb3f46`); I3 provider-category and field-aware claim proposal in PR #203 (`4b594e288999ee2f634320937886a2fca7ccc496`). These are bounded synthetic local/CI deliveries only. Exact CI evidence is recorded in each implementation record and R3 reconciliation.
 
-**Next agenda:** I4 — Field Definition Governance Lifecycle. I4 requires a separate bounded owner authorization. G2-G9 remain blocking for source access and live agent activation; no model/provider, connector, scheduler, production access, deployment or additional spend is authorized.
+**Next agenda:** I4 — Field Definition Governance Lifecycle. Its bounded proposal and exact owner authorization statement are recorded in M3-07_I4_FIELD_DEFINITION_GOVERNANCE_LIFECYCLE_PROPOSAL.md. I4 implementation is NOT AUTHORIZED until separately approved. G2-G9 remain blocking for source access and live agent activation; no model/provider, connector, scheduler, production access, deployment or additional spend is authorized.
+
+
+## M3-07 I4 — Field Definition Governance Lifecycle proposal (2026-11-16)
+
+The I4 bounded implementation proposal is prepared in [M3-07 I4 Field Definition Governance Lifecycle](M3-07_I4_FIELD_DEFINITION_GOVERNANCE_LIFECYCLE_PROPOSAL.md). It covers two review-workflow tables, a human-only governance service, independent review/approval and separate activation, version immutability, retirement/restore, transactional audit/outbox and synthetic-only tests. It excludes UI/routes, real roles, claim/value changes, public projections, source access, AI/provider activation, production and spend.
+
+**Status:** documentation proposal only. I4 application code, migration and tests are **NOT AUTHORIZED** until the Product Owner explicitly approves the exact statement in the proposal. I5-I7 remain separately gated.
