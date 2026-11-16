@@ -41,6 +41,7 @@ final class EditorialReviewService
     {
         $actor = $this->syntheticAgentActor();
         $this->requireSyntheticAgentSubmission($actor);
+        $this->assertSyntheticAgentClaim($entityId, $claimVersionId);
 
         return $this->submitWithActor($actor, $entityId, $claimVersionId, $idempotencyKey);
     }
@@ -282,6 +283,37 @@ final class EditorialReviewService
         $decision = (new GovernancePolicy)->requireCapability($actor, 'submit_agent_field_proposal');
         if (($decision['allowed'] ?? false) !== true) {
             $this->reject('actor', 'The synthetic agent proposal capability is required.');
+        }
+    }
+
+    private function assertSyntheticAgentClaim(string $entityId, string $claimVersionId): void
+    {
+        $claim = DB::table('claim_versions as versions')
+            ->join('claims', 'claims.id', '=', 'versions.claim_id')
+            ->join('directory_entities as entities', 'entities.id', '=', 'claims.subject_entity_id')
+            ->join('field_definition_versions as definition_versions', 'definition_versions.id', '=', 'versions.field_definition_version_id')
+            ->join('field_definitions as definitions', 'definitions.id', '=', 'definition_versions.field_definition_id')
+            ->where('versions.id', $claimVersionId)
+            ->where('claims.subject_entity_id', $entityId)
+            ->first([
+                'entities.entity_type',
+                'entities.label',
+                'claims.predicate',
+                'versions.value',
+                'versions.disposition',
+                'definitions.field_key',
+                'definition_versions.version_number',
+            ]);
+
+        $value = $claim === null ? null : json_decode((string) $claim->value, true);
+        if ($claim === null || $claim->entity_type !== 'institution' ||
+            $claim->label !== 'Synthetic Institute Alpha' ||
+            $claim->predicate !== 'institution_display_name' ||
+            $claim->field_key !== 'institution_display_name' ||
+            (int) $claim->version_number !== 1 ||
+            $claim->disposition !== 'proposed' ||
+            $value !== 'Synthetic Institute Alpha') {
+            $this->reject('proposal', 'The fixed I6 synthetic agent claim envelope is required.');
         }
     }
 
