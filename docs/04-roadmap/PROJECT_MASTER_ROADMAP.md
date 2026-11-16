@@ -67,7 +67,7 @@ The [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) is the authoritative detailed 
 | M3-04 | Provider Management | 8% | P01–P04 complete for bounded synthetic local/CI scope |
 | M3-05 | Public Directory and Search | 10% | Complete for bounded synthetic local/CI scope — PR #189 |
 | M3-06 | Geography and Discovery | 7% | Not started; separate scope review and authorization required |
-| M3-07 | AI Data-Agent | 10% | Not started; source-specific gates |
+| M3-07 | AI Data-Agent | 10% | I1-I5 bounded synthetic/local/CI packages delivered; I6 scope/design preflight complete but implementation not authorized; live source/model activation blocked by G2-G9 |
 | M3-08 | Identity, Reviews and Security | 10% | Not started; reviews post-launch only |
 | M3-09 | Quality and Operational Hardening | 8% | Not started |
 | M3-10 | Pilot and Launch Readiness | 7% | Not started; separate pilot approval |
@@ -81,4 +81,6 @@ I5-A through I5-C and the historical-definition regression are delivered and mer
 
 I5 completion closes only the bounded synthetic/local/CI value correction, withdrawal/reinstatement and registry-aware public profile agenda. It does not complete or activate the live AI Data-Agent. Candidate sources remain RESEARCH ONLY; G2-G9 rights, privacy, security, model/provider and activation gates remain blocked. No source access, agent, model, connector, scheduler, production operation, deployment or spend is authorized.
 
-**Next:** I6 scope/design preflight. I6 implementation and I7 remain separately gated and require their own explicit Product Owner authorization.
+**I6 scope/design preflight complete — 2026-11-16:** See [M3-07 I6 Synthetic Agent Proposal Adapter Preflight](M3-07_I6_SYNTHETIC_AGENT_PROPOSAL_ADAPTER_PREFLIGHT.md). The bounded proposal is a deterministic offline synthetic fixture adapter with a fixed server-owned agent identity and only `submit_agent_field_proposal`. It reuses the I3 field-aware validation path and creates only a proposed claim version and submitted human-review case. The current human-only I3 proposal and editorial submission methods are the identified integration gap; I6 proposes a separate agent submission path without weakening human-only review, adjudication or publication. No migration, schema change, source access, model, external API, connector, scheduler or spend is proposed.
+
+**Next:** Product Owner decision on the exact I6 implementation authorization. I6 implementation has not started; I7 remains separately gated. G2-G9 continue to block live source access and live agent activation.
