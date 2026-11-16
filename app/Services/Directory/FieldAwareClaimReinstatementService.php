@@ -141,9 +141,20 @@ final class FieldAwareClaimReinstatementService
                 $this->reject('subject', 'I5 reinstatement currently supports institution-level registry claims only.');
             }
 
-            $providerCategory = $this->registry->providerCategoryForEntity((string) $prior->subject_entity_id);
-            if ($providerCategory === null) {
+            $providerCategory = DB::table('directory_provider_category_assignments')
+                ->where('entity_id', $prior->subject_entity_id)
+                ->lockForUpdate()
+                ->value('provider_category');
+            if (is_string($providerCategory) === false || $providerCategory === '') {
                 $this->reject('provider_category', 'A current human-governed provider category is required.');
+            }
+
+            $definitionVersion = DB::table('field_definition_versions')
+                ->where('id', $prior->field_definition_version_id)
+                ->lockForUpdate()
+                ->first(['id', 'lifecycle_state']);
+            if ($definitionVersion === null || $definitionVersion->lifecycle_state !== 'active') {
+                $this->reject('applicability', 'The exact original field definition version must remain active during reinstatement.');
             }
 
             $binding = DB::table('field_definition_versions as versions')
