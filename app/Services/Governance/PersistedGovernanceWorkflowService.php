@@ -833,51 +833,69 @@ final class PersistedGovernanceWorkflowService
             } elseif (in_array($event->event_type, ['publication.snapshot.approved', 'publication.snapshot.restored'], true)) {
                 $snapshot = DB::table('publication_snapshots')->where('id', $event->aggregate_id)->lockForUpdate()->first();
                 if ($snapshot !== null && $snapshot->status === 'approved_pending_projection') {
-                    $snapshotPayload = json_decode($snapshot->payload, true, 512, JSON_THROW_ON_ERROR);
-                    if (($snapshotPayload['is_deeni_madaris'] ?? false) === true) {
-                        throw new \RuntimeException('Restricted Deeni Madaris snapshots cannot be projected.');
-                    }
+                    $version = DB::table('claim_versions')->where('id', $snapshot->claim_version_id)->first(['disposition']);
+                    $hasSuccessor = DB::table('claim_versions')
+                        ->where('supersedes_version_id', $snapshot->claim_version_id)
+                        ->exists();
+                    $hasActiveSuppression = DB::table('publication_suppressions')
+                        ->where('publication_snapshot_id', $snapshot->id)
+                        ->where('status', 'active')
+                        ->exists();
 
-                    $latestSnapshotId = DB::table('publication_snapshots')
-                        ->where('claim_version_id', $snapshot->claim_version_id)
-                        ->where('surface', $snapshot->surface)
-                        ->where('audience', $snapshot->audience)
-                        ->orderByDesc('snapshot_version')
-                        ->value('id');
+                    if ($version === null || $version->disposition !== 'accepted' ||
+                        $hasSuccessor || $hasActiveSuppression) {
+                        DB::table('publication_snapshots')->where('id', $snapshot->id)->update(['status' => 'suppressed']);
+                        DB::table('public_projections')->where('publication_snapshot_id', $snapshot->id)->update([
+                            'status' => 'suppressed',
+                            'updated_at' => now(),
+                        ]);
+                    } else {
+                        $snapshotPayload = json_decode($snapshot->payload, true, 512, JSON_THROW_ON_ERROR);
+                        if (($snapshotPayload['is_deeni_madaris'] ?? false) === true) {
+                            throw new \\RuntimeException('Restricted Deeni Madaris snapshots cannot be projected.');
+                        }
 
-                    // A delayed retry for an older snapshot must never replace a newer publication.
-                    if ((string) $latestSnapshotId === (string) $snapshot->id) {
-                        $projectionKey = $snapshot->claim_version_id.':'.$snapshot->surface.':'.$snapshot->audience;
-                        $projection = DB::table('public_projections')->where('projection_key', $projectionKey)->first();
-                        if ($projection !== null) {
-                            $currentSnapshotVersion = DB::table('publication_snapshots')
-                                ->where('id', $projection->publication_snapshot_id)->value('snapshot_version');
-                            if ($currentSnapshotVersion === null || (int) $currentSnapshotVersion <= (int) $snapshot->snapshot_version) {
-                                DB::table('public_projections')->where('id', $projection->id)->update([
+                        $latestSnapshotId = DB::table('publication_snapshots')
+                            ->where('claim_version_id', $snapshot->claim_version_id)
+                            ->where('surface', $snapshot->surface)
+                            ->where('audience', $snapshot->audience)
+                            ->orderByDesc('snapshot_version')
+                            ->value('id');
+
+                        // A delayed retry for an older snapshot must never replace a newer publication.
+                        if ((string) $latestSnapshotId === (string) $snapshot->id) {
+                            $projectionKey = $snapshot->claim_version_id.':'.$snapshot->surface.':'.$snapshot->audience;
+                            $projection = DB::table('public_projections')->where('projection_key', $projectionKey)->first();
+                            if ($projection !== null) {
+                                $currentSnapshotVersion = DB::table('publication_snapshots')
+                                    ->where('id', $projection->publication_snapshot_id)->value('snapshot_version');
+                                if ($currentSnapshotVersion === null || (int) $currentSnapshotVersion <= (int) $snapshot->snapshot_version) {
+                                    DB::table('public_projections')->where('id', $projection->id)->update([
+                                        'publication_snapshot_id' => $snapshot->id,
+                                        'surface' => $snapshot->surface,
+                                        'audience' => $snapshot->audience,
+                                        'status' => 'approved',
+                                        'is_deeni_madaris' => false,
+                                        'projected_at' => now(),
+                                        'updated_at' => now(),
+                                    ]);
+                                }
+                            } else {
+                                DB::table('public_projections')->insert([
+                                    'id' => (string) Str::uuid(),
                                     'publication_snapshot_id' => $snapshot->id,
+                                    'projection_key' => $projectionKey,
                                     'surface' => $snapshot->surface,
                                     'audience' => $snapshot->audience,
                                     'status' => 'approved',
                                     'is_deeni_madaris' => false,
                                     'projected_at' => now(),
+                                    'created_at' => now(),
                                     'updated_at' => now(),
                                 ]);
                             }
-                        } else {
-                            DB::table('public_projections')->insert([
-                                'id' => (string) Str::uuid(),
-                                'publication_snapshot_id' => $snapshot->id,
-                                'projection_key' => $projectionKey,
-                                'surface' => $snapshot->surface,
-                                'audience' => $snapshot->audience,
-                                'status' => 'approved',
-                                'is_deeni_madaris' => false,
-                                'projected_at' => now(),
-                                'created_at' => now(),
-                                'updated_at' => now(),
-                            ]);
+                            DB::table('publication_snapshots')->where('id', $snapshot->id)->update(['status' => 'projected']);
                         }
-                        DB::table('publication_snapshots')->where('id', $snapshot->id)->update(['status' => 'projected']);
                     }
                 }
             } elseif ($event->event_type === 'field_claim.proposal.submitted') {
@@ -888,14 +906,20 @@ final class PersistedGovernanceWorkflowService
                     ->first();
                 if ($event->aggregate_type !== 'claim_version' ||
                     (string) ($payload['claim_version_id'] ?? '') !== (string) $event->aggregate_id ||
-                    $version === null || $version->disposition !== 'proposed' ||
-                    $version->field_definition_version_id === null || $reviewCase === null ||
-                    $reviewCase->status !== 'submitted' ||
+                    $version === null || $version->field_definition_version_id === null ||
+                    $reviewCase === null ||
                     (string) $version->field_definition_version_id !== (string) ($payload['field_definition_version_id'] ?? '')) {
-                    throw new \RuntimeException('Field claim proposal outbox event failed its proposal integrity checks.');
+                    throw new \\RuntimeException('Field claim proposal outbox event failed its proposal integrity checks.');
                 }
-                // Proposal notification is intentionally a no-op: this event never adjudicates,
-                // publishes, projects or materializes the proposed claim.
+
+                $isWithdrawnOrSuperseded = $version->disposition === 'withdrawn' ||
+                    $reviewCase->status === 'withdrawn' ||
+                    DB::table('claim_versions')->where('supersedes_version_id', $version->id)->exists();
+                if ($isWithdrawnOrSuperseded === false &&
+                    ($version->disposition !== 'proposed' || $reviewCase->status !== 'submitted')) {
+                    throw new \\RuntimeException('Field claim proposal outbox event no longer matches an active submitted proposal.');
+                }
+                // Withdrawn or superseded proposals are acknowledged without reactivating review or publication.
             } elseif ($event->event_type === 'publication.snapshot.rollback') {
                 (new PersistedConflictAndRollbackService)->applyRollbackOutboxEvent((string) ($payload['rollback_id'] ?? $event->aggregate_id));
             } elseif ($event->event_type === 'publication.snapshot.suppressed') {
