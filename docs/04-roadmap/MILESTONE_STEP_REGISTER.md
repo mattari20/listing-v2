@@ -627,7 +627,7 @@ See [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) for complete step scopes, task
 | M3-04 | Provider Management | 8% | P01–P04 implemented, validated and merged for bounded synthetic local/CI scope |
 | M3-05 | Public Directory and Search | 10% | Complete for bounded synthetic local/CI scope — PR #189 merged |
 | M3-06 | Geography and Discovery | 7% | Complete for bounded synthetic local/CI scope — PR #192 merged; text-only locality filtering; geospatial services/coordinates deferred |
-| M3-07 | AI Data-Agent | 10% | I1-I6 bounded synthetic/local/CI packages delivered; I7 full regression/hardening scope preflight complete, test implementation separately gated; live AI Data-Agent/source activation remains blocked by G2-G9 |
+| M3-07 | AI Data-Agent | 10% | I1-I6 bounded synthetic/local/CI packages delivered; I7 full regression/hardening test package implemented, exact-head validated and merged in PRs #224–#225; live AI Data-Agent/source activation remains blocked by G2-G9 |
 | M3-08 | Identity, Reviews and Security | 10% | Not started; reviews post-launch only |
 | M3-09 | Quality and Operational Hardening | 8% | Not started |
 | M3-10 | Pilot and Launch Readiness | 7% | Not started; separate pilot approval |
@@ -786,8 +786,21 @@ Step 1 (repository/roadmap status reconciliation) and Step 2 (read-only main rul
 
 The canonical D5 staged-delivery definition identifies I7 as a test-only package covering adversarial inputs, concurrency, migration, rollback, privacy, performance and full regression. I5 already delivered registry-aware public profiles and search/projection integration; I7 does not reopen that feature scope.
 
-Preflight base: main 1b4b58442807336bcf9905722b2a59a7a36606c1. Reviewed 19 test source files, 10 migrations and both existing CI workflows. The preflight maps existing I1-I6 coverage and identifies remaining hardening opportunities in adversarial payload/redaction, multi-connection contention, complete disposable SQLite migration rollback/reinstall, cross-phase no-side-effect checks and deterministic query-count budgets.
+Preflight base: main 1b4b58442807336bcf9905722b2a59a7a36606c1. Reviewed 19 test source files, 11 migrations and both existing CI workflows. The preflight maps existing I1-I6 coverage and identifies remaining hardening opportunities in adversarial payload/redaction, multi-connection contention, complete disposable SQLite migration rollback/reinstall, cross-phase no-side-effect checks and deterministic query-count budgets.
 
 See [I7 Full Regression and Hardening Preflight](M3-07_I7_FULL_REGRESSION_HARDENING_PREFLIGHT.md) for the allowed test/documentation paths, 13 acceptance gates, SQLite concurrency limitations, stop conditions and exact owner authorization template.
 
-**I7 scope/design preflight COMPLETE and merged in PR #222 as `beaf5598fcfb21320023ae063c6b1d1a6e03a290`; exact-head FND-01 CI #43844490560 and documentation validation #43844490593 passed (15 passed, 688 assertions, 164 existing missing-local-.env warnings). Test implementation NOT AUTHORIZED / NOT STARTED pending separate explicit Product Owner approval.** No application, schema, migration, dependency, PHPUnit or workflow files were changed. G2-G9 continue to block live source access and live agent activation.
+**I7 scope/design preflight COMPLETE and merged in PR #222 as `beaf5598fcfb21320023ae063c6b1d1a6e03a290`; exact-head FND-01 CI #43844490560 and documentation validation #43844490593 passed (15 passed, 688 assertions, 164 existing missing-local-.env warnings). Test implementation NOT AUTHORIZED / NOT STARTED pending separate explicit Product Owner approval.** No application, schema, migration, dependency, PHPUnit or workflow files were changed by the preflight. This is the historical preflight-time status and is superseded by the implementation closeout section below. G2-G9 continue to block live source access and live agent activation.
+
+
+## M3-07 I7 implementation closeout — 2026-11-16
+
+The Product Owner authorized the bounded synthetic-only I7 implementation after the preflight in PR #222. The test-only implementation is complete:
+
+- PR [#224](https://github.com/mattari20/listing-v2/pull/224): exact head `cd4a21c790b933f99567a6760260d914c4a09983`, merge `6efd9a4d29067c3e0dea11ada8ae01266f2d33b2`; FND-01 CI #43850465461 and documentation validation #43850465611 passed.
+- PR [#225](https://github.com/mattari20/listing-v2/pull/225): exact head `a31a78141b93bc5da2545ff49991d166f56c5f50`, merge/latest main `167ec4cad05926569bebda6aadac207166782235`; FND-01 CI #43850848377 and documentation validation #43850848331 passed.
+- Final suite: 15 passed, 761 assertions, 168 missing-local-`.env` harness warnings.
+- The 11-migration disposable SQLite install/rollback/reinstall test, foreign-key checks, independent-connection idempotency uniqueness and writer-lock contention checks all passed.
+- Deterministic directory query counts matched for one versus five synthetic results.
+
+The only changed paths were synthetic tests and the I7 implementation record. No application, schema/migration, Composer/dependency, PHPUnit, CI workflow, route/UI, source, production, external service, deployment or spend changes occurred. SQLite tests do not establish simultaneous application service-command safety or other-engine row-lock semantics; those limitations remain open. **I7 is complete and closed for its approved synthetic/local/CI scope.** G2-G9 remain blocking for live source access and live model/agent activation.

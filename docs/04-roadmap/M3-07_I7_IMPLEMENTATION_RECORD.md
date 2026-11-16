@@ -5,7 +5,7 @@
 **Base:** `main` at `690d7d108af7bca2ea71e43c705a3c72db41c958`  
 **Branch:** `test/m3-07-i7-regression-hardening`  
 **Authorization:** Explicit Product Owner authorization received 2026-11-16 for synthetic-only tests under `tests/Feature/**`, `tests/Unit/**` and I7 implementation documentation.  
-**Status:** Implementation prepared; exact-head CI and acceptance review pending.
+**Status:** Implemented, exact-head validated, merged in PRs #224 and #225, and reconciled across project control documents.
 
 ## 1. Authorized boundary
 
@@ -22,8 +22,8 @@ The new migration exercise creates a uniquely named temporary SQLite file under 
 ## 2. Baseline and repository inventory
 
 - Base `main`: `690d7d108af7bca2ea71e43c705a3c72db41c958`.
-- Existing test inventory at preflight: 19 test source files (18 feature, one unit).
-- Existing migration inventory: 11 migration files.
+- Existing test inventory at preflight: 19 test source files (18 feature, one unit); I7 adds one feature test file, for 20 total source files (19 feature, one unit).
+- Verified migration inventory: 11 migration files (the preflight's initial count of 10 was corrected after the disposable migration test observed 11 applied migrations).
 - Existing CI workflows: FND-01 PHP 8.5 foundation CI and project documentation validation.
 - Existing test environment: SQLite in-memory with foreign keys enabled.
 - No change to Composer files, PHPUnit configuration, migrations or CI workflows.
@@ -65,19 +65,19 @@ The cross-connection checks cover SQLite's unique-key enforcement and determinis
 
 | Gate | I7 disposition |
 |---|---|
-| I7-AC-01 — approved path boundary | Pending final PR diff review; intended diff is tests plus this record only |
-| I7-AC-02 — complete I1-I6 regression | Pending exact-head PHP 8.5 CI |
-| I7-AC-03 — adversarial/security inputs | Added hostile public output and agent binding tests; pending CI |
-| I7-AC-04 — proposal-only agent/human governance | Existing I6 tests retained; additional hostile binding test added; pending CI |
-| I7-AC-05 — idempotency and lineage | Existing I1-I6 idempotency/audit/outbox tests retained; SQLite cross-connection uniqueness added; pending CI |
-| I7-AC-06 — concurrency | **Supported SQLite checks pass:** independent connections verify unique-key enforcement and writer-lock contention. Simultaneous application service-command races and other-engine row-lock semantics remain open |
-| I7-AC-07 — disposable migration rollback/reinstall | Full 11-migration temporary-SQLite test added; pending CI |
-| I7-AC-08 — privacy/public projection/Deeni default-OFF | Existing tests retained; hostile output assertions added; pending CI |
-| I7-AC-09 — deterministic query-count regression | One-result versus five-result equality assertion added; pending CI. No wall-clock or scale guarantee |
-| I7-AC-10 — no production/source/external services/spend | No such access or spend authorized or included |
-| I7-AC-11 — exact-head CI | Pending |
-| I7-AC-12 — implementation evidence | This record; exact head, CI IDs and final warning disposition to be added after validation |
-| I7-AC-13 — stop on excluded defect | No application/schema/dependency/workflow edits are authorized; any such defect remains a separate gate |
+| I7-AC-01 — approved path boundary | **Pass:** PR #224 changed only the I7 record and two existing test files plus one new feature test; PR #225 changed only that test and record. No excluded path changed |
+| I7-AC-02 — complete I1-I6 regression | **Pass:** final exact-head suite 15 passed, 761 assertions |
+| I7-AC-03 — adversarial/security inputs | **Pass:** hostile HTML/registry metadata, control/oversized text, SQL-like/path/null/bidi identifiers, nested/oversized/duplicate bindings and prompt-like action payloads all passed fail-closed/redaction assertions |
+| I7-AC-04 — proposal-only agent/human governance | **Pass:** existing I6 proposal-only/human-review separation suite plus new hostile-binding regression passed |
+| I7-AC-05 — idempotency and lineage | **Pass:** existing I1-I6 idempotency/audit/outbox regressions passed; independent SQLite connection confirms outbox idempotency-key uniqueness |
+| I7-AC-06 — concurrency | **Supported SQLite checks pass:** independent connections verify unique-key enforcement and writer-lock contention. Simultaneous application service-command races and other-engine row-lock semantics remain explicitly open and unclaimed |
+| I7-AC-07 — disposable migration rollback/reinstall | **Pass:** all 11 migrations fresh-install, full reset/rollback and re-install on a temporary SQLite file; expected tables and foreign-key checks passed |
+| I7-AC-08 — privacy/public projection/Deeni default-OFF | **Pass:** existing public allowlist, suppression/revocation/expiry, internal/restricted facts and Deeni default-OFF tests passed; hostile rendering assertions passed |
+| I7-AC-09 — deterministic query-count regression | **Pass:** one-result versus five-result query counts matched. No wall-clock or production-scale guarantee is claimed |
+| I7-AC-10 — no production/source/external services/spend | **Pass:** no production/source/external service access or spend occurred |
+| I7-AC-11 — exact-head CI | **Pass:** PR #224 and PR #225 both passed FND-01 PHP 8.5 CI and project documentation validation on their exact heads |
+| I7-AC-12 — implementation evidence | **Pass:** exact base/head/merge SHAs, CI run IDs, test counts, warning disposition, changed-file scope and limitations are recorded below |
+| I7-AC-13 — stop on excluded defect | **Pass:** no test required an excluded application/schema/dependency/workflow change; no excluded file was modified |
 
 ## 5. Known limitations and stop conditions
 
@@ -90,12 +90,42 @@ The cross-connection checks cover SQLite's unique-key enforcement and determinis
 
 ## 6. Exact-head validation and closeout
 
-To be completed after the implementation PR reaches its final head:
-- PR number, URL, exact head SHA and merge SHA;
-- changed-file path audit;
-- PHP 8.5 FND-01 workflow run ID and result;
-- project documentation validation run ID and result;
-- complete test count, assertion count and warning disposition;
-- any failed/open acceptance gates and explicit limitations.
+### PR #224 — initial I7 regression hardening
 
-**Current disposition:** I7 test additions and implementation record prepared within the approved scope. Exact-head CI and acceptance review are pending. I7 is not closed until all supported acceptance gates pass and the SQLite limitations above remain explicitly recorded.
+- URL: https://github.com/mattari20/listing-v2/pull/224
+- Base: `690d7d108af7bca2ea71e43c705a3c72db41c958`
+- Exact validated head: `cd4a21c790b933f99567a6760260d914c4a09983`
+- Merge commit: `6efd9a4d29067c3e0dea11ada8ae01266f2d33b2`
+- FND-01 PHP 8.5 CI [run #43850465461](https://github.com/mattari20/listing-v2/actions/runs/43850465461): **success**.
+- Project documentation validation [run #43850465611](https://github.com/mattari20/listing-v2/actions/runs/43850465611): **success**.
+- Suite: 15 passed, 759 assertions, 168 warnings.
+
+### PR #225 — SQLite writer-lock contention extension
+
+- URL: https://github.com/mattari20/listing-v2/pull/225
+- Base: `6efd9a4d29067c3e0dea11ada8ae01266f2d33b2`
+- Exact validated head: `a31a78141b93bc5da2545ff49991d166f56c5f50`
+- Merge commit / verified main: `167ec4cad05926569bebda6aadac207166782235`
+- FND-01 PHP 8.5 CI [run #43850848377](https://github.com/mattari20/listing-v2/actions/runs/43850848377): **success**.
+- Project documentation validation [run #43850848331](https://github.com/mattari20/listing-v2/actions/runs/43850848331): **success**.
+- Final suite: **15 passed, 761 assertions, 168 warnings**.
+- Pint, Composer manifest validation, dependency audit, Laravel bootstrap/routes and repository artifact hygiene passed.
+- All 11 migrations applied, fully rolled back and re-applied on the temporary SQLite file; foreign-key checks returned no violations. The independent-connection uniqueness and writer-lock contention assertions passed.
+
+### Warning disposition
+
+The 168 warnings are the test harness's missing-local-`.env` `file_get_contents` warnings. The preflight baseline showed 164 warnings of this class; the final run reports 168 after the four added test methods. No `.env` file was created, changed or committed. There were no test failures.
+
+### Final scope and limitations
+
+Across both PRs, the unique changed-file set is:
+- `tests/Feature/PublicDirectoryTest.php`
+- `tests/Feature/SyntheticAgentProposalAdapterTest.php`
+- `tests/Feature/I7DisposableSqliteMigrationTest.php`
+- `docs/04-roadmap/M3-07_I7_IMPLEMENTATION_RECORD.md`
+
+No `app/**`, migration/schema, Composer/dependency, PHPUnit configuration, CI workflow, route/UI, production/V1/Hostinger, source data, external service, deployment or spend changes occurred. The migration test uses only a temporary SQLite file removed in `finally`.
+
+The SQLite checks establish unique-key enforcement and database-level writer-lock contention only. They do not establish simultaneous application service-command safety or row-lock semantics on other database engines. Those unsupported claims remain open.
+
+**Final disposition:** I7 is implemented, exact-head validated and merged for the approved synthetic/local/CI scope. All supported acceptance gates pass. The SQLite/application-level and cross-engine concurrency limitations remain explicit. Project-control reconciliation is recorded in PR [#226](https://github.com/mattari20/listing-v2/pull/226). G2-G9 continue to block live source access and live model/agent activation. I7 does not authorize I8, live activation, production work or scope expansion.
