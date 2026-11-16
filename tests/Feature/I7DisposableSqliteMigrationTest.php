@@ -47,9 +47,12 @@ final class I7DisposableSqliteMigrationTest extends TestCase
                 'users',
                 'role_assignments',
                 'privileged_action_audits',
+                'moderation_cases',
+                'moderation_appeals',
+                'moderation_events',
             ];
 
-            $this->assertSame(12, (int) $connection->table('migrations')->count());
+            $this->assertSame(13, (int) $connection->table('migrations')->count());
             foreach ($expectedTables as $table) {
                 $this->assertTrue($schema->hasTable($table), $table.' must exist after a fresh migration.');
             }
