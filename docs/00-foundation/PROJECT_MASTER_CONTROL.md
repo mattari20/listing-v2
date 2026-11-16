@@ -2,8 +2,8 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03 through M3-06 delivered for bounded synthetic local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered; M3-08 preflight complete; M3-08A/B identity/session and scoped authorization foundations merged in PR #232; M3-08C/D synthetic moderation/appeals and privacy/security foundations merged in PR #234; live AI/source activation blocked by G2-G9  
-**Last reconciled:** 2026-11-16 — M3-08C/D PR #234 merged as `42eabe8a5757e6b4c291baa52d1c01df4e08bb15`
+**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03 through M3-06 delivered for bounded synthetic local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered; M3-08A/B/C/D bounded synthetic identity/security/moderation foundations merged in PRs #232 and #234; M3-09 Q01–Q06 quality/operational hardening complete for authorized synthetic/local/CI scope in PR #237; M3-10 pilot readiness is next but separately gated; live AI/source activation blocked by G2-G9  
+**Last reconciled:** 2026-11-16 — M3-09 Q01–Q06 PR #237 merged as `a24e7aaeb5d60df4832c4cc2382102b1dc445043`
 
 ## Authoritative current position
 - M3-08 preflight documentation is complete and merged in PR #231. The separately authorized M3-08A/B first-party session identity and scoped authorization foundation is merged in PR #232 as `a693b2c701adb5328e755156e1900771400b1dca`; M3-08C/D synthetic moderation, appeals and privacy/security foundations are merged in PR #234 as `42eabe8a5757e6b4c291baa52d1c01df4e08bb15` for bounded local/CI scope. Public UGC, reviews and moderation activation remain disabled; reviews are post-launch only. Independent security and qualified legal/privacy/child-safeguarding release reviews remain open. See `../04-roadmap/M3-08C_D_IMPLEMENTATION_RECORD.md`.
@@ -23,7 +23,7 @@ Build a student-first education discovery, admissions information and comparison
 The Documentation Completion Catalogue is the owner-facing inventory of delivered, updated, accepted and planned documents. A merged PR records delivery, not automatic content acceptance. Every documentation PR update and merge must reconcile the catalogue, index, controller, step register, traceability and progress report.
 
 ## Current milestone
-**M3 — M3-08A/B/C/D bounded synthetic/local/CI foundations merged; M3-09 Quality and Operational Hardening is next; independent release reviews and live AI/source activation remain gated**
+**M3 — M3-09 Q01–Q06 complete for authorized synthetic/local/CI scope; M3-10 Pilot and Launch Readiness is next but requires separate approval; independent release reviews and live AI/source activation remain gated**
 
 
 ## M3-06 closeout — 2026-11-14
@@ -688,3 +688,10 @@ The Product Owner authorized I8-A — Synthetic-Only AI Data-Agent Readiness and
 I8-A is limited to synthetic feature tests and project documentation. It does not authorize runtime/application changes, schema/migrations, external model/API/source access, connectors, schedulers, production/V1/Hostinger, deployment or spend. PR [#228](https://github.com/mattari20/listing-v2/pull/228) merged as `6574d0654a9e5237568872ba4b3682c3260ae712` from exact validated head `518e25cd2f1cc9c8a80b2556bb570f02afc3c5b4`. On that exact head, FND-01 PHP 8.5 foundation CI [#43857206046](https://github.com/mattari20/listing-v2/actions/runs/43857206046) and Project documentation validation [#43857206017](https://github.com/mattari20/listing-v2/actions/runs/43857206017) passed. The full suite reported **15 passed, 803 assertions, 169 warnings**; warnings are the existing missing-local-`.env` test-harness warnings. No `.env` file was created or modified. I8-A is closed for the bounded synthetic/local/CI scope; G2-G9 remain live-activation blockers.
 
 GOV-04 and all candidate source families remain RESEARCH ONLY. G2-G9 remain conjunctive blockers for live source access and model/agent activation. I8-A does not complete the live AI Data-Agent milestone.
+
+
+## M3-09 Q01–Q06 closeout — 2026-11-16
+
+Implementation PR [#237](https://github.com/mattari20/listing-v2/pull/237) merged to main as `a24e7aaeb5d60df4832c4cc2382102b1dc445043`; exact validated PR head `91d581bfaff2cb9f8f4a0c9321aa790df826f76c`. FND-01 PHP 8.5 CI [#43878960281](https://github.com/mattari20/listing-v2/actions/runs/43878960281) and Project documentation validation [#43878960150](https://github.com/mattari20/listing-v2/actions/runs/43878960150) passed on that exact head. Full synthetic suite: **15 passed, 953 assertions, 205 non-fatal warnings**. Warnings are existing missing-local-`.env` `file_get_contents` test-harness diagnostics; no `.env` was created. Composer validation/audit, Pint, Laravel bootstrap/routes and artifact hygiene passed.
+
+The package adds semantic accessibility and no-remote-asset regression tests, a bounded query-count guard, baseline security response headers, disposable SQLite backup/restore integrity checks and synthetic operational runbooks. This is not production backup validation, independent security certification, WCAG conformance or a compliance claim. Human accessibility review, independent security/legal/privacy/child-safeguarding review, approved SLO/RPO/RTO, monitoring/alerting, on-call staffing and retention/deletion decisions remain open. No Hostinger/V1/production access, real data, external service, new spend, deployment, release or launch occurred. M3-10 requires separate pilot authorization.
