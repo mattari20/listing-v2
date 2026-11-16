@@ -4,9 +4,9 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-07 — I1-I5 bounded synthetic/local/CI governance and public-profile packages delivered and merged; live AI Data-Agent/source activation remains blocked pending exact source/model/provider and qualified rights/privacy/security approvals  
-**Plan status:** M3-03 final exit review accepted by Product Owner on 2026-11-14; G-01–G-03 closed for bounded synthetic scope and G-04 traceability owner-accepted with explicit residual deferrals; M3-04 P01–P04, M3-05, M3-06 and M3-07 I1-I5 bounded packages implemented, validated and merged for synthetic/local/CI scope  
-**Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 P01–P04, M3-05, M3-06 and M3-07 I1-I5 are implemented, validated and merged for bounded synthetic local/CI scope. M3-07 I5 delivers exact-version correction, withdrawal/reinstatement and registry-aware profile assembly only; it does not activate live source ingestion or an AI agent. Coordinates, distance search, device location, maps, geocoding, real/source data, external services, production and deployment remain separately gated.
+**Current step:** M3-07 — I1-I6 bounded synthetic/local/CI packages delivered; I7 full regression and hardening test package implemented, exact-head validated and merged; live AI Data-Agent/source activation remains blocked pending source/model/provider and qualified rights/privacy/security approvals  
+**Plan status:** M3-03 final exit review accepted by Product Owner on 2026-11-14; G-01–G-03 closed for bounded synthetic scope and G-04 traceability owner-accepted with explicit residual deferrals; M3-04 P01–P04, M3-05, M3-06 and M3-07 I1-I7 bounded synthetic/local/CI packages implemented, validated and merged; live source/model activation remains gated  
+**Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 P01–P04, M3-05, M3-06 and M3-07 I1-I6 are implemented, validated and merged for bounded synthetic local/CI scope. M3-07 I7 adds test-only regression, adversarial, privacy, migration/rollback, SQLite contention and query-count checks; it does not change application behavior or activate live source ingestion or an AI agent. Coordinates, distance search, device location, maps, geocoding, real/source data, external services, production and deployment remain separately gated.
 
 ## 1. Purpose and governance
 
@@ -89,7 +89,7 @@ Deliver anonymous-first directory pages, search, categories, filters and institu
 **Exit evidence:** PR #192 merged as `e959adb578df6b60f2c308cd0b1f12391f6cb043`; exact PR head `9761e52747e0f2b15fbfee58ac2528ec4f96c57c` passed FND-01 PHP 8.5 CI #43559187297 and Project documentation validation #43559187312. Synthetic locality/privacy/restricted-category tests passed in the full suite.
 
 ### M3-07 — AI Data-Agent
-**AI Data-Agent readiness review delivered; live source/model implementation remains blocked.** See [M3-07 Work Plan](M3-07_AI_DATA_AGENT_WORK_PLAN.md) and [Readiness Review Record](M3-07_AI_DATA_AGENT_READINESS_REVIEW_RECORD.md). Candidate sources remain research-only, no permission requests/approvals are recorded, no model/provider is selected, no paid service is authorized and qualified source/privacy/security reviewers are not assigned. Separately, I1-I5 bounded synthetic/local/CI data-governance and public-profile packages are delivered; they do not activate source retrieval, model calls, connectors or autonomous publication.
+**AI Data-Agent readiness review delivered; live source/model implementation remains blocked.** See [M3-07 Work Plan](M3-07_AI_DATA_AGENT_WORK_PLAN.md) and [Readiness Review Record](M3-07_AI_DATA_AGENT_READINESS_REVIEW_RECORD.md). Candidate sources remain research-only, no permission requests/approvals are recorded, no model/provider is selected, no paid service is authorized and qualified source/privacy/security reviewers are not assigned. Separately, I1-I6 bounded synthetic/local/CI data-governance packages and I7 test-only regression hardening are delivered; they do not activate source retrieval, model calls, connectors or autonomous publication.
 
 Once the conjunctive gates pass, implement only a bounded proposal-only workflow: exact source manifest and access-method gate; permitted retrieval into quarantine; provenance and integrity; extraction with exact supporting evidence; deterministic validation; cautious entity matching; conflict/freshness routing; human review; and reversible publication. The agent must have no autonomous publication permission.
 
@@ -166,7 +166,7 @@ Conditional step. Requires separate explicit written approval for production acc
 - M3-04: P01–P04 implemented, validated and merged for bounded synthetic local/CI scope.
 - M3-05: Public Directory and Search implemented, validated and merged for bounded synthetic local/CI scope (PR #189).
 - M3-06: Geography and Discovery implemented, validated and merged for bounded synthetic local/CI scope (PR #192); coordinates, distance search, maps, geocoding and national locality data remain deferred.
-- M3-07: I1-I5 bounded synthetic/local/CI packages delivered and merged; live AI Data-Agent/source activation remains blocked pending source-specific rights, model/provider, qualified privacy/security/operational and owner activation approvals. No agent or connector is active.
+- M3-07: I1-I6 bounded synthetic/local/CI packages and I7 full regression/hardening tests delivered and merged; live AI Data-Agent/source activation remains blocked pending source-specific rights, model/provider, qualified privacy/security/operational and owner activation approvals. No live agent or connector is active.
 - M3-08–M3-10: Not started; identity/security, operational and pilot gates remain applicable.
 - M3-11: Conditional; production access, deployment, URL cutover and launch remain unauthorized.
 
@@ -491,8 +491,22 @@ Exact-head FND-01 PHP 8.5 CI [#43838997569](https://github.com/mattari20/listing
 
 The canonical D5 staged-delivery table defines I7 as the full adversarial, concurrency, migration, rollback, privacy, performance and regression suite, with test-only write capability. I7 is not a new search/profile feature: registry-aware public profiles and projection integration were delivered in I5. The current main baseline is `1b4b58442807336bcf9905722b2a59a7a36606c1`.
 
-The I7 preflight reviewed the current test inventory (19 test source files), 10 migrations, the FND-01 PHP 8.5/SQLite in-memory CI contract, and the I1-I6 registry, validation, claim/evidence, human governance, profile/public projection, synthetic-agent, outbox, conflict and rollback tests. It identifies hardening opportunities in systematic adversarial input/redaction coverage, multi-connection contention evidence, complete disposable-SQLite migration rollback/reinstall checks, cross-phase no-side-effect assertions and deterministic query-count performance baselines.
+The I7 preflight reviewed the current test inventory (19 test source files), 11 migrations, the FND-01 PHP 8.5/SQLite in-memory CI contract, and the I1-I6 registry, validation, claim/evidence, human governance, profile/public projection, synthetic-agent, outbox, conflict and rollback tests. It identifies hardening opportunities in systematic adversarial input/redaction coverage, multi-connection contention evidence, complete disposable-SQLite migration rollback/reinstall checks, cross-phase no-side-effect assertions and deterministic query-count performance baselines.
 
 Deliverable: [M3-07 I7 Full Regression and Hardening Preflight](M3-07_I7_FULL_REGRESSION_HARDENING_PREFLIGHT.md). It sets a test/documentation-only file boundary, 13 acceptance gates, SQLite concurrency limitations and stop conditions. If tests reveal an application or migration defect, I7 must stop and seek separate authorization rather than changing excluded files.
 
 **Disposition:** I7 scope/design preflight COMPLETE and merged in PR #222; exact-head FND-01 CI #43844490560 and documentation validation #43844490593 passed (15 passed, 688 assertions, 164 existing missing-local-.env warnings). Test implementation NOT AUTHORIZED / NOT STARTED pending separate explicit Product Owner approval. No application code, test code, schema, migration, Composer, PHPUnit configuration or CI workflow has been changed by this preflight. G2-G9 remain blocking for live source access and live agent activation.
+
+
+## M3-07 I7 — Full Regression and Hardening implementation closeout (2026-11-16)
+
+The Product Owner explicitly authorized I7's test-only synthetic scope after the PR #222 preflight. Implementation is complete and merged:
+
+- PR [#224](https://github.com/mattari20/listing-v2/pull/224), base `690d7d108af7bca2ea71e43c705a3c72db41c958`, exact validated head `cd4a21c790b933f99567a6760260d914c4a09983`, merge `6efd9a4d29067c3e0dea11ada8ae01266f2d33b2`; FND-01 CI #43850465461 and documentation validation #43850465611 passed.
+- PR [#225](https://github.com/mattari20/listing-v2/pull/225), base `6efd9a4d29067c3e0dea11ada8ae01266f2d33b2`, exact validated head `a31a78141b93bc5da2545ff49991d166f56c5f50`, merge/latest main `167ec4cad05926569bebda6aadac207166782235`; FND-01 CI #43850848377 and documentation validation #43850848331 passed.
+- Final suite: 15 passed, 761 assertions, 168 missing-local-`.env` harness warnings. No `.env` file was created or modified.
+- The 11-migration temporary SQLite test passed fresh install, full rollback and re-install with expected tables and clean foreign-key checks.
+- Independent SQLite connections passed outbox idempotency uniqueness and deterministic database-level writer-lock contention checks.
+- The public-directory query-count comparison returned equal counts for one and five synthetic results.
+
+I7 changed tests and its implementation record only. No application, schema/migration, dependency, PHPUnit, CI workflow, route/UI, production, source, external-service, deployment or spend change occurred. The SQLite checks do not prove simultaneous application service-command safety or row-lock semantics on another database engine; those limitations remain open and unclaimed. **I7 is closed for the approved synthetic/local/CI scope.** G2-G9 continue to block live source access and live model/agent activation; I7 does not authorize I8 or live activation.
