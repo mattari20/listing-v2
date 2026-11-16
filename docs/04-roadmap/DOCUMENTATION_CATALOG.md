@@ -1014,6 +1014,6 @@ R2 does not grant source access, reuse permission, model activation, external AP
 
 | Artifact | Purpose | Status |
 |---|---|---|
-| [I4 Field Definition Governance Lifecycle — Bounded Implementation Proposal](M3-07_I4_FIELD_DEFINITION_GOVERNANCE_LIFECYCLE_PROPOSAL.md) | Defines review cases/decisions, human-only capabilities, actor separation, approval/activation separation, retirement/restore, audit/outbox, proposed migration/service scope and synthetic acceptance matrix | Owner-authorized scope; implementation baseline |
-| [I4 Field Definition Governance Implementation Record](M3-07_I4_FIELD_DEFINITION_GOVERNANCE_IMPLEMENTATION_RECORD.md) | Records additive persistence, lifecycle service, audit/outbox validation, synthetic test coverage and exact-head validation evidence | Implementation prepared; CI/review pending |
+| [I4 Field Definition Governance Lifecycle — Bounded Implementation Proposal](M3-07_I4_FIELD_DEFINITION_GOVERNANCE_LIFECYCLE_PROPOSAL.md) | Defines review cases/decisions, human-only capabilities, actor separation, approval/activation separation, retirement/restore, audit/outbox, proposed migration/service scope and synthetic acceptance matrix | Owner-authorized bounded scope |
+| [I4 Field Definition Governance Implementation Record](M3-07_I4_FIELD_DEFINITION_GOVERNANCE_IMPLEMENTATION_RECORD.md) | Records additive persistence, lifecycle service, audit/outbox validation, 17 synthetic test methods, exact-head CI and merge evidence | Merged and CI-validated in PR #210; owner acceptance pending |
 
