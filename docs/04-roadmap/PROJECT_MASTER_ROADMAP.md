@@ -7,7 +7,7 @@ All milestones are planned outcomes. Step-level scope and acceptance criteria ar
 | M0 | Independent repository, documentation, governance and delivery controls | Accepted — PR #4 closeout |
 | M1 | Student requirements, provider discovery, data rights and open-source research | **Accepted and Closed — M1-S01 through M1-S10 accepted; 100%; primary research deferred** |
 | M2 | Architecture, domain model, technology evaluation, security and data design | **In Progress — owner-authorized 2026-11-12; documentation/design only** |
-| M3 | Application foundation, environments, CI, identity and authorization | Planned |
+| M3 | Application foundation, environments, CI, identity and authorization | In progress — M3-07 I1-I5 bounded synthetic/local/CI packages delivered; live AI Data-Agent/source activation remains blocked |
 | M4 | Institution, campus and programme management | Planned |
 | M5 | Nearby discovery, search, filters and maps | Planned |
 | M6 | Institution profiles and verified information presentation | Planned |
@@ -74,3 +74,11 @@ The [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) is the authoritative detailed 
 | M3-11 | Controlled Production Launch | 6% | Conditional; separate production/launch approval |
 
 Weights total 100%. They are planning allocations, not authorization to spend, access sources, use production, deploy or launch.
+
+## M3-07 I5 closeout — 2026-11-16
+
+I5-A through I5-C and the historical-definition regression are delivered and merged in PRs #213–#216. The final exact-head PHP 8.5 FND-01 suite passed 15 tests and 647 assertions; documentation validation passed on all four PR heads. See [M3-07 I5 Implementation Record](M3-07_I5_IMPLEMENTATION_RECORD.md).
+
+I5 completion closes only the bounded synthetic/local/CI value correction, withdrawal/reinstatement and registry-aware public profile agenda. It does not complete or activate the live AI Data-Agent. Candidate sources remain RESEARCH ONLY; G2-G9 rights, privacy, security, model/provider and activation gates remain blocked. No source access, agent, model, connector, scheduler, production operation, deployment or spend is authorized.
+
+**Next:** I6 scope/design preflight. I6 implementation and I7 remain separately gated and require their own explicit Product Owner authorization.
