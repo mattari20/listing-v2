@@ -147,7 +147,7 @@ final class FieldDefinitionGovernanceService
 
             $decisionId = $this->recordDecision(
                 $caseId, 'proposed', $actor, $rationaleCode, $rationale,
-                'proposal:'.hash('sha256', $idempotencyKey), $fingerprint, 'proposal'
+                $idempotencyKey, $fingerprint, 'proposal'
             );
             $this->auditAndEnqueue(
                 $actor, 'field_definition_proposed', $versionId, null, 'proposed',
@@ -179,7 +179,7 @@ final class FieldDefinitionGovernanceService
                 return (string) $priorDecision->id;
             }
             $case = $this->lockCase($reviewCaseId);
-            if ($case->status !== 'submitted' && $case->status !== 'changes_requested') {
+            if ($case->status !== 'submitted') {
                 $this->reject('review_case', 'A reviewer can only be assigned to a submitted or changes-requested case.');
             }
             if ($reviewerActorId === $case->submitted_by_actor_id || $reviewerActorId === $actor['actor_id']) {
@@ -269,6 +269,10 @@ final class FieldDefinitionGovernanceService
                 $this->reject('review_case', 'Only the original proposer may edit a changes-requested proposal.');
             }
             $version = DB::table('field_definition_versions')->where('id', $case->field_definition_version_id)->lockForUpdate()->first();
+            $fieldKey = DB::table('field_definitions')->where('id', $version?->field_definition_id)->value('field_key');
+            if ($fieldKey !== $normalized['field_key']) {
+                $this->reject('field_key', 'A proposed version cannot be edited to use a different stable field key.');
+            }
             if ($version === null || $version->lifecycle_state !== 'proposed') {
                 $this->reject('definition', 'Only a proposed definition may be edited.');
             }
@@ -381,6 +385,8 @@ final class FieldDefinitionGovernanceService
             if ($version->effective_to !== null && now()->gte($version->effective_to)) {
                 $this->reject('effective_to', 'An expired definition cannot be activated.');
             }
+            // Serialize activations for this stable key before checking the single-active invariant.
+            DB::table('field_definitions')->where('id', $version->field_definition_id)->lockForUpdate()->first();
             $active = DB::table('field_definition_versions')
                 ->where('field_definition_id', $version->field_definition_id)
                 ->where('lifecycle_state', 'active')
