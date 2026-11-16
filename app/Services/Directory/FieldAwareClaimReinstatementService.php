@@ -90,7 +90,7 @@ final class FieldAwareClaimReinstatementService
             }
 
             $priorAudit = DB::table('audit_events')
-                ->where('action', 'claim_version_reinstated')
+                ->where('action', 'field_aware_claim_reinstated')
                 ->where('target_type', 'claim_version')
                 ->where('metadata->idempotency_key', $idempotencyKey)
                 ->first(['metadata']);
