@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\\Services\\Directory;
+namespace App\Services\Directory;
 
-use App\\Domain\\Governance\\GovernancePolicy;
-use Illuminate\\Support\\Facades\\DB;
-use Illuminate\\Support\\Str;
-use Illuminate\\Validation\\ValidationException;
+use App\Domain\Governance\GovernancePolicy;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 final class FieldDefinitionGovernanceService
 {
@@ -535,7 +535,7 @@ final class FieldDefinitionGovernanceService
             ! in_array($definition['visibility_class'], ['public_eligible', 'editorial_restricted', 'internal_only', 'restricted'], true)) {
             $this->reject('definition', 'Type, cardinality, scope, privacy or visibility is unsupported by the bounded I4 package.');
         }
-        if (! preg_match('/^\\d+\\.\\d+\\.\\d+(?:-[a-z0-9.-]+)?$/D', $definition['semantic_version']) ||
+        if (! preg_match('/^\d+\.\d+\.\d+(?:-[a-z0-9.-]+)?$/D', $definition['semantic_version']) ||
             ! preg_match('/^[a-z][a-z0-9_]{0,39}$/D', $definition['compatibility_class'])) {
             $this->reject('definition', 'Semantic version or compatibility class is invalid.');
         }
@@ -779,7 +779,7 @@ final class FieldDefinitionGovernanceService
         try {
             $date = new DateTimeImmutable($value);
             return $date->format('Y-m-d H:i:s');
-        } catch (\\Throwable) {
+        } catch (\Throwable) {
             return null;
         }
     }
