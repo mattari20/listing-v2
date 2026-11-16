@@ -973,3 +973,12 @@ PR #187 merged as `bd240e81d0be362cf84dcab2f2b9e61875f6b59e` from validated head
 | [M3-05 Public Directory and Search Implementation Record](M3-05_PUBLIC_DIRECTORY_SEARCH_IMPLEMENTATION_RECORD.md) | Routes, query service, profile views, privacy/publication checks, synthetic tests and validation evidence | **Merged and validated — PR #189** |
 
 PR [#189](https://github.com/mattari20/listing-v2/pull/189) merged as `8a89c5666501e5cc1f8565b32fd40a2a3370d634` from validated head `1e4bd3be1d92ca1ba3a06fd7190d3a20de340c58`. Exact-head PHP 8.5 foundation CI #43557559498 and Project documentation validation #43557559518 passed. Synthetic suite: 351 assertions, no failures, 107 non-fatal warnings from the existing missing-`.env` test-harness reads. No unresolved review threads.
+
+
+## M3-07 R1 — Pakistan National Education Source Master Inventory
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [R1 Pakistan National Education Source Master Inventory](M3-07_R1_PAKISTAN_NATIONAL_EDUCATION_SOURCE_MASTER_INVENTORY.md) | Consolidates the accepted M1-S03 48-record official-source research into a national source-family inventory; maps seven jurisdictions and national higher-education, professional, TVET, NFE, special-education and institution-controlled sources; records small-provider gaps, source-asset boundaries and the proposed G2 authorization manifest contract | Delivered for owner review — documentation/research only; no source access, collection, AI activation or reuse permission |
+
+R1 reuses the owner-accepted M1-S03 research baseline rather than duplicating it. The M1-S03 100% figure is research-task completion only. R1 does not claim a complete national provider census or source-rights clearance. Owner acceptance of the R1 consolidation and all G2-G9 source/method/activation gates remain separate.
