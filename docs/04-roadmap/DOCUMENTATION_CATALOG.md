@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-16 — M3-08C/D synthetic moderation, appeals and privacy/security implementation merged in PR #234 as `42eabe8a5757e6b4c291baa52d1c01df4e08bb15`; exact-head FND-01 CI #43876036202 and documentation validation #43876036293 passed on `80d7a4a659fa58b1da2542b9c1f429a951399dce`; independent release reviews and M3-07 live AI/source activation gates remain open
+**Last reconciled:** 2026-11-16 — M3-10 readiness acceptance verification record added; framework delivery verified, pilot readiness remains not accepted; PR #240/#241 evidence retained
 
 ## Purpose and maintenance rule
 
@@ -1088,3 +1088,12 @@ M3-09 is complete for its explicitly authorized synthetic-only local/CI scope. I
 | [M3-10 Pilot and Launch Readiness Work Plan](M3-10_PILOT_AND_LAUNCH_READINESS_WORK_PLAN.md) | Six readiness packages; pilot charter decisions; participant/safeguarding, data/source/privacy, support/moderation, incident/recovery/rollback and acceptance/go/no-go gates; explicit stop conditions | PR #240 merged as `d733bca59e5cb519f0a3d74231145ee24d298ed4`; exact head `9248721ef7e50c0d68693c64a822866acc86d592`; FND-01 CI #43893286963 and docs validation #43893048895 passed; post-merge docs validation #43893419189 passed. No pilot approved or conducted; separate owner and qualified-review gates remain open |
 
 M3-10 is IN PROGRESS for readiness planning only. The agenda authorization is not approval to recruit participants, process real data, activate public UGC/reviews/moderation, provision a hosted pilot, access production, deploy, launch or spend. See the work plan for the complete decision and blocker register.
+
+
+## M3-10 readiness acceptance verification
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-10 Readiness Acceptance Verification Record](M3-10_READINESS_ACCEPTANCE_VERIFICATION_RECORD.md) | Package-by-package and gate-by-gate evidence review; distinguishes merged framework delivery from owner/qualified approvals and pilot acceptance | Delivered — verification record; framework delivery verified, M3-10 pilot readiness NOT ACCEPTED; M3-10 remains IN PROGRESS |
+
+The verification record confirms PR #240 framework delivery and PR #241's exact-head CI/documentation evidence. It does not approve or evidence a live pilot, participants, real data, qualified reviews, operational staffing, hosted recovery, production readiness or launch. M3-11 remains separately gated.
