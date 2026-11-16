@@ -424,7 +424,7 @@ I1 field registry persistence/read path was merged in PR #198 (`d7d683d6044d269c
 
 The I4 bounded implementation proposal is prepared in [M3-07 I4 Field Definition Governance Lifecycle](M3-07_I4_FIELD_DEFINITION_GOVERNANCE_LIFECYCLE_PROPOSAL.md). It covers two review-workflow tables, a human-only governance service, independent review/approval and separate activation, version immutability, retirement/restore, transactional audit/outbox and synthetic-only tests. It excludes UI/routes, real roles, claim/value changes, public projections, source access, AI/provider activation, production and spend.
 
-**Authorization received 2026-11-16:** the Product Owner explicitly authorized the exact bounded I4 scope. Implementation is underway on branch `feature/m3-07-i4-field-definition-governance`. The I4 implementation record documents the two review tables, human-only lifecycle service, audit/outbox integrity checks and synthetic tests. I5-I7 remain separately gated.
+**Authorization received 2026-11-16:** the Product Owner explicitly authorized the exact bounded I4 scope. Implementation is underway on branch `feature/m3-07-i4-field-definition-governance`. The I4 implementation record documents the two review tables, human-only lifecycle service, audit/outbox integrity checks and synthetic tests. At that point I5-I7 remained separately gated; I5 was subsequently authorized and closed in PRs #213–#216. I6-I7 remain separately gated.
 
 
 ## M3-07 I4 implementation closeout — 2026-11-16
