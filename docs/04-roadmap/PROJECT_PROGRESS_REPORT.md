@@ -2,7 +2,8 @@
 
 ## Latest verified position — M3-07 I7 implementation and closeout (2026-11-16)
 
-**Latest verified main:** `167ec4cad05926569bebda6aadac207166782235`.  
+**I7 implementation merge:** `167ec4cad05926569bebda6aadac207166782235`.  
+**I7 project-control closeout:** PR [#226](https://github.com/mattari20/listing-v2/pull/226), exact head `582b8ca4e5ead994242a09caaa1d8e04cf09fc37`, merged as `1a195557bf49aefb543d7cee9b5f0d3df204011a`; FND-01 CI #43852030700 and Project documentation validation #43852030693 passed.  
 **Canonical agenda:** I7 — Full Regression and Hardening (D5 staged plan).  
 **Authorization:** The Product Owner explicitly authorized the bounded synthetic-only test implementation on 2026-11-16.  
 **Status:** I7 implementation is delivered, exact-head validated and merged for the approved synthetic/local/CI scope.
