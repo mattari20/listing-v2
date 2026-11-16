@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+
 return [
 
     'defaults' => [
@@ -17,12 +19,10 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => User::class,
         ],
     ],
 
-    // Password reset is deliberately not exposed until recovery policy and
-    // a safe delivery channel have been separately approved.
     'passwords' => [
         'users' => [
             'provider' => 'users',
