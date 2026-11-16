@@ -153,7 +153,7 @@ No blanket source authorization or blanket AI activation is created by this docu
 
 R1 and R2 are delivered in PRs #204 and #206. R3 is complete as a no-activation gate reconciliation: GOV-04 remains RESEARCH ONLY; no model/provider is selected; G2-G7 remain blocked and G9 is not authorized. See M3-07_R3_SOURCE_RIGHTS_AND_MODEL_FEASIBILITY_RECONCILIATION.md.
 
-I1-I3 are merged for bounded synthetic local/CI scopes. The next technical package is I4 — Field Definition Governance Lifecycle. Its exact proposed scope and owner authorization statement are in M3-07_I4_FIELD_DEFINITION_GOVERNANCE_LIFECYCLE_PROPOSAL.md. I4 implementation remains NOT AUTHORIZED until the owner explicitly approves that scope. Keep the agent and every connector disabled. No source access, owner contact, permission request, external model/API, collection, ingestion or spend is authorized.
+I1-I3 are merged for bounded synthetic local/CI scopes. The next technical package is I4 — Field Definition Governance Lifecycle. The Product Owner explicitly authorized its exact bounded scope on 2026-11-16. Implementation is underway in branch `feature/m3-07-i4-field-definition-governance`; see `M3-07_I4_FIELD_DEFINITION_GOVERNANCE_IMPLEMENTATION_RECORD.md`. Only the two review workflow tables, human-only lifecycle service, I4 outbox integrity validation and synthetic tests are included. Exact-head CI/review remain pending. I5-I7 are not authorized. Keep the agent and every connector disabled. No source access, owner contact, permission request, external model/API, collection, ingestion or spend is authorized.
 
 ## 12. Binding non-interference
 
