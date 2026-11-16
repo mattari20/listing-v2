@@ -2,10 +2,11 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03, M3-04, M3-05 and M3-06 delivered for bounded synthetic local/CI scope; M3-07 I1-I7 bounded synthetic/local/CI packages merged; I8-A synthetic source-authorization evaluation submitted for exact-head CI; live source/model activation blocked by G2-G9  
+**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03 through M3-06 delivered for bounded synthetic local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered; M3-08 identity/reviews/security scope preflight complete, implementation not authorized; live AI/source activation blocked by G2-G9  
 **Last reconciled:** 2026-11-16
 
 ## Authoritative current position
+- M3-08 Identity, Reviews and Security scope/architecture preflight is complete as documentation-only on main baseline `a65027a673f4ba0d9a68fe4275151806bf50bc1e`; application implementation remains NOT AUTHORIZED and reviews remain post-launch only. See `../04-roadmap/M3-08_IDENTITY_REVIEWS_SECURITY_PREFLIGHT.md`.
 - Public V2 repository visibility verified; owner selected public visibility on 2026-11-11.
 - Repository auto-merge is enabled; active `main` ruleset requires the documentation validation check.
 - Founding documentation PR #1 merged into `main` as `0f2165f3d18e43f10cf6d6f717f145d3433769a4`.
