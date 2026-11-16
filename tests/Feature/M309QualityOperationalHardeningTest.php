@@ -36,7 +36,7 @@ final class M309QualityOperationalHardeningTest extends TestCase
         $html = (string) $this->get('/directory')->assertOk()->getContent();
 
         $this->assertStringNotContainsString('<script', strtolower($html));
-        $this->assertDoesNotMatchRegularExpression('/(?:src|href)=[\\"\\']https?:\\/\\//i', $html);
+        $this->assertDoesNotMatchRegularExpression("~(?:src|href)=[\"']https?://~i", $html);
     }
 
     public function test_public_directory_rejects_overlong_search_inputs(): void
