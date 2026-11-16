@@ -75,6 +75,11 @@ final class FieldDefinitionGovernanceService
                 if ($predecessor === null) {
                     $this->reject('predecessor', 'The predecessor must belong to the same stable field key.');
                 }
+                $latestVersionNumber = (int) DB::table('field_definition_versions')
+                    ->where('field_definition_id', $definitionId)->max('version_number');
+                if ((int) $predecessor->version_number !== $latestVersionNumber) {
+                    $this->reject('predecessor', 'A successor must reference the latest existing version for this stable field key.');
+                }
                 if (! in_array($predecessor->lifecycle_state, ['active', 'deprecated', 'retired'], true)) {
                     $this->reject('predecessor', 'Only an active, deprecated or retired version can have a successor.');
                 }
@@ -427,6 +432,7 @@ final class FieldDefinitionGovernanceService
             if ($version === null || $version->lifecycle_state !== 'active') {
                 $this->reject('definition', 'Only an active definition may be deprecated.');
             }
+            DB::table('field_definitions')->where('id', $version->field_definition_id)->lockForUpdate()->first();
             $end = $this->parseDate($effectiveTo);
             if ($end === null || $end <= now()) {
                 $this->reject('effective_to', 'Deprecation must use a valid future effective boundary.');
@@ -467,6 +473,7 @@ final class FieldDefinitionGovernanceService
             if ($version === null || ! in_array($version->lifecycle_state, ['active', 'deprecated'], true)) {
                 $this->reject('definition', 'Only an active or deprecated definition may be retired.');
             }
+            DB::table('field_definitions')->where('id', $version->field_definition_id)->lockForUpdate()->first();
             $successorId = null;
             if ($successorFieldKey !== null) {
                 $successorId = DB::table('field_definitions')->where('field_key', $successorFieldKey)->value('id');
