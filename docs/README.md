@@ -35,6 +35,7 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [M3-06 Geography and Discovery Implementation Record](04-roadmap/M3-06_GEOGRAPHY_AND_DISCOVERY_IMPLEMENTATION_RECORD.md) — merged locality filtering, synthetic verification and exact-head CI evidence
 - [M3-07 AI Data-Agent Work Plan](04-roadmap/M3-07_AI_DATA_AGENT_WORK_PLAN.md) — source/model authorization gates, proposal-only workflow, threat controls and synthetic-only test plan
 - [M3-07 AI Data-Agent Readiness Review Record](04-roadmap/M3-07_AI_DATA_AGENT_READINESS_REVIEW_RECORD.md) — documented readiness blockers and explicit no-activation decision
+- [M3-08 Identity, Reviews and Security Scope / Architecture Preflight](04-roadmap/M3-08_IDENTITY_REVIEWS_SECURITY_PREFLIGHT.md) — current-main authentication inventory, role/action boundary, post-launch review constraints, synthetic acceptance plan, owner decisions and separate implementation authorization gate; preflight complete, implementation not authorized
 - [M3-07 R1 Pakistan National Education Source Master Inventory](04-roadmap/M3-07_R1_PAKISTAN_NATIONAL_EDUCATION_SOURCE_MASTER_INVENTORY.md) — consolidated national source families, seven-jurisdiction coverage, institution-controlled update sources, gaps and source-authorization boundaries
 - [M3-07 I5 Value Correction, Withdrawal and Profile Integration Implementation Record](04-roadmap/M3-07_I5_IMPLEMENTATION_RECORD.md) — merged I5-A through I5-C scope, exact-head CI, synthetic acceptance evidence and safety boundaries
 

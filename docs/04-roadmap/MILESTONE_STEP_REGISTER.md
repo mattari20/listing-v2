@@ -628,7 +628,7 @@ See [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) for complete step scopes, task
 | M3-05 | Public Directory and Search | 10% | Complete for bounded synthetic local/CI scope — PR #189 merged |
 | M3-06 | Geography and Discovery | 7% | Complete for bounded synthetic local/CI scope — PR #192 merged; text-only locality filtering; geospatial services/coordinates deferred |
 | M3-07 | AI Data-Agent | 10% | I1-I6 bounded synthetic/local/CI packages delivered; I7 full regression/hardening test package implemented, exact-head validated and merged in PRs #224–#225; live AI Data-Agent/source activation remains blocked by G2-G9 |
-| M3-08 | Identity, Reviews and Security | 10% | Not started; reviews post-launch only |
+| M3-08 | Identity, Reviews and Security | 10% | Scope/architecture preflight complete; implementation not authorized; reviews post-launch only |
 | M3-09 | Quality and Operational Hardening | 8% | Not started |
 | M3-10 | Pilot and Launch Readiness | 7% | Not started; separate pilot approval |
 | M3-11 | Controlled Production Launch | 6% | Conditional; separate explicit launch authorization |
@@ -813,3 +813,12 @@ The Product Owner authorized the bounded synthetic-only evaluation. One new feat
 The implementation and evaluation record are `M3-07_I8_SYNTHETIC_AGENT_READINESS_EVALUATION.md`. PR [#228](https://github.com/mattari20/listing-v2/pull/228) merged as `6574d0654a9e5237568872ba4b3682c3260ae712` from exact validated head `518e25cd2f1cc9c8a80b2556bb570f02afc3c5b4`. On that exact head, FND-01 PHP 8.5 foundation CI [#43857206046](https://github.com/mattari20/listing-v2/actions/runs/43857206046) and Project documentation validation [#43857206017](https://github.com/mattari20/listing-v2/actions/runs/43857206017) passed. The full suite reported **15 passed, 803 assertions, 169 warnings**; warnings are the existing missing-local-`.env` test-harness warnings. No `.env` file was created or modified. I8-A is closed for its authorized synthetic/local/CI scope.
 
 I8-A is a bounded synthetic readiness/evaluation deliverable only. It does not approve a source, model/provider, external API, connector, scheduler, spend or live agent. G2-G9 remain blocking; M3-07 live AI Data-Agent activation remains incomplete.
+
+
+## M3-08 — Identity, Reviews and Security preflight (2026-11-16)
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-08 Identity, Reviews and Security Scope / Architecture Preflight](M3-08_IDENTITY_REVIEWS_SECURITY_PREFLIGHT.md) | Current-main authentication inventory, accepted M2-S08 reconciliation, role/action/resource-scope matrix, staged implementation proposal, synthetic acceptance tests, decision gates and stop conditions | Preflight complete; implementation NOT AUTHORIZED |
+
+The preflight is documentation-only. It confirms that the current inspected application is an anonymous-first public directory and that conventional Laravel user/auth scaffolding was not found at the inspected paths. Reviews remain post-launch only. No account, review, moderation endpoint/UI, schema, migration, dependency, production activity or spend is authorized by this preflight.

@@ -7,7 +7,7 @@ All milestones are planned outcomes. Step-level scope and acceptance criteria ar
 | M0 | Independent repository, documentation, governance and delivery controls | Accepted — PR #4 closeout |
 | M1 | Student requirements, provider discovery, data rights and open-source research | **Accepted and Closed — M1-S01 through M1-S10 accepted; 100%; primary research deferred** |
 | M2 | Architecture, domain model, technology evaluation, security and data design | **Accepted and Closed — 100%** |
-| M3 | Application foundation, environments, CI, identity and authorization | In progress — M3-02 through M3-06 delivered for bounded local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered and validated; live AI Data-Agent activation remains blocked by G2-G9 |
+| M3 | Application foundation, environments, CI, identity and authorization | In progress — M3-02 through M3-06 delivered for bounded local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered and validated; M3-08 identity/reviews/security preflight complete as documentation only, implementation not authorized; live AI Data-Agent activation remains blocked by G2-G9 |
 | M4 | Institution, campus and programme management | Planned |
 | M5 | Nearby discovery, search, filters and maps | Planned |
 | M6 | Institution profiles and verified information presentation | Planned |
@@ -68,7 +68,7 @@ The [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) is the authoritative detailed 
 | M3-05 | Public Directory and Search | 10% | Complete for bounded synthetic local/CI scope — PR #189 |
 | M3-06 | Geography and Discovery | 7% | Complete for bounded synthetic local/CI scope — PR #192 |
 | M3-07 | AI Data-Agent | 10% | I1-I8-A bounded synthetic/local/CI packages delivered, exact-head validated and merged; live source/model activation remains blocked by G2-G9 |
-| M3-08 | Identity, Reviews and Security | 10% | Not started; reviews post-launch only |
+| M3-08 | Identity, Reviews and Security | 10% | Scope/architecture preflight complete; implementation not authorized; reviews post-launch only |
 | M3-09 | Quality and Operational Hardening | 8% | Not started |
 | M3-10 | Pilot and Launch Readiness | 7% | Not started; separate pilot approval |
 | M3-11 | Controlled Production Launch | 6% | Conditional; separate production/launch approval |
@@ -118,3 +118,8 @@ The Product Owner authorized I8-A — Synthetic-Only AI Data-Agent Readiness and
 PR [#228](https://github.com/mattari20/listing-v2/pull/228) merged as `6574d0654a9e5237568872ba4b3682c3260ae712` from exact validated head `518e25cd2f1cc9c8a80b2556bb570f02afc3c5b4`. On that exact head, FND-01 PHP 8.5 foundation CI [#43857206046](https://github.com/mattari20/listing-v2/actions/runs/43857206046) and Project documentation validation [#43857206017](https://github.com/mattari20/listing-v2/actions/runs/43857206017) passed. The full suite reported **15 passed, 803 assertions, 169 warnings**; warnings are the existing missing-local-`.env` test-harness warnings. No `.env` file was created or modified. I8-A closes only the synthetic readiness-evaluation scope; live source/model activation remains blocked by G2-G9.
 
 I8-A evaluates deterministic policy enforcement only; it does not evaluate an LLM or establish real-world extraction accuracy. GOV-04 and candidate sources remain RESEARCH ONLY. G2-G9 continue to block live source/model activation. M3-07 is not complete for live AI Data-Agent activation.
+
+
+## M3-08 preflight — 2026-11-16
+
+[M3-08 Identity, Reviews and Security Scope / Architecture Preflight](M3-08_IDENTITY_REVIEWS_SECURITY_PREFLIGHT.md) is complete as a documentation-only review against the verified main baseline. It records the current authentication-scaffolding gap, role/action/resource-scope model, separation-of-duties rules, post-launch-only review boundary, synthetic acceptance matrix and owner/reviewer gates. No application implementation is authorized by this preflight. M3-09 through M3-11 remain future gated steps; production launch requires separate explicit authorization.

@@ -1,5 +1,23 @@
 # Project Progress Report
 
+## Latest verified position — M3-08 identity, reviews and security preflight (2026-11-16)
+
+**Current milestone:** M3 — Mobilization and Controlled Implementation  
+**Current agenda:** M3-08 — Identity, Reviews and Security scope/architecture preflight  
+**Verified main baseline:** `a65027a673f4ba0d9a68fe4275151806bf50bc1e`  
+**Preflight branch:** `docs/m3-08-identity-security-preflight`  
+**Status:** Preflight completed as a documentation-only review. M3-08 application implementation is NOT AUTHORIZED by this record.
+
+The preflight reconciles accepted M2-S08 identity, authorization, reviews, privacy and security architecture with the current Laravel 13 repository. The inspected application remains an anonymous-first directory foundation: `routes/web.php` contains only health and public directory routes; the conventional User model, auth configuration, users migration and API route file were not found at the inspected paths; `bootstrap/app.php` registers no application-specific auth middleware; and `composer.json` selects no separate auth or moderation package. These findings are bounded to the exact inspected paths, not an exhaustive assertion about every possible alternative implementation.
+
+The proposed staged implementation packages are identity/account lifecycle, scoped authorization and privileged audit, synthetic-only moderation/appeals foundations with the review feature disabled, and privacy/safeguarding/security verification. The synthetic test plan covers authentication lifecycle, role/action/resource-scope matrix, cross-account access, privilege escalation, separation of duties, revocation, abuse controls, moderation/appeals, privacy/minors, Deeni Madaris zero-exposure and existing governance regression.
+
+**Binding constraints:** anonymous-first public discovery; login is not proof of attendance or student status; reviews remain post-launch only; no pre-launch survey/interview/recruitment/outreach; Deeni Madaris remains default-OFF; no real user data, identity documents, external identity/email/SMS/moderation provider, new spend, production/V1/Hostinger access, deployment or release. Qualified legal/privacy/child-safeguarding and independent security review remain required before public user-generated content or launch. No compliance claim is made.
+
+**Next gate:** separate Product Owner authorization is required for a precisely bounded M3-08A/B implementation package after identity method and minimum account-policy inputs are decided. Review/moderation public activation remains separately gated. See [M3-08 Preflight](M3-08_IDENTITY_REVIEWS_SECURITY_PREFLIGHT.md).
+
+---
+
 ## Latest verified position — M3-07 I8-A synthetic readiness evaluation (2026-11-16)
 
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
