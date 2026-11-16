@@ -23,7 +23,7 @@ The new migration exercise creates a uniquely named temporary SQLite file under 
 
 - Base `main`: `690d7d108af7bca2ea71e43c705a3c72db41c958`.
 - Existing test inventory at preflight: 19 test source files (18 feature, one unit).
-- Existing migration inventory: 10 migration files.
+- Existing migration inventory: 11 migration files.
 - Existing CI workflows: FND-01 PHP 8.5 foundation CI and project documentation validation.
 - Existing test environment: SQLite in-memory with foreign keys enabled.
 - No change to Composer files, PHPUnit configuration, migrations or CI workflows.
@@ -52,7 +52,7 @@ Existing I6 tests remain in place for the fixed fixture identity, fixed capabili
 Added `tests/Feature/I7DisposableSqliteMigrationTest.php`:
 
 - creates a fresh disposable SQLite database file outside the repository;
-- runs all 10 migrations and verifies the expected core tables and SQLite foreign-key integrity;
+- runs all 11 migrations and verifies the expected core tables and SQLite foreign-key integrity;
 - opens a second independent PDO connection to the same disposable SQLite file and verifies the unique outbox idempotency key cannot be duplicated across those connections;
 - rolls back the complete migration batch, verifies the domain tables are absent and the migration ledger is empty;
 - re-runs all migrations and repeats the schema/foreign-key checks;
@@ -70,7 +70,7 @@ The independent-connection assertion is a sequential uniqueness/constraint check
 | I7-AC-04 — proposal-only agent/human governance | Existing I6 tests retained; additional hostile binding test added; pending CI |
 | I7-AC-05 — idempotency and lineage | Existing I1-I6 idempotency/audit/outbox tests retained; SQLite cross-connection uniqueness added; pending CI |
 | I7-AC-06 — concurrency | **Partially evidenced only:** independent SQLite connections verify a unique-key constraint. Simultaneous service-command contention and other-engine row-lock semantics remain open |
-| I7-AC-07 — disposable migration rollback/reinstall | Full 10-migration temporary-SQLite test added; pending CI |
+| I7-AC-07 — disposable migration rollback/reinstall | Full 11-migration temporary-SQLite test added; pending CI |
 | I7-AC-08 — privacy/public projection/Deeni default-OFF | Existing tests retained; hostile output assertions added; pending CI |
 | I7-AC-09 — deterministic query-count regression | One-result versus five-result equality assertion added; pending CI. No wall-clock or scale guarantee |
 | I7-AC-10 — no production/source/external services/spend | No such access or spend authorized or included |
