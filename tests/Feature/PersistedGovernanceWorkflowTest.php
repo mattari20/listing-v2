@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
+use App\Services\Directory\EditorialReviewService;
 use App\Services\Governance\PersistedGovernanceWorkflowService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
@@ -397,6 +398,113 @@ class PersistedGovernanceWorkflowTest extends TestCase
         $this->assertNotNull($suppression);
         $this->expectException(ValidationException::class);
         $service->restorePublication($this->actor('restorer', ['restore_publication']), $suppression->id, 'policy-v2', 'withdrawn_claim_cannot_restore');
+    }
+
+
+    public function test_withdrawal_reconciles_all_open_editorial_cases_idempotently(): void
+    {
+        $fixture = $this->fixture();
+        $editorial = app(EditorialReviewService::class);
+        $firstCase = $editorial->submit(
+            $this->actor('i5-submitter-one', ['submit_directory_proposal']),
+            $fixture['entity'],
+            $fixture['version'],
+            'i5-editorial-submit-one'
+        );
+        $editorial->startReview(
+            $this->actor('i5-reviewer-one', ['review_directory_proposal']),
+            $firstCase,
+            'i5-editorial-review-start'
+        );
+        $secondCase = $editorial->submit(
+            $this->actor('i5-submitter-two', ['submit_directory_proposal']),
+            $fixture['entity'],
+            $fixture['version'],
+            'i5-editorial-submit-two'
+        );
+
+        $service = new PersistedGovernanceWorkflowService;
+        $actor = $this->actor('i5-withdrawal-officer', ['withdraw_claim']);
+        $service->withdrawClaimVersion(
+            $actor,
+            $fixture['version'],
+            'synthetic_editorial_withdrawal',
+            'The synthetic claim value has been withdrawn.',
+            'i5-editorial-withdrawal-key'
+        );
+
+        $this->assertDatabaseHas('editorial_review_cases', ['id' => $firstCase, 'status' => 'withdrawn']);
+        $this->assertDatabaseHas('editorial_review_cases', ['id' => $secondCase, 'status' => 'withdrawn']);
+        $this->assertSame(2, DB::table('directory_status_history')
+            ->where('event_type', 'claim_withdrawn')
+            ->where('claim_version_id', $fixture['version'])
+            ->count());
+
+        $service->withdrawClaimVersion(
+            $actor,
+            $fixture['version'],
+            'synthetic_editorial_withdrawal',
+            'The synthetic claim value has been withdrawn.',
+            'i5-editorial-withdrawal-key'
+        );
+        $this->assertSame(2, DB::table('directory_status_history')
+            ->where('event_type', 'claim_withdrawn')
+            ->where('claim_version_id', $fixture['version'])
+            ->count());
+    }
+
+    public function test_withdrawal_reuses_existing_active_suppression_for_an_already_suppressed_snapshot(): void
+    {
+        $fixture = $this->fixture();
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase(
+            $this->actor('i5-reviewer', ['open_adjudication']),
+            $fixture['version'],
+            'i5-case-before-manual-suppression'
+        );
+        $decisionId = $service->decideAdjudication(
+            $this->actor('i5-adjudicator', ['adjudicate_claim']),
+            $caseId,
+            'accepted',
+            'synthetic_acceptance',
+            'Accepted before suppression.',
+            'policy-v1'
+        );
+        $service->authorizePublication(
+            $this->actor('i5-publisher', ['authorize_publication']),
+            $fixture['version'],
+            $decisionId,
+            'directory',
+            'anonymous',
+            'policy-v1',
+            'i5-publish-before-suppression'
+        );
+        $service->processOutbox();
+        $snapshot = DB::table('publication_snapshots')->first();
+        $service->suppressPublication(
+            $this->actor('i5-suppressor', ['suppress_publication']),
+            $snapshot->id,
+            'synthetic_manual_suppression',
+            'Suppressed before value withdrawal.'
+        );
+
+        $service->withdrawClaimVersion(
+            $this->actor('i5-withdrawal-officer', ['withdraw_claim']),
+            $fixture['version'],
+            'synthetic_withdrawal_after_suppression',
+            'The already-suppressed synthetic value is withdrawn.',
+            'i5-withdraw-after-suppression'
+        );
+
+        $this->assertSame(1, DB::table('publication_suppressions')
+            ->where('publication_snapshot_id', $snapshot->id)
+            ->where('status', 'active')
+            ->count());
+        $this->assertDatabaseHas('publication_snapshots', ['id' => $snapshot->id, 'status' => 'suppressed']);
+        $this->assertDatabaseHas('public_projections', [
+            'publication_snapshot_id' => $snapshot->id,
+            'status' => 'suppressed',
+        ]);
     }
 
     private function fixture(string $entityType = 'institution'): array
