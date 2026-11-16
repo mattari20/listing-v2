@@ -46,6 +46,8 @@
 
 Add one row for every approved requirement. Do not mark accepted without verifiable evidence.
 
+| I7-001 | Full I1-I6 adversarial, concurrency, migration, rollback, privacy, performance and regression hardening | D5 staged delivery; I7 Full Regression and Hardening Preflight | M3-07 I7 | Preflight from main 1b4b58442807336bcf9905722b2a59a7a36606c1; no implementation PR yet | Reviewed 19 test source files, 10 migrations and existing PHP 8.5/SQLite CI; preflight defines test-only boundary, 13 acceptance gates, SQLite limitations and stop conditions | Scope/design preflight complete; test implementation awaits explicit authorization |
+
 ## M1 owner decision and current research
 No survey, interviews, recruitment or outreach during construction. Account-based ratings and reviews are a post-launch product feature. M1-S02 taxonomy desk research is documented in `docs/03-research/M1_INSTITUTION_TAXONOMY_RESEARCH.md`; it is an initial baseline, not a complete national inventory or final approved taxonomy.
 

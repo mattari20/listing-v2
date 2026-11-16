@@ -1032,6 +1032,12 @@ R2 does not grant source access, reuse permission, model activation, external AP
 | [I5 Value Correction, Withdrawal and Profile Integration Preflight](M3-07_I5_VALUE_CORRECTION_WITHDRAWAL_PROFILE_INTEGRATION_PREFLIGHT.md) | Current-main architecture reconciliation, concrete correction-binding and profile-assembly gaps, bounded implementation proposal, withdrawal/reinstatement rules, 22 synthetic acceptance criteria and owner authorization template | Preflight complete; implementation subsequently authorized, delivered and merged — see I5 Implementation Record |
 | [I5 Value Correction, Withdrawal and Profile Integration Implementation Record](M3-07_I5_IMPLEMENTATION_RECORD.md) | Records I5-A correction, I5-B withdrawal/reinstatement, I5-C registry-aware profiles, exact-head CI, synthetic acceptance evidence and safety boundaries | Delivered, merged and CI validated in PRs #213–#216; I5 closed as bounded synthetic/local/CI scope |
 
+## M3-07 I7 — Full Regression and Hardening
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [I7 Full Regression and Hardening Preflight](M3-07_I7_FULL_REGRESSION_HARDENING_PREFLIGHT.md) | Canonical D5 I7 scope, current I1-I6 test coverage map, adversarial/concurrency/migration/rollback/privacy/performance/regression workstreams, test-only file boundary, 13 acceptance gates and separate owner authorization template | Scope/design preflight complete; test implementation not authorized / not started |
+
 ## M3-07 I6 — Synthetic Agent Proposal Adapter
 
 | Artifact | Purpose | Status |

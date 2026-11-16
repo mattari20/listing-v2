@@ -67,7 +67,7 @@ The [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) is the authoritative detailed 
 | M3-04 | Provider Management | 8% | P01–P04 complete for bounded synthetic local/CI scope |
 | M3-05 | Public Directory and Search | 10% | Complete for bounded synthetic local/CI scope — PR #189 |
 | M3-06 | Geography and Discovery | 7% | Not started; separate scope review and authorization required |
-| M3-07 | AI Data-Agent | 10% | I1-I5 bounded synthetic/local/CI packages delivered; I6 deterministic synthetic proposal adapter implemented, validated and merged in PR #220; live source/model activation blocked by G2-G9 |
+| M3-07 | AI Data-Agent | 10% | I1-I6 bounded synthetic/local/CI packages delivered; I7 full regression/hardening scope preflight complete, test implementation separately gated; live source/model activation blocked by G2-G9 |
 | M3-08 | Identity, Reviews and Security | 10% | Not started; reviews post-launch only |
 | M3-09 | Quality and Operational Hardening | 8% | Not started |
 | M3-10 | Pilot and Launch Readiness | 7% | Not started; separate pilot approval |
@@ -86,3 +86,12 @@ I5 completion closes only the bounded synthetic/local/CI value correction, withd
 **I6 implementation delivered — 2026-11-16:** [PR #220](https://github.com/mattari20/listing-v2/pull/220) implements one synthetic fixture, fixed server-owned agent identity with only `submit_agent_field_proposal`, a dedicated I3 field-aware path and a dedicated editorial submission path. It reuses exact-version validation and existing evidence/source-authorization/audit/outbox controls; the result remains a proposed claim with a submitted human-review case. Existing human-only review, adjudication, publication, correction, withdrawal, restoration and definition-governance controls remain unchanged. Five focused synthetic feature-test methods cover the bounded path. Exact-head FND-01 PHP 8.5 CI #43838997569 and Project documentation validation #43838997658 passed on PR head `6c09122c2223cc093393023019c3d9dc927fedf7`; test output was 15 passed, 688 assertions and 164 warnings including the existing missing-local-`.env` harness warnings. See [I6 Implementation Record](M3-07_I6_IMPLEMENTATION_RECORD.md).
 
 No migration, schema change, backfill, dependency, Composer change, route/UI, real/source data, model/provider, external API, connector, scheduler, production operation, deployment or spend occurred. **I6 implementation is delivered, exact-head validated and merged in PR #220 as `8acf05082187f854597aa6dd2d852d64e01e5581`.** I7 remains separately gated. G2-G9 continue to block live source access and live agent activation.
+
+
+## M3-07 I7 — Full Regression and Hardening preflight (2026-11-16)
+
+D5's canonical staged plan defines I7 as a test-only suite for adversarial, concurrency, migration, rollback, privacy, performance and regression coverage. This is not a new search/profile scope; I5 already delivered registry-aware public profiles/projection integration.
+
+Preflight completed from verified main 1b4b58442807336bcf9905722b2a59a7a36606c1. Reviewed 19 test source files, 10 migrations and the existing PHP 8.5/SQLite in-memory and documentation CI workflows. The I7 preflight maps existing I1-I6 coverage and identifies hardening opportunities in adversarial payload/redaction, multi-connection contention evidence, complete disposable-SQLite migration rollback/reinstall, cross-phase no-side-effect checks and deterministic query-count baselines.
+
+See [I7 Full Regression and Hardening Preflight](M3-07_I7_FULL_REGRESSION_HARDENING_PREFLIGHT.md). The implementation boundary is test and documentation files only. Any application/schema/migration defect discovered by tests must be separately authorized before correction. **I7 preflight is complete; test implementation is not yet authorized.** G2-G9 continue to block live source access and live model/agent activation.

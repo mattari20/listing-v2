@@ -166,3 +166,12 @@ I5 closes the bounded value correction, withdrawal, reinstatement and registry-a
 ## 12. Binding non-interference
 
 No V1 artifacts, schemas, data, workflows or operational practices are used. No real source, provider, student or applicant data is used. No production, Hostinger/hPanel, live database, migration, external API/AI, model, connector, procurement, paid service, deployment, release or new spend is performed or authorized by this readiness review.
+
+
+## I7 — Full Regression and Hardening preflight (2026-11-16)
+
+The canonical D5 package definition is test-only: adversarial, concurrency, migration, rollback, privacy, performance and regression coverage. The I7 preflight is complete on current main 1b4b58442807336bcf9905722b2a59a7a36606c1. It reviewed the 19 test source files, 10 migrations and existing CI environment, mapped I1-I6 coverage and documented the remaining hardening matrix in M3-07_I7_FULL_REGRESSION_HARDENING_PREFLIGHT.md.
+
+Only tests under tests/Feature and tests/Unit plus documentation are proposed for implementation. Application code, migrations/schema, Composer/dependencies, phpunit.xml, CI workflows, external services, production/source access and spend are excluded. If tests expose an application defect, stop and seek separate authorization.
+
+**I7 preflight: COMPLETE. I7 test implementation: NOT AUTHORIZED / NOT STARTED pending explicit Product Owner approval.** G2-G9 remain blocking for live source access and live agent activation.
