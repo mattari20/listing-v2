@@ -436,3 +436,14 @@ Exact-head `fd16bc469fd38121b5479c0dbfecdad03fe1cb9a` passed Project documentati
 **Next agenda:** I5 — Value Correction, Withdrawal and Profile Integration — scope/design preflight only. I5 implementation requires a separate explicit owner authorization. I5 must not be used to alter real claims or public projections until its exact boundary is separately approved. I6-I7 remain separately gated.
 
 I4 does not authorize live sources, external AI/model/provider, connectors/schedulers, production/V1/Hostinger, deployment or spend. G2-G9 remain blocking for source access and live agent activation.
+
+
+## M3-07 I5 — Value Correction, Withdrawal and Profile Integration preflight (2026-11-16)
+
+The I5 scope/design preflight is complete against current `main` `2d71c4e6d92bf9fa48ee80921778191e5b8dc739`. It reconciles the merged M3-03 Agenda 9 correction/withdrawal lifecycle and I1-I4 field-registry foundations with the current services and public directory reader.
+
+The preflight records three principal integration gaps: correction successors currently omit the exact `field_definition_version_id`; registry-managed correction does not yet reuse the typed field validator/applicability contract; and public profile assembly remains based on the fixed legacy `PUBLIC_FIELDS` allowlist rather than exact definition-version visibility/search policy. Existing human-only value withdrawal and publication suppression are reused; reinstatement is defined as a new successor claim version, never reversal of a withdrawn historical version.
+
+Deliverable: [M3-07 I5 Value Correction, Withdrawal and Profile Integration Preflight](M3-07_I5_VALUE_CORRECTION_WITHDRAWAL_PROFILE_INTEGRATION_PREFLIGHT.md). It defines the bounded proposed implementation, touch-point limits, 22 synthetic acceptance gates, stop conditions and explicit owner authorization statement.
+
+**Disposition:** I5 scope/design preflight COMPLETE. I5 implementation NOT STARTED / NOT AUTHORIZED. No application code, schema, migration, test behavior, production operation, source access, external AI/API, deployment or spend is included. I6-I7 remain separately gated.
