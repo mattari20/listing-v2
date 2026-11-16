@@ -628,7 +628,7 @@ See [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) for complete step scopes, task
 | M3-05 | Public Directory and Search | 10% | Complete for bounded synthetic local/CI scope — PR #189 merged |
 | M3-06 | Geography and Discovery | 7% | Complete for bounded synthetic local/CI scope — PR #192 merged; text-only locality filtering; geospatial services/coordinates deferred |
 | M3-07 | AI Data-Agent | 10% | I1-I6 bounded synthetic/local/CI packages delivered; I7 full regression/hardening test package implemented, exact-head validated and merged in PRs #224–#225; live AI Data-Agent/source activation remains blocked by G2-G9 |
-| M3-08 | Identity, Reviews and Security | 10% | Preflight complete; M3-08A/B identity and authorization foundations merged in PR #232; M3-08C/D separately gated; reviews post-launch only |
+| M3-08 | Identity, Reviews and Security | 10% | Preflight and A/B/C/D bounded synthetic/local/CI foundations delivered in PRs #231, #232 and #234; independent release reviews remain open; reviews post-launch only |
 | M3-09 | Quality and Operational Hardening | 8% | Not started |
 | M3-10 | Pilot and Launch Readiness | 7% | Not started; separate pilot approval |
 | M3-11 | Controlled Production Launch | 6% | Conditional; separate explicit launch authorization |
@@ -833,3 +833,14 @@ The preflight is documentation-only. It confirms that the current inspected appl
 The delivered package adds first-party session authentication for pre-provisioned active verified accounts, additive user/role/audit tables, deny-by-default exact-resource-scope authorization, reason-coded audited role changes, separation-of-duties enforcement and synthetic tests. The full synthetic suite passed with 15 passed and 863 assertions; 188 existing missing-`.env` diagnostics remain visible. No public registration, verification/recovery delivery, role-admin endpoint, reviews, UGC, moderation endpoint, production access or deployment was enabled.
 
 **Remaining M3-08:** M3-08C moderation/appeals foundations and M3-08D privacy/safeguarding/security verification are not delivered by PR #232 and require separate authorization. Reviews remain post-launch only.
+
+
+## M3-08C/D — Synthetic moderation, appeals and privacy/security implementation closeout (2026-11-16)
+
+| Artifact | Delivery evidence | Status |
+|---|---|---|
+| [M3-08C/D Synthetic Moderation, Appeals and Privacy/Security Implementation Record](M3-08C_D_IMPLEMENTATION_RECORD.md) | PR [#234](https://github.com/mattari20/listing-v2/pull/234), merged as `42eabe8a5757e6b4c291baa52d1c01df4e08bb15`; exact head `80d7a4a659fa58b1da2542b9c1f429a951399dce`; FND-01 CI #43876036202 and Project documentation validation #43876036293 passed | Complete for authorized synthetic/local/CI implementation scope |
+
+The implementation adds metadata-only synthetic moderation cases, appeals and event history; exact-scope moderator and independent appeal-review controls; strict synthetic references; allowlisted categories, outcomes and reason codes; and privacy/security regression tests. It adds no public route, controller, UI, review collection, ratings, notifications or UGC activation. The full suite passed with **15 passed, 916 assertions and 199 non-fatal missing-local-`.env` diagnostics**. Disposable SQLite migration rollback/reinstall and foreign-key checks passed. No `.env` file was created.
+
+**M3-08 implementation delivery is complete for its authorized synthetic/local/CI scope.** The wider public-release gate remains open for independent security review, qualified legal/privacy/child-safeguarding review, moderation operations/staffing, retention/deletion decisions and separate owner authorization. Reviews remain post-launch only; no compliance or production-readiness claim is made. M3-09 is the next roadmap step.
