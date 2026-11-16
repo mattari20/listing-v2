@@ -181,8 +181,13 @@ final class FieldAwareClaimCorrectionService
                     ->join('claim_versions', 'claim_versions.claim_id', '=', 'claims.id')
                     ->where('claims.subject_entity_id', $prior->subject_entity_id)
                     ->where('claims.predicate', $prior->predicate)
-                    ->where('claim_versions.id', '!=', $priorVersionId)
+                    ->where('claims.id', '!=', $prior->claim_id)
                     ->whereNotIn('claim_versions.disposition', ['rejected', 'withdrawn'])
+                    ->whereNotExists(function ($query): void {
+                        $query->selectRaw('1')
+                            ->from('claim_versions as successor')
+                            ->whereColumn('successor.supersedes_version_id', 'claim_versions.id');
+                    })
                     ->count();
                 $maximum = (int) ($definition['validation_schema']['max_values'] ?? 100);
                 $cardinality = $this->validator->validateCardinality(
