@@ -88,12 +88,17 @@ The implementation code and test files at exact head `c60b17b5c4cd9bc68fc43c7910
 
 This evidence update itself creates a documentation-only commit after the code head above. The final PR head must independently pass both required workflows before I1 can be accepted.
 
-## 8. Validation and remaining gates
+## 8. Final validation and acceptance — reconciled 2026-11-16
 
-The exact-head PHP 8.5 foundation CI and project documentation validation must pass before I1 can be accepted. The final PR head, review state and final diff must be recorded after those checks complete.
+I1 was delivered and merged through PR [#198](https://github.com/mattari20/listing-v2/pull/198) as `d7d683d6044d269ce61c755d8d0fac61ba663555` from exact head `b6036687c219f79234609d549669448ca84fb3a5`.
 
-I1 is not accepted and must not be merged if any acceptance criterion fails. I2 remains unauthorized until separate owner approval.
+- FND-01 PHP 8.5 foundation CI #43571784512: **success**.
+- Project documentation validation #43571784544: **success**.
+- Full suite: 415 assertions, zero failures and 118 existing missing-local-`.env` warnings; no `.env` was created or committed.
+- The four additive registry tables, immutable definition-version read path and applicability reader were delivered within the authorized I1 scope.
+
+I1 is **COMPLETED** for its bounded synthetic local/CI scope. I2 PR #199 and I3 PR #203 were separately authorized and subsequently merged. I1 does not authorize I4 or any later package, source access, model/provider activation, public field administration, production use or spend.
 
 ## 9. Safety statement
 
-Only repository-local implementation and disposable local/CI test databases are in scope. No production, V1, Hostinger, hPanel, live database, source website, real data, external service, model, connector, scheduler, deployment or additional spend was accessed or used. No live data was collected or changed.
+Only repository-local implementation and disposable local/CI test databases were in scope. No production, V1, Hostinger, hPanel, live database, source website, real data, external service, model, connector, scheduler, deployment or additional spend was accessed or used. No live data was collected or changed.

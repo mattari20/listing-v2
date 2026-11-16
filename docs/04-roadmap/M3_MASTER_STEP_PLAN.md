@@ -180,7 +180,11 @@ Conditional step. Requires separate explicit written approval for production acc
 
 R2 decision packs are prepared in `M3-07_R2_SOURCE_SPECIFIC_DECISION_PACK_HEC_RECOGNISED_UNIVERSITIES.md`, `M3-07_R2_MODEL_PROVIDER_DECISION_PACK.md` and `M3-07_R2_COMPLETION_AND_DECISION_RECORD.md`. GOV-04 HEC recognised universities/DAIs remains RESEARCH ONLY; G2 rights and G4 retrieval are blocked. No model/provider is selected. The deterministic fake adapter remains synthetic-CI-only. R2 is complete as documentation preparation, not source clearance or AI activation.
 
-**Next eligible work:** R3 — source-rights and model-feasibility decision reconciliation. Resolve the owner choices and qualified reviewer assignments against exact evidence; preserve G2-G7 blockers if evidence is unavailable. No source access, permission request, source-owner contact, collection, ingestion, AI/model/connector/scheduler activation, production access, deployment or spend is authorized.
+**R3 reconciliation — 2026-11-16:** R3 is completed as a no-activation gate reconciliation. GOV-04 HEC Recognised Universities/DAIs remains RESEARCH ONLY; no record-level reuse rights or retrieval method is approved. No model/provider is selected; the deterministic fake adapter remains synthetic-CI-only. G2-G7 remain blocked and G9 is not authorized. See `M3-07_R3_SOURCE_RIGHTS_AND_MODEL_FEASIBILITY_RECONCILIATION.md`.
+
+I1 PR #198, I2 PR #199 and I3 PR #203 are merged and validated for bounded synthetic local/CI scopes. D1-D5 and the Pakistan-wide student-first architecture records are now indexed.
+
+**Next eligible agenda:** I4 — Field Definition Governance Lifecycle. Prepare its exact bounded scope, touch-point inventory, acceptance tests, rollback and stop conditions. I4 implementation is **NOT AUTHORIZED** until a separate explicit owner authorization. No source access, external model/API, connector/scheduler, live ingestion, production/V1/Hostinger, deployment or spend is authorized.
 
 ## PR #102 merge reconciliation — 2026-11-12
 
@@ -405,3 +409,12 @@ R2 is complete as documentation/decision-pack preparation:
 - [R2 Completion and Decision Record](M3-07_R2_COMPLETION_AND_DECISION_RECORD.md) records all gate dispositions and remaining decisions.
 
 **Next agenda:** R3 — source-rights and model-feasibility decision reconciliation. This is a documentation and qualified-review preparation task only. No source access, permission request, source-owner contact, external model/API, connector, scheduler, live ingestion, production/V1/Hostinger, deployment or spend is authorized.
+
+
+## M3-07 architecture and I1-I3 reconciliation — 2026-11-16
+
+The Pakistan-wide coverage and student-first dynamic-field architecture records, D1-D5 design contracts and R3 gate reconciliation are now indexed. R1 and R2 were delivered in PRs #204 and #206; R3 records that source and model gates remain blocked.
+
+I1 field registry persistence/read path was merged in PR #198 (`d7d683d6044d269ce61c755d8d0fac61ba663555`); I2 typed validation/applicability in PR #199 (`45b9c45cf1b31a0f2f2a94f549f1a7ddddbb3f46`); I3 provider-category and field-aware claim proposal in PR #203 (`4b594e288999ee2f634320937886a2fca7ccc496`). These are bounded synthetic local/CI deliveries only. Exact CI evidence is recorded in each implementation record and R3 reconciliation.
+
+**Next agenda:** I4 — Field Definition Governance Lifecycle. I4 requires a separate bounded owner authorization. G2-G9 remain blocking for source access and live agent activation; no model/provider, connector, scheduler, production access, deployment or additional spend is authorized.
