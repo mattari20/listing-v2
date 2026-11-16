@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Base:** `4e453520b86fefc322a168de85f58d3cfddf18f1` (M3-08 preflight PR #231 merge)  
 **Branch:** `feat/m3-08a-identity-authz-foundation`  
-**Status:** Exact-head CI passed on `dd332743be3f3cd53939c5f03c8d6744dd5e178e`; PR #232 remains open pending final review/merge. Not production-ready.  
+**Status:** The baseline head `dd332743be3f3cd53939c5f03c8d6744dd5e178e` passed exact-head CI; the latest scope-hardening head `b8b15d3836e55f25d78375e4da70f0bb62dfa788` is awaiting its own exact-head CI before merge. PR #232 remains open. Not production-ready.  
 **Authority:** Product Owner explicitly approved the interim first-party Laravel session-authentication design and additive synthetic-only SQLite schema for users, role assignments and privileged-action audit records on 2026-11-16.
 
 ## 1. Authorized scope
