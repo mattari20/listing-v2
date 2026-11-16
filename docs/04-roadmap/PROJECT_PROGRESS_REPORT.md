@@ -12,8 +12,9 @@
 **Implementation base:** `main` `2d9e1c15df808c5e4679e0cd2d63d4fb98be2246`.  
 **Implementation branch:** `feature/m3-07-i6-synthetic-agent-proposal`.  
 **PR:** [#220 — feat(m3-07-i6): add synthetic agent proposal adapter](https://github.com/mattari20/listing-v2/pull/220).  
-**Exact validated head:** `17d8938a7715d8bd07950ef2039e5cc95f174cc7`.  
-**I6 status:** Implementation delivered on branch; exact-head FND-01 and documentation validation passed; PR awaiting merge.
+**Exact validated PR head:** `6c09122c2223cc093393023019c3d9dc927fedf7`.  
+**Merged main commit:** `8acf05082187f854597aa6dd2d852d64e01e5581`.  
+**I6 status:** Implementation merged in PR #220; main verified at the merge commit.
 
 **I5 status:** Complete and closed for bounded synthetic/local/CI implementation. I5-A field-aware correction (PR #213), I5-B withdrawal/reinstatement (PR #214), I5-C registry-aware profiles (PR #215) and historical-definition regression (PR #216) remain merged and validated. See `M3-07_I5_IMPLEMENTATION_RECORD.md`.
 
@@ -29,16 +30,16 @@
 
 ### Exact-head validation
 
-- FND-01 PHP 8.5 foundation CI [#43838413609](https://github.com/mattari20/listing-v2/actions/runs/43838413609): **success**.
-- Project documentation validation [#43838413686](https://github.com/mattari20/listing-v2/actions/runs/43838413686): **success**.
+- FND-01 PHP 8.5 foundation CI [#43838997569](https://github.com/mattari20/listing-v2/actions/runs/43838997569): **success**.
+- Project documentation validation [#43838997658](https://github.com/mattari20/listing-v2/actions/runs/43838997658): **success**.
 - Formatting, Composer manifest/dependency checks, Laravel bootstrap/routes, synthetic test suite and artifact hygiene passed.
-- Test output: **15 passed, 687 assertions, 164 warnings**. The warnings include the repository's existing missing-local-`.env` test-harness warnings; no `.env` file was added or modified.
+- Test output: **15 passed, 688 assertions, 164 warnings**. The warnings include the repository's existing missing-local-`.env` test-harness warnings; no `.env` file was added or modified.
 
 No migrations, schema changes, backfills, dependencies, Composer changes, routes/controllers/UI, queues/schedulers, external services, source access, model/provider, real data, production/V1/Hostinger, deployment, release or spend were introduced. No adjudication decision, publication decision, snapshot or public projection is created. Deeni Madaris default-OFF behavior remains unchanged.
 
 **I6 Implementation Record:** `M3-07_I6_IMPLEMENTATION_RECORD.md` records the full scope, files, tests, CI evidence and limitations.
 
-**Next:** Final PR #220 changed-file/review/mergeability check, merge after exact-head validation, then verify the merged `main` and complete the I6 closeout record. I7 remains separately gated; G2-G9 continue to block live source access and live agent/model activation.
+**Closeout:** PR #220 is merged and `main` is verified at `8acf05082187f854597aa6dd2d852d64e01e5581`. The I6 Implementation Record captures the final PR head, merge SHA, exact-head checks and scope limitations. **Next agenda:** I7 remains separately gated and requires its own scope/design preflight and explicit Product Owner authorization; G2-G9 continue to block live source access and live agent/model activation.
 \n## Latest verified position — M3-07 readiness review (2026-11-14)
 
 **Latest main commit:** `1f4298f9136771f3b2ff6c8008d07b58a1113724` (M3-07 readiness PR #195).  
