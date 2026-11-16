@@ -27,7 +27,7 @@ I7 is a test-hardening package, not live AI-agent readiness, source collection, 
 - PR #221 exact-head FND-01 PHP 8.5 CI #43839629491 and Project documentation validation #43839629559 passed.
 - The FND-01 run reported 15 passed test groups, 688 assertions and 164 warnings. The warnings include the existing missing-local-.env test-harness warnings; no .env file is to be created to silence them.
 - CI uses PHP 8.5, Composer 2, SQLite in-memory (:memory:) with foreign keys enabled, composer install --no-scripts, composer audit --locked, Pint, Laravel route/bootstrap validation, php artisan test and artifact hygiene.
-- Current inventory: 19 test source files (18 feature files and one unit file), 10 migration files and two workflows (fnd-01-ci.yml and project-docs-validation.yml). No production database or Hostinger access was used.
+- Current inventory: 19 test source files (18 feature files and one unit file), 11 migration files and two workflows (fnd-01-ci.yml and project-docs-validation.yml). No production database or Hostinger access was used.
 
 ## 3. Existing coverage map
 
@@ -189,3 +189,20 @@ I7 is correctly identified as **Full Regression and Hardening**, a test-only pac
 **I7 test implementation: not authorized / not started.**  
 **Live source/model/agent activation: remains blocked by G2-G9.**  
 **Production/V1/Hostinger/deployment/spend: excluded.**
+
+
+## 11. I7 implementation and acceptance closeout — 2026-11-16
+
+The Product Owner supplied the separate explicit implementation authorization after this preflight was merged. The bounded test-only implementation is now delivered and merged:
+
+- [I7 Implementation Record](M3-07_I7_IMPLEMENTATION_RECORD.md) — full test inventory, acceptance-gate disposition, warning disposition and concurrency limitations.
+- PR [#224](https://github.com/mattari20/listing-v2/pull/224): base `690d7d108af7bca2ea71e43c705a3c72db41c958`, exact validated head `cd4a21c790b933f99567a6760260d914c4a09983`, merge `6efd9a4d29067c3e0dea11ada8ae01266f2d33b2`; FND-01 CI #43850465461 and documentation validation #43850465611 passed.
+- PR [#225](https://github.com/mattari20/listing-v2/pull/225): base `6efd9a4d29067c3e0dea11ada8ae01266f2d33b2`, exact validated head `a31a78141b93bc5da2545ff49991d166f56c5f50`, merge/main `167ec4cad05926569bebda6aadac207166782235`; FND-01 CI #43850848377 and documentation validation #43850848331 passed.
+- Final full suite: **15 passed, 761 assertions, 168 missing-local-`.env` harness warnings**. No `.env` file was created or changed.
+- The final migration exercise verified all **11** migrations on a disposable SQLite file through fresh install, full rollback and reinstall; foreign-key checks returned no violations.
+- Two independent SQLite connections verified outbox idempotency uniqueness and deterministic database-level writer-lock contention.
+- Query-count regression compared one versus five synthetic directory results and returned equal query counts.
+
+The SQLite evidence does not establish simultaneous application service-command safety or row-lock semantics on another database engine. Those claims remain open and unclaimed. No application/schema/migration/Composer/PHPUnit/CI workflow/route/UI, production/V1/Hostinger, source/external-service, deployment or spend changes occurred.
+
+**Final I7 disposition:** Implemented, exact-head validated and merged for the approved synthetic/local/CI scope. Supported acceptance gates pass; unsupported application-level and cross-engine concurrency semantics remain explicit limitations. The earlier Section 10 disposition records the status at preflight time and is superseded by this implementation closeout. G2-G9 continue to block live source access and live model/agent activation.
