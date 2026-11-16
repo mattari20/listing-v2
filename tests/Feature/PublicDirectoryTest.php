@@ -35,7 +35,6 @@ final class PublicDirectoryTest extends TestCase
             ->assertDontSee('This private note')
             ->assertDontSee('Synthetic Internal Label');
     }
-
     public function test_category_filter_and_facets_are_derived_from_eligible_public_entities(): void
     {
         $institution = $this->createEntity('institution');
@@ -234,7 +233,6 @@ final class PublicDirectoryTest extends TestCase
         $this->get('/directory?q=Expired')->assertOk()->assertDontSee('Synthetic Expired Academy');
         $this->get('/directory/'.$entity)->assertNotFound();
     }
-
 
     public function test_registry_managed_public_fact_uses_exact_definition_and_safe_presentation_metadata(): void
     {
@@ -470,7 +468,6 @@ final class PublicDirectoryTest extends TestCase
             'snapshot_id' => $snapshotId,
         ];
     }
-
 
     private function registryDefinition(
         string $fieldKey,
