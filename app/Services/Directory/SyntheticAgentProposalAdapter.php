@@ -32,12 +32,9 @@ final class SyntheticAgentProposalAdapter
             foreach (['requested_action', 'action', 'tool', 'command', 'capabilities', 'actor'] as $privilegedKey) {
                 if (array_key_exists($privilegedKey, $fixtureBindings)) {
                     $attempt = is_string($fixtureBindings[$privilegedKey]) ? $fixtureBindings[$privilegedKey] : '';
-                    $reference = hash('sha256', json_encode([
-                        self::FIXTURE_ID,
-                        is_string($fixtureBindings['subject_entity_id'] ?? null) ? $fixtureBindings['subject_entity_id'] : 'missing-subject',
-                        $privilegedKey,
-                        $attempt,
-                    ], JSON_THROW_ON_ERROR));
+                    $reference = hash('sha256', self::FIXTURE_ID.'|'.
+                        (is_string($fixtureBindings['subject_entity_id'] ?? null) ? $fixtureBindings['subject_entity_id'] : 'missing-subject').'|'.
+                        $privilegedKey.'|'.hash('sha256', $attempt));
                     app(AgentFieldProposalSubmissionService::class)->recordDeniedAction($attempt, $reference);
                     break;
                 }
@@ -48,15 +45,28 @@ final class SyntheticAgentProposalAdapter
 
         $subjectEntityId = $fixtureBindings['subject_entity_id'] ?? null;
         $evidenceReferenceIds = $fixtureBindings['evidence_reference_ids'] ?? null;
-        if (is_string($subjectEntityId) === false || is_array($evidenceReferenceIds) === false ||
-            array_is_list($evidenceReferenceIds) === false) {
-            $this->reject('fixture', 'Synthetic fixture bindings have an invalid shape.');
+        if (is_string($subjectEntityId) === false ||
+            preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/iD', $subjectEntityId) !== 1 ||
+            is_array($evidenceReferenceIds) === false || array_is_list($evidenceReferenceIds) === false ||
+            $evidenceReferenceIds === [] || count($evidenceReferenceIds) > 20) {
+            $this->reject('fixture', 'Synthetic fixture bindings have an invalid shape or exceed their bounds.');
         }
+
+        foreach ($evidenceReferenceIds as $evidenceId) {
+            if (is_string($evidenceId) === false ||
+                preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/iD', $evidenceId) !== 1) {
+                $this->reject('evidence', 'Only bounded evidence reference identifiers are accepted.');
+            }
+        }
+        if (count(array_unique($evidenceReferenceIds)) !== count($evidenceReferenceIds)) {
+            $this->reject('evidence', 'Evidence reference identifiers must be unique.');
+        }
+        sort($evidenceReferenceIds);
 
         $idempotencyKey = 'i6-synthetic-agent-'.hash('sha256', json_encode([
             self::FIXTURE_ID,
             $subjectEntityId,
-            array_values($evidenceReferenceIds),
+            $evidenceReferenceIds,
         ], JSON_THROW_ON_ERROR));
 
         return app(AgentFieldProposalSubmissionService::class)->submit(
