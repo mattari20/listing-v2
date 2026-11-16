@@ -993,3 +993,18 @@ R1 reuses the owner-accepted M1-S03 research baseline rather than duplicating it
 | [R2 Completion and Decision Record](M3-07_R2_COMPLETION_AND_DECISION_RECORD.md) | Records R2 deliverables, gate status, owner decisions and next agenda | Complete as documentation only |
 
 R2 does not grant source access, reuse permission, model activation, external API use or spend. R3 is the next eligible documentation/decision reconciliation agenda.
+
+
+## M3-07 — Pakistan-wide education coverage, discovery architecture and field registry design
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-07 National Education Coverage and Continuous Agent Plan](M3-07_NATIONAL_EDUCATION_COVERAGE_AND_CONTINUOUS_AGENT_PLAN.md) | Pakistan-wide provider and student-lifecycle coverage, multi-source provenance, freshness, source authorization and G1-G9 gates | Owner-directed scope baseline; live access and agent activation blocked |
+| [M3-07 Student-first Discovery Architecture and Dynamic Field Governance](M3-07_STUDENT_DISCOVERY_PLATFORM_ARCHITECTURE_AND_DYNAMIC_FIELD_GOVERNANCE.md) | Student-first discovery, separation of Search/AI Data-Agent/Central Database, dynamic fields, historical values and publication projection | Owner-directed architecture clarification; documentation only |
+| [M3-07 D1 Field Registry Contract](M3-07_D1_FIELD_REGISTRY_CONTRACT.md) | Immutable field identity/versioning, applicability, types, privacy, evidence, freshness, visibility and lifecycle | Design baseline; I1-I3 delivered separately |
+| [M3-07 D2 Field Registry Storage Decision](M3-07_D2_FIELD_REGISTRY_STORAGE_DECISION.md) | Normalized registry storage, claim reuse, migration/compatibility, indexing and transaction invariants | Design baseline; I1 persistence and I3 binding delivered in bounded scope |
+| [M3-07 D3 Field-aware Claim Service Boundary](M3-07_D3_FIELD_AWARE_CLAIM_SERVICE_BOUNDARY.md) | Single governed write path, bypass prevention, actor capabilities, correction/withdrawal and profile boundaries | Design baseline; I3 proposal path delivered in bounded scope |
+| [M3-07 D4 Synthetic Extensible-Institution Pilot](M3-07_D4_SYNTHETIC_EXTENSIBLE_INSTITUTION_PILOT_SPECIFICATION.md) | Fictional fixtures and synthetic lifecycle, validation, conflict, privacy and publication scenarios | Synthetic test-design baseline; real data/source access excluded |
+| [M3-07 D5 Implementation Readiness and Bounded Authorization Proposal](M3-07_D5_IMPLEMENTATION_READINESS_AND_BOUNDED_AUTHORIZATION_PROPOSAL.md) | Initial I1 boundary, migration/test safeguards and staged-package authorization model | Reconciled with merged I1-I3; I4-I7 separately gated |
+| [M3-07 R3 Source-Rights and Model-Feasibility Reconciliation](M3-07_R3_SOURCE_RIGHTS_AND_MODEL_FEASIBILITY_RECONCILIATION.md) | R1/R2 source/model gate disposition and I1-I3 delivery evidence | Complete as no-activation reconciliation; G2-G7 remain blocked |
+
