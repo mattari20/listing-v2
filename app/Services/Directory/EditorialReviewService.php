@@ -315,6 +315,38 @@ final class EditorialReviewService
             $value !== 'Synthetic Institute Alpha') {
             $this->reject('proposal', 'The fixed I6 synthetic agent claim envelope is required.');
         }
+
+        $references = DB::table('claim_evidence_links')
+            ->join('evidence_references', 'evidence_references.id', '=', 'claim_evidence_links.evidence_reference_id')
+            ->join('source_authorizations', 'source_authorizations.id', '=', 'evidence_references.source_authorization_id')
+            ->where('claim_evidence_links.claim_version_id', $claimVersionId)
+            ->get([
+                'evidence_references.source_type',
+                'evidence_references.content_included',
+                'source_authorizations.status',
+                'source_authorizations.permitted_purposes',
+                'source_authorizations.permitted_methods',
+                'source_authorizations.territories',
+                'source_authorizations.permitted_scopes',
+                'source_authorizations.valid_from',
+                'source_authorizations.valid_to',
+                'source_authorizations.revoked_at',
+            ]);
+        if ($references->isEmpty()) {
+            $this->reject('evidence', 'The synthetic agent proposal requires existing synthetic evidence references.');
+        }
+
+        $sourceContext = [
+            'purpose' => 'synthetic_test_only',
+            'method' => 'fixture_reference',
+            'territory' => 'synthetic',
+        ];
+        foreach ($references as $reference) {
+            if ($reference->source_type !== 'synthetic' || (bool) $reference->content_included !== false ||
+                (new GovernancePolicy)->authorizeSourceAction((array) $reference, 'processing', $sourceContext)['allowed'] !== true) {
+                $this->reject('evidence', 'Every agent proposal evidence reference must be metadata-only synthetic and currently authorized.');
+            }
+        }
     }
 
     private function caseFor(string $id): object
