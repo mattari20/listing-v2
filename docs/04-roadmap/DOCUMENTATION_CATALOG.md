@@ -1050,4 +1050,4 @@ R2 does not grant source access, reuse permission, model activation, external AP
 
 | Artifact | Purpose | Status |
 |---|---|---|
-| [I8 Synthetic Agent Readiness and Evaluation](M3-07_I8_SYNTHETIC_AGENT_READINESS_EVALUATION.md) | Records the authorized deterministic synthetic source-authorization evaluation, eight negative cases, zero-write acceptance contract, live activation blockers and explicit limitations | Initial PR #228 head passed FND-01 CI #43856909227 and documentation validation #43856909213 (15 tests, 803 assertions); final reconciliation head pending |
+| [I8 Synthetic Agent Readiness and Evaluation](M3-07_I8_SYNTHETIC_AGENT_READINESS_EVALUATION.md) | Records the authorized deterministic synthetic source-authorization evaluation, eight negative cases, zero-write acceptance contract, live activation blockers and explicit limitations | Implemented, exact-head validated and merged in PR #228; 15 tests, 803 assertions; FND-01 CI #43857206046 and documentation validation #43857206017 passed |
