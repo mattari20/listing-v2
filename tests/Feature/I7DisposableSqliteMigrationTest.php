@@ -94,6 +94,32 @@ final class I7DisposableSqliteMigrationTest extends TestCase
                 );
             }
 
+            $connection->unprepared('BEGIN IMMEDIATE TRANSACTION');
+            try {
+                $peer->unprepared('PRAGMA busy_timeout = 0');
+                $contendedRow = array_merge($outboxRow, [
+                    'id' => (string) str()->uuid(),
+                    'aggregate_id' => (string) str()->uuid(),
+                    'idempotency_key' => 'i7-cross-connection-contention',
+                ]);
+
+                try {
+                    $peer->table('governance_outbox')->insert($contendedRow);
+                    $this->fail('A second SQLite writer must be blocked while the first connection holds an immediate write transaction.');
+                } catch (QueryException $exception) {
+                    $this->assertStringContainsString('database is locked', strtolower($exception->getMessage()));
+                }
+            } finally {
+                $connection->unprepared('ROLLBACK');
+            }
+
+            $this->assertSame(
+                0,
+                (int) $connection->table('governance_outbox')
+                    ->where('idempotency_key', 'i7-cross-connection-contention')
+                    ->count()
+            );
+
             DB::purge('i7_disposable_peer');
 
             $this->artisan('migrate:reset', [
