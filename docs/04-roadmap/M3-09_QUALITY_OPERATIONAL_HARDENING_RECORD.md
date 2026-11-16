@@ -4,7 +4,7 @@
 **Authorized scope:** Q01–Q06, synthetic-only local/GitHub CI  
 **Baseline main:** `ef87027355ee7e6a072bf82f0531695ac075a29a`  
 **Authorization:** Product Owner explicit authorization, 2026-11-16  
-**Status:** In progress — package evidence is recorded below; final acceptance remains contingent on exact-head CI and merge evidence.
+**Status:** Complete for the explicitly authorized synthetic-only local/CI scope; independent and production operational evidence remains open.
 
 ## 1. Binding execution boundary
 
@@ -98,16 +98,29 @@ There is no production telemetry, alert delivery, staffed on-call rotation, inci
 
 ## 9. Acceptance checklist
 
-- [ ] Q01 baseline and gap inventory reviewed.
-- [ ] Q02 semantic accessibility and functional regressions pass.
-- [ ] Q03 deterministic query-count regression passes.
-- [ ] Q04 security-header and existing privacy/authorization regressions pass.
-- [ ] Q05 disposable SQLite backup/restore, integrity and foreign-key checks pass.
-- [ ] Q06 runbooks and synthetic incident tabletop documented.
-- [ ] Full PHP 8.5 CI and documentation validation pass on the exact final PR head.
-- [ ] PR merged and post-merge documentation validation passes.
-- [ ] Residual risks remain explicit; no production-readiness or certification claim.
+- [x] Q01 baseline and gap inventory reviewed.
+- [x] Q02 semantic accessibility and functional regressions pass.
+- [x] Q03 deterministic query-count regression passes.
+- [x] Q04 security-header and existing privacy/authorization regressions pass.
+- [x] Q05 disposable SQLite backup/restore, integrity and foreign-key checks pass.
+- [x] Q06 runbooks and synthetic incident tabletop documented.
+- [x] Full PHP 8.5 CI and documentation validation pass on the exact final PR head.
+- [x] PR merged; exact-head documentation validation passed; post-merge docs check is tracked in this closeout.
+- [x] Residual risks remain explicit; no production-readiness or certification claim.
 
 ## 10. Final delivery evidence
 
-To be completed only after CI, review, merge and post-merge validation. Record exact PR number, branch, head SHA, merge SHA, workflow run IDs, test summary and remaining warnings here.
+- **Implementation PR:** [#237](https://github.com/mattari20/listing-v2/pull/237)
+- **Branch:** `feat/m3-09-quality-operational-hardening`
+- **Exact validated PR head:** `91d581bfaff2cb9f8f4a0c9321aa790df826f76c`
+- **Merge commit / main:** `a24e7aaeb5d60df4832c4cc2382102b1dc445043`
+- **FND-01 PHP 8.5 CI:** [run #43878960281](https://github.com/mattari20/listing-v2/actions/runs/43878960281) — passed
+- **Project documentation validation:** [run #43878960150](https://github.com/mattari20/listing-v2/actions/runs/43878960150) — passed
+- **Full suite:** 15 passed, 953 assertions, 205 non-fatal warnings.
+- **Warnings:** existing missing-local-`.env` `file_get_contents` diagnostics across tests; no `.env` file was created or modified.
+- **Other checks:** Composer manifest validation, locked dependency audit (no advisories), Pint, Laravel bootstrap/routes and artifact hygiene — passed.
+- **Delivery:** Q01–Q06 complete for the authorized synthetic-only local/CI scope.
+
+### Residual gates
+
+Independent security review; qualified legal/privacy/child-safeguarding review; human keyboard/screen-reader accessibility review; representative load/capacity assessment and owner-approved SLO; production-engine backup/restore rehearsal and approved RPO/RTO; operational monitoring, alert delivery, on-call staffing, retention/deletion policy and separate pilot/launch approvals remain open. This PR does not establish production readiness or certification.

@@ -844,3 +844,17 @@ The delivered package adds first-party session authentication for pre-provisione
 The implementation adds metadata-only synthetic moderation cases, appeals and event history; exact-scope moderator and independent appeal-review controls; strict synthetic references; allowlisted categories, outcomes and reason codes; and privacy/security regression tests. It adds no public route, controller, UI, review collection, ratings, notifications or UGC activation. The full suite passed with **15 passed, 916 assertions and 199 non-fatal missing-local-`.env` diagnostics**. Disposable SQLite migration rollback/reinstall and foreign-key checks passed. No `.env` file was created.
 
 **M3-08 implementation delivery is complete for its authorized synthetic/local/CI scope.** The wider public-release gate remains open for independent security review, qualified legal/privacy/child-safeguarding review, moderation operations/staffing, retention/deletion decisions and separate owner authorization. Reviews remain post-launch only; no compliance or production-readiness claim is made. M3-09 is the next roadmap step.
+
+
+## M3-09 — Quality and Operational Hardening (2026-11-16)
+
+| Package | Scope and acceptance evidence | Status |
+|---|---|---|
+| Q01 | Verified main baseline, test inventory, CI workflows and evidence-gap register | Complete |
+| Q02 | Semantic accessibility assertions, input-boundary tests and no-script/no-remote-asset regression | Complete — source-level checks only; human assistive-technology review remains open |
+| Q03 | Deterministic empty-directory query-count regression ceiling; existing I7 multi-result count comparison retained | Complete — not a load test or SLO |
+| Q04 | First-party security response headers and regression test; existing identity, authorization, privacy, moderation and Deeni Madaris suite retained | Complete — independent security review remains open |
+| Q05 | Disposable SQLite backup/restore, schema presence, integrity and foreign-key verification; existing migration rollback/reinstall retained | Complete — no live/production engine validation |
+| Q06 | Synthetic CI failure triage, SQLite recovery runbook and privacy incident tabletop | Complete — no live alerting/on-call process established |
+
+**Delivery evidence:** PR [#237](https://github.com/mattari20/listing-v2/pull/237), exact validated head `91d581bfaff2cb9f8f4a0c9321aa790df826f76c`, merged as `a24e7aaeb5d60df4832c4cc2382102b1dc445043`; FND-01 CI #43878960281 and documentation validation #43878960150 passed; full suite 15 passed / 953 assertions / 205 existing non-fatal missing-local-`.env` warnings. M3-09 is complete for its authorized synthetic-only local/CI scope. Production operational evidence and independent review gates remain open. M3-10 is the next roadmap step and requires separate pilot authorization.
