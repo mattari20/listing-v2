@@ -291,8 +291,7 @@ R2 is complete as documentation/decision-pack preparation only. The next agenda 
 - [M3-07 D1 Field Registry Contract](04-roadmap/M3-07_D1_FIELD_REGISTRY_CONTRACT.md) — immutable field identity/versioning, applicability, types, privacy, evidence, visibility and lifecycle rules; see linked D2-D5 records for storage, service boundaries, synthetic pilot and implementation proposal.
 - [M3-07 R3 Source-Rights and Model-Feasibility Reconciliation](04-roadmap/M3-07_R3_SOURCE_RIGHTS_AND_MODEL_FEASIBILITY_RECONCILIATION.md) — no-activation disposition, R1/R2 gate status and I1-I3 delivery reconciliation.
 
-I1-I3 are merged for bounded synthetic local/CI scopes. I4-I7 require separate explicit authorization. Live source access and AI/provider activation remain blocked by G2-G9.
+I1-I3 are merged for bounded synthetic local/CI scopes. I4 is now separately authorized and under implementation in branch feature/m3-07-i4-field-definition-governance. I5-I7 remain separately gated. Live source access and AI/provider activation remain blocked by G2-G9.
 
-
-## M3-07 I4 — Field Definition Governance Lifecycle
-- [I4 Field Definition Governance Lifecycle — Bounded Implementation Proposal](04-roadmap/M3-07_I4_FIELD_DEFINITION_GOVERNANCE_LIFECYCLE_PROPOSAL.md) — exact proposed scope for human-only field definition proposal, independent review/approval, separate activation, retirement/restore, audit/outbox and synthetic acceptance tests. Documentation only; I4 implementation requires separate explicit owner authorization.
+- [I4 Field Definition Governance Lifecycle Proposal](04-roadmap/M3-07_I4_FIELD_DEFINITION_GOVERNANCE_LIFECYCLE_PROPOSAL.md) — approved bounded scope.
+- [I4 Implementation Record](04-roadmap/M3-07_I4_FIELD_DEFINITION_GOVERNANCE_IMPLEMENTATION_RECORD.md) — implementation files, lifecycle controls, synthetic acceptance coverage and validation status.
