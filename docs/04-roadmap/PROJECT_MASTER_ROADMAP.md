@@ -7,7 +7,7 @@ All milestones are planned outcomes. Step-level scope and acceptance criteria ar
 | M0 | Independent repository, documentation, governance and delivery controls | Accepted — PR #4 closeout |
 | M1 | Student requirements, provider discovery, data rights and open-source research | **Accepted and Closed — M1-S01 through M1-S10 accepted; 100%; primary research deferred** |
 | M2 | Architecture, domain model, technology evaluation, security and data design | **Accepted and Closed — 100%** |
-| M3 | Application foundation, environments, CI, identity and authorization | In progress — M3-02 through M3-06 delivered for bounded local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered and validated; live AI Data-Agent activation remains blocked by G2-G9 |
+| M3 | Application foundation, environments, CI, identity and authorization | In progress — M3-02 through M3-06 delivered for bounded local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered and validated; M3-08 identity/reviews/security preflight complete as documentation only, implementation not authorized; live AI Data-Agent activation remains blocked by G2-G9 |
 | M4 | Institution, campus and programme management | Planned |
 | M5 | Nearby discovery, search, filters and maps | Planned |
 | M6 | Institution profiles and verified information presentation | Planned |
