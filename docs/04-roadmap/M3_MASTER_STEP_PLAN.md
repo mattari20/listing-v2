@@ -520,6 +520,6 @@ The I8 evaluation record is `M3-07_I8_SYNTHETIC_AGENT_READINESS_EVALUATION.md`. 
 
 The only intended changes are synthetic feature-test coverage and I8/project-control documentation. No application/runtime, schema/migration, dependency, PHPUnit or workflow changes; no real/source/student data, external model/API/connector, production/V1/Hostinger, deployment, release or spend.
 
-**I8 acceptance status:** submitted for exact-head focused test, full FND-01 PHP 8.5 suite, Project documentation validation and changed-file review. Do not claim completion until all required checks pass and merge evidence is reconciled.
+**I8 initial validation:** PR #228 head `e50eb6a7a4515481aede723ddb5a106daa7a22f4` passed FND-01 CI #43856909227 and documentation validation #43856909213; suite 15 passed, 803 assertions, 169 existing missing-local-`.env` warnings. The final evidence-reconciliation commit must pass both checks before I8-A closes.
 
 **Live activation:** G2-G9 remain blocking. Candidate sources remain RESEARCH ONLY; no model/provider is selected or called. M3-07 is not fully complete for live AI Data-Agent activation. I8-A closes only its bounded synthetic readiness-evaluation scope.
