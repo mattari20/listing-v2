@@ -518,13 +518,8 @@ final class PublicDirectoryQueryService
         }
 
         return match ($type) {
-            'short_text', 'long_text' => is_string($value) &&
-                preg_match('//u', $value) === 1 &&
-                mb_strlen($value) <= min(2000, (int) ($schema['max_length'] ?? 2000)) &&
-                str_contains($value, "\0") === false &&
-                ($type !== 'long_text' || (stripos($value, '<script') === false && stripos($value, '<iframe') === false))
-                    ? trim($value) !== '' ? trim($value) : null
-                    : null,
+            'short_text' => $this->registryPublicText($value, $schema, false),
+            'long_text' => $this->registryPublicText($value, $schema, true),
             'integer' => is_int($value) ? (string) $value : null,
             'decimal' => (is_string($value) || is_int($value)) &&
                 strlen((string) $value) <= 32 &&
@@ -541,6 +536,23 @@ final class PublicDirectoryQueryService
                 in_array($value, $schema['allowed_values'], true) ? $value : null,
             default => null,
         };
+    }
+
+    /**
+     * @param  array<string, mixed>  $schema
+     */
+    private function registryPublicText(mixed $value, array $schema, bool $longText): ?string
+    {
+        if (is_string($value) === false || preg_match('//u', $value) !== 1 ||
+            mb_strlen($value) > min(2000, (int) ($schema['max_length'] ?? 2000)) ||
+            str_contains($value, "\0") ||
+            ($longText && (stripos($value, '<script') !== false || stripos($value, '<iframe') !== false))) {
+            return null;
+        }
+
+        $value = trim($value);
+
+        return $value !== '' ? $value : null;
     }
 
     private function isIsoPublicDate(mixed $value): bool
