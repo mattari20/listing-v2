@@ -41,8 +41,7 @@ final class SyntheticModerationWorkflow
         'appeal_dismissed',
     ];
 
-    public function __construct(private readonly ScopedAuthorization $authorization)
-    {}
+    public function __construct(private readonly ScopedAuthorization $authorization) {}
 
     /**
      * Internal test-fixture entry point only. It accepts a synthetic reference,
