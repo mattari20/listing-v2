@@ -1085,6 +1085,6 @@ M3-09 is complete for its explicitly authorized synthetic-only local/CI scope. I
 
 | Document / artifact | Purpose / evidence | Status |
 |---|---|---|
-| [M3-10 Pilot and Launch Readiness Work Plan](M3-10_PILOT_AND_LAUNCH_READINESS_WORK_PLAN.md) | Six readiness packages; pilot charter decisions; participant/safeguarding, data/source/privacy, support/moderation, incident/recovery/rollback and acceptance/go/no-go gates; explicit stop conditions | Delivered as readiness planning under M3-10 authorization; no pilot approved or conducted; separate owner and qualified-review gates remain open |
+| [M3-10 Pilot and Launch Readiness Work Plan](M3-10_PILOT_AND_LAUNCH_READINESS_WORK_PLAN.md) | Six readiness packages; pilot charter decisions; participant/safeguarding, data/source/privacy, support/moderation, incident/recovery/rollback and acceptance/go/no-go gates; explicit stop conditions | PR #240 merged as `d733bca59e5cb519f0a3d74231145ee24d298ed4`; exact head `9248721ef7e50c0d68693c64a822866acc86d592`; FND-01 CI #43893286963 and docs validation #43893048895 passed; post-merge docs validation #43893419189 passed. No pilot approved or conducted; separate owner and qualified-review gates remain open |
 
 M3-10 is IN PROGRESS for readiness planning only. The agenda authorization is not approval to recruit participants, process real data, activate public UGC/reviews/moderation, provision a hosted pilot, access production, deploy, launch or spend. See the work plan for the complete decision and blocker register.
