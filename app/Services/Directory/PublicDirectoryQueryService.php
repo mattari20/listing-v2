@@ -52,22 +52,33 @@ final class PublicDirectoryQueryService
      *   facets: array<string, int>
      * }
      */
-    public function search(string $query = '', ?string $type = null, string $locality = ''): array
-    {
-        $query = trim(preg_replace('/\s+/u', ' ', $query) ?? '');
-        $locality = trim(preg_replace('/\s+/u', ' ', $locality) ?? '');
+    public function search(
+        string $query = '',
+        ?string $type = null,
+        string $locality = '',
+        array $filters = [],
+        ?string $sortField = null
+    ): array {
+        $query = trim(preg_replace('/\\s+/u', ' ', $query) ?? '');
+        $locality = trim(preg_replace('/\\s+/u', ' ', $locality) ?? '');
         $entities = $this->publishedEntities();
         $matching = [];
 
         foreach ($entities as $entity) {
-            $searchable = $entity['name'].' '.implode(' ', array_column($entity['facts'], 'value'));
+            $searchableFacts = array_values(array_filter(
+                $entity['facts'],
+                static fn (array $fact): bool => $fact['is_registry_managed'] === false || $fact['searchable'] === true
+            ));
+            $searchableName = $entity['name_searchable'] ? $entity['name'] : '';
+            $searchable = $searchableName.' '.implode(' ', array_column($searchableFacts, 'value'));
             if ($query !== '' && mb_stripos($searchable, $query) === false) {
                 continue;
             }
             if ($locality !== '') {
                 $publishedLocalities = array_column(array_values(array_filter(
                     $entity['facts'],
-                    static fn (array $fact): bool => in_array($fact['key'], self::LOCALITY_FIELDS, true)
+                    static fn (array $fact): bool => in_array($fact['key'], self::LOCALITY_FIELDS, true) &&
+                        $fact['filterable'] === true
                 )), 'value');
                 $localityText = implode(' ', $publishedLocalities);
                 if ($localityText === '' || mb_stripos($localityText, $locality) === false) {
@@ -75,6 +86,24 @@ final class PublicDirectoryQueryService
                 }
             }
             $matching[] = $entity;
+        }
+
+        foreach ($filters as $fieldKey => $expectedValue) {
+            if (is_string($fieldKey) === false || $fieldKey === '' ||
+                is_string($expectedValue) === false || trim($expectedValue) === '') {
+                return ['results' => [], 'facets' => []];
+            }
+
+            $matching = array_values(array_filter($matching, static function (array $entity) use ($fieldKey, $expectedValue): bool {
+                foreach ($entity['facts'] as $fact) {
+                    if ($fact['key'] === $fieldKey && $fact['is_registry_managed'] === true &&
+                        $fact['filterable'] === true) {
+                        return mb_strtolower(trim($fact['value'])) === mb_strtolower(trim($expectedValue));
+                    }
+                }
+
+                return false;
+            }));
         }
 
         $facets = [];
@@ -92,15 +121,38 @@ final class PublicDirectoryQueryService
             $matching = [];
         }
 
-        usort($matching, static fn (array $left, array $right): int => strnatcasecmp($left['name'], $right['name']));
+        if ($sortField !== null && $sortField !== '') {
+            $hasSortableFact = false;
+            foreach ($matching as $entity) {
+                if ($this->sortableFactValue($entity, $sortField) !== null) {
+                    $hasSortableFact = true;
+                    break;
+                }
+            }
+            if ($hasSortableFact) {
+                usort($matching, function (array $left, array $right) use ($sortField): int {
+                    $leftValue = $this->sortableFactValue($left, $sortField);
+                    $rightValue = $this->sortableFactValue($right, $sortField);
+                    if ($leftValue === null || $rightValue === null) {
+                        return ($leftValue === null ? 1 : 0) <=> ($rightValue === null ? 1 : 0)
+                            ?: strcmp($left['id'], $right['id']);
+                    }
+
+                    return strnatcasecmp($leftValue, $rightValue) ?: strcmp($left['id'], $right['id']);
+                });
+            } else {
+                $this->sortByDefaultName($matching);
+            }
+        } else {
+            $this->sortByDefaultName($matching);
+        }
 
         return [
-            'results' => $matching,
+            'results' => array_map(fn (array $entity): array => $this->publicProfile($entity), $matching),
             'facets' => $facets,
         ];
     }
 
-    /** @return array<string, mixed>|null */
     public function find(string $entityId): ?array
     {
         foreach ($this->publishedEntities() as $entity) {
