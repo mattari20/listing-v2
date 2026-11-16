@@ -295,3 +295,10 @@ I1-I3 are merged for bounded synthetic local/CI scopes. I4 was delivered and mer
 
 - [I4 Field Definition Governance Lifecycle Proposal](04-roadmap/M3-07_I4_FIELD_DEFINITION_GOVERNANCE_LIFECYCLE_PROPOSAL.md) — owner-authorized bounded scope.
 - [I4 Implementation Record](04-roadmap/M3-07_I4_FIELD_DEFINITION_GOVERNANCE_IMPLEMENTATION_RECORD.md) — merged implementation, lifecycle controls, 17 synthetic test methods and exact-head validation evidence.
+
+
+## M3-07 I5 — Value correction, withdrawal and profile integration
+
+- [I5 Value Correction, Withdrawal and Profile Integration Preflight](04-roadmap/M3-07_I5_VALUE_CORRECTION_WITHDRAWAL_PROFILE_INTEGRATION_PREFLIGHT.md) — current-main reconciliation, exact definition-version correction binding, value-specific withdrawal/reinstatement, registry-aware allowlisted profile design, synthetic acceptance matrix and separate implementation authorization gate.
+
+I5 scope/design preflight is complete. Application implementation remains NOT AUTHORIZED pending separate explicit Product Owner approval. I6-I7, live source access, AI/provider activation, connectors/schedulers, production/V1/Hostinger, deployment and additional spend remain excluded.
