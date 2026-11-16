@@ -276,7 +276,7 @@ final class PublicDirectoryQueryService
                 }
                 $label = $this->registryPublicLabel($presentation);
                 $section = $this->registryPublicSection($presentation);
-                $value = $this->registryPublicScalar($payloadValue = null, (string) $row->registry_value_type, $validationSchema);
+                $value = null;
             } else {
                 if (array_key_exists($row->predicate, self::PUBLIC_FIELDS) === false) {
                     continue;
@@ -411,19 +411,145 @@ final class PublicDirectoryQueryService
         return true;
     }
 
-    private function resolvePublicName(array $facts): ?string
+    /**
+     * Return only display-safe fields to the view layer; query permissions remain internal.
+     *
+     * @param  array<string, mixed>  $entity
+     * @return array<string, mixed>
+     */
+    private function publicProfile(array $entity): array
     {
-        foreach (['display_name', 'common_name', 'official_name'] as $key) {
-            $values = array_values(array_unique(array_column(
-                array_values(array_filter($facts, static fn (array $fact): bool => $fact['key'] === $key)),
-                'value'
-            )));
-            if ($values !== []) {
-                return count($values) === 1 ? $values[0] : null;
+        $visibleFactKeys = ['key', 'label', 'value', 'section', 'observed_at', 'is_external_url'];
+        $entity['facts'] = array_map(
+            static fn (array $fact): array => array_intersect_key($fact, array_flip($visibleFactKeys)),
+            $entity['facts']
+        );
+        unset($entity['name_searchable'], $entity['name_sortable']);
+
+        return $entity;
+    }
+
+    /**
+     * @param  array<string, mixed>  $entity
+     */
+    private function sortableFactValue(array $entity, string $fieldKey): ?string
+    {
+        foreach ($entity['facts'] as $fact) {
+            if ($fact['key'] === $fieldKey && $fact['is_registry_managed'] === true &&
+                $fact['sortable'] === true) {
+                return (string) $fact['value'];
             }
         }
 
         return null;
+    }
+
+    /**
+     * @param  array<int, array<string, mixed>>  $entities
+     */
+    private function sortByDefaultName(array &$entities): void
+    {
+        usort($entities, static function (array $left, array $right): int {
+            if ($left['name_sortable'] === true && $right['name_sortable'] === true) {
+                return strnatcasecmp($left['name'], $right['name']) ?: strcmp($left['id'], $right['id']);
+            }
+
+            return strcmp($left['id'], $right['id']);
+        });
+    }
+
+    /**
+     * @param  array<int, array<string, mixed>>  $facts
+     * @return array<string, mixed>|null
+     */
+    private function resolvePublicNameFact(array $facts): ?array
+    {
+        foreach (['display_name', 'common_name', 'official_name'] as $key) {
+            $matches = array_values(array_filter(
+                $facts,
+                static fn (array $fact): bool => $fact['key'] === $key
+            ));
+            $values = array_values(array_unique(array_column($matches, 'value')));
+            if ($values !== []) {
+                return count($values) === 1 ? $matches[0] : null;
+            }
+        }
+
+        return null;
+    }
+
+    /** @param  array<string, mixed>  $presentation */
+    private function registryPublicLabel(array $presentation): ?string
+    {
+        $label = $presentation['public_label'] ?? $presentation['label'] ?? null;
+        if (is_string($label) === false || trim($label) === '' ||
+            mb_strlen($label) > 80 || preg_match('//u', $label) !== 1 ||
+            strip_tags($label) !== $label ||
+            preg_match('/[\\x00-\\x1F\\x7F]/u', $label) === 1) {
+            return null;
+        }
+
+        return trim($label);
+    }
+
+    /** @param  array<string, mixed>  $presentation */
+    private function registryPublicSection(array $presentation): string
+    {
+        $section = $presentation['section_key'] ?? null;
+        if (is_string($section) === false || preg_match('/^[a-z][a-z0-9_]{0,39}$/D', $section) !== 1) {
+            return 'general';
+        }
+
+        return $section;
+    }
+
+    /**
+     * Format only bounded scalar types with a deterministic public representation.
+     *
+     * @param  array<string, mixed>  $schema
+     */
+    private function registryPublicScalar(mixed $value, string $type, array $schema): ?string
+    {
+        if (is_array($value)) {
+            if (array_key_exists('value', $value) === false) {
+                return null;
+            }
+            $value = $value['value'];
+        }
+
+        return match ($type) {
+            'short_text', 'long_text' => is_string($value) &&
+                preg_match('//u', $value) === 1 &&
+                mb_strlen($value) <= min(2000, (int) ($schema['max_length'] ?? 2000)) &&
+                str_contains($value, "\0") === false &&
+                ($type !== 'long_text' || (stripos($value, '<script') === false && stripos($value, '<iframe') === false))
+                    ? trim($value) !== '' ? trim($value) : null
+                    : null,
+            'integer' => is_int($value) ? (string) $value : null,
+            'decimal' => (is_string($value) || is_int($value)) &&
+                strlen((string) $value) <= 32 &&
+                preg_match('/^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$/D', (string) $value) === 1
+                    ? (string) $value
+                    : null,
+            'boolean' => is_bool($value) ? ($value ? 'Yes' : 'No') : null,
+            'date' => $this->isIsoPublicDate($value) ? $value : null,
+            'url' => is_string($value) && $this->isSafeHttpUrl($value) ? $value : null,
+            'email' => is_string($value) && strlen($value) <= 254 &&
+                filter_var($value, FILTER_VALIDATE_EMAIL) !== false ? $value : null,
+            'phone' => is_string($value) && preg_match('/^\\+[1-9][0-9]{7,14}$/D', $value) === 1 ? $value : null,
+            'enum' => is_string($value) && is_array($schema['allowed_values'] ?? null) &&
+                in_array($value, $schema['allowed_values'], true) ? $value : null,
+            default => null,
+        };
+    }
+
+    private function isIsoPublicDate(mixed $value): bool
+    {
+        if (is_string($value) === false || preg_match('/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/D', $value, $parts) !== 1) {
+            return false;
+        }
+
+        return checkdate((int) $parts[2], (int) $parts[3], (int) $parts[1]);
     }
 
     private function publicScalar(mixed $value): ?string
