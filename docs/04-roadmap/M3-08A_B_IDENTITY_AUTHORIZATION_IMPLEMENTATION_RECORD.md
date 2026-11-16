@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Base:** `4e453520b86fefc322a168de85f58d3cfddf18f1` (M3-08 preflight PR #231 merge)  
 **Branch:** `feat/m3-08a-identity-authz-foundation`  
-**Status:** The baseline head `dd332743be3f3cd53939c5f03c8d6744dd5e178e` passed exact-head CI; the latest scope-hardening head `b8b15d3836e55f25d78375e4da70f0bb62dfa788` is awaiting its own exact-head CI before merge. PR #232 remains open. Not production-ready.  
+**Status:** Exact-head FND-01 CI and Project documentation validation passed on `a09f17d4ef2a5e1e31a43c7735be2106db09e301` (PR #232 head at validation). PR #232 remains open pending final merge. Not production-ready.  
 **Authority:** Product Owner explicitly approved the interim first-party Laravel session-authentication design and additive synthetic-only SQLite schema for users, role assignments and privileged-action audit records on 2026-11-16.
 
 ## 1. Authorized scope
@@ -97,9 +97,7 @@ Exact-head GitHub validation passed for commit `dd332743be3f3cd53939c5f03c8d6744
 | Repository artifact hygiene | Passed; no `.env` or database artifact created/tracked |
 | Project documentation validation | Passed on the exact same head |
 
-FND-01 CI run #373 and Project documentation validation run #752 are the exact-head checks for this commit. The warnings are existing test-harness diagnostics for absent `.env`; no `.env` was created to suppress them.
-
-The PR head subsequently advanced to include further scope-hardening tests; those exact-head checks must be observed before merge. No merge or completion claim is made here.
+FND-01 CI run #374 and Project documentation validation run #753 are the exact-head checks for this commit. The warnings are existing test-harness diagnostics for absent `.env`; no `.env` was created to suppress them. Both checks passed on the same PR head. No merge or production-readiness claim is made here.
 
 ## 7. Remaining M3-08 work
 
