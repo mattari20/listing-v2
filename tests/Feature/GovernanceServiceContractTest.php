@@ -290,7 +290,8 @@ class GovernanceServiceContractTest extends TestCase
             'territories' => ['synthetic'],
             'permitted_scopes' => ['acquisition' => true, 'retention' => true, 'processing' => true, 'reuse' => false, 'publication' => false],
             'valid_from' => '2026-11-13T00:00:00Z',
-            'valid_to' => '2026-11-15T00:00:00Z',
+            // Keep the shared synthetic grant valid; expiry behaviour is tested with explicit overrides.
+            'valid_to' => '2099-12-31T23:59:59Z',
             'revoked_at' => null,
         ], $overrides);
     }
