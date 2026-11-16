@@ -4,7 +4,7 @@
 **Authorization:** Product Owner explicitly authorized M3-08C/D on 2026-11-16 for synthetic-only local/CI implementation.  
 **Branch:** `feat/m3-08cd-synthetic-moderation-security`  
 **Base:** `9cf985b3e23c3794665349546dd1afa184f6f3af`  
-**Status:** Implementation candidate; exact-head CI and documentation validation pending. No production-readiness or independent-review claim.
+**Status:** Implemented and merged in PR #234 as `42eabe8a5757e6b4c291baa52d1c01df4e08bb15`; exact PR head `80d7a4a659fa58b1da2542b9c1f429a951399dce`; FND-01 CI #43876036202 and Project documentation validation #43876036293 passed. No production-readiness or independent-review claim.
 
 ## 1. Authorized scope
 
@@ -41,4 +41,6 @@ No production or V1/Hostinger access, real personal data, source ingestion, exte
 
 ## 6. Validation
 
-Pending exact-head FND-01 foundation CI and Project documentation validation. Test counts and warnings must be reconciled from actual CI results before closeout.
+Exact-head validation passed on `80d7a4a659fa58b1da2542b9c1f429a951399dce` before squash merge. FND-01 foundation CI [#43876036202](https://github.com/mattari20/listing-v2/actions/runs/43876036202) and Project documentation validation [#43876036293](https://github.com/mattari20/listing-v2/actions/runs/43876036293) both passed. The full synthetic suite reported **15 passed, 916 assertions and 199 non-fatal warnings**. Warnings are the existing test-harness `file_get_contents` diagnostics caused by the intentionally absent local `.env`; no `.env` file was created. Pint, Composer manifest validation, locked dependency audit, Laravel bootstrap/route validation, disposable SQLite migration rollback/reinstall, foreign-key checks and artifact hygiene passed. PR #234 was squash-merged as `42eabe8a5757e6b4c291baa52d1c01df4e08bb15`.
+
+The implementation is complete for the authorized synthetic/local/CI scope only. The broader M3-08 public-release gate is not closed: independent security review and qualified legal/privacy/child-safeguarding review, moderation staffing/operations, retention policy, and any later public UGC/review eligibility decisions remain open. No compliance or production-readiness claim is made.
