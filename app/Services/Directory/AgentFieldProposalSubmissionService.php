@@ -76,7 +76,7 @@ final class AgentFieldProposalSubmissionService
             'restore',
             'erase',
         ];
-        $actionCode = in_array($attemptedAction, $allowedActions, true)
+        $actionCode = strlen($attemptedAction) <= 64 && in_array($attemptedAction, $allowedActions, true)
             ? $attemptedAction
             : 'unknown_privileged_action';
         $fingerprint = hash('sha256', self::AGENT_ID.'|'.$actionCode.'|'.$idempotencyReference);
