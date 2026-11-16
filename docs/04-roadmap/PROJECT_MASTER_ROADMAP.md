@@ -68,7 +68,7 @@ The [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) is the authoritative detailed 
 | M3-05 | Public Directory and Search | 10% | Complete for bounded synthetic local/CI scope — PR #189 |
 | M3-06 | Geography and Discovery | 7% | Complete for bounded synthetic local/CI scope — PR #192 |
 | M3-07 | AI Data-Agent | 10% | I1-I8-A bounded synthetic/local/CI packages delivered, exact-head validated and merged; live source/model activation remains blocked by G2-G9 |
-| M3-08 | Identity, Reviews and Security | 10% | Preflight complete; M3-08A/B foundations merged; M3-08C/D separately gated; reviews post-launch only |
+| M3-08 | Identity, Reviews and Security | 10% | A/B/C/D bounded synthetic/local/CI foundations delivered in PRs #232 and #234; independent release reviews remain open; reviews post-launch only |
 | M3-09 | Quality and Operational Hardening | 8% | Complete for authorized synthetic-only local/CI scope; production/independent gates remain open |
 | M3-10 | Pilot and Launch Readiness | 7% | In progress — readiness planning only; bounded pilot requires separate owner approval |
 | M3-11 | Controlled Production Launch | 6% | Conditional; separate production/launch approval |
