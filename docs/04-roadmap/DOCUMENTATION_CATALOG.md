@@ -1033,10 +1033,9 @@ R2 does not grant source access, reuse permission, model activation, external AP
 | [I5 Value Correction, Withdrawal and Profile Integration Implementation Record](M3-07_I5_IMPLEMENTATION_RECORD.md) | Records I5-A correction, I5-B withdrawal/reinstatement, I5-C registry-aware profiles, exact-head CI, synthetic acceptance evidence and safety boundaries | Delivered, merged and CI validated in PRs #213–#216; I5 closed as bounded synthetic/local/CI scope |
 
 ## M3-07 I7 — Full Regression and Hardening
-| [I7 Full Regression and Hardening Implementation Record](M3-07_I7_IMPLEMENTATION_RECORD.md) | Records synthetic-only adversarial/public-output tests, I6 agent boundary tests, 11-migration disposable-SQLite rollback/reinstall, independent-connection uniqueness/writer-lock checks, deterministic query-count comparison, exact-head CI and open concurrency limitations | Implemented, validated and merged in PRs #224–#225; 15 tests, 761 assertions; I7 closed for approved synthetic/local/CI scope |
-
 | Artifact | Purpose | Status |
 |---|---|---|
+| [I7 Full Regression and Hardening Implementation Record](M3-07_I7_IMPLEMENTATION_RECORD.md) | Records synthetic-only adversarial/public-output tests, I6 agent boundary tests, 11-migration disposable-SQLite rollback/reinstall, independent-connection uniqueness/writer-lock checks, deterministic query-count comparison, exact-head CI and open concurrency limitations | Implemented, validated and merged in PRs #224–#225; 15 tests, 761 assertions; I7 closed for approved synthetic/local/CI scope |
 | [I7 Full Regression and Hardening Preflight](M3-07_I7_FULL_REGRESSION_HARDENING_PREFLIGHT.md) | Canonical D5 I7 scope, I1-I6 coverage map, adversarial/concurrency/migration/rollback/privacy/performance workstreams, test-only boundary and 13 acceptance gates | Preflight merged in PR #222; subsequent test-only implementation completed and merged in PRs #224–#225; exact-head CI passed |
 
 ## M3-07 I6 — Synthetic Agent Proposal Adapter
