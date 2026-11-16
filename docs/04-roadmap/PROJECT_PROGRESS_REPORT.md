@@ -19,9 +19,9 @@ I5 preserves exact field-definition binding through correction and reinstatement
 
 **I6 preflight finding:** D3/D4 specify an agent proposal-only capability, but current I3 `FieldAwareClaimProposalService::propose()` and `EditorialReviewService::submit()` are human-only. The preflight recommends a dedicated, fixed-identity agent submission path that reuses I3 validation/evidence/source-authorization/audit/outbox controls and creates only a proposed claim version awaiting human review. Existing human-only review, adjudication, publication, correction, withdrawal and field-definition controls remain unchanged. No migration is proposed; exact schema assumptions must be rechecked before implementation.
 
-See `M3-07_I6_SYNTHETIC_AGENT_PROPOSAL_ADAPTER_PREFLIGHT.md` for 22 acceptance criteria, touch-point boundary, stop conditions and the explicit authorization statement.
+See `M3-07_I6_SYNTHETIC_AGENT_PROPOSAL_ADAPTER_PREFLIGHT.md` for 22 acceptance criteria, touch-point boundary, stop conditions and the explicit authorization statement. The documentation-only preflight was merged in PR [#218](https://github.com/mattari20/listing-v2/pull/218) as `2b6c3e695cea28447d304a5a3762e997105b3871`; exact-head FND-01 PHP 8.5 CI #43836612319 and Project documentation validation #43836609615 passed. The synthetic suite reported 15 passed tests and 649 assertions, with 158 non-fatal missing-local-`.env` warnings.
 
-**Next agenda:** Product Owner decision on the exact I6 implementation scope. No I6 application code or tests have started. I7 remains separately gated; G2-G9 continue to block live source access and agent activation.
+**Latest main after I6 preflight closeout:** `2b6c3e695cea28447d304a5a3762e997105b3871`. **Next agenda:** Product Owner decision on the exact I6 implementation scope. No I6 application code or tests have started. I7 remains separately gated; G2-G9 continue to block live source access and agent activation.
 
 \n## Latest verified position — M3-07 readiness review (2026-11-14)
 
