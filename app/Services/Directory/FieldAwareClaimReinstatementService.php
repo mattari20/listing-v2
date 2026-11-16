@@ -184,7 +184,7 @@ final class FieldAwareClaimReinstatementService
                 ->where('field_definition_version_id', $prior->field_definition_version_id)
                 ->pluck('provider_category')->all();
 
-            $validationContext = array_merge($validationContext, [
+            $resolvedValidationContext = array_merge($validationContext, [
                 'entity_type' => (string) $entity->entity_type,
                 'provider_category' => $providerCategory,
                 'scope_key' => (string) $definition['scope_key'],
@@ -193,8 +193,8 @@ final class FieldAwareClaimReinstatementService
                 'contains_sensitive_personal_data' => false,
                 'evaluation_at' => now()->toIso8601String(),
             ]);
-            $applicabilityResult = $this->validator->validateApplicability($definition, $validationContext);
-            $valueResult = $this->validator->validate($definition, $value, $validationContext);
+            $applicabilityResult = $this->validator->validateApplicability($definition, $resolvedValidationContext);
+            $valueResult = $this->validator->validate($definition, $value, $resolvedValidationContext);
             if ($applicabilityResult['valid'] !== true || $valueResult['valid'] !== true) {
                 $this->reject('value', 'Reinstated value failed exact-definition typed, privacy or applicability validation.');
             }
