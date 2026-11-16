@@ -77,9 +77,13 @@ final class FieldAwareClaimCorrectionService
                     'claims.predicate',
                 ]);
 
+            $alreadyCorrected = DB::table('audit_events')
+                ->where('action', 'claim_version_corrected')
+                ->where('metadata->idempotency_key', $idempotencyKey)
+                ->exists();
             if ($prior === null || $prior->field_definition_version_id === null ||
                 $prior->disposition === 'withdrawn' ||
-                DB::table('claim_versions')->where('supersedes_version_id', $priorVersionId)->exists()) {
+                ($alreadyCorrected === false && DB::table('claim_versions')->where('supersedes_version_id', $priorVersionId)->exists())) {
                 $this->reject('claim_version', 'A current registry-bound, non-withdrawn predecessor without a successor is required.');
             }
 
@@ -172,28 +176,30 @@ final class FieldAwareClaimCorrectionService
                 }
             }
 
-            $otherValueCount = DB::table('claims')
-                ->join('claim_versions', 'claim_versions.claim_id', '=', 'claims.id')
-                ->where('claims.subject_entity_id', $prior->subject_entity_id)
-                ->where('claims.predicate', $prior->predicate)
-                ->where('claim_versions.id', '!=', $priorVersionId)
-                ->whereNotIn('claim_versions.disposition', ['rejected', 'withdrawn'])
-                ->count();
-            $maximum = (int) ($definition['validation_schema']['max_values'] ?? 100);
-            $cardinality = $this->validator->validateCardinality(
-                (string) $definition['cardinality'],
-                (int) $otherValueCount,
-                1,
-                $maximum
-            );
-            if ($cardinality['valid'] !== true) {
-                $this->reject('cardinality', 'Corrected value would violate the exact field cardinality limit.');
+            if ($alreadyCorrected === false) {
+                $otherValueCount = DB::table('claims')
+                    ->join('claim_versions', 'claim_versions.claim_id', '=', 'claims.id')
+                    ->where('claims.subject_entity_id', $prior->subject_entity_id)
+                    ->where('claims.predicate', $prior->predicate)
+                    ->where('claim_versions.id', '!=', $priorVersionId)
+                    ->whereNotIn('claim_versions.disposition', ['rejected', 'withdrawn'])
+                    ->count();
+                $maximum = (int) ($definition['validation_schema']['max_values'] ?? 100);
+                $cardinality = $this->validator->validateCardinality(
+                    (string) $definition['cardinality'],
+                    (int) $otherValueCount,
+                    1,
+                    $maximum
+                );
+                if ($cardinality['valid'] !== true) {
+                    $this->reject('cardinality', 'Corrected value would violate the exact field cardinality limit.');
+                }
             }
 
             $newVersionId = $this->workflow->correctClaimVersion(
                 $actor,
                 $priorVersionId,
-                is_array($value) ? $value : ['value' => $value],
+                $value,
                 $evidenceReferenceIds,
                 $validFrom,
                 $validTo,
