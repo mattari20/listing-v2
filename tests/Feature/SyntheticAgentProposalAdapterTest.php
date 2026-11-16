@@ -183,7 +183,7 @@ class SyntheticAgentProposalAdapterTest extends TestCase
             ]);
             $this->fail('Repeated privileged action input must remain denied.');
         } catch (ValidationException) {
-            $this->assertDatabaseCount('audit_events', 1);
+            $this->assertSame(1, DB::table('audit_events')->where('action', 'synthetic_agent_privileged_action_denied')->count());
         }
     }
 
