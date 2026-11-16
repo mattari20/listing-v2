@@ -691,5 +691,5 @@ final class PublicDirectoryTest extends TestCase
             'The directory query count should remain bounded as the synthetic result set grows.'
         );
 
-    }
+     }
 }
