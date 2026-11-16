@@ -18,13 +18,25 @@ use Illuminate\Validation\ValidationException;
  */
 final class FieldAwareClaimCorrectionService
 {
+    private readonly FieldDefinitionRegistryReader $registry;
+
+    private readonly TypedFieldValueValidator $validator;
+
+    private readonly PersistedGovernanceWorkflowService $workflow;
+
+    private readonly EditorialReviewService $editorial;
+
     public function __construct(
-        private readonly FieldDefinitionRegistryReader $registry,
-        private readonly TypedFieldValueValidator $validator,
-        private readonly PersistedGovernanceWorkflowService $workflow,
-        private readonly EditorialReviewService $editorial
-    )
-    {}
+        FieldDefinitionRegistryReader $registry,
+        TypedFieldValueValidator $validator,
+        PersistedGovernanceWorkflowService $workflow,
+        EditorialReviewService $editorial
+    ) {
+        $this->registry = $registry;
+        $this->validator = $validator;
+        $this->workflow = $workflow;
+        $this->editorial = $editorial;
+    }
 
     /**
      * @param list<string> $evidenceReferenceIds
