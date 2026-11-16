@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-07 — I1-I6 bounded synthetic/local/CI packages delivered; I7 full regression and hardening test package implemented, exact-head validated and merged; live AI Data-Agent/source activation remains blocked pending source/model/provider and qualified rights/privacy/security approvals  
+**Current step:** M3-07 — I1-I7 bounded synthetic/local/CI packages delivered; I8-A synthetic source-authorization evaluation submitted for exact-head CI; live AI Data-Agent/source activation remains blocked pending source/model/provider and qualified rights/privacy/security approvals  
 **Plan status:** M3-03 final exit review accepted by Product Owner on 2026-11-14; G-01–G-03 closed for bounded synthetic scope and G-04 traceability owner-accepted with explicit residual deferrals; M3-04 P01–P04, M3-05, M3-06 and M3-07 I1-I7 bounded synthetic/local/CI packages implemented, validated and merged; live source/model activation remains gated  
 **Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 P01–P04, M3-05, M3-06 and M3-07 I1-I6 are implemented, validated and merged for bounded synthetic local/CI scope. M3-07 I7 adds test-only regression, adversarial, privacy, migration/rollback, SQLite contention and query-count checks; it does not change application behavior or activate live source ingestion or an AI agent. Coordinates, distance search, device location, maps, geocoding, real/source data, external services, production and deployment remain separately gated.
 
@@ -510,3 +510,16 @@ The Product Owner explicitly authorized I7's test-only synthetic scope after the
 - The public-directory query-count comparison returned equal counts for one and five synthetic results.
 
 I7 changed tests and its implementation record only. No application, schema/migration, dependency, PHPUnit, CI workflow, route/UI, production, source, external-service, deployment or spend change occurred. The SQLite checks do not prove simultaneous application service-command safety or row-lock semantics on another database engine; those limitations remain open and unclaimed. **I7 is closed for the approved synthetic/local/CI scope.** G2-G9 continue to block live source access and live model/agent activation; I7 does not authorize I8 or live activation.
+
+
+## M3-07 I8-A — Synthetic-Only AI Data-Agent Readiness and Evaluation (2026-11-16)
+
+The Product Owner explicitly authorized I8-A. The bounded implementation adds eight independently reset synthetic source-authorization denial cases to `tests/Feature/SyntheticAgentProposalAdapterTest.php`. The cases cover research-only status, revocation, future validity, expiry, missing processing scope, purpose mismatch, method mismatch and territory mismatch. Each case asserts no claim/version/editorial case/publication decision/public projection or successful proposal audit/outbox writes.
+
+The I8 evaluation record is `M3-07_I8_SYNTHETIC_AGENT_READINESS_EVALUATION.md`. This evaluates deterministic authorization enforcement only; it is not an LLM benchmark and does not establish extraction precision/recall or live-agent readiness. The existing I6 fixed synthetic positive control and human-review boundary remain unchanged.
+
+The only intended changes are synthetic feature-test coverage and I8/project-control documentation. No application/runtime, schema/migration, dependency, PHPUnit or workflow changes; no real/source/student data, external model/API/connector, production/V1/Hostinger, deployment, release or spend.
+
+**I8 acceptance status:** submitted for exact-head focused test, full FND-01 PHP 8.5 suite, Project documentation validation and changed-file review. Do not claim completion until all required checks pass and merge evidence is reconciled.
+
+**Live activation:** G2-G9 remain blocking. Candidate sources remain RESEARCH ONLY; no model/provider is selected or called. M3-07 is not fully complete for live AI Data-Agent activation. I8-A closes only its bounded synthetic readiness-evaluation scope.
