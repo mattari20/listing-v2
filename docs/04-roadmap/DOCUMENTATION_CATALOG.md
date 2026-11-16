@@ -1036,7 +1036,7 @@ R2 does not grant source access, reuse permission, model activation, external AP
 
 | Artifact | Purpose | Status |
 |---|---|---|
-| [I7 Full Regression and Hardening Preflight](M3-07_I7_FULL_REGRESSION_HARDENING_PREFLIGHT.md) | Canonical D5 I7 scope, current I1-I6 test coverage map, adversarial/concurrency/migration/rollback/privacy/performance/regression workstreams, test-only file boundary, 13 acceptance gates and separate owner authorization template | Scope/design preflight complete; test implementation not authorized / not started |
+| [I7 Full Regression and Hardening Preflight](M3-07_I7_FULL_REGRESSION_HARDENING_PREFLIGHT.md) | Canonical D5 I7 scope, current I1-I6 test coverage map, adversarial/concurrency/migration/rollback/privacy/performance/regression workstreams, test-only file boundary, 13 acceptance gates and separate owner authorization template | Scope/design preflight complete and merged in PR #222; exact-head CI passed; test implementation not authorized / not started |
 
 ## M3-07 I6 — Synthetic Agent Proposal Adapter
 
