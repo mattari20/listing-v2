@@ -147,7 +147,7 @@ final class FieldDefinitionGovernanceService
 
             $decisionId = $this->recordDecision(
                 $caseId, 'proposed', $actor, $rationaleCode, $rationale,
-                $idempotencyKey.'-proposal', $fingerprint, 'proposal'
+                'proposal:'.hash('sha256', $idempotencyKey), $fingerprint, 'proposal'
             );
             $this->auditAndEnqueue(
                 $actor, 'field_definition_proposed', $versionId, null, 'proposed',
@@ -700,6 +700,8 @@ final class FieldDefinitionGovernanceService
             'created_at' => now(),
             'updated_at' => now(),
         ]);
+        $versionState = DB::table('field_definition_versions')->where('id', $versionId)->value('lifecycle_state');
+        $caseStatus = DB::table('field_definition_review_cases')->where('id', $caseId)->value('status');
         DB::table('governance_outbox')->insert([
             'id' => (string) Str::uuid(),
             'event_type' => 'field_definition.lifecycle.changed',
@@ -710,8 +712,9 @@ final class FieldDefinitionGovernanceService
                 'review_case_id' => $caseId,
                 'decision_id' => $decisionId,
                 'action' => $action,
-                'prior_state' => $previousState,
-                'lifecycle_state' => $nextState,
+                'prior_case_status' => $previousState,
+                'review_case_status' => $caseStatus,
+                'lifecycle_state' => $versionState,
                 'actor_id' => $actor['actor_id'],
                 'actor_class' => $actor['actor_class'],
                 'idempotency_key' => $idempotencyKey,
