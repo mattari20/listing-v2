@@ -285,6 +285,16 @@ class SyntheticAgentProposalAdapterTest extends TestCase
         ];
 
         foreach ($deniedCases as $case => $changes) {
+            DB::table('source_authorizations')->where('id', $authorizationId)->update([
+                'status' => 'approved_for_defined_purpose_and_method',
+                'revoked_at' => null,
+                'valid_from' => null,
+                'valid_to' => null,
+                'permitted_scopes' => json_encode(['processing' => true], JSON_THROW_ON_ERROR),
+                'permitted_purposes' => json_encode(['synthetic_test_only'], JSON_THROW_ON_ERROR),
+                'permitted_methods' => json_encode(['fixture_reference'], JSON_THROW_ON_ERROR),
+                'territories' => json_encode(['synthetic'], JSON_THROW_ON_ERROR),
+            ]);
             DB::table('source_authorizations')->where('id', $authorizationId)->update($changes);
 
             try {
