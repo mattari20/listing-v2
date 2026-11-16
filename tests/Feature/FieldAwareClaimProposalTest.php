@@ -579,6 +579,4 @@ class FieldAwareClaimProposalTest extends TestCase
     {
         return ['actor_id' => $id, 'actor_class' => $class, 'capabilities' => $capabilities];
     }
-
-
 }
