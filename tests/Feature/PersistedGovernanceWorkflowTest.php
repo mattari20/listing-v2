@@ -544,7 +544,7 @@ class PersistedGovernanceWorkflowTest extends TestCase
             'relationship_type' => 'supports', 'created_at' => $now, 'updated_at' => $now,
         ]);
 
-        return ['version' => $version, 'authorization' => $authorization, 'evidence' => $evidence];
+        return ['entity' => $entity, 'version' => $version, 'authorization' => $authorization, 'evidence' => $evidence];
     }
 
     private function actor(string $id, array $capabilities, string $class = 'human'): array
