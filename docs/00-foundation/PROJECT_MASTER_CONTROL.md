@@ -684,6 +684,6 @@ The next eligible step is M3-06 Geography and Discovery, which requires a separa
 
 The Product Owner authorized I8-A — Synthetic-Only AI Data-Agent Readiness and Evaluation. Its test-only implementation adds eight independent negative source-authorization cases against the fixed synthetic I6 adapter. The evaluation record is `../04-roadmap/M3-07_I8_SYNTHETIC_AGENT_READINESS_EVALUATION.md`.
 
-I8-A is limited to synthetic feature tests and project documentation. It does not authorize runtime/application changes, schema/migrations, external model/API/source access, connectors, schedulers, production/V1/Hostinger, deployment or spend. Exact-head CI and documentation validation remain pending until reported by GitHub.
+I8-A is limited to synthetic feature tests and project documentation. It does not authorize runtime/application changes, schema/migrations, external model/API/source access, connectors, schedulers, production/V1/Hostinger, deployment or spend. Initial PR #228 head passed FND-01 CI #43856909227 and documentation validation #43856909213 (15 tests, 803 assertions, 169 existing missing-local-`.env` warnings); final evidence-reconciliation head remains subject to exact-head checks.
 
 GOV-04 and all candidate source families remain RESEARCH ONLY. G2-G9 remain conjunctive blockers for live source access and model/agent activation. I8-A does not complete the live AI Data-Agent milestone.
