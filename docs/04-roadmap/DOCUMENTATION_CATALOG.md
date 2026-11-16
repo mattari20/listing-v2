@@ -1079,3 +1079,12 @@ R2 does not grant source access, reuse permission, model activation, external AP
 | [M3-09 Quality and Operational Hardening Record](M3-09_QUALITY_OPERATIONAL_HARDENING_RECORD.md) | Q01–Q06 baseline, semantic accessibility/functional checks, query-count guard, security headers, disposable SQLite recovery, synthetic operational runbooks, CI evidence and residual-risk register | Delivered and reconciled — PR #237 merged as `a24e7aaeb5d60df4832c4cc2382102b1dc445043`; exact validated head `91d581bfaff2cb9f8f4a0c9321aa790df826f76c`; FND-01 CI #43878960281 and docs validation #43878960150 passed |
 
 M3-09 is complete for its explicitly authorized synthetic-only local/CI scope. Independent accessibility/security/legal/privacy/safeguarding review, production backup/recovery, approved SLO/RPO/RTO, monitoring/alerting, staffing and retention/deletion decisions remain open. No production-readiness or compliance claim is made.
+
+
+## M3-10 Pilot and Launch Readiness — 2026-11-16
+
+| Document / artifact | Purpose / evidence | Status |
+|---|---|---|
+| [M3-10 Pilot and Launch Readiness Work Plan](M3-10_PILOT_AND_LAUNCH_READINESS_WORK_PLAN.md) | Six readiness packages; pilot charter decisions; participant/safeguarding, data/source/privacy, support/moderation, incident/recovery/rollback and acceptance/go/no-go gates; explicit stop conditions | Delivered as readiness planning under M3-10 authorization; no pilot approved or conducted; separate owner and qualified-review gates remain open |
+
+M3-10 is IN PROGRESS for readiness planning only. The agenda authorization is not approval to recruit participants, process real data, activate public UGC/reviews/moderation, provision a hosted pilot, access production, deploy, launch or spend. See the work plan for the complete decision and blocker register.

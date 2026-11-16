@@ -1,3 +1,25 @@
+## Latest verified position — M3-10 Pilot and Launch Readiness entered (2026-11-16)
+
+**Current milestone:** M3 — Mobilization and Controlled Implementation  
+**Current agenda:** M3-10 — Pilot and Launch Readiness  
+**Status:** IN PROGRESS — readiness planning and synthetic-only local/CI/tabletop work only  
+**Baseline main:** `60690f56ac1776a8320e5dffc70adf961b0219ca`  
+**Authorization:** Product Owner explicitly authorized moving into M3-10 on 2026-11-16.
+
+The [M3-10 Pilot and Launch Readiness Work Plan](M3-10_PILOT_AND_LAUNCH_READINESS_WORK_PLAN.md) defines six packages: pilot charter/scope; participant eligibility and safeguarding; data/source/privacy; support/moderation/operational ownership; incident/recovery/rollback; and pilot acceptance/go/no-go evidence.
+
+**No pilot is approved or underway.** The authorization to enter M3-10 does not authorize participant recruitment/contact, pre-launch student research, real student/provider/institution data, external-source access, public UGC/reviews/moderation, hosted preview, production access, deployment, launch, vendors or new spend. The earlier student-research deferral remains binding. A bounded pilot requires a separate explicit owner approval of its exact scope, participants, data and operational safeguards, plus applicable qualified reviews.
+
+**Current blockers:** pilot purpose/type/geography/features/cohort/duration/success thresholds not selected; no participant protocol approved; no real-data/source rights approved; no qualified legal/privacy/child-safeguarding or independent security sign-offs evidenced; no accountable operations/support/incident/moderation roster assigned; no production-engine backup/restore or approved RPO/RTO; no budget/vendor approval. The only permissible exercise at this stage is synthetic-only local/CI or a non-human tabletop.
+
+**Prior agenda:** M3-09 Q01–Q06 completed for authorized synthetic-only local/CI scope and merged in PR #237 as `a24e7aaeb5d60df4832c4cc2382102b1dc445043`. Exact head `91d581bfaff2cb9f8f4a0c9321aa790df826f76c` passed FND-01 CI #43878960281 and documentation validation #43878960150; full suite 15 passed / 953 assertions / 205 existing non-fatal missing-local-`.env` diagnostics. Documentation closeout PR #238 merged as `60690f56ac1776a8320e5dffc70adf961b0219ca`; post-merge documentation validation #43879784458 passed.
+
+**Safety invariants:** anonymous public directory remains unchanged; public UGC/reviews/moderation activation remain disabled; Deeni Madaris remains default-OFF with zero public exposure; no production/V1/Hostinger/live database, real/source data, external service, new dependency, spend, deployment, release or launch. No production-readiness or compliance claim is made.
+
+**Next action within M3-10:** owner decision pack review for a bounded pilot proposal. Do not commence a pilot until its separate approval and qualified gate evidence are recorded.
+
+---
+
 ## Latest verified position — M3-09 Q01–Q06 quality and operational hardening merged (2026-11-16)
 
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
