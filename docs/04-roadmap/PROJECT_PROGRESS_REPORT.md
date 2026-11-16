@@ -1,5 +1,20 @@
 # Project Progress Report
 
+## Latest verified position — M3-07 I7 scope/design preflight (2026-11-16)
+
+**Preflight base:** main 1b4b58442807336bcf9905722b2a59a7a36606c1.  
+**Canonical agenda:** I7 — Full Regression and Hardening (D5 staged plan).  
+**Status:** Scope/design preflight complete; test implementation not authorized / not started.
+
+I7 is test-only and covers adversarial, concurrency, migration, rollback, privacy, performance and I1-I6 regression. It does not add search/profile functionality; I5 already delivered registry-aware public profiles and projection integration.
+
+The preflight reviewed 19 test source files, 10 migration files and both existing CI workflows. Existing coverage includes exact-version registry behavior, typed validation/privacy, field-aware claims/evidence, human-only definition and editorial governance, correction/withdrawal/reinstatement, public projections, I6 proposal-only agent behavior, outbox retry/lease recovery, conflicts/rollback, authority/campus/programme relationships and Deeni Madaris default-OFF behavior.
+
+Remaining hardening opportunities are systematic adversarial payload/redaction tests, multi-connection contention evidence, complete disposable-SQLite migration rollback/reinstall, cross-phase no-side-effect assertions and deterministic query-count performance baselines. SQLite in-memory CI cannot prove other database engines' row-lock behavior; unsupported concurrency claims must remain open.
+
+See [I7 Full Regression and Hardening Preflight](M3-07_I7_FULL_REGRESSION_HARDENING_PREFLIGHT.md) for the exact test/documentation boundary, 13 acceptance gates, stop conditions and authorization statement. No test code, application code, migration, schema, dependency, PHPUnit configuration or CI workflow has been changed. G2-G9 remain blocking for live source access and live model/agent activation.
+
+
 **As of:** 2026-11-16  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
 **Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03, M3-04, M3-05 and M3-06 implemented, validated and merged for bounded synthetic local/CI scope; M3-07 I1-I5 bounded synthetic/local/CI packages delivered; I6 synthetic proposal adapter implemented, exact-head validated and merged in PR #220; live AI Data-Agent/source activation remains blocked
@@ -39,7 +54,7 @@ No migrations, schema changes, backfills, dependencies, Composer changes, routes
 
 **I6 Implementation Record:** `M3-07_I6_IMPLEMENTATION_RECORD.md` records the full scope, files, tests, CI evidence and limitations.
 
-**Closeout:** PR #220 is merged and `main` is verified at `8acf05082187f854597aa6dd2d852d64e01e5581`. The I6 Implementation Record captures the final PR head, merge SHA, exact-head checks and scope limitations. **Next agenda:** I7 remains separately gated and requires its own scope/design preflight and explicit Product Owner authorization; G2-G9 continue to block live source access and live agent/model activation.
+**Closeout:** PR #220 is merged and `main` is verified at `8acf05082187f854597aa6dd2d852d64e01e5581`. The I6 Implementation Record captures the final PR head, merge SHA, exact-head checks and scope limitations. **Next agenda:** I7 scope/design preflight is now complete under D5's test-only definition; test implementation requires separate explicit Product Owner authorization. G2-G9 continue to block live source access and live agent/model activation.
 \n## Latest verified position — M3-07 readiness review (2026-11-14)
 
 **Latest main commit:** `1f4298f9136771f3b2ff6c8008d07b58a1113724` (M3-07 readiness PR #195).  
