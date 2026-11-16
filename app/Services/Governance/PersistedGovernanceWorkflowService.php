@@ -91,7 +91,7 @@ final class PersistedGovernanceWorkflowService
         });
     }
 
-    public function correctClaimVersion(array $actor, string $priorVersionId, array $value, array $evidenceReferenceIds, string $validFrom, ?string $validTo, string $reasonCode, string $rationale, string $idempotencyKey): string
+    public function correctClaimVersion(array $actor, string $priorVersionId, array $value, array $evidenceReferenceIds, string $validFrom, ?string $validTo, string $reasonCode, string $rationale, string $idempotencyKey, ?string $fieldDefinitionVersionId = null): string
     {
         $this->requireActor($actor, 'correct_claim');
         if (($actor['actor_class'] ?? null) !== 'human') {
@@ -116,9 +116,10 @@ final class PersistedGovernanceWorkflowService
             'valid_to' => $validTo,
             'reason_code' => $reasonCode,
             'rationale' => $rationale,
+            'field_definition_version_id' => $fieldDefinitionVersionId,
         ], JSON_THROW_ON_ERROR));
 
-        return DB::transaction(function () use ($actor, $priorVersionId, $value, $evidenceReferenceIds, $validFrom, $validTo, $reasonCode, $rationale, $idempotencyKey, $fingerprint): string {
+        return DB::transaction(function () use ($actor, $priorVersionId, $value, $evidenceReferenceIds, $validFrom, $validTo, $reasonCode, $rationale, $idempotencyKey, $fieldDefinitionVersionId, $fingerprint): string {
             $priorAuditEvents = DB::table('audit_events')->where('target_type', 'claim_version')->where('action', 'claim_version_corrected')->get();
             foreach ($priorAuditEvents as $event) {
                 $metadata = json_decode((string) $event->metadata, true) ?: [];
@@ -135,6 +136,9 @@ final class PersistedGovernanceWorkflowService
             if ($prior === null || $prior->disposition === 'withdrawn') {
                 $this->reject('claim_version', 'A current, non-withdrawn claim version is required for correction.');
             }
+            if ($prior->field_definition_version_id !== $fieldDefinitionVersionId) {
+                $this->reject('field_binding', 'Registry-managed corrections must preserve the predecessor exact definition-version binding; legacy claims cannot be rebound.');
+            }
             if (DB::table('claim_versions')->where('supersedes_version_id', $priorVersionId)->exists()) {
                 $this->reject('claim_version', 'A claim version with an existing successor cannot be corrected again.');
             }
@@ -150,6 +154,7 @@ final class PersistedGovernanceWorkflowService
             DB::table('claim_versions')->insert([
                 'id' => $newVersionId,
                 'claim_id' => $prior->claim_id,
+                'field_definition_version_id' => $fieldDefinitionVersionId,
                 'version_number' => $nextVersion,
                 'value' => json_encode($value, JSON_THROW_ON_ERROR),
                 'valid_from' => $validFrom,
