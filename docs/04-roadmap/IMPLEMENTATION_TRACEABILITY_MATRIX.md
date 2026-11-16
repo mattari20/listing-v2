@@ -1,6 +1,7 @@
 # Implementation Traceability Matrix
 
 | Requirement ID | Requirement | Specification | Step | PR / commit | Test / evidence | Status |
+| M3-08-PF-001 | Least-privilege identity, scoped authorization, post-launch reviews, privacy/minor safeguarding and security preflight | M2-S08; M2-S07/S08/S09 Joint Architecture Validation; Comparison, Reviews and Student Trust | M3-08 | Preflight branch `docs/m3-08-identity-security-preflight` | Current-main route/auth scaffolding inspection; role/action/resource-scope matrix; synthetic acceptance plan; see `M3-08_IDENTITY_REVIEWS_SECURITY_PREFLIGHT.md` | Preflight complete; implementation NOT AUTHORIZED |
 |---|---|---|---|---|---|---|
 | GOV-001 | Independent greenfield repository | Project Constitution | M0-S01 | Bootstrap commit; PR #1 merged as `0f2165f3d18e43f10cf6d6f717f145d3433769a4` | Repository metadata; founding documentation present | Accepted — M0 closeout |
 | GOV-002 | Documentation-driven execution and status tracking | AI Execution Protocol; Project Master Control; Documentation Catalogue | M0-S03 | PR #1–#4 merged | Controller, step register, catalogue and progress-report links | Delivered — acceptance review pending |
