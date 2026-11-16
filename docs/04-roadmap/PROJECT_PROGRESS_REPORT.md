@@ -6,7 +6,7 @@
 **Current agenda:** M3-07 I8-A — Synthetic-Only AI Data-Agent Readiness and Evaluation  
 **Implementation base:** `252e33e15d023985e180ea225996c0953af316b4`  
 **Branch:** `test/m3-07-i8-synthetic-agent-readiness`  
-**Status:** One bounded synthetic source-authorization evaluation method and its implementation record are submitted for exact-head CI; no CI result or merge is claimed yet.
+**Status:** I8 synthetic test implementation passes initial exact-head CI; evidence reconciliation is being validated on the updated PR head. PR #228 remains open; no merge is claimed.
 
 I8-A was explicitly authorized by the Product Owner on 2026-11-16. It adds eight isolated negative authorization cases to the existing I6 synthetic adapter feature test. Cases cover research-only status, revocation, future validity, expiry, missing processing scope, purpose mismatch, method mismatch and territory mismatch. Each case must fail closed with zero claim, claim-version, editorial-case, publication-decision, public-projection, successful-proposal audit or proposal-outbox writes.
 
@@ -15,6 +15,8 @@ The existing I6 positive synthetic control remains in place: the fixed fixture c
 **Scope:** synthetic tests under `tests/Feature/**` and I8/project documentation only. No application/runtime, schema/migration, dependency, PHPUnit or CI workflow changes; no real/source/student data, external URL/API/model/provider/connector/scheduler, production/V1/Hostinger, deployment, release or additional spend.
 
 **Live activation:** BLOCKED. GOV-04 and candidate sources remain RESEARCH ONLY. G2-G9 remain conjunctive blockers for source access and live model/agent activation. No model/provider has been selected or called; no permission request or source contact has been made.
+
+**Initial exact-head evidence:** PR #228 head `e50eb6a7a4515481aede723ddb5a106daa7a22f4`; FND-01 PHP 8.5 foundation CI [#43856909227](https://github.com/mattari20/listing-v2/actions/runs/43856909227) — SUCCESS; Project documentation validation [#43856909213](https://github.com/mattari20/listing-v2/actions/runs/43856909213) — SUCCESS. Full suite: **15 passed, 803 assertions, 169 warnings**. The warnings are the existing missing-local-`.env` test-harness warnings; no `.env` file was created or modified. The new I8 authorization evaluation test passed within the suite. These checks validate the initial PR head; final documentation reconciliation requires fresh exact-head checks.
 
 **Acceptance still pending:** focused test, full FND-01 PHP 8.5 synthetic suite, Project documentation validation, exact changed-file review and project-control reconciliation on the exact PR head. Final CI run identifiers, test totals, PR number, merge SHA and acceptance status must be added only after GitHub confirms them.
 
