@@ -406,11 +406,11 @@ class SyntheticAgentProposalAdapterTest extends TestCase
                 'evidence_reference_ids' => [$evidenceId],
             ],
             [
-                'subject_entity_id' => 'bad'."\\0".'id',
+                'subject_entity_id' => 'bad'."\0".'id',
                 'evidence_reference_ids' => [$evidenceId],
             ],
             [
-                'subject_entity_id' => "bad\\u{202E}id",
+                'subject_entity_id' => "bad\u{202E}id",
                 'evidence_reference_ids' => [$evidenceId],
             ],
             [
