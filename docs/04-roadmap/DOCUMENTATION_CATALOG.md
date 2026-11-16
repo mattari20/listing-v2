@@ -1017,3 +1017,10 @@ R2 does not grant source access, reuse permission, model activation, external AP
 | [I4 Field Definition Governance Lifecycle — Bounded Implementation Proposal](M3-07_I4_FIELD_DEFINITION_GOVERNANCE_LIFECYCLE_PROPOSAL.md) | Defines review cases/decisions, human-only capabilities, actor separation, approval/activation separation, retirement/restore, audit/outbox, proposed migration/service scope and synthetic acceptance matrix | Owner-authorized bounded scope |
 | [I4 Field Definition Governance Implementation Record](M3-07_I4_FIELD_DEFINITION_GOVERNANCE_IMPLEMENTATION_RECORD.md) | Records additive persistence, lifecycle service, audit/outbox validation, 17 synthetic test methods, exact-head CI and merge evidence | Merged and CI-validated in PR #210; owner acceptance pending |
 
+
+
+## M3-07 I5 — Value Correction, Withdrawal and Profile Integration
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [I5 Value Correction, Withdrawal and Profile Integration Preflight](M3-07_I5_VALUE_CORRECTION_WITHDRAWAL_PROFILE_INTEGRATION_PREFLIGHT.md) | Current-main architecture reconciliation, concrete correction-binding and profile-assembly gaps, bounded implementation proposal, withdrawal/reinstatement rules, 22 synthetic acceptance criteria and owner authorization template | Scope/design preflight complete; application implementation NOT AUTHORIZED |
