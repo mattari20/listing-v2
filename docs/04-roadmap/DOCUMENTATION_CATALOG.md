@@ -1008,3 +1008,11 @@ R2 does not grant source access, reuse permission, model activation, external AP
 | [M3-07 D5 Implementation Readiness and Bounded Authorization Proposal](M3-07_D5_IMPLEMENTATION_READINESS_AND_BOUNDED_AUTHORIZATION_PROPOSAL.md) | Initial I1 boundary, migration/test safeguards and staged-package authorization model | Reconciled with merged I1-I3; I4-I7 separately gated |
 | [M3-07 R3 Source-Rights and Model-Feasibility Reconciliation](M3-07_R3_SOURCE_RIGHTS_AND_MODEL_FEASIBILITY_RECONCILIATION.md) | R1/R2 source/model gate disposition and I1-I3 delivery evidence | Complete as no-activation reconciliation; G2-G7 remain blocked |
 
+
+
+## M3-07 I4 — Field Definition Governance Lifecycle
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [I4 Field Definition Governance Lifecycle — Bounded Implementation Proposal](M3-07_I4_FIELD_DEFINITION_GOVERNANCE_LIFECYCLE_PROPOSAL.md) | Defines review cases/decisions, human-only capabilities, actor separation, approval/activation separation, retirement/restore, audit/outbox, proposed migration/service scope and synthetic acceptance matrix | Proposal complete — implementation NOT AUTHORIZED; separate owner approval required |
+
