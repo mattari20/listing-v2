@@ -4,7 +4,7 @@
 **Repository:** mattari20/listing-v2  
 **Preflight base:** main 1b4b58442807336bcf9905722b2a59a7a36606c1  
 **Branch:** docs/m3-07-i7-regression-hardening-preflight  
-**Status:** Scope/design preflight only; test implementation requires separate explicit Product Owner authorization.
+**Status:** Scope/design preflight complete and merged in PR #222; test implementation requires separate explicit Product Owner authorization.
 
 ## 1. Canonical I7 interpretation
 
@@ -171,11 +171,21 @@ This document authorizes only the I7 scope/design preflight. It does not authori
 
 > No application-code, migration/schema, seeder/runtime fixture, dependency/Composer, PHPUnit configuration, CI workflow, route/UI, production/V1/Hostinger, real/source data, source access, external API/model/provider/connector/scheduler, deployment, release, procurement, spend or scope expansion is authorized. If a test exposes a defect requiring an excluded change, stop and request separate authorization. Any concurrency or performance claim that cannot be proven on the existing SQLite CI setup must remain explicitly open, not be reported as passed.
 
-## 9. Preflight disposition
+## 9. PR and exact-head validation
+
+- Preflight PR [#222](https://github.com/mattari20/listing-v2/pull/222) merged on 2026-11-16 as `beaf5598fcfb21320023ae063c6b1d1a6e03a290`.
+- Exact PR head: `65276ffb6a483689e4974517479f67386ca7f952`.
+- FND-01 PHP 8.5 foundation CI [run #43844490560](https://github.com/mattari20/listing-v2/actions/runs/43844490560): **success**.
+- Project documentation validation [run #43844490593](https://github.com/mattari20/listing-v2/actions/runs/43844490593): **success**.
+- Exact-head test summary: **15 passed, 688 assertions, 164 warnings**. Warnings include the existing missing-local-.env test-harness warnings; no .env file was created or modified.
+- Final PR diff: nine documentation files only. No application/test code, migration/schema, Composer/dependency, PHPUnit configuration or CI workflow files changed.
+- Verified main after merge: `beaf5598fcfb21320023ae063c6b1d1a6e03a290`.
+
+## 10. Preflight disposition
 
 I7 is correctly identified as **Full Regression and Hardening**, a test-only package under D5. I5 already delivered registry-aware public profiles/projection integration; I7 does not add search/profile functionality. The test inventory shows broad existing coverage and clear hardening opportunities, especially systematic adversarial payload/redaction cases, multi-connection contention evidence, complete migration rollback verification and deterministic performance/query-count baselines.
 
-**I7 scope/design preflight: complete.**  
+**I7 scope/design preflight: complete and merged in PR #222.**  
 **I7 test implementation: not authorized / not started.**  
 **Live source/model/agent activation: remains blocked by G2-G9.**  
 **Production/V1/Hostinger/deployment/spend: excluded.**
