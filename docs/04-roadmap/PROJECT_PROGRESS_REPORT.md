@@ -1,6 +1,27 @@
+## Latest verified position — M3-08C/D synthetic moderation, appeals and privacy/security implementation merged (2026-11-16)
+
+**Current milestone:** M3 — Mobilization and Controlled Implementation  
+**Current agenda completed:** M3-08C/D — Synthetic Moderation, Appeals and Privacy/Security Verification  
+**Implementation PR:** [#234](https://github.com/mattari20/listing-v2/pull/234)  
+**Exact validated PR head:** `80d7a4a659fa58b1da2542b9c1f429a951399dce`  
+**Merge commit / current main baseline:** `42eabe8a5757e6b4c291baa52d1c01df4e08bb15`  
+**Status:** Implemented and merged for the authorized synthetic-only local/CI scope.
+
+The package adds metadata-only moderation case/appeal persistence, strict synthetic-reference validation, allowlisted categories/outcomes/reason codes, exact-scope moderator authorization, reporter/moderator separation, assigned-reviewer-only case resolution, one appeal per eligible case, independent appeal review and an auditable state-transition event history. It adds privacy tests confirming no public moderation/review/appeal routes and no user-generated content, attachment, identity-document, age, guardian-consent, enrollment or student-status fields in the new moderation schema or user schema. No report body or free-form rationale is stored.
+
+Exact-head FND-01 foundation CI [#43876036202](https://github.com/mattari20/listing-v2/actions/runs/43876036202) and Project documentation validation [#43876036293](https://github.com/mattari20/listing-v2/actions/runs/43876036293) passed. The full suite reported **15 passed, 916 assertions, 199 non-fatal warnings**. Warnings are existing missing-local-`.env` test-harness `file_get_contents` diagnostics; no `.env` was created. Pint, Composer validation/audit, Laravel bootstrap/routes, disposable SQLite migration rollback/reinstall, foreign-key checks and artifact hygiene passed.
+
+**Binding exclusions remain:** no public report intake, review submission, ratings, public UGC, moderation UI/endpoints, notification, real user data, age/identity document collection, external provider/API, new dependency, new spend, production/V1/Hostinger access, deployment, release or launch. Anonymous public directory behavior is unchanged. Deeni Madaris remains default-OFF and its existing zero-exposure tests remain in the full regression suite.
+
+**Remaining release gates:** independent security review; qualified legal/privacy/child-safeguarding review; moderation staffing/operational coverage; retention/deletion decisions; and separate owner approval before any public UGC or launch. Automated synthetic tests are not legal/security certification. Reviews remain post-launch only.
+
+**Next agenda:** M3-09 — Quality and Operational Hardening, within separately authorized synthetic/local/CI scope. M3-10 pilot and M3-11 production launch remain separate approval gates.
+
+---
+
 # Project Progress Report
 
-## Latest verified position — M3-08A/B identity and authorization implementation merged (2026-11-16)
+## Historical snapshot — M3-08A/B identity and authorization implementation merged (2026-11-16)
 
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
 **Current agenda:** M3-08A/B — First-party session identity and scoped authorization foundation  
