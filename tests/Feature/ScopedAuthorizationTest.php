@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Tests\Feature;
 
 use App\Authorization\ScopedAuthorization;
-use App\Models\PrivilegedActionAudit;
 use App\Models\RoleAssignment;
 use App\Models\User;
 use App\Services\Identity\RoleAssignmentService;
@@ -104,6 +103,24 @@ final class ScopedAuthorizationTest extends TestCase
             'action' => 'role.revoked',
             'subject_id' => (string) $target->getKey(),
             'reason_code' => 'access_review',
+        ]);
+    }
+
+    public function test_administrator_can_revoke_role_from_an_inactive_account(): void
+    {
+        $admin = $this->makeUser('admin-inactive-revoke@example.test');
+        $target = $this->makeUser('inactive-target@example.test');
+        $this->assign($admin, 'administrator');
+        $assignment = $this->assign($target, 'data_reviewer');
+        $target->forceFill(['is_active' => false])->save();
+
+        app(RoleAssignmentService::class)->revoke($admin, $assignment, 'incident_response');
+
+        $this->assertNotNull($assignment->fresh()->revoked_at);
+        $this->assertDatabaseHas('privileged_action_audits', [
+            'actor_user_id' => $admin->getKey(),
+            'action' => 'role.revoked',
+            'subject_id' => (string) $target->getKey(),
         ]);
     }
 

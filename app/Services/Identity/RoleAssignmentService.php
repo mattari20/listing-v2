@@ -49,6 +49,8 @@ final class RoleAssignmentService
         $this->assertValidGrant($target, $role, $scopeType, $scopeId, $reasonCode);
 
         return DB::transaction(function () use ($actor, $target, $role, $scopeType, $scopeId, $reasonCode): RoleAssignment {
+            User::query()->whereKey($target->getKey())->lockForUpdate()->firstOrFail();
+
             $existing = RoleAssignment::query()
                 ->where('user_id', $target->getKey())
                 ->where('role', $role)
@@ -86,7 +88,7 @@ final class RoleAssignmentService
             throw new AuthorizationException('Self-revocation or missing target is prohibited.');
         }
 
-        $this->assertCanManage($actor, $target);
+        $this->assertCanManage($actor, $target, requireActiveTarget: false);
 
         if (! in_array($reasonCode, self::REASON_CODES, true)) {
             throw new InvalidArgumentException('Unsupported role-change reason code.');
@@ -96,30 +98,32 @@ final class RoleAssignmentService
             throw new AuthorizationException('Administrator grants require the separately controlled break-glass process.');
         }
 
-        if ($assignment->revoked_at !== null) {
-            return $assignment;
-        }
-
         return DB::transaction(function () use ($actor, $assignment, $target, $reasonCode): RoleAssignment {
-            $assignment->forceFill(['revoked_at' => now()])->save();
+            $locked = RoleAssignment::query()->whereKey($assignment->getKey())->lockForUpdate()->firstOrFail();
+
+            if ($locked->revoked_at !== null) {
+                return $locked;
+            }
+
+            $locked->forceFill(['revoked_at' => now()])->save();
 
             $this->record(
                 $actor,
                 'role.revoked',
                 $target,
-                $assignment->role,
-                $assignment->scope_type,
-                $assignment->scope_id,
+                $locked->role,
+                $locked->scope_type,
+                $locked->scope_id,
                 $reasonCode,
             );
 
-            return $assignment->refresh();
+            return $locked->refresh();
         });
     }
 
-    private function assertCanManage(User $actor, User $target): void
+    private function assertCanManage(User $actor, User $target, bool $requireActiveTarget = true): void
     {
-        if (! $actor->is_active || ! $target->is_active
+        if (! $actor->is_active || ($requireActiveTarget && ! $target->is_active)
             || ! $this->authorization->allows($actor, 'roles.manage', 'user', (string) $target->getKey())) {
             throw new AuthorizationException('Role administration is not authorized for this target.');
         }
