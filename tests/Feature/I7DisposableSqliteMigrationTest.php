@@ -44,9 +44,12 @@ final class I7DisposableSqliteMigrationTest extends TestCase
                 'field_definition_review_cases',
                 'field_definition_review_decisions',
                 'public_projections',
+                'users',
+                'role_assignments',
+                'privileged_action_audits',
             ];
 
-            $this->assertSame(11, (int) $connection->table('migrations')->count());
+            $this->assertSame(12, (int) $connection->table('migrations')->count());
             foreach ($expectedTables as $table) {
                 $this->assertTrue($schema->hasTable($table), $table.' must exist after a fresh migration.');
             }
@@ -137,7 +140,7 @@ final class I7DisposableSqliteMigrationTest extends TestCase
                 '--force' => true,
             ])->assertExitCode(0);
 
-            $this->assertSame(11, (int) $connection->table('migrations')->count());
+            $this->assertSame(12, (int) $connection->table('migrations')->count());
             foreach ($expectedTables as $table) {
                 $this->assertTrue($schema->hasTable($table), $table.' must be recreated by re-migration.');
             }
