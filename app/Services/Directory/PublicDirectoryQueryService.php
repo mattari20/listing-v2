@@ -260,8 +260,32 @@ final class PublicDirectoryQueryService
         $policy = new GovernancePolicy;
 
         foreach ($rows as $row) {
-            if (array_key_exists($row->predicate, self::PUBLIC_FIELDS) === false) {
-                continue;
+            $isRegistryManaged = $row->field_definition_version_id !== null;
+            if ($isRegistryManaged) {
+                if ((string) $row->registry_version_id !== (string) $row->field_definition_version_id ||
+                    $row->registry_field_key !== $row->predicate ||
+                    $row->registry_visibility_class !== 'public_eligible' ||
+                    $row->registry_privacy_class !== 'public_eligible') {
+                    continue;
+                }
+
+                $validationSchema = json_decode((string) $row->registry_validation_schema, true);
+                $presentation = json_decode((string) $row->registry_presentation_metadata, true);
+                if (is_array($validationSchema) === false || is_array($presentation) === false) {
+                    continue;
+                }
+                $label = $this->registryPublicLabel($presentation);
+                $section = $this->registryPublicSection($presentation);
+                $value = $this->registryPublicScalar($payloadValue = null, (string) $row->registry_value_type, $validationSchema);
+            } else {
+                if (array_key_exists($row->predicate, self::PUBLIC_FIELDS) === false) {
+                    continue;
+                }
+                $validationSchema = [];
+                $presentation = [];
+                $label = self::PUBLIC_FIELDS[$row->predicate];
+                $section = 'legacy';
+                $value = null;
             }
 
             $evidenceRows = $evidenceByVersion->get($row->claim_version_id, collect());
@@ -280,9 +304,22 @@ final class PublicDirectoryQueryService
                 continue;
             }
 
-            $value = $this->publicScalar($payload['value']);
-            if ($value === null) {
-                continue;
+            if ($isRegistryManaged) {
+                $value = $this->registryPublicScalar($payload['value'], (string) $row->registry_value_type, $validationSchema);
+                if ($label === null || $value === null) {
+                    continue;
+                }
+                $searchable = (bool) $row->registry_searchable;
+                $filterable = (bool) $row->registry_filterable;
+                $sortable = (bool) $row->registry_sortable;
+            } else {
+                $value = $this->publicScalar($payload['value']);
+                if ($value === null) {
+                    continue;
+                }
+                $searchable = true;
+                $filterable = in_array($row->predicate, self::LOCALITY_FIELDS, true);
+                $sortable = false;
             }
 
             $entityId = (string) $row->entity_id;
@@ -292,6 +329,8 @@ final class PublicDirectoryQueryService
                     'type' => $row->entity_type,
                     'type_label' => self::TYPE_LABELS[$row->entity_type],
                     'name' => null,
+                    'name_searchable' => false,
+                    'name_sortable' => false,
                     'facts' => [],
                     'last_observed_at' => null,
                 ];
@@ -300,10 +339,16 @@ final class PublicDirectoryQueryService
             $observedAt = $this->latestObservedDate($evidenceRows);
             $entities[$entityId]['facts'][] = [
                 'key' => $row->predicate,
-                'label' => self::PUBLIC_FIELDS[$row->predicate],
+                'label' => $label,
                 'value' => $value,
+                'section' => $section,
                 'observed_at' => $observedAt,
-                'is_external_url' => $row->predicate === 'official_website' && $this->isSafeHttpUrl($value),
+                'is_external_url' => ($isRegistryManaged && $row->registry_value_type === 'url') ||
+                    ($row->predicate === 'official_website' && $this->isSafeHttpUrl($value)),
+                'is_registry_managed' => $isRegistryManaged,
+                'searchable' => $searchable,
+                'filterable' => $filterable,
+                'sortable' => $sortable,
             ];
 
             if ($observedAt !== null && ($entities[$entityId]['last_observed_at'] === null ||
@@ -314,11 +359,13 @@ final class PublicDirectoryQueryService
 
         $items = [];
         foreach ($entities as $entity) {
-            $name = $this->resolvePublicName($entity['facts']);
-            if ($name === null) {
+            $nameFact = $this->resolvePublicNameFact($entity['facts']);
+            if ($nameFact === null) {
                 continue;
             }
-            $entity['name'] = $name;
+            $entity['name'] = $nameFact['value'];
+            $entity['name_searchable'] = $nameFact['is_registry_managed'] === false || $nameFact['searchable'] === true;
+            $entity['name_sortable'] = $nameFact['is_registry_managed'] === false || $nameFact['sortable'] === true;
             $items[] = $entity;
         }
 
