@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Tests\Feature;
 
 use App\Services\Directory\FieldAwareClaimCorrectionService;
-use App\Services\Directory\FieldAwareClaimReinstatementService;
 use App\Services\Directory\FieldAwareClaimProposalService;
+use App\Services\Directory\FieldAwareClaimReinstatementService;
 use App\Services\Directory\ProviderCategoryAssignmentService;
 use App\Services\Governance\GovernanceCommandService;
 use App\Services\Governance\PersistedGovernanceWorkflowService;
