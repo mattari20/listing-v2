@@ -99,7 +99,7 @@ final class FieldAwareClaimCorrectionService
                 ->where('entity_id', $prior->subject_entity_id)
                 ->lockForUpdate()
                 ->value('provider_category');
-            if (! is_string($providerCategory) || $providerCategory === '') {
+            if (!is_string($providerCategory) || $providerCategory === '') {
                 $this->reject('provider_category', 'A current human-governed provider category is required.');
             }
 
