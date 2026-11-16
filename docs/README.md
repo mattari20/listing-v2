@@ -27,6 +27,7 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 ## Roadmap and implementation records
 - [M3-09 Quality and Operational Hardening](04-roadmap/M3-09_QUALITY_OPERATIONAL_HARDENING_RECORD.md)
 - [M3-10 Pilot and Launch Readiness Work Plan](04-roadmap/M3-10_PILOT_AND_LAUNCH_READINESS_WORK_PLAN.md)
+- [M3-10 Readiness Acceptance Verification Record](04-roadmap/M3-10_READINESS_ACCEPTANCE_VERIFICATION_RECORD.md) — verifies framework delivery and records why pilot readiness/go-no-go remains blocked
 
 ## Documentation tracking
 - [Documentation Completion Catalogue](04-roadmap/DOCUMENTATION_CATALOG.md) — owner-facing list of delivered, reviewed, accepted and planned documents; updated after every documentation PR update and merge.
