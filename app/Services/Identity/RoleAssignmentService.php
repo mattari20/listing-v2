@@ -90,7 +90,7 @@ final class RoleAssignmentService
 
         $this->assertCanManage($actor, $target, requireActiveTarget: false);
 
-        if (!in_array($reasonCode, self::REASON_CODES, true)) {
+        if (in_array($reasonCode, self::REASON_CODES, true) === false) {
             throw new InvalidArgumentException('Unsupported role-change reason code.');
         }
 
@@ -123,8 +123,8 @@ final class RoleAssignmentService
 
     private function assertCanManage(User $actor, User $target, bool $requireActiveTarget = true): void
     {
-        if (!$actor->is_active || ($requireActiveTarget && !$target->is_active)
-            || !$this->authorization->allows($actor, 'roles.manage', 'user', (string) $target->getKey())) {
+        if ($actor->is_active === false || ($requireActiveTarget && $target->is_active === false)
+            || $this->authorization->allows($actor, 'roles.manage', 'user', (string) $target->getKey()) === false) {
             throw new AuthorizationException('Role administration is not authorized for this target.');
         }
     }
@@ -136,11 +136,11 @@ final class RoleAssignmentService
         ?string $scopeId,
         string $reasonCode,
     ): void {
-        if (!$target->is_active) {
+        if ($target->is_active === false) {
             throw new AuthorizationException('Roles cannot be granted to inactive accounts.');
         }
 
-        if (!in_array($role, self::ROLES, true)) {
+        if (in_array($role, self::ROLES, true) === false) {
             throw new InvalidArgumentException('Unsupported role. Administrator grants are not available through this service.');
         }
 
@@ -148,7 +148,7 @@ final class RoleAssignmentService
             throw new InvalidArgumentException('A resource scope requires both a non-empty type and identifier.');
         }
 
-        if (!in_array($reasonCode, self::REASON_CODES, true)) {
+        if (in_array($reasonCode, self::REASON_CODES, true) === false) {
             throw new InvalidArgumentException('Unsupported role-change reason code.');
         }
     }
