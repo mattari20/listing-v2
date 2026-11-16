@@ -9,7 +9,6 @@ use App\Models\ModerationAppeal;
 use App\Models\ModerationCase;
 use App\Models\ModerationEvent;
 use App\Models\User;
-use DomainException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\DB;
 use InvalidArgumentException;
