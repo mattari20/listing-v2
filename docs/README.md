@@ -313,4 +313,4 @@ I5-A through I5-C are complete and merged in PRs #213–#216. The exact-version 
 
 - [I8 Synthetic Agent Readiness and Evaluation](04-roadmap/M3-07_I8_SYNTHETIC_AGENT_READINESS_EVALUATION.md) — bounded deterministic evaluation of eight source-authorization denial states against the fixed synthetic I6 adapter; records zero-write acceptance criteria and confirms that live source/model activation remains blocked.
 
-I8-A adds synthetic feature-test coverage only. It does not add a model, source connector, external API, crawler, scheduler or autonomous publication capability. Exact-head CI and documentation validation must pass before the agenda is recorded as closed.
+I8-A adds synthetic feature-test coverage only. It does not add a model, source connector, external API, crawler, scheduler or autonomous publication capability. I8-A was implemented, exact-head validated and merged in PR #228; the live AI Data-Agent remains blocked by G2-G9.
