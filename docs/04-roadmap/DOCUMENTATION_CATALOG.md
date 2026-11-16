@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-16 — M3-03 accepted and closed; M3-04 P01–P04, M3-05 and M3-06 complete for bounded synthetic local/CI scope; M3-07 I1-I6 bounded synthetic/local/CI packages delivered; I7 full regression/hardening tests implemented, exact-head validated and merged in PRs #224–#225; live AI Data-Agent/source activation remains gated
+**Last reconciled:** 2026-11-16 — M3-08 preflight PR #231 merged; M3-08A/B first-party session identity and scoped authorization implementation is in progress on `feat/m3-08a-identity-authz-foundation`; exact-head CI and review pending; prior M3-07 live AI Data-Agent/source activation gates remain in force
 
 ## Purpose and maintenance rule
 
@@ -145,6 +145,14 @@ PR [#160](https://github.com/mattari20/listing-v2/pull/160) is open at the time 
 | [M3-07 AI Data-Agent Work Plan](M3-07_AI_DATA_AGENT_WORK_PLAN.md) | Conjunctive source/model approval gates, proposal-only workflow, privacy/security controls and synthetic-only test plan | Delivered — readiness review; implementation blocked pending owner/source/model approvals |
 | [M3-07 AI Data-Agent Readiness Review Record](M3-07_AI_DATA_AGENT_READINESS_REVIEW_RECORD.md) | Evidence-based readiness finding and explicit no-source/no-model/no-activation decision | Delivered — readiness review; implementation not authorized |
 
+
+## M3-08A/B — Identity and scoped authorization implementation
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [M3-08A/B Identity, Session Authentication and Scoped Authorization Implementation Record](M3-08A_B_IDENTITY_AUTHORIZATION_IMPLEMENTATION_RECORD.md) | Records owner-approved first-party session authentication, minimal account schema, scoped role authorization, privileged-action audit, synthetic tests and retained exclusions | Implementation candidate committed; exact-head CI/review pending; not merged |
+
+The M3-08 preflight documentation was merged in PR #231 as `4e453520b86fefc322a168de85f58d3cfddf18f1`; Project documentation validation and FND-01 foundation CI passed on its exact head. The subsequent M3-08A/B implementation branch is not yet validated or merged.
 
 ## PR delivery history
 
