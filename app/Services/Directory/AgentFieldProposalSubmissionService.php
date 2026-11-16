@@ -30,8 +30,7 @@ final class AgentFieldProposalSubmissionService
         if (preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/iD', $subjectEntityId) !== 1 ||
             preg_match('/^i6-synthetic-agent-[0-9a-f]{64}$/D', $idempotencyKey) !== 1 ||
             $evidenceReferenceIds === [] || array_is_list($evidenceReferenceIds) === false ||
-            count($evidenceReferenceIds) > 20 ||
-            count(array_unique($evidenceReferenceIds)) !== count($evidenceReferenceIds)) {
+            count($evidenceReferenceIds) > 20) {
             $this->reject('fixture', 'Synthetic fixture bindings are malformed or exceed their bounds.');
         }
 
@@ -40,6 +39,9 @@ final class AgentFieldProposalSubmissionService
                 preg_match('/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/iD', $evidenceId) !== 1) {
                 $this->reject('evidence', 'Only bounded evidence reference identifiers are accepted.');
             }
+        }
+        if (count(array_unique($evidenceReferenceIds)) !== count($evidenceReferenceIds)) {
+            $this->reject('evidence', 'Evidence reference identifiers must be unique.');
         }
 
         return app(FieldAwareClaimProposalService::class)->proposeForSyntheticAgent(
