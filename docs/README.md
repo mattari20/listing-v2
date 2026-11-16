@@ -36,6 +36,7 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [M3-07 AI Data-Agent Work Plan](04-roadmap/M3-07_AI_DATA_AGENT_WORK_PLAN.md) — source/model authorization gates, proposal-only workflow, threat controls and synthetic-only test plan
 - [M3-07 AI Data-Agent Readiness Review Record](04-roadmap/M3-07_AI_DATA_AGENT_READINESS_REVIEW_RECORD.md) — documented readiness blockers and explicit no-activation decision
 - [M3-07 R1 Pakistan National Education Source Master Inventory](04-roadmap/M3-07_R1_PAKISTAN_NATIONAL_EDUCATION_SOURCE_MASTER_INVENTORY.md) — consolidated national source families, seven-jurisdiction coverage, institution-controlled update sources, gaps and source-authorization boundaries
+- [M3-07 I5 Value Correction, Withdrawal and Profile Integration Implementation Record](04-roadmap/M3-07_I5_IMPLEMENTATION_RECORD.md) — merged I5-A through I5-C scope, exact-head CI, synthetic acceptance evidence and safety boundaries
 
 ## Research and delivery
 - [Open-Source Reuse Audit](03-research/OPEN_SOURCE_REUSE_AUDIT.md)
@@ -291,7 +292,7 @@ R2 is complete as documentation/decision-pack preparation only. R3 is complete a
 - [M3-07 D1 Field Registry Contract](04-roadmap/M3-07_D1_FIELD_REGISTRY_CONTRACT.md) — immutable field identity/versioning, applicability, types, privacy, evidence, visibility and lifecycle rules; see linked D2-D5 records for storage, service boundaries, synthetic pilot and implementation proposal.
 - [M3-07 R3 Source-Rights and Model-Feasibility Reconciliation](04-roadmap/M3-07_R3_SOURCE_RIGHTS_AND_MODEL_FEASIBILITY_RECONCILIATION.md) — no-activation disposition, R1/R2 gate status and I1-I3 delivery reconciliation.
 
-I1-I3 are merged for bounded synthetic local/CI scopes. I4 was delivered and merged through PR #210 as `88345f0cfaea66bbdd841b0c18222b83307efac3`; exact-head PHP 8.5 foundation CI and documentation validation passed. I4 owner acceptance remains a separate decision. I5-I7 remain separately gated. Live source access and AI/provider activation remain blocked by G2-G9.
+I1-I3 are merged for bounded synthetic local/CI scopes. I4 was delivered and merged through PR #210 as `88345f0cfaea66bbdd841b0c18222b83307efac3`; exact-head PHP 8.5 foundation CI and documentation validation passed. I5-A through I5-C are delivered and merged in PRs #213–#216; see the I5 implementation record. I6-I7 remain separately gated. Live source access and AI/provider activation remain blocked by G2-G9.
 
 - [I4 Field Definition Governance Lifecycle Proposal](04-roadmap/M3-07_I4_FIELD_DEFINITION_GOVERNANCE_LIFECYCLE_PROPOSAL.md) — owner-authorized bounded scope.
 - [I4 Implementation Record](04-roadmap/M3-07_I4_FIELD_DEFINITION_GOVERNANCE_IMPLEMENTATION_RECORD.md) — merged implementation, lifecycle controls, 17 synthetic test methods and exact-head validation evidence.
@@ -301,4 +302,4 @@ I1-I3 are merged for bounded synthetic local/CI scopes. I4 was delivered and mer
 
 - [I5 Value Correction, Withdrawal and Profile Integration Preflight](04-roadmap/M3-07_I5_VALUE_CORRECTION_WITHDRAWAL_PROFILE_INTEGRATION_PREFLIGHT.md) — current-main reconciliation, exact definition-version correction binding, value-specific withdrawal/reinstatement, registry-aware allowlisted profile design, synthetic acceptance matrix and separate implementation authorization gate.
 
-I5 scope/design preflight is complete. Application implementation remains NOT AUTHORIZED pending separate explicit Product Owner approval. I6-I7, live source access, AI/provider activation, connectors/schedulers, production/V1/Hostinger, deployment and additional spend remain excluded.
+I5-A through I5-C are complete and merged in PRs #213–#216. The exact-version correction, withdrawal/reinstatement and registry-aware profile scope is closed for bounded synthetic/local/CI use; see [I5 Implementation Record](04-roadmap/M3-07_I5_IMPLEMENTATION_RECORD.md). This does not complete or activate the live AI Data-Agent. I6-I7 remain separately gated; live source access, AI/provider activation, connectors/schedulers, production/V1/Hostinger, deployment and additional spend remain excluded.

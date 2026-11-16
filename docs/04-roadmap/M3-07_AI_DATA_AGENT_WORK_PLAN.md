@@ -138,7 +138,7 @@ Evaluation must report field-level precision/recall, unsupported-claim rate, ent
 
 This readiness review can be accepted as a planning artifact when the work plan, gate register, source/model decision record, threat model, test contract and documentation traceability are reviewed and CI validated.
 
-M3-07 application implementation cannot be marked complete until:
+M3-07 AI Data-Agent/live-source implementation cannot be marked complete until:
 - at least one exact source/asset has an approved, current, scoped permission manifest;
 - model/provider and data-handling terms are explicitly approved, or a separately approved local/offline model is selected;
 - privacy/security and operational gates are signed off by qualified reviewers;
@@ -155,7 +155,11 @@ R1 and R2 are delivered in PRs #204 and #206. R3 is complete as a no-activation 
 
 I1-I3 are merged for bounded synthetic local/CI scopes. I4 — Field Definition Governance Lifecycle — was delivered and merged through PR #210 as `88345f0cfaea66bbdd841b0c18222b83307efac3`. Exact-head Project documentation validation #43819885652 and PHP 8.5 FND-01 foundation CI #43819885671 passed. The synthetic suite had zero failures and 593 assertions; 148 non-fatal missing-local-`.env` warnings remain an existing test-harness condition. See `M3-07_I4_FIELD_DEFINITION_GOVERNANCE_IMPLEMENTATION_RECORD.md`. I4 owner acceptance remains a separate decision.
 
-**I5 scope/design preflight:** completed in `M3-07_I5_VALUE_CORRECTION_WITHDRAWAL_PROFILE_INTEGRATION_PREFLIGHT.md` against main `${baseSha}`. The repository audit identified that the generic correction successor currently omits `field_definition_version_id`, and the public directory profile reader still uses a fixed legacy field allowlist rather than exact-version registry metadata. The preflight defines field-aware correction/re-review, value-specific withdrawal and new-successor reinstatement, registry-aware public profile assembly, independent search/filter/sort policy and 22 synthetic acceptance gates. **I5 implementation is NOT AUTHORIZED** until the Product Owner separately approves the exact proposed scope. I6-I7 remain gated. Keep the agent/connectors disabled; no source access, owner contact, permission request, external model/API, collection, ingestion or spend is authorized.
+**I5 implementation and closeout:** the Product Owner authorized I5-A through I5-C on 2026-11-16. All three packages and the historical-definition regression are merged: PR #213 (I5-A) as `6988c972ce0caa2a571f822fd51dfd5cc48fd3ae`; PR #214 (I5-B) as `fa5695b594704df0847c6578ea3e9857a522f6b4`; PR #215 (I5-C) as `570c8b8e8ef2bcac8142a03ec2f90198d3ffc307`; and PR #216 (exact historical-definition test) as `304fce61641471c6b0afdfd8b9efff27ff21955e`. All exact-head PHP 8.5 foundation CI and Project documentation validation checks passed. The final suite passed 15 tests with 647 assertions; 157 non-fatal missing-local-`.env` warnings remain an existing test-harness condition. See `M3-07_I5_IMPLEMENTATION_RECORD.md` for scope, PR heads, acceptance evidence and limitations.
+
+I5 closes the bounded value correction, withdrawal, reinstatement and registry-aware public profile agenda only. It does not complete or activate the AI Data-Agent. GOV-04 candidate sources remain RESEARCH ONLY; G2-G9 source rights, privacy, security, model/provider, operational and activation gates remain blocked. No source access, owner contact, permission request, external model/API, connector, scheduler, ingestion or spend is authorized.
+
+**Next agenda:** I6 scope/design preflight against current `main`. I6 implementation remains separately gated and requires its own explicit Product Owner authorization. I7 remains separately gated.
 
 ## 12. Binding non-interference
 

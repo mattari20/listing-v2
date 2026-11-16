@@ -4,9 +4,9 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-07 — AI Data-Agent readiness review delivered as documentation; application implementation is blocked pending exact source/model/provider and qualified rights/privacy/security approvals  
-**Plan status:** M3-03 final exit review accepted by Product Owner on 2026-11-14; G-01–G-03 closed for bounded synthetic scope and G-04 traceability owner-accepted with explicit residual deferrals; M3-04 P01–P04, M3-05 and M3-06 implemented, validated and merged for bounded synthetic local/CI scope (M3-06 PR #192)  
-**Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 P01–P04, M3-05 and M3-06 are implemented, validated and merged for bounded synthetic local/CI scope. M3-06 delivery is limited to approved text-only province/district/city/locality facts and manual locality filtering; coordinates, distance search, device location, maps, geocoding, real/source data, external services, production and deployment remain separately gated.
+**Current step:** M3-07 — I1-I5 bounded synthetic/local/CI governance and public-profile packages delivered and merged; live AI Data-Agent/source activation remains blocked pending exact source/model/provider and qualified rights/privacy/security approvals  
+**Plan status:** M3-03 final exit review accepted by Product Owner on 2026-11-14; G-01–G-03 closed for bounded synthetic scope and G-04 traceability owner-accepted with explicit residual deferrals; M3-04 P01–P04, M3-05, M3-06 and M3-07 I1-I5 bounded packages implemented, validated and merged for synthetic/local/CI scope  
+**Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 P01–P04, M3-05, M3-06 and M3-07 I1-I5 are implemented, validated and merged for bounded synthetic local/CI scope. M3-07 I5 delivers exact-version correction, withdrawal/reinstatement and registry-aware profile assembly only; it does not activate live source ingestion or an AI agent. Coordinates, distance search, device location, maps, geocoding, real/source data, external services, production and deployment remain separately gated.
 
 ## 1. Purpose and governance
 
@@ -89,7 +89,7 @@ Deliver anonymous-first directory pages, search, categories, filters and institu
 **Exit evidence:** PR #192 merged as `e959adb578df6b60f2c308cd0b1f12391f6cb043`; exact PR head `9761e52747e0f2b15fbfee58ac2528ec4f96c57c` passed FND-01 PHP 8.5 CI #43559187297 and Project documentation validation #43559187312. Synthetic locality/privacy/restricted-category tests passed in the full suite.
 
 ### M3-07 — AI Data-Agent
-**Readiness review delivered; implementation blocked.** See [M3-07 Work Plan](M3-07_AI_DATA_AGENT_WORK_PLAN.md) and [Readiness Review Record](M3-07_AI_DATA_AGENT_READINESS_REVIEW_RECORD.md). The review confirms the source-rights register still marks candidate sources research-only, no permission requests/approvals are recorded, no model/provider is selected, no paid service is authorized and qualified source/privacy/security reviewers are not assigned.
+**AI Data-Agent readiness review delivered; live source/model implementation remains blocked.** See [M3-07 Work Plan](M3-07_AI_DATA_AGENT_WORK_PLAN.md) and [Readiness Review Record](M3-07_AI_DATA_AGENT_READINESS_REVIEW_RECORD.md). Candidate sources remain research-only, no permission requests/approvals are recorded, no model/provider is selected, no paid service is authorized and qualified source/privacy/security reviewers are not assigned. Separately, I1-I5 bounded synthetic/local/CI data-governance and public-profile packages are delivered; they do not activate source retrieval, model calls, connectors or autonomous publication.
 
 Once the conjunctive gates pass, implement only a bounded proposal-only workflow: exact source manifest and access-method gate; permitted retrieval into quarantine; provenance and integrity; extraction with exact supporting evidence; deterministic validation; cautious entity matching; conflict/freshness routing; human review; and reversible publication. The agent must have no autonomous publication permission.
 
@@ -166,7 +166,7 @@ Conditional step. Requires separate explicit written approval for production acc
 - M3-04: P01–P04 implemented, validated and merged for bounded synthetic local/CI scope.
 - M3-05: Public Directory and Search implemented, validated and merged for bounded synthetic local/CI scope (PR #189).
 - M3-06: Geography and Discovery implemented, validated and merged for bounded synthetic local/CI scope (PR #192); coordinates, distance search, maps, geocoding and national locality data remain deferred.
-- M3-07: Readiness review/documentation delivered; application implementation blocked pending source-specific rights, model/provider, qualified privacy/security/operational and owner activation approvals. No agent or connector is active.
+- M3-07: I1-I5 bounded synthetic/local/CI packages delivered and merged; live AI Data-Agent/source activation remains blocked pending source-specific rights, model/provider, qualified privacy/security/operational and owner activation approvals. No agent or connector is active.
 - M3-08–M3-10: Not started; identity/security, operational and pilot gates remain applicable.
 - M3-11: Conditional; production access, deployment, URL cutover and launch remain unauthorized.
 
@@ -424,7 +424,7 @@ I1 field registry persistence/read path was merged in PR #198 (`d7d683d6044d269c
 
 The I4 bounded implementation proposal is prepared in [M3-07 I4 Field Definition Governance Lifecycle](M3-07_I4_FIELD_DEFINITION_GOVERNANCE_LIFECYCLE_PROPOSAL.md). It covers two review-workflow tables, a human-only governance service, independent review/approval and separate activation, version immutability, retirement/restore, transactional audit/outbox and synthetic-only tests. It excludes UI/routes, real roles, claim/value changes, public projections, source access, AI/provider activation, production and spend.
 
-**Authorization received 2026-11-16:** the Product Owner explicitly authorized the exact bounded I4 scope. Implementation is underway on branch `feature/m3-07-i4-field-definition-governance`. The I4 implementation record documents the two review tables, human-only lifecycle service, audit/outbox integrity checks and synthetic tests. I5-I7 remain separately gated.
+**Authorization received 2026-11-16:** the Product Owner explicitly authorized the exact bounded I4 scope. Implementation is underway on branch `feature/m3-07-i4-field-definition-governance`. The I4 implementation record documents the two review tables, human-only lifecycle service, audit/outbox integrity checks and synthetic tests. At that point I5-I7 remained separately gated; I5 was subsequently authorized and closed in PRs #213–#216. I6-I7 remain separately gated.
 
 
 ## M3-07 I4 implementation closeout — 2026-11-16
@@ -433,7 +433,7 @@ The Product Owner authorized I4 exactly as scoped in the proposal. I4 was delive
 
 Exact-head `fd16bc469fd38121b5479c0dbfecdad03fe1cb9a` passed Project documentation validation #43819885652 and PHP 8.5 FND-01 foundation CI #43819885671. The synthetic suite had zero failures and 593 assertions, with 148 non-fatal warnings from the intentionally absent local `.env` test-harness reads. See [I4 Implementation Record](M3-07_I4_FIELD_DEFINITION_GOVERNANCE_IMPLEMENTATION_RECORD.md). I4 delivery is complete; separate Product Owner acceptance remains pending.
 
-**Next agenda:** I5 — Value Correction, Withdrawal and Profile Integration — scope/design preflight only. I5 implementation requires a separate explicit owner authorization. I5 must not be used to alter real claims or public projections until its exact boundary is separately approved. I6-I7 remain separately gated.
+**Next agenda at that point:** I5 — Value Correction, Withdrawal and Profile Integration — scope/design preflight only. This agenda was subsequently authorized, implemented and closed in PRs #213–#216; see the I5 implementation closeout below. I6-I7 remain separately gated.
 
 I4 does not authorize live sources, external AI/model/provider, connectors/schedulers, production/V1/Hostinger, deployment or spend. G2-G9 remain blocking for source access and live agent activation.
 
@@ -446,4 +446,19 @@ The preflight records three principal integration gaps: correction successors cu
 
 Deliverable: [M3-07 I5 Value Correction, Withdrawal and Profile Integration Preflight](M3-07_I5_VALUE_CORRECTION_WITHDRAWAL_PROFILE_INTEGRATION_PREFLIGHT.md). It defines the bounded proposed implementation, touch-point limits, 22 synthetic acceptance gates, stop conditions and explicit owner authorization statement.
 
-**Disposition:** I5 scope/design preflight COMPLETE. I5 implementation NOT STARTED / NOT AUTHORIZED. No application code, schema, migration, test behavior, production operation, source access, external AI/API, deployment or spend is included. I6-I7 remain separately gated.
+**Disposition at preflight close:** I5 scope/design preflight COMPLETE. The Product Owner subsequently authorized I5-A through I5-C; implementation and acceptance evidence are recorded in the I5 implementation closeout below. No schema migration, backfill, production operation, source access, external AI/API, deployment or spend was included. I6-I7 remain separately gated.
+
+## M3-07 I5 implementation closeout — 2026-11-16
+
+The Product Owner authorized the bounded I5-A through I5-C implementation and closeout. All implementation and historical-definition regression PRs are merged:
+
+- **I5-A — field-aware correction:** PR [#213](https://github.com/mattari20/listing-v2/pull/213), merge `6988c972ce0caa2a571f822fd51dfd5cc48fd3ae`, exact head `2c0426c234708d79bb7c221d9e0314647db160da`; FND-01 CI #43827732139 and documentation validation #43827732147 passed; synthetic suite 602 assertions.
+- **I5-B — withdrawal and controlled reinstatement:** PR [#214](https://github.com/mattari20/listing-v2/pull/214), merge `fa5695b594704df0847c6578ea3e9857a522f6b4`, exact head `8daa1057eb76b71384171c49d52963babc7438d7`; FND-01 CI #43828931673 and documentation validation #43828931770 passed; synthetic suite 623 assertions.
+- **I5-C — registry-aware public profiles:** PR [#215](https://github.com/mattari20/listing-v2/pull/215), merge `570c8b8e8ef2bcac8142a03ec2f90198d3ffc307`, exact head `0c14a0edaad4ce8a9522fb1152b42e0145d4e3e5`; FND-01 CI #43829934934 and documentation validation #43829934803 passed; synthetic suite 645 assertions.
+- **Historical definition-version regression:** PR [#216](https://github.com/mattari20/listing-v2/pull/216), merge `304fce61641471c6b0afdfd8b9efff27ff21955e`, exact head `4c9ea82355a9fdc46d86e56a5358ad3e220c9ea7`; FND-01 CI #43830429377 and documentation validation #43830429327 passed; final synthetic suite 647 assertions.
+
+All four exact-head foundation CI and documentation validation workflows passed. The final suite reported 15 passed tests, 647 assertions and 157 non-fatal missing-local-`.env` test-harness warnings. No migrations, schema changes, historical backfills, new dependencies, routes/controllers/UI, external source/model/provider, production/V1/Hostinger, deployment or spend were included.
+
+See [M3-07 I5 Implementation Record](M3-07_I5_IMPLEMENTATION_RECORD.md) for detailed scope, acceptance disposition, limitations and exact evidence. **I5 is closed as a bounded synthetic/local/CI implementation agenda.** M3-07 live AI Data-Agent/source activation remains blocked by G2-G9; no agent, model, connector, scheduler or source access is active.
+
+**Next agenda:** I6 scope/design preflight against current `main`. I6 implementation remains separately gated and requires its own explicit Product Owner authorization. I7 remains separately gated.
