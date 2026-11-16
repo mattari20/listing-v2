@@ -63,22 +63,28 @@ final class FieldAwareClaimProposalService
      */
     public function proposeForSyntheticAgent(
         string $subjectEntityId,
-        string $fieldKey,
-        int $definitionVersion,
-        mixed $value,
         array $evidenceReferenceIds,
-        array $sourceContext,
-        string $scopeKey,
-        string $idempotencyKey,
-        array $validationContext = [],
-        ?string $validFrom = null,
-        ?string $validTo = null
+        string $idempotencyKey
     ): array {
         $actor = $this->syntheticAgentActor();
         $this->requireSyntheticAgentCapability($actor);
 
-        return $this->proposeWithActor($actor, $subjectEntityId, $fieldKey, $definitionVersion, $value,
-            $evidenceReferenceIds, $sourceContext, $scopeKey, $idempotencyKey, $validationContext, $validFrom, $validTo);
+        $entity = DB::table('directory_entities')->where('id', $subjectEntityId)->first(['entity_type', 'label']);
+        if ($entity === null || $entity->entity_type !== 'institution' || $entity->label !== 'Synthetic Institute Alpha') {
+            $this->reject('subject', 'The fixed I6 synthetic institution fixture is required.');
+        }
+
+        return $this->proposeWithActor(
+            $actor,
+            $subjectEntityId,
+            'institution_display_name',
+            1,
+            'Synthetic Institute Alpha',
+            $evidenceReferenceIds,
+            ['purpose' => 'synthetic_test_only', 'method' => 'fixture_reference', 'territory' => 'synthetic'],
+            'institution',
+            $idempotencyKey
+        );
     }
 
     /**
