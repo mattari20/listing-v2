@@ -201,7 +201,7 @@ class FieldDefinitionGovernanceTest extends TestCase
     public function test_future_or_expired_definition_cannot_be_activated(): void
     {
         $definition = $this->definition();
-        $definition['effective_from'] = now()->addDay()->toIso8601String();
+        $definition['effective_from'] = now()->addDay()->toDateTimeString();
         [$versionId, $caseId] = $this->proposed($definition, 'institution_future_field');
         $service = app(FieldDefinitionGovernanceService::class);
         $service->assignReviewer($this->actor('review_manager', ['review_field_definition']), $caseId, 'reviewer', 'assign_reviewer', 'Assign reviewer.', 'assign-future-1');
