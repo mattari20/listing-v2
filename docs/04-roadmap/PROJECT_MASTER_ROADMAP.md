@@ -68,9 +68,9 @@ The [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) is the authoritative detailed 
 | M3-05 | Public Directory and Search | 10% | Complete for bounded synthetic local/CI scope — PR #189 |
 | M3-06 | Geography and Discovery | 7% | Complete for bounded synthetic local/CI scope — PR #192 |
 | M3-07 | AI Data-Agent | 10% | I1-I8-A bounded synthetic/local/CI packages delivered, exact-head validated and merged; live source/model activation remains blocked by G2-G9 |
-| M3-08 | Identity, Reviews and Security | 10% | Preflight complete; M3-08A/B foundations merged; M3-08C/D separately gated; reviews post-launch only |
-| M3-09 | Quality and Operational Hardening | 8% | Not started |
-| M3-10 | Pilot and Launch Readiness | 7% | Not started; separate pilot approval |
+| M3-08 | Identity, Reviews and Security | 10% | A/B/C/D bounded synthetic/local/CI foundations delivered in PRs #232 and #234; independent release reviews remain open; reviews post-launch only |
+| M3-09 | Quality and Operational Hardening | 8% | Complete for authorized synthetic-only local/CI scope; production/independent gates remain open |
+| M3-10 | Pilot and Launch Readiness | 7% | In progress — readiness planning only; bounded pilot requires separate owner approval |
 | M3-11 | Controlled Production Launch | 6% | Conditional; separate production/launch approval |
 
 Weights total 100%. They are planning allocations, not authorization to spend, access sources, use production, deploy or launch.
@@ -122,7 +122,7 @@ I8-A evaluates deterministic policy enforcement only; it does not evaluate an LL
 
 ## M3-08 preflight — historical snapshot (2026-11-16)
 
-[M3-08 Identity, Reviews and Security Scope / Architecture Preflight](M3-08_IDENTITY_REVIEWS_SECURITY_PREFLIGHT.md) is complete as a documentation-only review against the verified main baseline. It records the current authentication-scaffolding gap, role/action/resource-scope model, separation-of-duties rules, post-launch-only review boundary, synthetic acceptance matrix and owner/reviewer gates. No application implementation is authorized by this preflight. M3-09 through M3-11 remain future gated steps; production launch requires separate explicit authorization.
+M3-08 A/B/C/D bounded synthetic/local/CI identity, authorization, moderation and privacy/security foundations are delivered in PRs #232 and #234. M3-09 Q01–Q06 is complete for authorized synthetic/local/CI scope in PR #237. M3-10 is now in progress for readiness planning only under the [M3-10 work plan](M3-10_PILOT_AND_LAUNCH_READINESS_WORK_PLAN.md); no participant, data-bearing, hosted or live pilot is approved. M3-11 remains conditional and requires separate explicit production/launch authorization.
 
 
 ## M3-08A/B implementation closeout — 2026-11-16

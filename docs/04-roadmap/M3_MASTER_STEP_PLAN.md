@@ -4,8 +4,8 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-10 — Pilot and Launch Readiness is the next roadmap step, but requires separate pilot authorization. M3-09 Q01–Q06 is complete for the authorized synthetic-only local/CI scope and merged in PR #237; independent/production operational gates remain open. M3-08A/B/C/D bounded synthetic/local/CI implementation is merged in PRs #232 and #234; reviews remain post-launch only; M3-07 I1-I8-A bounded synthetic packages remain delivered; live AI Data-Agent/source activation remains blocked by G2-G9  
-**Plan status:** M3-03 final exit review accepted; M3-04 P01–P04, M3-05, M3-06, M3-07 I1-I8-A and M3-08A/B/C/D bounded synthetic/local/CI packages delivered; M3-09 Q01–Q06 delivered and validated in PR #237; independent legal/privacy/security/safeguarding and production operational gates remain open; live source/model activation remains gated by G2-G9  
+**Current step:** M3-10 — Pilot and Launch Readiness is IN PROGRESS for readiness planning and synthetic-only local/CI/tabletop work. No pilot participants, real data, public UGC, hosted pilot, production access, deployment or launch is authorized. A bounded pilot requires separate owner approval of scope, participants, data and operational safeguards.  
+**Plan status:** M3-09 Q01–Q06 complete and merged in PR #237; M3-10 readiness plan and gate matrix prepared under separate agenda authorization; actual pilot execution and M3-11 launch remain gated by explicit scope-specific approvals and qualified reviews.  
 **Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 P01–P04, M3-05, M3-06 and M3-07 I1-I6 are implemented, validated and merged for bounded synthetic local/CI scope. M3-07 I7 adds test-only regression, adversarial, privacy, migration/rollback, SQLite contention and query-count checks; it does not change application behavior or activate live source ingestion or an AI agent. Coordinates, distance search, device location, maps, geocoding, real/source data, external services, production and deployment remain separately gated.
 
 ## 1. Purpose and governance
@@ -35,8 +35,8 @@ Weights are planning allocations for the M3 programme and total 100%. They may b
 | M3-06 | Geography and Discovery | 7% | Locality-aware discovery, geo-quality/privacy controls and optional replaceable map integration | M3-05 |
 | M3-07 | AI Data-Agent | 10% | Quarantined evidence workflow, deterministic checks, entity resolution, human review and evaluation | M3-03; source-specific gates |
 | M3-08 | Identity, Reviews and Security | 10% | A/B identity and authorization plus C/D synthetic moderation, appeals and privacy/security verification foundations delivered for local/CI; independent release reviews remain open; reviews post-launch | M3-02; M3-03 |
-| M3-09 | Quality and Operational Hardening | 8% | Functional, accessibility, performance, security, resilience, backup/restore and operational evidence | M3-04 through M3-08 as applicable |
-| M3-10 | Pilot and Launch Readiness | 7% | Bounded pilot, defect closure, operational acceptance and launch decision pack | M3-09; separate pilot approval |
+| M3-09 | Quality and Operational Hardening | 8% | Complete for authorized synthetic-only local/CI scope; independent/production operational evidence remains open | M3-04 through M3-08 as applicable |
+| M3-10 | Pilot and Launch Readiness | 7% | Readiness planning in progress; bounded pilot, participants, data and operational safeguards require separate owner approvals | M3-09; explicit bounded pilot approval |
 | M3-11 | Controlled Production Launch | 6% | Production release and monitored operation after separate explicit production/launch authorization | M3-10; separate written launch approval |
 
 ## 4. Step definitions and acceptance evidence
@@ -109,9 +109,12 @@ Delivered evidence: baseline/coverage inventory; semantic accessibility and no-s
 **Limitations remain explicit:** no browser/assistive-technology audit, representative load/capacity test, approved SLO/RPO/RTO, independent security certification, production-engine/live backup rehearsal, production telemetry/alerting, on-call staffing or retention/deletion policy. These were not performed or authorized. The M3-09 package is complete only within the synthetic/local/CI boundary; it does not imply production readiness, compliance or launch approval. See [M3-09 Quality and Operational Hardening Record](M3-09_QUALITY_OPERATIONAL_HARDENING_RECORD.md).
 
 ### M3-10 — Pilot and Launch Readiness
-Prepare a bounded pilot only after its scope, participants, data and operational safeguards are separately approved. Do not conduct deferred student research as an implied pilot. Complete support, moderation, incident and rollback readiness.
 
-**Exit evidence:** pilot acceptance report, defect closure or approved exceptions, operational ownership, legal/privacy/security sign-off and a launch recommendation. This step does not authorize production deployment.
+**IN PROGRESS — readiness planning only.** The Product Owner authorized moving into M3-10 on 2026-11-16. The [M3-10 Pilot and Launch Readiness Work Plan](M3-10_PILOT_AND_LAUNCH_READINESS_WORK_PLAN.md) defines six readiness packages, owner decision fields, qualified review gates, operational support/moderation requirements, synthetic incident/recovery exercises and the acceptance/go-no-go evidence contract.
+
+This agenda authorization permits documentation and synthetic-only local/CI/tabletop readiness work. It does **not** approve a pilot cohort, participant recruitment, student research, real or external-source data, public UGC/reviews/moderation, hosted preview, production access, deployment, launch, vendor or spend. The earlier student research deferral remains binding. No pilot scope, participant group, data inventory, operational roster or success threshold is yet approved.
+
+**Exit evidence:** an owner-approved bounded pilot charter; all applicable participant/data/source/legal/privacy/safeguarding/security/operations/budget gates; a pilot conducted only within that approved scope; defect closure or approved exceptions; named operational ownership; and a complete pilot acceptance report supporting a go/no-go recommendation. M3-11 production launch requires separate explicit written authorization.
 
 ### M3-11 — Controlled Production Launch
 Conditional step. Requires separate explicit written approval for production access, data handling, deployment, backup/recovery safeguards, monitoring, public release and any URL cutover. Execute only the approved release scope with rollback and incident controls.
@@ -171,7 +174,8 @@ Conditional step. Requires separate explicit written approval for production acc
 - M3-06: Geography and Discovery implemented, validated and merged for bounded synthetic local/CI scope (PR #192); coordinates, distance search, maps, geocoding and national locality data remain deferred.
 - M3-07: I1-I6 bounded synthetic/local/CI packages and I7 full regression/hardening tests delivered and merged; live AI Data-Agent/source activation remains blocked pending source-specific rights, model/provider, qualified privacy/security/operational and owner activation approvals. No live agent or connector is active.
 - M3-08: Preflight complete; M3-08A/B/C/D bounded synthetic/local/CI implementation delivered and merged in PRs #232 and #234; independent security and qualified legal/privacy/child-safeguarding release reviews, moderation staffing/operations and retention/deletion decisions remain open; reviews remain post-launch.
-- M3-09–M3-10: Not started; operational hardening and pilot gates remain applicable.
+- M3-09: Complete for authorized synthetic-only local/CI scope (PR #237); independent/production operational gates remain open.
+- M3-10: In progress for readiness planning only; no pilot is approved or underway. The pilot's scope, participants, data and operational safeguards require separate explicit owner approval.
 - M3-11: Conditional; production access, deployment, URL cutover and launch remain unauthorized.
 
 **M3-05 evidence:** implementation PR #189 merged as `8a89c5666501e5cc1f8565b32fd40a2a3370d634`; exact PR head `1e4bd3be1d92ca1ba3a06fd7190d3a20de340c58` passed PHP 8.5 foundation CI #43557559498 and Project documentation validation #43557559518. Synthetic suite: 351 assertions, no failures, 107 non-fatal missing-`.env` warnings.
