@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-16 — M3-08 preflight PR #231 merged; M3-08A/B first-party session identity and scoped authorization implementation merged in PR #232 as `a693b2c701adb5328e755156e1900771400b1dca`; exact-head FND-01 CI #378 and documentation validation #757 passed on `751add37d59e42c43acadcdbffd9f81d174123cb`; prior M3-07 live AI Data-Agent/source activation gates remain in force
+**Last reconciled:** 2026-11-16 — M3-08C/D synthetic moderation, appeals and privacy/security implementation merged in PR #234 as `42eabe8a5757e6b4c291baa52d1c01df4e08bb15`; exact-head FND-01 CI #43876036202 and documentation validation #43876036293 passed on `80d7a4a659fa58b1da2542b9c1f429a951399dce`; independent release reviews and M3-07 live AI/source activation gates remain open
 
 ## Purpose and maintenance rule
 
@@ -151,14 +151,16 @@ PR [#160](https://github.com/mattari20/listing-v2/pull/160) is open at the time 
 | Artifact | Purpose | Status |
 |---|---|---|
 | [M3-08A/B Identity, Session Authentication and Scoped Authorization Implementation Record](M3-08A_B_IDENTITY_AUTHORIZATION_IMPLEMENTATION_RECORD.md) | Records owner-approved first-party session authentication, minimal account schema, scoped role authorization, privileged-action audit, synthetic tests and retained exclusions | PR #232 merged as `a693b2c701adb5328e755156e1900771400b1dca`; exact-head FND-01 CI #378 and docs validation #757 passed |
+| [M3-08C/D Synthetic Moderation, Appeals and Privacy/Security Implementation Record](M3-08C_D_IMPLEMENTATION_RECORD.md) | Records synthetic-only moderation/appeals state foundations, scoped decisions, independent appeal review, metadata minimization, no-public-route/privacy tests, migration rollback and retained release gates | PR #234 merged as `42eabe8a5757e6b4c291baa52d1c01df4e08bb15`; exact-head FND-01 CI #43876036202 and docs validation #43876036293 passed; 15 passed / 916 assertions / 199 warnings |
 
-The M3-08 preflight documentation was merged in PR #231 as `4e453520b86fefc322a168de85f58d3cfddf18f1`; Project documentation validation and FND-01 foundation CI passed on its exact head. The subsequent M3-08A/B implementation merged in PR #232 as `a693b2c701adb5328e755156e1900771400b1dca`; exact-head FND-01 CI #378 and documentation validation #757 passed on `751add37d59e42c43acadcdbffd9f81d174123cb`.
+The M3-08 preflight documentation was merged in PR #231 as `4e453520b86fefc322a168de85f58d3cfddf18f1`; M3-08A/B identity/authz foundations merged in PR #232 as `a693b2c701adb5328e755156e1900771400b1dca`; M3-08C/D synthetic moderation/appeals and privacy/security foundations merged in PR #234 as `42eabe8a5757e6b4c291baa52d1c01df4e08bb15`. PR #234 exact head `80d7a4a659fa58b1da2542b9c1f429a951399dce` passed FND-01 CI #43876036202 and documentation validation #43876036293; 15 passed, 916 assertions, 199 existing missing-local-`.env` warnings.
 
 ## PR delivery history
 
 | PR | Scope | Merge / head evidence | Status |
 |---|---|---|---|
 | [#232](https://github.com/mattari20/listing-v2/pull/232) | M3-08A/B first-party session identity, exact-scope authorization, role audit, separation-of-duties and synthetic tests | Merged as `a693b2c701adb5328e755156e1900771400b1dca`; exact head `751add37d59e42c43acadcdbffd9f81d174123cb`; FND-01 CI #378 and docs validation #757 passed; 15 passed / 863 assertions / 188 existing warnings | Merged — M3-08A/B bounded local/CI foundation |
+| [#234](https://github.com/mattari20/listing-v2/pull/234) | M3-08C/D synthetic moderation/appeals, scoped decisions, privacy boundaries, no-public-route checks and disposable SQLite rollback/reinstall | Merged as `42eabe8a5757e6b4c291baa52d1c01df4e08bb15`; exact head `80d7a4a659fa58b1da2542b9c1f429a951399dce`; FND-01 CI #43876036202 and docs validation #43876036293 passed; 15 passed / 916 assertions / 199 warnings | Merged — M3-08C/D bounded local/CI foundation |
 | [#231](https://github.com/mattari20/listing-v2/pull/231) | M3-08 identity, reviews and security scope/architecture preflight; documentation and roadmap reconciliation | Merged as `4e453520b86fefc322a168de85f58d3cfddf18f1`; exact head `af35c587c1130a64ffc5959eb76cb177df5a0d29`; FND-01 CI #366 and docs validation #744 passed | Merged — M3-08 preflight only |
 | [#195](https://github.com/mattari20/listing-v2/pull/195) | M3-07 AI Data-Agent readiness plan, source/model/privacy/security gates, proposal-only workflow, threat controls, synthetic-only test plan and project-control reconciliation | Merged as `1f4298f9136771f3b2ff6c8008d07b58a1113724`; exact head `53d0d2d715ff23d08197946227f62b8b0a34d38e`; FND-01 CI #43560066318 and documentation validation #43560066325 passed | Merged — readiness documentation only; application implementation blocked |
 | [#213](https://github.com/mattari20/listing-v2/pull/213) | I5-A field-aware correction, exact definition-version binding, typed validation, immutable successor and editorial re-review | Merged as `6988c972ce0caa2a571f822fd51dfd5cc48fd3ae`; exact head `2c0426c234708d79bb7c221d9e0314647db160da`; FND-01 CI #43827732139 and documentation validation #43827732147 passed | Merged — I5-A delivered |
