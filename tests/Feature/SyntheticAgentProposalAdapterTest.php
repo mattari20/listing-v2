@@ -459,6 +459,5 @@ class SyntheticAgentProposalAdapterTest extends TestCase
         $this->assertSame('unknown_privileged_action', json_decode((string) $denial->metadata, true)['attempted_action_code']);
         $this->assertSame(0, DB::table('publication_decisions')->count());
         $this->assertSame(0, DB::table('public_projections')->count());
-
-     }
+    }
 }
