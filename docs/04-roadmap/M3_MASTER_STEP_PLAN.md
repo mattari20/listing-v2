@@ -5,7 +5,7 @@
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
 **Current step:** M3-08 — Identity, Reviews and Security scope/architecture preflight complete as documentation-only; application implementation NOT AUTHORIZED; reviews remain post-launch only. M3-07 I1-I8-A bounded synthetic packages remain delivered; live AI Data-Agent/source activation remains blocked by G2-G9  
-**Plan status:** M3-03 final exit review accepted by Product Owner on 2026-11-14; G-01–G-03 closed for bounded synthetic scope and G-04 traceability owner-accepted with explicit residual deferrals; M3-04 P01–P04, M3-05, M3-06 and M3-07 I1-I7 bounded synthetic/local/CI packages implemented, validated and merged; live source/model activation remains gated  
+**Plan status:** M3-03 final exit review accepted by Product Owner on 2026-11-14; M3-04 P01–P04, M3-05, M3-06 and M3-07 I1-I8-A bounded synthetic/local/CI packages delivered and validated; M3-08 identity/reviews/security scope preflight complete as documentation only, implementation not authorized; live source/model activation remains gated by G2-G9  
 **Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 P01–P04, M3-05, M3-06 and M3-07 I1-I6 are implemented, validated and merged for bounded synthetic local/CI scope. M3-07 I7 adds test-only regression, adversarial, privacy, migration/rollback, SQLite contention and query-count checks; it does not change application behavior or activate live source ingestion or an AI agent. Coordinates, distance search, device location, maps, geocoding, real/source data, external services, production and deployment remain separately gated.
 
 ## 1. Purpose and governance
