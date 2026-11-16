@@ -1,6 +1,24 @@
 # Project Progress Report
 
-## Latest verified position — M3-08 identity, reviews and security preflight (2026-11-16)
+## Latest verified position — M3-08A/B identity and authorization implementation merged (2026-11-16)
+
+**Current milestone:** M3 — Mobilization and Controlled Implementation  
+**Current agenda:** M3-08A/B — First-party session identity and scoped authorization foundation  
+**Main merge commit:** `a693b2c701adb5328e755156e1900771400b1dca`  
+**Implementation PR:** [#232](https://github.com/mattari20/listing-v2/pull/232)  
+**Validated PR head:** `751add37d59e42c43acadcdbffd9f81d174123cb`  
+**Status:** M3-08A/B implemented and merged. FND-01 foundation CI #378 and Project documentation validation #757 passed on the exact PR head.
+
+The delivered foundation includes Laravel session authentication for pre-provisioned active verified accounts, additive `users`, `role_assignments` and `privileged_action_audits` tables, deny-by-default exact-resource-scope authorization, audited role grants/revocations, separation-of-duties checks and synthetic regression tests. The full suite passed with **15 passed, 863 assertions**. The 188 warnings are existing diagnostics caused by the intentionally absent `.env`; no `.env` file was created.
+
+**Binding exclusions remain:** no public registration, email verification delivery, password recovery, email/SMS provider, role-administration endpoint, review/rating/UGC/moderation endpoint, student-status or attendance verification, real user data, production/V1/Hostinger access, external API, new spend, deployment or release. Deeni Madaris remains default-OFF; anonymous public directory behavior is unchanged.
+
+**Next agenda:** M3-08C moderation/appeals foundations and M3-08D privacy/safeguarding/security verification remain separately gated and require their own explicit authorization. Reviews remain post-launch only. M3-09 through M3-11 remain future roadmap work.
+
+---
+
+
+## Historical snapshot — M3-08 identity, reviews and security preflight (2026-11-16)
 
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
 **Current agenda:** M3-08 — Identity, Reviews and Security scope/architecture preflight  
@@ -14,7 +32,7 @@ The proposed staged implementation packages are identity/account lifecycle, scop
 
 **Binding constraints:** anonymous-first public discovery; login is not proof of attendance or student status; reviews remain post-launch only; no pre-launch survey/interview/recruitment/outreach; Deeni Madaris remains default-OFF; no real user data, identity documents, external identity/email/SMS/moderation provider, new spend, production/V1/Hostinger access, deployment or release. Qualified legal/privacy/child-safeguarding and independent security review remain required before public user-generated content or launch. No compliance claim is made.
 
-**Next gate:** separate Product Owner authorization is required for a precisely bounded M3-08A/B implementation package after identity method and minimum account-policy inputs are decided. Review/moderation public activation remains separately gated. See [M3-08 Preflight](M3-08_IDENTITY_REVIEWS_SECURITY_PREFLIGHT.md).
+**Preflight-time next gate:** separate Product Owner authorization was required for a precisely bounded M3-08A/B implementation package after identity method and minimum account-policy inputs were decided. Review/moderation public activation remains separately gated. See [M3-08 Preflight](M3-08_IDENTITY_REVIEWS_SECURITY_PREFLIGHT.md).
 
 ---
 

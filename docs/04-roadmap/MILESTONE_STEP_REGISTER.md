@@ -628,7 +628,7 @@ See [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) for complete step scopes, task
 | M3-05 | Public Directory and Search | 10% | Complete for bounded synthetic local/CI scope — PR #189 merged |
 | M3-06 | Geography and Discovery | 7% | Complete for bounded synthetic local/CI scope — PR #192 merged; text-only locality filtering; geospatial services/coordinates deferred |
 | M3-07 | AI Data-Agent | 10% | I1-I6 bounded synthetic/local/CI packages delivered; I7 full regression/hardening test package implemented, exact-head validated and merged in PRs #224–#225; live AI Data-Agent/source activation remains blocked by G2-G9 |
-| M3-08 | Identity, Reviews and Security | 10% | Scope/architecture preflight complete; implementation not authorized; reviews post-launch only |
+| M3-08 | Identity, Reviews and Security | 10% | Preflight complete; M3-08A/B identity and authorization foundations merged in PR #232; M3-08C/D separately gated; reviews post-launch only |
 | M3-09 | Quality and Operational Hardening | 8% | Not started |
 | M3-10 | Pilot and Launch Readiness | 7% | Not started; separate pilot approval |
 | M3-11 | Controlled Production Launch | 6% | Conditional; separate explicit launch authorization |
@@ -815,10 +815,21 @@ The implementation and evaluation record are `M3-07_I8_SYNTHETIC_AGENT_READINESS
 I8-A is a bounded synthetic readiness/evaluation deliverable only. It does not approve a source, model/provider, external API, connector, scheduler, spend or live agent. G2-G9 remain blocking; M3-07 live AI Data-Agent activation remains incomplete.
 
 
-## M3-08 — Identity, Reviews and Security preflight (2026-11-16)
+## M3-08 — Identity, Reviews and Security preflight (historical snapshot, 2026-11-16)
 
 | Artifact | Purpose | Status |
 |---|---|---|
 | [M3-08 Identity, Reviews and Security Scope / Architecture Preflight](M3-08_IDENTITY_REVIEWS_SECURITY_PREFLIGHT.md) | Current-main authentication inventory, accepted M2-S08 reconciliation, role/action/resource-scope matrix, staged implementation proposal, synthetic acceptance tests, decision gates and stop conditions | Preflight complete; implementation NOT AUTHORIZED |
 
 The preflight is documentation-only. It confirms that the current inspected application is an anonymous-first public directory and that conventional Laravel user/auth scaffolding was not found at the inspected paths. Reviews remain post-launch only. No account, review, moderation endpoint/UI, schema, migration, dependency, production activity or spend is authorized by this preflight.
+
+
+## M3-08A/B — Identity and scoped authorization implementation closeout (2026-11-16)
+
+| Artifact | Delivery evidence | Status |
+|---|---|---|
+| [M3-08A/B Identity, Session Authentication and Scoped Authorization Implementation Record](M3-08A_B_IDENTITY_AUTHORIZATION_IMPLEMENTATION_RECORD.md) | PR [#232](https://github.com/mattari20/listing-v2/pull/232), merged as `a693b2c701adb5328e755156e1900771400b1dca`; exact PR head `751add37d59e42c43acadcdbffd9f81d174123cb`; FND-01 CI #378 and Project documentation validation #757 passed | Complete for bounded synthetic/local/CI scope |
+
+The delivered package adds first-party session authentication for pre-provisioned active verified accounts, additive user/role/audit tables, deny-by-default exact-resource-scope authorization, reason-coded audited role changes, separation-of-duties enforcement and synthetic tests. The full synthetic suite passed with 15 passed and 863 assertions; 188 existing missing-`.env` diagnostics remain visible. No public registration, verification/recovery delivery, role-admin endpoint, reviews, UGC, moderation endpoint, production access or deployment was enabled.
+
+**Remaining M3-08:** M3-08C moderation/appeals foundations and M3-08D privacy/safeguarding/security verification are not delivered by PR #232 and require separate authorization. Reviews remain post-launch only.
