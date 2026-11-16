@@ -42,8 +42,7 @@ final class SyntheticModerationWorkflow
     ];
 
     public function __construct(private readonly ScopedAuthorization $authorization)
-    {
-    }
+    {}
 
     /**
      * Internal test-fixture entry point only. It accepts a synthetic reference,
