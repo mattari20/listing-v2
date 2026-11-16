@@ -167,7 +167,7 @@ Conditional step. Requires separate explicit written approval for production acc
 - M3-05: Public Directory and Search implemented, validated and merged for bounded synthetic local/CI scope (PR #189).
 - M3-06: Geography and Discovery implemented, validated and merged for bounded synthetic local/CI scope (PR #192); coordinates, distance search, maps, geocoding and national locality data remain deferred.
 - M3-07: I1-I6 bounded synthetic/local/CI packages and I7 full regression/hardening tests delivered and merged; live AI Data-Agent/source activation remains blocked pending source-specific rights, model/provider, qualified privacy/security/operational and owner activation approvals. No live agent or connector is active.
-- M3-08: Preflight complete; M3-08A/B implemented and merged in PR #232; M3-08C/D remain separately gated; reviews remain post-launch.
+- M3-08: Preflight complete; M3-08A/B/C/D bounded synthetic/local/CI implementation delivered and merged in PRs #232 and #234; independent security and qualified legal/privacy/child-safeguarding release reviews, moderation staffing/operations and retention/deletion decisions remain open; reviews remain post-launch.
 - M3-09–M3-10: Not started; operational hardening and pilot gates remain applicable.
 - M3-11: Conditional; production access, deployment, URL cutover and launch remain unauthorized.
 
