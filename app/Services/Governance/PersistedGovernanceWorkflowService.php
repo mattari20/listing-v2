@@ -603,7 +603,7 @@ final class PersistedGovernanceWorkflowService
                     ($payload['actor_class'] ?? null) !== 'human' ||
                     $decision->idempotency_key !== ($payload['idempotency_key'] ?? null) ||
                     ! hash_equals((string) $decision->command_fingerprint, (string) ($payload['idempotency_fingerprint'] ?? ''))) {
-                    throw new \\RuntimeException('Field definition lifecycle outbox event failed its integrity checks.');
+                    throw new \RuntimeException('Field definition lifecycle outbox event failed its integrity checks.');
                 }
                 // This event is an integrity checkpoint only. It never changes definitions,
                 // claims, evidence, adjudication, publication or public projections.
