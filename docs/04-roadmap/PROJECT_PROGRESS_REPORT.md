@@ -1,25 +1,37 @@
 # Project Progress Report
 
-## Latest verified position — M3-07 I7 scope/design preflight (2026-11-16)
+## Latest verified position — M3-07 I7 implementation and closeout (2026-11-16)
 
-**Preflight base:** main 1b4b58442807336bcf9905722b2a59a7a36606c1.  
-**Preflight PR:** [#222](https://github.com/mattari20/listing-v2/pull/222), merged as `beaf5598fcfb21320023ae063c6b1d1a6e03a290`.  
-**Exact PR head:** `65276ffb6a483689e4974517479f67386ca7f952`.  
+**Latest verified main:** `167ec4cad05926569bebda6aadac207166782235`.  
 **Canonical agenda:** I7 — Full Regression and Hardening (D5 staged plan).  
-**Status:** Scope/design preflight complete and merged; test implementation not authorized / not started.
+**Authorization:** The Product Owner explicitly authorized the bounded synthetic-only test implementation on 2026-11-16.  
+**Status:** I7 implementation is delivered, exact-head validated and merged for the approved synthetic/local/CI scope.
 
-I7 is test-only and covers adversarial, concurrency, migration, rollback, privacy, performance and I1-I6 regression. It does not add search/profile functionality; I5 already delivered registry-aware public profiles and projection integration.
+### Implementation PRs and exact-head evidence
 
-The preflight reviewed 19 test source files, 10 migration files and both existing CI workflows. Existing coverage includes exact-version registry behavior, typed validation/privacy, field-aware claims/evidence, human-only definition and editorial governance, correction/withdrawal/reinstatement, public projections, I6 proposal-only agent behavior, outbox retry/lease recovery, conflicts/rollback, authority/campus/programme relationships and Deeni Madaris default-OFF behavior.
+- PR [#224](https://github.com/mattari20/listing-v2/pull/224): base `690d7d108af7bca2ea71e43c705a3c72db41c958`, exact head `cd4a21c790b933f99567a6760260d914c4a09983`, merge `6efd9a4d29067c3e0dea11ada8ae01266f2d33b2`; FND-01 PHP 8.5 CI #43850465461 and documentation validation #43850465611 passed.
+- PR [#225](https://github.com/mattari20/listing-v2/pull/225): base `6efd9a4d29067c3e0dea11ada8ae01266f2d33b2`, exact head `a31a78141b93bc5da2545ff49991d166f56c5f50`, merge/latest main `167ec4cad05926569bebda6aadac207166782235`; FND-01 PHP 8.5 CI #43850848377 and documentation validation #43850848331 passed.
 
-Remaining hardening opportunities are systematic adversarial payload/redaction tests, multi-connection contention evidence, complete disposable-SQLite migration rollback/reinstall, cross-phase no-side-effect assertions and deterministic query-count performance baselines. SQLite in-memory CI cannot prove other database engines' row-lock behavior; unsupported concurrency claims must remain open.
+### Final I7 results
 
-Exact-head FND-01 PHP 8.5 CI #43844490560 and Project documentation validation #43844490593 passed; suite output 15 passed, 688 assertions and 164 existing missing-local-.env warnings. See [I7 Full Regression and Hardening Preflight](M3-07_I7_FULL_REGRESSION_HARDENING_PREFLIGHT.md) for the exact test/documentation boundary, 13 acceptance gates, stop conditions and authorization statement. No test code, application code, migration, schema, dependency, PHPUnit configuration or CI workflow has been changed. G2-G9 remain blocking for live source access and live model/agent activation.
+- Complete suite: **15 passed, 761 assertions, 168 warnings**. The warnings are the missing-local-`.env` test-harness `file_get_contents` warnings (164 were present at preflight); no `.env` file was created or modified.
+- Inventory: 20 test source files (19 feature, one unit) and 11 migrations.
+- Migration/rollback: all 11 migrations fresh-installed, fully reset/rolled back and re-installed on a temporary SQLite file; expected core tables and foreign-key checks passed. The temporary file is removed in test teardown.
+- SQLite concurrency: independent connections verified outbox idempotency-key uniqueness and deterministic database-level writer-lock contention. This does not prove simultaneous application service-command safety or other-engine row-lock semantics.
+- Public/privacy/security: hostile HTML/registry metadata, script-shaped/control/oversized values, SQL-like/path/null/bidi identifiers, malformed nested/oversized/duplicate bindings and prompt-injection-like action text are covered. Existing I1-I6 human governance, publication, source revocation, withdrawal, public allowlist and Deeni Madaris default-OFF tests remain passing.
+- Performance: query count for one versus five synthetic directory results matched. No wall-clock, throughput or production-scale guarantee is claimed.
 
+### Scope and remaining gates
+
+Only synthetic tests under `tests/Feature/**` and the I7 implementation record changed. No application code, migration/schema, Composer/dependency, PHPUnit configuration, CI workflow, route/UI, real/source data, external service, production/V1/Hostinger, deployment, release or additional spend was used.
+
+I7 closes for the approved bounded test/local/CI scope. The SQLite evidence is limited to database-level SQLite behavior; simultaneous service-command concurrency and cross-engine row-lock semantics remain explicitly open. G2-G9 continue to block live source access and live model/agent activation. I7 does not authorize I8 or any live activation.
+
+See [I7 Implementation Record](M3-07_I7_IMPLEMENTATION_RECORD.md) and [I7 Full Regression and Hardening Preflight](M3-07_I7_FULL_REGRESSION_HARDENING_PREFLIGHT.md) for acceptance criteria, evidence and limitations.
 
 **As of:** 2026-11-16  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03, M3-04, M3-05 and M3-06 implemented, validated and merged for bounded synthetic local/CI scope; M3-07 I1-I5 bounded synthetic/local/CI packages delivered; I6 synthetic proposal adapter implemented, exact-head validated and merged in PR #220; live AI Data-Agent/source activation remains blocked
+**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03, M3-04, M3-05 and M3-06 implemented, validated and merged for bounded synthetic local/CI scope; M3-07 I1-I6 bounded synthetic/local/CI packages delivered; I7 full regression/hardening tests implemented, exact-head validated and merged in PRs #224–#225; live AI Data-Agent/source activation remains blocked
 
 
 
