@@ -2,27 +2,43 @@
 
 **As of:** 2026-11-16  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03, M3-04, M3-05 and M3-06 implemented, validated and merged for bounded synthetic local/CI scope; M3-07 I1-I5 bounded synthetic/local/CI packages delivered; live AI Data-Agent/source activation remains blocked
+**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03, M3-04, M3-05 and M3-06 implemented, validated and merged for bounded synthetic local/CI scope; M3-07 I1-I5 bounded synthetic/local/CI packages delivered; I6 synthetic proposal adapter implemented and exact-head validated, PR #220 awaiting merge; live AI Data-Agent/source activation remains blocked
 
 
 
-## Latest verified position — M3-07 I6 scope/design preflight (2026-11-16)
+## Latest verified position — M3-07 I6 implementation (2026-11-16)
 
-**I6 preflight base:** `3f76f2758768ba331711de36bbc2dbe9b0aab17a` (verified `main` after I5 documentation closeout PR #217).  
-**I5 status:** **Complete and closed** for bounded synthetic/local/CI implementation. I5-A field-aware correction (PR #213), I5-B withdrawal/reinstatement (PR #214), I5-C registry-aware public profiles (PR #215) and exact historical-definition regression (PR #216) are all merged. **I6 status:** scope/design preflight COMPLETE; application implementation NOT AUTHORIZED / NOT STARTED.
+**I6 authorization:** The Product Owner explicitly authorized the exact bounded M3-07 I6 Synthetic Agent Proposal Adapter scope.  
+**Implementation base:** `main` `2d9e1c15df808c5e4679e0cd2d63d4fb98be2246`.  
+**Implementation branch:** `feature/m3-07-i6-synthetic-agent-proposal`.  
+**PR:** [#220 — feat(m3-07-i6): add synthetic agent proposal adapter](https://github.com/mattari20/listing-v2/pull/220).  
+**Exact validated head:** `17d8938a7715d8bd07950ef2039e5cc95f174cc7`.  
+**I6 status:** Implementation delivered on branch; exact-head FND-01 and documentation validation passed; PR awaiting merge.
 
-All four exact-head PHP 8.5 FND-01 foundation CI and Project documentation validation workflows passed. The final synthetic suite reported 15 passed tests and 647 assertions, with 157 non-fatal missing-local-`.env` test-harness warnings. Detailed scope, PR heads, merge commits, acceptance disposition and exclusions are recorded in `M3-07_I5_IMPLEMENTATION_RECORD.md`.
+**I5 status:** Complete and closed for bounded synthetic/local/CI implementation. I5-A field-aware correction (PR #213), I5-B withdrawal/reinstatement (PR #214), I5-C registry-aware profiles (PR #215) and historical-definition regression (PR #216) remain merged and validated. See `M3-07_I5_IMPLEMENTATION_RECORD.md`.
 
-I5 preserves exact field-definition binding through correction and reinstatement successors; reconciles editorial cases, suppression and stale outbox events on withdrawal; requires fresh eligible synthetic evidence for reinstatement; and exposes registry-managed profile facts only through exact-version public visibility/privacy and independent search/filter/sort controls. The legacy public-field allowlist remains unchanged. No migrations, schema changes, historical backfills, new dependencies, routes/controllers/UI, real/source data, external model/provider/API, connector, scheduler, production/V1/Hostinger, deployment or spend were used.
+### I6 implementation delivered
 
-**M3-07 is not fully complete:** I5 does not activate the AI Data-Agent. Candidate sources remain RESEARCH ONLY, G2-G9 source rights/privacy/security/model/provider/operational/activation gates remain blocked, and no live source access, agent, model, connector or scheduler is enabled.
+- One deterministic offline fixture: `synthetic-institution-alpha-v1`, fixed to the synthetic institution label `Synthetic Institute Alpha`.
+- Fixed server-owned actor `synthetic-agent-proposal-adapter-v1`, actor class `agent`, with exactly `submit_agent_field_proposal`; no caller-supplied actor or capabilities.
+- Dedicated I3 agent entry point hard-bound to institution-level `institution_display_name` definition version 1 and fixed candidate value. It reuses exact-version applicability, typed/privacy/freshness, evidence/source-authorization, cardinality, idempotency, transaction, audit and outbox controls.
+- Dedicated editorial case submission bound to the fixed proposed claim and rechecking metadata-only synthetic evidence authorization.
+- Existing human proposal, review, adjudication, publication, correction, withdrawal, restoration and field-definition governance controls remain human-only.
+- Denied action-shaped input fails closed and records only bounded action/reason codes, fixed agent identity and one-way idempotency reference. Raw rejected payload is not persisted.
+- Five focused synthetic feature-test methods cover deterministic retries/evidence ordering, malformed and caller-supplied data, denial audit, fixed I3 path/idempotency, synthetic evidence/entity restrictions and human-review separation.
 
-**I6 preflight finding:** D3/D4 specify an agent proposal-only capability, but current I3 `FieldAwareClaimProposalService::propose()` and `EditorialReviewService::submit()` are human-only. The preflight recommends a dedicated, fixed-identity agent submission path that reuses I3 validation/evidence/source-authorization/audit/outbox controls and creates only a proposed claim version awaiting human review. Existing human-only review, adjudication, publication, correction, withdrawal and field-definition controls remain unchanged. No migration is proposed; exact schema assumptions must be rechecked before implementation.
+### Exact-head validation
 
-See `M3-07_I6_SYNTHETIC_AGENT_PROPOSAL_ADAPTER_PREFLIGHT.md` for 22 acceptance criteria, touch-point boundary, stop conditions and the explicit authorization statement. The documentation-only preflight was merged in PR [#218](https://github.com/mattari20/listing-v2/pull/218) as `2b6c3e695cea28447d304a5a3762e997105b3871`; exact-head FND-01 PHP 8.5 CI #43836612319 and Project documentation validation #43836609615 passed. The synthetic suite reported 15 passed tests and 649 assertions, with 158 non-fatal missing-local-`.env` warnings.
+- FND-01 PHP 8.5 foundation CI [#43838413609](https://github.com/mattari20/listing-v2/actions/runs/43838413609): **success**.
+- Project documentation validation [#43838413686](https://github.com/mattari20/listing-v2/actions/runs/43838413686): **success**.
+- Formatting, Composer manifest/dependency checks, Laravel bootstrap/routes, synthetic test suite and artifact hygiene passed.
+- Test output: **15 passed, 687 assertions, 164 warnings**. The warnings include the repository's existing missing-local-`.env` test-harness warnings; no `.env` file was added or modified.
 
-**Latest main after I6 preflight closeout:** `2b6c3e695cea28447d304a5a3762e997105b3871`. **Next agenda:** Product Owner decision on the exact I6 implementation scope. No I6 application code or tests have started. I7 remains separately gated; G2-G9 continue to block live source access and agent activation.
+No migrations, schema changes, backfills, dependencies, Composer changes, routes/controllers/UI, queues/schedulers, external services, source access, model/provider, real data, production/V1/Hostinger, deployment, release or spend were introduced. No adjudication decision, publication decision, snapshot or public projection is created. Deeni Madaris default-OFF behavior remains unchanged.
 
+**I6 Implementation Record:** `M3-07_I6_IMPLEMENTATION_RECORD.md` records the full scope, files, tests, CI evidence and limitations.
+
+**Next:** Final PR #220 changed-file/review/mergeability check, merge after exact-head validation, then verify the merged `main` and complete the I6 closeout record. I7 remains separately gated; G2-G9 continue to block live source access and live agent/model activation.
 \n## Latest verified position — M3-07 readiness review (2026-11-14)
 
 **Latest main commit:** `1f4298f9136771f3b2ff6c8008d07b58a1113724` (M3-07 readiness PR #195).  

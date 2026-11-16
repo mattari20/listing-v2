@@ -29,6 +29,25 @@ final class EditorialReviewService
     public function submit(array $actor, string $entityId, string $claimVersionId, string $idempotencyKey): string
     {
         $this->requireHuman($actor, 'submit_directory_proposal');
+
+        return $this->submitWithActor($actor, $entityId, $claimVersionId, $idempotencyKey);
+    }
+
+    /**
+     * Dedicated submission path for the one fixed synthetic proposal agent.
+     * This does not grant or expose any review or decision capability.
+     */
+    public function submitAgentProposal(string $entityId, string $claimVersionId, string $idempotencyKey): string
+    {
+        $actor = $this->syntheticAgentActor();
+        $this->requireSyntheticAgentSubmission($actor);
+        $this->assertSyntheticAgentClaim($entityId, $claimVersionId);
+
+        return $this->submitWithActor($actor, $entityId, $claimVersionId, $idempotencyKey);
+    }
+
+    private function submitWithActor(array $actor, string $entityId, string $claimVersionId, string $idempotencyKey): string
+    {
         $this->required($idempotencyKey, 'idempotency_key');
         $fingerprint = $this->fingerprint(['submit', $actor['actor_id'], $entityId, $claimVersionId]);
 
@@ -243,6 +262,91 @@ final class EditorialReviewService
 
             return $id;
         });
+    }
+
+    /** @return array{actor_id: string, actor_class: string, capabilities: list<string>} */
+    private function syntheticAgentActor(): array
+    {
+        return [
+            'actor_id' => 'synthetic-agent-proposal-adapter-v1',
+            'actor_class' => 'agent',
+            'capabilities' => ['submit_agent_field_proposal'],
+        ];
+    }
+
+    private function requireSyntheticAgentSubmission(array $actor): void
+    {
+        if ($actor !== $this->syntheticAgentActor()) {
+            $this->reject('actor', 'Only the fixed synthetic proposal agent identity is permitted.');
+        }
+
+        $decision = (new GovernancePolicy)->requireCapability($actor, 'submit_agent_field_proposal');
+        if (($decision['allowed'] ?? false) !== true) {
+            $this->reject('actor', 'The synthetic agent proposal capability is required.');
+        }
+    }
+
+    private function assertSyntheticAgentClaim(string $entityId, string $claimVersionId): void
+    {
+        $claim = DB::table('claim_versions as versions')
+            ->join('claims', 'claims.id', '=', 'versions.claim_id')
+            ->join('directory_entities as entities', 'entities.id', '=', 'claims.subject_entity_id')
+            ->join('field_definition_versions as definition_versions', 'definition_versions.id', '=', 'versions.field_definition_version_id')
+            ->join('field_definitions as definitions', 'definitions.id', '=', 'definition_versions.field_definition_id')
+            ->where('versions.id', $claimVersionId)
+            ->where('claims.subject_entity_id', $entityId)
+            ->first([
+                'entities.entity_type',
+                'entities.label',
+                'claims.predicate',
+                'versions.value',
+                'versions.disposition',
+                'definitions.field_key',
+                'definition_versions.version_number',
+            ]);
+
+        $value = $claim === null ? null : json_decode((string) $claim->value, true);
+        if ($claim === null || $claim->entity_type !== 'institution' ||
+            $claim->label !== 'Synthetic Institute Alpha' ||
+            $claim->predicate !== 'institution_display_name' ||
+            $claim->field_key !== 'institution_display_name' ||
+            (int) $claim->version_number !== 1 ||
+            $claim->disposition !== 'proposed' ||
+            $value !== 'Synthetic Institute Alpha') {
+            $this->reject('proposal', 'The fixed I6 synthetic agent claim envelope is required.');
+        }
+
+        $references = DB::table('claim_evidence_links')
+            ->join('evidence_references', 'evidence_references.id', '=', 'claim_evidence_links.evidence_reference_id')
+            ->join('source_authorizations', 'source_authorizations.id', '=', 'evidence_references.source_authorization_id')
+            ->where('claim_evidence_links.claim_version_id', $claimVersionId)
+            ->get([
+                'evidence_references.source_type',
+                'evidence_references.content_included',
+                'source_authorizations.status',
+                'source_authorizations.permitted_purposes',
+                'source_authorizations.permitted_methods',
+                'source_authorizations.territories',
+                'source_authorizations.permitted_scopes',
+                'source_authorizations.valid_from',
+                'source_authorizations.valid_to',
+                'source_authorizations.revoked_at',
+            ]);
+        if ($references->isEmpty()) {
+            $this->reject('evidence', 'The synthetic agent proposal requires existing synthetic evidence references.');
+        }
+
+        $sourceContext = [
+            'purpose' => 'synthetic_test_only',
+            'method' => 'fixture_reference',
+            'territory' => 'synthetic',
+        ];
+        foreach ($references as $reference) {
+            if ($reference->source_type !== 'synthetic' || (bool) $reference->content_included !== false ||
+                (new GovernancePolicy)->authorizeSourceAction((array) $reference, 'processing', $sourceContext)['allowed'] !== true) {
+                $this->reject('evidence', 'Every agent proposal evidence reference must be metadata-only synthetic and currently authorized.');
+            }
+        }
     }
 
     private function caseFor(string $id): object

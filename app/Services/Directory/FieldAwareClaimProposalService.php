@@ -48,6 +48,68 @@ final class FieldAwareClaimProposalService
         $this->requireHumanCapability($actor, 'propose_field_value');
         $this->requireHumanCapability($actor, 'submit_directory_proposal');
 
+        return $this->proposeWithActor($actor, $subjectEntityId, $fieldKey, $definitionVersion, $value,
+            $evidenceReferenceIds, $sourceContext, $scopeKey, $idempotencyKey, $validationContext, $validFrom, $validTo);
+    }
+
+    /**
+     * Submit through the fixed synthetic agent identity. No actor or capability
+     * data is accepted from the caller.
+     *
+     * @param  list<string>  $evidenceReferenceIds
+     * @param  array<string, mixed>  $sourceContext
+     * @param  array<string, mixed>  $validationContext
+     * @return array{claim_id: string, claim_version_id: string, editorial_review_case_id: string}
+     */
+    public function proposeForSyntheticAgent(
+        string $subjectEntityId,
+        array $evidenceReferenceIds,
+        string $idempotencyKey
+    ): array {
+        $actor = $this->syntheticAgentActor();
+        $this->requireSyntheticAgentCapability($actor);
+
+        $entity = DB::table('directory_entities')->where('id', $subjectEntityId)->first(['entity_type', 'label']);
+        if ($entity === null || $entity->entity_type !== 'institution' || $entity->label !== 'Synthetic Institute Alpha') {
+            $this->reject('subject', 'The fixed I6 synthetic institution fixture is required.');
+        }
+
+        return $this->proposeWithActor(
+            $actor,
+            $subjectEntityId,
+            'institution_display_name',
+            1,
+            'Synthetic Institute Alpha',
+            $evidenceReferenceIds,
+            ['purpose' => 'synthetic_test_only', 'method' => 'fixture_reference', 'territory' => 'synthetic'],
+            'institution',
+            $idempotencyKey
+        );
+    }
+
+    /**
+     * Shared I3 validation and transactional persistence. Authority is created
+     * only by the trusted human and synthetic-agent entry points above.
+     *
+     * @param  list<string>  $evidenceReferenceIds
+     * @param  array<string, mixed>  $sourceContext
+     * @param  array<string, mixed>  $validationContext
+     * @return array{claim_id: string, claim_version_id: string, editorial_review_case_id: string}
+     */
+    private function proposeWithActor(
+        array $actor,
+        string $subjectEntityId,
+        string $fieldKey,
+        int $definitionVersion,
+        mixed $value,
+        array $evidenceReferenceIds,
+        array $sourceContext,
+        string $scopeKey,
+        string $idempotencyKey,
+        array $validationContext = [],
+        ?string $validFrom = null,
+        ?string $validTo = null): array
+    {
         if ($idempotencyKey === '' || strlen($idempotencyKey) > 140 ||
             $evidenceReferenceIds === [] || $scopeKey === '') {
             $this->reject('proposal', 'Field key, exact version, scope, evidence and bounded idempotency key are required.');
@@ -246,12 +308,11 @@ final class FieldAwareClaimProposalService
                 ]);
             }
 
-            $editorialCaseId = app(EditorialReviewService::class)->submit(
-                $actor,
-                $subjectEntityId,
-                $versionId,
-                'field-proposal-editorial-'.hash('sha256', $idempotencyKey)
-            );
+            $editorialService = app(EditorialReviewService::class);
+            $editorialIdempotencyKey = 'field-proposal-editorial-'.hash('sha256', $idempotencyKey);
+            $editorialCaseId = ($actor['actor_class'] ?? null) === 'agent'
+                ? $editorialService->submitAgentProposal($subjectEntityId, $versionId, $editorialIdempotencyKey)
+                : $editorialService->submit($actor, $subjectEntityId, $versionId, $editorialIdempotencyKey);
 
             DB::table('audit_events')->insert([
                 'id' => (string) Str::uuid(),
@@ -301,6 +362,28 @@ final class FieldAwareClaimProposalService
                 'editorial_review_case_id' => $editorialCaseId,
             ];
         });
+    }
+
+    /** @return array{actor_id: string, actor_class: string, capabilities: list<string>} */
+    private function syntheticAgentActor(): array
+    {
+        return [
+            'actor_id' => 'synthetic-agent-proposal-adapter-v1',
+            'actor_class' => 'agent',
+            'capabilities' => ['submit_agent_field_proposal'],
+        ];
+    }
+
+    private function requireSyntheticAgentCapability(array $actor): void
+    {
+        if ($actor !== $this->syntheticAgentActor()) {
+            $this->reject('actor', 'Only the fixed synthetic proposal agent identity is permitted.');
+        }
+
+        $decision = (new GovernancePolicy)->requireCapability($actor, 'submit_agent_field_proposal');
+        if (($decision['allowed'] ?? false) !== true) {
+            $this->reject('actor', 'The synthetic agent proposal capability is required.');
+        }
     }
 
     private function requireHumanCapability(array $actor, string $capability): void

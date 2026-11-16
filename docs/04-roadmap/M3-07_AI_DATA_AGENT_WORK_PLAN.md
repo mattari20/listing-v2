@@ -3,7 +3,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Prepared:** 2026-11-14  
 **Baseline main:** `4775b9c0fbd50f264cb573253626e3786a6655ad`  
-**Status:** Readiness review delivered; agent implementation BLOCKED pending source-specific, model/provider, privacy/security and operational approvals  
+**Status:** Readiness review delivered; bounded synthetic I6 proposal-adapter implementation explicitly authorized and in progress; live agent/source activation remains BLOCKED pending source-specific, model/provider, privacy/security and operational approvals  
 **Owner direction:** Proceed with M3-07 readiness review and prepare the next implementation gate. This does not waive any source, model, budget, legal, privacy or security approval.
 
 ## 1. Purpose
@@ -23,7 +23,7 @@ Therefore:
 - No external model call, model account, model credential, AI provider or paid inference service is permitted.
 - No real/source/provider/student/applicant data may be used in tests.
 - No production, V1, Hostinger/hPanel, live database, migration, deployment, public release or spend is permitted.
-- M3-07 application implementation remains blocked. This work plan/readiness review is documentation only.
+- Only the separately authorized deterministic synthetic I6 adapter implementation may proceed in local/CI scope. Live AI-agent, source retrieval and model/provider implementation remain blocked by the conjunctive gates.
 
 ## 3. Bounded objective once all gates pass
 
@@ -161,7 +161,7 @@ I5 closes the bounded value correction, withdrawal, reinstatement and registry-a
 
 **I6 scope/design preflight — 2026-11-16:** Completed against `main` `3f76f2758768ba331711de36bbc2dbe9b0aab17a`. The proposed bounded design is a deterministic offline synthetic fixture adapter, a fixed server-owned agent identity with only `submit_agent_field_proposal`, a dedicated I3 field-aware submission path and a dedicated editorial-case submission path. It reuses I3 validation/evidence/source-authorization/idempotency/audit/outbox controls and creates only proposed claim versions awaiting human review. The existing human proposal path and all human-only review, adjudication, publication, correction, withdrawal and definition-governance controls remain intact. No migration is proposed; the existing schema has bounded actor identity/class fields. See [I6 Synthetic Agent Proposal Adapter Preflight](M3-07_I6_SYNTHETIC_AGENT_PROPOSAL_ADAPTER_PREFLIGHT.md).
 
-**I6 status:** scope/design preflight COMPLETE and merged through documentation-only PR [#218](https://github.com/mattari20/listing-v2/pull/218) as `2b6c3e695cea28447d304a5a3762e997105b3871`. Exact-head FND-01 PHP 8.5 CI #43836612319 and Project documentation validation #43836609615 passed; the synthetic suite reported 15 passed tests, 649 assertions and 158 non-fatal missing-local-`.env` warnings. Application implementation remains NOT AUTHORIZED / NOT STARTED pending separate explicit Product Owner approval of the exact I6 scope. I7 remains separately gated. G2-G9 remain blocking for live source access and agent activation.
+**I6 implementation — 2026-11-16:** The Product Owner explicitly authorized the exact bounded synthetic I6 scope. Implementation is delivered on `feature/m3-07-i6-synthetic-agent-proposal`; PR [#220](https://github.com/mattari20/listing-v2/pull/220) is open against `main` from base `2d9e1c15df808c5e4679e0cd2d63d4fb98be2246`, with exact validated head `17d8938a7715d8bd07950ef2039e5cc95f174cc7`. Exact-head FND-01 PHP 8.5 CI #43838413609 and Project documentation validation #43838413686 passed. The suite reported 15 passed, 687 assertions and 164 warnings, including the existing missing-local-`.env` test-harness warnings. See [I6 Implementation Record](M3-07_I6_IMPLEMENTATION_RECORD.md). The adapter is fixed to one deterministic synthetic institution fixture; it has only `submit_agent_field_proposal`, reuses I3 validation/evidence/source-authorization/audit/outbox controls, and creates only a proposed claim with a submitted editorial case. A distinct human remains responsible for review, adjudication and publication. No migration, schema change, backfill, dependency, Composer change, route/UI, real data/source, external service, production operation, deployment or spend occurred. I7 remains separately gated; G2-G9 remain blocking for live source access and live agent activation.
 
 ## 12. Binding non-interference
 

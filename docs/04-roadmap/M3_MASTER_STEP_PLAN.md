@@ -461,7 +461,7 @@ All four exact-head foundation CI and documentation validation workflows passed.
 
 See [M3-07 I5 Implementation Record](M3-07_I5_IMPLEMENTATION_RECORD.md) for detailed scope, acceptance disposition, limitations and exact evidence. **I5 is closed as a bounded synthetic/local/CI implementation agenda.** M3-07 live AI Data-Agent/source activation remains blocked by G2-G9; no agent, model, connector, scheduler or source access is active.
 
-**Next agenda at I5 closeout:** I6 scope/design preflight against current `main`. This preflight has now been completed; see the I6 preflight record below. I6 implementation remains separately gated and requires its own explicit Product Owner authorization. I7 remains separately gated.
+**I6 scope/design preflight:** completed and merged in PR #218. The Product Owner subsequently authorized the exact bounded I6 implementation scope; implementation and validation evidence are recorded below and in the I6 Implementation Record. I7 remains separately gated.
 
 ## M3-07 I6 — Synthetic Agent Proposal Adapter preflight (2026-11-16)
 
@@ -473,4 +473,16 @@ The proposed I6 package is deterministic and offline: one synthetic fixture adap
 
 Deliverable: [M3-07 I6 Synthetic Agent Proposal Adapter Preflight](M3-07_I6_SYNTHETIC_AGENT_PROPOSAL_ADAPTER_PREFLIGHT.md). It defines the exact touch-point boundary, 22 synthetic acceptance criteria, denial-audit behavior, stop conditions and explicit implementation authorization template.
 
-**Disposition:** I6 scope/design preflight COMPLETE and merged in documentation-only PR [#218](https://github.com/mattari20/listing-v2/pull/218) as `2b6c3e695cea28447d304a5a3762e997105b3871`. Exact-head FND-01 CI #43836612319 and documentation validation #43836609615 passed; the synthetic suite reported 15 passed tests and 649 assertions with 158 non-fatal missing-local-`.env` warnings. I6 application implementation NOT AUTHORIZED / NOT STARTED pending separate explicit Product Owner approval of the exact scope. I7 remains separately gated. G2-G9 remain blocking for live source access and live agent activation.
+**Preflight disposition:** I6 scope/design preflight COMPLETE and merged in documentation-only PR [#218](https://github.com/mattari20/listing-v2/pull/218) as `2b6c3e695cea28447d304a5a3762e997105b3871`; its exact-head CI and documentation validation passed. The Product Owner subsequently gave explicit authorization for the exact implementation scope.
+
+## M3-07 I6 implementation — Synthetic Agent Proposal Adapter (2026-11-16)
+
+Implementation is delivered on `feature/m3-07-i6-synthetic-agent-proposal` in [PR #220](https://github.com/mattari20/listing-v2/pull/220), based on `main` `2d9e1c15df808c5e4679e0cd2d63d4fb98be2246`, exact validated head `17d8938a7715d8bd07950ef2039e5cc95f174cc7`.
+
+The adapter accepts only one deterministic synthetic fixture, `synthetic-institution-alpha-v1`, and existing evidence-reference IDs. The fixed server-owned actor `synthetic-agent-proposal-adapter-v1` has exactly `submit_agent_field_proposal`. A dedicated I3 entry point is hard-bound to the institution-level `institution_display_name` v1 candidate and reuses exact-version applicability, typed/privacy/freshness validation, evidence/source authorization, cardinality, idempotency, transaction, audit and outbox behavior. A dedicated editorial submission method creates only a submitted case for that fixed proposed claim and rechecks its metadata-only synthetic evidence authorization. Existing human proposal, review, adjudication, publication, correction, withdrawal, restoration and definition-governance controls remain human-only.
+
+Five focused synthetic feature-test methods cover deterministic retry/evidence ordering, invalid/caller-supplied fields, denied privileged actions and minimal audit, fixed I3 entry-point/idempotency, synthetic evidence/entity restrictions and human-path/reviewer separation. No migration, schema change, backfill, dependency, Composer change, route/UI, queue, scheduler, external service, source access, production/V1/Hostinger, deployment or spend was introduced. No adjudication decision, publication decision, snapshot or public projection is created by I6.
+
+Exact-head FND-01 PHP 8.5 CI [#43838413609](https://github.com/mattari20/listing-v2/actions/runs/43838413609) and Project documentation validation [#43838413686](https://github.com/mattari20/listing-v2/actions/runs/43838413686) passed. The suite reported 15 passed, 687 assertions and 164 warnings (including the repository's existing missing-local-`.env` harness warnings). See [I6 Implementation Record](M3-07_I6_IMPLEMENTATION_RECORD.md) for full changed-file, test and safety evidence.
+
+**Disposition:** I6 implementation delivered and exact-head validated; PR #220 awaits merge and final main verification. I7 remains separately gated. G2-G9 remain blocking for live source access and live agent activation.
