@@ -29,6 +29,24 @@ final class EditorialReviewService
     public function submit(array $actor, string $entityId, string $claimVersionId, string $idempotencyKey): string
     {
         $this->requireHuman($actor, 'submit_directory_proposal');
+
+        return $this->submitWithActor($actor, $entityId, $claimVersionId, $idempotencyKey);
+    }
+
+    /**
+     * Dedicated submission path for the one fixed synthetic proposal agent.
+     * This does not grant or expose any review or decision capability.
+     */
+    public function submitAgentProposal(string $entityId, string $claimVersionId, string $idempotencyKey): string
+    {
+        $actor = $this->syntheticAgentActor();
+        $this->requireSyntheticAgentSubmission($actor);
+
+        return $this->submitWithActor($actor, $entityId, $claimVersionId, $idempotencyKey);
+    }
+
+    private function submitWithActor(array $actor, string $entityId, string $claimVersionId, string $idempotencyKey): string
+    {
         $this->required($idempotencyKey, 'idempotency_key');
         $fingerprint = $this->fingerprint(['submit', $actor['actor_id'], $entityId, $claimVersionId]);
 
@@ -243,6 +261,28 @@ final class EditorialReviewService
 
             return $id;
         });
+    }
+
+    /** @return array{actor_id: string, actor_class: string, capabilities: list<string>} */
+    private function syntheticAgentActor(): array
+    {
+        return [
+            'actor_id' => 'synthetic-agent-proposal-adapter-v1',
+            'actor_class' => 'agent',
+            'capabilities' => ['submit_agent_field_proposal'],
+        ];
+    }
+
+    private function requireSyntheticAgentSubmission(array $actor): void
+    {
+        if ($actor !== $this->syntheticAgentActor()) {
+            $this->reject('actor', 'Only the fixed synthetic proposal agent identity is permitted.');
+        }
+
+        $decision = (new GovernancePolicy)->requireCapability($actor, 'submit_agent_field_proposal');
+        if (($decision['allowed'] ?? false) !== true) {
+            $this->reject('actor', 'The synthetic agent proposal capability is required.');
+        }
     }
 
     private function caseFor(string $id): object
