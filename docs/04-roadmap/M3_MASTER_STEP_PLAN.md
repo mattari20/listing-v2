@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-07 — I1-I7 bounded synthetic/local/CI packages delivered; I8-A synthetic source-authorization evaluation implemented, exact-head validated and merged; live AI Data-Agent/source activation remains blocked pending source/model/provider and qualified rights/privacy/security approvals  
+**Current step:** M3-08 — Identity, Reviews and Security scope/architecture preflight complete as documentation-only; application implementation NOT AUTHORIZED; reviews remain post-launch only. M3-07 I1-I8-A bounded synthetic packages remain delivered; live AI Data-Agent/source activation remains blocked by G2-G9  
 **Plan status:** M3-03 final exit review accepted by Product Owner on 2026-11-14; G-01–G-03 closed for bounded synthetic scope and G-04 traceability owner-accepted with explicit residual deferrals; M3-04 P01–P04, M3-05, M3-06 and M3-07 I1-I7 bounded synthetic/local/CI packages implemented, validated and merged; live source/model activation remains gated  
 **Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 P01–P04, M3-05, M3-06 and M3-07 I1-I6 are implemented, validated and merged for bounded synthetic local/CI scope. M3-07 I7 adds test-only regression, adversarial, privacy, migration/rollback, SQLite contention and query-count checks; it does not change application behavior or activate live source ingestion or an AI agent. Coordinates, distance search, device location, maps, geocoding, real/source data, external services, production and deployment remain separately gated.
 
@@ -34,7 +34,7 @@ Weights are planning allocations for the M3 programme and total 100%. They may b
 | M3-05 | Public Directory and Search | 10% | Anonymous public browsing, search, filters, profile pages and clear unknown/stale states | M3-03; M3-04 |
 | M3-06 | Geography and Discovery | 7% | Locality-aware discovery, geo-quality/privacy controls and optional replaceable map integration | M3-05 |
 | M3-07 | AI Data-Agent | 10% | Quarantined evidence workflow, deterministic checks, entity resolution, human review and evaluation | M3-03; source-specific gates |
-| M3-08 | Identity, Reviews and Security | 10% | Least-privilege accounts, moderation, appeals, safeguarding and security controls; reviews remain post-launch | M3-02; M3-03 |
+| M3-08 | Identity, Reviews and Security | 10% | Scope/architecture preflight complete; implementation separately gated; reviews remain post-launch | M3-02; M3-03 |
 | M3-09 | Quality and Operational Hardening | 8% | Functional, accessibility, performance, security, resilience, backup/restore and operational evidence | M3-04 through M3-08 as applicable |
 | M3-10 | Pilot and Launch Readiness | 7% | Bounded pilot, defect closure, operational acceptance and launch decision pack | M3-09; separate pilot approval |
 | M3-11 | Controlled Production Launch | 6% | Production release and monitored operation after separate explicit production/launch authorization | M3-10; separate written launch approval |
@@ -167,7 +167,8 @@ Conditional step. Requires separate explicit written approval for production acc
 - M3-05: Public Directory and Search implemented, validated and merged for bounded synthetic local/CI scope (PR #189).
 - M3-06: Geography and Discovery implemented, validated and merged for bounded synthetic local/CI scope (PR #192); coordinates, distance search, maps, geocoding and national locality data remain deferred.
 - M3-07: I1-I6 bounded synthetic/local/CI packages and I7 full regression/hardening tests delivered and merged; live AI Data-Agent/source activation remains blocked pending source-specific rights, model/provider, qualified privacy/security/operational and owner activation approvals. No live agent or connector is active.
-- M3-08–M3-10: Not started; identity/security, operational and pilot gates remain applicable.
+- M3-08: Scope/architecture preflight complete (documentation only); implementation not authorized; reviews remain post-launch.
+- M3-09–M3-10: Not started; operational hardening and pilot gates remain applicable.
 - M3-11: Conditional; production access, deployment, URL cutover and launch remain unauthorized.
 
 **M3-05 evidence:** implementation PR #189 merged as `8a89c5666501e5cc1f8565b32fd40a2a3370d634`; exact PR head `1e4bd3be1d92ca1ba3a06fd7190d3a20de340c58` passed PHP 8.5 foundation CI #43557559498 and Project documentation validation #43557559518. Synthetic suite: 351 assertions, no failures, 107 non-fatal missing-`.env` warnings.
@@ -523,3 +524,10 @@ The only intended changes are synthetic feature-test coverage and I8/project-con
 **I8 initial validation:** PR #228 head `e50eb6a7a4515481aede723ddb5a106daa7a22f4` passed FND-01 CI #43856909227 and documentation validation #43856909213; suite 15 passed, 803 assertions, 169 existing missing-local-`.env` warnings. The final evidence-reconciliation commit must pass both checks before I8-A closes.
 
 **Live activation:** G2-G9 remain blocking. Candidate sources remain RESEARCH ONLY; no model/provider is selected or called. M3-07 is not fully complete for live AI Data-Agent activation. I8-A closes only its bounded synthetic readiness-evaluation scope.
+
+
+## M3-08 — Identity, Reviews and Security scope / architecture preflight (2026-11-16)
+
+The documentation-only preflight is recorded in [M3-08 Identity, Reviews and Security Scope / Architecture Preflight](M3-08_IDENTITY_REVIEWS_SECURITY_PREFLIGHT.md). It reconciles the current Laravel 13 anonymous directory foundation with accepted M2-S08 design, identifies the absence of conventional authentication scaffolding at the inspected paths, defines the role/action/resource-scope boundary, stages future work packages, and specifies synthetic-only acceptance tests and unresolved owner/reviewer decisions.
+
+**Disposition:** Preflight complete. No application code, schema/migration, dependency, route/UI, account, review, moderation or security runtime control changed. **M3-08 implementation is NOT AUTHORIZED by this preflight.** Reviews remain post-launch only. A separate Product Owner authorization must name the exact M3-08A/B implementation scope and resolve the minimum identity/account-policy inputs. Public review collection and activation remain separately gated by qualified legal/privacy/child-safeguarding review, moderation ownership and launch approval.
