@@ -307,3 +307,10 @@ I1-I3 are merged for bounded synthetic local/CI scopes. I4 was delivered and mer
 - [I7 Full Regression and Hardening Implementation Record](04-roadmap/M3-07_I7_IMPLEMENTATION_RECORD.md) — authorized synthetic-only test additions, 11-migration disposable-SQLite rollback/reinstall, independent-connection uniqueness/writer-lock checks, deterministic query-count regression, exact-head CI and concurrency limitations.
 
 I5-A through I5-C are complete and merged in PRs #213–#216. The exact-version correction, withdrawal/reinstatement and registry-aware profile scope is closed for bounded synthetic/local/CI use; see [I5 Implementation Record](04-roadmap/M3-07_I5_IMPLEMENTATION_RECORD.md). I6's bounded deterministic synthetic adapter is implemented, exact-head validated and merged in PR #220 as `8acf05082187f854597aa6dd2d852d64e01e5581`; see [I6 Implementation Record](04-roadmap/M3-07_I6_IMPLEMENTATION_RECORD.md). I7's test-only full regression/hardening package is implemented, exact-head validated and merged in PRs #224–#225; see [I7 Implementation Record](04-roadmap/M3-07_I7_IMPLEMENTATION_RECORD.md). This does not complete or activate the live AI Data-Agent. G2-G9 continue to block live source access and AI/provider activation; connectors/schedulers, production/V1/Hostinger, deployment and additional spend remain excluded.
+
+
+## M3-07 I8 — Synthetic Agent Readiness and Evaluation
+
+- [I8 Synthetic Agent Readiness and Evaluation](04-roadmap/M3-07_I8_SYNTHETIC_AGENT_READINESS_EVALUATION.md) — bounded deterministic evaluation of eight source-authorization denial states against the fixed synthetic I6 adapter; records zero-write acceptance criteria and confirms that live source/model activation remains blocked.
+
+I8-A adds synthetic feature-test coverage only. It does not add a model, source connector, external API, crawler, scheduler or autonomous publication capability. Exact-head CI and documentation validation must pass before the agenda is recorded as closed.

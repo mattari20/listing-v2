@@ -378,3 +378,19 @@ I6 implementation was delivered and merged in [PR #220](https://github.com/matta
 | I7-008 | Test-only scope, no production/source/external service or spend | Changed paths limited to three feature-test files and this implementation record; no application, migration, Composer, PHPUnit or workflow changes | PR #224 and #225 changed-file audits; docs validation #43850848331 | Implemented and validated within authorization |
 
 PR [#224](https://github.com/mattari20/listing-v2/pull/224) merged as `6efd9a4d29067c3e0dea11ada8ae01266f2d33b2`; PR [#225](https://github.com/mattari20/listing-v2/pull/225) merged as `167ec4cad05926569bebda6aadac207166782235`. Final warning disposition: 168 missing-local-`.env` test-harness warnings; no `.env` file was created or changed. See [I7 Implementation Record](M3-07_I7_IMPLEMENTATION_RECORD.md) for the full acceptance-gate matrix and limitations.
+
+
+## I8-A — Synthetic source-authorization evaluation
+
+| Requirement | Verification | Evidence | Status |
+|---|---|---|---|
+| I8-A-01 Research-only source cannot support agent proposal | Set the synthetic authorization status to `research_only`; adapter must reject | `test_i8_source_authorization_evaluation_denies_unapproved_expired_and_scope_mismatched_evidence` | Initial PR #228 head passed; final reconciliation head pending |
+| I8-A-02 Revoked authorization cannot support proposal | Set `revoked_at`; adapter must reject | Same I8 test method | Submitted; exact-head CI pending |
+| I8-A-03 Future/expired authorization cannot support proposal | Test future `valid_from` and past `valid_to` independently | Same I8 test method | Submitted; exact-head CI pending |
+| I8-A-04 Missing processing permission blocks proposal | Remove processing permission from permitted scopes | Same I8 test method | Submitted; exact-head CI pending |
+| I8-A-05 Purpose, method and territory must exactly match | Independently mismatch each authorization dimension | Same I8 test method | Submitted; exact-head CI pending |
+| I8-A-06 Denial creates no proposal or public side effects | Assert zero claims, claim versions, editorial cases, publication decisions, public projections, successful proposal audit events and proposal outbox events | Same I8 test method | Submitted; exact-head CI pending |
+| I8-A-07 Positive synthetic and human-governance controls remain intact | Retain existing I6 fixed-fixture success, idempotency, agent denial and independent human-review tests | `SyntheticAgentProposalAdapterTest` existing tests | Previously validated in I7; full regression rerun pending |
+| I8-A-08 Scope remains synthetic/local/CI only | Changed-file review; no runtime, schema, dependency, workflow, source, model, production or spend changes | I8 implementation record and PR diff | Pending PR review |
+
+The I8 acceptance record is `M3-07_I8_SYNTHETIC_AGENT_READINESS_EVALUATION.md`. Passing I8-A does not satisfy G2-G9 or authorize live source/model activation.
