@@ -159,7 +159,9 @@ I1-I3 are merged for bounded synthetic local/CI scopes. I4 — Field Definition 
 
 I5 closes the bounded value correction, withdrawal, reinstatement and registry-aware public profile agenda only. It does not complete or activate the AI Data-Agent. GOV-04 candidate sources remain RESEARCH ONLY; G2-G9 source rights, privacy, security, model/provider, operational and activation gates remain blocked. No source access, owner contact, permission request, external model/API, connector, scheduler, ingestion or spend is authorized.
 
-**Next agenda:** I6 scope/design preflight against current `main`. I6 implementation remains separately gated and requires its own explicit Product Owner authorization. I7 remains separately gated.
+**I6 scope/design preflight — 2026-11-16:** Completed against `main` `3f76f2758768ba331711de36bbc2dbe9b0aab17a`. The proposed bounded design is a deterministic offline synthetic fixture adapter, a fixed server-owned agent identity with only `submit_agent_field_proposal`, a dedicated I3 field-aware submission path and a dedicated editorial-case submission path. It reuses I3 validation/evidence/source-authorization/idempotency/audit/outbox controls and creates only proposed claim versions awaiting human review. The existing human proposal path and all human-only review, adjudication, publication, correction, withdrawal and definition-governance controls remain intact. No migration is proposed; the existing schema has bounded actor identity/class fields. See [I6 Synthetic Agent Proposal Adapter Preflight](M3-07_I6_SYNTHETIC_AGENT_PROPOSAL_ADAPTER_PREFLIGHT.md).
+
+**I6 status:** scope/design preflight COMPLETE; application implementation NOT AUTHORIZED / NOT STARTED pending separate explicit Product Owner approval of the exact I6 scope. I7 remains separately gated. G2-G9 remain blocking for live source access and agent activation.
 
 ## 12. Binding non-interference
 

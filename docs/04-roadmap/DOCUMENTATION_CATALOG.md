@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-16 — M3-03 accepted and closed; M3-04 P01–P04, M3-05 and M3-06 complete for bounded synthetic local/CI scope; M3-07 I1-I5 bounded synthetic/local/CI packages delivered; live AI Data-Agent/source activation remains blocked
+**Last reconciled:** 2026-11-16 — M3-03 accepted and closed; M3-04 P01–P04, M3-05 and M3-06 complete for bounded synthetic local/CI scope; M3-07 I1-I5 bounded synthetic/local/CI packages delivered and I6 scope/design preflight completed; I6 implementation and live AI Data-Agent/source activation remain gated
 
 ## Purpose and maintenance rule
 
@@ -1029,3 +1029,9 @@ R2 does not grant source access, reuse permission, model activation, external AP
 |---|---|---|
 | [I5 Value Correction, Withdrawal and Profile Integration Preflight](M3-07_I5_VALUE_CORRECTION_WITHDRAWAL_PROFILE_INTEGRATION_PREFLIGHT.md) | Current-main architecture reconciliation, concrete correction-binding and profile-assembly gaps, bounded implementation proposal, withdrawal/reinstatement rules, 22 synthetic acceptance criteria and owner authorization template | Preflight complete; implementation subsequently authorized, delivered and merged — see I5 Implementation Record |
 | [I5 Value Correction, Withdrawal and Profile Integration Implementation Record](M3-07_I5_IMPLEMENTATION_RECORD.md) | Records I5-A correction, I5-B withdrawal/reinstatement, I5-C registry-aware profiles, exact-head CI, synthetic acceptance evidence and safety boundaries | Delivered, merged and CI validated in PRs #213–#216; I5 closed as bounded synthetic/local/CI scope |
+
+## M3-07 I6 — Synthetic Agent Proposal Adapter
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [I6 Synthetic Agent Proposal Adapter Preflight](M3-07_I6_SYNTHETIC_AGENT_PROPOSAL_ADAPTER_PREFLIGHT.md) | Current-main integration review of I3 human-only submission, D3 agent capability and D4 S17; deterministic offline fixture adapter design, fixed agent identity, narrow submission path, 22 synthetic acceptance criteria and explicit authorization gate | Scope/design preflight complete; application implementation NOT AUTHORIZED / NOT STARTED |
