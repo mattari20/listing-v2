@@ -67,7 +67,7 @@ The [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) is the authoritative detailed 
 | M3-04 | Provider Management | 8% | P01–P04 complete for bounded synthetic local/CI scope |
 | M3-05 | Public Directory and Search | 10% | Complete for bounded synthetic local/CI scope — PR #189 |
 | M3-06 | Geography and Discovery | 7% | Not started; separate scope review and authorization required |
-| M3-07 | AI Data-Agent | 10% | I1-I7 delivered; I8-A synthetic source-authorization evaluation submitted for exact-head CI; live source/model activation blocked by G2-G9 |
+| M3-07 | AI Data-Agent | 10% | I1-I8-A bounded synthetic/local/CI packages delivered, validated and merged; live source/model activation blocked by G2-G9 |
 | M3-08 | Identity, Reviews and Security | 10% | Not started; reviews post-launch only |
 | M3-09 | Quality and Operational Hardening | 8% | Not started |
 | M3-10 | Pilot and Launch Readiness | 7% | Not started; separate pilot approval |
@@ -115,6 +115,6 @@ Only test files and the I7 implementation record changed. No application, schema
 
 The Product Owner authorized I8-A — Synthetic-Only AI Data-Agent Readiness and Evaluation. The bounded test addition independently exercises eight denied source-authorization states against the fixed I6 synthetic fixture and asserts zero proposal/publication side effects. The evaluation record is `M3-07_I8_SYNTHETIC_AGENT_READINESS_EVALUATION.md`.
 
-Initial PR #228 head `e50eb6a7a4515481aede723ddb5a106daa7a22f4` passed FND-01 CI #43856909227 and documentation validation #43856909213; suite 15 passed, 803 assertions and 169 existing missing-local-`.env` warnings. Final reconciliation head remains subject to exact-head checks.
+PR [#228](https://github.com/mattari20/listing-v2/pull/228) merged as `6574d0654a9e5237568872ba4b3682c3260ae712` from exact validated head `518e25cd2f1cc9c8a80b2556bb570f02afc3c5b4`. On that exact head, FND-01 PHP 8.5 foundation CI [#43857206046](https://github.com/mattari20/listing-v2/actions/runs/43857206046) and Project documentation validation [#43857206017](https://github.com/mattari20/listing-v2/actions/runs/43857206017) passed. The full suite reported **15 passed, 803 assertions, 169 warnings**; warnings are the existing missing-local-`.env` test-harness warnings. No `.env` file was created or modified. I8-A closes only the synthetic readiness-evaluation scope; live source/model activation remains blocked by G2-G9.
 
 I8-A evaluates deterministic policy enforcement only; it does not evaluate an LLM or establish real-world extraction accuracy. GOV-04 and candidate sources remain RESEARCH ONLY. G2-G9 continue to block live source/model activation. M3-07 is not complete for live AI Data-Agent activation.

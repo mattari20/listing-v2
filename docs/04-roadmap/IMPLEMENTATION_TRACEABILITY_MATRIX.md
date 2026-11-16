@@ -384,7 +384,7 @@ PR [#224](https://github.com/mattari20/listing-v2/pull/224) merged as `6efd9a4d2
 
 | Requirement | Verification | Evidence | Status |
 |---|---|---|---|
-| I8-A-01 Research-only source cannot support agent proposal | Set the synthetic authorization status to `research_only`; adapter must reject | `test_i8_source_authorization_evaluation_denies_unapproved_expired_and_scope_mismatched_evidence` | Initial PR #228 head passed; final reconciliation head pending |
+| I8-A-01 Research-only source cannot support agent proposal | Set the synthetic authorization status to `research_only`; adapter must reject | `test_i8_source_authorization_evaluation_denies_unapproved_expired_and_scope_mismatched_evidence` | PR #228 merged; exact-head checks passed |
 | I8-A-02 Revoked authorization cannot support proposal | Set `revoked_at`; adapter must reject | Same I8 test method | Submitted; exact-head CI pending |
 | I8-A-03 Future/expired authorization cannot support proposal | Test future `valid_from` and past `valid_to` independently | Same I8 test method | Submitted; exact-head CI pending |
 | I8-A-04 Missing processing permission blocks proposal | Remove processing permission from permitted scopes | Same I8 test method | Submitted; exact-head CI pending |
