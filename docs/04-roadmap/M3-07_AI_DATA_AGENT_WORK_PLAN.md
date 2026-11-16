@@ -149,9 +149,11 @@ M3-07 application implementation cannot be marked complete until:
 
 No blanket source authorization or blanket AI activation is created by this document.
 
-## 11. Current next action
+## 11. Current next action — reconciled 2026-11-16
 
-The next eligible action is to complete a source-specific decision pack for one proposed source and a model/provider decision pack without accessing the source or activating a model. The owner must identify the exact source/asset and intended institution-level fields; qualified rights/privacy/security reviewers must assess the evidence; and the model/provider terms and zero-new-spend constraint must be resolved. Until then, keep the agent and every connector disabled.
+R1 National Source Master Inventory is delivered and merged in PR #204. R2 has prepared the exact GOV-04 HEC Recognised Universities/DAIs source-specific decision pack and the model/provider decision pack, without accessing the source or activating a model. See `M3-07_R2_SOURCE_SPECIFIC_DECISION_PACK_HEC_RECOGNISED_UNIVERSITIES.md`, `M3-07_R2_MODEL_PROVIDER_DECISION_PACK.md` and `M3-07_R2_COMPLETION_AND_DECISION_RECORD.md`.
+
+The next eligible agenda is R3 — source-rights and model-feasibility decision reconciliation. The owner must decide whether to pursue GOV-04 and whether a zero-additional-spend local/offline proof-of-fit should be investigated after the hosting/compute baseline is evidenced. Qualified rights/privacy/security/operational reviewers remain unassigned. Preserve G2-G7 blockers if evidence is unavailable. Until all conjunctive gates and exact owner activation approval pass, keep the agent and every connector disabled. No source access, owner contact, permission request, external model/API, collection, ingestion or spend is authorized.
 
 ## 12. Binding non-interference
 

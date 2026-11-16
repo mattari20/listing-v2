@@ -176,7 +176,11 @@ Conditional step. Requires separate explicit written approval for production acc
 
 **M3-07 readiness evidence:** Work plan and readiness record prepared on branch `docs/m3-07-agent-readiness` from verified main `4775b9c0fbd50f264cb573253626e3786a6655ad`. PR [#195](https://github.com/mattari20/listing-v2/pull/195) merged as `1f4298f9136771f3b2ff6c8008d07b58a1113724`; exact head `53d0d2d715ff23d08197946227f62b8b0a34d38e` passed FND-01 CI #43560066318 and Project documentation validation #43560066325. The source-rights register states all candidate sources remain RESEARCH ONLY, no source is approved for manual verification/ingestion and no permission request has been sent. No model/provider, data terms or qualified reviewers are approved. This is a documentation/readiness result only; no source access, model/agent/connector activation, application implementation or spend is authorized.
 
-**Next eligible work:** owner-led source-specific and model/provider decision pack for one exact candidate asset, with qualified rights/privacy/security review. Until that decision is approved, M3-07 application implementation remains blocked; no source access, collection, ingestion, AI/model activation, external service, production access, deployment or spend is authorized.
+**R1/R2 delivery reconciliation — 2026-11-16:** R1 National Source Master Inventory merged in PR #204 as `08f2a7c68e327058b34fc8a9b49ec90e616a65c3`; exact-head FND-01 CI #43815723304 and documentation validation #43815723282 passed. The earlier shared synthetic fixture expiry was corrected in test-only PR #205, merged as `efba912011f98f046c0f83a1ced4f403f469a6ed`; its exact-head FND-01 CI #43814632869 and documentation validation #43814632894 passed. R1 merge records delivery; R1 owner acceptance remains a separate decision.
+
+R2 decision packs are prepared in `M3-07_R2_SOURCE_SPECIFIC_DECISION_PACK_HEC_RECOGNISED_UNIVERSITIES.md`, `M3-07_R2_MODEL_PROVIDER_DECISION_PACK.md` and `M3-07_R2_COMPLETION_AND_DECISION_RECORD.md`. GOV-04 HEC recognised universities/DAIs remains RESEARCH ONLY; G2 rights and G4 retrieval are blocked. No model/provider is selected. The deterministic fake adapter remains synthetic-CI-only. R2 is complete as documentation preparation, not source clearance or AI activation.
+
+**Next eligible work:** R3 — source-rights and model-feasibility decision reconciliation. Resolve the owner choices and qualified reviewer assignments against exact evidence; preserve G2-G7 blockers if evidence is unavailable. No source access, permission request, source-owner contact, collection, ingestion, AI/model/connector/scheduler activation, production access, deployment or spend is authorized.
 
 ## PR #102 merge reconciliation — 2026-11-12
 
@@ -389,3 +393,15 @@ The Product Owner accepted G-04 and directed progression. The final exit review 
 M3-04 Provider Management planning has started under [M3-04 Provider Management Work Plan](M3-04_PROVIDER_MANAGEMENT_WORK_PLAN.md). P01 addresses provider/institution identity, typed relationship semantics and the T-001/T-003/T-002 semantic gaps. P02–P04 cover campus/site and programme catalogue, authority/affiliation/recognition, and status/editorial review. Scope, acceptance criteria, synthetic fixture families, CI and permission constraints are prepared.
 
 **Authorization boundary:** M3-04 application implementation, schema/migrations and tests are **NOT AUTHORIZED**. A separate explicit Product Owner authorization naming P01's exact implementation scope is required. No production, V1, Hostinger, real/source data, external APIs/AI, real role provisioning, public endpoint, deployment or spend.
+
+
+## M3-07 R1/R2 — source and model decision readiness (2026-11-16)
+
+R1 National Education Source Master Inventory was delivered and merged through PR [#204](https://github.com/mattari20/listing-v2/pull/204) as `08f2a7c68e327058b34fc8a9b49ec90e616a65c3`. Exact-head FND-01 foundation CI run #43815723304 and Project documentation validation run #43815723282 passed. The shared synthetic authorization fixture correction was merged separately through PR [#205](https://github.com/mattari20/listing-v2/pull/205) as `efba912011f98f046c0f83a1ced4f403f469a6ed`; exact-head CI runs #43814632869 and #43814632894 passed. R1 is delivered; its owner acceptance is recorded separately from merge. Its coverage gaps and research-only rights boundary remain binding.
+
+R2 is complete as documentation/decision-pack preparation:
+- [R2 HEC Source-Specific Decision Pack](M3-07_R2_SOURCE_SPECIFIC_DECISION_PACK_HEC_RECOGNISED_UNIVERSITIES.md) evaluates GOV-04 as one candidate asset. It remains RESEARCH ONLY; G2 rights and G4 retrieval approvals are blocked.
+- [R2 Model and Provider Decision Pack](M3-07_R2_MODEL_PROVIDER_DECISION_PACK.md) evaluates deterministic synthetic, manual, local/offline and hosted options. No model/provider is selected; deterministic fake adapter use is synthetic-CI-only.
+- [R2 Completion and Decision Record](M3-07_R2_COMPLETION_AND_DECISION_RECORD.md) records all gate dispositions and remaining decisions.
+
+**Next agenda:** R3 — source-rights and model-feasibility decision reconciliation. This is a documentation and qualified-review preparation task only. No source access, permission request, source-owner contact, external model/API, connector, scheduler, live ingestion, production/V1/Hostinger, deployment or spend is authorized.

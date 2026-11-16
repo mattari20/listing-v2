@@ -982,3 +982,14 @@ PR [#189](https://github.com/mattari20/listing-v2/pull/189) merged as `8a89c5666
 | [R1 Pakistan National Education Source Master Inventory](M3-07_R1_PAKISTAN_NATIONAL_EDUCATION_SOURCE_MASTER_INVENTORY.md) | Consolidates the accepted M1-S03 48-record official-source research into a national source-family inventory; maps seven jurisdictions and national higher-education, professional, TVET, NFE, special-education and institution-controlled sources; records small-provider gaps, source-asset boundaries and the proposed G2 authorization manifest contract | Delivered for owner review — documentation/research only; no source access, collection, AI activation or reuse permission |
 
 R1 reuses the owner-accepted M1-S03 research baseline rather than duplicating it. The M1-S03 100% figure is research-task completion only. R1 does not claim a complete national provider census or source-rights clearance. Owner acceptance of the R1 consolidation and all G2-G9 source/method/activation gates remain separate.
+
+
+## M3-07 R2 — Source-specific and model/provider decision packs
+
+| Artifact | Purpose | Status |
+|---|---|---|
+| [R2 HEC Source-Specific Decision Pack](M3-07_R2_SOURCE_SPECIFIC_DECISION_PACK_HEC_RECOGNISED_UNIVERSITIES.md) | Evaluates GOV-04 HEC recognised universities/DAIs as one exact candidate asset; defines institution-level claim scope, exclusions, proposed minimum fields and G1-G9 disposition | Prepared — RESEARCH ONLY; rights/retrieval approval blocked |
+| [R2 Model and Provider Decision Pack](M3-07_R2_MODEL_PROVIDER_DECISION_PACK.md) | Compares deterministic synthetic, manual, local/offline and hosted options; defines data, evaluation, security and cost approval criteria | Prepared — no model/provider selected or activated |
+| [R2 Completion and Decision Record](M3-07_R2_COMPLETION_AND_DECISION_RECORD.md) | Records R2 deliverables, gate status, owner decisions and next agenda | Complete as documentation only |
+
+R2 does not grant source access, reuse permission, model activation, external API use or spend. R3 is the next eligible documentation/decision reconciliation agenda.
