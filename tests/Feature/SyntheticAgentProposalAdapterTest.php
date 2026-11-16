@@ -294,11 +294,11 @@ class SyntheticAgentProposalAdapterTest extends TestCase
                 ]);
                 $this->fail("I8 evaluation case [{$case}] must fail closed.");
             } catch (ValidationException) {
-                $this->assertDatabaseCount('claims', 0, "I8 case [{$case}] must not create a claim.");
-                $this->assertDatabaseCount('claim_versions', 0, "I8 case [{$case}] must not create a claim version.");
-                $this->assertDatabaseCount('editorial_review_cases', 0, "I8 case [{$case}] must not create an editorial case.");
-                $this->assertDatabaseCount('publication_decisions', 0, "I8 case [{$case}] must not create a publication decision.");
-                $this->assertDatabaseCount('public_projections', 0, "I8 case [{$case}] must not create a public projection.");
+                $this->assertSame(0, DB::table('claims')->count(), "I8 case [{$case}] must not create a claim.");
+                $this->assertSame(0, DB::table('claim_versions')->count(), "I8 case [{$case}] must not create a claim version.");
+                $this->assertSame(0, DB::table('editorial_review_cases')->count(), "I8 case [{$case}] must not create an editorial case.");
+                $this->assertSame(0, DB::table('publication_decisions')->count(), "I8 case [{$case}] must not create a publication decision.");
+                $this->assertSame(0, DB::table('public_projections')->count(), "I8 case [{$case}] must not create a public projection.");
             }
         }
 
