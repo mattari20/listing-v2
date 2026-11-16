@@ -399,7 +399,7 @@ final class PublicDirectoryTest extends TestCase
 
         $this->get('/directory/'.$entity)
             ->assertOk()
-            ->assertSee('Institution historical fact')
+            ->assertSee('Institution Historical Fact')
             ->assertSee('Value remains bound to version one.')
             ->assertDontSee('New private definition label');
     }
