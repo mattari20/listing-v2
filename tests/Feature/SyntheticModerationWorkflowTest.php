@@ -150,6 +150,7 @@ final class SyntheticModerationWorkflowTest extends TestCase
     public function test_appeal_reviewer_cannot_be_the_appellant_or_original_moderator(): void
     {
         $reporter = $this->makeUser('independent-reporter@example.test');
+        $this->assignModerator($reporter, 'independent-scope');
         $moderator = $this->makeUser('independent-moderator@example.test');
         $this->assignModerator($moderator, 'independent-scope');
         $service = app(SyntheticModerationWorkflow::class);
