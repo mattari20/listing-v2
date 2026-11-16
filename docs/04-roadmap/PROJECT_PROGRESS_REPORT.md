@@ -6,10 +6,10 @@
 
 
 
-## Latest verified position — M3-07 I5 closeout (2026-11-16)
+## Latest verified position — M3-07 I6 scope/design preflight (2026-11-16)
 
-**Latest main commit:** `304fce61641471c6b0afdfd8b9efff27ff21955e` (I5-C historical-definition regression PR #216).  
-**I5 status:** **Complete and closed** for bounded synthetic/local/CI implementation. I5-A field-aware correction (PR #213), I5-B withdrawal/reinstatement (PR #214), I5-C registry-aware public profiles (PR #215) and exact historical-definition regression (PR #216) are all merged.
+**I6 preflight base:** `3f76f2758768ba331711de36bbc2dbe9b0aab17a` (verified `main` after I5 documentation closeout PR #217).  
+**I5 status:** **Complete and closed** for bounded synthetic/local/CI implementation. I5-A field-aware correction (PR #213), I5-B withdrawal/reinstatement (PR #214), I5-C registry-aware public profiles (PR #215) and exact historical-definition regression (PR #216) are all merged. **I6 status:** scope/design preflight COMPLETE; application implementation NOT AUTHORIZED / NOT STARTED.
 
 All four exact-head PHP 8.5 FND-01 foundation CI and Project documentation validation workflows passed. The final synthetic suite reported 15 passed tests and 647 assertions, with 157 non-fatal missing-local-`.env` test-harness warnings. Detailed scope, PR heads, merge commits, acceptance disposition and exclusions are recorded in `M3-07_I5_IMPLEMENTATION_RECORD.md`.
 
@@ -17,7 +17,11 @@ I5 preserves exact field-definition binding through correction and reinstatement
 
 **M3-07 is not fully complete:** I5 does not activate the AI Data-Agent. Candidate sources remain RESEARCH ONLY, G2-G9 source rights/privacy/security/model/provider/operational/activation gates remain blocked, and no live source access, agent, model, connector or scheduler is enabled.
 
-**Next agenda:** I6 scope/design preflight against current `main`. I6 implementation remains separately gated and requires its own explicit Product Owner authorization; I7 remains separately gated.
+**I6 preflight finding:** D3/D4 specify an agent proposal-only capability, but current I3 `FieldAwareClaimProposalService::propose()` and `EditorialReviewService::submit()` are human-only. The preflight recommends a dedicated, fixed-identity agent submission path that reuses I3 validation/evidence/source-authorization/audit/outbox controls and creates only a proposed claim version awaiting human review. Existing human-only review, adjudication, publication, correction, withdrawal and field-definition controls remain unchanged. No migration is proposed; exact schema assumptions must be rechecked before implementation.
+
+See `M3-07_I6_SYNTHETIC_AGENT_PROPOSAL_ADAPTER_PREFLIGHT.md` for 22 acceptance criteria, touch-point boundary, stop conditions and the explicit authorization statement.
+
+**Next agenda:** Product Owner decision on the exact I6 implementation scope. No I6 application code or tests have started. I7 remains separately gated; G2-G9 continue to block live source access and agent activation.
 
 \n## Latest verified position — M3-07 readiness review (2026-11-14)
 
