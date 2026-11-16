@@ -39,9 +39,9 @@ final class FieldAwareClaimCorrectionService
     }
 
     /**
-     * @param list<string> $evidenceReferenceIds
-     * @param array<string, mixed> $sourceContext
-     * @param array<string, mixed> $validationContext
+     * @param  list<string>  $evidenceReferenceIds
+     * @param  array<string, mixed>  $sourceContext
+     * @param  array<string, mixed>  $validationContext
      * @return array{claim_id: string, claim_version_id: string, editorial_review_case_id: string}
      */
     public function correct(
