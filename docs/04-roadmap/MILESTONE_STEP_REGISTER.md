@@ -629,8 +629,8 @@ See [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) for complete step scopes, task
 | M3-06 | Geography and Discovery | 7% | Complete for bounded synthetic local/CI scope — PR #192 merged; text-only locality filtering; geospatial services/coordinates deferred |
 | M3-07 | AI Data-Agent | 10% | I1-I6 bounded synthetic/local/CI packages delivered; I7 full regression/hardening test package implemented, exact-head validated and merged in PRs #224–#225; live AI Data-Agent/source activation remains blocked by G2-G9 |
 | M3-08 | Identity, Reviews and Security | 10% | Preflight and A/B/C/D bounded synthetic/local/CI foundations delivered in PRs #231, #232 and #234; independent release reviews remain open; reviews post-launch only |
-| M3-09 | Quality and Operational Hardening | 8% | Not started |
-| M3-10 | Pilot and Launch Readiness | 7% | Not started; separate pilot approval |
+| M3-09 | Quality and Operational Hardening | 8% | Complete for authorized synthetic-only local/CI scope; independent/production gates remain open |
+| M3-10 | Pilot and Launch Readiness | 7% | In progress — readiness planning only; no pilot scope, participants, data or operational roster approved |
 | M3-11 | Controlled Production Launch | 6% | Conditional; separate explicit launch authorization |
 
 
@@ -858,3 +858,19 @@ The implementation adds metadata-only synthetic moderation cases, appeals and ev
 | Q06 | Synthetic CI failure triage, SQLite recovery runbook and privacy incident tabletop | Complete — no live alerting/on-call process established |
 
 **Delivery evidence:** PR [#237](https://github.com/mattari20/listing-v2/pull/237), exact validated head `91d581bfaff2cb9f8f4a0c9321aa790df826f76c`, merged as `a24e7aaeb5d60df4832c4cc2382102b1dc445043`; FND-01 CI #43878960281 and documentation validation #43878960150 passed; full suite 15 passed / 953 assertions / 205 existing non-fatal missing-local-`.env` warnings. M3-09 is complete for its authorized synthetic-only local/CI scope. Production operational evidence and independent review gates remain open. M3-10 is the next roadmap step and requires separate pilot authorization.
+
+
+## M3-10 — Pilot and Launch Readiness (2026-11-16)
+
+**Authorization:** Product Owner authorized moving into M3-10. This authorizes readiness planning and synthetic-only local/CI/tabletop work, not a live pilot or launch.
+
+| Package | Deliverable / acceptance evidence | Status |
+|---|---|---|
+| M10-01 | Pilot charter, purpose/scope decision fields, boundaries and stop conditions | Planning framework prepared; owner has not selected/approved a pilot |
+| M10-02 | Participant eligibility, consent, privacy and safeguarding gate | Blocked — pre-launch student research remains deferred; no recruitment or participant contact |
+| M10-03 | Data inventory, source rights, privacy, retention and deletion gate | Synthetic-only; real/personal/external-source data not approved |
+| M10-04 | Named support, operations, incident and moderation roles/coverage | Blocked — accountable operations and moderation staffing not assigned; public UGC/reviews remain disabled |
+| M10-05 | Synthetic incident tabletop, recovery and rollback plan | Runbook/design only; no live environment or production recovery evidence |
+| M10-06 | Pilot acceptance report, defect disposition and go/no-go template | Template/framework only; no pilot conducted and no launch recommendation issued |
+
+**Current disposition:** M3-10 is IN PROGRESS for readiness planning only. The [M3-10 Pilot and Launch Readiness Work Plan](M3-10_PILOT_AND_LAUNCH_READINESS_WORK_PLAN.md) contains the complete owner decision matrix and gate register. A bounded pilot cannot begin until its exact scope, participants, data and operational safeguards are separately approved and applicable qualified reviews are complete. M3-11 production launch remains separately gated.
