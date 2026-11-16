@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
+use App\Services\Directory\PublicDirectoryQueryService;
 use App\Services\Governance\PersistedGovernanceWorkflowService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
@@ -234,6 +235,117 @@ final class PublicDirectoryTest extends TestCase
         $this->get('/directory/'.$entity)->assertNotFound();
     }
 
+    public function test_registry_managed_public_fact_uses_exact_definition_and_safe_presentation_metadata(): void
+    {
+        $entity = $this->createEntity();
+        $this->publishFact($entity, 'display_name', 'Synthetic Registry Profile Academy');
+        $definitionVersionId = $this->registryDefinition('institution_motto');
+        $this->publishFact(
+            $entity,
+            'institution_motto',
+            'A safe registry-managed public motto.',
+            '2026-11-13 10:00:00',
+            $definitionVersionId
+        );
+        $booleanDefinitionId = $this->registryDefinition(
+            'institution_has_library',
+            [],
+            'public_eligible',
+            'public_eligible',
+            'boolean'
+        );
+        $this->publishFact($entity, 'institution_has_library', true, '2026-11-13 10:00:00', $booleanDefinitionId);
+
+        $this->get('/directory/'.$entity)
+            ->assertOk()
+            ->assertSee('Institution motto')
+            ->assertSee('A safe registry-managed public motto.')
+            ->assertSee('Has library')
+            ->assertSee('Yes');
+
+        $this->get('/directory?q=registry-managed')
+            ->assertOk()
+            ->assertDontSee('Synthetic Registry Profile Academy');
+    }
+
+    public function test_internal_restricted_mismatched_and_unbound_registry_facts_fail_closed(): void
+    {
+        $entity = $this->createEntity();
+        $this->publishFact($entity, 'display_name', 'Synthetic Registry Boundary Academy');
+
+        $internal = $this->registryDefinition('institution_internal_summary', [], 'internal_only');
+        $restricted = $this->registryDefinition('institution_restricted_summary', [], 'restricted', 'editorial_restricted');
+        $mismatched = $this->registryDefinition('different_registry_key');
+        $this->publishFact($entity, 'institution_internal_summary', 'Internal registry text', '2026-11-13 10:00:00', $internal);
+        $this->publishFact($entity, 'institution_restricted_summary', 'Restricted registry text', '2026-11-13 10:00:00', $restricted);
+        $this->publishFact($entity, 'institution_mismatched_key', 'Mismatched registry text', '2026-11-13 10:00:00', $mismatched);
+        $this->publishFact($entity, 'institution_unbound_summary', 'Unbound registry text');
+
+        $this->get('/directory/'.$entity)
+            ->assertOk()
+            ->assertDontSee('Internal registry text')
+            ->assertDontSee('Restricted registry text')
+            ->assertDontSee('Mismatched registry text')
+            ->assertDontSee('Unbound registry text');
+        $this->get('/directory?q=Internal registry text')
+            ->assertOk()
+            ->assertDontSee('Synthetic Registry Boundary Academy');
+    }
+
+    public function test_registry_search_filter_and_sort_flags_are_independent(): void
+    {
+        $alpha = $this->createEntity();
+        $beta = $this->createEntity();
+        $this->publishFact($alpha, 'display_name', 'Synthetic Alpha Academy');
+        $this->publishFact($beta, 'display_name', 'Synthetic Beta Academy');
+
+        $codeDefinition = $this->registryDefinition('institution_code', [
+            'searchable' => false,
+            'filterable' => true,
+            'sortable' => false,
+        ]);
+        $searchDefinition = $this->registryDefinition('institution_search_token', [
+            'searchable' => true,
+            'filterable' => false,
+            'sortable' => false,
+        ]);
+        $sortDefinition = $this->registryDefinition('institution_sort_key', [
+            'searchable' => false,
+            'filterable' => false,
+            'sortable' => true,
+        ]);
+
+        $this->publishFact($alpha, 'institution_code', 'code-z', '2026-11-13 10:00:00', $codeDefinition);
+        $this->publishFact($beta, 'institution_code', 'code-a', '2026-11-13 10:00:00', $codeDefinition);
+        $this->publishFact($alpha, 'institution_search_token', 'search-visible-term', '2026-11-13 10:00:00', $searchDefinition);
+        $this->publishFact($beta, 'institution_search_token', 'another-search-term', '2026-11-13 10:00:00', $searchDefinition);
+        $this->publishFact($alpha, 'institution_sort_key', '2', '2026-11-13 10:00:00', $sortDefinition);
+        $this->publishFact($beta, 'institution_sort_key', '1', '2026-11-13 10:00:00', $sortDefinition);
+
+        $service = app(PublicDirectoryQueryService::class);
+        $hiddenSearch = $service->search('code-z');
+        $visibleSearch = $service->search('search-visible-term');
+        $filterable = $service->search(filters: ['institution_code' => 'code-a']);
+        $notFilterable = $service->search(filters: ['institution_search_token' => 'search-visible-term']);
+        $defaultSort = $service->search(sortField: 'institution_code');
+        $registrySort = $service->search(sortField: 'institution_sort_key');
+
+        $this->assertSame([], $hiddenSearch['results']);
+        $this->assertCount(1, $visibleSearch['results']);
+        $this->assertSame('Synthetic Alpha Academy', $visibleSearch['results'][0]['name']);
+        $this->assertCount(1, $filterable['results']);
+        $this->assertSame('Synthetic Beta Academy', $filterable['results'][0]['name']);
+        $this->assertSame([], $notFilterable['results']);
+        $this->assertSame(
+            ['Synthetic Alpha Academy', 'Synthetic Beta Academy'],
+            array_column($defaultSort['results'], 'name')
+        );
+        $this->assertSame(
+            ['Synthetic Beta Academy', 'Synthetic Alpha Academy'],
+            array_column($registrySort['results'], 'name')
+        );
+    }
+
     private function createEntity(string $type = 'institution'): string
     {
         $id = (string) Str::uuid();
@@ -250,7 +362,7 @@ final class PublicDirectoryTest extends TestCase
     }
 
     /** @return array{version_id: string, evidence_id: string, authorization_id: string, snapshot_id: string} */
-    private function publishFact(string $entityId, string $predicate, string $value, ?string $observedAt = '2026-11-13 10:00:00'): array
+    private function publishFact(string $entityId, string $predicate, mixed $value, ?string $observedAt = '2026-11-13 10:00:00', ?string $fieldDefinitionVersionId = null): array
     {
         $now = now();
         $authorizationId = (string) Str::uuid();
@@ -303,6 +415,7 @@ final class PublicDirectoryTest extends TestCase
         DB::table('claim_versions')->insert([
             'id' => $versionId,
             'claim_id' => $claimId,
+            'field_definition_version_id' => $fieldDefinitionVersionId,
             'version_number' => 1,
             'value' => json_encode(['value' => $value]),
             'recorded_at' => $now,
@@ -355,6 +468,66 @@ final class PublicDirectoryTest extends TestCase
             'authorization_id' => $authorizationId,
             'snapshot_id' => $snapshotId,
         ];
+    }
+
+    private function registryDefinition(
+        string $fieldKey,
+        array $flags = [],
+        string $visibilityClass = 'public_eligible',
+        string $privacyClass = 'public_eligible',
+        string $valueType = 'short_text'
+    ): string {
+        $definitionId = (string) Str::uuid();
+        $versionId = (string) Str::uuid();
+        $presentationLabel = match ($fieldKey) {
+            'institution_motto' => 'Institution motto',
+            'institution_has_library' => 'Has library',
+            default => ucwords(str_replace('_', ' ', $fieldKey)),
+        };
+        $schema = ['schema_version' => 1, 'max_length' => 120];
+        if ($valueType === 'enum') {
+            $schema['allowed_values'] = ['one', 'two'];
+        }
+
+        DB::table('field_definitions')->insert([
+            'id' => $definitionId,
+            'field_key' => $fieldKey,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('field_definition_versions')->insert([
+            'id' => $versionId,
+            'field_definition_id' => $definitionId,
+            'version_number' => 1,
+            'lifecycle_state' => 'active',
+            'semantic_version' => '1.0.0',
+            'compatibility_class' => 'initial',
+            'value_type' => $valueType,
+            'cardinality' => 'one',
+            'scope_key' => 'institution',
+            'privacy_class' => $privacyClass,
+            'visibility_class' => $visibilityClass,
+            'searchable' => $flags['searchable'] ?? false,
+            'filterable' => $flags['filterable'] ?? false,
+            'sortable' => $flags['sortable'] ?? false,
+            'validation_schema' => json_encode($schema, JSON_THROW_ON_ERROR),
+            'presentation_metadata' => json_encode([
+                'section_key' => 'additional_information',
+                'public_label' => $presentationLabel,
+                'label_key' => 'synthetic.'.$fieldKey,
+            ], JSON_THROW_ON_ERROR),
+            'evidence_policy' => json_encode(['required' => true], JSON_THROW_ON_ERROR),
+            'freshness_policy' => json_encode(['class' => 'synthetic_test'], JSON_THROW_ON_ERROR),
+            'effective_from' => null,
+            'effective_to' => null,
+            'successor_field_definition_id' => null,
+            'proposed_by_actor_id' => 'synthetic-registry-steward',
+            'rationale_reference' => 'SYN-I5-PUBLIC-PROFILE',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return $versionId;
     }
 
     private function actor(string $id, array $capabilities): array

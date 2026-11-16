@@ -52,22 +52,33 @@ final class PublicDirectoryQueryService
      *   facets: array<string, int>
      * }
      */
-    public function search(string $query = '', ?string $type = null, string $locality = ''): array
-    {
-        $query = trim(preg_replace('/\s+/u', ' ', $query) ?? '');
-        $locality = trim(preg_replace('/\s+/u', ' ', $locality) ?? '');
+    public function search(
+        string $query = '',
+        ?string $type = null,
+        string $locality = '',
+        array $filters = [],
+        ?string $sortField = null
+    ): array {
+        $query = trim(preg_replace('/\\s+/u', ' ', $query) ?? '');
+        $locality = trim(preg_replace('/\\s+/u', ' ', $locality) ?? '');
         $entities = $this->publishedEntities();
         $matching = [];
 
         foreach ($entities as $entity) {
-            $searchable = $entity['name'].' '.implode(' ', array_column($entity['facts'], 'value'));
+            $searchableFacts = array_values(array_filter(
+                $entity['facts'],
+                static fn (array $fact): bool => $fact['is_registry_managed'] === false || $fact['searchable'] === true
+            ));
+            $searchableName = $entity['name_searchable'] ? $entity['name'] : '';
+            $searchable = $searchableName.' '.implode(' ', array_column($searchableFacts, 'value'));
             if ($query !== '' && mb_stripos($searchable, $query) === false) {
                 continue;
             }
             if ($locality !== '') {
                 $publishedLocalities = array_column(array_values(array_filter(
                     $entity['facts'],
-                    static fn (array $fact): bool => in_array($fact['key'], self::LOCALITY_FIELDS, true)
+                    static fn (array $fact): bool => in_array($fact['key'], self::LOCALITY_FIELDS, true) &&
+                        $fact['filterable'] === true
                 )), 'value');
                 $localityText = implode(' ', $publishedLocalities);
                 if ($localityText === '' || mb_stripos($localityText, $locality) === false) {
@@ -75,6 +86,24 @@ final class PublicDirectoryQueryService
                 }
             }
             $matching[] = $entity;
+        }
+
+        foreach ($filters as $fieldKey => $expectedValue) {
+            if (is_string($fieldKey) === false || $fieldKey === '' ||
+                is_string($expectedValue) === false || trim($expectedValue) === '') {
+                return ['results' => [], 'facets' => []];
+            }
+
+            $matching = array_values(array_filter($matching, static function (array $entity) use ($fieldKey, $expectedValue): bool {
+                foreach ($entity['facts'] as $fact) {
+                    if ($fact['key'] === $fieldKey && $fact['is_registry_managed'] === true &&
+                        $fact['filterable'] === true) {
+                        return mb_strtolower(trim($fact['value'])) === mb_strtolower(trim($expectedValue));
+                    }
+                }
+
+                return false;
+            }));
         }
 
         $facets = [];
@@ -92,20 +121,43 @@ final class PublicDirectoryQueryService
             $matching = [];
         }
 
-        usort($matching, static fn (array $left, array $right): int => strnatcasecmp($left['name'], $right['name']));
+        if ($sortField !== null && $sortField !== '') {
+            $hasSortableFact = false;
+            foreach ($matching as $entity) {
+                if ($this->sortableFactValue($entity, $sortField) !== null) {
+                    $hasSortableFact = true;
+                    break;
+                }
+            }
+            if ($hasSortableFact) {
+                usort($matching, function (array $left, array $right) use ($sortField): int {
+                    $leftValue = $this->sortableFactValue($left, $sortField);
+                    $rightValue = $this->sortableFactValue($right, $sortField);
+                    if ($leftValue === null || $rightValue === null) {
+                        return ($leftValue === null ? 1 : 0) <=> ($rightValue === null ? 1 : 0)
+                            ?: strcmp($left['id'], $right['id']);
+                    }
+
+                    return strnatcasecmp($leftValue, $rightValue) ?: strcmp($left['id'], $right['id']);
+                });
+            } else {
+                $this->sortByDefaultName($matching);
+            }
+        } else {
+            $this->sortByDefaultName($matching);
+        }
 
         return [
-            'results' => $matching,
+            'results' => array_map(fn (array $entity): array => $this->publicProfile($entity), $matching),
             'facets' => $facets,
         ];
     }
 
-    /** @return array<string, mixed>|null */
     public function find(string $entityId): ?array
     {
         foreach ($this->publishedEntities() as $entity) {
             if ($entity['id'] === $entityId) {
-                return $entity;
+                return $this->publicProfile($entity);
             }
         }
 
@@ -124,6 +176,8 @@ final class PublicDirectoryQueryService
             ->join('publication_snapshots', 'publication_snapshots.id', '=', 'public_projections.publication_snapshot_id')
             ->join('publication_decisions', 'publication_decisions.id', '=', 'publication_snapshots.publication_decision_id')
             ->join('claim_versions', 'claim_versions.id', '=', 'publication_snapshots.claim_version_id')
+            ->leftJoin('field_definition_versions as registry_versions', 'registry_versions.id', '=', 'claim_versions.field_definition_version_id')
+            ->leftJoin('field_definitions as registry_definitions', 'registry_definitions.id', '=', 'registry_versions.field_definition_id')
             ->join('claims', 'claims.id', '=', 'claim_versions.claim_id')
             ->join('directory_entities', 'directory_entities.id', '=', 'claims.subject_entity_id')
             ->where('public_projections.status', 'approved')
@@ -165,6 +219,17 @@ final class PublicDirectoryQueryService
                 'directory_entities.entity_type',
                 'claims.predicate',
                 'claim_versions.id as claim_version_id',
+                'claim_versions.field_definition_version_id',
+                'registry_versions.id as registry_version_id',
+                'registry_definitions.field_key as registry_field_key',
+                'registry_versions.visibility_class as registry_visibility_class',
+                'registry_versions.privacy_class as registry_privacy_class',
+                'registry_versions.searchable as registry_searchable',
+                'registry_versions.filterable as registry_filterable',
+                'registry_versions.sortable as registry_sortable',
+                'registry_versions.value_type as registry_value_type',
+                'registry_versions.validation_schema as registry_validation_schema',
+                'registry_versions.presentation_metadata as registry_presentation_metadata',
                 'publication_snapshots.payload',
             ]);
 
@@ -195,8 +260,32 @@ final class PublicDirectoryQueryService
         $policy = new GovernancePolicy;
 
         foreach ($rows as $row) {
-            if (array_key_exists($row->predicate, self::PUBLIC_FIELDS) === false) {
-                continue;
+            $isRegistryManaged = $row->field_definition_version_id !== null;
+            if ($isRegistryManaged) {
+                if ((string) $row->registry_version_id !== (string) $row->field_definition_version_id ||
+                    $row->registry_field_key !== $row->predicate ||
+                    $row->registry_visibility_class !== 'public_eligible' ||
+                    $row->registry_privacy_class !== 'public_eligible') {
+                    continue;
+                }
+
+                $validationSchema = json_decode((string) $row->registry_validation_schema, true);
+                $presentation = json_decode((string) $row->registry_presentation_metadata, true);
+                if (is_array($validationSchema) === false || is_array($presentation) === false) {
+                    continue;
+                }
+                $label = $this->registryPublicLabel($presentation);
+                $section = $this->registryPublicSection($presentation);
+                $value = null;
+            } else {
+                if (array_key_exists($row->predicate, self::PUBLIC_FIELDS) === false) {
+                    continue;
+                }
+                $validationSchema = [];
+                $presentation = [];
+                $label = self::PUBLIC_FIELDS[$row->predicate];
+                $section = 'legacy';
+                $value = null;
             }
 
             $evidenceRows = $evidenceByVersion->get($row->claim_version_id, collect());
@@ -215,9 +304,22 @@ final class PublicDirectoryQueryService
                 continue;
             }
 
-            $value = $this->publicScalar($payload['value']);
-            if ($value === null) {
-                continue;
+            if ($isRegistryManaged) {
+                $value = $this->registryPublicScalar($payload['value'], (string) $row->registry_value_type, $validationSchema);
+                if ($label === null || $value === null) {
+                    continue;
+                }
+                $searchable = (bool) $row->registry_searchable;
+                $filterable = (bool) $row->registry_filterable;
+                $sortable = (bool) $row->registry_sortable;
+            } else {
+                $value = $this->publicScalar($payload['value']);
+                if ($value === null) {
+                    continue;
+                }
+                $searchable = true;
+                $filterable = in_array($row->predicate, self::LOCALITY_FIELDS, true);
+                $sortable = false;
             }
 
             $entityId = (string) $row->entity_id;
@@ -227,6 +329,8 @@ final class PublicDirectoryQueryService
                     'type' => $row->entity_type,
                     'type_label' => self::TYPE_LABELS[$row->entity_type],
                     'name' => null,
+                    'name_searchable' => false,
+                    'name_sortable' => false,
                     'facts' => [],
                     'last_observed_at' => null,
                 ];
@@ -235,10 +339,16 @@ final class PublicDirectoryQueryService
             $observedAt = $this->latestObservedDate($evidenceRows);
             $entities[$entityId]['facts'][] = [
                 'key' => $row->predicate,
-                'label' => self::PUBLIC_FIELDS[$row->predicate],
+                'label' => $label,
                 'value' => $value,
+                'section' => $section,
                 'observed_at' => $observedAt,
-                'is_external_url' => $row->predicate === 'official_website' && $this->isSafeHttpUrl($value),
+                'is_external_url' => ($isRegistryManaged && $row->registry_value_type === 'url') ||
+                    ($row->predicate === 'official_website' && $this->isSafeHttpUrl($value)),
+                'is_registry_managed' => $isRegistryManaged,
+                'searchable' => $searchable,
+                'filterable' => $filterable,
+                'sortable' => $sortable,
             ];
 
             if ($observedAt !== null && ($entities[$entityId]['last_observed_at'] === null ||
@@ -249,11 +359,13 @@ final class PublicDirectoryQueryService
 
         $items = [];
         foreach ($entities as $entity) {
-            $name = $this->resolvePublicName($entity['facts']);
-            if ($name === null) {
+            $nameFact = $this->resolvePublicNameFact($entity['facts']);
+            if ($nameFact === null) {
                 continue;
             }
-            $entity['name'] = $name;
+            $entity['name'] = $nameFact['value'];
+            $entity['name_searchable'] = $nameFact['is_registry_managed'] === false || $nameFact['searchable'] === true;
+            $entity['name_sortable'] = $nameFact['is_registry_managed'] === false || $nameFact['sortable'] === true;
             $items[] = $entity;
         }
 
@@ -299,19 +411,157 @@ final class PublicDirectoryQueryService
         return true;
     }
 
-    private function resolvePublicName(array $facts): ?string
+    /**
+     * Return only display-safe fields to the view layer; query permissions remain internal.
+     *
+     * @param  array<string, mixed>  $entity
+     * @return array<string, mixed>
+     */
+    private function publicProfile(array $entity): array
     {
-        foreach (['display_name', 'common_name', 'official_name'] as $key) {
-            $values = array_values(array_unique(array_column(
-                array_values(array_filter($facts, static fn (array $fact): bool => $fact['key'] === $key)),
-                'value'
-            )));
-            if ($values !== []) {
-                return count($values) === 1 ? $values[0] : null;
+        $visibleFactKeys = ['key', 'label', 'value', 'section', 'observed_at', 'is_external_url'];
+        $entity['facts'] = array_map(
+            static fn (array $fact): array => array_intersect_key($fact, array_flip($visibleFactKeys)),
+            $entity['facts']
+        );
+        unset($entity['name_searchable'], $entity['name_sortable']);
+
+        return $entity;
+    }
+
+    /**
+     * @param  array<string, mixed>  $entity
+     */
+    private function sortableFactValue(array $entity, string $fieldKey): ?string
+    {
+        foreach ($entity['facts'] as $fact) {
+            if ($fact['key'] === $fieldKey && $fact['is_registry_managed'] === true &&
+                $fact['sortable'] === true) {
+                return (string) $fact['value'];
             }
         }
 
         return null;
+    }
+
+    /**
+     * @param  array<int, array<string, mixed>>  $entities
+     */
+    private function sortByDefaultName(array &$entities): void
+    {
+        usort($entities, static function (array $left, array $right): int {
+            if ($left['name_sortable'] === true && $right['name_sortable'] === true) {
+                return strnatcasecmp($left['name'], $right['name']) ?: strcmp($left['id'], $right['id']);
+            }
+
+            return strcmp($left['id'], $right['id']);
+        });
+    }
+
+    /**
+     * @param  array<int, array<string, mixed>>  $facts
+     * @return array<string, mixed>|null
+     */
+    private function resolvePublicNameFact(array $facts): ?array
+    {
+        foreach (['display_name', 'common_name', 'official_name'] as $key) {
+            $matches = array_values(array_filter(
+                $facts,
+                static fn (array $fact): bool => $fact['key'] === $key
+            ));
+            $values = array_values(array_unique(array_column($matches, 'value')));
+            if ($values !== []) {
+                return count($values) === 1 ? $matches[0] : null;
+            }
+        }
+
+        return null;
+    }
+
+    /** @param  array<string, mixed>  $presentation */
+    private function registryPublicLabel(array $presentation): ?string
+    {
+        $label = $presentation['public_label'] ?? $presentation['label'] ?? null;
+        if (is_string($label) === false || trim($label) === '' ||
+            mb_strlen($label) > 80 || preg_match('//u', $label) !== 1 ||
+            strip_tags($label) !== $label ||
+            preg_match('/[\\x00-\\x1F\\x7F]/u', $label) === 1) {
+            return null;
+        }
+
+        return trim($label);
+    }
+
+    /** @param  array<string, mixed>  $presentation */
+    private function registryPublicSection(array $presentation): string
+    {
+        $section = $presentation['section_key'] ?? null;
+        if (is_string($section) === false || preg_match('/^[a-z][a-z0-9_]{0,39}$/D', $section) !== 1) {
+            return 'general';
+        }
+
+        return $section;
+    }
+
+    /**
+     * Format only bounded scalar types with a deterministic public representation.
+     *
+     * @param  array<string, mixed>  $schema
+     */
+    private function registryPublicScalar(mixed $value, string $type, array $schema): ?string
+    {
+        if (is_array($value)) {
+            if (array_key_exists('value', $value) === false) {
+                return null;
+            }
+            $value = $value['value'];
+        }
+
+        return match ($type) {
+            'short_text' => $this->registryPublicText($value, $schema, false),
+            'long_text' => $this->registryPublicText($value, $schema, true),
+            'integer' => is_int($value) ? (string) $value : null,
+            'decimal' => (is_string($value) || is_int($value)) &&
+                strlen((string) $value) <= 32 &&
+                preg_match('/^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$/D', (string) $value) === 1
+                    ? (string) $value
+                    : null,
+            'boolean' => is_bool($value) ? ($value ? 'Yes' : 'No') : null,
+            'date' => $this->isIsoPublicDate($value) ? $value : null,
+            'url' => is_string($value) && $this->isSafeHttpUrl($value) ? $value : null,
+            'email' => is_string($value) && strlen($value) <= 254 &&
+                filter_var($value, FILTER_VALIDATE_EMAIL) !== false ? $value : null,
+            'phone' => is_string($value) && preg_match('/^\\+[1-9][0-9]{7,14}$/D', $value) === 1 ? $value : null,
+            'enum' => is_string($value) && is_array($schema['allowed_values'] ?? null) &&
+                in_array($value, $schema['allowed_values'], true) ? $value : null,
+            default => null,
+        };
+    }
+
+    /**
+     * @param  array<string, mixed>  $schema
+     */
+    private function registryPublicText(mixed $value, array $schema, bool $longText): ?string
+    {
+        if (is_string($value) === false || preg_match('//u', $value) !== 1 ||
+            mb_strlen($value) > min(2000, (int) ($schema['max_length'] ?? 2000)) ||
+            str_contains($value, "\0") ||
+            ($longText && (stripos($value, '<script') !== false || stripos($value, '<iframe') !== false))) {
+            return null;
+        }
+
+        $value = trim($value);
+
+        return $value !== '' ? $value : null;
+    }
+
+    private function isIsoPublicDate(mixed $value): bool
+    {
+        if (is_string($value) === false || preg_match('/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/D', $value, $parts) !== 1) {
+            return false;
+        }
+
+        return checkdate((int) $parts[2], (int) $parts[3], (int) $parts[1]);
     }
 
     private function publicScalar(mixed $value): ?string
