@@ -1,12 +1,25 @@
 # Project Progress Report
 
-**As of:** 2026-11-14  
+**As of:** 2026-11-16  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03, M3-04, M3-05 and M3-06 implemented, validated and merged for bounded synthetic local/CI scope; M3-07 readiness review documented, application implementation blocked
+**Current phase:** M0, M1, M2 and M3-00 accepted/closed; M3-01 closed as planning/authorization milestone; M3-02 accepted as Laravel platform foundation only; M3-03, M3-04, M3-05 and M3-06 implemented, validated and merged for bounded synthetic local/CI scope; M3-07 I1-I5 bounded synthetic/local/CI packages delivered; live AI Data-Agent/source activation remains blocked
 
 
 
-## Latest verified position — M3-07 readiness review (2026-11-14)
+## Latest verified position — M3-07 I5 closeout (2026-11-16)
+
+**Latest main commit:** `304fce61641471c6b0afdfd8b9efff27ff21955e` (I5-C historical-definition regression PR #216).  
+**I5 status:** **Complete and closed** for bounded synthetic/local/CI implementation. I5-A field-aware correction (PR #213), I5-B withdrawal/reinstatement (PR #214), I5-C registry-aware public profiles (PR #215) and exact historical-definition regression (PR #216) are all merged.
+
+All four exact-head PHP 8.5 FND-01 foundation CI and Project documentation validation workflows passed. The final synthetic suite reported 15 passed tests and 647 assertions, with 157 non-fatal missing-local-`.env` test-harness warnings. Detailed scope, PR heads, merge commits, acceptance disposition and exclusions are recorded in `M3-07_I5_IMPLEMENTATION_RECORD.md`.
+
+I5 preserves exact field-definition binding through correction and reinstatement successors; reconciles editorial cases, suppression and stale outbox events on withdrawal; requires fresh eligible synthetic evidence for reinstatement; and exposes registry-managed profile facts only through exact-version public visibility/privacy and independent search/filter/sort controls. The legacy public-field allowlist remains unchanged. No migrations, schema changes, historical backfills, new dependencies, routes/controllers/UI, real/source data, external model/provider/API, connector, scheduler, production/V1/Hostinger, deployment or spend were used.
+
+**M3-07 is not fully complete:** I5 does not activate the AI Data-Agent. Candidate sources remain RESEARCH ONLY, G2-G9 source rights/privacy/security/model/provider/operational/activation gates remain blocked, and no live source access, agent, model, connector or scheduler is enabled.
+
+**Next agenda:** I6 scope/design preflight against current `main`. I6 implementation remains separately gated and requires its own explicit Product Owner authorization; I7 remains separately gated.
+
+\n## Latest verified position — M3-07 readiness review (2026-11-14)
 
 **Latest main commit:** `1f4298f9136771f3b2ff6c8008d07b58a1113724` (M3-07 readiness PR #195).  
 **M3-07 readiness review:** Documentation package prepared; application implementation remains **BLOCKED**.  
@@ -22,11 +35,11 @@ No source site/API was accessed; no permission request/contact was made; no mode
 
 Readiness documentation PR [#195](https://github.com/mattari20/listing-v2/pull/195) merged as `1f4298f9136771f3b2ff6c8008d07b58a1113724`; exact head `53d0d2d715ff23d08197946227f62b8b0a34d38e` passed FND-01 PHP 8.5 CI #43560066318 and Project documentation validation #43560066325. No unresolved review threads or submitted reviews were present.
 
-## Latest verified position — M3-06 closeout (2026-11-14)
+## Historical position — M3-06 closeout (2026-11-14)
 
 **Latest main commit:** `f1c58a5405960cc86816d9c5aef77fee944987b0` (M3-06 documentation closeout PR #193).  
 **M3-06:** Complete for bounded synthetic local/CI scope.  
-**Next roadmap step:** M3-07 AI Data-Agent — scope/readiness review only until each source has separate rights, security, privacy and owner authorization.
+**Next roadmap step at that time:** M3-07 AI Data-Agent — scope/readiness review only until each source has separate rights, security, privacy and owner authorization.
 
 Implementation PR [#192](https://github.com/mattari20/listing-v2/pull/192) merged from exact head `9761e52747e0f2b15fbfee58ac2528ec4f96c57c`. Required exact-head checks:
 - FND-01 PHP 8.5 foundation CI [#43559187297](https://github.com/mattari20/listing-v2/actions/runs/43559187297) — **SUCCESS**.
@@ -1094,4 +1107,4 @@ Delivered: anonymous browse/search, provider/institution/campus/programme/qualif
 
 Deferred: maps/geography (M3-06), external search engine, fuzzy/transliteration search, ranking/recommendations, comparison, accounts/reviews, saved lists, alerts, admissions workflow, performance/load targets, formal accessibility/security audit and operational hardening. No production release or public URL cutover is authorized.
 
-**Next:** M3-07 AI Data-Agent scope/readiness review; implementation remains blocked until each source has separate rights/security/privacy review and explicit owner authorization. No AI/model or source connector is activated.
+**Next at that time:** M3-07 AI Data-Agent scope/readiness review. The current next agenda is I6 scope/design preflight; live source/model activation remains blocked until each source has separate rights/security/privacy review and explicit owner authorization. No AI/model or source connector is activated.
