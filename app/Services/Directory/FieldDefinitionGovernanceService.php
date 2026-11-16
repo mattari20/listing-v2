@@ -794,6 +794,7 @@ final class FieldDefinitionGovernanceService
         }
         try {
             $date = new DateTimeImmutable($value);
+
             return $date->format('Y-m-d H:i:s');
         } catch (\Throwable) {
             return null;
