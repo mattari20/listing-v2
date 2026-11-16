@@ -30,9 +30,10 @@ final class ModerationPrivacyBoundaryTest extends TestCase
         $caseColumns = Schema::getColumnListing('moderation_cases');
         $appealColumns = Schema::getColumnListing('moderation_appeals');
         $eventColumns = Schema::getColumnListing('moderation_events');
-        $allColumns = array_merge($caseColumns, $appealColumns, $eventColumns);
+        $userColumns = Schema::getColumnListing('users');
+        $allColumns = array_merge($caseColumns, $appealColumns, $eventColumns, $userColumns);
 
-        foreach (['body', 'content', 'message', 'text', 'attachment_path', 'identity_document', 'birth_date', 'phone'] as $forbidden) {
+        foreach (['body', 'content', 'message', 'text', 'attachment_path', 'identity_document', 'enrollment_document', 'birth_date', 'age', 'age_verified_at', 'guardian_consent', 'student_status', 'phone'] as $forbidden) {
             $this->assertNotContains($forbidden, $allColumns);
         }
 
