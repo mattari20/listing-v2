@@ -240,7 +240,12 @@ final class PersistedGovernanceWorkflowService
 
             $snapshots = DB::table('publication_snapshots')->where('claim_version_id', $claimVersionId)->get(['id', 'status']);
             foreach ($snapshots as $snapshot) {
-                if ($snapshot->status !== 'suppressed') {
+                $hasActiveSuppression = DB::table('publication_suppressions')
+                    ->where('publication_snapshot_id', $snapshot->id)
+                    ->where('status', 'active')
+                    ->exists();
+
+                if ($hasActiveSuppression === false) {
                     $suppressionId = (string) Str::uuid();
                     DB::table('publication_suppressions')->insert([
                         'id' => $suppressionId,
@@ -254,13 +259,6 @@ final class PersistedGovernanceWorkflowService
                         'created_at' => $now,
                         'updated_at' => $now,
                     ]);
-                    DB::table('publication_snapshots')->where('id', $snapshot->id)->update([
-                        'status' => 'suppressed',
-                    ]);
-                    DB::table('public_projections')->where('publication_snapshot_id', $snapshot->id)->update([
-                        'status' => 'suppressed',
-                        'updated_at' => $now,
-                    ]);
                     $this->audit($actor, 'publication_suppressed', 'publication_suppression', $suppressionId, $reasonCode, [
                         'snapshot_id' => (string) $snapshot->id,
                         'claim_withdrawal' => true,
@@ -270,9 +268,79 @@ final class PersistedGovernanceWorkflowService
                         'publication_snapshot',
                         (string) $snapshot->id,
                         ['snapshot_id' => (string) $snapshot->id, 'withdrawn_claim_version_id' => $claimVersionId],
-                        'claim-withdrawal:'.$idempotencyKey.':'.$snapshot->id,
+                        'claim-withdrawal:'.hash('sha256', $idempotencyKey.':'.$snapshot->id),
                     );
                 }
+
+                DB::table('publication_snapshots')->where('id', $snapshot->id)->update(['status' => 'suppressed']);
+                DB::table('public_projections')->where('publication_snapshot_id', $snapshot->id)->update([
+                    'status' => 'suppressed',
+                    'updated_at' => $now,
+                ]);
+            }
+
+            $editorialCases = DB::table('editorial_review_cases')
+                ->where('claim_version_id', $claimVersionId)
+                ->lockForUpdate()
+                ->get();
+            foreach ($editorialCases as $editorialCase) {
+                if ($editorialCase->status === 'withdrawn') {
+                    continue;
+                }
+
+                $historyKey = 'editorial-withdrawal:'.hash('sha256', $idempotencyKey.':'.$editorialCase->id);
+                $historyFingerprint = hash('sha256', json_encode([
+                    'claim_version_id' => $claimVersionId,
+                    'editorial_review_case_id' => $editorialCase->id,
+                    'previous_status' => $editorialCase->status,
+                    'new_status' => 'withdrawn',
+                    'actor_id' => $actor['actor_id'],
+                    'reason_code' => $reasonCode,
+                ], JSON_THROW_ON_ERROR));
+
+                DB::table('editorial_review_cases')->where('id', $editorialCase->id)->update([
+                    'status' => 'withdrawn',
+                    'updated_at' => $now,
+                ]);
+                DB::table('directory_status_history')->insert([
+                    'id' => (string) Str::uuid(),
+                    'entity_id' => $editorialCase->entity_id,
+                    'claim_version_id' => $claimVersionId,
+                    'editorial_review_case_id' => $editorialCase->id,
+                    'event_type' => 'claim_withdrawn',
+                    'previous_status' => $editorialCase->status,
+                    'new_status' => 'withdrawn',
+                    'actor_id' => $actor['actor_id'],
+                    'actor_class' => $actor['actor_class'],
+                    'reason_code' => $reasonCode,
+                    'idempotency_key' => $historyKey,
+                    'fingerprint' => $historyFingerprint,
+                    'metadata' => json_encode([
+                        'withdrawal_idempotency_key' => $idempotencyKey,
+                        'claim_version_id' => $claimVersionId,
+                    ], JSON_THROW_ON_ERROR),
+                    'occurred_at' => $now,
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]);
+                DB::table('audit_events')->insert([
+                    'id' => (string) Str::uuid(),
+                    'actor_class' => $actor['actor_class'],
+                    'action' => 'directory_editorial_claim_withdrawn',
+                    'target_type' => 'editorial_review_case',
+                    'target_id' => $editorialCase->id,
+                    'reason_code' => $reasonCode,
+                    'occurred_at' => $now,
+                    'metadata' => json_encode([
+                        'actor_id' => $actor['actor_id'],
+                        'claim_version_id' => $claimVersionId,
+                        'previous_status' => $editorialCase->status,
+                        'new_status' => 'withdrawn',
+                        'idempotency_key' => $historyKey,
+                    ], JSON_THROW_ON_ERROR),
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]);
             }
 
             $this->audit($actor, 'claim_version_withdrawn', 'claim_version', $claimVersionId, $reasonCode, [
@@ -281,6 +349,129 @@ final class PersistedGovernanceWorkflowService
                 'fingerprint' => $fingerprint,
                 'suppressed_snapshot_count' => $snapshots->count(),
             ]);
+        });
+    }
+
+    public function reinstateWithdrawnClaimVersion(
+        array $actor,
+        string $priorVersionId,
+        mixed $value,
+        array $evidenceReferenceIds,
+        string $validFrom,
+        ?string $validTo,
+        string $reasonCode,
+        string $rationale,
+        string $idempotencyKey,
+        string $fieldDefinitionVersionId
+    ): string {
+        $this->requireActor($actor, 'correct_claim');
+        if (($actor['actor_class'] ?? null) !== 'human') {
+            $this->reject('actor', 'Claim reinstatement requires a human actor.');
+        }
+
+        $validFrom = $this->normalizeEffectiveDate($validFrom);
+        $validTo = $validTo === null ? null : $this->normalizeEffectiveDate($validTo);
+        if ($validTo !== null && $validTo < $validFrom) {
+            $this->reject('validity', 'The reinstatement end date cannot precede its start date.');
+        }
+        if ($value === [] || $evidenceReferenceIds === [] || trim($reasonCode) === '' ||
+            trim($rationale) === '' || trim($idempotencyKey) === '' || trim($fieldDefinitionVersionId) === '') {
+            $this->reject('reinstatement', 'A value, fresh supporting evidence, reason, rationale, exact field binding and idempotency key are required.');
+        }
+
+        $evidenceReferenceIds = array_values(array_unique($evidenceReferenceIds));
+        $fingerprint = hash('sha256', json_encode([
+            'prior_version_id' => $priorVersionId,
+            'value' => $value,
+            'evidence_reference_ids' => $evidenceReferenceIds,
+            'valid_from' => $validFrom,
+            'valid_to' => $validTo,
+            'reason_code' => $reasonCode,
+            'rationale' => $rationale,
+            'field_definition_version_id' => $fieldDefinitionVersionId,
+        ], JSON_THROW_ON_ERROR));
+
+        return DB::transaction(function () use (
+            $actor, $priorVersionId, $value, $evidenceReferenceIds, $validFrom, $validTo,
+            $reasonCode, $rationale, $idempotencyKey, $fieldDefinitionVersionId, $fingerprint
+        ): string {
+            $priorAuditEvents = DB::table('audit_events')
+                ->where('target_type', 'claim_version')
+                ->where('action', 'claim_version_reinstated')
+                ->get();
+            foreach ($priorAuditEvents as $event) {
+                $metadata = json_decode((string) $event->metadata, true) ?: [];
+                if (($metadata['idempotency_key'] ?? null) === $idempotencyKey) {
+                    if (($metadata['fingerprint'] ?? null) !== $fingerprint ||
+                        ($metadata['actor_id'] ?? null) !== $actor['actor_id']) {
+                        $this->reject('idempotency_key', 'Reinstatement idempotency key was reused for a different command.');
+                    }
+
+                    return (string) $metadata['new_version_id'];
+                }
+            }
+
+            $prior = DB::table('claim_versions')->where('id', $priorVersionId)->lockForUpdate()->first();
+            if ($prior === null || $prior->disposition !== 'withdrawn' ||
+                $prior->field_definition_version_id !== $fieldDefinitionVersionId) {
+                $this->reject('claim_version', 'Reinstatement requires a withdrawn registry-bound version and its exact original definition binding.');
+            }
+            if (DB::table('claim_versions')->where('supersedes_version_id', $priorVersionId)->exists()) {
+                $this->reject('claim_version', 'A withdrawn version with an existing successor cannot be reinstated again.');
+            }
+
+            $evidenceRows = DB::table('evidence_references')
+                ->whereIn('id', $evidenceReferenceIds)
+                ->lockForUpdate()
+                ->get(['id', 'status']);
+            if ($evidenceRows->count() !== count($evidenceReferenceIds) ||
+                (new GovernancePolicy)->canAcceptClaim($evidenceRows->pluck('status')->all()) === false) {
+                $this->reject('evidence', 'Every reinstatement evidence reference must exist and be eligible for review.');
+            }
+
+            $newVersionId = (string) Str::uuid();
+            $nextVersion = (int) DB::table('claim_versions')->where('claim_id', $prior->claim_id)->max('version_number') + 1;
+            $now = now();
+            DB::table('claim_versions')->insert([
+                'id' => $newVersionId,
+                'claim_id' => $prior->claim_id,
+                'field_definition_version_id' => $fieldDefinitionVersionId,
+                'version_number' => $nextVersion,
+                'value' => json_encode($value, JSON_THROW_ON_ERROR),
+                'valid_from' => $validFrom,
+                'valid_to' => $validTo,
+                'recorded_at' => $now,
+                'disposition' => 'proposed',
+                'supersedes_version_id' => $priorVersionId,
+                'correction_reason' => $reasonCode,
+                'created_at' => $now,
+                'updated_at' => $now,
+            ]);
+
+            foreach ($evidenceReferenceIds as $evidenceId) {
+                DB::table('claim_evidence_links')->insert([
+                    'id' => (string) Str::uuid(),
+                    'claim_version_id' => $newVersionId,
+                    'evidence_reference_id' => $evidenceId,
+                    'relationship_type' => 'reinstatement_support',
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]);
+            }
+
+            $this->audit($actor, 'claim_version_reinstated', 'claim_version', $priorVersionId, $reasonCode, [
+                'prior_version_id' => $priorVersionId,
+                'new_version_id' => $newVersionId,
+                'version_number' => $nextVersion,
+                'field_definition_version_id' => $fieldDefinitionVersionId,
+                'valid_from' => $validFrom,
+                'valid_to' => $validTo,
+                'rationale' => $rationale,
+                'idempotency_key' => $idempotencyKey,
+                'fingerprint' => $fingerprint,
+            ]);
+
+            return $newVersionId;
         });
     }
 
@@ -642,51 +833,69 @@ final class PersistedGovernanceWorkflowService
             } elseif (in_array($event->event_type, ['publication.snapshot.approved', 'publication.snapshot.restored'], true)) {
                 $snapshot = DB::table('publication_snapshots')->where('id', $event->aggregate_id)->lockForUpdate()->first();
                 if ($snapshot !== null && $snapshot->status === 'approved_pending_projection') {
-                    $snapshotPayload = json_decode($snapshot->payload, true, 512, JSON_THROW_ON_ERROR);
-                    if (($snapshotPayload['is_deeni_madaris'] ?? false) === true) {
-                        throw new \RuntimeException('Restricted Deeni Madaris snapshots cannot be projected.');
-                    }
+                    $version = DB::table('claim_versions')->where('id', $snapshot->claim_version_id)->first(['disposition']);
+                    $hasSuccessor = DB::table('claim_versions')
+                        ->where('supersedes_version_id', $snapshot->claim_version_id)
+                        ->exists();
+                    $hasActiveSuppression = DB::table('publication_suppressions')
+                        ->where('publication_snapshot_id', $snapshot->id)
+                        ->where('status', 'active')
+                        ->exists();
 
-                    $latestSnapshotId = DB::table('publication_snapshots')
-                        ->where('claim_version_id', $snapshot->claim_version_id)
-                        ->where('surface', $snapshot->surface)
-                        ->where('audience', $snapshot->audience)
-                        ->orderByDesc('snapshot_version')
-                        ->value('id');
+                    if ($version === null || $version->disposition !== 'accepted' ||
+                        $hasSuccessor || $hasActiveSuppression) {
+                        DB::table('publication_snapshots')->where('id', $snapshot->id)->update(['status' => 'suppressed']);
+                        DB::table('public_projections')->where('publication_snapshot_id', $snapshot->id)->update([
+                            'status' => 'suppressed',
+                            'updated_at' => now(),
+                        ]);
+                    } else {
+                        $snapshotPayload = json_decode($snapshot->payload, true, 512, JSON_THROW_ON_ERROR);
+                        if (($snapshotPayload['is_deeni_madaris'] ?? false) === true) {
+                            throw new \RuntimeException('Restricted Deeni Madaris snapshots cannot be projected.');
+                        }
 
-                    // A delayed retry for an older snapshot must never replace a newer publication.
-                    if ((string) $latestSnapshotId === (string) $snapshot->id) {
-                        $projectionKey = $snapshot->claim_version_id.':'.$snapshot->surface.':'.$snapshot->audience;
-                        $projection = DB::table('public_projections')->where('projection_key', $projectionKey)->first();
-                        if ($projection !== null) {
-                            $currentSnapshotVersion = DB::table('publication_snapshots')
-                                ->where('id', $projection->publication_snapshot_id)->value('snapshot_version');
-                            if ($currentSnapshotVersion === null || (int) $currentSnapshotVersion <= (int) $snapshot->snapshot_version) {
-                                DB::table('public_projections')->where('id', $projection->id)->update([
+                        $latestSnapshotId = DB::table('publication_snapshots')
+                            ->where('claim_version_id', $snapshot->claim_version_id)
+                            ->where('surface', $snapshot->surface)
+                            ->where('audience', $snapshot->audience)
+                            ->orderByDesc('snapshot_version')
+                            ->value('id');
+
+                        // A delayed retry for an older snapshot must never replace a newer publication.
+                        if ((string) $latestSnapshotId === (string) $snapshot->id) {
+                            $projectionKey = $snapshot->claim_version_id.':'.$snapshot->surface.':'.$snapshot->audience;
+                            $projection = DB::table('public_projections')->where('projection_key', $projectionKey)->first();
+                            if ($projection !== null) {
+                                $currentSnapshotVersion = DB::table('publication_snapshots')
+                                    ->where('id', $projection->publication_snapshot_id)->value('snapshot_version');
+                                if ($currentSnapshotVersion === null || (int) $currentSnapshotVersion <= (int) $snapshot->snapshot_version) {
+                                    DB::table('public_projections')->where('id', $projection->id)->update([
+                                        'publication_snapshot_id' => $snapshot->id,
+                                        'surface' => $snapshot->surface,
+                                        'audience' => $snapshot->audience,
+                                        'status' => 'approved',
+                                        'is_deeni_madaris' => false,
+                                        'projected_at' => now(),
+                                        'updated_at' => now(),
+                                    ]);
+                                }
+                            } else {
+                                DB::table('public_projections')->insert([
+                                    'id' => (string) Str::uuid(),
                                     'publication_snapshot_id' => $snapshot->id,
+                                    'projection_key' => $projectionKey,
                                     'surface' => $snapshot->surface,
                                     'audience' => $snapshot->audience,
                                     'status' => 'approved',
                                     'is_deeni_madaris' => false,
                                     'projected_at' => now(),
+                                    'created_at' => now(),
                                     'updated_at' => now(),
                                 ]);
                             }
-                        } else {
-                            DB::table('public_projections')->insert([
-                                'id' => (string) Str::uuid(),
-                                'publication_snapshot_id' => $snapshot->id,
-                                'projection_key' => $projectionKey,
-                                'surface' => $snapshot->surface,
-                                'audience' => $snapshot->audience,
-                                'status' => 'approved',
-                                'is_deeni_madaris' => false,
-                                'projected_at' => now(),
-                                'created_at' => now(),
-                                'updated_at' => now(),
-                            ]);
+                            DB::table('publication_snapshots')->where('id', $snapshot->id)->update(['status' => 'projected']);
                         }
-                        DB::table('publication_snapshots')->where('id', $snapshot->id)->update(['status' => 'projected']);
                     }
                 }
             } elseif ($event->event_type === 'field_claim.proposal.submitted') {
@@ -697,14 +906,20 @@ final class PersistedGovernanceWorkflowService
                     ->first();
                 if ($event->aggregate_type !== 'claim_version' ||
                     (string) ($payload['claim_version_id'] ?? '') !== (string) $event->aggregate_id ||
-                    $version === null || $version->disposition !== 'proposed' ||
-                    $version->field_definition_version_id === null || $reviewCase === null ||
-                    $reviewCase->status !== 'submitted' ||
+                    $version === null || $version->field_definition_version_id === null ||
+                    $reviewCase === null ||
                     (string) $version->field_definition_version_id !== (string) ($payload['field_definition_version_id'] ?? '')) {
                     throw new \RuntimeException('Field claim proposal outbox event failed its proposal integrity checks.');
                 }
-                // Proposal notification is intentionally a no-op: this event never adjudicates,
-                // publishes, projects or materializes the proposed claim.
+
+                $isWithdrawnOrSuperseded = $version->disposition === 'withdrawn' ||
+                    $reviewCase->status === 'withdrawn' ||
+                    DB::table('claim_versions')->where('supersedes_version_id', $version->id)->exists();
+                if ($isWithdrawnOrSuperseded === false &&
+                    ($version->disposition !== 'proposed' || $reviewCase->status !== 'submitted')) {
+                    throw new \RuntimeException('Field claim proposal outbox event no longer matches an active submitted proposal.');
+                }
+                // Withdrawn or superseded proposals are acknowledged without reactivating review or publication.
             } elseif ($event->event_type === 'publication.snapshot.rollback') {
                 (new PersistedConflictAndRollbackService)->applyRollbackOutboxEvent((string) ($payload['rollback_id'] ?? $event->aggregate_id));
             } elseif ($event->event_type === 'publication.snapshot.suppressed') {

@@ -6,6 +6,7 @@ namespace Tests\Feature;
 
 use App\Services\Directory\FieldAwareClaimCorrectionService;
 use App\Services\Directory\FieldAwareClaimProposalService;
+use App\Services\Directory\FieldAwareClaimReinstatementService;
 use App\Services\Directory\ProviderCategoryAssignmentService;
 use App\Services\Governance\GovernanceCommandService;
 use App\Services\Governance\PersistedGovernanceWorkflowService;
@@ -243,6 +244,217 @@ class FieldAwareClaimProposalTest extends TestCase
         );
     }
 
+    public function test_field_aware_correction_preserves_exact_binding_and_reenters_editorial_review_idempotently(): void
+    {
+        [$entityId, $definitionVersionId, $evidenceId] = $this->fixture();
+        $proposal = app(FieldAwareClaimProposalService::class)->propose(
+            $this->proposalActor(),
+            $entityId,
+            'institution_display_name',
+            1,
+            'Synthetic Institute Before Correction',
+            [$evidenceId],
+            $this->sourceContext(),
+            'institution',
+            'i5-original-proposal'
+        );
+
+        DB::table('evidence_references')->where('id', $evidenceId)->update(['status' => 'eligible_for_review']);
+        $actor = $this->actor('i5-correction-editor', ['correct_claim', 'submit_directory_proposal']);
+        $service = app(FieldAwareClaimCorrectionService::class);
+        $arguments = [
+            $actor,
+            $proposal['claim_version_id'],
+            'Synthetic Institute Corrected',
+            [$evidenceId],
+            $this->sourceContext(),
+            'i5-field-correction-key',
+            '2026-11-16',
+            null,
+            'synthetic_value_correction',
+            'Synthetic correction uses eligible fixture evidence.',
+        ];
+
+        $corrected = $service->correct(...$arguments);
+        $retried = $service->correct(...$arguments);
+
+        $this->assertSame($corrected, $retried);
+        $this->assertSame($proposal['claim_id'], $corrected['claim_id']);
+        $this->assertSame(
+            $definitionVersionId,
+            DB::table('claim_versions')->where('id', $proposal['claim_version_id'])->value('field_definition_version_id')
+        );
+        $this->assertSame(
+            json_encode('Synthetic Institute Before Correction', JSON_THROW_ON_ERROR),
+            DB::table('claim_versions')->where('id', $proposal['claim_version_id'])->value('value')
+        );
+        $this->assertDatabaseHas('claim_versions', [
+            'id' => $corrected['claim_version_id'],
+            'claim_id' => $proposal['claim_id'],
+            'field_definition_version_id' => $definitionVersionId,
+            'version_number' => 2,
+            'disposition' => 'proposed',
+            'supersedes_version_id' => $proposal['claim_version_id'],
+            'correction_reason' => 'synthetic_value_correction',
+        ]);
+        $this->assertDatabaseHas('editorial_review_cases', [
+            'id' => $corrected['editorial_review_case_id'],
+            'claim_version_id' => $corrected['claim_version_id'],
+            'status' => 'submitted',
+        ]);
+        $this->assertSame(0, DB::table('publication_decisions')->count());
+        $this->assertSame(0, DB::table('public_projections')->count());
+    }
+
+    public function test_field_aware_correction_rejects_invalid_typed_values_without_successor(): void
+    {
+        [$entityId, , $evidenceId] = $this->fixture();
+        $proposal = app(FieldAwareClaimProposalService::class)->propose(
+            $this->proposalActor(),
+            $entityId,
+            'institution_display_name',
+            1,
+            'Synthetic Institute Original',
+            [$evidenceId],
+            $this->sourceContext(),
+            'institution',
+            'i5-invalid-correction-original'
+        );
+        DB::table('evidence_references')->where('id', $evidenceId)->update(['status' => 'eligible_for_review']);
+
+        $this->expectException(ValidationException::class);
+        app(FieldAwareClaimCorrectionService::class)->correct(
+            $this->actor('i5-invalid-correction-editor', ['correct_claim', 'submit_directory_proposal']),
+            $proposal['claim_version_id'],
+            ['unexpected' => 'object'],
+            [$evidenceId],
+            $this->sourceContext(),
+            'i5-invalid-correction-key',
+            '2026-11-16',
+            null,
+            'synthetic_invalid_correction',
+            'Invalid typed value must be rejected.'
+        );
+    }
+
+    public function test_withdrawal_acknowledges_stale_field_proposal_outbox_without_reactivating_review(): void
+    {
+        [$entityId, , $evidenceId] = $this->fixture();
+        $proposal = app(FieldAwareClaimProposalService::class)->propose(
+            $this->proposalActor(),
+            $entityId,
+            'institution_display_name',
+            1,
+            'Synthetic Institute Pending Withdrawal',
+            [$evidenceId],
+            $this->sourceContext(),
+            'institution',
+            'i5-pending-outbox-proposal'
+        );
+
+        app(PersistedGovernanceWorkflowService::class)->withdrawClaimVersion(
+            $this->actor('i5-proposal-withdrawal-officer', ['withdraw_claim']),
+            $proposal['claim_version_id'],
+            'synthetic_withdrawal_before_outbox',
+            'Withdraw before proposal outbox processing.',
+            'i5-pending-proposal-withdrawal'
+        );
+
+        $processed = app(PersistedGovernanceWorkflowService::class)->processOutbox();
+
+        $this->assertSame(1, $processed);
+        $this->assertDatabaseHas('editorial_review_cases', [
+            'id' => $proposal['editorial_review_case_id'],
+            'status' => 'withdrawn',
+        ]);
+        $this->assertDatabaseHas('governance_outbox', [
+            'aggregate_id' => $proposal['claim_version_id'],
+            'event_type' => 'field_claim.proposal.submitted',
+            'status' => 'processed',
+        ]);
+        $this->assertSame(0, DB::table('public_projections')->count());
+    }
+
+    public function test_withdrawn_registry_value_can_only_be_reinstated_as_fresh_reviewed_successor(): void
+    {
+        [$entityId, $definitionVersionId, $oldEvidenceId] = $this->fixture();
+        $proposal = app(FieldAwareClaimProposalService::class)->propose(
+            $this->proposalActor(),
+            $entityId,
+            'institution_display_name',
+            1,
+            'Synthetic Institute Before Withdrawal',
+            [$oldEvidenceId],
+            $this->sourceContext(),
+            'institution',
+            'i5-reinstatement-original-proposal'
+        );
+
+        $freshEvidenceId = $this->evidence();
+        DB::table('evidence_references')->where('id', $freshEvidenceId)->update(['status' => 'eligible_for_review']);
+        app(PersistedGovernanceWorkflowService::class)->withdrawClaimVersion(
+            $this->actor('i5-reinstatement-withdrawal-officer', ['withdraw_claim']),
+            $proposal['claim_version_id'],
+            'synthetic_value_withdrawn',
+            'The original synthetic value was withdrawn.',
+            'i5-reinstatement-withdrawal-key'
+        );
+
+        $actor = $this->actor('i5-reinstatement-editor', ['correct_claim', 'submit_directory_proposal']);
+        $service = app(FieldAwareClaimReinstatementService::class);
+        $arguments = [
+            $actor,
+            $proposal['claim_version_id'],
+            'Synthetic Institute Reinstated',
+            [$freshEvidenceId],
+            $this->sourceContext(),
+            'i5-reinstatement-command-key',
+            '2026-11-16',
+            null,
+            'synthetic_reinstatement',
+            'A new synthetic evidence reference supports this new successor version.',
+        ];
+        $reinstated = $service->reinstate(...$arguments);
+        $retried = $service->reinstate(...$arguments);
+
+        $this->assertSame($reinstated, $retried);
+        $this->assertSame($proposal['claim_id'], $reinstated['claim_id']);
+        $this->assertDatabaseHas('claim_versions', [
+            'id' => $proposal['claim_version_id'],
+            'disposition' => 'withdrawn',
+        ]);
+        $this->assertDatabaseHas('claim_versions', [
+            'id' => $reinstated['claim_version_id'],
+            'claim_id' => $proposal['claim_id'],
+            'field_definition_version_id' => $definitionVersionId,
+            'version_number' => 2,
+            'disposition' => 'proposed',
+            'supersedes_version_id' => $proposal['claim_version_id'],
+            'correction_reason' => 'synthetic_reinstatement',
+        ]);
+        $this->assertDatabaseHas('claim_evidence_links', [
+            'claim_version_id' => $reinstated['claim_version_id'],
+            'evidence_reference_id' => $freshEvidenceId,
+            'relationship_type' => 'reinstatement_support',
+        ]);
+        $this->assertDatabaseHas('editorial_review_cases', [
+            'id' => $proposal['editorial_review_case_id'],
+            'status' => 'withdrawn',
+        ]);
+        $this->assertDatabaseHas('editorial_review_cases', [
+            'id' => $reinstated['editorial_review_case_id'],
+            'claim_version_id' => $reinstated['claim_version_id'],
+            'status' => 'submitted',
+        ]);
+        $this->assertDatabaseHas('governance_outbox', [
+            'aggregate_id' => $reinstated['claim_version_id'],
+            'event_type' => 'field_claim.proposal.submitted',
+            'status' => 'pending',
+        ]);
+        $this->assertSame(0, DB::table('publication_decisions')->count());
+        $this->assertSame(0, DB::table('public_projections')->count());
+    }
+
     private function fixture(string $assignedCategory = 'private_school'): array
     {
         $entityId = $this->entity();
@@ -366,98 +578,5 @@ class FieldAwareClaimProposalTest extends TestCase
     private function actor(string $id, array $capabilities, string $class = 'human'): array
     {
         return ['actor_id' => $id, 'actor_class' => $class, 'capabilities' => $capabilities];
-    }
-
-    public function test_field_aware_correction_preserves_exact_binding_and_reenters_editorial_review_idempotently(): void
-    {
-        [$entityId, $definitionVersionId, $evidenceId] = $this->fixture();
-        $proposal = app(FieldAwareClaimProposalService::class)->propose(
-            $this->proposalActor(),
-            $entityId,
-            'institution_display_name',
-            1,
-            'Synthetic Institute Before Correction',
-            [$evidenceId],
-            $this->sourceContext(),
-            'institution',
-            'i5-original-proposal'
-        );
-
-        DB::table('evidence_references')->where('id', $evidenceId)->update(['status' => 'eligible_for_review']);
-        $actor = $this->actor('i5-correction-editor', ['correct_claim', 'submit_directory_proposal']);
-        $service = app(FieldAwareClaimCorrectionService::class);
-        $arguments = [
-            $actor,
-            $proposal['claim_version_id'],
-            'Synthetic Institute Corrected',
-            [$evidenceId],
-            $this->sourceContext(),
-            'i5-field-correction-key',
-            '2026-11-16',
-            null,
-            'synthetic_value_correction',
-            'Synthetic correction uses eligible fixture evidence.',
-        ];
-
-        $corrected = $service->correct(...$arguments);
-        $retried = $service->correct(...$arguments);
-
-        $this->assertSame($corrected, $retried);
-        $this->assertSame($proposal['claim_id'], $corrected['claim_id']);
-        $this->assertSame(
-            $definitionVersionId,
-            DB::table('claim_versions')->where('id', $proposal['claim_version_id'])->value('field_definition_version_id')
-        );
-        $this->assertSame(
-            json_encode('Synthetic Institute Before Correction', JSON_THROW_ON_ERROR),
-            DB::table('claim_versions')->where('id', $proposal['claim_version_id'])->value('value')
-        );
-        $this->assertDatabaseHas('claim_versions', [
-            'id' => $corrected['claim_version_id'],
-            'claim_id' => $proposal['claim_id'],
-            'field_definition_version_id' => $definitionVersionId,
-            'version_number' => 2,
-            'disposition' => 'proposed',
-            'supersedes_version_id' => $proposal['claim_version_id'],
-            'correction_reason' => 'synthetic_value_correction',
-        ]);
-        $this->assertDatabaseHas('editorial_review_cases', [
-            'id' => $corrected['editorial_review_case_id'],
-            'claim_version_id' => $corrected['claim_version_id'],
-            'status' => 'submitted',
-        ]);
-        $this->assertSame(0, DB::table('publication_decisions')->count());
-        $this->assertSame(0, DB::table('public_projections')->count());
-    }
-
-    public function test_field_aware_correction_rejects_invalid_typed_values_without_successor(): void
-    {
-        [$entityId, , $evidenceId] = $this->fixture();
-        $proposal = app(FieldAwareClaimProposalService::class)->propose(
-            $this->proposalActor(),
-            $entityId,
-            'institution_display_name',
-            1,
-            'Synthetic Institute Original',
-            [$evidenceId],
-            $this->sourceContext(),
-            'institution',
-            'i5-invalid-correction-original'
-        );
-        DB::table('evidence_references')->where('id', $evidenceId)->update(['status' => 'eligible_for_review']);
-
-        $this->expectException(ValidationException::class);
-        app(FieldAwareClaimCorrectionService::class)->correct(
-            $this->actor('i5-invalid-correction-editor', ['correct_claim', 'submit_directory_proposal']),
-            $proposal['claim_version_id'],
-            ['unexpected' => 'object'],
-            [$evidenceId],
-            $this->sourceContext(),
-            'i5-invalid-correction-key',
-            '2026-11-16',
-            null,
-            'synthetic_invalid_correction',
-            'Invalid typed value must be rejected.'
-        );
     }
 }
