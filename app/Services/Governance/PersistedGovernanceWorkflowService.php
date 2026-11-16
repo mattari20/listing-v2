@@ -852,7 +852,7 @@ final class PersistedGovernanceWorkflowService
                     } else {
                         $snapshotPayload = json_decode($snapshot->payload, true, 512, JSON_THROW_ON_ERROR);
                         if (($snapshotPayload['is_deeni_madaris'] ?? false) === true) {
-                            throw new \\RuntimeException('Restricted Deeni Madaris snapshots cannot be projected.');
+                            throw new \RuntimeException('Restricted Deeni Madaris snapshots cannot be projected.');
                         }
 
                         $latestSnapshotId = DB::table('publication_snapshots')
@@ -909,7 +909,7 @@ final class PersistedGovernanceWorkflowService
                     $version === null || $version->field_definition_version_id === null ||
                     $reviewCase === null ||
                     (string) $version->field_definition_version_id !== (string) ($payload['field_definition_version_id'] ?? '')) {
-                    throw new \\RuntimeException('Field claim proposal outbox event failed its proposal integrity checks.');
+                    throw new \RuntimeException('Field claim proposal outbox event failed its proposal integrity checks.');
                 }
 
                 $isWithdrawnOrSuperseded = $version->disposition === 'withdrawn' ||
@@ -917,7 +917,7 @@ final class PersistedGovernanceWorkflowService
                     DB::table('claim_versions')->where('supersedes_version_id', $version->id)->exists();
                 if ($isWithdrawnOrSuperseded === false &&
                     ($version->disposition !== 'proposed' || $reviewCase->status !== 'submitted')) {
-                    throw new \\RuntimeException('Field claim proposal outbox event no longer matches an active submitted proposal.');
+                    throw new \RuntimeException('Field claim proposal outbox event no longer matches an active submitted proposal.');
                 }
                 // Withdrawn or superseded proposals are acknowledged without reactivating review or publication.
             } elseif ($event->event_type === 'publication.snapshot.rollback') {
