@@ -56,6 +56,8 @@ final class AccountSessionTest extends TestCase
         RoleAssignment::query()->create([
             'user_id' => $user->getKey(),
             'role' => 'service_identity',
+            'scope_type' => 'service',
+            'scope_id' => 'synthetic-service-01',
         ]);
 
         $this->postJson('/account/session', [
@@ -64,6 +66,21 @@ final class AccountSessionTest extends TestCase
         ])->assertUnprocessable();
 
         $this->assertGuest('web');
+    }
+
+    public function test_authenticated_session_cannot_switch_accounts_without_signing_out(): void
+    {
+        $current = $this->makeUser('current@example.test');
+        $other = $this->makeUser('other@example.test');
+
+        $this->actingAs($current, 'web')
+            ->postJson('/account/session', [
+                'email' => $other->email,
+                'password' => 'synthetic-password',
+            ])
+            ->assertStatus(409);
+
+        $this->assertAuthenticatedAs($current, 'web');
     }
 
     public function test_unknown_account_and_wrong_password_share_the_same_response(): void

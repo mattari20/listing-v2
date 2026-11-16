@@ -14,6 +14,12 @@ final class AccountSessionController extends Controller
 {
     public function store(Request $request): JsonResponse
     {
+        if (Auth::guard('web')->check()) {
+            return response()->json([
+                'message' => 'An account session is already active. Sign out before signing in again.',
+            ], 409);
+        }
+
         $request->merge([
             'email' => mb_strtolower(trim((string) $request->input('email', ''))),
         ]);

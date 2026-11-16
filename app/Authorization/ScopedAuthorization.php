@@ -44,7 +44,7 @@ final class ScopedAuthorization
         ?string $resourceId = null,
         ?int $subjectOwnerUserId = null,
     ): bool {
-        if ($actor === null || ! $actor->is_active || $action === '' || $resourceType === '') {
+        if ($actor === null || $actor->is_active === false || $action === '' || $resourceType === '') {
             return false;
         }
 
@@ -72,12 +72,16 @@ final class ScopedAuthorization
             })
             ->where(function ($query) use ($resourceType, $resourceId): void {
                 $query->where(function ($global): void {
-                    $global->whereNull('scope_type')->whereNull('scope_id');
+                    $global->where('role', 'administrator')
+                        ->whereNull('scope_type')
+                        ->whereNull('scope_id');
                 });
 
                 if ($resourceId !== null) {
                     $query->orWhere(function ($scoped) use ($resourceType, $resourceId): void {
-                        $scoped->where('scope_type', $resourceType)->where('scope_id', $resourceId);
+                        $scoped->where('role', '!=', 'administrator')
+                            ->where('scope_type', $resourceType)
+                            ->where('scope_id', $resourceId);
                     });
                 }
             })

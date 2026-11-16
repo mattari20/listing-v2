@@ -168,8 +168,8 @@ final class RoleAssignmentService
             throw new InvalidArgumentException('Unsupported role. Administrator grants are not available through this service.');
         }
 
-        if (($scopeType === null) !== ($scopeId === null) || ($scopeType !== null && ($scopeType === '' || $scopeId === ''))) {
-            throw new InvalidArgumentException('A resource scope requires both a non-empty type and identifier.');
+        if ($scopeType === null || $scopeId === null || $scopeType === '' || $scopeId === '') {
+            throw new InvalidArgumentException('Every grantable role requires a non-empty exact resource scope.');
         }
 
         if (in_array($reasonCode, self::REASON_CODES, true) === false) {

@@ -30,6 +30,14 @@ final class ScopedAuthorizationTest extends TestCase
         $this->assertFalse($authorization->allows($user, 'unknown.action', 'provider', 'provider-01'));
     }
 
+    public function test_non_administrator_global_role_assignment_fails_closed(): void
+    {
+        $user = $this->makeUser('global-reviewer@example.test');
+        $this->assign($user, 'data_reviewer');
+
+        $this->assertFalse(app(ScopedAuthorization::class)->allows($user, 'evidence.review', 'provider', 'provider-01'));
+    }
+
     public function test_global_administrator_role_is_limited_to_role_and_audit_capabilities(): void
     {
         $admin = $this->makeUser('admin@example.test');
@@ -46,7 +54,7 @@ final class ScopedAuthorizationTest extends TestCase
     public function test_self_review_and_self_publication_are_denied_even_with_role(): void
     {
         $user = $this->makeUser('publisher@example.test');
-        $this->assign($user, 'publisher');
+        $this->assign($user, 'publisher', 'claim', 'claim-1');
 
         $authorization = app(ScopedAuthorization::class);
 
@@ -57,14 +65,18 @@ final class ScopedAuthorizationTest extends TestCase
     public function test_expired_and_revoked_assignments_are_denied(): void
     {
         $user = $this->makeUser('expired@example.test');
-        $expired = $this->assign($user, 'data_reviewer');
+        $expired = $this->assign($user, 'data_reviewer', 'provider', 'provider-01');
+        $authorization = app(ScopedAuthorization::class);
+
+        $this->assertTrue($authorization->allows($user, 'evidence.review', 'provider', 'provider-01'));
+
         $expired->forceFill(['expires_at' => now()->subMinute()])->save();
 
-        $this->assertFalse(app(ScopedAuthorization::class)->allows($user, 'evidence.review', 'provider', 'provider-01'));
+        $this->assertFalse($authorization->allows($user, 'evidence.review', 'provider', 'provider-01'));
 
         $expired->forceFill(['expires_at' => null, 'revoked_at' => now()])->save();
 
-        $this->assertFalse(app(ScopedAuthorization::class)->allows($user, 'evidence.review', 'provider', 'provider-01'));
+        $this->assertFalse($authorization->allows($user, 'evidence.review', 'provider', 'provider-01'));
     }
 
     public function test_role_grant_is_scoped_audited_and_idempotent(): void
@@ -93,7 +105,7 @@ final class ScopedAuthorizationTest extends TestCase
         $admin = $this->makeUser('admin-conflict@example.test');
         $target = $this->makeUser('target-conflict@example.test');
         $this->assign($admin, 'administrator');
-        $this->assign($target, 'data_reviewer');
+        $this->assign($target, 'data_reviewer', 'provider', 'provider-01');
 
         $this->expectException(AuthorizationException::class);
 
@@ -107,12 +119,30 @@ final class ScopedAuthorizationTest extends TestCase
         );
     }
 
+    public function test_role_grant_requires_an_exact_resource_scope(): void
+    {
+        $admin = $this->makeUser('admin-global-grant@example.test');
+        $target = $this->makeUser('target-global-grant@example.test');
+        $this->assign($admin, 'administrator');
+
+        $this->expectException(InvalidArgumentException::class);
+
+        app(RoleAssignmentService::class)->grant(
+            $admin,
+            $target,
+            'data_reviewer',
+            null,
+            null,
+            'operational_need',
+        );
+    }
+
     public function test_role_revocation_is_audited_and_takes_effect_immediately(): void
     {
         $admin = $this->makeUser('admin-revoke@example.test');
         $target = $this->makeUser('target-revoke@example.test');
         $this->assign($admin, 'administrator');
-        $assignment = $this->assign($target, 'data_reviewer');
+        $assignment = $this->assign($target, 'data_reviewer', 'provider', 'provider-01');
 
         app(RoleAssignmentService::class)->revoke($admin, $assignment, 'access_review');
 
@@ -130,7 +160,7 @@ final class ScopedAuthorizationTest extends TestCase
         $admin = $this->makeUser('admin-inactive-revoke@example.test');
         $target = $this->makeUser('inactive-target@example.test');
         $this->assign($admin, 'administrator');
-        $assignment = $this->assign($target, 'data_reviewer');
+        $assignment = $this->assign($target, 'data_reviewer', 'provider', 'provider-01');
         $target->forceFill(['is_active' => false])->save();
 
         app(RoleAssignmentService::class)->revoke($admin, $assignment, 'incident_response');
@@ -150,7 +180,7 @@ final class ScopedAuthorizationTest extends TestCase
         $service = app(RoleAssignmentService::class);
 
         try {
-            $service->grant($admin, $admin, 'moderator', null, null, 'operational_need');
+            $service->grant($admin, $admin, 'moderator', 'review', 'review-01', 'operational_need');
             $this->fail('Self-grant should be rejected.');
         } catch (AuthorizationException) {
             $this->assertTrue(true);
@@ -159,7 +189,7 @@ final class ScopedAuthorizationTest extends TestCase
         $target = $this->makeUser('target-admin@example.test');
 
         $this->expectException(InvalidArgumentException::class);
-        $service->grant($admin, $target, 'administrator', null, null, 'operational_need');
+        $service->grant($admin, $target, 'administrator', 'user', (string) $target->getKey(), 'operational_need');
     }
 
     public function test_non_administrator_cannot_grant_roles_and_unknown_reason_codes_fail_closed(): void
@@ -169,7 +199,7 @@ final class ScopedAuthorizationTest extends TestCase
         $service = app(RoleAssignmentService::class);
 
         try {
-            $service->grant($user, $target, 'data_reviewer', null, null, 'operational_need');
+            $service->grant($user, $target, 'data_reviewer', 'provider', 'provider-01', 'operational_need');
             $this->fail('Unprivileged role grant should be rejected.');
         } catch (AuthorizationException) {
             $this->assertTrue(true);
@@ -179,7 +209,7 @@ final class ScopedAuthorizationTest extends TestCase
         $this->assign($admin, 'administrator');
 
         $this->expectException(InvalidArgumentException::class);
-        $service->grant($admin, $target, 'data_reviewer', null, null, 'free-form-personal-data');
+        $service->grant($admin, $target, 'data_reviewer', 'provider', 'provider-01', 'free-form-personal-data');
     }
 
     private function makeUser(string $email): User
