@@ -282,7 +282,7 @@ P01–P04 are delivered and validated for their bounded synthetic local/CI scope
 - [R2 Model and Provider Decision Pack](04-roadmap/M3-07_R2_MODEL_PROVIDER_DECISION_PACK.md) — options and approval criteria; no model/provider selected, no external inference, no spend.
 - [R2 Completion and Decision Record](04-roadmap/M3-07_R2_COMPLETION_AND_DECISION_RECORD.md) — records R2 preparation completion and the remaining owner/qualified-review decisions.
 
-R2 is complete as documentation/decision-pack preparation only. The next agenda is R3 source-rights and model-feasibility decision reconciliation. No source access, permission request, model activation, connector, scheduler, production activity or spend is authorized.
+R2 is complete as documentation/decision-pack preparation only. R3 is complete as a no-activation source-rights/model-feasibility reconciliation. GOV-04 remains RESEARCH ONLY, no model/provider is selected, and G2-G7 remain blocked. No source access, permission request, model activation, connector, scheduler, production activity or spend is authorized.
 
 
 ## M3-07 — Pakistan-wide discovery architecture and dynamic field governance
@@ -291,7 +291,7 @@ R2 is complete as documentation/decision-pack preparation only. The next agenda 
 - [M3-07 D1 Field Registry Contract](04-roadmap/M3-07_D1_FIELD_REGISTRY_CONTRACT.md) — immutable field identity/versioning, applicability, types, privacy, evidence, visibility and lifecycle rules; see linked D2-D5 records for storage, service boundaries, synthetic pilot and implementation proposal.
 - [M3-07 R3 Source-Rights and Model-Feasibility Reconciliation](04-roadmap/M3-07_R3_SOURCE_RIGHTS_AND_MODEL_FEASIBILITY_RECONCILIATION.md) — no-activation disposition, R1/R2 gate status and I1-I3 delivery reconciliation.
 
-I1-I3 are merged for bounded synthetic local/CI scopes. I4 is now separately authorized and under implementation in branch feature/m3-07-i4-field-definition-governance. I5-I7 remain separately gated. Live source access and AI/provider activation remain blocked by G2-G9.
+I1-I3 are merged for bounded synthetic local/CI scopes. I4 was delivered and merged through PR #210 as `88345f0cfaea66bbdd841b0c18222b83307efac3`; exact-head PHP 8.5 foundation CI and documentation validation passed. I4 owner acceptance remains a separate decision. I5-I7 remain separately gated. Live source access and AI/provider activation remain blocked by G2-G9.
 
-- [I4 Field Definition Governance Lifecycle Proposal](04-roadmap/M3-07_I4_FIELD_DEFINITION_GOVERNANCE_LIFECYCLE_PROPOSAL.md) — approved bounded scope.
-- [I4 Implementation Record](04-roadmap/M3-07_I4_FIELD_DEFINITION_GOVERNANCE_IMPLEMENTATION_RECORD.md) — implementation files, lifecycle controls, synthetic acceptance coverage and validation status.
+- [I4 Field Definition Governance Lifecycle Proposal](04-roadmap/M3-07_I4_FIELD_DEFINITION_GOVERNANCE_LIFECYCLE_PROPOSAL.md) — owner-authorized bounded scope.
+- [I4 Implementation Record](04-roadmap/M3-07_I4_FIELD_DEFINITION_GOVERNANCE_IMPLEMENTATION_RECORD.md) — merged implementation, lifecycle controls, 17 synthetic test methods and exact-head validation evidence.
