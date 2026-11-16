@@ -37,9 +37,7 @@ final class RoleAssignmentService
         'access_review',
     ];
 
-    public function __construct(private readonly ScopedAuthorization $authorization)
-    {
-    }
+    public function __construct(private readonly ScopedAuthorization $authorization) {}
 
     public function grant(
         User $actor,
