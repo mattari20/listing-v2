@@ -5,7 +5,7 @@
 **Base:** `main` at `690d7d108af7bca2ea71e43c705a3c72db41c958`  
 **Branch:** `test/m3-07-i7-regression-hardening`  
 **Authorization:** Explicit Product Owner authorization received 2026-11-16 for synthetic-only tests under `tests/Feature/**`, `tests/Unit/**` and I7 implementation documentation.  
-**Status:** Implemented, exact-head validated and merged in PRs #224 and #225; closeout documentation reconciliation in progress.
+**Status:** Implemented, exact-head validated, merged in PRs #224 and #225, and reconciled across project control documents.
 
 ## 1. Authorized boundary
 
@@ -54,7 +54,6 @@ Added `tests/Feature/I7DisposableSqliteMigrationTest.php`:
 - creates a fresh disposable SQLite database file outside the repository;
 - runs all 11 migrations and verifies the expected core tables and SQLite foreign-key integrity;
 - opens a second independent PDO connection to the same disposable SQLite file and verifies the unique outbox idempotency key cannot be duplicated across those connections;
-- holds an immediate SQLite write transaction on the first connection, sets the peer connection's busy timeout to zero, and verifies the peer write is rejected with a database-lock error and leaves no row behind;
 - holds an immediate SQLite write transaction on the first connection, sets the peer connection's busy timeout to zero, and verifies the peer write is rejected with a database-lock error and leaves no row behind;
 - rolls back the complete migration batch, verifies the domain tables are absent and the migration ledger is empty;
 - re-runs all migrations and repeats the schema/foreign-key checks;
