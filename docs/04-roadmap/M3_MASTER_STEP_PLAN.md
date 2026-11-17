@@ -552,3 +552,8 @@ The documentation-only preflight is recorded in [M3-08 Identity, Reviews and Sec
 ## M3-11 reviewer preparation status — 2026-11-17
 
 M3-11-01 is CLOSED for scope/authority definition only. M3-11-02 reviewer preparation is merged in PR #270 (`9ad73fcf20cb8aaab1a7e380596a93cd75b5ad09`) with exact-head FND-01 CI #442 and documentation validation #858 passed; qualified legal/privacy/safeguarding review remains BLOCKED. M3-11-03 security/accessibility reviewer preparation is documented in the current branch and awaits exact-head checks/review; no independent assessment has been performed. M3-11-03 remains BLOCKED. M3-11-04–M3-11-10 retain their independent gates. M3-11 overall remains BLOCKED / NOT ACCEPTED; no environment provisioning/access, active testing, production action or launch is authorized.
+
+
+## M3-11-04 — Human Operations and Support Readiness Preparation (2026-11-17)
+
+Repository preparation is delivered: operating model, support and incident procedures, escalation boundaries, role acceptance/coverage register and handoff. Actual readiness remains **BLOCKED**: 0/9 named roles have evidenced written acceptance; deputies, availability, competence and coverage are not evidenced. No human operations exercise was executed. Continue only with safe repository documentation until the Product Owner supplies real named acceptances. M3-11-05 environment/isolation and M3-11-06 recovery remain separately gated; no environment access, pilot, release or production execution is authorized.

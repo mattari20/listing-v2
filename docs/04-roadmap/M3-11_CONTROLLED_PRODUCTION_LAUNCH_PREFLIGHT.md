@@ -171,3 +171,8 @@ The M3-11 work packages are now consistently named M3-11-01 through M3-11-10. M3
 M3-11-02 legal/privacy/safeguarding reviewer preparation is delivered and merged in PR #270 (`9ad73fcf20cb8aaab1a7e380596a93cd75b5ad09`); exact-head FND-01 CI #442 and Project documentation validation #858 passed. Qualified human review and owner disposition remain absent, so M3-11-02 is BLOCKED.
 
 M3-11-03 independent security/accessibility reviewer preparation is documented in the current M3-11-03 review pack, response template and handoff record. No independent security test, penetration test, accessibility audit or WCAG conformance assessment has been performed. The documents await exact-head validation. M3-11-03 remains BLOCKED. M3-11-05 must separately authorize and evidence isolated V2-only environment boundaries before hosted target testing or reviewer access. M3-11 overall remains BLOCKED / NOT ACCEPTED; no environment provisioning/access, production activity or release is authorized.
+
+
+## 15. M3-11-04 human operations preparation update — 2026-11-17
+
+The repository-only operating model, role acceptance/coverage register and status/handoff record are delivered. Nine accountable roles are defined; **0/9** have named and evidenced written acceptances. Primary/deputy coverage, competence, availability, escalation and separation-of-duties remain unverified. No tabletop or real operational exercise was executed. M3-11-04 remains BLOCKED / NOT ACCEPTED for human operations readiness. The assistant is not an operational owner. No environment access, incident handling, pilot, production or release is authorized by this documentation.
