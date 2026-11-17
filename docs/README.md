@@ -372,3 +372,6 @@ The R13 repository desk review assessed all twelve scenarios (R01–R12) in the 
 ## M3-11 controlled production launch preflight
 
 - [M3-11 Controlled Production Launch Preflight and Authorization Record](04-roadmap/M3-11_CONTROLLED_PRODUCTION_LAUNCH_PREFLIGHT.md) — records M3-11 agenda initiation and evidence-based release blockers; preflight only, not production approval or launch authorization.
+
+
+- [M3-11 Option A Controlled Limited V2 Release Scope Charter](04-roadmap/M3-11_OPTION_A_CONTROLLED_LIMITED_V2_RELEASE_SCOPE_CHARTER_2026-11-17.md) — owner-selected limited release scope for existing anonymous directory/search/profile and manual text-locality discovery; not a production authorization.
