@@ -557,3 +557,10 @@ M3-11-01 is CLOSED for scope/authority definition only. M3-11-02 reviewer prepar
 ## M3-11-04 — Human Operations and Support Readiness Preparation (2026-11-17)
 
 Repository preparation is delivered: operating model, support and incident procedures, escalation boundaries, role acceptance/coverage register and handoff. Actual readiness remains **BLOCKED**: 0/9 named roles have evidenced written acceptance; deputies, availability, competence and coverage are not evidenced. No human operations exercise was executed. Continue only with safe repository documentation until the Product Owner supplies real named acceptances. M3-11-05 environment/isolation and M3-11-06 recovery remain separately gated; no environment access, pilot, release or production execution is authorized.
+
+
+## M3-11-04 PR #272 evidence and M3-11-05 runtime/isolation preparation — 2026-11-17
+
+PR [#272](https://github.com/mattari20/listing-v2/pull/272) merged as `30c04b00e3299993f7167f45b8410f82c5d8800e`; exact head `9062e5dfb739ed0c4a9dd36b61906c116f401b66`; FND-01 CI #444 and documentation validation #862 passed; main verified identical to merge commit. M3-11-04 repository preparation is delivered, but actual human operations readiness remains BLOCKED (0/9 written role acceptances).
+
+M3-11-05 repository preparation defines the V2-only environment inventory, separation principles, required evidence, safe verification sequence, stop conditions and separate authorization template. Environment target remains NOT IDENTIFIED; provisioning/access NOT PERFORMED; 0/18 isolation evidence items verified. No hosted tests or V1/production probes are permitted. M3-11-05 remains BLOCKED / NOT ACCEPTED pending separate exact authorization, named human ownership and independently verified V2-only isolation. M3-11-06 recovery remains separately gated.
