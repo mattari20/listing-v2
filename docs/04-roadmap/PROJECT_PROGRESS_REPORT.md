@@ -1385,3 +1385,12 @@ Repository preparation is delivered in the M3-11-05 runtime/environment separati
 **M3-11-04 delivery evidence:** PR #272 merged as `30c04b00e3299993f7167f45b8410f82c5d8800e`; exact head `9062e5dfb739ed0c4a9dd36b61906c116f401b66`; FND-01 CI #444 and documentation validation #862 passed; main verified identical to merge commit. Actual M3-11-04 human readiness remains blocked (0/9 role acceptances).
 
 **Current M3-11 position:** 01 CLOSED for scope definition only; 02 qualified legal/privacy/safeguarding review BLOCKED; 03 independent security/accessibility assessment BLOCKED; 04 actual human operations readiness BLOCKED; 05 environment/isolation BLOCKED; 06 backup/restore/rollback BLOCKED; 07 release candidate NOT STARTED; 08 go/no-go BLOCKED; 09 production execution NOT AUTHORIZED; 10 monitored operation/closure NOT STARTED. M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
+
+## M3-11-06 — backup, restore and rollback readiness preparation — 2026-11-17
+
+Repository preparation is delivered in the M3-11-06 recovery plan, 14-item rehearsal evidence register and status/handoff. The plan defines V2-only backup source/destination requirements, integrity/consistency, encryption, retention, synthetic-only disposable restore, application rollback versus data recovery, recovery roles, independent verification and stop conditions. **No backup or snapshot was created; no restore or rollback was performed; RPO/RTO are NOT SET and NOT MEASURED; no recovery owner or independent verifier is evidenced.** M3-11-06 remains BLOCKED / NOT ACCEPTED. It depends on M3-11-05 verified isolation and actual accepted human ownership; no recovery rehearsal is authorized.
+
+**M3-11-05 delivery evidence:** PR #273 merged as `ef136e183d9cbcd14358004b634672c19710e387`; exact head `1cacdd17bd6340a9cf41de68f171f0bc62dc137a`; FND-01 CI #445 and documentation validation #864 passed; main verified identical to merge commit. Actual M3-11-05 isolation remains blocked (target unidentified, 0/18 evidence items verified).
+
+**Current M3-11 position:** 01 CLOSED for scope definition only; 02 qualified legal/privacy/safeguarding review BLOCKED; 03 independent security/accessibility assessment BLOCKED; 04 actual human operations readiness BLOCKED; 05 environment/isolation BLOCKED; 06 backup/restore/rollback BLOCKED; 07 release candidate NOT STARTED; 08 go/no-go BLOCKED; 09 production execution NOT AUTHORIZED; 10 monitored operation/closure NOT STARTED. M3-11 overall remains BLOCKED / NOT ACCEPTED.
