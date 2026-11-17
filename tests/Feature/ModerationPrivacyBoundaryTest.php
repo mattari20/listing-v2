@@ -15,14 +15,21 @@ final class ModerationPrivacyBoundaryTest extends TestCase
 
     public function test_no_public_moderation_or_review_routes_are_registered(): void
     {
-        $uris = collect(Route::getRoutes()->getRoutes())->map(
-            static fn ($route): string => $route->uri()
+        $routes = collect(Route::getRoutes()->getRoutes());
+
+        $this->assertFalse($routes->contains(static fn ($route): bool => str_contains($route->uri(), 'moderation')));
+        $this->assertFalse($routes->contains(static fn ($route): bool => str_contains($route->uri(), 'appeal')));
+        $this->assertFalse($routes->contains(static fn ($route): bool => str_contains($route->uri(), 'rating')));
+
+        $reviewRoutes = $routes->filter(
+            static fn ($route): bool => str_contains($route->uri(), 'review')
         );
 
-        $this->assertFalse($uris->contains(static fn (string $uri): bool => str_contains($uri, 'moderation')));
-        $this->assertFalse($uris->contains(static fn (string $uri): bool => str_contains($uri, 'appeal')));
-        $this->assertFalse($uris->contains(static fn (string $uri): bool => str_contains($uri, 'review')));
-        $this->assertFalse($uris->contains(static fn (string $uri): bool => str_contains($uri, 'rating')));
+        $this->assertCount(2, $reviewRoutes);
+        foreach ($reviewRoutes as $route) {
+            $this->assertContains('auth', $route->gatherMiddleware());
+            $this->assertStringStartsWith('institutions/{institution}/editorial-cases/{case}/review', $route->uri());
+        }
     }
 
     public function test_moderation_persistence_contains_no_user_generated_content_or_identity_document_fields(): void
