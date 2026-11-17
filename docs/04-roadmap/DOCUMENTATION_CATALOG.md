@@ -1114,3 +1114,12 @@ The verification record confirms PR #240 framework delivery and PR #241's exact-
 | [M3-10 University Workflow Verification Record](M3-10_UNIVERSITY_WORKFLOW_VERIFICATION_RECORD.md) | Repository-only verification of the `university` category, service-layer correction/editorial controls, read-only HTTP routes, authorization integration gaps and synthetic tabletop scenario | Delivered — PR review pending; confirms no user-facing university correction/review route or interface; no usability pilot is currently executable |
  
 The Option B proposal was reconciled to this finding: Lahore and `university` remain proposal-only scope choices. The immediate M3-10 activity is limited to synthetic non-human tabletop and repository verification. Any user-facing route/interface implementation requires separate explicit authorization. No pilot, participant activity, real data, hosted environment or M3-11 launch is authorized.
+
+
+## M3-10 university synthetic workflow tabletop — 2026-11-17
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-10 University Synthetic Workflow Tabletop and Acceptance Evidence](M3-10_UNIVERSITY_SYNTHETIC_WORKFLOW_TABLETOP.md) | Non-human synthetic scenario for university category assignment, field-aware correction, independent editorial review/adjudication, publication, suppression, withdrawal and fail-closed cases; maps existing tests and gaps without claiming a new execution | Prepared — documentation-only tabletop script; not executed; existing service/UI and human-approval gaps remain |
+ 
+This tabletop is not a browser usability test or pilot. It does not authorize implementation of the missing representative route, human sessions, real data, hosted activity or launch. M3-10 remains IN PROGRESS and pilot readiness NOT ACCEPTED.
