@@ -1,6 +1,6 @@
 ## Latest verified position — M3-11 residual gate resolution (2026-11-17)
 
-**Verified main:** `850025bea78e72e5358f90bfe3c369b47bdd4af2` (PR #264 RCV-01 closeout; main comparison identical).  
+**Verified main:** `f2af8a392ea50cd567d9a13866f999aad634bb9d` (PR #265 residual gate/status reconciliation; main comparison identical). PR #265 exact head `bbc675318b9154f067d6619dbf84c1e83fa4e901`; FND-01 PHP 8.5 CI run #433 and Project documentation validation run #844 passed.  
 **M3-11 governance/repository preflight:** COMPLETE for current repository evidence.  
 **Residual gate resolution plan:** prepared for repository-only continuation; see [M3-11 Residual Gate Resolution Plan](M3-11_RESIDUAL_GATE_RESOLUTION_PLAN_2026-11-17.md).  
 **Production readiness:** BLOCKED / NOT ACCEPTED. M3-10 pilot readiness remains NOT ACCEPTED; no pilot go/no-go exists. Qualified legal/privacy/safeguarding, independent security/accessibility, accepted human operations ownership, V2 production isolation, backup/restore/RPO/RTO, exact release candidate and final go/no-go remain outstanding. No production/Hostinger/V1/live database access, deployment, release, URL cutover, real data, participants, external services or spend is authorized.
