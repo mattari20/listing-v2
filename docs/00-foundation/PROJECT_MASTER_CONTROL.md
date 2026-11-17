@@ -765,3 +765,10 @@ Repository-only preparation is delivered in `M3-11-04_HUMAN_OPERATIONS_SUPPORT_R
 PR [#272](https://github.com/mattari20/listing-v2/pull/272) merged as `30c04b00e3299993f7167f45b8410f82c5d8800e`; exact head `9062e5dfb739ed0c4a9dd36b61906c116f401b66`. FND-01 PHP 8.5 CI #444 and Project documentation validation #862 passed. Main was verified identical to the merge commit. M3-11-04 repository preparation is delivered; actual human readiness remains BLOCKED with 0/9 role acceptances evidenced.
 
 M3-11-05 repository preparation is now delivered in the runtime/environment separation plan, 18-item isolation evidence checklist, exact-scope authorization/evidence register and status/handoff. The target environment is NOT IDENTIFIED; no provisioning, access, configuration or hosted testing occurred; 0/18 isolation items are verified. A separate exact Product Owner authorization and named human operators/reviewers are required before any provisioning or access. M3-11-05 remains BLOCKED / NOT ACCEPTED. Latest main baseline for this package: `30c04b00e3299993f7167f45b8410f82c5d8800e`. M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
+
+## M3-11-05 PR #273 merge evidence and M3-11-06 recovery preparation — 2026-11-17
+
+PR [#273](https://github.com/mattari20/listing-v2/pull/273) merged as `ef136e183d9cbcd14358004b634672c19710e387`; exact head `1cacdd17bd6340a9cf41de68f171f0bc62dc137a`; FND-01 PHP 8.5 CI #445 and Project documentation validation #864 passed; main verified identical to merge commit. M3-11-05 repository preparation is delivered, but the target environment is unidentified, no provisioning/access occurred and 0/18 isolation items are verified; the gate remains BLOCKED.
+
+M3-11-06 repository preparation is delivered in the backup/restore/rollback plan, 14-item recovery evidence register and status/handoff. No backup or restore was performed; RPO/RTO remain unset and unmeasured; M3-11-05 environment isolation and human recovery ownership remain unresolved. M3-11-06 remains BLOCKED / NOT ACCEPTED. Latest main baseline for this package: `ef136e183d9cbcd14358004b634672c19710e387`. M3-11 overall remains BLOCKED / NOT ACCEPTED.
