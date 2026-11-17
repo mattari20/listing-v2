@@ -1208,3 +1208,6 @@ The R13 repository desk review assessed all twelve scenarios (R01–R12) in the 
 | Document | Purpose | Status |
 |---|---|---|
 | [M3-11 Controlled Production Launch Preflight and Authorization Record](M3-11_CONTROLLED_PRODUCTION_LAUNCH_PREFLIGHT.md) | Records Product Owner's M3-11 agenda-start instruction, M11-01–M11-10 packages, inherited gates, blockers, M3-01 release/rollback requirements and stop conditions | Delivered — governance/release preflight only; production readiness BLOCKED / NOT ACCEPTED; no production action authorized |
+
+
+**M3-11 preflight delivery evidence:** PR [#259](https://github.com/mattari20/listing-v2/pull/259) merged as `48e6742fc13324eaa2c081ce121b10877c316d22`; exact head `d2c7fd1d47f17fc71a77274cdc57e60f4373ac2a`; FND-01 PHP 8.5 CI #427 and Project documentation validation #832 passed; post-merge main identical to merge commit. Preflight documentation delivered; production readiness remains BLOCKED / NOT ACCEPTED.
