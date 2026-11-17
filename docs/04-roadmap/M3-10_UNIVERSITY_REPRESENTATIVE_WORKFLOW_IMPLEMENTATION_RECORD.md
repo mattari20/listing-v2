@@ -3,7 +3,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** `e5e161e2dc287fa42892f9014d0f98706c4658d5`  
 **Scope:** owner-authorized, synthetic-only local/CI application implementation  
-**Status:** implementation candidate; exact-head CI and PR review pending
+**Status:** MERGED AND VALIDATED — synthetic implementation complete; pilot readiness NOT ACCEPTED
 
 ## 1. Authorization and boundary
 
@@ -73,14 +73,19 @@ Existing service-level tests continue to cover field registry, evidence, correct
 
 No migration or dependency change is included.
 
-## 7. Validation and acceptance
+## 7. Validation and merge evidence
 
-Exact-head PHP 8.5 FND-01 foundation CI and Project documentation validation are required before merge. This record does not claim tests passed before those runs complete.
-
-Acceptance requires:
-1. Exact-head PHP 8.5 foundation CI success, including synthetic feature tests, formatting, bootstrap/routes and artifact hygiene.
-2. Exact-head documentation validation success.
-3. No unresolved review blockers and an exact-head guarded merge.
-4. Post-merge verification of the merged commit and documentation presence.
+- PR #248: [scoped university representative workflow](https://github.com/mattari20/listing-v2/pull/248) — merged.
+- Exact PR head: `679674a3fe82e95f0a2a363154d98463e101f69c`.
+- Merge commit / main head after merge: `d6ea399f4224ec86565fa6871765c201b47e69c8`.
+- Exact-head PHP 8.5 FND-01 CI #409 / run `43994320114`: **SUCCESS**. Formatting, dependency advisory check, Laravel bootstrap/routes, synthetic-only test suite and artifact hygiene all passed.
+- Exact-head Project documentation validation #803 / run `43994320275`: **SUCCESS**.
+- Post-merge Project documentation validation / run `43994418024`: **SUCCESS**.
+- CI test summary: **15 passed, 1,009 assertions, 212 warnings**. Warning output included non-fatal missing-local-`.env` diagnostics; no `.env` was created. The workflow concluded successfully.
+- No review threads or review blockers were reported; merge used an exact-head SHA guard.
 
 A green CI result validates the bounded synthetic implementation only. It is not a pilot go/no-go, legal/privacy/security/accessibility approval, human-operations acceptance, production readiness or launch authorization.
+
+## 8. Final disposition
+
+The university representative HTTP workflow implementation is merged and its synthetic CI contract passes. The previously identified missing representative route/interface gap is closed at the code level for the bounded university workflow. This does not change the M3-10 pilot disposition: pilot readiness remains **NOT ACCEPTED**, human/participant activity and real-data processing remain **NOT AUTHORIZED**, and M3-11 remains **NOT AUTHORIZED**.
