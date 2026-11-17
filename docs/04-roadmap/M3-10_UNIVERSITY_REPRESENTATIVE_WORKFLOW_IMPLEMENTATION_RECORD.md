@@ -63,10 +63,12 @@ Existing service-level tests continue to cover field registry, evidence, correct
 
 - `app/Authorization/ScopedAuthorization.php`
 - `app/Http/Controllers/UniversityRepresentativeWorkflowController.php`
+- `app/Services/Directory/UniversityRepresentativeWorkflowService.php`
 - `app/Services/Directory/EditorialReviewService.php`
 - `app/Services/Identity/RoleAssignmentService.php`
 - `routes/web.php`
 - `tests/Feature/UniversityRepresentativeWorkflowTest.php`
+- `tests/Feature/ModerationPrivacyBoundaryTest.php` — preserves the no-public-review rule while asserting internal editorial review routes require authentication.
 - `docs/05-architecture/README.md`
 
 No migration or dependency change is included.
