@@ -3,7 +3,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline main:** `929dd9c89711219ba52e405857a431720dad817f`  
 **Scope:** synthetic-only V2 feature tests and SQLite fault injection  
-**Status:** IMPLEMENTED — PR #250 open; exact-head validation pending
+**Status:** IMPLEMENTED — PR #250 open; final documentation-inclusive exact-head validation pending
 
 ## 1. Authorization and boundary
 
@@ -28,8 +28,8 @@ The rollback trigger is created and dropped inside the isolated test and is SQLi
 
 - PR #250: [University workflow adversarial hardening](https://github.com/mattari20/listing-v2/pull/250).
 - Added six tests to the existing feature suite; no application runtime code, migration, route, dependency or public surface was changed.
-- Exact-head PHP 8.5 FND-01 CI run #413 / run `43995892052`: **SUCCESS**.
-- Exact-head Project documentation validation run #809 / run `43995892027`: **SUCCESS**.
+- Code-only test head `3a50daa4cc918a5d9e7f08c71bd02436eb08d350` passed PHP 8.5 FND-01 CI run #413 / run `43995892052` and Project documentation validation run #809 / run `43995892027`.
+- Documentation catalogue/index/closeout updates were then added to PR #250. Final validation must run against the resulting documentation-inclusive PR head before merge; those results will be recorded in the post-merge evidence closeout.
 - Synthetic suite summary: **15 passed, 1,044 assertions, 218 warnings**. The warning count includes the repository's existing non-fatal missing-local-`.env` diagnostics; no `.env` was created.
 - Formatting, Composer advisory check, Laravel bootstrap/routes, synthetic test suite, artifact hygiene and documentation link validation passed.
 
