@@ -21,11 +21,11 @@ Record one decision. Silence is not approval.
 | A | **Continue synthetic-only readiness; defer any human/data-bearing pilot** | Continue documentation, synthetic local/CI tests and non-human tabletop exercises. M3-10 remains in progress; no real-world pilot or launch-readiness claim. |
 | B | **Request a separately reviewed, narrowly bounded pilot proposal** | This is permission to prepare a proposal only. It does not authorize recruitment, participants, data processing, source access, hosted activity, feature activation, deployment or spend. All applicable reviews and a separate explicit authorization are still required before activity. |
 
-**Owner decision:** [NOT RECORDED]  
-**Decision date:** [NOT RECORDED]  
-**Exact option and scope:** [OWNER TO COMPLETE]  
-**Conditions / exclusions:** [OWNER TO COMPLETE]  
-**Owner identity and authority:** [OWNER TO COMPLETE]
+**Owner decision:** OPTION B SELECTED — prepare a narrowly bounded future pilot proposal for separate review only.  
+**Decision date:** 2026-11-17.  
+**Exact option and scope:** Adult-only, invitation-based future evaluation proposal for one V2 institution/university profile review-and-correction workflow, using fabricated synthetic records in an isolated non-production environment; proposal descriptors are Lahore, Punjab, Pakistan and category university.  
+**Conditions / exclusions:** Proposal preparation only. No recruitment, contact, participants, consent, human sessions, real/personal/source data, external sources, hosted activity, feature activation, deployment, release, spend or M3-11. Existing pre-launch research deferral remains binding.  
+**Owner identity and authority:** Product Owner decision communicated in the project conversation; this pack does not record personal identity details.
 
 ## 3. Charter decisions (only if Option B is selected)
 
@@ -33,12 +33,12 @@ The Product Owner must specify each field before a proposal can be assessed. Do 
 
 | Decision field | Required bounded answer | Current status |
 |---|---|---|
-| Problem and purpose | User problem, hypothesis and what is explicitly not being tested | OPEN |
-| Pilot type | Exact activity and whether it remains synthetic-only | OPEN |
-| Geography | Country/province/district/city and any exclusions | OPEN |
-| Institution/provider scope | Categories and eligibility rules; no named participants | OPEN |
-| Product surfaces | Exact V2 routes/workflows and capabilities in scope | OPEN |
-| Population | Adult-only or other proposed population; justification and exclusions | NOT APPROVED |
+| Problem and purpose | Assess whether an adult institutional representative can understand one V2 profile review/correction workflow; no accuracy, coverage, student-discovery or launch hypothesis | PROPOSAL ONLY; not approved for activity |
+| Pilot type | Future adult-only invitation-based usability evaluation; synthetic records only; isolated non-production environment not provisioned | PROPOSAL ONLY; human activity not authorized |
+| Geography | Lahore, Punjab, Pakistan | PROPOSAL DESCRIPTOR ONLY |
+| Institution/provider scope | University category only | PROPOSAL DESCRIPTOR ONLY |
+| Product surfaces | Authenticated university representative proposal/correction HTTP routes and independent editorial-review routes; no adjudication/publication route; no browser UI acceptance evidenced | API workflow implemented; pilot surface not approved |
+| Population | Adults only; no students, minors, guardians or vulnerable participants | PROPOSAL ONLY; eligibility/research deferral and qualified review unresolved |
 | Duration | Start/end window, review cadence and automatic expiry | OPEN |
 | Success criteria | Owner-defined measurable outcomes and evidence method | OPEN |
 | Stop criteria | Defect, safety, privacy, security, support and scope-change triggers | OPEN |
@@ -53,7 +53,7 @@ Assignments must be named, accepted by the individuals, and include authority, a
 
 | Role | Minimum evidence | Status |
 |---|---|---|
-| Product Owner / pilot sponsor | Written scope decision and stop authority | NOT RECORDED |
+| Product Owner / pilot sponsor | Option B proposal-only decision recorded; no pilot sponsor authorization or operational duty accepted | PROPOSAL DECISION RECORDED; PILOT ROLE NOT ASSIGNED |
 | Pilot accountable lead | Named human, authority, availability and backup | NOT ASSIGNED |
 | Technical operations | Named V2-only operator, access boundary and coverage | NOT ASSIGNED |
 | Security incident lead | Named responder and independent escalation | NOT ASSIGNED |
@@ -93,7 +93,7 @@ For every applicable item, record the artifact link, version/hash, reviewer/owne
 
 | Item | Decision / evidence | Owner or reviewer | Date | Status |
 |---|---|---|---|---|
-| Product Owner path (A or B) | Not supplied | Product Owner | — | OPEN |
+| Product Owner path (A or B) | Option B selected for proposal preparation only; no pilot activity authorized | Product Owner | 2026-11-17 | RECORDED — PROPOSAL ONLY |
 | Bounded charter | Not supplied | Product Owner | — | OPEN |
 | Legal/privacy review | Not supplied | Qualified reviewer | — | NOT EVIDENCED |
 | Child-safeguarding review | Not supplied | Qualified reviewer, if applicable | — | NOT EVIDENCED |
@@ -104,6 +104,6 @@ For every applicable item, record the artifact link, version/hash, reviewer/owne
 
 ## 8. Current decision
 
-**No owner path decision recorded. No pilot proposed or approved. No specialist review evidenced. No human operations roster assigned. M3-10 remains IN PROGRESS and synthetic-only. Pilot readiness remains NOT ACCEPTED. M3-11 production launch remains NOT AUTHORIZED.**
+**Option B is recorded as selected for bounded proposal preparation only. The proposal is not an approved pilot charter. No pilot activity is approved. No specialist review is evidenced. No human operations roster is assigned. M3-10 remains IN PROGRESS; pilot readiness remains NOT ACCEPTED; M3-11 remains NOT AUTHORIZED.**
 
-The next action requiring the Product Owner is to record Option A or Option B and, only if Option B is chosen, complete the bounded proposal fields. Qualified reviewers and accountable human owners must then provide their own written decisions. Until then, continue only the already-authorized synthetic-only readiness work.
+The remaining owner decisions are the exact pilot charter, scope, thresholds and any later activity authorization. Qualified reviewers and accountable human owners must provide their own independent written decisions. Until all applicable gates pass and separate activity authorization is issued, continue only documentation and synthetic-only local/CI work.
