@@ -1,5 +1,12 @@
 
 
+## 11. M3-11-08 decision-pack preparation — 2026-11-17
+
+A repository-only change and go/no-go decision pack and status/handoff have been prepared. They define the mandatory dossier, accountable decision roles, GO/NO-GO/NOT DECIDED vocabulary, change-window and rollback evidence requirements. They do not issue a decision, waive a gate or authorize execution.
+
+**M3-11-08:** BLOCKED / NOT DECIDED; complete dossier not assembled. **M3-11-07:** NOT STARTED / BLOCKED; no candidate exists. M3-11-02–M3-11-06 substantive gates remain blocked. **M3-11-09:** NOT AUTHORIZED. **M3-11-10:** NOT STARTED. M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
+
 ## 10. M3-11-07 repository-only readiness preparation — 2026-11-17
 
 The M3-11-07 release-candidate readiness contract, blank candidate evidence register and status/handoff are being prepared as repository-only documentation. They define future candidate identity/provenance, mandatory entry gates, exact-candidate verification, Option A scope checks and stop conditions. They do **not** create, pin, build, verify or accept a release candidate.
