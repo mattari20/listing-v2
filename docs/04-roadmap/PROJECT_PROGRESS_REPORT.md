@@ -1,3 +1,11 @@
+## RCV-01 — Requirements-to-Capability Reconciliation (2026-11-17)
+
+**Status:** Documentary source/code/test inventory COMPLETE; exact-head validation and merge pending. **Baseline main:** `31236b49dbec3e90298e4bfc73999589da2d3f01`. The reconciliation inspects accepted M1 SR-01–SR-14 and M2 AR-001–AR-025 against V2 routes, controllers, services, migrations and synthetic test inventory. It confirms reuse of M3-04 provider/campus/programme and governance foundations, M3-05 public directory/profile/search, M3-06 manual locality, M3-08 identity/authorization foundations and M3-10 university representative correction workflow. It distinguishes these from incomplete admissions/fees/scholarships, shortlist/comparison, advanced geography, full localization/accessibility, public reviews and live source/AI activation. See [RCV-01 report](RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.md).
+
+**Disposition:** No application/runtime/schema/route/dependency/CI changes and no new test execution. This is a documentary inventory, not a fresh functional, browser, security, accessibility or production audit. RCV-01 does not authorize RCV-B02 onward, M4 implementation, public UGC, live AI/source activation or production release. M3-11 remains BLOCKED / NOT ACCEPTED. No new numeric completion percentage is claimed.
+
+---
+
 ## Post-M3 roadmap scope/gap preflight — 2026-11-17
 
 A documentary [post-M3 scope/gap reconciliation](POST_M3_SCOPE_AND_GAP_RECONCILIATION_2026-11-17.md) maps historical M4–M12 product-module labels to the M3 implementation already delivered and the remaining feature/operational gaps. The Project Master Roadmap expressly makes the detailed M3 plan supersede overlapping high-level sequencing. **No M4 implementation is authorized**; a Product Owner roadmap re-baselining decision and exact code/requirements inventory are pending. M3-11 production readiness remains BLOCKED / NOT ACCEPTED. No new percentage is claimed.
