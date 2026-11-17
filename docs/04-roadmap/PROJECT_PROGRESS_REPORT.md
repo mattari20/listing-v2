@@ -1299,3 +1299,10 @@ Delivered: anonymous browse/search, provider/institution/campus/programme/qualif
 Deferred: maps/geography (M3-06), external search engine, fuzzy/transliteration search, ranking/recommendations, comparison, accounts/reviews, saved lists, alerts, admissions workflow, performance/load targets, formal accessibility/security audit and operational hardening. No production release or public URL cutover is authorized.
 
 **Next at that time:** M3-07 AI Data-Agent scope/readiness review. The current next agenda is I6 scope/design preflight; live source/model activation remains blocked until each source has separate rights/security/privacy review and explicit owner authorization. No AI/model or source connector is activated.
+
+
+## M3-10 two-person synthetic rehearsal checklist — 2026-11-17
+
+A paper-based, non-human tabletop checklist has been prepared for the Product Owner and an ordinary-experience administrative assistant. It uses only the fictional `SYN-LHR-UNI-001` scenario and covers representative submission, independent review, original-submitter correction, immutable successor/audit expectations, authorization failures, idempotency and stop conditions. The assistant's role remains administrative only.
+
+**Status:** Documentation prepared; tabletop NOT EXECUTED. No application access, HTTP requests, participants, real data, external sources, hosted environment, production/V1/Hostinger, deployment, release, feature activation or spend. No new test or usability evidence is claimed. Specialist legal/privacy, independent security and accessibility reviews and accepted human operations ownership remain open. Pilot readiness remains NOT ACCEPTED; no pilot go/no-go; M3-11 NOT AUTHORIZED.

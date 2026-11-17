@@ -431,3 +431,13 @@ The I8 acceptance record is `M3-07_I8_SYNTHETIC_AGENT_READINESS_EVALUATION.md`. 
 | M3-10-GOV-04 | Next work depends on actual Product Owner/qualified human review evidence | External Review Response and Gate Reconciliation | No new responses evidenced in reviewed M3-10 repository records | Await evidence; no further pilot implementation eligible |
 
 This reconciliation is documentation-only. It is not a pilot go/no-go, approval, legal/security/safeguarding/accessibility opinion or production authorization.
+
+
+## M3-10 two-person synthetic rehearsal preparation — 2026-11-17
+
+| Requirement ID | Requirement | Governing record | Evidence | Status |
+|---|---|---|---|---|
+| M3-10-REH-01 | Provide a safe, understandable paper tabletop for the Product Owner and ordinary-experience administrative assistant to rehearse the synthetic university representative proposal/correction workflow without application or participant access | M3-10 Two-Person Synthetic University Workflow Rehearsal Checklist | PR #257; documentation-only checklist using `SYN-LHR-UNI-001`; exact-head CI and docs validation to be recorded after PR checks | Prepared — tabletop NOT EXECUTED; no new test/usability/specialist-review evidence |
+| M3-10-REH-02 | Preserve the assistant's administrative-only role and all pilot/production stop boundaries during the tabletop | M3-10 Two-Person Administrative Roles and Readiness Checklist; M3-10 Two-Person Synthetic University Workflow Rehearsal Checklist | Role matrix, synthetic-only scenario contract, stop conditions and findings log | Prepared — no human reviewer appointed; no pilot activity authorized |
+
+This preparation does not promote any M10-G01–G14 gate, resolve the research deferral, issue a pilot go/no-go or authorize M3-11.

@@ -883,3 +883,12 @@ The implementation adds metadata-only synthetic moderation cases, appeals and ev
 | Governance ledger and roadmap reconciliation | Synchronize project controller, master roadmap, step register, traceability matrix, progress report and documentation indexes with the delivered M3-10 work and current M10-G01–G14 dispositions | Documentation-only agenda; exact-head validation required; does not accept pilot readiness or authorize M3-11 |
 
 **Current M3-10 position:** readiness framework, Option B proposal-only decision, university representative API workflow, synthetic adversarial hardening, final readiness reconciliation, reviewer handoff and external-review intake process are delivered for their authorized scopes. Pilot readiness remains NOT ACCEPTED. No new external review or exact pilot charter is evidenced in the M3-10 records reviewed. No reviewer appointment, human role assignment, participant activity or real-data processing is authorized. M3-11 remains NOT AUTHORIZED. See `M3-10_GOVERNANCE_LEDGER_AND_ROADMAP_RECONCILIATION.md`.
+
+
+## M3-10 — Two-person synthetic workflow rehearsal checklist preparation (2026-11-17)
+
+| Agenda | Scope / evidence | Status |
+|---|---|---|
+| Two-person synthetic university workflow rehearsal checklist | Prepare a paper-based, non-human tabletop guide for the Product Owner and ordinary-experience administrative assistant using fictional scenario `SYN-LHR-UNI-001`; define role boundaries, expected workflow controls, issue log and stop conditions | Prepared — documentation-only; tabletop NOT EXECUTED; no new software test, usability evidence, specialist approval or pilot authorization |
+
+**Disposition:** The checklist allows the two project administrators to read through the existing V2 representative proposal/correction workflow and record unclear documentation. The assistant is not a technical or specialist reviewer. No application access, credentials, HTTP requests, environment provisioning, participants, real data, source access, production/V1/Hostinger, deployment, release, spend or feature activation is involved. Existing research deferral remains binding. Pilot readiness remains NOT ACCEPTED; no pilot go/no-go; M3-11 NOT AUTHORIZED.

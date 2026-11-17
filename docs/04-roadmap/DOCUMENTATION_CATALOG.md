@@ -1185,3 +1185,12 @@ This record does not contact or appoint reviewers, resolve the research deferral
 | [M3-10 Governance Ledger and Roadmap Reconciliation](M3-10_GOVERNANCE_LEDGER_AND_ROADMAP_RECONCILIATION.md) | Synchronizes the project controller, master roadmap, step register, traceability, progress report and indexes with current M3-10 delivery and blocked readiness gates | Prepared — documentation-only; pilot readiness NOT ACCEPTED; no pilot go/no-go; M3-11 NOT AUTHORIZED |
 
 This reconciliation records the next dependency as actual Product Owner and qualified human review evidence. It does not appoint reviewers, change gate states, authorize a pilot or production launch.
+
+
+## M3-10 two-person synthetic rehearsal checklist — 2026-11-17
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-10 Two-Person Synthetic University Workflow Rehearsal Checklist](M3-10_TWO_PERSON_SYNTHETIC_REHEARSAL_CHECKLIST.md) | Paper-based, non-human tabletop guide for the Product Owner and an ordinary-experience administrative assistant to walk through the synthetic university representative proposal/correction workflow; includes fictional scenario values, expected controls, findings log and stop conditions | Prepared — NOT EXECUTED; creates no software test result, usability evidence, specialist approval or pilot authorization |
+
+The checklist is a documentation aid only. It does not replace qualified reviews, resolve research deferral, authorize participant activity or change M10-G01–G14. Pilot readiness remains NOT ACCEPTED; M3-11 NOT AUTHORIZED.

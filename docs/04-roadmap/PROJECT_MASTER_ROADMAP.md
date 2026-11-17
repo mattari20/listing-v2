@@ -135,3 +135,8 @@ M3-08C moderation/appeals foundations and M3-08D privacy/safeguarding/security v
 ## M3-10 governance reconciliation — 2026-11-17
 
 The current M3-10 records are reconciled in [M3-10 Governance Ledger and Roadmap Reconciliation](M3-10_GOVERNANCE_LEDGER_AND_ROADMAP_RECONCILIATION.md). Option B remains proposal preparation only. M10-G01–G14 retain their evidence-backed blocked/open states; pilot readiness is NOT ACCEPTED. M3-11 remains conditional and is NOT AUTHORIZED. The next eligible action is intake of actual Product Owner and qualified human review evidence, not production or pilot implementation.
+
+
+## M3-10 two-person synthetic rehearsal preparation — 2026-11-17
+
+The [Two-Person Synthetic University Workflow Rehearsal Checklist](M3-10_TWO_PERSON_SYNTHETIC_REHEARSAL_CHECKLIST.md) is prepared as a paper-based, non-human tabletop aid for the Product Owner and ordinary-experience administrative assistant. It uses only the existing fictional `SYN-LHR-UNI-001` scenario, defines the expected representative submission/correction and reviewer boundaries, and provides a findings log and stop conditions. The tabletop has NOT been executed; this document creates no new test, usability, specialist-review or pilot evidence. All M10-G01–G14 dispositions remain unchanged; pilot readiness NOT ACCEPTED; M3-11 NOT AUTHORIZED.
