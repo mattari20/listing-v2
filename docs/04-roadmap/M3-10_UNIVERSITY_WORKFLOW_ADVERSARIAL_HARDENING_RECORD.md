@@ -3,7 +3,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline main:** `929dd9c89711219ba52e405857a431720dad817f`  
 **Scope:** synthetic-only V2 feature tests and SQLite fault injection  
-**Status:** IMPLEMENTED — PR #250 open; final documentation-inclusive exact-head validation pending
+**Status:** MERGED AND VALIDATED — synthetic adversarial tests complete; pilot readiness NOT ACCEPTED
 
 ## 1. Authorization and boundary
 
@@ -28,8 +28,12 @@ The rollback trigger is created and dropped inside the isolated test and is SQLi
 
 - PR #250: [University workflow adversarial hardening](https://github.com/mattari20/listing-v2/pull/250).
 - Added six tests to the existing feature suite; no application runtime code, migration, route, dependency or public surface was changed.
-- Code-only test head `3a50daa4cc918a5d9e7f08c71bd02436eb08d350` passed PHP 8.5 FND-01 CI run #413 / run `43995892052` and Project documentation validation run #809 / run `43995892027`.
-- Documentation catalogue/index/closeout updates were then added to PR #250. Final validation must run against the resulting documentation-inclusive PR head before merge; those results will be recorded in the post-merge evidence closeout.
+- PR #250 exact head: `f34e132b392792e5f981d7ebef79e9e6329d9085`.
+- PR #250 merge commit / main after merge: `8f04a0b4ddf6fd30052426a9a695a2e89611832e`.
+- Exact-head PHP 8.5 FND-01 CI run #416 / run `43996067166`: **SUCCESS**.
+- Exact-head Project documentation validation run #812 / run `43996067122`: **SUCCESS**.
+- Code-only intermediate head `3a50daa4cc918a5d9e7f08c71bd02436eb08d350` also passed FND-01 run #413 and documentation validation run #809; the final PR head was revalidated after all documentation changes.
+- No review threads or review submissions were present; merge used `expected_head_sha` and squash because merge commits are disabled in the repository.
 - Synthetic suite summary: **15 passed, 1,044 assertions, 218 warnings**. The warning count includes the repository's existing non-fatal missing-local-`.env` diagnostics; no `.env` was created.
 - Formatting, Composer advisory check, Laravel bootstrap/routes, synthetic test suite, artifact hygiene and documentation link validation passed.
 
@@ -39,7 +43,7 @@ The CI result validates only the bounded synthetic tests. It is not an independe
 
 The added cases verify the current role expiry/revocation, server-derived actor/source context, evidence authorization, idempotency, transaction and audit contracts. They do not authorize additional workflow capabilities, real data, external sources, participant activity, public UGC, publication activation, hosted environments or launch.
 
-**Adversarial test implementation:** COMPLETE pending PR merge and final exact-head evidence reconciliation.  
+**Adversarial test implementation:** COMPLETE — PR #250 merged and final exact-head checks passed.  
 **M3-10 pilot readiness:** NOT ACCEPTED.  
 **Human/participant activity and real-data processing:** NOT AUTHORIZED.  
 **M3-11 production launch:** NOT AUTHORIZED.

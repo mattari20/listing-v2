@@ -1147,6 +1147,9 @@ This implementation does not authorize or conduct a pilot, process real data, ac
 
 | Document | Purpose | Status |
 |---|---|---|
-| [M3-10 University Workflow Adversarial Hardening Record](M3-10_UNIVERSITY_WORKFLOW_ADVERSARIAL_HARDENING_RECORD.md) | Synthetic-only adversarial feature coverage for revoked/expired roles, forged request fields, invalid evidence, idempotency conflicts, transaction rollback and audit integrity | Delivered — PR #250 validation in progress; pilot readiness remains NOT ACCEPTED |
+| [M3-10 University Workflow Adversarial Hardening Record](M3-10_UNIVERSITY_WORKFLOW_ADVERSARIAL_HARDENING_RECORD.md) | Synthetic-only adversarial feature coverage for revoked/expired roles, forged request fields, invalid evidence, idempotency conflicts, transaction rollback and audit integrity | Merged and validated — PR #250 exact-head FND-01 CI #416 and documentation validation #812 passed; pilot readiness remains NOT ACCEPTED |
 
 The adversarial suite does not authorize real data, participants, external services, public UGC/publication, hosted activity, deployment or M3-11.
+
+
+PR #250 was merged as `8f04a0b4ddf6fd30052426a9a695a2e89611832e` from exact head `f34e132b392792e5f981d7ebef79e9e6329d9085`. Exact-head FND-01 CI #416 and documentation validation #812 passed. See the adversarial hardening record for the test scope and limitations.
