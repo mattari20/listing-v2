@@ -1,3 +1,9 @@
+## Latest verified position — M3-11-07 release-candidate readiness preparation (2026-11-17)
+
+**Verified main at package start:** `c77ad95a85ecce845d06c24eb629e368ac46be13` (PR #274 M3-11-06 closeout). **Current work:** M3-11-07 repository-only release-candidate readiness preparation. The readiness contract, blank 23-item evidence register and status/handoff are prepared on branch `docs/m3-11-07-release-candidate-readiness`; they do not constitute an actual candidate. **M3-11-07 status: NOT STARTED / BLOCKED.** No candidate ID, source SHA, artifact, digest, lock hashes, build run or candidate-specific verification exists. M3-11-02 through M3-11-06 substantive gates remain blocked; private environment remains unprovisioned, 0/18 isolation items verified, no recovery rehearsal or measured RPO/RTO. M3-11 overall remains BLOCKED / NOT ACCEPTED. No production/V1/Hostinger/live database access, deployment, release, participant activity, real data, external service, new spend or public feature activation is authorized.
+
+---
+
 ## Latest verified position — M3-11 residual gate resolution (2026-11-17)
 
 **Verified main:** `a85908f0e64bca943593efbc246025dbc55fee15` (PR #266 post-merge evidence reconciliation; main comparison identical). PR #266 exact head `babbd16d8ef751d59bf5ba4b3fd35b1f3d48d742`; FND-01 PHP 8.5 CI run #434 and Project documentation validation run #846 passed. PR #265's residual gate/status reconciliation and its exact-head checks remain recorded below.  

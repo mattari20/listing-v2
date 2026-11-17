@@ -1,3 +1,9 @@
+## Latest verified planning position — M3-11-07 release-candidate readiness preparation (2026-11-17)
+
+Verified main at start: `c77ad95a85ecce845d06c24eb629e368ac46be13`. M3-11-07 repository-only readiness documentation is prepared on branch `docs/m3-11-07-release-candidate-readiness`; no candidate was created, pinned or verified. M3-11-07 remains NOT STARTED / BLOCKED because M3-11-02–M3-11-06 substantive prerequisites remain blocked. M3-11 overall remains BLOCKED / NOT ACCEPTED. Candidate creation requires a separate exact-scope owner authorization after prerequisite gates pass. No M3-11-08 decision, M3-11-09 execution, production release or pilot is authorized.
+
+---
+
 ## Latest verified planning position — RCV-01 reconciliation (2026-11-17)
 
 **Verified main baseline before RCV-01:** `31236b49dbec3e90298e4bfc73999589da2d3f01` (includes PR #262 post-M3 scope preflight). **Current authorized work package:** RCV-01 — requirements-to-capability reconciliation, documentation/source-tree inspection only. **Disposition:** source/code/test inventory and residual backlog COMPLETE and MERGED in PR #263; exact-head FND-01 and documentation validation passed. No application implementation is authorized by RCV-01. Exact PR-head `d555a18dddd138ca828cf4fa61307dda584f4449` merged as `54045426067eb8cd48403e2829ceff0c4602dac1` after FND-01 run #44028817608 and documentation validation #44028817672 passed. Reuse M3-04 provider/campus/programme governance, M3-05 directory/search, M3-06 manual locality, M3-08 identity/authorization and M3-10 representative workflow rather than rebuilding them. Remaining product gaps and release blockers are recorded in `RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.md`. M3-11 remains BLOCKED / NOT ACCEPTED; no production or pilot activity is authorized.
