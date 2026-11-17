@@ -147,3 +147,8 @@ The Product Owner's M3-11 start instruction is recorded. The production launch i
 - No application code, migration, dependency, environment, production or deployment change was made.
 
 These results validate the repository/documentation preflight only. They do not validate a production runtime, external environment, legal/privacy/security compliance, human operations or a production release.
+
+
+## 11. Evidence-record reconciliation
+
+PR [#260](https://github.com/mattari20/listing-v2/pull/260) records the PR #259 merge evidence in the controller, progress report, traceability matrix and documentation catalogue. PR #260 merged as `a454a10ade0405cfc8a2d9d0e7bdc82a1a84a2bf`; its exact head `877e6f2e9284e8fa6363b8e64efb97a46316bb73` passed FND-01 PHP 8.5 CI #428 and Project documentation validation #834. Main was verified identical to the merge commit. This evidence-record reconciliation does not alter any M3-11 blocker or authorize production execution.
