@@ -2,7 +2,7 @@
 
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
 **Current agenda:** M3-10 — Governance Ledger and Roadmap Reconciliation  
-**Status:** Documentation-only reconciliation in progress; M3-10 pilot readiness NOT ACCEPTED  
+**Status:** Governance/roadmap reconciliation deliverable prepared for exact-head validation; M3-10 pilot readiness NOT ACCEPTED  
 **Verified main baseline:** `f39ea422f713e5f9bc4636e74f09cf45269b0517`  
 **Prior agenda evidence:** PR #254 merged as `f39ea422f713e5f9bc4636e74f09cf45269b0517`; exact head `c27e6327f60a3a69061582e59bb679536b23175f`; FND-01 PHP 8.5 CI #420 and Project documentation validation #820 passed. Main matched the merge commit.
 
