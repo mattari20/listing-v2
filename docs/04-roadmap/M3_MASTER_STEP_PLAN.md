@@ -1,3 +1,9 @@
+## Latest verified planning position — RCV-01 reconciliation (2026-11-17)
+
+**Verified main baseline before RCV-01:** `31236b49dbec3e90298e4bfc73999589da2d3f01` (includes PR #262 post-M3 scope preflight). **Current authorized work package:** RCV-01 — requirements-to-capability reconciliation, documentation/source-tree inspection only. **Disposition:** source/code/test inventory and residual backlog prepared; exact-head validation/merge pending. No application implementation is authorized by RCV-01. Reuse M3-04 provider/campus/programme governance, M3-05 directory/search, M3-06 manual locality, M3-08 identity/authorization and M3-10 representative workflow rather than rebuilding them. Remaining product gaps and release blockers are recorded in `RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.md`. M3-11 remains BLOCKED / NOT ACCEPTED; no production or pilot activity is authorized.
+
+---
+
 # M3 Master Step Plan — Mobilization, Implementation and Controlled Release
 
 **Project:** eStudent Institutes V2  
