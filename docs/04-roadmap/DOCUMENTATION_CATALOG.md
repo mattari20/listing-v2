@@ -1132,3 +1132,12 @@ This tabletop is not a browser usability test or pilot. It does not authorize im
 | [M3-10 Acceptance-Gap Reconciliation and Agenda Closeout](M3-10_ACCEPTANCE_GAP_RECONCILIATION_AND_AGENDA_CLOSEOUT.md) | Consolidates M10-01–M10-06 and M10-G01–G14, records PR/CI traceability, the missing university representative HTTP workflow, synthetic tabletop limits, outstanding qualified reviews and human ownership | Prepared — authorized readiness/documentation package complete; pilot readiness NOT ACCEPTED; M3-11 NOT AUTHORIZED |
 
 The M3-10 closeout is a blocked-readiness disposition, not pilot acceptance or a production go/no-go. Any route/interface implementation, human/data-bearing pilot or M3-11 launch requires separate explicit authorization and applicable qualified approvals.
+
+
+## M3-10 university representative workflow implementation — 2026-11-17
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-10 University Representative Workflow Implementation Record](M3-10_UNIVERSITY_REPRESENTATIVE_WORKFLOW_IMPLEMENTATION_RECORD.md) | Records authenticated university-only proposal/correction routes, exact institution-scoped representative and reviewer roles, independent editorial review, correction successor/supersession lifecycle, synthetic HTTP test coverage and validation gates | Implementation candidate — exact-head CI and PR review pending; pilot readiness remains NOT ACCEPTED |
+
+This implementation does not authorize or conduct a pilot, process real data, activate public UGC/reviews/moderation, publish public projections, access production/Hostinger, deploy, spend or authorize M3-11.
