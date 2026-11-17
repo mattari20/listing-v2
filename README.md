@@ -1,3 +1,13 @@
+## Latest verified status — 17 November 2026 (M3-11-07 preparation)
+
+- **Latest verified main at M3-11-07 start:** `c77ad95a85ecce845d06c24eb629e368ac46be13` (M3-11-06 closeout, PR #274).
+- **M3-11-07:** repository-only release-candidate readiness documentation is being prepared; no release candidate exists and candidate-specific checks have not run.
+- **M3-11 overall:** BLOCKED / NOT ACCEPTED. M3-11-02–M3-11-06 substantive gates remain blocked; the private environment is unprovisioned and recovery rehearsal/RPO/RTO evidence is absent.
+- **Production access, deployment, release and URL cutover:** NOT AUTHORIZED.
+- This preparation does not authorize candidate creation, M3-11-08 go/no-go, production execution, pilot activity or public feature activation.
+
+---
+
 # eStudent Institutes V2 — `listing-v2`
 
 An independent, greenfield education discovery and decision-support platform for students in Pakistan.
