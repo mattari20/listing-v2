@@ -2,8 +2,8 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03 through M3-06 delivered for bounded synthetic local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered; M3-08A/B/C/D bounded synthetic foundations merged; M3-09 Q01–Q06 complete for authorized synthetic/local/CI scope; M3-10 IN PROGRESS for readiness planning only; no pilot or launch approved; live AI/source activation blocked by G2-G9  
-**Last reconciled:** 2026-11-16 — M3-10 readiness framework PR #240 merged as `d733bca59e5cb519f0a3d74231145ee24d298ed4`; exact-head CI and post-merge documentation validation passed
+**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03 through M3-06 delivered for bounded synthetic local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered; M3-08A/B/C/D bounded synthetic foundations merged; M3-09 Q01–Q06 complete for authorized synthetic/local/CI scope; M3-10 readiness framework, bounded university representative workflow, adversarial hardening and governance documentation delivered for authorized scope; M3-10 pilot readiness NOT ACCEPTED pending owner/qualified human decisions; M3-11 NOT AUTHORIZED; live AI/source activation blocked by G2-G9  
+**Last reconciled:** 2026-11-17 — M3-10 governance/roadmap reconciliation PR pending; latest verified main baseline `f39ea422f713e5f9bc4636e74f09cf45269b0517`; M3-10 readiness remains NOT ACCEPTED and M3-11 NOT AUTHORIZED
 
 ## Authoritative current position
 - M3-08 preflight documentation is complete and merged in PR #231. The separately authorized M3-08A/B first-party session identity and scoped authorization foundation is merged in PR #232 as `a693b2c701adb5328e755156e1900771400b1dca`; M3-08C/D synthetic moderation, appeals and privacy/security foundations are merged in PR #234 as `42eabe8a5757e6b4c291baa52d1c01df4e08bb15` for bounded local/CI scope. Public UGC, reviews and moderation activation remain disabled; reviews are post-launch only. Independent security and qualified legal/privacy/child-safeguarding release reviews remain open. See `../04-roadmap/M3-08C_D_IMPLEMENTATION_RECORD.md`.
@@ -23,7 +23,7 @@ Build a student-first education discovery, admissions information and comparison
 The Documentation Completion Catalogue is the owner-facing inventory of delivered, updated, accepted and planned documents. A merged PR records delivery, not automatic content acceptance. Every documentation PR update and merge must reconcile the catalogue, index, controller, step register, traceability and progress report.
 
 ## Current milestone
-**M3 — M3-10 Pilot and Launch Readiness IN PROGRESS for readiness planning only; pilot scope, participants, data and operational safeguards require separate approval; M3-11 production launch remains unauthorized**
+**M3 — M3-10 readiness framework and authorized synthetic/documentation delivery complete; pilot readiness remains NOT ACCEPTED pending exact owner charter, qualified reviews and accepted human operations ownership; no pilot/go-no-go; M3-11 production launch NOT AUTHORIZED**
 
 
 ## M3-06 closeout — 2026-11-14
@@ -702,3 +702,8 @@ The package adds semantic accessibility and no-remote-asset regression tests, a 
 The Product Owner explicitly authorized moving into M3-10. Work is limited to readiness planning, documentation reconciliation and synthetic-only local/CI/tabletop exercises. The initial readiness framework merged in PR [#240](https://github.com/mattari20/listing-v2/pull/240) as `d733bca59e5cb519f0a3d74231145ee24d298ed4`; exact head `9248721ef7e50c0d68693c64a822866acc86d592` passed FND-01 CI #43893286963 and documentation validation #43893048895; post-merge documentation validation #43893419189 passed. The [M3-10 Pilot and Launch Readiness Work Plan](../04-roadmap/M3-10_PILOT_AND_LAUNCH_READINESS_WORK_PLAN.md) records the six packages, decision matrix, gate states, support/moderation requirements, incident/recovery/rollback design and pilot acceptance contract.
 
 **No pilot is approved or underway.** No participant recruitment/contact or student research, real/personal/external-source data, public UGC/reviews/moderation, hosted preview, production/Hostinger/V1 access, deployment, launch, new vendor or spend is authorized. The pre-launch student research deferral remains binding. A bounded pilot requires separate explicit owner approval of exact scope, participants, data and operational safeguards, together with applicable qualified legal/privacy/child-safeguarding and independent security review. Operations/support/incident/moderation owners are not assigned; no production backup/restore, RPO/RTO or live incident process is evidenced. M3-11 remains a separate production/launch authorization gate.
+
+
+## M3-10 governance and roadmap reconciliation — 2026-11-17
+
+The current M3-10 delivery record now includes the readiness framework, Option B proposal-only decision, university representative API workflow, synthetic adversarial hardening, final gate reconciliation, reviewer handoff and external-review intake procedure. See `../04-roadmap/M3-10_GOVERNANCE_LEDGER_AND_ROADMAP_RECONCILIATION.md`. The latest checked M3-10 repository records do not evidence a later owner-approved pilot charter, qualified external review responses or accepted human operations roster; this is not a claim about communications outside the repository. M3-10 pilot readiness remains NOT ACCEPTED. No participant activity, real data, hosted pilot, production activity or M3-11 launch is authorized.
