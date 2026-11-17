@@ -874,3 +874,12 @@ The implementation adds metadata-only synthetic moderation cases, appeals and ev
 | M10-06 | Pilot acceptance report, defect disposition and go/no-go template | Template/framework only; no pilot conducted and no launch recommendation issued |
 
 **Current disposition:** M3-10 is IN PROGRESS for readiness planning only. The [M3-10 Pilot and Launch Readiness Work Plan](M3-10_PILOT_AND_LAUNCH_READINESS_WORK_PLAN.md) was delivered in PR [#240](https://github.com/mattari20/listing-v2/pull/240), merged as `d733bca59e5cb519f0a3d74231145ee24d298ed4`; exact head `9248721ef7e50c0d68693c64a822866acc86d592` passed FND-01 CI #43893286963 and docs validation #43893048895, with post-merge docs validation #43893419189 passing. The plan contains the complete owner decision matrix and gate register. A bounded pilot cannot begin until its exact scope, participants, data and operational safeguards are separately approved and applicable qualified reviews are complete. M3-11 production launch remains separately gated.
+
+
+## M3-10 — Governance ledger and roadmap reconciliation (2026-11-17)
+
+| Agenda | Scope / evidence | Status |
+|---|---|---|
+| Governance ledger and roadmap reconciliation | Synchronize project controller, master roadmap, step register, traceability matrix, progress report and documentation indexes with the delivered M3-10 work and current M10-G01–G14 dispositions | Documentation-only agenda; exact-head validation required; does not accept pilot readiness or authorize M3-11 |
+
+**Current M3-10 position:** readiness framework, Option B proposal-only decision, university representative API workflow, synthetic adversarial hardening, final readiness reconciliation, reviewer handoff and external-review intake process are delivered for their authorized scopes. Pilot readiness remains NOT ACCEPTED. No new external review or exact pilot charter is evidenced in the M3-10 records reviewed. No reviewer appointment, human role assignment, participant activity or real-data processing is authorized. M3-11 remains NOT AUTHORIZED. See `M3-10_GOVERNANCE_LEDGER_AND_ROADMAP_RECONCILIATION.md`.
