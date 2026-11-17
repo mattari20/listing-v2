@@ -184,3 +184,37 @@ Do not create or access the private acceptance environment under this pack. M3-1
 **M3-11-03 gate:** BLOCKED pending qualified independent reports, remediation/retest and owner disposition.  
 **M3-11 overall:** BLOCKED / NOT ACCEPTED.  
 **Environment provisioning/access, production action and release:** NOT AUTHORIZED.
+
+
+## 9. Two-stage assessment protocol — effective 2026-11-17
+
+This section applies the [M3-11 Reviewer Scope and Sequencing Alignment](M3-11_REVIEWER_SCOPE_AND_SEQUENCING_ALIGNMENT_2026-11-17.md) to this security/accessibility pack. It clarifies sequencing and does not relax reviewer independence, scope boundaries, environment authorization, active-test restrictions or M3-11-03 exit criteria.
+
+### Stage 1 — preliminary repository/source and design review
+
+Stage 1 may be conducted against an exact pinned repository source commit before environment provisioning or candidate creation. It is limited to evidence available in the repository and documented design:
+
+- Security: threat model and trust boundaries; route/middleware/controller/service/policy inventory; authentication/session and scoped-authorization source; public projection/allowlist/suppression logic; dependency manifests/lockfiles; configuration examples with no secrets; storage/file/outbound-network code paths; logging/audit design; relevant synthetic tests and CI outputs.
+- Accessibility: server-rendered templates/markup; semantic structure, headings, landmarks, labels, link names, form/error/status patterns, keyboard affordances visible in source, focus-related implementation and responsive/design evidence available in the repository.
+- Both: record exact commit, paths, versions, inspection method, coverage, assumptions, limitations and evidence references. Separate confirmed source findings from questions requiring runtime/browser/assistive-technology evidence.
+
+Stage 1 security review is not active penetration testing, dynamic scanning, hosted-target testing, runtime configuration verification or a complete security certification. Stage 1 accessibility review is not browser/assistive-technology testing, actual keyboard operation, screen-reader evaluation, user testing or WCAG 2.2 AA conformance. No live or hosted target is authorized.
+
+The Stage 1 report must identify candidate/environment-dependent checks that remain **UNKNOWN / DEFERRED TO STAGE 2**, required test plans and pre-provisioning blockers. It may recommend controls and conditions but cannot certify the environment or close M3-11-03.
+
+### Stage 2 — exact candidate and approved environment verification
+
+Stage 2 requires separately completed human-role prerequisites, M3-11-05 environment authorization and independent isolation evidence, M3-11-06 authorized synthetic-only recovery rehearsal, and M3-11-07 separate candidate-creation authorization. Pin the exact candidate commit/artifact and verified target.
+
+Security active testing is permitted only under a separate written test plan that identifies the exact V2-only target, allowed methods, intensity/rate limits, time window, stop contacts and abort/rollback controls. No production, V1, shared infrastructure or third-party target testing is permitted.
+
+Accessibility evaluation must cover the exact candidate's included page templates and states using recorded browsers, operating systems, viewports and assistive technologies. Record manual keyboard and screen-reader checks, any automated tools and versions, sampling, exclusions, findings and retests. Any conformance statement must be limited to the exact tested candidate, scope, standard/version/level and evidence.
+
+Stage 2 findings must be tied to the exact candidate and authorized target. Remediation requires separately authorized implementation scope; reviewers must retest the corrected candidate. The Product Owner must record a dated disposition of all findings.
+
+### Evidence and gate rule
+
+Use separate Stage 1 and Stage 2 reports or separately dated, attributable sections. Stage 1 must not invent candidate IDs, artifact hashes, environment identifiers, runtime results or browser/assistive-technology observations. Stage 2 evidence must not be backdated or represented as Stage 1 evidence.
+
+M3-11-03 remains BLOCKED until both applicable stages, required remediation/retests and Product Owner disposition meet the existing exit criteria. This clarification authorizes no environment provisioning, reviewer access, active testing, hosted scanning, production access, participant activity, new dependency/service/spend or release.
+
