@@ -1,3 +1,8 @@
+## Post-M3 planning-preflight documentation — 2026-11-17
+
+- [Post-M3 Scope and Gap Reconciliation](POST_M3_SCOPE_AND_GAP_RECONCILIATION_2026-11-17.md) — **Delivered — review pending**; maps historical M4–M12 labels to existing M3 synthetic implementation, deferred features and mandatory release gates. It does not authorize M4 code or M3-11 production release.
+- Exact PR-head checks and merge evidence must be recorded before acceptance; this entry is not an acceptance claim.
+
 # Documentation Completion Catalogue
 
 **Project:** eStudent Institutes V2  

@@ -1,3 +1,9 @@
+## Post-M3 roadmap scope/gap preflight — 2026-11-17
+
+A documentary [post-M3 scope/gap reconciliation](POST_M3_SCOPE_AND_GAP_RECONCILIATION_2026-11-17.md) maps historical M4–M12 product-module labels to the M3 implementation already delivered and the remaining feature/operational gaps. The Project Master Roadmap expressly makes the detailed M3 plan supersede overlapping high-level sequencing. **No M4 implementation is authorized**; a Product Owner roadmap re-baselining decision and exact code/requirements inventory are pending. M3-11 production readiness remains BLOCKED / NOT ACCEPTED. No new percentage is claimed.
+
+---
+
 ## Latest verified position — M3-11 controlled production launch preflight initiated (2026-11-17)
 
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
