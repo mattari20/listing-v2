@@ -6,7 +6,6 @@ namespace Tests\Feature;
 
 use App\Models\RoleAssignment;
 use App\Models\User;
-use App\Services\Directory\FieldAwareClaimProposalService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
@@ -25,6 +24,12 @@ final class UniversityRepresentativeWorkflowTest extends TestCase
         $representative = $this->user('rep@example.test', verified: false);
         $this->assign($representative, 'institution_representative', $institution);
         $this->actingAs($representative, 'web')
+            ->postJson("/institutions/{$institution}/claims", $payload)
+            ->assertForbidden();
+
+        $inactive = $this->user('inactive@example.test', active: false);
+        $this->assign($inactive, 'institution_representative', $institution);
+        $this->actingAs($inactive, 'web')
             ->postJson("/institutions/{$institution}/claims", $payload)
             ->assertForbidden();
 
@@ -57,6 +62,14 @@ final class UniversityRepresentativeWorkflowTest extends TestCase
             'id' => $version,
             'disposition' => 'proposed',
         ]);
+        $retry = $this->actingAs($representative, 'web')
+            ->postJson("/institutions/{$institution}/claims", $this->proposalPayload($evidence))
+            ->assertCreated();
+        $this->assertSame($version, $retry->json('claim_version_id'));
+        $this->assertSame($case, $retry->json('editorial_review_case_id'));
+        $this->assertSame(1, DB::table('claims')->count());
+        $this->assertSame(1, DB::table('editorial_review_cases')->count());
+
         $this->assertDatabaseHas('editorial_review_cases', [
             'id' => $case,
             'entity_id' => $institution,
@@ -404,13 +417,13 @@ final class UniversityRepresentativeWorkflowTest extends TestCase
         return $evidence;
     }
 
-    private function user(string $email, bool $verified = true): User
+    private function user(string $email, bool $verified = true, bool $active = true): User
     {
         return User::query()->create([
             'email' => $email,
             'password' => 'synthetic-password',
             'email_verified_at' => $verified ? now() : null,
-            'is_active' => true,
+            'is_active' => $active,
         ]);
     }
 
