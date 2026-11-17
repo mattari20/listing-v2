@@ -105,24 +105,40 @@ final class UniversityRepresentativeWorkflowController extends Controller
             ->first(['id']);
         abort_if($returnedCase === null, 409);
 
-        $result = DB::transaction(function () use ($actor, $claimVersion, $validated, $institution, $request, $returnedCase): array {
-            $result = $this->corrections->correct(
+        $correctionService = $this->corrections;
+        $editorialService = $this->editorial;
+        $sourceContext = $this->syntheticSourceContext();
+        $correctionKey = $this->scopedIdempotencyKey('correction', $request->user(), $validated['idempotency_key']);
+        $correctionCloseKey = $this->scopedIdempotencyKey('correction-close', $request->user(), $validated['idempotency_key']);
+
+        $result = DB::transaction(static function () use (
+            $correctionService,
+            $editorialService,
+            $sourceContext,
+            $correctionKey,
+            $correctionCloseKey,
+            $actor,
+            $claimVersion,
+            $validated,
+            $returnedCase,
+        ): array {
+            $result = $correctionService->correct(
                 $actor,
                 $claimVersion,
                 $validated['value'],
                 $validated['evidence_reference_ids'],
-                $this->syntheticSourceContext(),
-                $this->scopedIdempotencyKey('correction', $request->user(), $validated['idempotency_key']),
+                $sourceContext,
+                $correctionKey,
                 $validated['valid_from'],
                 $validated['valid_to'] ?? null,
                 $validated['reason_code'],
                 $validated['rationale'],
             );
-            $this->editorial->supersedeAfterCorrection(
+            $editorialService->supersedeAfterCorrection(
                 $actor,
                 (string) $returnedCase->id,
                 $result['claim_version_id'],
-                $this->scopedIdempotencyKey('correction-close', $request->user(), $validated['idempotency_key']),
+                $correctionCloseKey,
             );
 
             return $result;
