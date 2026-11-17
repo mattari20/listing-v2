@@ -1153,3 +1153,12 @@ The adversarial suite does not authorize real data, participants, external servi
 
 
 PR #250 was merged as `8f04a0b4ddf6fd30052426a9a695a2e89611832e` from exact head `f34e132b392792e5f981d7ebef79e9e6329d9085`. Exact-head FND-01 CI #416 and documentation validation #812 passed. See the adversarial hardening record for the test scope and limitations.
+
+
+## M3-10 final readiness gate reconciliation — 2026-11-17
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-10 Final Readiness Gate Reconciliation](M3-10_FINAL_READINESS_GATE_RECONCILIATION.md) | Canonical current disposition of Option B proposal-only owner decision, merged university representative API workflow, synthetic adversarial hardening, M10-01–M10-06 packages and M10-G01–G14 gates | Delivered for documentation closeout; pilot readiness NOT ACCEPTED; no pilot go/no-go; M3-11 NOT AUTHORIZED |
+
+The reconciliation supersedes earlier statements that the university representative HTTP route was absent and that Option B had not been selected. It does not approve a pilot, human/participant activity, real data, hosted activity, spend or launch.
