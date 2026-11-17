@@ -101,7 +101,7 @@ final class UniversityRepresentativeWorkflowController extends Controller
             ->where('entity_id', $institution)
             ->where('claim_version_id', $claimVersion)
             ->where('submitted_by_actor_id', $actor['actor_id'])
-            ->where('status', 'changes_requested')
+            ->whereIn('status', ['changes_requested', 'superseded'])
             ->first(['id']);
         abort_if($returnedCase === null, 409);
 
