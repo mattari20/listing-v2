@@ -415,7 +415,7 @@ final class UniversityRepresentativeWorkflowTest extends TestCase
 
         try {
             try {
-                app(\\App\\Services\\Directory\\EditorialReviewService::class)->completeReview(
+                app(\App\Services\Directory\EditorialReviewService::class)->completeReview(
                     [
                         'actor_id' => 'user:'.$reviewer->getKey(),
                         'actor_class' => 'human',
@@ -428,7 +428,7 @@ final class UniversityRepresentativeWorkflowTest extends TestCase
                     'rollback-review-complete',
                 );
                 $this->fail('Expected synthetic audit insertion failure.');
-            } catch (\\Illuminate\\Database\\QueryException $exception) {
+            } catch (\Illuminate\Database\QueryException $exception) {
                 $this->assertStringContainsString('synthetic audit failure', $exception->getMessage());
             }
         } finally {
