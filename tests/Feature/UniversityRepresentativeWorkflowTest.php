@@ -6,6 +6,7 @@ namespace Tests\Feature;
 
 use App\Models\RoleAssignment;
 use App\Models\User;
+use App\Services\Identity\RoleAssignmentService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
@@ -260,7 +261,7 @@ final class UniversityRepresentativeWorkflowTest extends TestCase
             'role' => 'administrator',
         ]);
 
-        $assignment = app(\App\Services\Identity\RoleAssignmentService::class)->grant(
+        $assignment = app(RoleAssignmentService::class)->grant(
             $admin,
             $target,
             'institution_representative',
