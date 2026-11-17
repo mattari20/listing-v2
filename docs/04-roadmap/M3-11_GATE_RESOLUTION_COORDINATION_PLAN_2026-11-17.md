@@ -28,17 +28,18 @@ This plan is a coordination aid only. It does not appoint people, engage or pay 
 
 ## 3. Critical sequencing and dependencies
 
-The dependency order is not interchangeable:
+The dependency order is not interchangeable. The reviewer process is split into two stages to avoid requiring a release candidate before the preliminary reviews that are themselves prerequisites to candidate creation. See [M3-11 Reviewer Scope and Sequencing Alignment](M3-11_REVIEWER_SCOPE_AND_SEQUENCING_ALIGNMENT_2026-11-17.md) for the full protocol.
 
-1. Appoint qualified reviewers and accountable human role holders.
-2. Complete M3-11-02 and M3-11-03 assessments against an explicitly defined scope; resolve and retest findings.
-3. Complete human role acceptance and coverage under M3-11-04.
-4. Obtain a separate exact-scope Product Owner authorization for M3-11-05; identify a V2-only target and provision only after isolation design, human owners and resource/spend decision are accepted. Independently verify all isolation controls.
-5. Obtain a separate M3-11-06 rehearsal authorization after environment isolation is accepted; set RPO/RTO first, then conduct a synthetic-only V2 rehearsal with independent verification.
-6. Reconcile all prior gates and M3-10 pilot/readiness disposition. A private acceptance environment does not authorize participants or a public pilot.
-7. Obtain separate candidate-creation authorization, then create and verify a pinned candidate (M3-11-07).
-8. Assemble the complete exact-candidate decision dossier and obtain an explicit Product Owner decision (M3-11-08).
-9. Only a separate exact-scope execution authorization can open M3-11-09. M3-11-10 follows only after a validly authorized operation.
+1. Identify qualified reviewers and accountable human role holders; obtain written acceptance and competence/independence evidence.
+2. Complete Stage 1 preliminary M3-11-02 and M3-11-03 source/design reviews against a pinned repository commit. These are not final gate passes; record environment/candidate-dependent questions and pre-provisioning blockers.
+3. Complete M3-11-04 human role acceptance and coverage.
+4. Obtain separate exact-scope Product Owner authorization for M3-11-05; provision only the specifically approved V2-only environment and independently verify isolation.
+5. Obtain separate M3-11-06 rehearsal authorization after isolation is accepted; set RPO/RTO first, then complete a synthetic-only V2 recovery rehearsal with independent verification.
+6. Reconcile M3-10 pilot/readiness disposition and all applicable pre-candidate gates. A private acceptance environment does not authorize participants or a public pilot.
+7. Obtain separate candidate-creation authorization, then create and pin the candidate (M3-11-07).
+8. Complete Stage 2 candidate/environment-specific M3-11-02 and M3-11-03 assessments, remediation and independent retests. Both gates remain blocked until their full exit criteria and Product Owner dispositions are evidenced.
+9. Assemble the complete exact-candidate decision dossier and obtain an explicit Product Owner decision (M3-11-08).
+10. Only a separate exact-scope execution authorization can open M3-11-09. M3-11-10 follows only after a validly authorized operation.
 
 If any gate fails, is stale, lacks independence or cannot be tied to the correct target/candidate, stop and return to the relevant owner.
 
@@ -74,3 +75,8 @@ Escalate to the Product Owner. Do not treat schedule pressure, passing CI, merge
 - M3-11 overall: BLOCKED / NOT ACCEPTED.
 
 This plan changes no gate status and grants no additional operational authority.
+
+
+## 7. Reviewer sequencing clarification — 2026-11-17
+
+The two-stage review dependency is governed by [M3-11 Reviewer Scope and Sequencing Alignment](M3-11_REVIEWER_SCOPE_AND_SEQUENCING_ALIGNMENT_2026-11-17.md). Stage 1 source/design review precedes environment and candidate gates; Stage 2 exact-candidate/environment verification follows separately authorized environment/recovery/candidate preparation and must be completed before M3-11-08 decision. This clarification does not promote M3-11-02 or M3-11-03; both remain BLOCKED until both applicable stages, retests and Product Owner dispositions are complete.
