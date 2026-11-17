@@ -172,3 +172,7 @@ Stop the proposal and do not infer permission if it requires or encounters: mino
 **M3-11 production launch:** NOT AUTHORIZED.
 
 This agenda completes the handoff preparation deliverable only. It does not change any M3-10 gate or standing restriction.
+
+## 10. External review response intake and gate reconciliation
+
+The controlled intake, response, finding classification and M10-G01–G14 reconciliation procedure is now maintained in [M3-10 External Review Response and Gate Reconciliation](M3-10_EXTERNAL_REVIEW_RESPONSE_AND_GATE_RECONCILIATION.md). No new Product Owner charter approval or qualified external review response is evidenced in the M3-10 repository records reviewed for that reconciliation. This bounded repository finding does not make a claim about communications outside the repository. No reviewer has been contacted or appointed by this update; no gate is promoted and all activity restrictions remain unchanged.
