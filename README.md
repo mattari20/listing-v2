@@ -1,3 +1,11 @@
+## Latest verified status — 17 November 2026 (M3-11 gate coordination)
+
+- PR #276 merged as `e226fdbef1f24314c2a0c4399403342ced158ef3`; exact-head PHP 8.5 foundation CI and documentation validation passed.
+- M3-11 remains BLOCKED / NOT ACCEPTED. Current repository-only work provides a gate-resolution coordination plan and blank owner/evidence intake worksheet; no human appointments, professional reviews, environment authorization, recovery rehearsal, candidate or release decision is created.
+- Production access, deployment, pilot and release remain NOT AUTHORIZED.
+
+---
+
 ## Latest verified status — 17 November 2026 (M3-11-08 preparation)
 
 - PR #275 merged as `c1e8c70cb3433773ac45e9e35c32c446a8bf1684`; exact-head PHP 8.5 foundation CI and documentation validation passed.
