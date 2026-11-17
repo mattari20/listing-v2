@@ -1,3 +1,7 @@
+## RCV-01 requirements/capability reconciliation — 2026-11-17
+
+- [RCV-01 Requirements-to-Capability Reconciliation](RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.md) — **Delivered — exact-head validation and merge pending**; maps SR-01–SR-14 and AR-001–AR-025 against V2 routes, services, migrations and synthetic tests; identifies implemented foundations, partial/absent capabilities and a non-duplicative residual backlog. No application change or new feature authorization.
+
 ## Post-M3 planning-preflight documentation — 2026-11-17
 
 - [Post-M3 Scope and Gap Reconciliation](POST_M3_SCOPE_AND_GAP_RECONCILIATION_2026-11-17.md) — **Delivered — review pending**; maps historical M4–M12 labels to existing M3 synthetic implementation, deferred features and mandatory release gates. It does not authorize M4 code or M3-11 production release.
