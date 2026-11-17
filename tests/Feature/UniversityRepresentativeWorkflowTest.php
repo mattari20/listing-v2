@@ -6,7 +6,9 @@ namespace Tests\Feature;
 
 use App\Models\RoleAssignment;
 use App\Models\User;
+use App\Services\Directory\EditorialReviewService;
 use App\Services\Identity\RoleAssignmentService;
+use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
@@ -415,7 +417,7 @@ final class UniversityRepresentativeWorkflowTest extends TestCase
 
         try {
             try {
-                app(\App\Services\Directory\EditorialReviewService::class)->completeReview(
+                app(EditorialReviewService::class)->completeReview(
                     [
                         'actor_id' => 'user:'.$reviewer->getKey(),
                         'actor_class' => 'human',
@@ -428,7 +430,7 @@ final class UniversityRepresentativeWorkflowTest extends TestCase
                     'rollback-review-complete',
                 );
                 $this->fail('Expected synthetic audit insertion failure.');
-            } catch (\Illuminate\Database\QueryException $exception) {
+            } catch (QueryException $exception) {
                 $this->assertStringContainsString('synthetic audit failure', $exception->getMessage());
             }
         } finally {
