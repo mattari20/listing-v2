@@ -1101,3 +1101,7 @@ The verification record confirms PR #240 framework delivery and PR #241's exact-
 
 ## M3-10 owner decision and qualified review pack
 - [M3-10 Owner Decision and Qualified Review Pack](M3-10_OWNER_DECISION_AND_QUALIFIED_REVIEW_PACK.md) — records the Product Owner's two bounded path choices, charter fields, human accountability roles, qualified review requests and evidence register. No decision or approval is implied; M3-10 remains synthetic-only and in progress.
+
+
+## M3-10 Option B — bounded pilot proposal
+- [M3-10 Option B Bounded Pilot Proposal](M3-10_OPTION_B_BOUNDED_PILOT_PROPOSAL.md) — provisional adult-only, synthetic-data V2 workflow evaluation proposal for separate review; no participant activity, real data, hosted environment or pilot authorization.
