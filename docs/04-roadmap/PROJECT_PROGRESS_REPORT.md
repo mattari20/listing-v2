@@ -1,3 +1,9 @@
+## Latest verified position — M3-11-08 decision-pack preparation (2026-11-17)
+
+PR #275 M3-11-07 documentation preparation merged as `c1e8c70cb3433773ac45e9e35c32c446a8bf1684`; exact-head PHP 8.5 foundation CI #44053861067 and documentation validation #44053861068 passed; main was verified identical to the merge commit. M3-11-07 remains NOT STARTED / BLOCKED because no candidate exists and M3-11-02–M3-11-06 substantive prerequisites remain blocked. M3-11-08 repository-only decision-pack preparation is now being delivered; no dossier is assembled and no GO/NO-GO decision is issued. M3-11-08 remains BLOCKED / NOT DECIDED. M3-11 overall remains BLOCKED / NOT ACCEPTED. No production, pilot, deployment or execution is authorized.
+
+---
+
 ## Latest verified position — M3-11-07 release-candidate readiness preparation (2026-11-17)
 
 **Verified main at package start:** `c77ad95a85ecce845d06c24eb629e368ac46be13` (PR #274 M3-11-06 closeout). **Current work:** M3-11-07 repository-only release-candidate readiness preparation. The readiness contract, blank 23-item evidence register and status/handoff are prepared on branch `docs/m3-11-07-release-candidate-readiness`; they do not constitute an actual candidate. **M3-11-07 status: NOT STARTED / BLOCKED.** No candidate ID, source SHA, artifact, digest, lock hashes, build run or candidate-specific verification exists. M3-11-02 through M3-11-06 substantive gates remain blocked; private environment remains unprovisioned, 0/18 isolation items verified, no recovery rehearsal or measured RPO/RTO. M3-11 overall remains BLOCKED / NOT ACCEPTED. No production/V1/Hostinger/live database access, deployment, release, participant activity, real data, external service, new spend or public feature activation is authorized.
