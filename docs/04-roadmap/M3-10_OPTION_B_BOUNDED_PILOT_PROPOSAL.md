@@ -187,3 +187,17 @@ The Product Owner's Option B selection authorizes preparation of this proposal o
 Proceed only with repository-only verification and a non-human synthetic tabletop for the service-layer workflow. Do not describe or conduct a user-facing usability evaluation until a university representative route/interface is separately authorized, implemented and end-to-end verified. Continue seeking the owner decisions and qualified reviews listed above; keep the candidate proposal provisional until every applicable gate is evidenced.
 
 **M3-10 remains IN PROGRESS. Pilot readiness remains NOT ACCEPTED. No live pilot is approved or underway. M3-11 remains separately gated and NOT AUTHORIZED.**
+
+
+## 12. Technical workflow status update — 2026-11-17
+
+The earlier repository-verification statement that no authenticated university representative HTTP route existed is superseded by later, separately authorized and merged V2 implementation work.
+
+- PR #248 added authenticated, verified and exact-institution-scoped university representative proposal/correction HTTP routes and independent editorial-review routes.
+- Corrections are limited to the original submitter after a reviewer records `changes_requested`; corrections create immutable successor versions and return to independent editorial review.
+- PR #250 added synthetic adversarial feature coverage for revoked/expired role assignments, forged request fields, invalid/revoked evidence authority, changed-payload idempotency replay, audit-failure rollback and audit integrity.
+- PR #250 exact-head FND-01 CI #416 and Project documentation validation #812 passed; synthetic suite 15 passed, 1,044 assertions, 218 non-fatal missing-local-`.env` warnings. No `.env` was created.
+
+**Updated qualification:** the representative workflow now exists as an authenticated HTTP/API workflow in V2. No browser-facing UI, human usability acceptance, provisioned isolated environment, adjudication endpoint or publication endpoint is claimed. The proposal is still not approved to conduct. This technical change does not authorize participants, recruitment/contact/consent, human sessions, real data, source access, hosted activity, deployment, spend or public feature activation.
+
+The owner-selected Option B remains proposal preparation only. The existing research deferral remains binding. All qualified-review, accountable-human-ownership, recovery, acceptance and separate activity-authorization gates remain open.
