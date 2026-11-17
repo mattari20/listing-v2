@@ -324,3 +324,5 @@ I5-A through I5-C are complete and merged in PRs #213–#216. The exact-version 
 
 I8-A adds synthetic feature-test coverage only. It does not add a model, source connector, external API, crawler, scheduler or autonomous publication capability. I8-A was implemented, exact-head validated and merged in PR #228; the live AI Data-Agent remains blocked by G2-G9.
 - [M3-10 Owner Decision and Qualified Review Pack](04-roadmap/M3-10_OWNER_DECISION_AND_QUALIFIED_REVIEW_PACK.md) — Product Owner path decision, bounded charter, human accountability and qualified review evidence requests; no pilot approval implied
+
+- [M3-10 Option B Bounded Pilot Proposal](04-roadmap/M3-10_OPTION_B_BOUNDED_PILOT_PROPOSAL.md) — provisional narrowly bounded proposal; for owner and qualified review only, not authorization to conduct
