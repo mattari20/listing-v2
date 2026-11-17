@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-17 — M3-10 Option B proposal records Lahore and university category as proposal-only choices; repository verification confirms service-layer controls but no user-facing university correction route; pilot readiness remains not accepted
+**Last reconciled:** 2026-11-17 — M3-10 university representative routes are implemented; synthetic adversarial test coverage is added; pilot readiness remains not accepted
 
 ## Purpose and maintenance rule
 
@@ -1141,3 +1141,12 @@ The M3-10 closeout is a blocked-readiness disposition, not pilot acceptance or a
 | [M3-10 University Representative Workflow Implementation Record](M3-10_UNIVERSITY_REPRESENTATIVE_WORKFLOW_IMPLEMENTATION_RECORD.md) | Records authenticated university-only proposal/correction routes, exact institution-scoped representative and reviewer roles, independent editorial review, correction successor/supersession lifecycle, synthetic HTTP test coverage and validation evidence | Merged and validated — PR #248; pilot readiness remains NOT ACCEPTED |
 
 This implementation does not authorize or conduct a pilot, process real data, activate public UGC/reviews/moderation, publish public projections, access production/Hostinger, deploy, spend or authorize M3-11.
+
+
+## M3-10 university workflow adversarial hardening — 2026-11-17
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-10 University Workflow Adversarial Hardening Record](M3-10_UNIVERSITY_WORKFLOW_ADVERSARIAL_HARDENING_RECORD.md) | Synthetic-only adversarial feature coverage for revoked/expired roles, forged request fields, invalid evidence, idempotency conflicts, transaction rollback and audit integrity | Delivered — PR #250 validation in progress; pilot readiness remains NOT ACCEPTED |
+
+The adversarial suite does not authorize real data, participants, external services, public UGC/publication, hosted activity, deployment or M3-11.
