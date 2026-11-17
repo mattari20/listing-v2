@@ -153,3 +153,14 @@ The separately authorized university representative workflow implementation was 
 - Authenticated, verified, exact-institution-scoped university proposal/correction and independent editorial-review routes are now present. Corrections require the original submitter and a reviewer `changes_requested` decision; no adjudication/publication endpoint was added.
 
 This closes the previously identified HTTP route/interface implementation gap at the code level only. It does **not** satisfy the outstanding human operations, qualified legal/privacy/security/safeguarding/accessibility, research-deferral, recovery, budget/owner or pilot evidence gates. The M3-10 pilot readiness disposition remains **NOT ACCEPTED**, no pilot go/no-go is issued, human/participant activity and real-data processing remain **NOT AUTHORIZED**, and M3-11 remains **NOT AUTHORIZED**.
+
+
+## Follow-on synthetic adversarial hardening update — 2026-11-17
+
+The separately authorized adversarial-hardening agenda adds feature tests for revoked and expired representative assignments, forged caller-controlled actor/capability/scope/source/publication fields, unknown and revoked-authority evidence, changed-payload idempotency replay, SQLite editorial audit-failure rollback, and status-history/audit consistency.
+
+- PR #250: [university workflow adversarial hardening](https://github.com/mattari20/listing-v2/pull/250).
+- The tests use synthetic fixtures and disposable SQLite only; no application runtime code, migrations, routes, dependencies or public surfaces changed.
+- The implementation record is indexed in the documentation catalogue and project index. Final exact-head evidence is recorded in that implementation record after the documentation closeout checks complete.
+
+This strengthens synthetic assurance only. It does not change the M3-10 pilot readiness disposition: **NOT ACCEPTED**. Human/participant activity, real-data processing, hosted activity, deployment, publication activation and M3-11 remain **NOT AUTHORIZED**.
