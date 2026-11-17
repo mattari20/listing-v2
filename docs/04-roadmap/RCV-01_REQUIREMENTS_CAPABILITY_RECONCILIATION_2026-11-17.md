@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Inspected main baseline:** `31236b49dbec3e90298e4bfc73999589da2d3f01`  
 **Work type:** Repository documentation and source/test inventory; no application changes  
-**Disposition:** **RCV-01 COMPLETE** for documentary requirements/capability reconciliation. New feature implementation is not authorized by this record. M3-11 remains BLOCKED / NOT ACCEPTED.
+**Disposition:** **RCV-01 COMPLETE AND MERGED** for documentary requirements/capability reconciliation. New feature implementation is not authorized by this record. M3-11 remains BLOCKED / NOT ACCEPTED.
 
 ## 1. Purpose and method
 
@@ -16,7 +16,7 @@ This is a bounded repository inspection of the V2 `main` tree at the baseline ab
 - V2 routes, controllers, domain policies, services, models, migrations, and the tracked feature/unit test inventory.
 - M3-04 P01–P04, M3-05, M3-06 and M3-10 representative workflow implementation records.
 
-**Evidence limitation:** this is source/document inspection, not a fresh execution of the test suite, browser/UX test, independent security/accessibility review, load test, source-rights review or production audit. Existing CI/test results are cited from implementation records where relevant; they are not re-run or upgraded by this document. The repository's test fixtures are synthetic. No V1 content was inspected.
+**Evidence limitation:** this is source/document inspection, not a fresh targeted feature test, browser/UX test, independent security/accessibility review, load test, source-rights review or production audit. The existing synthetic suite was run by PR #263 CI as a regression gate; that run does not convert this documentary inventory into a fresh manual functional audit. The repository's test fixtures are synthetic. No V1 content was inspected.
 
 ## 2. Current V2 capability inventory
 
@@ -125,3 +125,16 @@ The following backlog is a **planning recommendation**, not implementation autho
 **Not performed:** application changes, migrations, new tests, full test-suite execution, browser testing, external review, production operation or release.
 
 **Acceptance basis:** merge this document and its progress/catalogue/traceability index updates only after exact-head FND-01 PHP 8.5 foundation CI and Project documentation validation both pass. The merged record closes RCV-01's documentary reconciliation scope only. It does not authorize RCV-B02 onward or complete M3-11.
+
+
+## 9. Exact-head validation and merge closeout
+
+- PR [#263](https://github.com/mattari20/listing-v2/pull/263) — exact validated head `d555a18dddd138ca828cf4fa61307dda584f4449`.
+- FND-01 PHP 8.5 foundation CI [run #44028817608](https://github.com/mattari20/listing-v2/actions/runs/44028817608) — **SUCCESS**. Composer validation/install, dependency advisory audit, Pint, Laravel bootstrap/routes, existing synthetic suite and artifact hygiene completed.
+- Project documentation validation [run #44028817672](https://github.com/mattari20/listing-v2/actions/runs/44028817672) — **SUCCESS**.
+- Existing synthetic suite: **15 passed, 1,044 assertions**; **218 non-fatal warnings** are the repository's existing attempts to read the intentionally absent local `.env`; no `.env` was created.
+- Review threads: none unresolved; submitted reviews: none.
+- PR #263 squash-merged with expected-head guard as `54045426067eb8cd48403e2829ceff0c4602dac1`.
+- Verified `main` points to the merge commit `54045426067eb8cd48403e2829ceff0c4602dac1`.
+
+**Final disposition:** RCV-01 is **CLOSED** for requirements-to-capability documentary reconciliation. This acceptance is not owner acceptance of every product requirement, a fresh manual functional audit, or permission to implement RCV-B02 onward. M3-11 remains BLOCKED / NOT ACCEPTED.
