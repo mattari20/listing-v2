@@ -1201,3 +1201,10 @@ The checklist is a documentation aid only. It does not replace qualified reviews
 The R13 repository desk review assessed all twelve scenarios (R01–R12) in the two-person synthetic university workflow checklist against the merged representative API implementation, adversarial hardening evidence and governance records. Result: **12 CLEAR, 0 UNCLEAR, 0 BLOCKED** for documentary clarity only. No new application execution, software test, human usability evidence or specialist approval is claimed. See [M3-10 R13 Desk Review and Final Agenda Closeout](M3-10_R13_DESK_REVIEW_AND_FINAL_AGENDA_CLOSEOUT.md).
 
 **Authorized M3-10 readiness-preparation agenda: COMPLETE / CLOSED** for the repository-only, synthetic/local/CI and documentation scope authorized to date. The two-person tabletop remains NOT EXECUTED; M10-G01–G14 retain their existing open/blocked dispositions; pilot readiness remains NOT ACCEPTED; no pilot go/no-go is issued; human/participant activity and real-data processing remain NOT AUTHORIZED; M3-11 remains NOT AUTHORIZED. No standing restriction is relaxed.
+
+
+## M3-11 controlled production launch preflight — 2026-11-17
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-11 Controlled Production Launch Preflight and Authorization Record](M3-11_CONTROLLED_PRODUCTION_LAUNCH_PREFLIGHT.md) | Records Product Owner's M3-11 agenda-start instruction, M11-01–M11-10 packages, inherited gates, blockers, M3-01 release/rollback requirements and stop conditions | Delivered — governance/release preflight only; production readiness BLOCKED / NOT ACCEPTED; no production action authorized |
