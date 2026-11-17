@@ -7,20 +7,17 @@ namespace App\Http\Controllers;
 use App\Authorization\ScopedAuthorization;
 use App\Models\User;
 use App\Services\Directory\EditorialReviewService;
-use App\Services\Directory\FieldAwareClaimCorrectionService;
 use App\Services\Directory\FieldAwareClaimProposalService;
-use App\Services\Directory\FieldDefinitionRegistryReader;
+use App\Services\Directory\UniversityRepresentativeWorkflowService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 final class UniversityRepresentativeWorkflowController extends Controller
 {
     public function __construct(
         private readonly ScopedAuthorization $authorization,
-        private readonly FieldDefinitionRegistryReader $registry,
+        private readonly UniversityRepresentativeWorkflowService $workflow,
         private readonly FieldAwareClaimProposalService $proposals,
-        private readonly FieldAwareClaimCorrectionService $corrections,
         private readonly EditorialReviewService $editorial,
     ) {}
 
@@ -78,13 +75,7 @@ final class UniversityRepresentativeWorkflowController extends Controller
             ['correct_claim', 'submit_directory_proposal', 'edit_directory_proposal'],
         );
 
-        $prior = DB::table('claim_versions')
-            ->join('claims', 'claims.id', '=', 'claim_versions.claim_id')
-            ->where('claim_versions.id', $claimVersion)
-            ->where('claims.subject_entity_id', $institution)
-            ->first(['claim_versions.id']);
-
-        abort_if($prior === null, 404);
+        abort_unless($this->workflow->claimVersionBelongsToInstitution($claimVersion, $institution), 404);
 
         $validated = $request->validate([
             'value' => ['required'],
@@ -97,52 +88,21 @@ final class UniversityRepresentativeWorkflowController extends Controller
             'rationale' => ['required', 'string', 'min:10', 'max:1000'],
         ]);
 
-        $returnedCase = DB::table('editorial_review_cases')
-            ->where('entity_id', $institution)
-            ->where('claim_version_id', $claimVersion)
-            ->where('submitted_by_actor_id', $actor['actor_id'])
-            ->whereIn('status', ['changes_requested', 'superseded'])
-            ->first(['id']);
-        abort_if($returnedCase === null, 409);
-
-        $correctionService = $this->corrections;
-        $editorialService = $this->editorial;
-        $sourceContext = $this->syntheticSourceContext();
-        $correctionKey = $this->scopedIdempotencyKey('correction', $request->user(), $validated['idempotency_key']);
-        $correctionCloseKey = $this->scopedIdempotencyKey('correction-close', $request->user(), $validated['idempotency_key']);
-
-        $result = DB::transaction(static function () use (
-            $correctionService,
-            $editorialService,
-            $sourceContext,
-            $correctionKey,
-            $correctionCloseKey,
+        $result = $this->workflow->correctReturnedProposal(
             $actor,
+            $institution,
             $claimVersion,
-            $validated,
-            $returnedCase,
-        ): array {
-            $result = $correctionService->correct(
-                $actor,
-                $claimVersion,
-                $validated['value'],
-                $validated['evidence_reference_ids'],
-                $sourceContext,
-                $correctionKey,
-                $validated['valid_from'],
-                $validated['valid_to'] ?? null,
-                $validated['reason_code'],
-                $validated['rationale'],
-            );
-            $editorialService->supersedeAfterCorrection(
-                $actor,
-                (string) $returnedCase->id,
-                $result['claim_version_id'],
-                $correctionCloseKey,
-            );
-
-            return $result;
-        });
+            $validated['value'],
+            $validated['evidence_reference_ids'],
+            $this->syntheticSourceContext(),
+            $this->scopedIdempotencyKey('correction', $request->user(), $validated['idempotency_key']),
+            $validated['valid_from'],
+            $validated['valid_to'] ?? null,
+            $validated['reason_code'],
+            $validated['rationale'],
+            $this->scopedIdempotencyKey('correction-close', $request->user(), $validated['idempotency_key']),
+        );
+        abort_if($result === null, 409);
 
         return response()->json([
             'status' => 'corrected_successor_submitted_for_editorial_review',
@@ -221,22 +181,12 @@ final class UniversityRepresentativeWorkflowController extends Controller
 
     private function assertUniversityInstitution(string $institution): void
     {
-        $exists = DB::table('directory_entities')
-            ->where('id', $institution)
-            ->where('entity_type', 'institution')
-            ->exists();
-
-        abort_unless($exists && $this->registry->providerCategoryForEntity($institution) === 'university', 404);
+        abort_unless($this->workflow->isUniversityInstitution($institution), 404);
     }
 
     private function assertEditorialCaseBelongsToInstitution(string $case, string $institution): void
     {
-        $exists = DB::table('editorial_review_cases')
-            ->where('id', $case)
-            ->where('entity_id', $institution)
-            ->exists();
-
-        abort_unless($exists, 404);
+        abort_unless($this->workflow->editorialCaseBelongsToInstitution($case, $institution), 404);
     }
 
     private function scopedIdempotencyKey(string $operation, User $user, string $key): string
