@@ -20,7 +20,7 @@ This record supersedes neither the M3-11 preflight nor its blocker register. It 
 ## 2. Work already completed — do not duplicate
 
 The following repository work is already recorded as merged:
-- PR #259: M3-11 governance/release preflight and M11-01–M11-10 evidence contract.
+- PR #259: M3-11 governance/release preflight and M3-11-01–M3-11-10 evidence contract.
 - PR #260 and #261: exact-head validation, merge and documentation reconciliation for the preflight.
 - PR #262: post-M3 scope/gap preflight.
 - PR #263 and #264: requirements-to-capability inventory and exact-head closeout evidence.
@@ -32,16 +32,16 @@ The RCV-01 inventory is a documentary source/code/test inspection, not a fresh f
 
 | Gate | Current state | Evidence required for closure | Responsible evidence source | Permitted next action |
 |---|---|---|---|---|
-| M11-01 — owner release charter | PARTIAL | Dated owner decision naming release purpose, exact features/surface, population, geography, data classes, exclusions and treatment of existing restrictions | Product Owner | Prepare/record owner decision; no inferred answers |
-| M11-02 — legal/privacy/safeguarding | BLOCKED | Written applicability assessment, data-flow/retention review, safeguarding/research determination, conditions and accepted remediation | Qualified human reviewers; owner disposition | Provide review packet; no compliance claim |
-| M11-03 — independent security/accessibility | BLOCKED | Independent security assessment and qualified accessibility evaluation against a pinned candidate, findings, remediation/retest and residual-risk acceptance | Independent qualified reviewers | Provide review packet; synthetic CI is not a substitute |
-| M11-04 — operations/support | BLOCKED | Named humans' explicit acceptance of release, operations, incident, support, privacy/data and applicable safeguarding duties; coverage and escalation | Product Owner and accepting human owners | Obtain explicit role acceptances; never invent names |
-| M11-05 — V2 environment isolation | BLOCKED | Separately authorized V2-only target evidence, access boundaries, secret custody and proof no V1/shared resource can be affected | Authorized environment operator and independent reviewer | Remains blocked until exact separate authorization; no Hostinger/production inspection under current scope |
-| M11-06 — backup/restore/rollback | BLOCKED | Approved V2-only backup design, isolated restore rehearsal, rollback artifact/configuration, measured RPO/RTO and accepted recovery owner | Authorized operator and recovery owner | Design/checklist may be prepared; no live backup or restore |
-| M11-07 — release candidate | NOT STARTED | Exact artifact/commit and lock hashes; complete approved functional, security, privacy, accessibility, smoke and operational verification | Engineering plus qualified reviewers | No production candidate execution until scope and environment gates are approved |
-| M11-08 — go/no-go | BLOCKED | Complete evidence pack and dated decision from accountable Product Owner and required qualified approvers | Product Owner and qualified human approvers | No go/no-go before all applicable gates pass |
-| M11-09 — production execution | NOT AUTHORIZED | Separate exact-scope written authorization naming target, artifact, operator, time window, steps and rollback authority | Product Owner and human release operator | Prohibited under this plan |
-| M11-10 — monitored operation | NOT STARTED | Post-release monitoring, incident/support records, stabilization review and owner acceptance | Named human operations owner | Cannot start before separately authorized release |
+| M3-11-01 — owner release charter and authority boundary | CLOSED — scope definition only | Option A core discovery scope; private acceptance environment only; internal-only audience; synthetic-only fixtures; Pakistan-first text locality; no pilot/participants; target environment remains unprovisioned | Product Owner decision recorded in charter and M3-11-01 closeout | No further scope ambiguity; proceed only to separately gated review/environment packages |
+| M3-11-02 — legal/privacy/safeguarding | BLOCKED | Written applicability assessment, data-flow/retention review, safeguarding/research determination, conditions and accepted remediation | Qualified human reviewers; owner disposition | Provide review packet; no compliance claim |
+| M3-11-03 — independent security/accessibility | BLOCKED | Independent security assessment and qualified accessibility evaluation against a pinned candidate, findings, remediation/retest and residual-risk acceptance | Independent qualified reviewers | Provide review packet; synthetic CI is not a substitute |
+| M3-11-04 — operations/support | BLOCKED | Named humans' explicit acceptance of release, operations, incident, support, privacy/data and applicable safeguarding duties; coverage and escalation | Product Owner and accepting human owners | Obtain explicit role acceptances; never invent names |
+| M3-11-05 — V2 environment isolation | BLOCKED | Separately authorized V2-only target evidence, access boundaries, secret custody and proof no V1/shared resource can be affected | Authorized environment operator and independent reviewer | Remains blocked until exact separate authorization; no Hostinger/production inspection under current scope |
+| M3-11-06 — backup/restore/rollback | BLOCKED | Approved V2-only backup design, isolated restore rehearsal, rollback artifact/configuration, measured RPO/RTO and accepted recovery owner | Authorized operator and recovery owner | Design/checklist may be prepared; no live backup or restore |
+| M3-11-07 — release candidate | NOT STARTED | Exact artifact/commit and lock hashes; complete approved functional, security, privacy, accessibility, smoke and operational verification | Engineering plus qualified reviewers | No production candidate execution until scope and environment gates are approved |
+| M3-11-08 — go/no-go | BLOCKED | Complete evidence pack and dated decision from accountable Product Owner and required qualified approvers | Product Owner and qualified human approvers | No go/no-go before all applicable gates pass |
+| M3-11-09 — production execution | NOT AUTHORIZED | Separate exact-scope written authorization naming target, artifact, operator, time window, steps and rollback authority | Product Owner and human release operator | Prohibited under this plan |
+| M3-11-10 — monitored operation | NOT STARTED | Post-release monitoring, incident/support records, stabilization review and owner acceptance | Named human operations owner | Cannot start before separately authorized release |
 
 ## 4. Repository-only closure boundary
 
@@ -66,10 +66,10 @@ Stop if any proposed step crosses these boundaries or lacks a named, accountable
 
 ## 6. Next sequence
 
-1. Product Owner completes M11-01 release charter decisions.
-2. Qualified reviewers return written M11-02/M11-03 findings.
-3. Product Owner secures explicit human role acceptances for M11-04.
-4. Only after those gates, the owner may consider a separate bounded authorization for M11-05/M11-06 evidence collection.
+1. M3-11-01 is closed for scope definition; do not reopen absent a dated owner scope change. Next work must address M3-11-02/M3-11-03 qualified review intake and M3-11-04 role acceptance.
+2. Qualified reviewers return written M3-11-02/M3-11-03 findings.
+3. Product Owner secures explicit human role acceptances for M3-11-04.
+4. Only after those gates, the owner may consider a separate bounded authorization for M3-11-05/M3-11-06 evidence collection.
 5. Pin and verify a release candidate only after all prerequisite gates are satisfied.
 6. Obtain the final dated go/no-go and separate execution authorization.
 7. Complete monitored operation and closure only after an authorized release.
@@ -106,6 +106,15 @@ These checks validate the repository/documentation changes only. All external/hu
 
 ## 10. Option A owner scope decision — 2026-11-17
 
-The Product Owner selected Option A: a controlled, limited V2 release containing only the already implemented M3-05 anonymous directory/search/profile surface and M3-06 manual text-locality discovery, constrained to eligible approved anonymous-directory projections and the existing public-field allowlist. The detailed owner scope record is [M3-11 M11-01 Option A Controlled Limited V2 Release Scope Charter](M3-11_OPTION_A_CONTROLLED_LIMITED_V2_RELEASE_SCOPE_CHARTER_2026-11-17.md).
+The Product Owner selected Option A: a controlled, limited V2 release containing only the already implemented M3-05 anonymous directory/search/profile surface and M3-06 manual text-locality discovery, constrained to eligible approved anonymous-directory projections and the existing public-field allowlist. The detailed owner scope record is [M3-11 M3-11-01 Option A Controlled Limited V2 Release Scope Charter](M3-11_OPTION_A_CONTROLLED_LIMITED_V2_RELEASE_SCOPE_CHARTER_2026-11-17.md).
 
-M11-01 remains PARTIAL: exact initial geography/coverage, audience/minor safeguards, permitted real-data/source classes, target environment/release type and disposition of the pre-launch research/pilot deferral still require explicit owner decisions. No real data, participant activity, production environment, deployment or launch is authorized. M3-11 remains BLOCKED / NOT ACCEPTED; M11-02–M11-10 retain their existing gates.
+M3-11-01 remains PARTIAL: exact initial geography/coverage, audience/minor safeguards, permitted real-data/source classes, target environment/release type and disposition of the pre-launch research/pilot deferral still require explicit owner decisions. No real data, participant activity, production environment, deployment or launch is authorized. M3-11 remains BLOCKED / NOT ACCEPTED; M3-11-02–M3-11-10 retain their existing gates.
+
+
+## 11. M3-11-01 scope-definition closeout — 2026-11-17
+
+- Work-package naming is standardized as **M3-11-01 through M3-11-10** throughout the M3-11 records to distinguish these numbered sub-steps from other M3 milestones.
+- The Product Owner selected Option A and then Option 1: private acceptance environment only.
+- The exact included discovery surface, explicit exclusions, internal-only/no-participant audience, Pakistan-first text-locality boundary, synthetic-only data class, no-pilot disposition and unprovisioned isolated V2 acceptance-environment target category are recorded in the owner charter.
+- M3-11-01 is **CLOSED for scope/authority definition**. This is not environment provisioning, acceptance testing, a pilot, a legal/privacy/security/accessibility approval, release candidate, go/no-go or production release.
+- M3-11-02 through M3-11-10 remain at their existing blocked/not-started/not-authorized states. M3-11 overall remains BLOCKED / NOT ACCEPTED.
