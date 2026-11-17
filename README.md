@@ -1,3 +1,12 @@
+## Latest verified status — 17 November 2026 (M3-11-08 preparation)
+
+- PR #275 merged as `c1e8c70cb3433773ac45e9e35c32c446a8bf1684`; exact-head PHP 8.5 foundation CI and documentation validation passed.
+- M3-11-07 documentation preparation delivered; no release candidate exists and its substantive gate remains NOT STARTED / BLOCKED.
+- M3-11-08 decision-pack preparation is documentation-only; no dossier or GO/NO-GO decision exists. M3-11-08 remains BLOCKED / NOT DECIDED.
+- M3-11 overall remains BLOCKED / NOT ACCEPTED. Production access, deployment, pilot, release and URL cutover remain NOT AUTHORIZED.
+
+---
+
 ## Latest verified status — 17 November 2026 (M3-11-07 preparation)
 
 - **Latest verified main at M3-11-07 start:** `c77ad95a85ecce845d06c24eb629e368ac46be13` (M3-11-06 closeout, PR #274).
