@@ -1,4 +1,4 @@
-# M3-11 M3-11-01 — Option A Controlled Limited V2 Release Scope Charter
+# M3-11-01 — Option A Controlled Limited V2 Release Scope Charter
 
 **Decision date:** 2026-11-17  
 **Decision owner:** Product Owner (decision recorded from the owner's selection of Option A in the project conversation)  
