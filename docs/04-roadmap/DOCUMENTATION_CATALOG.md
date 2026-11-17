@@ -1,3 +1,8 @@
+## M3-11-08 change and decision-pack preparation — 2026-11-17
+
+- [M3-11-08 Change and Go/No-Go Decision Pack](M3-11-08_CHANGE_AND_GO_NO_GO_DECISION_PACK_2026-11-17.md) — **Delivered — review pending**; defines the future evidence dossier, decision roles/rules and change/rollback controls. No GO/NO-GO decision or authorization is issued.
+- [M3-11-08 Status and Handoff](M3-11-08_STATUS_AND_HANDOFF_2026-11-17.md) — **Delivered — review pending**; records BLOCKED / NOT DECIDED status. M3-11-02–M3-11-07 prerequisites remain unresolved.
+
 ## M3-11-07 release-candidate readiness preparation — 2026-11-17
 
 - [M3-11-07 Release Candidate Readiness](M3-11-07_RELEASE_CANDIDATE_READINESS_2026-11-17.md) — **Delivered — review pending**; defines immutable candidate identity, entry gates, exact-candidate verification, Option A acceptance checks and stop conditions. No candidate is created or authorized.

@@ -1,3 +1,9 @@
+## Latest verified planning position — M3-11-08 decision-pack preparation (2026-11-17)
+
+PR #275 merged as `c1e8c70cb3433773ac45e9e35c32c446a8bf1684` with exact-head checks passing. M3-11-07 remains NOT STARTED / BLOCKED; no candidate exists. M3-11-08 repository-only decision-pack preparation is in progress; no dossier or decision exists, so M3-11-08 remains BLOCKED / NOT DECIDED. M3-11-02–M3-11-06 substantive gates remain blocked. M3-11 overall remains BLOCKED / NOT ACCEPTED. M3-11-09 is NOT AUTHORIZED and M3-11-10 is NOT STARTED.
+
+---
+
 ## Latest verified planning position — M3-11-07 release-candidate readiness preparation (2026-11-17)
 
 Verified main at start: `c77ad95a85ecce845d06c24eb629e368ac46be13`. M3-11-07 repository-only readiness documentation is prepared on branch `docs/m3-11-07-release-candidate-readiness`; no candidate was created, pinned or verified. M3-11-07 remains NOT STARTED / BLOCKED because M3-11-02–M3-11-06 substantive prerequisites remain blocked. M3-11 overall remains BLOCKED / NOT ACCEPTED. Candidate creation requires a separate exact-scope owner authorization after prerequisite gates pass. No M3-11-08 decision, M3-11-09 execution, production release or pilot is authorized.
