@@ -176,3 +176,10 @@ M3-11-03 independent security/accessibility reviewer preparation is documented i
 ## 15. M3-11-04 human operations preparation update — 2026-11-17
 
 The repository-only operating model, role acceptance/coverage register and status/handoff record are delivered. Nine accountable roles are defined; **0/9** have named and evidenced written acceptances. Primary/deputy coverage, competence, availability, escalation and separation-of-duties remain unverified. No tabletop or real operational exercise was executed. M3-11-04 remains BLOCKED / NOT ACCEPTED for human operations readiness. The assistant is not an operational owner. No environment access, incident handling, pilot, production or release is authorized by this documentation.
+
+
+## 16. M3-11-05 runtime and environment separation preparation — 2026-11-17
+
+Repository-only preparation is delivered in the runtime/environment separation plan, 18-item isolation evidence checklist, exact-scope authorization/evidence register and handoff. The environment target is NOT IDENTIFIED; provisioning, access, configuration and hosted tests were NOT PERFORMED; 0/18 isolation evidence items are verified. No separate provisioning/access authorization is recorded. The package does not select a provider/plan/resource or authorize spend. M3-11-05 remains BLOCKED / NOT ACCEPTED pending exact owner authorization, accepted human owners, V2-only isolation evidence and independent security review. Do not access Hostinger/hPanel, production/V1, DNS, live databases or any hosted target under this documentation-only package.
+
+PR #272 evidence: merged as `30c04b00e3299993f7167f45b8410f82c5d8800e`; exact head `9062e5dfb739ed0c4a9dd36b61906c116f401b66`; FND-01 CI #444 and documentation validation #862 passed; main verified identical to merge commit. M3-11-04 remains blocked for actual human readiness (0/9 role acceptances).
