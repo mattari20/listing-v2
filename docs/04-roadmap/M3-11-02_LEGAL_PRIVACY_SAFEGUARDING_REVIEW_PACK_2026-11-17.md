@@ -151,7 +151,7 @@ Deeni Madaris remains default-OFF with zero public exposure. No private acceptan
 
 ## 9. Two-stage review protocol — effective 2026-11-17
 
-This section clarifies the evidence sequence in the [M3-11 Reviewer Scope and Sequencing Alignment](M3-11_REVIEWER_SCOPE_AND_SEQUENCING_ALIGNMENT_2026-11-17.md). It does not relax the scope, reviewer qualification, independence, stop conditions or M3-11-02 exit criteria above.
+This section clarifies the evidence sequence in the `M3-11_REVIEWER_SCOPE_AND_SEQUENCING_ALIGNMENT_2026-11-17.md`. It does not relax the scope, reviewer qualification, independence, stop conditions or M3-11-02 exit criteria above.
 
 ### Stage 1 — preliminary legal, privacy and safeguarding review (before environment/candidate)
 
