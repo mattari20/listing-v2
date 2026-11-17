@@ -125,6 +125,22 @@ final class UniversityRepresentativeWorkflowTest extends TestCase
 
         $successor = $response->json('claim_version_id');
         $this->assertNotSame($priorVersion, $successor);
+        $retry = $this->actingAs($representative, 'web')
+            ->postJson("/institutions/{$institution}/claims/{$priorVersion}/correction", [
+                'value' => 'Synthetic University Corrected',
+                'evidence_reference_ids' => [$evidence],
+                'idempotency_key' => 'correction-one',
+                'valid_from' => '2026-11-17',
+                'reason_code' => 'synthetic_value_correction',
+                'rationale' => 'Synthetic correction for the isolated test fixture.',
+            ])
+            ->assertOk();
+
+        $this->assertSame($successor, $retry->json('claim_version_id'));
+        $this->assertSame($response->json('editorial_review_case_id'), $retry->json('editorial_review_case_id'));
+        $this->assertSame(2, DB::table('claim_versions')->count());
+        $this->assertSame(2, DB::table('editorial_review_cases')->count());
+
         $this->assertDatabaseHas('claim_versions', [
             'id' => $priorVersion,
             'disposition' => 'proposed',
