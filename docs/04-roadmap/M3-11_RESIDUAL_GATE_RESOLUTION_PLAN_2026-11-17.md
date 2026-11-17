@@ -134,3 +134,12 @@ Next eligible repository-only work is M3-11-04 human operations/support role and
 Repository-only preparation is delivered in the M3-11-04 operating model, role acceptance/coverage register and status/handoff record. Nine roles are defined but deliberately unassigned. The register records 0/9 written acceptances; no primary/deputy names, competence/authority evidence, availability or coverage are evidenced. The assistant cannot accept or perform these human responsibilities. M3-11-04 remains BLOCKED for substantive readiness until the Product Owner supplies actual named human acceptances and workable coverage. No tabletop or operational exercise was executed. This delivery does not authorize environment access, recovery rehearsal, pilot, release or production activity.
 
 Next sequence: obtain qualified M3-11-02 and M3-11-03 reports/dispositions; obtain M3-11-04 human role acceptances; only then consider separately authorized M3-11-05 environment/isolation and M3-11-06 recovery evidence. M3-11-07/08 cannot advance until prerequisites pass; M3-11-09 remains not authorized; M3-11-10 remains not started. Do not relabel any blocked gate as complete.
+
+
+## 16. M3-11-04 merge evidence and M3-11-05 runtime/isolation preparation — 2026-11-17
+
+PR [#272](https://github.com/mattari20/listing-v2/pull/272) merged as `30c04b00e3299993f7167f45b8410f82c5d8800e`; exact head `9062e5dfb739ed0c4a9dd36b61906c116f401b66`; FND-01 CI #444 and documentation validation #862 passed; main verified identical to merge commit. This closes M3-11-04 repository preparation only; 0/9 actual role acceptances remain evidenced.
+
+M3-11-05 repository preparation is delivered in the runtime/environment separation plan, 18-item evidence checklist, authorization/evidence register and handoff. The target is not identified, no environment is provisioned or accessed, and 0/18 isolation items are verified. Do not provision or access any hosted environment until a separate exact Product Owner authorization identifies the V2-only target, permitted resources/actions, window and cost/vendor impact, and accountable human provisioner/operations/security/recovery owners have accepted their roles. Negative tests must use controlled synthetic resources and must never probe V1/production. M3-11-05 remains BLOCKED / NOT ACCEPTED.
+
+Next repository work may prepare M3-11-06 recovery requirements and evidence templates only; actual backup/restore/rollback rehearsal remains separately gated and cannot be performed against production or any unapproved environment.

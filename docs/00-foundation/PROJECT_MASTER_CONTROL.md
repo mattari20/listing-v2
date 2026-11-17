@@ -758,3 +758,10 @@ The private V2-only acceptance environment remains unprovisioned. M3-11-05 must 
 ## M3-11-04 human operations preparation — 2026-11-17
 
 Repository-only preparation is delivered in `M3-11-04_HUMAN_OPERATIONS_SUPPORT_READINESS_2026-11-17.md`, with the blank `M3-11-04_ROLE_ACCEPTANCE_AND_COVERAGE_REGISTER_2026-11-17.md` and `M3-11-04_STATUS_AND_HANDOFF_2026-11-17.md`. The operating model defines accountable roles, support/incident handling, privacy/safeguarding/security escalation, coverage, deputies, handover and stop conditions. No humans are appointed or represented as accepting duties; the current register has 0/9 role acceptances. M3-11-04 remains BLOCKED for actual human readiness. M3-11 overall remains BLOCKED / NOT ACCEPTED; no environment, pilot or production action is authorized.
+
+
+## M3-11-04 PR #272 merge evidence and M3-11-05 preparation — 2026-11-17
+
+PR [#272](https://github.com/mattari20/listing-v2/pull/272) merged as `30c04b00e3299993f7167f45b8410f82c5d8800e`; exact head `9062e5dfb739ed0c4a9dd36b61906c116f401b66`. FND-01 PHP 8.5 CI #444 and Project documentation validation #862 passed. Main was verified identical to the merge commit. M3-11-04 repository preparation is delivered; actual human readiness remains BLOCKED with 0/9 role acceptances evidenced.
+
+M3-11-05 repository preparation is now delivered in the runtime/environment separation plan, 18-item isolation evidence checklist, exact-scope authorization/evidence register and status/handoff. The target environment is NOT IDENTIFIED; no provisioning, access, configuration or hosted testing occurred; 0/18 isolation items are verified. A separate exact Product Owner authorization and named human operators/reviewers are required before any provisioning or access. M3-11-05 remains BLOCKED / NOT ACCEPTED. Latest main baseline for this package: `30c04b00e3299993f7167f45b8410f82c5d8800e`. M3-11 overall remains BLOCKED / NOT ACCEPTED.

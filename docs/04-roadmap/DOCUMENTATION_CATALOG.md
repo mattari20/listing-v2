@@ -1271,3 +1271,15 @@ Status: documentation-only preparation; independent security and accessibility a
 | [M3-11-04 Status and Handoff](M3-11-04_STATUS_AND_HANDOFF_2026-11-17.md) | Records package evidence, remaining human dependencies and safe handoff | Preparation delivered; substantive gate BLOCKED |
 
 No role appointments, written acceptances, tabletop, operational exercise or environment activity is claimed. M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
+
+## M3-11-05 runtime and environment separation preparation — 2026-11-17
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-11-05 Runtime and Environment Separation Preparation](M3-11-05_RUNTIME_ENVIRONMENT_SEPARATION_2026-11-17.md) | Defines V2-only runtime/resource boundaries, isolation evidence, verification sequence and stop conditions | Repository preparation delivered; target environment unidentified; gate BLOCKED |
+| [M3-11-05 Isolation Evidence Checklist](M3-11-05_ISOLATION_EVIDENCE_CHECKLIST_2026-11-17.md) | 18-item evidence matrix for account, runtime, data, secrets, network, identity, backups and independent review | Template only; 0/18 verified; no environment inspected |
+| [M3-11-05 Environment Authorization and Evidence Register](M3-11-05_ENVIRONMENT_AUTHORIZATION_AND_EVIDENCE_REGISTER_2026-11-17.md) | Exact-scope authorization template and evidence register for any future V2-only provisioning/access | No provisioning/access authorization recorded |
+| [M3-11-05 Status and Handoff](M3-11-05_STATUS_AND_HANDOFF_2026-11-17.md) | Records package delivery, blocked runtime gate and required next evidence | Preparation delivered; substantive gate BLOCKED |
+
+PR [#272](https://github.com/mattari20/listing-v2/pull/272) merge evidence: merge `30c04b00e3299993f7167f45b8410f82c5d8800e`, exact head `9062e5dfb739ed0c4a9dd36b61906c116f401b66`, FND-01 CI #444 and documentation validation #862 passed. M3-11 overall remains BLOCKED / NOT ACCEPTED.
