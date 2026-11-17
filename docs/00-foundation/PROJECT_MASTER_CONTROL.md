@@ -739,3 +739,8 @@ M3-11 production execution and closure require all applicable gates, qualified h
 ## M3-11 Option A scope decision — 2026-11-17
 
 The Product Owner selected Option A: controlled limited V2 release scope using only the existing M3-05 anonymous directory/search/category/profile experience and M3-06 manual text-locality discovery. The owner scope charter is recorded in `docs/04-roadmap/M3-11_OPTION_A_CONTROLLED_LIMITED_V2_RELEASE_SCOPE_CHARTER_2026-11-17.md`. M11-01 remains PARTIAL pending exact geography, audience, data/source and environment/release-type decisions. All external/human gates remain open; production readiness is BLOCKED / NOT ACCEPTED and no production action is authorized.
+
+
+## M3-11-01 owner scope decision — 2026-11-17
+
+Package IDs are standardized as M3-11-01 through M3-11-10. M3-11-01 is CLOSED for scope/authority definition after the Product Owner selected Option A and Option 1 (private acceptance environment only). The scope is existing M3-05/M3-06 discovery, internal-only reviewers/operators, synthetic-only fixtures, Pakistan-first text locality, no participant activity and no public pilot/production release. The target environment is not provisioned or authorized; all independent M3-11-02–M3-11-10 gates remain. M3-11 overall remains BLOCKED / NOT ACCEPTED.
