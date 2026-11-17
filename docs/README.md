@@ -352,3 +352,8 @@ I8-A adds synthetic feature-test coverage only. It does not add a model, source 
 - [M3-10 External Review Response and Gate Reconciliation](04-roadmap/M3-10_EXTERNAL_REVIEW_RESPONSE_AND_GATE_RECONCILIATION.md) — controlled intake, finding response and evidence-based M10-G01–G14 reconciliation; documentation only, no approvals inferred, pilot readiness NOT ACCEPTED
 
 - [M3-10 Governance Ledger and Roadmap Reconciliation](04-roadmap/M3-10_GOVERNANCE_LEDGER_AND_ROADMAP_RECONCILIATION.md) — current authoritative project-state reconciliation; M3-10 pilot readiness NOT ACCEPTED; M3-11 NOT AUTHORIZED
+
+
+## M3-10 two-person synthetic rehearsal
+
+- [M3-10 Two-Person Synthetic University Workflow Rehearsal Checklist](04-roadmap/M3-10_TWO_PERSON_SYNTHETIC_REHEARSAL_CHECKLIST.md) — paper-based, non-human tabletop guide for the Product Owner and ordinary-experience administrative assistant; synthetic values only, not executed, not a software test or usability pilot. Pilot readiness remains NOT ACCEPTED.
