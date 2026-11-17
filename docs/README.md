@@ -393,3 +393,11 @@ M3-11-02 and M3-11-03 reviewer preparation does not constitute qualified review,
 - [M3-11-04 Human Operations and Support Readiness Preparation](04-roadmap/M3-11-04_HUMAN_OPERATIONS_SUPPORT_READINESS_2026-11-17.md) — operational roles, support and incident lifecycle, specialist escalation, coverage, handover and stop conditions; repository preparation only, human readiness BLOCKED.
 - [M3-11-04 Role Acceptance and Coverage Register](04-roadmap/M3-11-04_ROLE_ACCEPTANCE_AND_COVERAGE_REGISTER_2026-11-17.md) — blank register for named primary/deputy roles and explicit written acceptance; currently 0/9 accepted.
 - [M3-11-04 Status and Handoff](04-roadmap/M3-11-04_STATUS_AND_HANDOFF_2026-11-17.md) — package status and required human-owner evidence.
+
+
+## M3-11-05 runtime and environment separation — 2026-11-17
+
+- [M3-11-05 Runtime and Environment Separation Preparation](04-roadmap/M3-11-05_RUNTIME_ENVIRONMENT_SEPARATION_2026-11-17.md) — V2-only environment boundary, isolation evidence requirements and stop conditions; preparation only, target not identified.
+- [M3-11-05 Isolation Evidence Checklist](04-roadmap/M3-11-05_ISOLATION_EVIDENCE_CHECKLIST_2026-11-17.md) — 18-item evidence matrix; 0/18 verified, no hosted environment inspected.
+- [M3-11-05 Environment Authorization and Evidence Register](04-roadmap/M3-11-05_ENVIRONMENT_AUTHORIZATION_AND_EVIDENCE_REGISTER_2026-11-17.md) — separate exact-scope authorization template; provisioning/access not authorized.
+- [M3-11-05 Status and Handoff](04-roadmap/M3-11-05_STATUS_AND_HANDOFF_2026-11-17.md) — package status and required human/owner evidence.
