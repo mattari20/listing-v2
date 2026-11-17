@@ -386,3 +386,10 @@ The R13 repository desk review assessed all twelve scenarios (R01–R12) in the 
 - [M3-11-03 Independent Security and Accessibility Review Pack](04-roadmap/M3-11-03_INDEPENDENT_SECURITY_ACCESSIBILITY_REVIEW_PACK_2026-11-17.md) — independent security/accessibility review preparation; actual assessments remain blocked.
 
 M3-11-02 and M3-11-03 reviewer preparation does not constitute qualified review, independent testing, WCAG conformance, environment authorization or release approval. M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
+
+## M3-11-04 human operations and support readiness — 2026-11-17
+
+- [M3-11-04 Human Operations and Support Readiness Preparation](04-roadmap/M3-11-04_HUMAN_OPERATIONS_SUPPORT_READINESS_2026-11-17.md) — operational roles, support and incident lifecycle, specialist escalation, coverage, handover and stop conditions; repository preparation only, human readiness BLOCKED.
+- [M3-11-04 Role Acceptance and Coverage Register](04-roadmap/M3-11-04_ROLE_ACCEPTANCE_AND_COVERAGE_REGISTER_2026-11-17.md) — blank register for named primary/deputy roles and explicit written acceptance; currently 0/9 accepted.
+- [M3-11-04 Status and Handoff](04-roadmap/M3-11-04_STATUS_AND_HANDOFF_2026-11-17.md) — package status and required human-owner evidence.
