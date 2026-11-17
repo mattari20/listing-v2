@@ -21,24 +21,28 @@ Route::delete('/account/session', [AccountSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('account.session.destroy');
 
-Route::middleware('auth')->prefix('/institutions/{institution}')->whereUuid('institution')->group(function (): void {
+Route::middleware('auth')->prefix('/institutions/{institution}')->group(function (): void {
     Route::post('/claims', [UniversityRepresentativeWorkflowController::class, 'store'])
         ->middleware('throttle:20,1')
+        ->whereUuid('institution')
         ->name('institutions.claims.store');
 
     Route::post('/claims/{claimVersion}/correction', [UniversityRepresentativeWorkflowController::class, 'correct'])
         ->whereUuid('claimVersion')
         ->middleware('throttle:20,1')
+        ->whereUuid('institution')
         ->name('institutions.claims.correct');
 
     Route::post('/editorial-cases/{case}/review', [UniversityRepresentativeWorkflowController::class, 'startReview'])
         ->whereUuid('case')
         ->middleware('throttle:30,1')
+        ->whereUuid('institution')
         ->name('institutions.editorial-cases.review.start');
 
     Route::patch('/editorial-cases/{case}/review', [UniversityRepresentativeWorkflowController::class, 'completeReview'])
         ->whereUuid('case')
         ->middleware('throttle:30,1')
+        ->whereUuid('institution')
         ->name('institutions.editorial-cases.review.complete');
 });
 
