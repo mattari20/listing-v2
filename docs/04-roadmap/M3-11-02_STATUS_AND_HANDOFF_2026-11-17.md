@@ -39,3 +39,17 @@ This agenda prepared a documentary reviewer handoff only. It did not conduct leg
 All existing restrictions remain binding: V2 repository only; no V1/Hostinger/production/live database access; no real/source/personal data; no participants; no external APIs/AI/connectors; no new dependencies/vendors/spend; no environment provisioning, deployment, migration, URL cutover or launch. Public UGC/reviews/ratings/reporting/moderation remain disabled. Deeni Madaris remains default-OFF with zero public exposure.
 
 **Final status:** M3-11-02 preparation deliverables are complete for repository-only scope. **M3-11-02 itself remains BLOCKED pending qualified human review and Product Owner disposition. M3-11 overall remains BLOCKED / NOT ACCEPTED.**
+
+
+## 5. Two-stage reviewer handoff clarification — 2026-11-17
+
+The review pack and response template are to be used under the `M3-11_REVIEWER_SCOPE_AND_SEQUENCING_ALIGNMENT_2026-11-17.md`.
+
+**Stage 1 can begin without an environment or release candidate.** The Product Owner may identify qualified, independent legal/privacy and safeguarding reviewers and provide only the existing, non-sensitive repository/design evidence pinned to an exact source commit. Reviewers may return preliminary applicability/design findings, pre-provisioning conditions and explicit unknowns. Environment-dependent facts must be marked UNKNOWN / DEFERRED; no one may invent or infer them.
+
+**Stage 2 is later and separately gated.** Candidate/environment-specific supplements require the applicable M3-11-04 human coverage, separately authorized and independently verified M3-11-05 environment, separately authorized M3-11-06 recovery evidence, and separately authorized M3-11-07 candidate. The exact candidate and verified environment facts must be identified in each supplement.
+
+The immediate handoff is therefore: (1) identify/appoint qualified human reviewers and confirm competence/independence; (2) provide the Stage 1 repository evidence bundle; (3) receive attributable preliminary reports; (4) have the Product Owner disposition findings and pre-provisioning blockers. This handoff does not appoint reviewers or authorize any operational gate.
+
+Current status is unchanged: **M3-11-02 BLOCKED**; no qualified assessment is evidenced. Stage 1 preparation or completion alone does not close M3-11-02.
+

@@ -147,3 +147,29 @@ M3-11-02 may be considered complete only when all applicable criteria are met:
 Stop and return for a new explicit owner decision if the review proposes or discovers any need for real student/provider/institution/source data, participant activity, public pilot, public UGC/reviews/moderation, external APIs/AI, new vendor/spend, V1 or Hostinger/production access, environment provisioning, deployment, migration or URL cutover. This pack authorizes none of those activities.
 
 Deeni Madaris remains default-OFF with zero public exposure. No private acceptance environment may be provisioned or accessed under this pack; M3-11-05 remains separately gated.
+
+
+## 9. Two-stage review protocol — effective 2026-11-17
+
+This section clarifies the evidence sequence in the `M3-11_REVIEWER_SCOPE_AND_SEQUENCING_ALIGNMENT_2026-11-17.md`. It does not relax the scope, reviewer qualification, independence, stop conditions or M3-11-02 exit criteria above.
+
+### Stage 1 — preliminary legal, privacy and safeguarding review (before environment/candidate)
+
+A qualified reviewer may assess the bounded Option A scope against a pinned repository source commit and the available scope, requirements, architecture, data-flow and implementation documentation. Stage 1 may identify applicable legal questions, likely processing purposes/data classes, child-safeguarding applicability, research exclusions, source/publication-rights questions, required policies and controls, and conditions that must be satisfied before environment provisioning or internal access.
+
+The Stage 1 evidence bundle is limited to artifacts that actually exist at the pinned source commit: M3-11-01 scope/authority closeout; Option A charter; this review pack and response template; M3-11 sequencing alignment; relevant M3-05/M3-06/M3-08 implementation and design records; RCV-01; repository route/schema/data-flow documentation and synthetic test/CI evidence where available. Record exact paths, versions and source SHA. Do not imply a candidate, deployed configuration or environment exists.
+
+For each environment-dependent question, explicitly record **UNKNOWN / DEFERRED TO STAGE 2**, including actual operator/controller/processor identities where not established, hosting region and transfers, deployed runtime/configuration, actual cookies/session behavior, logs/telemetry, backups, access roster, retention/deletion execution and incident operations. Do not convert an unknown into an assumption or approval. The reviewer may set pre-provisioning conditions and non-waivable stop conditions.
+
+Stage 1 is a preliminary applicability/design assessment only. It is not a final legal opinion on unknown facts, completed DPIA/PIA, safeguarding certification, approval to process data, or closure of M3-11-02.
+
+### Stage 2 — candidate/environment-specific final supplement
+
+Only after the separate M3-11-05 environment authorization and isolation evidence, M3-11-06 authorized recovery work, and M3-11-07 separate candidate-creation authorization have produced their required evidence may the reviewer perform the Stage 2 supplement. Review the exact candidate SHA/artifact and verified environment facts, including actual operator/processor roles, hosting/data location, configuration, cookies/sessions, logs/telemetry, reviewer access, backups, retention/deletion, incident handling and implemented data flows. Reassess Stage 1 assumptions and deferred questions; identify any changes that invalidate the preliminary assessment.
+
+Stage 2 must record unresolved unknowns, findings, remediation owners, closure evidence, residual risks and a dated professional conclusion. The Product Owner must separately disposition findings. M3-11-02 remains BLOCKED until applicable Stage 1 and Stage 2 work, remediation/retests and owner disposition meet the existing exit criteria.
+
+### Stage separation and stop rule
+
+Use a separate Stage 1 report and Stage 2 supplement, or clearly versioned sections with separate dates and evidence inventories. A Stage 1 report must not populate candidate/environment fields with invented values. No environment provisioning, reviewer access, backup/restore, participant activity, real/source/personal data, production/V1/Hostinger access, external service, spend or release is authorized by this review pack.
+

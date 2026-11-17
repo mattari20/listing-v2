@@ -120,3 +120,43 @@ I confirm this response accurately states the scope, evidence, methods, competen
 - Explicit statement of what remains prohibited:
 
 A reviewer report does not authorize environment provisioning, access, deployment, pilot or launch. A Product Owner disposition does not replace independent assessment. M3-11-03 remains BLOCKED until its exit criteria are satisfied and evidenced.
+
+
+## 8. Stage designation and evidence boundary — 2026-11-17
+
+Complete one response per reviewer and per stage. Select exactly one: **Stage 1 — preliminary repository/source and design review** or **Stage 2 — exact candidate/authorized environment verification**. If both stages are performed, submit separately dated responses or clearly separated and attributable sections.
+
+- Review stage: [ ] Stage 1 preliminary  [ ] Stage 2 candidate/environment verification
+- Exact repository source commit reviewed (required for both stages):
+- Exact paths, documents, versions, code areas and page templates/states reviewed:
+- Reviewer competence, relevant specialism, independence and conflicts:
+- Methods/tools and versions; coverage and sampling:
+- Scope limitations and unavailable evidence:
+- Candidate ID / artifact hash: [Stage 2 only; leave blank for Stage 1]
+- Environment identifier and M3-11-05 authorization/isolation evidence: [Stage 2 only; leave blank for Stage 1]
+- Approved active-test plan reference and target: [only if separately authorized; otherwise state NOT AUTHORIZED / NOT PERFORMED]
+
+### Stage 1 — source/design findings
+
+- Security source findings: confirmed issue, evidence, affected code/route/control, severity and remediation condition:
+- Threat-model and trust-boundary assumptions:
+- Dependency/configuration evidence inspected and limitations:
+- Accessibility source/markup findings by template/state:
+- Potential keyboard, semantic, focus, form/error/status or responsive issues requiring later verification:
+- Checks explicitly marked UNKNOWN / DEFERRED TO STAGE 2:
+- Conditions before environment provisioning or reviewer access:
+- Explicit statement: no active testing, browser/assistive-technology test or conformance claim was performed:
+
+### Stage 2 — candidate/environment findings
+
+- Exact candidate and verified environment evidence:
+- Security methods, approved target, intensity/time limits, stop/abort controls and results:
+- Runtime/configuration and isolation checks:
+- Accessibility browser/OS/viewport matrix:
+- Assistive technologies and versions; keyboard and screen-reader checks:
+- WCAG criterion/version/level findings and tested page/state coverage:
+- Findings remediated and retested against exact corrected candidate:
+- Remaining unknowns, residual risk and explicit final outcome:
+
+**Stage 1 is not a penetration test, active security assessment, browser/assistive-technology audit or WCAG conformance determination.** A blank candidate/environment field in a Stage 1 response is intentional. M3-11-03 remains BLOCKED until the applicable two-stage evidence, remediation/retests and Product Owner disposition are complete.
+
