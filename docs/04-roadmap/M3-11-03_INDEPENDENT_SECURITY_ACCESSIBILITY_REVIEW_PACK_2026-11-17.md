@@ -188,7 +188,7 @@ Do not create or access the private acceptance environment under this pack. M3-1
 
 ## 9. Two-stage assessment protocol — effective 2026-11-17
 
-This section applies the [M3-11 Reviewer Scope and Sequencing Alignment](M3-11_REVIEWER_SCOPE_AND_SEQUENCING_ALIGNMENT_2026-11-17.md) to this security/accessibility pack. It clarifies sequencing and does not relax reviewer independence, scope boundaries, environment authorization, active-test restrictions or M3-11-03 exit criteria.
+This section applies the `M3-11_REVIEWER_SCOPE_AND_SEQUENCING_ALIGNMENT_2026-11-17.md` to this security/accessibility pack. It clarifies sequencing and does not relax reviewer independence, scope boundaries, environment authorization, active-test restrictions or M3-11-03 exit criteria.
 
 ### Stage 1 — preliminary repository/source and design review
 
