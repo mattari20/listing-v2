@@ -96,6 +96,21 @@ final class UniversityRepresentativeWorkflowTest extends TestCase
         $priorVersion = $submitted->json('claim_version_id');
         $this->assertDatabaseHas('evidence_references', ['id' => $evidence, 'status' => 'eligible_for_review']);
 
+        $reviewer = $this->user('correction-reviewer@example.test');
+        $this->assign($reviewer, 'data_reviewer', $institution);
+        $case = $submitted->json('editorial_review_case_id');
+        $this->actingAs($reviewer, 'web')
+            ->postJson("/institutions/{$institution}/editorial-cases/{$case}/review", [
+                'idempotency_key' => 'correction-review-start',
+            ])->assertOk();
+        $this->actingAs($reviewer, 'web')
+            ->patchJson("/institutions/{$institution}/editorial-cases/{$case}/review", [
+                'outcome' => 'changes_requested',
+                'reason_code' => 'synthetic_correction_required',
+                'rationale' => 'A correction is requested for this synthetic fixture.',
+                'idempotency_key' => 'correction-review-complete',
+            ])->assertOk();
+
         $response = $this->actingAs($representative, 'web')
             ->postJson("/institutions/{$institution}/claims/{$priorVersion}/correction", [
                 'value' => 'Synthetic University Corrected',
@@ -120,6 +135,10 @@ final class UniversityRepresentativeWorkflowTest extends TestCase
             'supersedes_version_id' => $priorVersion,
             'version_number' => 2,
             'disposition' => 'proposed',
+        ]);
+        $this->assertDatabaseHas('editorial_review_cases', [
+            'id' => $case,
+            'status' => 'superseded',
         ]);
         $this->assertDatabaseHas('editorial_review_cases', [
             'id' => $response->json('editorial_review_case_id'),
@@ -232,7 +251,9 @@ final class UniversityRepresentativeWorkflowTest extends TestCase
     private function fixture(string $category = 'university'): array
     {
         $institution = $this->institution($category);
-        $this->definition();
+        if (DB::table('field_definitions')->where('field_key', 'institution_display_name')->exists() === false) {
+            $this->definition();
+        }
         $evidence = $this->evidence();
 
         return [$institution, $evidence];
