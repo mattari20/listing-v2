@@ -547,3 +547,8 @@ The documentation-only preflight is recorded in [M3-08 Identity, Reviews and Sec
 
 
 **M3-11-01 closeout:** The Product Owner selected Option A (existing core discovery only) and Option 1 (private acceptance environment only). M3-11-01 is CLOSED for scope/authority definition, with internal-only access, synthetic-only fixtures, Pakistan-first manual text locality, no student research/pilot and no public launch. The private V2 acceptance environment remains unprovisioned; M3-11-05 must independently authorize and evidence isolation. No production access/deployment/launch is authorized.
+
+
+## M3-11 reviewer preparation status — 2026-11-17
+
+M3-11-01 is CLOSED for scope/authority definition only. M3-11-02 reviewer preparation is merged in PR #270 (`9ad73fcf20cb8aaab1a7e380596a93cd75b5ad09`) with exact-head FND-01 CI #442 and documentation validation #858 passed; qualified legal/privacy/safeguarding review remains BLOCKED. M3-11-03 security/accessibility reviewer preparation is documented in the current branch and awaits exact-head checks/review; no independent assessment has been performed. M3-11-03 remains BLOCKED. M3-11-04–M3-11-10 retain their independent gates. M3-11 overall remains BLOCKED / NOT ACCEPTED; no environment provisioning/access, active testing, production action or launch is authorized.

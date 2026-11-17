@@ -164,3 +164,10 @@ This does not provision or authorize access to an environment. M3-11-05 still re
 ## 13. M3-11-01 naming and owner decision closeout — 2026-11-17
 
 The M3-11 work packages are now consistently named M3-11-01 through M3-11-10. M3-11-01 is CLOSED for the Product Owner's scope/authority definition: Option A limited discovery and Option 1 private acceptance environment only, with synthetic-only fixtures and no pilot/participant activity. The target environment is not identified, provisioned or authorized for access. M3-11-05 and all other downstream gates retain their independent acceptance requirements. M3-11 production readiness remains BLOCKED / NOT ACCEPTED.
+
+
+## 14. M3-11-02 / M3-11-03 reviewer preparation update — 2026-11-17
+
+M3-11-02 legal/privacy/safeguarding reviewer preparation is delivered and merged in PR #270 (`9ad73fcf20cb8aaab1a7e380596a93cd75b5ad09`); exact-head FND-01 CI #442 and Project documentation validation #858 passed. Qualified human review and owner disposition remain absent, so M3-11-02 is BLOCKED.
+
+M3-11-03 independent security/accessibility reviewer preparation is documented in the current M3-11-03 review pack, response template and handoff record. No independent security test, penetration test, accessibility audit or WCAG conformance assessment has been performed. The documents await exact-head validation. M3-11-03 remains BLOCKED. M3-11-05 must separately authorize and evidence isolated V2-only environment boundaries before hosted target testing or reviewer access. M3-11 overall remains BLOCKED / NOT ACCEPTED; no environment provisioning/access, production activity or release is authorized.
