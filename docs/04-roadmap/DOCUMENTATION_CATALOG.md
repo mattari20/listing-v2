@@ -1,6 +1,6 @@
 ## RCV-01 requirements/capability reconciliation — 2026-11-17
 
-- [RCV-01 Requirements-to-Capability Reconciliation](RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.md) — **Delivered — exact-head validation and merge pending**; maps SR-01–SR-14 and AR-001–AR-025 against V2 routes, services, migrations and synthetic tests; identifies implemented foundations, partial/absent capabilities and a non-duplicative residual backlog. No application change or new feature authorization.
+- [RCV-01 Requirements-to-Capability Reconciliation](RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.md) — **Delivered and merged — PR #263; exact-head CI and documentation validation passed**; maps SR-01–SR-14 and AR-001–AR-025 against V2 routes, services, migrations and synthetic tests; identifies implemented foundations, partial/absent capabilities and a non-duplicative residual backlog. No application change or new feature authorization.
 
 ## Post-M3 planning-preflight documentation — 2026-11-17
 
