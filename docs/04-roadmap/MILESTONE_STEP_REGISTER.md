@@ -899,3 +899,15 @@ The implementation adds metadata-only synthetic moderation cases, appeals and ev
 The R13 repository desk review assessed all twelve scenarios (R01–R12) in the two-person synthetic university workflow checklist against the merged representative API implementation, adversarial hardening evidence and governance records. Result: **12 CLEAR, 0 UNCLEAR, 0 BLOCKED** for documentary clarity only. No new application execution, software test, human usability evidence or specialist approval is claimed. See [M3-10 R13 Desk Review and Final Agenda Closeout](M3-10_R13_DESK_REVIEW_AND_FINAL_AGENDA_CLOSEOUT.md).
 
 **Authorized M3-10 readiness-preparation agenda: COMPLETE / CLOSED** for the repository-only, synthetic/local/CI and documentation scope authorized to date. The two-person tabletop remains NOT EXECUTED; M10-G01–G14 retain their existing open/blocked dispositions; pilot readiness remains NOT ACCEPTED; no pilot go/no-go is issued; human/participant activity and real-data processing remain NOT AUTHORIZED; M3-11 remains NOT AUTHORIZED. No standing restriction is relaxed.
+
+
+## M3-11 — Controlled Production Launch (2026-11-17)
+
+| Agenda | Scope / evidence | Status |
+|---|---|---|
+| M3-11 owner-authorized agenda start | Product Owner instruction to start and complete M3-11; roadmap dependency and current gates reconciled | Recorded — authorizes agenda initiation; does not waive inherited restrictions or substitute for qualified approvals |
+| M11-01–M11-08 governance and release preflight | Define bounded release scope, legal/privacy/safeguarding/security/accessibility review, accepted human operations, V2 environment isolation, backup/restore/rollback, exact release candidate and go/no-go evidence | Preflight record complete; production readiness BLOCKED / NOT ACCEPTED |
+| M11-09 production execution | Exact-scope production release by accountable human operator after every applicable gate passes | NOT AUTHORIZED BY PREFLIGHT |
+| M11-10 monitored operation and closure | Human-operated monitoring, support, incident response, rollback window and owner acceptance | NOT STARTED |
+
+See [M3-11 Controlled Production Launch Preflight and Authorization Record](M3-11_CONTROLLED_PRODUCTION_LAUNCH_PREFLIGHT.md). M3-10 pilot readiness remains NOT ACCEPTED; no production go/no-go; no production/Hostinger/live DB access, deployment, release, URL cutover, real-data/participant activity, external service or spend is authorized by this record.

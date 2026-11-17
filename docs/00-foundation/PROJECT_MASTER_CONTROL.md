@@ -2,8 +2,8 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03 through M3-06 delivered for bounded synthetic local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered; M3-08A/B/C/D bounded synthetic foundations merged; M3-09 Q01–Q06 complete for authorized synthetic/local/CI scope; M3-10 authorized readiness-preparation agenda COMPLETE/CLOSED for approved V2 repository-only, synthetic/local/CI and documentation scope (including R13 desk review); two-person tabletop NOT EXECUTED; M3-10 pilot readiness NOT ACCEPTED; M3-11 NOT AUTHORIZED; live AI/source activation blocked by G2-G9  
-**Last reconciled:** 2026-11-17 — M3-10 authorized readiness-preparation agenda closed after R13 documentary review (12/12 clear); two-person tabletop not executed; pilot readiness NOT ACCEPTED; M3-11 NOT AUTHORIZED; baseline `c8c4d3b0872cc67aec4b4c36d7aaffda5df35e05`
+**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03 through M3-06 delivered for bounded synthetic local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered; M3-08A/B/C/D bounded synthetic foundations merged; M3-09 Q01–Q06 complete for authorized synthetic/local/CI scope; M3-10 authorized readiness-preparation agenda COMPLETE/CLOSED for approved V2 repository-only, synthetic/local/CI and documentation scope (including R13 desk review); two-person tabletop NOT EXECUTED; M3-10 pilot readiness NOT ACCEPTED; M3-11 INITIATED — governance/release preflight only; production readiness BLOCKED / NOT ACCEPTED; live AI/source activation blocked by G2-G9  
+**Last reconciled:** 2026-11-17 — M3-10 authorized readiness-preparation agenda closed after R13 documentary review (12/12 clear); two-person tabletop not executed; pilot readiness NOT ACCEPTED; M3-11 preflight initiated; production execution BLOCKED / NOT ACCEPTED; baseline `f7193f99f19a71e2eb0e68931851e5a656857ddf`
 
 ## Authoritative current position
 - M3-08 preflight documentation is complete and merged in PR #231. The separately authorized M3-08A/B first-party session identity and scoped authorization foundation is merged in PR #232 as `a693b2c701adb5328e755156e1900771400b1dca`; M3-08C/D synthetic moderation, appeals and privacy/security foundations are merged in PR #234 as `42eabe8a5757e6b4c291baa52d1c01df4e08bb15` for bounded local/CI scope. Public UGC, reviews and moderation activation remain disabled; reviews are post-launch only. Independent security and qualified legal/privacy/child-safeguarding release reviews remain open. See `../04-roadmap/M3-08C_D_IMPLEMENTATION_RECORD.md`.
@@ -23,7 +23,7 @@ Build a student-first education discovery, admissions information and comparison
 The Documentation Completion Catalogue is the owner-facing inventory of delivered, updated, accepted and planned documents. A merged PR records delivery, not automatic content acceptance. Every documentation PR update and merge must reconcile the catalogue, index, controller, step register, traceability and progress report.
 
 ## Current milestone
-**M3 — M3-10 readiness framework and authorized synthetic/documentation delivery complete; pilot readiness remains NOT ACCEPTED pending exact owner charter, qualified reviews and accepted human operations ownership; no pilot/go-no-go; M3-11 production launch NOT AUTHORIZED**
+**M3 — M3-10 readiness framework and authorized synthetic/documentation delivery complete; pilot readiness remains NOT ACCEPTED pending exact owner charter, qualified reviews and accepted human operations ownership; no pilot/go-no-go; M3-11 governance/release preflight INITIATED; production launch BLOCKED / NOT ACCEPTED**
 
 
 ## M3-06 closeout — 2026-11-14
@@ -719,3 +719,12 @@ A paper-based, non-human tabletop checklist for the Product Owner and ordinary-e
 The R13 repository desk review assessed all twelve scenarios (R01–R12) in the two-person synthetic university workflow checklist against the merged representative API implementation, adversarial hardening evidence and governance records. Result: **12 CLEAR, 0 UNCLEAR, 0 BLOCKED** for documentary clarity only. No new application execution, software test, human usability evidence or specialist approval is claimed. See [M3-10 R13 Desk Review and Final Agenda Closeout](../04-roadmap/M3-10_R13_DESK_REVIEW_AND_FINAL_AGENDA_CLOSEOUT.md).
 
 **Authorized M3-10 readiness-preparation agenda: COMPLETE / CLOSED** for the repository-only, synthetic/local/CI and documentation scope authorized to date. The two-person tabletop remains NOT EXECUTED; M10-G01–G14 retain their existing open/blocked dispositions; pilot readiness remains NOT ACCEPTED; no pilot go/no-go is issued; human/participant activity and real-data processing remain NOT AUTHORIZED; M3-11 remains NOT AUTHORIZED. No standing restriction is relaxed.
+
+
+## M3-11 controlled production launch preflight — 2026-11-17
+
+The Product Owner explicitly instructed ChatGPT to start and complete M3-11. This is recorded as authorization to begin the M3-11 agenda and complete repository-only governance/release-preflight work. The [M3-11 Controlled Production Launch Preflight and Authorization Record](../04-roadmap/M3-11_CONTROLLED_PRODUCTION_LAUNCH_PREFLIGHT.md) defines M11-01–M11-10, evidence requirements, stop conditions and current blockers.
+
+**M3-11 status:** INITIATED — GOVERNANCE / RELEASE PREFLIGHT ONLY. The preflight document is complete for current repository evidence. **Production readiness remains BLOCKED / NOT ACCEPTED.** The instruction does not satisfy missing qualified reviews, human owner acceptances, M3-10 pilot readiness, V2 environment/isolation proof, backup/restore/RPO/RTO evidence or a complete release candidate. No production/Hostinger/live database access, provisioning, deployment, migration, release, URL cutover, participant activity, real-data processing, external source/API/AI, new dependency/vendor or spend occurred or is authorized by this preflight. Existing V1 exclusion, public UGC/reviews/moderation disablement and Deeni Madaris default-OFF rule remain binding.
+
+M3-11 production execution and closure require all applicable gates, qualified human decisions and exact-scope release authorization. No production go/no-go is issued.
