@@ -43,7 +43,7 @@ All existing restrictions remain binding: V2 repository only; no V1/Hostinger/pr
 
 ## 5. Two-stage reviewer handoff clarification — 2026-11-17
 
-The review pack and response template are to be used under the [M3-11 Reviewer Scope and Sequencing Alignment](M3-11_REVIEWER_SCOPE_AND_SEQUENCING_ALIGNMENT_2026-11-17.md).
+The review pack and response template are to be used under the `M3-11_REVIEWER_SCOPE_AND_SEQUENCING_ALIGNMENT_2026-11-17.md`.
 
 **Stage 1 can begin without an environment or release candidate.** The Product Owner may identify qualified, independent legal/privacy and safeguarding reviewers and provide only the existing, non-sensitive repository/design evidence pinned to an exact source commit. Reviewers may return preliminary applicability/design findings, pre-provisioning conditions and explicit unknowns. Environment-dependent facts must be marked UNKNOWN / DEFERRED; no one may invent or infer them.
 
