@@ -348,3 +348,5 @@ I8-A adds synthetic feature-test coverage only. It does not add a model, source 
 ## M3-10 reviewer handoff and decision preparation
 
 - [M3-10 Reviewer Handoff and Decision Preparation](04-roadmap/M3-10_REVIEWER_HANDOFF_AND_DECISION_PREPARATION.md) — owner and qualified-review evidence index, reviewer question packets, human accountability requirements and open-decision register. Documentation-only; no reviewer appointments, approvals, pilot activity or M3-11 authorization.
+
+- [M3-10 External Review Response and Gate Reconciliation](04-roadmap/M3-10_EXTERNAL_REVIEW_RESPONSE_AND_GATE_RECONCILIATION.md) — controlled intake, finding response and evidence-based M10-G01–G14 reconciliation; documentation only, no approvals inferred, pilot readiness NOT ACCEPTED
