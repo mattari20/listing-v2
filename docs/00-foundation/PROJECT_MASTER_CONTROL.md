@@ -1,3 +1,9 @@
+## Latest authoritative position — M3-11-07 readiness documentation (2026-11-17)
+
+M3-11-06 repository preparation merged in PR #274 as `c77ad95a85ecce845d06c24eb629e368ac46be13`. M3-11-07 is limited to repository-only release-candidate readiness documentation. The candidate readiness contract, blank evidence register and handoff are prepared; **no release candidate has been created or authorized**. M3-11-07 remains NOT STARTED / BLOCKED. M3-11-02–M3-11-06 substantive gates remain blocked; the private environment is unprovisioned, isolation evidence is 0/18, and recovery rehearsal/RPO/RTO evidence is absent. M3-11 remains BLOCKED / NOT ACCEPTED. No candidate creation, go/no-go, production execution, deployment, pilot, public release or URL cutover is authorized. See the M3-11-07 readiness, evidence-register and status/handoff documents.
+
+---
+
 # Project Master Control
 
 **Project:** eStudent Institutes V2  
