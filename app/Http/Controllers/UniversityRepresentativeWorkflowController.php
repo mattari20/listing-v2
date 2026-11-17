@@ -107,16 +107,16 @@ final class UniversityRepresentativeWorkflowController extends Controller
 
         $result = DB::transaction(function () use ($actor, $claimVersion, $validated, $institution, $request, $returnedCase): array {
             $result = $this->corrections->correct(
-            $actor,
-            $claimVersion,
-            $validated['value'],
-            $validated['evidence_reference_ids'],
-            $this->syntheticSourceContext(),
-            $this->scopedIdempotencyKey('correction', $request->user(), $validated['idempotency_key']),
-            $validated['valid_from'],
-            $validated['valid_to'] ?? null,
-            $validated['reason_code'],
-            $validated['rationale'],
+                $actor,
+                $claimVersion,
+                $validated['value'],
+                $validated['evidence_reference_ids'],
+                $this->syntheticSourceContext(),
+                $this->scopedIdempotencyKey('correction', $request->user(), $validated['idempotency_key']),
+                $validated['valid_from'],
+                $validated['valid_to'] ?? null,
+                $validated['reason_code'],
+                $validated['rationale'],
             );
             $this->editorial->supersedeAfterCorrection(
                 $actor,
