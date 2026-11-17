@@ -164,3 +164,16 @@ The separately authorized adversarial-hardening agenda adds feature tests for re
 - The implementation record is indexed in the documentation catalogue and project index. Final exact-head evidence is recorded in that implementation record after the documentation closeout checks complete.
 
 This strengthens synthetic assurance only. It does not change the M3-10 pilot readiness disposition: **NOT ACCEPTED**. Human/participant activity, real-data processing, hosted activity, deployment, publication activation and M3-11 remain **NOT AUTHORIZED**.
+
+
+## Adversarial hardening merge evidence — 2026-11-17
+
+PR #250 completed the separately authorized synthetic-only adversarial test agenda:
+
+- PR #250: [university workflow adversarial hardening](https://github.com/mattari20/listing-v2/pull/250), merged.
+- Exact PR head: `f34e132b392792e5f981d7ebef79e9e6329d9085`.
+- Merge commit: `8f04a0b4ddf6fd30052426a9a695a2e89611832e`.
+- Exact-head PHP 8.5 FND-01 CI #416 and Project documentation validation #812 passed.
+- Synthetic suite: 15 passed, 1,044 assertions, 218 warnings; warnings are non-fatal missing-local-`.env` diagnostics already present in this repository's test environment. No `.env` was created.
+
+The six additional adversarial cases passed. This is synthetic test evidence only and does not represent independent specialist review, pilot acceptance or launch readiness. M3-10 pilot readiness remains **NOT ACCEPTED**; human/participant activity and real-data processing remain **NOT AUTHORIZED**; M3-11 remains **NOT AUTHORIZED**.
