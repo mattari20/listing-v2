@@ -1283,3 +1283,14 @@ No role appointments, written acceptances, tabletop, operational exercise or env
 | [M3-11-05 Status and Handoff](M3-11-05_STATUS_AND_HANDOFF_2026-11-17.md) | Records package delivery, blocked runtime gate and required next evidence | Preparation delivered; substantive gate BLOCKED |
 
 PR [#272](https://github.com/mattari20/listing-v2/pull/272) merge evidence: merge `30c04b00e3299993f7167f45b8410f82c5d8800e`, exact head `9062e5dfb739ed0c4a9dd36b61906c116f401b66`, FND-01 CI #444 and documentation validation #862 passed. M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
+
+## M3-11-06 backup, restore and rollback readiness preparation — 2026-11-17
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-11-06 Backup, Restore and Rollback Readiness Preparation](M3-11-06_BACKUP_RESTORE_ROLLBACK_READINESS_2026-11-17.md) | Defines V2-only backup boundaries, restore and application rollback procedures, recovery roles, RPO/RTO decision requirements and stop conditions | Repository preparation delivered; recovery gate BLOCKED |
+| [M3-11-06 Recovery Rehearsal Evidence Register](M3-11-06_RECOVERY_REHEARSAL_EVIDENCE_REGISTER_2026-11-17.md) | Blank 14-item recovery evidence and synthetic rehearsal record, including RPO/RTO and independent verification | Template only; no backup/restore/rehearsal; RPO/RTO unset |
+| [M3-11-06 Status and Handoff](M3-11-06_STATUS_AND_HANDOFF_2026-11-17.md) | Records preparation delivery, blocked dependencies and next evidence | Preparation delivered; substantive gate BLOCKED |
+
+PR [#273](https://github.com/mattari20/listing-v2/pull/273) merge evidence: merge `ef136e183d9cbcd14358004b634672c19710e387`, exact head `1cacdd17bd6340a9cf41de68f171f0bc62dc137a`, FND-01 CI #445 and documentation validation #864 passed. M3-11 overall remains BLOCKED / NOT ACCEPTED.
