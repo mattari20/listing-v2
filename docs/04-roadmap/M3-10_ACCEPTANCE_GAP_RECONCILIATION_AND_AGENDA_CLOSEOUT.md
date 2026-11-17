@@ -177,3 +177,22 @@ PR #250 completed the separately authorized synthetic-only adversarial test agen
 - Synthetic suite: 15 passed, 1,044 assertions, 218 warnings; warnings are non-fatal missing-local-`.env` diagnostics already present in this repository's test environment. No `.env` was created.
 
 The six additional adversarial cases passed. This is synthetic test evidence only and does not represent independent specialist review, pilot acceptance or launch readiness. M3-10 pilot readiness remains **NOT ACCEPTED**; human/participant activity and real-data processing remain **NOT AUTHORIZED**; M3-11 remains **NOT AUTHORIZED**.
+
+
+## Final readiness gate reconciliation — 2026-11-17
+
+The current canonical status is recorded in [M3-10 Final Readiness Gate Reconciliation](M3-10_FINAL_READINESS_GATE_RECONCILIATION.md). This addendum supersedes earlier statements in this closeout that the university representative HTTP route was missing, and supersedes the earlier owner-decision pack statement that Option B was unrecorded.
+
+### Current evidence and corrected status
+- Product Owner selected Option B on 2026-11-17 for proposal preparation only. This is not pilot approval or activity authorization.
+- PR #248 merged the authenticated university representative proposal/correction and independent editorial-review HTTP workflow.
+- PR #249 merged implementation evidence closeout.
+- PR #250 merged six synthetic adversarial tests; exact-head FND-01 CI #416 and documentation validation #812 passed.
+- PR #251 merged final adversarial evidence documentation.
+- Latest main at reconciliation: `f7d83bda86430017885026c4069109d2ad6ce7fa`.
+
+The earlier no-route finding is historical and superseded at the API/controller level. No browser-facing UI, human usability acceptance, adjudication/publication endpoint or provisioned pilot environment is claimed.
+
+The final gate disposition remains: M10-G01 OPEN for exact pilot charter; G02 NOT APPROVED; G03 SYNTHETIC ONLY; G04 NOT APPROVED; G05 REQUIRED / NOT EVIDENCED; G06 REQUIRED IF RELEVANT / NOT EVIDENCED; G07 REQUIRED / NOT EVIDENCED; G08 NOT ASSIGNED; G09 NOT STAFFED / DISABLED; G10 NOT SATISFIED FOR PILOT; G11 PARTIAL / NOT ACCEPTED; G12 NO-SPEND BOUNDARY; G13 NOT STARTED; G14 NOT AUTHORIZED.
+
+**M3-10 pilot readiness remains NOT ACCEPTED.** No pilot go/no-go is issued. Human/participant activity, real-data processing, source access, hosted activity, deployment, spend and M3-11 remain NOT AUTHORIZED.
