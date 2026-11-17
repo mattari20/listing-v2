@@ -1,5 +1,7 @@
 ## M3-11 residual gate resolution — 2026-11-17
 
+- PR [#266](https://github.com/mattari20/listing-v2/pull/266) — **Post-merge evidence reconciliation complete**; exact-head FND-01 CI #434 and documentation validation #846 passed; merge `a85908f0e64bca943593efbc246025dbc55fee15` verified identical to main.
+
 - [M3-11 Residual Gate Resolution Plan](M3-11_RESIDUAL_GATE_RESOLUTION_PLAN_2026-11-17.md) — **Delivered and merged — PR #265; exact-head FND-01 CI #433 and documentation validation #844 passed**; identifies exact remaining owner, qualified-review, human-operations and environment evidence, and safe next actions. Does not claim production readiness or authorize release.
 
 ## RCV-01 requirements/capability reconciliation — 2026-11-17
