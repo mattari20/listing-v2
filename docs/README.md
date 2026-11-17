@@ -31,6 +31,9 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [M3-10 Final Readiness Gate Reconciliation](04-roadmap/M3-10_FINAL_READINESS_GATE_RECONCILIATION.md) — canonical current status of Option B proposal-only decision, merged university workflow, adversarial tests and all M10 readiness gates
 - [M3-10 University Workflow Adversarial Hardening Record](04-roadmap/M3-10_UNIVERSITY_WORKFLOW_ADVERSARIAL_HARDENING_RECORD.md) — synthetic-only tests for revoked/expired roles, forged request fields, invalid evidence, replay conflicts, atomic audit rollback and audit integrity
 
+- [M3-11 Controlled Production Launch Preflight](04-roadmap/M3-11_CONTROLLED_PRODUCTION_LAUNCH_PREFLIGHT.md) — governance/release preflight and current blocker register; production remains blocked.
+- [M3-11 Residual Gate Resolution Plan](04-roadmap/M3-11_RESIDUAL_GATE_RESOLUTION_PLAN_2026-11-17.md) — exact residual evidence, accountable evidence sources, permissible next actions and stop conditions.
+
 ## Documentation tracking
 - [Documentation Completion Catalogue](04-roadmap/DOCUMENTATION_CATALOG.md) — owner-facing list of delivered, reviewed, accepted and planned documents; updated after every documentation PR update and merge.
 
