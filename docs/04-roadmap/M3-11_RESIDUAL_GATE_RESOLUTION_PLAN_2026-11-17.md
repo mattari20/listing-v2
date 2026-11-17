@@ -79,3 +79,16 @@ If an external or owner dependency is unavailable, keep its status BLOCKED and c
 ## 7. Acceptance criteria for this planning record
 
 This record is complete when it is merged with exact-head required checks passing and indexed in the documentation catalogue and index. Its completion is not M3-11 production acceptance, pilot acceptance, go/no-go or release authorization.
+
+
+## 8. PR delivery and validation evidence
+
+- PR [#265](https://github.com/mattari20/listing-v2/pull/265) merged as `f2af8a392ea50cd567d9a13866f999aad634bb9d`.
+- Exact PR head: `bbc675318b9154f067d6619dbf84c1e83fa4e901`.
+- FND-01 PHP 8.5 foundation CI run #433 (`44032876479`): SUCCESS.
+- Project documentation validation run #844 (`44032876384`): SUCCESS.
+- Synthetic-only suite, Composer/dependency checks, formatting, Laravel bootstrap/routes and repository hygiene all passed on the exact PR head.
+- Post-merge `main` compared identical to `f2af8a392ea50cd567d9a13866f999aad634bb9d`.
+- Documentation-only; no application/runtime/schema/route/dependency/workflow changes, production access or deployment.
+
+These checks validate the repository/documentation changes only. All external/human and production environment gates in Sections 2–6 remain open; M3-11 production readiness remains BLOCKED / NOT ACCEPTED.
