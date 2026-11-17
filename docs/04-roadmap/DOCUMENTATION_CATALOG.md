@@ -1,3 +1,10 @@
+## M3-11-07 release-candidate readiness preparation — 2026-11-17
+
+- [M3-11-07 Release Candidate Readiness](M3-11-07_RELEASE_CANDIDATE_READINESS_2026-11-17.md) — **Delivered — review pending**; defines immutable candidate identity, entry gates, exact-candidate verification, Option A acceptance checks and stop conditions. No candidate is created or authorized.
+- [M3-11-07 Candidate Evidence Register](M3-11-07_CANDIDATE_EVIDENCE_REGISTER_2026-11-17.md) — **Delivered — review pending**; blank 23-item register. No candidate-specific evidence is claimed.
+- [M3-11-07 Status and Handoff](M3-11-07_STATUS_AND_HANDOFF_2026-11-17.md) — **Delivered — review pending**; records M3-11-07 NOT STARTED / BLOCKED and the prerequisites for a separately authorized candidate.
+- This package is documentation preparation only. M3-11-02–M3-11-06 remain substantively blocked; M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
 ## M3-11 residual gate resolution — 2026-11-17
 
 - PR [#266](https://github.com/mattari20/listing-v2/pull/266) — **Post-merge evidence reconciliation complete**; exact-head FND-01 CI #434 and documentation validation #846 passed; merge `a85908f0e64bca943593efbc246025dbc55fee15` verified identical to main.
