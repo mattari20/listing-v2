@@ -753,3 +753,8 @@ M3-11-02 repository-only legal/privacy/safeguarding reviewer preparation merged 
 M3-11-03 independent security/accessibility reviewer preparation is documented in the current M3-11-03 pack, response template and handoff record. It is documentation-only and pending exact-head validation. No independent security test, penetration test, accessibility audit or WCAG conformance claim is made. M3-11-03 remains BLOCKED pending qualified independent assessment, remediation/retest and owner disposition.
 
 The private V2-only acceptance environment remains unprovisioned. M3-11-05 must separately authorize and evidence V2/V1 isolation before environment creation, access or active testing. No reviewer appointment, environment access, test activity, production/V1/Hostinger/live database access, real data, participant activity, deployment, migration, external services or spend is authorized. M3-11 overall remains BLOCKED / NOT ACCEPTED; Deeni Madaris remains default-OFF with zero public exposure.
+
+
+## M3-11-04 human operations preparation — 2026-11-17
+
+Repository-only preparation is delivered in `M3-11-04_HUMAN_OPERATIONS_SUPPORT_READINESS_2026-11-17.md`, with the blank `M3-11-04_ROLE_ACCEPTANCE_AND_COVERAGE_REGISTER_2026-11-17.md` and `M3-11-04_STATUS_AND_HANDOFF_2026-11-17.md`. The operating model defines accountable roles, support/incident handling, privacy/safeguarding/security escalation, coverage, deputies, handover and stop conditions. No humans are appointed or represented as accepting duties; the current register has 0/9 role acceptances. M3-11-04 remains BLOCKED for actual human readiness. M3-11 overall remains BLOCKED / NOT ACCEPTED; no environment, pilot or production action is authorized.
