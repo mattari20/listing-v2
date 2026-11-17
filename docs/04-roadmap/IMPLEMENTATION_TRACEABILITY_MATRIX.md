@@ -419,3 +419,15 @@ The I8 acceptance record is `M3-07_I8_SYNTHETIC_AGENT_READINESS_EVALUATION.md`. 
 | M3-10-M10-04 | Support, moderation and operational ownership | M3-10 Pilot and Launch Readiness Work Plan | M3-10 | PR #240 merged as `d733bca59e5cb519f0a3d74231145ee24d298ed4`; exact head `9248721ef7e50c0d68693c64a822866acc86d592`; FND-01 CI #43893286963 and docs validation #43893048895 passed | Role/coverage matrix; no support/on-call/moderation staffing or public UGC activation | Blocked — accountable human owners and coverage not assigned |
 | M3-10-M10-05 | Incident, recovery and rollback readiness | M3-10 Pilot and Launch Readiness Work Plan | M3-10 | PR #240 merged as `d733bca59e5cb519f0a3d74231145ee24d298ed4`; exact head `9248721ef7e50c0d68693c64a822866acc86d592`; FND-01 CI #43893286963 and docs validation #43893048895 passed | Severity/stop rules, synthetic tabletop and future V2-only rollback checklist; M3-09 SQLite test limitation explicit | In progress — design only; no live recovery evidence |
 | M3-10-M10-06 | Pilot acceptance and go/no-go recommendation | M3-10 Pilot and Launch Readiness Work Plan | M3-10 | PR #240 merged as `d733bca59e5cb519f0a3d74231145ee24d298ed4`; exact head `9248721ef7e50c0d68693c64a822866acc86d592`; FND-01 CI #43893286963 and docs validation #43893048895 passed | Acceptance report evidence contract; no pilot conducted or launch recommendation issued | Blocked — pilot and applicable gates not approved |
+
+
+## M3-10 governance and roadmap reconciliation — 2026-11-17
+
+| Requirement ID | Requirement | Governing record | Evidence | Status |
+|---|---|---|---|---|
+| M3-10-GOV-01 | Current milestone status reflects delivered readiness work and unresolved human approval dependencies | M3-10 Governance Ledger and Roadmap Reconciliation | PR #240, #244, #246, #248–#254; latest verified baseline `f39ea422f713e5f9bc4636e74f09cf45269b0517` | Reconciled; pilot readiness NOT ACCEPTED |
+| M3-10-GOV-02 | M10-G01–G14 remain evidence-backed and are not promoted by documentation or CI | M3-10 Final Readiness Gate Reconciliation; External Review Response and Gate Reconciliation | Gate register and review intake procedure | Open/blocked states retained; no gate promoted |
+| M3-10-GOV-03 | M3-11 production launch remains a separate authorization gate | Project Master Roadmap; M3-10 Governance Ledger and Roadmap Reconciliation | No separate M3-11 written authorization evidenced in reviewed records | NOT AUTHORIZED |
+| M3-10-GOV-04 | Next work depends on actual Product Owner/qualified human review evidence | External Review Response and Gate Reconciliation | No new responses evidenced in reviewed M3-10 repository records | Await evidence; no further pilot implementation eligible |
+
+This reconciliation is documentation-only. It is not a pilot go/no-go, approval, legal/security/safeguarding/accessibility opinion or production authorization.

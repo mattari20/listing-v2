@@ -70,7 +70,7 @@ The [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) is the authoritative detailed 
 | M3-07 | AI Data-Agent | 10% | I1-I8-A bounded synthetic/local/CI packages delivered, exact-head validated and merged; live source/model activation remains blocked by G2-G9 |
 | M3-08 | Identity, Reviews and Security | 10% | A/B/C/D bounded synthetic/local/CI foundations delivered in PRs #232 and #234; independent release reviews remain open; reviews post-launch only |
 | M3-09 | Quality and Operational Hardening | 8% | Complete for authorized synthetic-only local/CI scope; production/independent gates remain open |
-| M3-10 | Pilot and Launch Readiness | 7% | In progress — readiness planning only; bounded pilot requires separate owner approval |
+| M3-10 | Pilot and Launch Readiness | 7% | Readiness framework and authorized synthetic/documentation work delivered; pilot readiness NOT ACCEPTED pending owner charter, qualified reviews and accepted human operations; no pilot/go-no-go |
 | M3-11 | Controlled Production Launch | 6% | Conditional; separate production/launch approval |
 
 Weights total 100%. They are planning allocations, not authorization to spend, access sources, use production, deploy or launch.
@@ -130,3 +130,8 @@ M3-08 A/B/C/D bounded synthetic/local/CI identity, authorization, moderation and
 M3-08A/B first-party session identity and scoped authorization foundations were implemented and merged in [PR #232](https://github.com/mattari20/listing-v2/pull/232) as `a693b2c701adb5328e755156e1900771400b1dca`. Exact PR head `751add37d59e42c43acadcdbffd9f81d174123cb` passed FND-01 CI #378 and Project documentation validation #757. The synthetic suite passed with 15 tests and 863 assertions; 188 existing missing-`.env` diagnostics remain visible. The package is a bounded local/CI foundation only; it does not activate registration, verification/recovery delivery, role administration UI, reviews, UGC, moderation endpoints, production or deployment.
 
 M3-08C moderation/appeals foundations and M3-08D privacy/safeguarding/security verification remain separately gated and require their own authorization. Reviews remain post-launch only.
+
+
+## M3-10 governance reconciliation — 2026-11-17
+
+The current M3-10 records are reconciled in [M3-10 Governance Ledger and Roadmap Reconciliation](M3-10_GOVERNANCE_LEDGER_AND_ROADMAP_RECONCILIATION.md). Option B remains proposal preparation only. M10-G01–G14 retain their evidence-backed blocked/open states; pilot readiness is NOT ACCEPTED. M3-11 remains conditional and is NOT AUTHORIZED. The next eligible action is intake of actual Product Owner and qualified human review evidence, not production or pilot implementation.
