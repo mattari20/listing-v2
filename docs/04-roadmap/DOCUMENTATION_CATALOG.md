@@ -1,3 +1,7 @@
+## M3-11 residual gate resolution — 2026-11-17
+
+- [M3-11 Residual Gate Resolution Plan](M3-11_RESIDUAL_GATE_RESOLUTION_PLAN_2026-11-17.md) — **Prepared — review pending**; identifies exact remaining owner, qualified-review, human-operations and environment evidence, and safe next actions. Does not claim production readiness or authorize release.
+
 ## RCV-01 requirements/capability reconciliation — 2026-11-17
 
 - [RCV-01 Requirements-to-Capability Reconciliation](RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.md) — **Delivered and merged — PR #263; exact-head CI and documentation validation passed**; maps SR-01–SR-14 and AR-001–AR-025 against V2 routes, services, migrations and synthetic tests; identifies implemented foundations, partial/absent capabilities and a non-duplicative residual backlog. No application change or new feature authorization.
