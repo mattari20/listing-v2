@@ -42,3 +42,17 @@ This agenda delivered documentation-only reviewer preparation. It did not appoin
 No application code, schema/migration, route/UI, dependency, workflow or environment change is included. No V1/Hostinger/production/live database access, environment provisioning, deployment, migration, real data, participants, external services, new spend or launch occurred. Public UGC/reviews/ratings/reporting/moderation remain disabled. Deeni Madaris remains default-OFF with zero public exposure.
 
 **Final status:** M3-11-03 preparation deliverables complete for repository-only scope. **M3-11-03 itself remains BLOCKED pending independent qualified reports, remediation/retest and Product Owner disposition. M3-11 overall remains BLOCKED / NOT ACCEPTED.**
+
+
+## 5. Two-stage reviewer handoff clarification — 2026-11-17
+
+The review pack and response template must be used under the [M3-11 Reviewer Scope and Sequencing Alignment](M3-11_REVIEWER_SCOPE_AND_SEQUENCING_ALIGNMENT_2026-11-17.md).
+
+**Stage 1 may begin now as a repository-only review**, once qualified independent reviewers are identified and the exact source commit is pinned. Security reviewers may inspect source, architecture, trust boundaries, routes, middleware, authorization, dependency/configuration evidence and synthetic tests. Accessibility reviewers may inspect source templates, markup, semantics and design evidence. Reports must state methods, paths, coverage, limitations and all checks deferred to runtime or browser/assistive-technology evaluation. No active or hosted target testing is included.
+
+**Stage 2 is separately gated and candidate-specific.** It follows accepted human role coverage, separately authorized and independently verified V2-only environment isolation, separately authorized synthetic-only recovery rehearsal and separately authorized candidate creation. Only then may approved candidate/environment checks be performed under the required exact test plan. Accessibility browser and assistive-technology evaluation must record the actual test matrix.
+
+Immediate handoff: (1) identify qualified independent security and accessibility reviewers; (2) pin and provide the Stage 1 repository evidence bundle; (3) receive separate preliminary reports and record source-level findings/pre-provisioning conditions; (4) retain all runtime, hosted, candidate and conformance checks as deferred.
+
+Current status is unchanged: **M3-11-03 BLOCKED**; no independent assessment is evidenced. Stage 1 preparation or completion alone does not close M3-11-03. No environment provisioning, reviewer access, active testing, hosted scan or release is authorized by this handoff.
+
