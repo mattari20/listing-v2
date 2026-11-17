@@ -1,9 +1,9 @@
-# M3-11 M11-01 — Option A Controlled Limited V2 Release Scope Charter
+# M3-11-01 — Option A Controlled Limited V2 Release Scope Charter
 
 **Decision date:** 2026-11-17  
 **Decision owner:** Product Owner (decision recorded from the owner's selection of Option A in the project conversation)  
 **Repository:** `mattari20/listing-v2`  
-**Status:** OWNER-SELECTED SCOPE DIRECTION — CHARTER DETAILS PARTIAL; NOT A RELEASE APPROVAL
+**Status:** M3-11-01 CLOSED — OWNER-DEFINED PRIVATE ACCEPTANCE SCOPE; NOT A RELEASE APPROVAL
 
 ## 1. Owner decision
 
@@ -44,17 +44,18 @@ The intended experience is anonymous public discovery, not an authenticated stud
 
 The only permitted display data class for this scope is the existing narrow, approved, anonymous-directory projection and its allowlisted scalar public facts. No real/source data acquisition or new processing is authorized by this charter. Any eventual real-world data publication requires source-specific rights, provenance, privacy and qualified review before use. No student, guardian, staff or other personal/sensitive data is in scope.
 
-## 5. Release conditions and unresolved charter details
+## 5. Owner-confirmed release boundary — 2026-11-17
 
-This owner selection establishes the product-scope direction but does not yet provide a complete release charter. Before M11-01 can be accepted, the Product Owner must still confirm in a dated record:
+The Product Owner subsequently selected **Option 1: private acceptance environment only**. The following decisions complete the M3-11-01 scope-definition package:
 
-1. The exact initial release geography and any coverage exclusions (Pakistan-first text locality is the proposed baseline, not a claim of nationwide completeness).
-2. The intended public audience and any age/minor-specific safeguards or audience restrictions.
-3. The permitted source/data classes and the source-rights review process for any real published facts.
-4. The exact public surface/host and whether the scope is a private acceptance environment, limited public pilot, or public production release. No environment or audience activation is authorized by this document.
-5. The explicit disposition of the still-binding pre-launch student-research deferral and M3-10 pilot-not-accepted status. No pilot or participant activity is approved here.
+1. **Release purpose/type:** private, non-public acceptance of the limited V2 discovery experience only. This is not a public pilot, public production release, launch or URL cutover.
+2. **Audience:** no public audience and no student/guardian/participant cohort. Access, if later separately authorized, is restricted to named internal reviewers/operators who have accepted their roles; no such people are appointed by this record.
+3. **Geography:** Pakistan-first text locality model only, using the existing province/district/city/locality fields where present. This does not claim nationwide dataset coverage or authoritative administrative boundaries. No real geography/source dataset is authorized; current acceptance fixtures remain synthetic.
+4. **Data classes:** synthetic/fictional test fixtures only for the private acceptance activity. No real institution/provider/student/guardian/staff/source data, personal data, production records or external source material is authorized.
+5. **Pre-launch research/pilot:** student research, interviews, surveys, recruitment, participant activity and the M3-10 public/controlled pilot remain deferred/not accepted. No pilot is included in Option 1.
+6. **Target environment:** an isolated, private V2-only acceptance environment is the intended target category. Its host, path, runtime, database, credentials, access roster and isolation evidence are deliberately unspecified and unprovisioned. M3-11-05 must establish these through separate exact authorization and independently reviewed evidence before anyone accesses or creates the environment.
 
-Until these details and all other gates are satisfied, M11-01 remains PARTIAL and M3-11 remains BLOCKED / NOT ACCEPTED.
+These owner decisions complete the **scope and authority definition** for M3-11-01. They do not satisfy environment isolation, legal/privacy/safeguarding, security/accessibility, operations, backup/restore, candidate verification or go/no-go gates.
 
 ## 6. Mandatory controls carried forward
 
@@ -70,18 +71,18 @@ Until these details and all other gates are satisfied, M11-01 remains PARTIAL an
 
 | Work package | Disposition after Option A selection |
 |---|---|
-| M11-01 — Authority and scope | PARTIAL — scope direction selected; remaining charter particulars and formal acceptance outstanding |
-| M11-02 — Legal/privacy/safeguarding | BLOCKED — qualified written reviews absent |
-| M11-03 — Independent security/accessibility | BLOCKED — independent assessments absent |
-| M11-04 — Human operations/support | BLOCKED — named human owners and explicit role acceptances absent |
-| M11-05 — Runtime/environment separation | BLOCKED — separately authorized V2-only environment evidence absent |
-| M11-06 — Backup/restore/rollback | BLOCKED — V2-specific rehearsal and measured RPO/RTO absent |
-| M11-07 — Release candidate | NOT STARTED — no candidate authorized |
-| M11-08 — Go/no-go | BLOCKED — evidence pack and accountable approvals absent |
-| M11-09 — Production execution | NOT AUTHORIZED |
-| M11-10 — Monitored operation/closure | NOT STARTED |
+| M3-11-01 — Authority and scope | CLOSED — Option A and private acceptance-only target boundary explicitly selected; exact scope, audience, geography/data classes and pilot deferral recorded |
+| M3-11-02 — Legal/privacy/safeguarding | BLOCKED — qualified written reviews absent |
+| M3-11-03 — Independent security/accessibility | BLOCKED — independent assessments absent |
+| M3-11-04 — Human operations/support | BLOCKED — named human owners and explicit role acceptances absent |
+| M3-11-05 — Runtime/environment separation | BLOCKED — separately authorized V2-only environment evidence absent |
+| M3-11-06 — Backup/restore/rollback | BLOCKED — V2-specific rehearsal and measured RPO/RTO absent |
+| M3-11-07 — Release candidate | NOT STARTED — no candidate authorized |
+| M3-11-08 — Go/no-go | BLOCKED — evidence pack and accountable approvals absent |
+| M3-11-09 — Production execution | NOT AUTHORIZED — outside Option 1; no public production release |
+| M3-11-10 — Monitored operation/closure | NOT STARTED |
 
-This charter is accepted only as a record of the owner's selected product-scope direction. It is not a legal/privacy/security/accessibility approval, pilot go/no-go, production go/no-go, deployment instruction, release authorization or permission to relax any standing restriction.
+M3-11-01 is closed for owner scope/authority definition only. This charter is not a legal/privacy/security/accessibility approval, private-environment provisioning instruction, pilot go/no-go, production go/no-go, deployment instruction, release authorization or permission to relax any standing restriction.
 
 ## 8. Source contracts
 

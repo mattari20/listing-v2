@@ -375,3 +375,6 @@ The R13 repository desk review assessed all twelve scenarios (R01–R12) in the 
 
 
 - [M3-11 Option A Controlled Limited V2 Release Scope Charter](04-roadmap/M3-11_OPTION_A_CONTROLLED_LIMITED_V2_RELEASE_SCOPE_CHARTER_2026-11-17.md) — owner-selected limited release scope for existing anonymous directory/search/profile and manual text-locality discovery; not a production authorization.
+
+
+- [M3-11-01 Scope and Authority Closeout](04-roadmap/M3-11-01_SCOPE_AND_AUTHORITY_CLOSEOUT_2026-11-17.md) — closes the owner scope-definition package for Option A / private acceptance environment only; does not authorize environment provisioning or release.

@@ -1340,7 +1340,7 @@ The R13 repository desk review assessed all twelve scenarios (R01–R12) in the 
 
 ## M3-11 controlled production launch preflight — 2026-11-17
 
-The Product Owner explicitly instructed ChatGPT to start and complete M3-11. This is recorded as authorization to begin the M3-11 agenda and complete repository-only governance/release-preflight work. The [M3-11 Controlled Production Launch Preflight and Authorization Record](M3-11_CONTROLLED_PRODUCTION_LAUNCH_PREFLIGHT.md) defines M11-01–M11-10, evidence requirements, stop conditions and current blockers.
+The Product Owner explicitly instructed ChatGPT to start and complete M3-11. This is recorded as authorization to begin the M3-11 agenda and complete repository-only governance/release-preflight work. The [M3-11 Controlled Production Launch Preflight and Authorization Record](M3-11_CONTROLLED_PRODUCTION_LAUNCH_PREFLIGHT.md) defines M3-11-01–M3-11-10, evidence requirements, stop conditions and current blockers.
 
 **M3-11 status:** INITIATED — GOVERNANCE / RELEASE PREFLIGHT ONLY. The preflight document is complete for current repository evidence. **Production readiness remains BLOCKED / NOT ACCEPTED.** The instruction does not satisfy missing qualified reviews, human owner acceptances, M3-10 pilot readiness, V2 environment/isolation proof, backup/restore/RPO/RTO evidence or a complete release candidate. No production/Hostinger/live database access, provisioning, deployment, migration, release, URL cutover, participant activity, real-data processing, external source/API/AI, new dependency/vendor or spend occurred or is authorized by this preflight. Existing V1 exclusion, public UGC/reviews/moderation disablement and Deeni Madaris default-OFF rule remain binding.
 
@@ -1352,4 +1352,9 @@ M3-11 production execution and closure require all applicable gates, qualified h
 
 ## M3-11 Option A scope decision — 2026-11-17
 
-The Product Owner selected Option A: controlled limited V2 release scope using only the existing M3-05 anonymous directory/search/category/profile experience and M3-06 manual text-locality discovery. The owner scope charter is recorded in `M3-11_OPTION_A_CONTROLLED_LIMITED_V2_RELEASE_SCOPE_CHARTER_2026-11-17.md`. M11-01 is PARTIAL until the remaining geography, audience, data/source and environment/release-type particulars are confirmed. M3-11 production readiness remains BLOCKED / NOT ACCEPTED; no pilot, production access, deployment, launch or participant activity is authorized.
+The Product Owner selected Option A: controlled limited V2 release scope using only the existing M3-05 anonymous directory/search/category/profile experience and M3-06 manual text-locality discovery. The owner scope charter is recorded in `M3-11_OPTION_A_CONTROLLED_LIMITED_V2_RELEASE_SCOPE_CHARTER_2026-11-17.md`. M3-11-01 is CLOSED for scope/authority definition after Option A and Option 1 were selected. M3-11-02 through M3-11-10 retain their independent gates; M3-11 production readiness remains BLOCKED / NOT ACCEPTED; no environment access, pilot, production deployment, launch or participant activity is authorized.
+
+
+## M3-11-01 scope-definition closeout — 2026-11-17
+
+M3-11 package IDs are standardized as M3-11-01 through M3-11-10. The Product Owner selected Option A (existing core discovery only) and Option 1 (private acceptance environment only). M3-11-01 is CLOSED for scope/authority definition: internal-only audience, synthetic-only acceptance fixtures, Pakistan-first manual text locality, no real/source/personal data, no student research or pilot, and no public launch. The isolated V2 acceptance environment remains unprovisioned and requires separate M3-11-05 authorization/evidence. M3-11-02–M3-11-10 remain independently gated; M3-11 overall is BLOCKED / NOT ACCEPTED.
