@@ -1236,3 +1236,10 @@ The R13 repository desk review assessed all twelve scenarios (R01–R12) in the 
 | Document | Purpose | Status |
 |---|---|---|
 | [M3-11 Option A Controlled Limited V2 Release Scope Charter](M3-11_OPTION_A_CONTROLLED_LIMITED_V2_RELEASE_SCOPE_CHARTER_2026-11-17.md) | Records the Product Owner's selected limited release direction, included M3-05/M3-06 discovery surface, exclusions, data/audience boundaries and remaining M11-01 decisions | Owner scope direction recorded — M11-01 PARTIAL; no release approval |
+
+
+## M3-11-01 scope and authority closeout
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-11-01 Scope and Authority Closeout](M3-11-01_SCOPE_AND_AUTHORITY_CLOSEOUT_2026-11-17.md) | Records standardized M3-11-01…M3-11-10 numbering, Option A, private acceptance-only target, synthetic-only data and explicit no-pilot boundary | **CLOSED — scope/authority definition only; M3-11 remains blocked** |
