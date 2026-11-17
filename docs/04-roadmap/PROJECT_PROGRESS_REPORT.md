@@ -1,3 +1,12 @@
+## Latest verified position — M3-11 residual gate resolution (2026-11-17)
+
+**Verified main:** `850025bea78e72e5358f90bfe3c369b47bdd4af2` (PR #264 RCV-01 closeout; main comparison identical).  
+**M3-11 governance/repository preflight:** COMPLETE for current repository evidence.  
+**Residual gate resolution plan:** prepared for repository-only continuation; see [M3-11 Residual Gate Resolution Plan](M3-11_RESIDUAL_GATE_RESOLUTION_PLAN_2026-11-17.md).  
+**Production readiness:** BLOCKED / NOT ACCEPTED. M3-10 pilot readiness remains NOT ACCEPTED; no pilot go/no-go exists. Qualified legal/privacy/safeguarding, independent security/accessibility, accepted human operations ownership, V2 production isolation, backup/restore/RPO/RTO, exact release candidate and final go/no-go remain outstanding. No production/Hostinger/V1/live database access, deployment, release, URL cutover, real data, participants, external services or spend is authorized.
+
+---
+
 ## RCV-01 — Requirements-to-Capability Reconciliation (2026-11-17)
 
 **Status:** Documentary source/code/test inventory COMPLETE and MERGED in PR #263. **Baseline main:** `31236b49dbec3e90298e4bfc73999589da2d3f01`. The reconciliation inspects accepted M1 SR-01–SR-14 and M2 AR-001–AR-025 against V2 routes, controllers, services, migrations and synthetic test inventory. It confirms reuse of M3-04 provider/campus/programme and governance foundations, M3-05 public directory/profile/search, M3-06 manual locality, M3-08 identity/authorization foundations and M3-10 university representative correction workflow. It distinguishes these from incomplete admissions/fees/scholarships, shortlist/comparison, advanced geography, full localization/accessibility, public reviews and live source/AI activation. See [RCV-01 report](RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.md).
