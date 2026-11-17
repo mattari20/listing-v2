@@ -141,3 +141,15 @@ The current authorized M3-10 readiness-preparation agenda is **complete and reco
 **M3-11 production launch: NOT AUTHORIZED.**
 
 A future implementation agenda for the missing university representative workflow, a human/data-bearing pilot, and production launch each requires its own separate explicit authorization and applicable qualified approvals. No such work is opened by this closeout.
+
+
+## Follow-on implementation update — 2026-11-17
+
+The separately authorized university representative workflow implementation was completed and merged after this readiness-preparation closeout:
+
+- PR #248: [scoped university representative workflow](https://github.com/mattari20/listing-v2/pull/248).
+- Merge commit: `d6ea399f4224ec86565fa6871765c201b47e69c8`.
+- Exact-head PHP 8.5 FND-01 CI #409 and Project documentation validation #803 passed; post-merge documentation validation also passed.
+- Authenticated, verified, exact-institution-scoped university proposal/correction and independent editorial-review routes are now present. Corrections require the original submitter and a reviewer `changes_requested` decision; no adjudication/publication endpoint was added.
+
+This closes the previously identified HTTP route/interface implementation gap at the code level only. It does **not** satisfy the outstanding human operations, qualified legal/privacy/security/safeguarding/accessibility, research-deferral, recovery, budget/owner or pilot evidence gates. The M3-10 pilot readiness disposition remains **NOT ACCEPTED**, no pilot go/no-go is issued, human/participant activity and real-data processing remain **NOT AUTHORIZED**, and M3-11 remains **NOT AUTHORIZED**.
