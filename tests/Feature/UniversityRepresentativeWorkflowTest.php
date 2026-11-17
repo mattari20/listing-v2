@@ -278,6 +278,222 @@ final class UniversityRepresentativeWorkflowTest extends TestCase
         ]);
     }
 
+    public function test_revoked_and_expired_representative_assignments_are_denied_without_writes(): void
+    {
+        [$institution, $evidence] = $this->fixture();
+
+        foreach (['revoked', 'expired'] as $state) {
+            $representative = $this->user($state.'-rep@example.test');
+            $this->assign($representative, 'institution_representative', $institution);
+            $assignment = RoleAssignment::query()->where('user_id', $representative->getKey())->firstOrFail();
+
+            DB::table('role_assignments')->where('id', $assignment->getKey())->update(
+                $state === 'revoked'
+                    ? ['revoked_at' => now()]
+                    : ['expires_at' => now()->subSecond()]
+            );
+
+            $this->actingAs($representative, 'web')
+                ->postJson("/institutions/{$institution}/claims", $this->proposalPayload($evidence))
+                ->assertForbidden();
+        }
+
+        $this->assertSame(0, DB::table('claims')->count());
+        $this->assertSame(0, DB::table('editorial_review_cases')->count());
+    }
+
+    public function test_forged_actor_scope_capability_and_source_fields_are_ignored(): void
+    {
+        [$institution, $evidence] = $this->fixture();
+        $representative = $this->user('forged-payload-rep@example.test');
+        $this->assign($representative, 'institution_representative', $institution);
+
+        $payload = $this->proposalPayload($evidence) + [
+            'actor_id' => 'user:999999',
+            'actor_class' => 'agent',
+            'capabilities' => ['authorize_publication', 'roles.manage'],
+            'scope_type' => 'global',
+            'scope_id' => '*',
+            'source_context' => [
+                'purpose' => 'external_source_ingestion',
+                'method' => 'bulk_download',
+                'territory' => 'real',
+            ],
+            'publication_decision' => 'approved',
+            'public_visibility' => true,
+        ];
+
+        $response = $this->actingAs($representative, 'web')
+            ->postJson("/institutions/{$institution}/claims", $payload)
+            ->assertCreated();
+
+        $this->assertDatabaseHas('editorial_review_cases', [
+            'id' => $response->json('editorial_review_case_id'),
+            'submitted_by_actor_id' => 'user:'.$representative->getKey(),
+            'status' => 'submitted',
+        ]);
+        $this->assertSame(0, DB::table('publication_decisions')->count());
+        $this->assertSame(0, DB::table('public_projections')->count());
+    }
+
+    public function test_unknown_and_revoked_evidence_authorizations_are_rejected_without_claims(): void
+    {
+        [$institution, $evidence] = $this->fixture();
+        $representative = $this->user('invalid-evidence-rep@example.test');
+        $this->assign($representative, 'institution_representative', $institution);
+
+        $unknownEvidence = $this->proposalPayload($evidence);
+        $unknownEvidence['evidence_reference_ids'] = [(string) str()->uuid()];
+        $this->actingAs($representative, 'web')
+            ->postJson("/institutions/{$institution}/claims", $unknownEvidence)
+            ->assertUnprocessable();
+
+        $authorizationId = DB::table('evidence_references')
+            ->where('id', $evidence)
+            ->value('source_authorization_id');
+        DB::table('source_authorizations')->where('id', $authorizationId)->update([
+            'revoked_at' => now(),
+            'revocation_reason' => 'synthetic adversarial fixture',
+        ]);
+
+        $this->actingAs($representative, 'web')
+            ->postJson("/institutions/{$institution}/claims", $this->proposalPayload($evidence))
+            ->assertUnprocessable();
+
+        $this->assertSame(0, DB::table('claims')->count());
+        $this->assertSame(0, DB::table('editorial_review_cases')->count());
+    }
+
+    public function test_proposal_idempotency_key_cannot_be_replayed_with_a_changed_payload(): void
+    {
+        [$institution, $evidence] = $this->fixture();
+        $representative = $this->user('replay-conflict-rep@example.test');
+        $this->assign($representative, 'institution_representative', $institution);
+        $payload = $this->proposalPayload($evidence);
+
+        $this->actingAs($representative, 'web')
+            ->postJson("/institutions/{$institution}/claims", $payload)
+            ->assertCreated();
+
+        $changed = $payload;
+        $changed['value'] = 'Synthetic University Tampered Replay';
+        $this->actingAs($representative, 'web')
+            ->postJson("/institutions/{$institution}/claims", $changed)
+            ->assertUnprocessable()
+            ->assertJsonValidationErrors('idempotency_key');
+
+        $this->assertSame(1, DB::table('claims')->count());
+        $this->assertSame(1, DB::table('claim_versions')->count());
+        $this->assertSame(1, DB::table('editorial_review_cases')->count());
+    }
+
+    public function test_editorial_audit_failure_rolls_back_status_and_history_atomically(): void
+    {
+        if (DB::getDriverName() !== 'sqlite') {
+            $this->markTestSkipped('The rollback fault-injection trigger is SQLite-only.');
+        }
+
+        [$institution, $evidence] = $this->fixture();
+        $submitter = $this->user('rollback-submitter@example.test');
+        $this->assign($submitter, 'institution_representative', $institution);
+        $submitted = $this->actingAs($submitter, 'web')
+            ->postJson("/institutions/{$institution}/claims", $this->proposalPayload($evidence))
+            ->assertCreated();
+        $case = $submitted->json('editorial_review_case_id');
+
+        $reviewer = $this->user('rollback-reviewer@example.test');
+        $this->assign($reviewer, 'data_reviewer', $institution);
+        $this->actingAs($reviewer, 'web')
+            ->postJson("/institutions/{$institution}/editorial-cases/{$case}/review", [
+                'idempotency_key' => 'rollback-review-start',
+            ])->assertOk();
+
+        DB::statement("CREATE TRIGGER synthetic_fail_editorial_audit
+            BEFORE INSERT ON audit_events
+            WHEN NEW.action = 'directory_editorial_review_completed'
+            BEGIN SELECT RAISE(ABORT, 'synthetic audit failure'); END");
+
+        try {
+            try {
+                app(\\App\\Services\\Directory\\EditorialReviewService::class)->completeReview(
+                    [
+                        'actor_id' => 'user:'.$reviewer->getKey(),
+                        'actor_class' => 'human',
+                        'capabilities' => ['review_directory_proposal'],
+                    ],
+                    $case,
+                    'ready_for_adjudication',
+                    'synthetic_review',
+                    'Synthetic rollback fault injection for audit atomicity.',
+                    'rollback-review-complete',
+                );
+                $this->fail('Expected synthetic audit insertion failure.');
+            } catch (\\Illuminate\\Database\\QueryException $exception) {
+                $this->assertStringContainsString('synthetic audit failure', $exception->getMessage());
+            }
+        } finally {
+            DB::statement('DROP TRIGGER IF EXISTS synthetic_fail_editorial_audit');
+        }
+
+        $this->assertDatabaseHas('editorial_review_cases', [
+            'id' => $case,
+            'status' => 'in_review',
+        ]);
+        $this->assertSame(0, DB::table('directory_status_history')
+            ->where('editorial_review_case_id', $case)
+            ->where('event_type', 'review_completed')
+            ->count());
+        $this->assertSame(0, DB::table('audit_events')
+            ->where('target_id', $case)
+            ->where('action', 'directory_editorial_review_completed')
+            ->count());
+    }
+
+    public function test_editorial_transition_has_matching_status_history_and_audit_event(): void
+    {
+        [$institution, $evidence] = $this->fixture();
+        $submitter = $this->user('audit-submitter@example.test');
+        $this->assign($submitter, 'institution_representative', $institution);
+        $submitted = $this->actingAs($submitter, 'web')
+            ->postJson("/institutions/{$institution}/claims", $this->proposalPayload($evidence))
+            ->assertCreated();
+        $case = $submitted->json('editorial_review_case_id');
+
+        $reviewer = $this->user('audit-reviewer@example.test');
+        $this->assign($reviewer, 'data_reviewer', $institution);
+        $this->actingAs($reviewer, 'web')
+            ->postJson("/institutions/{$institution}/editorial-cases/{$case}/review", [
+                'idempotency_key' => 'audit-review-start',
+            ])->assertOk();
+        $this->actingAs($reviewer, 'web')
+            ->patchJson("/institutions/{$institution}/editorial-cases/{$case}/review", [
+                'outcome' => 'held',
+                'reason_code' => 'synthetic_audit_check',
+                'rationale' => 'Synthetic review held for audit consistency verification.',
+                'idempotency_key' => 'audit-review-complete',
+            ])->assertOk();
+
+        $actorId = 'user:'.$reviewer->getKey();
+        $this->assertDatabaseHas('directory_status_history', [
+            'editorial_review_case_id' => $case,
+            'event_type' => 'review_completed',
+            'actor_id' => $actorId,
+            'new_status' => 'held',
+        ]);
+        $audit = DB::table('audit_events')
+            ->where('target_type', 'editorial_review_case')
+            ->where('target_id', $case)
+            ->where('action', 'directory_editorial_review_completed')
+            ->first();
+        $this->assertNotNull($audit);
+        $metadata = json_decode((string) $audit->metadata, true);
+        $this->assertSame($actorId, $metadata['actor_id'] ?? null);
+        $this->assertSame($institution, $metadata['entity_id'] ?? null);
+        $this->assertSame('held', $metadata['new_status'] ?? null);
+        $this->assertSame(0, DB::table('publication_decisions')->count());
+        $this->assertSame(0, DB::table('public_projections')->count());
+    }
+
     private function fixture(string $category = 'university'): array
     {
         $institution = $this->institution($category);
