@@ -152,3 +152,10 @@ These results validate the repository/documentation preflight only. They do not 
 ## 11. Evidence-record reconciliation
 
 PR [#260](https://github.com/mattari20/listing-v2/pull/260) records the PR #259 merge evidence in the controller, progress report, traceability matrix and documentation catalogue. PR #260 merged as `a454a10ade0405cfc8a2d9d0e7bdc82a1a84a2bf`; its exact head `877e6f2e9284e8fa6363b8e64efb97a46316bb73` passed FND-01 PHP 8.5 CI #428 and Project documentation validation #834. Main was verified identical to the merge commit. This evidence-record reconciliation does not alter any M3-11 blocker or authorize production execution.
+
+
+## 12. Product Owner Option A scope decision — 2026-11-17
+
+The Product Owner selected Option A: a controlled, limited V2 release restricted to the existing M3-05 anonymous directory/search/category/profile capabilities and M3-06 manual text locality discovery. The precise scope, excluded features, audience/data/environment limitations and remaining M11-01 decisions are recorded in [M3-11 Option A Controlled Limited V2 Release Scope Charter](M3-11_OPTION_A_CONTROLLED_LIMITED_V2_RELEASE_SCOPE_CHARTER_2026-11-17.md).
+
+This decision closes the open Option A/B/C selection only. M11-01 remains PARTIAL pending the remaining charter details. Legal/privacy/safeguarding, independent security/accessibility, human operations, environment isolation, recovery, release-candidate and go/no-go gates remain open. Production execution remains NOT AUTHORIZED. All prior restrictions remain binding.

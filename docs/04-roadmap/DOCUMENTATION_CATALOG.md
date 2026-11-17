@@ -1229,3 +1229,10 @@ The R13 repository desk review assessed all twelve scenarios (R01–R12) in the 
 
 
 **M3-11 evidence closeout history:** PR [#260](https://github.com/mattari20/listing-v2/pull/260) merged as `a454a10ade0405cfc8a2d9d0e7bdc82a1a84a2bf`; exact head `877e6f2e9284e8fa6363b8e64efb97a46316bb73`; FND-01 CI #428 and Project documentation validation #834 passed; main verified identical to merge commit.
+
+
+## M3-11 Option A controlled release scope
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-11 Option A Controlled Limited V2 Release Scope Charter](M3-11_OPTION_A_CONTROLLED_LIMITED_V2_RELEASE_SCOPE_CHARTER_2026-11-17.md) | Records the Product Owner's selected limited release direction, included M3-05/M3-06 discovery surface, exclusions, data/audience boundaries and remaining M11-01 decisions | Owner scope direction recorded — M11-01 PARTIAL; no release approval |
