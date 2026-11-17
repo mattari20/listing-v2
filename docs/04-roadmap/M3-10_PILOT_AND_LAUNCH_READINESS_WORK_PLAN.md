@@ -2,9 +2,10 @@
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Baseline main:** `60690f56ac1776a8320e5dffc70adf961b0219ca`  
+**Original planning baseline:** `60690f56ac1776a8320e5dffc70adf961b0219ca`  
+**Latest reconciled main (2026-11-17):** `f7d83bda86430017885026c4069109d2ad6ce7fa`  
 **Authorization:** Product Owner explicitly authorized moving into M3-10 on 2026-11-16  
-**Current disposition:** IN PROGRESS — readiness planning and synthetic-only desk/CI exercises; no live pilot is approved or underway  
+**Current disposition:** IN PROGRESS — technical university workflow and synthetic adversarial hardening merged; proposal-only owner decision recorded; pilot readiness NOT ACCEPTED  
 **Next step:** obtain explicit, bounded owner decisions and required qualified reviews before any participant, data-bearing, hosted or operational pilot activity
 
 ## 1. Purpose and interpretation of authorization
@@ -198,3 +199,35 @@ If the owner chooses not to authorize human participants or real data, the agend
 Readiness framework PR [#240](https://github.com/mattari20/listing-v2/pull/240) merged as `d733bca59e5cb519f0a3d74231145ee24d298ed4` from exact validated head `9248721ef7e50c0d68693c64a822866acc86d592`. FND-01 PHP 8.5 CI [#43893286963](https://github.com/mattari20/listing-v2/actions/runs/43893286963) and Project documentation validation [#43893048895](https://github.com/mattari20/listing-v2/actions/runs/43893048895) passed on that head. The full synthetic suite remained 15 passed / 953 assertions / 205 existing non-fatal missing-local-`.env` diagnostics; no `.env` was created. Post-merge documentation validation [#43893419189](https://github.com/mattari20/listing-v2/actions/runs/43893419189) passed on the merge commit.
 
 This merge records delivery of the M3-10 readiness plan only. It does not record approval or execution of a pilot, participant protocol, real-data scope, hosted preview, production deployment, public UGC/reviews/moderation or launch. The M3-10 status remains IN PROGRESS and M3-11 remains separately gated.
+
+
+## 15. Final readiness reconciliation update — 2026-11-17
+
+This section is the current status addendum and supersedes earlier route-gap and owner-decision statements where they conflict with later merged evidence.
+
+### Owner decision
+The Product Owner selected **Option B** on 2026-11-17: prepare a narrowly bounded future pilot proposal for separate review only. The proposal describes an adult-only, invitation-based evaluation of one V2 university institution profile review/correction workflow, fabricated synthetic records, and a not-yet-provisioned isolated non-production environment. Lahore, Punjab, Pakistan and category university are proposal descriptors only. This decision is not pilot approval or permission for participant contact, consent, sessions, data processing, source access, hosted activity, deployment, spend or launch. The existing pre-launch research deferral remains binding.
+
+### Technical evidence now available
+- PR #248 merged university representative submission/correction and independent editorial-review HTTP routes, scoped to the exact university institution.
+- PR #249 merged implementation evidence closeout.
+- PR #250 merged six additional synthetic adversarial feature cases: revoked/expired roles, forged request fields, unknown/revoked-authority evidence, changed-payload idempotency replay, SQLite audit-failure rollback and audit integrity.
+- PR #251 merged the final adversarial documentation closeout.
+- Current main at reconciliation: `f7d83bda86430017885026c4069109d2ad6ce7fa`.
+
+The HTTP workflow exists at the API/controller level. No adjudication or publication endpoint was added. This record does not claim a browser-facing UI, human usability acceptance, provisioned pilot environment or end-to-end human session.
+
+### Updated package disposition
+| Package | Current disposition |
+|---|---|
+| M10-01 — Pilot charter and scope | Proposal prepared; exact activity charter, thresholds, cohort, duration, cost and final owner approval remain OPEN |
+| M10-02 — Participants, consent and safeguarding | BLOCKED; research deferral unresolved; no participants/contact/consent/sessions authorized |
+| M10-03 — Data, sources and privacy | SYNTHETIC ONLY; no real/personal/institution/source data or source access authorized |
+| M10-04 — Support, moderation and ownership | BLOCKED; accountable pilot, support, technical, incident, privacy/data and safeguarding owners not assigned; public UGC/moderation disabled |
+| M10-05 — Incident, continuity and rollback | DESIGN / LIMITED SYNTHETIC EVIDENCE; disposable SQLite restore only; no hosted or production recovery evidence |
+| M10-06 — Pilot acceptance and go/no-go | NOT ACCEPTED / NOT STARTED; no pilot activity, results, thresholds or qualified sign-offs |
+
+### Gate disposition
+M10-G01 remains OPEN for an owner-approved exact pilot charter. M10-G02 NOT APPROVED; G03 SYNTHETIC ONLY; G04 NOT APPROVED; G05 legal/privacy REQUIRED / NOT EVIDENCED; G06 safeguarding REQUIRED IF RELEVANT / NOT EVIDENCED; G07 independent security REQUIRED / NOT EVIDENCED; G08 operations/support NOT ASSIGNED; G09 moderation NOT STAFFED / PUBLIC UGC DISABLED; G10 recovery NOT SATISFIED FOR PILOT; G11 accessibility PARTIAL / NOT ACCEPTED; G12 NO NEW SPEND / NO VENDOR; G13 pilot acceptance NOT STARTED; G14 M3-11 NOT AUTHORIZED.
+
+**Current decision:** readiness framework and authorized technical/documentation work are delivered; M3-10 pilot readiness remains **NOT ACCEPTED**; no pilot go/no-go is issued; human/participant activity and real-data processing remain **NOT AUTHORIZED**; M3-11 remains **NOT AUTHORIZED**.
