@@ -118,3 +118,12 @@ The subsequent Option 1 decision and exact owner boundary are recorded in Sectio
 - The exact included discovery surface, explicit exclusions, internal-only/no-participant audience, Pakistan-first text-locality boundary, synthetic-only data class, no-pilot disposition and unprovisioned isolated V2 acceptance-environment target category are recorded in the owner charter.
 - M3-11-01 is **CLOSED for scope/authority definition**. This is not environment provisioning, acceptance testing, a pilot, a legal/privacy/security/accessibility approval, release candidate, go/no-go or production release.
 - M3-11-02 through M3-11-10 remain at their existing blocked/not-started/not-authorized states. M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
+
+## 14. M3-11-02 and M3-11-03 reviewer preparation update — 2026-11-17
+
+M3-11-02 reviewer preparation was delivered and merged in PR #270 as `9ad73fcf20cb8aaab1a7e380596a93cd75b5ad09`; exact-head FND-01 CI #442 and documentation validation #858 passed. This is not a qualified legal/privacy/safeguarding assessment. M3-11-02 remains BLOCKED pending qualified written reviews and owner disposition.
+
+M3-11-03 independent security/accessibility review preparation is now documented in `M3-11-03_INDEPENDENT_SECURITY_ACCESSIBILITY_REVIEW_PACK_2026-11-17.md` and `M3-11-03_REVIEWER_RESPONSE_TEMPLATE_2026-11-17.md`. It remains subject to exact-head CI and review. No independent assessment has occurred. Active testing against a hosted target, environment provisioning or reviewer access remains prohibited until M3-11-05 separately authorizes and evidences isolated V2-only boundaries and a written test plan is approved.
+
+Next eligible repository-only work is M3-11-04 human operations/support role and handoff preparation, without inventing or assigning human owners. Qualified reviewers and Product Owner decisions remain external dependencies. M3-11-05 and M3-11-06 remain separately gated; M3-11-07 is not started; M3-11-08 is blocked; M3-11-09 is not authorized; M3-11-10 is not started. M3-11 overall remains BLOCKED / NOT ACCEPTED.
