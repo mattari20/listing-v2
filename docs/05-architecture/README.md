@@ -84,3 +84,12 @@ S07, S08 and S09 are design-task complete at 100%; S10 remains 80% pending expli
 
 - [M2 Final Owner Acceptance and Closure Record](M2_FINAL_OWNER_ACCEPTANCE_RECORD_2026-11-12.md) — owner acceptance of the complete S00-S10 architecture baseline; M2 Accepted and Closed at 100%.
 - [M2 Final Progress and Closeout Report](M2_FINAL_PROGRESS_AND_CLOSEOUT_REPORT_2026-11-12.md) — complete weighted progress, deliverables, retained controls, open M3 decisions and authorization boundary.
+
+
+## M3-10 bounded university representative workflow implementation
+
+- Authenticated institution-scoped university representatives may submit registry-bound field proposals and submit field-aware corrections using metadata-only synthetic evidence references.
+- Institution representative assignments are distinct from reviewer, publisher, moderator and service-identity roles. Access is checked against the exact institution resource scope on every request.
+- Separately scoped data reviewers may start and complete editorial review. The existing editorial service enforces submitter/reviewer/evidence-actor separation and records status history and audit events.
+- No HTTP adjudication or publication endpoint is added. Submission and correction remain in editorial review; no public projection, ratings, reviews, reporting or public UGC are enabled. Deeni Madaris remains default-OFF.
+- All workflow requests inject a fixed synthetic-only source context; callers cannot supply source context, publication audience or public surface. The underlying services reject non-synthetic evidence and preserve exact field-definition binding.
