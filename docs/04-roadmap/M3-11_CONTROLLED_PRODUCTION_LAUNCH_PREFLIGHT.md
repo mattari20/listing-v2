@@ -1,5 +1,12 @@
 
 
+## 12. M3-11 gate-resolution coordination — 2026-11-17
+
+A repository-only gate-resolution coordination plan and blank Product Owner/human evidence intake worksheet are being prepared. They consolidate dependencies, evidence sources, owner decisions and stop conditions. They do not appoint reviewers or operators, certify compliance, authorize spend, provision an environment, authorize recovery rehearsal, create a candidate, issue a go/no-go or permit production execution.
+
+M3-11-02–M3-11-06 substantive gates remain BLOCKED; M3-11-07 remains NOT STARTED / BLOCKED; M3-11-08 remains BLOCKED / NOT DECIDED; M3-11-09 remains NOT AUTHORIZED; M3-11-10 remains NOT STARTED. M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
+
 ## 11. M3-11-08 decision-pack preparation — 2026-11-17
 
 A repository-only change and go/no-go decision pack and status/handoff have been prepared. They define the mandatory dossier, accountable decision roles, GO/NO-GO/NOT DECIDED vocabulary, change-window and rollback evidence requirements. They do not issue a decision, waive a gate or authorize execution.
