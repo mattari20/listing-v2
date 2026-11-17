@@ -564,3 +564,10 @@ Repository preparation is delivered: operating model, support and incident proce
 PR [#272](https://github.com/mattari20/listing-v2/pull/272) merged as `30c04b00e3299993f7167f45b8410f82c5d8800e`; exact head `9062e5dfb739ed0c4a9dd36b61906c116f401b66`; FND-01 CI #444 and documentation validation #862 passed; main verified identical to merge commit. M3-11-04 repository preparation is delivered, but actual human operations readiness remains BLOCKED (0/9 written role acceptances).
 
 M3-11-05 repository preparation defines the V2-only environment inventory, separation principles, required evidence, safe verification sequence, stop conditions and separate authorization template. Environment target remains NOT IDENTIFIED; provisioning/access NOT PERFORMED; 0/18 isolation evidence items verified. No hosted tests or V1/production probes are permitted. M3-11-05 remains BLOCKED / NOT ACCEPTED pending separate exact authorization, named human ownership and independently verified V2-only isolation. M3-11-06 recovery remains separately gated.
+
+
+## M3-11-05 PR #273 evidence and M3-11-06 recovery preparation — 2026-11-17
+
+PR [#273](https://github.com/mattari20/listing-v2/pull/273) merged as `ef136e183d9cbcd14358004b634672c19710e387`; exact head `1cacdd17bd6340a9cf41de68f171f0bc62dc137a`; FND-01 CI #445 and documentation validation #864 passed; main verified identical to merge commit. M3-11-05 repository preparation is delivered; the target environment is unidentified, no provisioning/access occurred and 0/18 isolation items are verified. The gate remains BLOCKED.
+
+M3-11-06 repository preparation defines V2-only backup boundaries, restore and application rollback procedures, recovery roles, stop conditions and a 14-item evidence register. No backup, restore or rollback was run; RPO/RTO are not set or measured; no recovery owner or independent verifier is evidenced. M3-11-06 remains BLOCKED / NOT ACCEPTED pending M3-11-05 isolation, accepted human ownership, owner-approved recovery objectives and a separately authorized synthetic-only rehearsal.

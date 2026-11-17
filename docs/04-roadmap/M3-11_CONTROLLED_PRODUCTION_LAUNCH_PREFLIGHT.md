@@ -183,3 +183,10 @@ The repository-only operating model, role acceptance/coverage register and statu
 Repository-only preparation is delivered in the runtime/environment separation plan, 18-item isolation evidence checklist, exact-scope authorization/evidence register and handoff. The environment target is NOT IDENTIFIED; provisioning, access, configuration and hosted tests were NOT PERFORMED; 0/18 isolation evidence items are verified. No separate provisioning/access authorization is recorded. The package does not select a provider/plan/resource or authorize spend. M3-11-05 remains BLOCKED / NOT ACCEPTED pending exact owner authorization, accepted human owners, V2-only isolation evidence and independent security review. Do not access Hostinger/hPanel, production/V1, DNS, live databases or any hosted target under this documentation-only package.
 
 PR #272 evidence: merged as `30c04b00e3299993f7167f45b8410f82c5d8800e`; exact head `9062e5dfb739ed0c4a9dd36b61906c116f401b66`; FND-01 CI #444 and documentation validation #862 passed; main verified identical to merge commit. M3-11-04 remains blocked for actual human readiness (0/9 role acceptances).
+
+
+## 17. M3-11-06 backup, restore and rollback preparation — 2026-11-17
+
+Repository-only recovery preparation is delivered in the backup/restore/rollback plan, 14-item recovery evidence register and handoff. No backup or snapshot was created; no restore or rollback rehearsal was performed; RPO/RTO remain NOT SET / NOT MEASURED; recovery owner and independent verifier are not evidenced. M3-11-06 remains BLOCKED / NOT ACCEPTED and depends on M3-11-05 isolated V2-only environment acceptance and separately authorized synthetic-only rehearsal. This documentation does not authorize access to Hostinger/hPanel, production/V1, live databases, backup stores, snapshots or any hosted environment.
+
+PR #273 merged as `ef136e183d9cbcd14358004b634672c19710e387`; exact head `1cacdd17bd6340a9cf41de68f171f0bc62dc137a`; FND-01 CI #445 and documentation validation #864 passed; main verified identical to merge commit. M3-11-05 substantive isolation gate remains blocked.

@@ -143,3 +143,12 @@ PR [#272](https://github.com/mattari20/listing-v2/pull/272) merged as `30c04b00e
 M3-11-05 repository preparation is delivered in the runtime/environment separation plan, 18-item evidence checklist, authorization/evidence register and handoff. The target is not identified, no environment is provisioned or accessed, and 0/18 isolation items are verified. Do not provision or access any hosted environment until a separate exact Product Owner authorization identifies the V2-only target, permitted resources/actions, window and cost/vendor impact, and accountable human provisioner/operations/security/recovery owners have accepted their roles. Negative tests must use controlled synthetic resources and must never probe V1/production. M3-11-05 remains BLOCKED / NOT ACCEPTED.
 
 Next repository work may prepare M3-11-06 recovery requirements and evidence templates only; actual backup/restore/rollback rehearsal remains separately gated and cannot be performed against production or any unapproved environment.
+
+
+## 17. M3-11-05 merge evidence and M3-11-06 recovery preparation — 2026-11-17
+
+PR [#273](https://github.com/mattari20/listing-v2/pull/273) merged as `ef136e183d9cbcd14358004b634672c19710e387`; exact head `1cacdd17bd6340a9cf41de68f171f0bc62dc137a`; FND-01 CI #445 and documentation validation #864 passed; main verified identical to merge commit. This is repository preparation only: environment target unidentified, no provisioning/access and 0/18 isolation evidence verified.
+
+M3-11-06 repository preparation is delivered in the recovery plan, 14-item evidence register and handoff. No backup or restore was performed; RPO/RTO are unset/unmeasured; recovery ownership and independent verification are not evidenced. Actual rehearsal remains blocked on M3-11-05 isolation, accepted human owners and Product Owner-approved objectives. Do not create/access backups, restore data or run rollback without separate exact authorization for a disposable synthetic V2-only target.
+
+M3-11-07 cannot be pinned/accepted until its prerequisite gates and recovery evidence pass. M3-11-08 remains blocked; M3-11-09 remains not authorized; M3-11-10 remains not started. M3-11 overall remains BLOCKED / NOT ACCEPTED.
