@@ -7,7 +7,7 @@ All milestones are planned outcomes. Step-level scope and acceptance criteria ar
 | M0 | Independent repository, documentation, governance and delivery controls | Accepted — PR #4 closeout |
 | M1 | Student requirements, provider discovery, data rights and open-source research | **Accepted and Closed — M1-S01 through M1-S10 accepted; 100%; primary research deferred** |
 | M2 | Architecture, domain model, technology evaluation, security and data design | **Accepted and Closed — 100%** |
-| M3 | Application foundation, environments, CI, identity and authorization | In progress — M3-02 through M3-06 delivered for bounded local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered and validated; M3-08 preflight complete; M3-08A/B identity and authorization foundations merged in PR #232; M3-08C/D remain separately gated; live AI Data-Agent activation remains blocked by G2-G9 |
+| M3 | Application foundation, environments, CI, identity and authorization | M3-10 authorized preparation closed; M3-11 governance/release preflight initiated; production readiness BLOCKED / NOT ACCEPTED pending qualified human gates, accepted operations, V2 isolation/recovery evidence and exact release approval |
 | M4 | Institution, campus and programme management | Planned |
 | M5 | Nearby discovery, search, filters and maps | Planned |
 | M6 | Institution profiles and verified information presentation | Planned |
@@ -147,3 +147,12 @@ The [Two-Person Synthetic University Workflow Rehearsal Checklist](M3-10_TWO_PER
 The R13 repository desk review assessed all twelve scenarios (R01–R12) in the two-person synthetic university workflow checklist against the merged representative API implementation, adversarial hardening evidence and governance records. Result: **12 CLEAR, 0 UNCLEAR, 0 BLOCKED** for documentary clarity only. No new application execution, software test, human usability evidence or specialist approval is claimed. See [M3-10 R13 Desk Review and Final Agenda Closeout](M3-10_R13_DESK_REVIEW_AND_FINAL_AGENDA_CLOSEOUT.md).
 
 **Authorized M3-10 readiness-preparation agenda: COMPLETE / CLOSED** for the repository-only, synthetic/local/CI and documentation scope authorized to date. The two-person tabletop remains NOT EXECUTED; M10-G01–G14 retain their existing open/blocked dispositions; pilot readiness remains NOT ACCEPTED; no pilot go/no-go is issued; human/participant activity and real-data processing remain NOT AUTHORIZED; M3-11 remains NOT AUTHORIZED. No standing restriction is relaxed.
+
+
+## M3-11 controlled production launch preflight — 2026-11-17
+
+The Product Owner explicitly instructed ChatGPT to start and complete M3-11. This is recorded as authorization to begin the M3-11 agenda and complete repository-only governance/release-preflight work. The [M3-11 Controlled Production Launch Preflight and Authorization Record](M3-11_CONTROLLED_PRODUCTION_LAUNCH_PREFLIGHT.md) defines M11-01–M11-10, evidence requirements, stop conditions and current blockers.
+
+**M3-11 status:** INITIATED — GOVERNANCE / RELEASE PREFLIGHT ONLY. The preflight document is complete for current repository evidence. **Production readiness remains BLOCKED / NOT ACCEPTED.** The instruction does not satisfy missing qualified reviews, human owner acceptances, M3-10 pilot readiness, V2 environment/isolation proof, backup/restore/RPO/RTO evidence or a complete release candidate. No production/Hostinger/live database access, provisioning, deployment, migration, release, URL cutover, participant activity, real-data processing, external source/API/AI, new dependency/vendor or spend occurred or is authorized by this preflight. Existing V1 exclusion, public UGC/reviews/moderation disablement and Deeni Madaris default-OFF rule remain binding.
+
+M3-11 production execution and closure require all applicable gates, qualified human decisions and exact-scope release authorization. No production go/no-go is issued.
