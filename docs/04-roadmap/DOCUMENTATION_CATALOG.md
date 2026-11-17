@@ -1,3 +1,7 @@
+## M3-11 reviewer scope and sequencing alignment — 2026-11-17
+
+- [M3-11 Reviewer Scope and Sequencing Alignment](M3-11_REVIEWER_SCOPE_AND_SEQUENCING_ALIGNMENT_2026-11-17.md) — **Delivered — review pending**; defines preliminary source/design review before environment/candidate and final candidate/environment verification afterward. Documentation only; all substantive gates remain blocked.
+
 ## M3-11 gate-resolution coordination — 2026-11-17
 
 - [M3-11 Gate Resolution Coordination Plan](M3-11_GATE_RESOLUTION_COORDINATION_PLAN_2026-11-17.md) — **Delivered — review pending**; consolidates gate dependencies, accountable evidence sources, permitted next actions and stop conditions.
