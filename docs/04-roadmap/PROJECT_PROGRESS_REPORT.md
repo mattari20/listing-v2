@@ -1340,7 +1340,7 @@ The R13 repository desk review assessed all twelve scenarios (R01–R12) in the 
 
 ## M3-11 controlled production launch preflight — 2026-11-17
 
-The Product Owner explicitly instructed ChatGPT to start and complete M3-11. This is recorded as authorization to begin the M3-11 agenda and complete repository-only governance/release-preflight work. The [M3-11 Controlled Production Launch Preflight and Authorization Record](M3-11_CONTROLLED_PRODUCTION_LAUNCH_PREFLIGHT.md) defines M11-01–M11-10, evidence requirements, stop conditions and current blockers.
+The Product Owner explicitly instructed ChatGPT to start and complete M3-11. This is recorded as authorization to begin the M3-11 agenda and complete repository-only governance/release-preflight work. The [M3-11 Controlled Production Launch Preflight and Authorization Record](M3-11_CONTROLLED_PRODUCTION_LAUNCH_PREFLIGHT.md) defines M3-11-01–M3-11-10, evidence requirements, stop conditions and current blockers.
 
 **M3-11 status:** INITIATED — GOVERNANCE / RELEASE PREFLIGHT ONLY. The preflight document is complete for current repository evidence. **Production readiness remains BLOCKED / NOT ACCEPTED.** The instruction does not satisfy missing qualified reviews, human owner acceptances, M3-10 pilot readiness, V2 environment/isolation proof, backup/restore/RPO/RTO evidence or a complete release candidate. No production/Hostinger/live database access, provisioning, deployment, migration, release, URL cutover, participant activity, real-data processing, external source/API/AI, new dependency/vendor or spend occurred or is authorized by this preflight. Existing V1 exclusion, public UGC/reviews/moderation disablement and Deeni Madaris default-OFF rule remain binding.
 
