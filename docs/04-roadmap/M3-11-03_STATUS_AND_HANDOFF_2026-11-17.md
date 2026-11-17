@@ -46,7 +46,7 @@ No application code, schema/migration, route/UI, dependency, workflow or environ
 
 ## 5. Two-stage reviewer handoff clarification — 2026-11-17
 
-The review pack and response template must be used under the [M3-11 Reviewer Scope and Sequencing Alignment](M3-11_REVIEWER_SCOPE_AND_SEQUENCING_ALIGNMENT_2026-11-17.md).
+The review pack and response template must be used under the `M3-11_REVIEWER_SCOPE_AND_SEQUENCING_ALIGNMENT_2026-11-17.md`.
 
 **Stage 1 may begin now as a repository-only review**, once qualified independent reviewers are identified and the exact source commit is pinned. Security reviewers may inspect source, architecture, trust boundaries, routes, middleware, authorization, dependency/configuration evidence and synthetic tests. Accessibility reviewers may inspect source templates, markup, semantics and design evidence. Reports must state methods, paths, coverage, limitations and all checks deferred to runtime or browser/assistive-technology evaluation. No active or hosted target testing is included.
 
