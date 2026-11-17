@@ -16,6 +16,7 @@ final class RoleAssignmentService
 {
     private const ROLES = [
         'provider_representative',
+        'institution_representative',
         'data_reviewer',
         'publisher',
         'moderator',
@@ -23,11 +24,12 @@ final class RoleAssignmentService
     ];
 
     private const INCOMPATIBLE_ROLES = [
-        'provider_representative' => ['data_reviewer', 'publisher', 'moderator', 'administrator', 'service_identity'],
-        'data_reviewer' => ['provider_representative', 'publisher', 'moderator', 'administrator', 'service_identity'],
-        'publisher' => ['provider_representative', 'data_reviewer', 'moderator', 'administrator', 'service_identity'],
-        'moderator' => ['provider_representative', 'data_reviewer', 'publisher', 'administrator', 'service_identity'],
-        'service_identity' => ['provider_representative', 'data_reviewer', 'publisher', 'moderator', 'administrator'],
+        'provider_representative' => ['institution_representative', 'data_reviewer', 'publisher', 'moderator', 'administrator', 'service_identity'],
+        'institution_representative' => ['provider_representative', 'data_reviewer', 'publisher', 'moderator', 'administrator', 'service_identity'],
+        'data_reviewer' => ['provider_representative', 'institution_representative', 'publisher', 'moderator', 'administrator', 'service_identity'],
+        'publisher' => ['provider_representative', 'institution_representative', 'data_reviewer', 'moderator', 'administrator', 'service_identity'],
+        'moderator' => ['provider_representative', 'institution_representative', 'data_reviewer', 'publisher', 'administrator', 'service_identity'],
+        'service_identity' => ['provider_representative', 'institution_representative', 'data_reviewer', 'publisher', 'moderator', 'administrator'],
     ];
 
     private const REASON_CODES = [

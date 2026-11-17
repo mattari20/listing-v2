@@ -127,6 +127,46 @@ final class EditorialReviewService
         });
     }
 
+    public function supersedeAfterCorrection(array $actor, string $caseId, string $successorVersionId, string $idempotencyKey): void
+    {
+        $this->requireHuman($actor, 'edit_directory_proposal');
+        $this->required($idempotencyKey, 'idempotency_key');
+
+        DB::transaction(function () use ($actor, $caseId, $successorVersionId, $idempotencyKey): void {
+            $case = $this->caseFor($caseId);
+            $fingerprint = $this->fingerprint(['proposal_superseded', $caseId, $successorVersionId, $actor['actor_id']]);
+            if ($this->priorTransition($idempotencyKey, $fingerprint) !== null) {
+                return;
+            }
+
+            $successorExists = DB::table('claim_versions')
+                ->where('id', $successorVersionId)
+                ->where('supersedes_version_id', $case->claim_version_id)
+                ->exists();
+            if ($case->status !== 'changes_requested' || $case->submitted_by_actor_id !== $actor['actor_id'] || $successorExists === false) {
+                $this->reject('correction', 'Only the original submitter may supersede a returned proposal with its verified successor.');
+            }
+
+            DB::table('editorial_review_cases')->where('id', $caseId)->update([
+                'status' => 'superseded',
+                'updated_at' => now(),
+            ]);
+            $this->history(
+                $actor,
+                $case->entity_id,
+                $case->claim_version_id,
+                $caseId,
+                'proposal_superseded_by_correction',
+                'changes_requested',
+                'superseded',
+                'editorial_correction_submitted',
+                $idempotencyKey,
+                $fingerprint,
+                ['successor_claim_version_id' => $successorVersionId],
+            );
+        });
+    }
+
     public function correctProposal(array $actor, string $caseId, array $value, array $evidenceIds, string $validFrom, ?string $validTo,
         string $reasonCode, string $rationale, string $correctionKey, string $submissionKey): string
     {

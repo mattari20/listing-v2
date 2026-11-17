@@ -18,6 +18,10 @@ final class ScopedAuthorization
         'provider_representative' => [
             'provider.claim.submit',
         ],
+        'institution_representative' => [
+            'institution.claim.submit',
+            'institution.claim.correct',
+        ],
         'data_reviewer' => [
             'evidence.review',
             'claim.review',
