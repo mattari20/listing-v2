@@ -15,7 +15,7 @@ Following the Product Owner's selection of Option B, this document prepares a co
 This candidate is intentionally narrower than a live directory pilot:
 - one V2 workflow, after exact route and capability confirmation from repository evidence;
 - one adult user role, provisionally an authorized institution/provider representative;
-- one proposed locality — Lahore, Punjab, Pakistan — selected by the Product Owner for proposal preparation only; one provider category remains unselected;
+- one proposed locality — Lahore, Punjab, Pakistan — and one proposed provider category — universities and degree-awarding institutions — selected by the Product Owner for proposal preparation only;
 - synthetic records only; no real institution, student, guardian, staff, provider or source data;
 - no minors, students, guardians or vulnerable participants;
 - no public listings, UGC, ratings, reviews, reporting or public moderation;
@@ -47,7 +47,7 @@ These are hypotheses only. They are not approved success criteria. The Product O
 | Workflow | One profile review/correction workflow | Exact route, permissions and current implementation must be verified before approval |
 | User role | Adult authorized institution/provider representative | Owner must confirm role and eligibility; NOT APPROVED |
 | Geography | Lahore, Punjab, Pakistan | Selected by Product Owner for proposal preparation only; not approval to conduct |
-| Provider category | One category only | Product Owner to select; OPEN |
+| Provider category | Universities and degree-awarding institutions | Selected by Product Owner for proposal preparation only; not approval to conduct |
 | Participants | Adults only; no students, minors, guardians or vulnerable populations | Population and eligibility protocol require qualified review; NOT APPROVED |
 | Cohort size | Not proposed | Owner and qualified reviewer must determine; no number inferred |
 | Duration | Short, fixed, time-limited window | Dates and support coverage not set |
@@ -57,7 +57,7 @@ These are hypotheses only. They are not approved success criteria. The Product O
 | Cost | Zero additional spend | No vendor or new dependency; if zero-cost fit cannot be proven, stop |
 | Exit | Stop, revoke access, preserve minimal synthetic diagnostics and close out | Detailed operator and deletion responsibilities unassigned |
 
-Only the proposed locality is now specified: Lahore, Punjab, Pakistan. Provider category, cohort size, duration, success threshold, retention period, SLO, RPO/RTO and budget remain unresolved and are not invented in this proposal.
+The proposed locality and provider category are now specified: Lahore, Punjab, Pakistan; universities and degree-awarding institutions. Cohort size, duration, success threshold, retention period, SLO, RPO/RTO and budget remain unresolved and are not invented in this proposal.
 
 ## 4. Proposed participant and safeguarding boundary
 
@@ -166,7 +166,7 @@ The Product Owner's Option B selection authorizes preparation of this proposal o
 |---|---|
 | Accept candidate purpose/hypotheses | OWNER DECISION REQUIRED |
 | Select proposed locality | SELECTED: Lahore, Punjab, Pakistan — proposal scope only; conduct remains unauthorized |
-| Select provider category | OWNER DECISION REQUIRED |
+| Select proposed provider category | SELECTED: universities and degree-awarding institutions — proposal scope only; conduct remains unauthorized |
 | Confirm adult professional role | OWNER DECISION REQUIRED |
 | Confirm single workflow after route verification | OWNER DECISION REQUIRED |
 | Set cohort size and duration | OWNER + QUALIFIED REVIEW REQUIRED |
