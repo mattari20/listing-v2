@@ -10,10 +10,12 @@
 
 Following the Product Owner's selection of Option B, this document prepares a conservative candidate for separate owner and qualified-review consideration.
 
-**Candidate:** a future, adult-only, invitation-based usability evaluation of one V2 institution/provider profile review-and-correction workflow, using fabricated synthetic records in an isolated non-production environment.
+**Candidate:** a future, adult-only, invitation-based usability evaluation of one V2 institution/university profile review-and-correction workflow, using fabricated synthetic records in an isolated non-production environment, but only after a user-facing workflow is separately authorized and implemented.
+
+**Current implementation qualification (repository verification 2026-11-17):** the V2 service-layer correction, editorial review and publication controls exist, and the controlled provider-category vocabulary includes `university`; however, the current HTTP surface has no authenticated university profile correction/review route or representative-facing interface. The current candidate therefore cannot be run as a user-facing usability evaluation. The permitted immediate work is repository-only verification and a non-human synthetic tabletop. Any UI/route implementation requires separate explicit authorization. See [M3-10 University Workflow Verification Record](M3-10_UNIVERSITY_WORKFLOW_VERIFICATION_RECORD.md).
 
 This candidate is intentionally narrower than a live directory pilot:
-- one V2 workflow, after exact route and capability confirmation from repository evidence;
+- one future authenticated V2 university profile submission/correction workflow, after separate implementation authorization and end-to-end route/permission verification;
 - one adult user role, provisionally an authorized institution/provider representative;
 - one proposed locality — Lahore, Punjab, Pakistan — and one proposed provider category — universities and degree-awarding institutions — selected by the Product Owner for proposal preparation only;
 - synthetic records only; no real institution, student, guardian, staff, provider or source data;
@@ -44,7 +46,7 @@ These are hypotheses only. They are not approved success criteria. The Product O
 | Dimension | Candidate boundary | Required decision / status |
 |---|---|---|
 | Product | V2 only | Confirmed by existing M3-10 boundary |
-| Workflow | One profile review/correction workflow | Exact route, permissions and current implementation must be verified before approval |
+| Workflow | Future authenticated university profile submission/correction workflow | Service-layer controls exist; user-facing route/interface is absent and requires separate implementation authorization |
 | User role | Adult authorized institution/provider representative | Owner must confirm role and eligibility; NOT APPROVED |
 | Geography | Lahore, Punjab, Pakistan | Selected by Product Owner for proposal preparation only; not approval to conduct |
 | Provider category | Universities and degree-awarding institutions | Selected by Product Owner for proposal preparation only; not approval to conduct |
@@ -168,7 +170,7 @@ The Product Owner's Option B selection authorizes preparation of this proposal o
 | Select proposed locality | SELECTED: Lahore, Punjab, Pakistan — proposal scope only; conduct remains unauthorized |
 | Select proposed provider category | SELECTED: universities and degree-awarding institutions — proposal scope only; conduct remains unauthorized |
 | Confirm adult professional role | OWNER DECISION REQUIRED |
-| Confirm single workflow after route verification | OWNER DECISION REQUIRED |
+| Confirm future workflow | SERVICE-LAYER CONTRACT VERIFIED; user-facing route/interface absent; implementation requires separate authorization |
 | Set cohort size and duration | OWNER + QUALIFIED REVIEW REQUIRED |
 | Approve success/stop thresholds | OWNER DECISION REQUIRED |
 | Resolve research deferral | NOT RESOLVED |
@@ -182,6 +184,6 @@ The Product Owner's Option B selection authorizes preparation of this proposal o
 
 ## 11. Recommendation
 
-Proceed with repository-only route/permission verification and synthetic workflow rehearsal for the single candidate workflow, while seeking the owner decisions and qualified reviews listed above. Keep the candidate proposal provisional until every applicable gate is evidenced.
+Proceed only with repository-only verification and a non-human synthetic tabletop for the service-layer workflow. Do not describe or conduct a user-facing usability evaluation until a university representative route/interface is separately authorized, implemented and end-to-end verified. Continue seeking the owner decisions and qualified reviews listed above; keep the candidate proposal provisional until every applicable gate is evidenced.
 
 **M3-10 remains IN PROGRESS. Pilot readiness remains NOT ACCEPTED. No live pilot is approved or underway. M3-11 remains separately gated and NOT AUTHORIZED.**

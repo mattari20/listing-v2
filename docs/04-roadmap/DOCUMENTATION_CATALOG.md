@@ -5,7 +5,7 @@
 **Baseline:** PR #1 merged into `main`  
 **Baseline merge commit:** `0f2165f3d18e43f10cf6d6f717f145d3433769a4`  
 **M0 closeout merge commit:** `4d1122d182961f3842803036f917ce39cd11b4c6`  
-**Last reconciled:** 2026-11-16 — M3-10 readiness acceptance verification record added; framework delivery verified, pilot readiness remains not accepted; PR #240/#241 evidence retained
+**Last reconciled:** 2026-11-17 — M3-10 Option B proposal records Lahore and university category as proposal-only choices; repository verification confirms service-layer controls but no user-facing university correction route; pilot readiness remains not accepted
 
 ## Purpose and maintenance rule
 
@@ -1105,3 +1105,12 @@ The verification record confirms PR #240 framework delivery and PR #241's exact-
 
 ## M3-10 Option B — bounded pilot proposal
 - [M3-10 Option B Bounded Pilot Proposal](M3-10_OPTION_B_BOUNDED_PILOT_PROPOSAL.md) — provisional adult-only, synthetic-data V2 workflow evaluation proposal for separate review; no participant activity, real data, hosted environment or pilot authorization.
+
+
+## M3-10 university workflow verification — 2026-11-17
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-10 University Workflow Verification Record](M3-10_UNIVERSITY_WORKFLOW_VERIFICATION_RECORD.md) | Repository-only verification of the `university` category, service-layer correction/editorial controls, read-only HTTP routes, authorization integration gaps and synthetic tabletop scenario | Delivered — PR review pending; confirms no user-facing university correction/review route or interface; no usability pilot is currently executable |
+ 
+The Option B proposal was reconciled to this finding: Lahore and `university` remain proposal-only scope choices. The immediate M3-10 activity is limited to synthetic non-human tabletop and repository verification. Any user-facing route/interface implementation requires separate explicit authorization. No pilot, participant activity, real data, hosted environment or M3-11 launch is authorized.

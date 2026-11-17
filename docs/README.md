@@ -326,3 +326,7 @@ I8-A adds synthetic feature-test coverage only. It does not add a model, source 
 - [M3-10 Owner Decision and Qualified Review Pack](04-roadmap/M3-10_OWNER_DECISION_AND_QUALIFIED_REVIEW_PACK.md) — Product Owner path decision, bounded charter, human accountability and qualified review evidence requests; no pilot approval implied
 
 - [M3-10 Option B Bounded Pilot Proposal](04-roadmap/M3-10_OPTION_B_BOUNDED_PILOT_PROPOSAL.md) — provisional narrowly bounded proposal; for owner and qualified review only, not authorization to conduct
+
+
+## M3-10 university workflow verification
+- [M3-10 University Workflow Verification Record](04-roadmap/M3-10_UNIVERSITY_WORKFLOW_VERIFICATION_RECORD.md) — confirms the university category and synthetic service-layer governance controls, identifies the missing user-facing correction/review route, and defines the non-human synthetic tabletop boundary.
