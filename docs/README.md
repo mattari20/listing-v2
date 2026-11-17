@@ -1,3 +1,4 @@
+- [M3-11 Reviewer Scope and Sequencing Alignment](04-roadmap/M3-11_REVIEWER_SCOPE_AND_SEQUENCING_ALIGNMENT_2026-11-17.md) — two-stage reviewer process: preliminary source/design review, then candidate/environment verification after separate gates; no operational authority.
 - [M3-11 Gate Resolution Coordination Plan](04-roadmap/M3-11_GATE_RESOLUTION_COORDINATION_PLAN_2026-11-17.md) — sequencing, accountable evidence sources, permissible next actions and stop conditions for M3-11 blockers.
 - [M3-11 Owner Decisions and Evidence Intake](04-roadmap/M3-11_OWNER_DECISIONS_AND_EVIDENCE_INTAKE_2026-11-17.md) — blank Product Owner decision and human role/evidence intake worksheet; no appointments or approvals implied.
 # Documentation Index
