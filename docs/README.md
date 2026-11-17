@@ -330,3 +330,6 @@ I8-A adds synthetic feature-test coverage only. It does not add a model, source 
 
 ## M3-10 university workflow verification
 - [M3-10 University Workflow Verification Record](04-roadmap/M3-10_UNIVERSITY_WORKFLOW_VERIFICATION_RECORD.md) — confirms the university category and synthetic service-layer governance controls, identifies the missing user-facing correction/review route, and defines the non-human synthetic tabletop boundary.
+
+
+- [M3-10 University Synthetic Workflow Tabletop and Acceptance Evidence](04-roadmap/M3-10_UNIVERSITY_SYNTHETIC_WORKFLOW_TABLETOP.md) — non-human synthetic scenario and evidence map; prepared only, not executed, and not a usability pilot.
