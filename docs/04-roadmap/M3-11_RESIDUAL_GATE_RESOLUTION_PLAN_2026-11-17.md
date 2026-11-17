@@ -1,0 +1,81 @@
+# M3-11 Residual Gate Resolution Plan
+
+**Date:** 2026-11-17  
+**Repository:** `mattari20/listing-v2`  
+**Baseline main:** `850025bea78e72e5358f90bfe3c369b47bdd4af2`  
+**Purpose:** Continue M3-11 from the merged governance preflight without repeating completed work or treating missing human/environment evidence as complete.
+
+## 1. Current disposition
+
+- M3-11 governance and repository preflight: **COMPLETE** for the evidence available in V2 `main`.
+- M3-11 residual gate-resolution planning: **THIS DOCUMENT — repository-only planning deliverable**.
+- M3-11 production readiness: **BLOCKED / NOT ACCEPTED**.
+- Production access, deployment, release and URL cutover: **NOT AUTHORIZED**.
+- M3-10 pilot readiness: **NOT ACCEPTED**; no pilot go/no-go exists.
+- M3-10 two-person tabletop: **NOT EXECUTED**.
+- No percentage or partial completion claim is introduced.
+
+This record supersedes neither the M3-11 preflight nor its blocker register. It makes the next evidence owners and permissible actions explicit.
+
+## 2. Work already completed — do not duplicate
+
+The following repository work is already recorded as merged:
+- PR #259: M3-11 governance/release preflight and M11-01–M11-10 evidence contract.
+- PR #260 and #261: exact-head validation, merge and documentation reconciliation for the preflight.
+- PR #262: post-M3 scope/gap preflight.
+- PR #263 and #264: requirements-to-capability inventory and exact-head closeout evidence.
+- M3-10 readiness framework, final gate reconciliation, reviewer handoff, external-review intake process, and synthetic university representative workflow/hardening.
+
+The RCV-01 inventory is a documentary source/code/test inspection, not a fresh functional, browser, security, accessibility, load, legal or production audit. Do not repeat it as a substitute for independent evidence.
+
+## 3. Residual gates and exact closure evidence
+
+| Gate | Current state | Evidence required for closure | Responsible evidence source | Permitted next action |
+|---|---|---|---|---|
+| M11-01 — owner release charter | PARTIAL | Dated owner decision naming release purpose, exact features/surface, population, geography, data classes, exclusions and treatment of existing restrictions | Product Owner | Prepare/record owner decision; no inferred answers |
+| M11-02 — legal/privacy/safeguarding | BLOCKED | Written applicability assessment, data-flow/retention review, safeguarding/research determination, conditions and accepted remediation | Qualified human reviewers; owner disposition | Provide review packet; no compliance claim |
+| M11-03 — independent security/accessibility | BLOCKED | Independent security assessment and qualified accessibility evaluation against a pinned candidate, findings, remediation/retest and residual-risk acceptance | Independent qualified reviewers | Provide review packet; synthetic CI is not a substitute |
+| M11-04 — operations/support | BLOCKED | Named humans' explicit acceptance of release, operations, incident, support, privacy/data and applicable safeguarding duties; coverage and escalation | Product Owner and accepting human owners | Obtain explicit role acceptances; never invent names |
+| M11-05 — V2 environment isolation | BLOCKED | Separately authorized V2-only target evidence, access boundaries, secret custody and proof no V1/shared resource can be affected | Authorized environment operator and independent reviewer | Remains blocked until exact separate authorization; no Hostinger/production inspection under current scope |
+| M11-06 — backup/restore/rollback | BLOCKED | Approved V2-only backup design, isolated restore rehearsal, rollback artifact/configuration, measured RPO/RTO and accepted recovery owner | Authorized operator and recovery owner | Design/checklist may be prepared; no live backup or restore |
+| M11-07 — release candidate | NOT STARTED | Exact artifact/commit and lock hashes; complete approved functional, security, privacy, accessibility, smoke and operational verification | Engineering plus qualified reviewers | No production candidate execution until scope and environment gates are approved |
+| M11-08 — go/no-go | BLOCKED | Complete evidence pack and dated decision from accountable Product Owner and required qualified approvers | Product Owner and qualified human approvers | No go/no-go before all applicable gates pass |
+| M11-09 — production execution | NOT AUTHORIZED | Separate exact-scope written authorization naming target, artifact, operator, time window, steps and rollback authority | Product Owner and human release operator | Prohibited under this plan |
+| M11-10 — monitored operation | NOT STARTED | Post-release monitoring, incident/support records, stabilization review and owner acceptance | Named human operations owner | Cannot start before separately authorized release |
+
+## 4. Repository-only closure boundary
+
+Repository work may:
+- Keep the controller, README, roadmap, catalogue, traceability and progress report consistent.
+- Maintain the decision/reviewer handoff and evidence-intake checklist.
+- Run only already-authorized synthetic local/CI checks where the changed files require them.
+- Record exact PR-head and merge evidence without overstating what CI proves.
+
+Repository work cannot:
+- Perform or impersonate legal, privacy, safeguarding, security or accessibility review.
+- Assign or accept human operational duties on another person's behalf.
+- Verify a production environment, V2/V1 isolation, production database, live backup, restore or RPO/RTO without separate exact authorization.
+- Approve a pilot, production release, public feature activation or launch.
+- Replace the owner's explicit decisions with assumptions.
+
+## 5. Stop conditions retained
+
+V2 repository only; no V1 access/change; no Hostinger/hPanel or production/live database access; no deployment, migration or URL cutover; no real student/provider/institution/source data or participant activity; no external source/API/AI/model/connector; no new dependency/vendor/spend; no public UGC/reviews/ratings/reporting/moderation activation; Deeni Madaris remains default-OFF with zero public exposure.
+
+Stop if any proposed step crosses these boundaries or lacks a named, accountable human owner and exact authorization.
+
+## 6. Next sequence
+
+1. Product Owner completes M11-01 release charter decisions.
+2. Qualified reviewers return written M11-02/M11-03 findings.
+3. Product Owner secures explicit human role acceptances for M11-04.
+4. Only after those gates, the owner may consider a separate bounded authorization for M11-05/M11-06 evidence collection.
+5. Pin and verify a release candidate only after all prerequisite gates are satisfied.
+6. Obtain the final dated go/no-go and separate execution authorization.
+7. Complete monitored operation and closure only after an authorized release.
+
+If an external or owner dependency is unavailable, keep its status BLOCKED and continue only with unrelated safe repository documentation. Do not close M3-11 by relabeling blocked packages.
+
+## 7. Acceptance criteria for this planning record
+
+This record is complete when it is merged with exact-head required checks passing and indexed in the documentation catalogue and index. Its completion is not M3-11 production acceptance, pilot acceptance, go/no-go or release authorization.
