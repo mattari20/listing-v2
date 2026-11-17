@@ -343,3 +343,8 @@ I8-A adds synthetic feature-test coverage only. It does not add a model, source 
 
 ## M3-10 university representative workflow implementation
 - [M3-10 University Representative Workflow Implementation Record](04-roadmap/M3-10_UNIVERSITY_REPRESENTATIVE_WORKFLOW_IMPLEMENTATION_RECORD.md) — authenticated university-only institution-scoped proposal/correction routes, separate reviewer workflow, synthetic-only source context, immutable correction successor and HTTP feature tests. Merged in PR #248 with exact-head PHP 8.5 CI and documentation validation passing; no pilot, public publication or launch authorized.
+
+
+## M3-10 reviewer handoff and decision preparation
+
+- [M3-10 Reviewer Handoff and Decision Preparation](04-roadmap/M3-10_REVIEWER_HANDOFF_AND_DECISION_PREPARATION.md) — owner and qualified-review evidence index, reviewer question packets, human accountability requirements and open-decision register. Documentation-only; no reviewer appointments, approvals, pilot activity or M3-11 authorization.
