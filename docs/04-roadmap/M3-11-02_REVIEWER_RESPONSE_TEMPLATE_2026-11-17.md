@@ -97,3 +97,38 @@ I confirm that this response accurately describes the scope I reviewed, my quali
 - Explicit statement of what remains prohibited:
 
 **Important:** A Product Owner disposition does not replace a qualified reviewer assessment. A reviewer assessment does not authorize environment provisioning, participant activity, public launch or production access. M3-11-02 remains BLOCKED until its exit criteria are satisfied and recorded.
+
+
+## 8. Stage designation and evidence boundary — 2026-11-17
+
+Complete one response per reviewer and per stage. Select exactly one: **Stage 1 — preliminary source/design review** or **Stage 2 — candidate/environment-specific supplement**. If the reviewer performs both, submit two separately dated responses or clearly separated and independently attributable sections.
+
+- Review stage: [ ] Stage 1 preliminary  [ ] Stage 2 candidate/environment supplement
+- Exact repository source commit reviewed (required for Stage 1 and Stage 2):
+- Exact documents and versions reviewed:
+- Candidate ID / candidate commit / artifact hash: [Stage 2 only; leave blank for Stage 1]
+- Environment identifier and separate authorization/evidence reference: [Stage 2 only; leave blank for Stage 1]
+- Reviewer qualifications, jurisdiction/specialism and independence:
+- Scope limitations and unavailable evidence:
+
+### Stage 1 preliminary determination
+
+- Preliminary legal/privacy/safeguarding applicability conclusions:
+- Proposed processing/data classes and unresolved assumptions:
+- Child/minor and safeguarding applicability; research/participant exclusion:
+- Conditions that must be satisfied before environment provisioning:
+- Conditions that must be satisfied before internal reviewer access:
+- Questions explicitly marked UNKNOWN / DEFERRED TO STAGE 2:
+- Non-waivable blockers / stop conditions:
+
+### Stage 2 final supplement
+
+- Verified candidate/environment facts reviewed:
+- Stage 1 findings confirmed, changed or invalidated, with reasons:
+- Runtime, hosting, operator/processor, logs, cookies, backups, retention/deletion and incident facts verified:
+- Remaining unknowns and whether each blocks the proposed private acceptance activity:
+- Remediation and independent/reviewer retest evidence:
+- Final professional outcome and limitations:
+
+**Stage 1 cannot be recorded as final gate approval.** A blank candidate or environment field in a Stage 1 response is intentional. Do not infer environment facts or approval from repository CI, documentation preparation or an AI-generated summary. M3-11-02 remains BLOCKED until the applicable two-stage evidence, remediation/retests and Product Owner disposition are complete.
+
