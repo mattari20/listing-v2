@@ -52,3 +52,8 @@ V2 only. Do not access V1. Synthetic/fictional local/CI inputs only. No real stu
 ## 6. Acceptance and reporting
 
 This package is complete when the document is committed, the exact PR head passes required CI/documentation validation, and the PR is merged with its exact-head SHA verified. This is **planning-preflight completion only**. It does not complete M3-11, authorize M4 implementation, change any production or pilot gate, or justify a new numerical M3/project completion percentage.
+
+
+## RCV-01 follow-on closeout
+
+The documentary requirements-to-capability and source/test inventory requested in this preflight was completed in [RCV-01 Requirements-to-Capability Reconciliation](RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.md). It supersedes the earlier immediate no-duplication work package as the current evidence map. The report does not authorize new feature implementation or change M3-11 release gates. See the RCV-01 record for the source-inspection boundary and residual backlog.
