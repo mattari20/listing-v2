@@ -744,3 +744,12 @@ The Product Owner selected Option A: controlled limited V2 release scope using o
 ## M3-11-01 owner scope decision — 2026-11-17
 
 Package IDs are standardized as M3-11-01 through M3-11-10. M3-11-01 is CLOSED for scope/authority definition after the Product Owner selected Option A and Option 1 (private acceptance environment only). The scope is existing M3-05/M3-06 discovery, internal-only reviewers/operators, synthetic-only fixtures, Pakistan-first text locality, no participant activity and no public pilot/production release. The target environment is not provisioned or authorized; all independent M3-11-02–M3-11-10 gates remain. M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
+
+## M3-11-02 reviewer preparation and M3-11-03 security/accessibility preparation — 2026-11-17
+
+M3-11-02 repository-only legal/privacy/safeguarding reviewer preparation merged in PR [#270](https://github.com/mattari20/listing-v2/pull/270) as `9ad73fcf20cb8aaab1a7e380596a93cd75b5ad09`; exact-head FND-01 CI #442 and Project documentation validation #858 passed. Qualified human review has not been performed; M3-11-02 remains BLOCKED.
+
+M3-11-03 independent security/accessibility reviewer preparation is documented in the current M3-11-03 pack, response template and handoff record. It is documentation-only and pending exact-head validation. No independent security test, penetration test, accessibility audit or WCAG conformance claim is made. M3-11-03 remains BLOCKED pending qualified independent assessment, remediation/retest and owner disposition.
+
+The private V2-only acceptance environment remains unprovisioned. M3-11-05 must separately authorize and evidence V2/V1 isolation before environment creation, access or active testing. No reviewer appointment, environment access, test activity, production/V1/Hostinger/live database access, real data, participant activity, deployment, migration, external services or spend is authorized. M3-11 overall remains BLOCKED / NOT ACCEPTED; Deeni Madaris remains default-OFF with zero public exposure.
