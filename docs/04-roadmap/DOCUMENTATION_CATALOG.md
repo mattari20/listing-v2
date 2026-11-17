@@ -1097,3 +1097,7 @@ M3-10 is IN PROGRESS for readiness planning only. The agenda authorization is no
 | [M3-10 Readiness Acceptance Verification Record](M3-10_READINESS_ACCEPTANCE_VERIFICATION_RECORD.md) | Package-by-package and gate-by-gate evidence review; distinguishes merged framework delivery from owner/qualified approvals and pilot acceptance | Delivered — verification record; framework delivery verified, M3-10 pilot readiness NOT ACCEPTED; M3-10 remains IN PROGRESS |
 
 The verification record confirms PR #240 framework delivery and PR #241's exact-head CI/documentation evidence. It does not approve or evidence a live pilot, participants, real data, qualified reviews, operational staffing, hosted recovery, production readiness or launch. M3-11 remains separately gated.
+
+
+## M3-10 owner decision and qualified review pack
+- [M3-10 Owner Decision and Qualified Review Pack](M3-10_OWNER_DECISION_AND_QUALIFIED_REVIEW_PACK.md) — records the Product Owner's two bounded path choices, charter fields, human accountability roles, qualified review requests and evidence register. No decision or approval is implied; M3-10 remains synthetic-only and in progress.
