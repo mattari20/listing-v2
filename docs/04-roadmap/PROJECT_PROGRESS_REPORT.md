@@ -1,9 +1,9 @@
-## Latest verified position — M3-10 governance and roadmap reconciliation (2026-11-17)
+## Latest verified position — M3-10 R13 desk review and authorized agenda closeout (2026-11-17)
 
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current agenda:** M3-10 — Governance Ledger and Roadmap Reconciliation  
-**Status:** Governance/roadmap reconciliation deliverable prepared for exact-head validation; M3-10 pilot readiness NOT ACCEPTED  
-**Verified main baseline:** `f39ea422f713e5f9bc4636e74f09cf45269b0517`  
+**Current agenda:** M3-10 R13 — Repository Desk Review and Final Agenda Closeout
+**Status:** Authorized M3-10 readiness-preparation agenda COMPLETE/CLOSED; pilot readiness NOT ACCEPTED
+**Verified main baseline:** `c8c4d3b0872cc67aec4b4c36d7aaffda5df35e05` (pre-closeout baseline; final merge SHA to be recorded after PR validation)
 **Prior agenda evidence:** PR #254 merged as `f39ea422f713e5f9bc4636e74f09cf45269b0517`; exact head `c27e6327f60a3a69061582e59bb679536b23175f`; FND-01 PHP 8.5 CI #420 and Project documentation validation #820 passed. Main matched the merge commit.
 
 M3-10 has delivered the readiness framework, Option B proposal-only decision, university representative API workflow, synthetic adversarial hardening, final readiness reconciliation, reviewer handoff and external-review intake procedure for their authorized scopes. The current governance reconciliation synchronizes the controller, roadmap, step register, traceability matrix, progress report and documentation indexes.
@@ -1306,3 +1306,10 @@ Deferred: maps/geography (M3-06), external search engine, fuzzy/transliteration 
 A paper-based, non-human tabletop checklist has been prepared for the Product Owner and an ordinary-experience administrative assistant. It uses only the fictional `SYN-LHR-UNI-001` scenario and covers representative submission, independent review, original-submitter correction, immutable successor/audit expectations, authorization failures, idempotency and stop conditions. The assistant's role remains administrative only.
 
 **Status:** Documentation prepared; tabletop NOT EXECUTED. No application access, HTTP requests, participants, real data, external sources, hosted environment, production/V1/Hostinger, deployment, release, feature activation or spend. No new test or usability evidence is claimed. Specialist legal/privacy, independent security and accessibility reviews and accepted human operations ownership remain open. Pilot readiness remains NOT ACCEPTED; no pilot go/no-go; M3-11 NOT AUTHORIZED.
+
+
+## M3-10 R13 documentary desk review and authorized agenda closeout — 2026-11-17
+
+The R13 repository desk review assessed all twelve scenarios (R01–R12) in the two-person synthetic university workflow checklist against the merged representative API implementation, adversarial hardening evidence and governance records. Result: **12 CLEAR, 0 UNCLEAR, 0 BLOCKED** for documentary clarity only. No new application execution, software test, human usability evidence or specialist approval is claimed. See [M3-10 R13 Desk Review and Final Agenda Closeout](M3-10_R13_DESK_REVIEW_AND_FINAL_AGENDA_CLOSEOUT.md).
+
+**Authorized M3-10 readiness-preparation agenda: COMPLETE / CLOSED** for the repository-only, synthetic/local/CI and documentation scope authorized to date. The two-person tabletop remains NOT EXECUTED; M10-G01–G14 retain their existing open/blocked dispositions; pilot readiness remains NOT ACCEPTED; no pilot go/no-go is issued; human/participant activity and real-data processing remain NOT AUTHORIZED; M3-11 remains NOT AUTHORIZED. No standing restriction is relaxed.
