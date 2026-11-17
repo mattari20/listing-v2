@@ -88,3 +88,24 @@ Continue only with documentation-level decision preparation and synthetic-only l
 2. Propose a narrowly bounded pilot for separate review, with exact scope and qualified reviewers identified before any participant, data, hosted or operational activity.
 
 No unresolved gate may be treated as approved by silence or by this verification record.
+
+
+## 8. Follow-on verification — current university workflow and final readiness gate status (2026-11-17)
+
+This addendum supersedes the earlier UWF route-gap finding and updates delivery evidence from later merged work. It does not change the pilot acceptance decision.
+
+### Updated technical verification
+- PR #248 merged authenticated, verified and exact-institution-scoped university representative proposal/correction HTTP routes and independent editorial-review routes.
+- PR #250 merged six synthetic adversarial feature tests covering revoked/expired assignments, forged caller fields, invalid/revoked evidence authority, changed-payload idempotency replay, audit failure rollback and audit integrity.
+- PR #251 reconciled the final hardening documentation.
+- PR #250 exact head `f34e132b392792e5f981d7ebef79e9e6329d9085`: FND-01 CI #416 and Project documentation validation #812 passed; 15 tests passed, 1,044 assertions, 218 non-fatal missing-local-`.env` warnings. No `.env` was created.
+- Current main at this verification: `f7d83bda86430017885026c4069109d2ad6ce7fa`.
+
+The earlier statement that no university representative HTTP route exists is historical and superseded. The API workflow is now implemented. No adjudication/publication endpoint or browser-facing UI acceptance is claimed.
+
+### Updated package and gate finding
+M10-01 proposal prepared but exact pilot charter OPEN. M10-02 BLOCKED; research deferral remains binding. M10-03 SYNTHETIC ONLY. M10-04 BLOCKED by absent human ownership/coverage. M10-05 DESIGN / SYNTHETIC EVIDENCE ONLY. M10-06 NOT ACCEPTED / NOT STARTED.
+
+M10-G01 OPEN; G02 NOT APPROVED; G03 SYNTHETIC ONLY; G04 NOT APPROVED; G05 REQUIRED / NOT EVIDENCED; G06 REQUIRED IF RELEVANT / NOT EVIDENCED; G07 REQUIRED / NOT EVIDENCED; G08 NOT ASSIGNED; G09 NOT STAFFED / DISABLED; G10 NOT SATISFIED FOR PILOT; G11 PARTIAL / NOT ACCEPTED; G12 NO-SPEND BOUNDARY; G13 NOT STARTED; G14 NOT AUTHORIZED.
+
+**Final verification decision:** readiness framework and authorized synthetic technical work are verified as delivered. **M3-10 pilot readiness remains NOT ACCEPTED.** No pilot go/no-go is issued. Human/participant activity, real-data processing, external-source access, hosted activity, deployment, spend and M3-11 remain NOT AUTHORIZED.
