@@ -92,3 +92,13 @@ This record is complete when it is merged with exact-head required checks passin
 - Documentation-only; no application/runtime/schema/route/dependency/workflow changes, production access or deployment.
 
 These checks validate the repository/documentation changes only. All external/human and production environment gates in Sections 2–6 remain open; M3-11 production readiness remains BLOCKED / NOT ACCEPTED.
+
+
+## 9. PR #266 post-merge evidence reconciliation
+
+- PR [#266](https://github.com/mattari20/listing-v2/pull/266) merged as `a85908f0e64bca943593efbc246025dbc55fee15`.
+- Exact PR head: `babbd16d8ef751d59bf5ba4b3fd35b1f3d48d742`.
+- FND-01 PHP 8.5 foundation CI run #434 (`44033050599`): SUCCESS.
+- Project documentation validation run #846 (`44033050642`): SUCCESS.
+- Post-merge `main` compared identical to the merge commit.
+- Documentation-only; no application/runtime/schema/route/dependency/workflow changes.

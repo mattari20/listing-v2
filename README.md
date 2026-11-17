@@ -11,7 +11,7 @@ An independent, greenfield education discovery and decision-support platform for
 - **M3-11:** governance/release preflight COMPLETE for current repository evidence; residual owner, qualified-review, human-operations and environment gates remain BLOCKED / NOT ACCEPTED.
 - **Production readiness:** BLOCKED / NOT ACCEPTED.
 - **Production access, deployment, release and URL cutover:** NOT AUTHORIZED.
-- **Latest verified main:** `f2af8a392ea50cd567d9a13866f999aad634bb9d` (PR #265 residual gate/status reconciliation merge; exact-head CI and documentation validation passed).
+- **Latest verified main:** `a85908f0e64bca943593efbc246025dbc55fee15` (PR #266 post-merge evidence reconciliation; exact-head CI and documentation validation passed).
 
 ## Start here
 
