@@ -127,3 +127,10 @@ M3-11-02 reviewer preparation was delivered and merged in PR #270 as `9ad73fcf20
 M3-11-03 independent security/accessibility review preparation is now documented in `M3-11-03_INDEPENDENT_SECURITY_ACCESSIBILITY_REVIEW_PACK_2026-11-17.md` and `M3-11-03_REVIEWER_RESPONSE_TEMPLATE_2026-11-17.md`. It remains subject to exact-head CI and review. No independent assessment has occurred. Active testing against a hosted target, environment provisioning or reviewer access remains prohibited until M3-11-05 separately authorizes and evidences isolated V2-only boundaries and a written test plan is approved.
 
 Next eligible repository-only work is M3-11-04 human operations/support role and handoff preparation, without inventing or assigning human owners. Qualified reviewers and Product Owner decisions remain external dependencies. M3-11-05 and M3-11-06 remain separately gated; M3-11-07 is not started; M3-11-08 is blocked; M3-11-09 is not authorized; M3-11-10 is not started. M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
+
+## 15. M3-11-04 human operations preparation update — 2026-11-17
+
+Repository-only preparation is delivered in the M3-11-04 operating model, role acceptance/coverage register and status/handoff record. Nine roles are defined but deliberately unassigned. The register records 0/9 written acceptances; no primary/deputy names, competence/authority evidence, availability or coverage are evidenced. The assistant cannot accept or perform these human responsibilities. M3-11-04 remains BLOCKED for substantive readiness until the Product Owner supplies actual named human acceptances and workable coverage. No tabletop or operational exercise was executed. This delivery does not authorize environment access, recovery rehearsal, pilot, release or production activity.
+
+Next sequence: obtain qualified M3-11-02 and M3-11-03 reports/dispositions; obtain M3-11-04 human role acceptances; only then consider separately authorized M3-11-05 environment/isolation and M3-11-06 recovery evidence. M3-11-07/08 cannot advance until prerequisites pass; M3-11-09 remains not authorized; M3-11-10 remains not started. Do not relabel any blocked gate as complete.
