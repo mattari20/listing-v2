@@ -1,3 +1,9 @@
+## Latest authoritative position — M3-11 gate-resolution coordination (2026-11-17)
+
+PR #276 M3-11-08 decision-pack preparation merged as `e226fdbef1f24314c2a0c4399403342ced158ef3`; exact-head CI and documentation validation passed and main matches the merge. M3-11-08 remains BLOCKED / NOT DECIDED. The current repository-only coordination plan and blank owner/evidence intake worksheet do not appoint people or grant environment/recovery/candidate/production authority. M3-11-02–M3-11-06 substantive gates remain blocked; M3-11-07 has no candidate; M3-11-09 remains NOT AUTHORIZED. M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
+---
+
 ## Latest authoritative position — M3-11-08 decision-pack preparation (2026-11-17)
 
 PR #275 M3-11-07 documentation preparation merged as `c1e8c70cb3433773ac45e9e35c32c446a8bf1684`; exact-head CI and documentation validation passed and main matches the merge. M3-11-07 remains NOT STARTED / BLOCKED; no release candidate exists. M3-11-08 decision-pack documentation is being prepared only; no complete dossier or GO/NO-GO exists. M3-11-08 remains BLOCKED / NOT DECIDED. M3-11 overall remains BLOCKED / NOT ACCEPTED. No production execution, deployment, pilot or release is authorized.
