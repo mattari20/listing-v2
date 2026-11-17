@@ -1260,3 +1260,14 @@ PR [#270](https://github.com/mattari20/listing-v2/pull/270) merged as `9ad73fcf2
 - [M3-11-03 Status and Reviewer Handoff](M3-11-03_STATUS_AND_HANDOFF_2026-11-17.md) — handoff steps and retained blocked status.
 
 Status: documentation-only preparation; independent security and accessibility assessments remain BLOCKED pending qualified reviewers, a pinned candidate, separately authorized isolated environment where required, findings/retest and Product Owner disposition.
+
+
+## M3-11-04 human operations and support readiness preparation — 2026-11-17
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-11-04 Human Operations and Support Readiness Preparation](M3-11-04_HUMAN_OPERATIONS_SUPPORT_READINESS_2026-11-17.md) | Defines operational roles, support/incident lifecycle, escalation, coverage, handover, stop conditions and acceptance criteria | Repository preparation delivered; human readiness BLOCKED |
+| [M3-11-04 Role Acceptance and Coverage Register](M3-11-04_ROLE_ACCEPTANCE_AND_COVERAGE_REGISTER_2026-11-17.md) | Blank named-role, written-acceptance, competence, availability, deputy and coverage register | Template only; 0/9 roles accepted |
+| [M3-11-04 Status and Handoff](M3-11-04_STATUS_AND_HANDOFF_2026-11-17.md) | Records package evidence, remaining human dependencies and safe handoff | Preparation delivered; substantive gate BLOCKED |
+
+No role appointments, written acceptances, tabletop, operational exercise or environment activity is claimed. M3-11 overall remains BLOCKED / NOT ACCEPTED.
