@@ -333,3 +333,7 @@ I8-A adds synthetic feature-test coverage only. It does not add a model, source 
 
 
 - [M3-10 University Synthetic Workflow Tabletop and Acceptance Evidence](04-roadmap/M3-10_UNIVERSITY_SYNTHETIC_WORKFLOW_TABLETOP.md) — non-human synthetic scenario and evidence map; prepared only, not executed, and not a usability pilot.
+
+
+## M3-10 acceptance-gap reconciliation and agenda closeout — 2026-11-17
+- [M3-10 Acceptance-Gap Reconciliation and Agenda Closeout](04-roadmap/M3-10_ACCEPTANCE_GAP_RECONCILIATION_AND_AGENDA_CLOSEOUT.md) — consolidated package/gate register, delivery traceability, university HTTP workflow gap, synthetic tabletop limitations and final blocked-readiness disposition. The authorized documentation/readiness-preparation package is complete; pilot readiness is not accepted and M3-11 remains unauthorized.
