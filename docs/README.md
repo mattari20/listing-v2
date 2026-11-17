@@ -28,6 +28,7 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [M3-09 Quality and Operational Hardening](04-roadmap/M3-09_QUALITY_OPERATIONAL_HARDENING_RECORD.md)
 - [M3-10 Pilot and Launch Readiness Work Plan](04-roadmap/M3-10_PILOT_AND_LAUNCH_READINESS_WORK_PLAN.md)
 - [M3-10 Readiness Acceptance Verification Record](04-roadmap/M3-10_READINESS_ACCEPTANCE_VERIFICATION_RECORD.md) — verifies framework delivery and records why pilot readiness/go/no-go remains blocked
+- [M3-10 Final Readiness Gate Reconciliation](04-roadmap/M3-10_FINAL_READINESS_GATE_RECONCILIATION.md) — canonical current status of Option B proposal-only decision, merged university workflow, adversarial tests and all M10 readiness gates
 - [M3-10 University Workflow Adversarial Hardening Record](04-roadmap/M3-10_UNIVERSITY_WORKFLOW_ADVERSARIAL_HARDENING_RECORD.md) — synthetic-only tests for revoked/expired roles, forged request fields, invalid evidence, replay conflicts, atomic audit rollback and audit integrity
 
 ## Documentation tracking
