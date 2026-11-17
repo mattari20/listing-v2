@@ -42,3 +42,10 @@ Current binding boundaries:
 - No Hostinger/hPanel, production or live-database access without separate exact authorization.
 
 A merged PR or passing CI proves only the bounded repository checks it actually ran. It is not legal/privacy/security/accessibility certification, production recovery evidence, pilot acceptance or release approval.
+
+
+## M3-11-04 update — 17 November 2026
+
+- M3-11-04 repository preparation delivered; actual human operations/support readiness remains BLOCKED because 0/9 required roles have evidenced written acceptance or coverage.
+- M3-11 overall remains BLOCKED / NOT ACCEPTED; no private environment, pilot, production access, deployment or release is authorized.
+- Latest main at the start of this package: `2bd5fd0d1339f77a9c5fdde4d05d83b7ce2a85e9`; PR delivery evidence will be recorded after exact-head validation and merge.
