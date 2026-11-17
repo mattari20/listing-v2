@@ -630,7 +630,7 @@ See [M3 Master Step Plan](M3_MASTER_STEP_PLAN.md) for complete step scopes, task
 | M3-07 | AI Data-Agent | 10% | I1-I6 bounded synthetic/local/CI packages delivered; I7 full regression/hardening test package implemented, exact-head validated and merged in PRs #224–#225; live AI Data-Agent/source activation remains blocked by G2-G9 |
 | M3-08 | Identity, Reviews and Security | 10% | Preflight and A/B/C/D bounded synthetic/local/CI foundations delivered in PRs #231, #232 and #234; independent release reviews remain open; reviews post-launch only |
 | M3-09 | Quality and Operational Hardening | 8% | Complete for authorized synthetic-only local/CI scope; independent/production gates remain open |
-| M3-10 | Pilot and Launch Readiness | 7% | In progress — readiness planning only; no pilot scope, participants, data or operational roster approved |
+| M3-10 | Pilot and Launch Readiness | 7% | Readiness framework and authorized synthetic/documentation work delivered; pilot readiness NOT ACCEPTED pending owner charter, qualified reviews and accepted human operations; no pilot/go-no-go |
 | M3-11 | Controlled Production Launch | 6% | Conditional; separate explicit launch authorization |
 
 
