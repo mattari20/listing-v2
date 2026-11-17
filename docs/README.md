@@ -378,3 +378,11 @@ The R13 repository desk review assessed all twelve scenarios (R01–R12) in the 
 
 
 - [M3-11-01 Scope and Authority Closeout](04-roadmap/M3-11-01_SCOPE_AND_AUTHORITY_CLOSEOUT_2026-11-17.md) — closes the owner scope-definition package for Option A / private acceptance environment only; does not authorize environment provisioning or release.
+
+
+## M3-11 reviewer preparation — 2026-11-17
+- [M3-11-01 Scope and Authority Closeout](04-roadmap/M3-11-01_SCOPE_AND_AUTHORITY_CLOSEOUT_2026-11-17.md) — owner-selected Option A / Option 1 private acceptance-only boundary.
+- [M3-11-02 Legal, Privacy and Safeguarding Review Pack](04-roadmap/M3-11-02_LEGAL_PRIVACY_SAFEGUARDING_REVIEW_PACK_2026-11-17.md) — qualified human review preparation; actual legal/privacy/safeguarding assessment remains blocked.
+- [M3-11-03 Independent Security and Accessibility Review Pack](04-roadmap/M3-11-03_INDEPENDENT_SECURITY_ACCESSIBILITY_REVIEW_PACK_2026-11-17.md) — independent security/accessibility review preparation; actual assessments remain blocked.
+
+M3-11-02 and M3-11-03 reviewer preparation does not constitute qualified review, independent testing, WCAG conformance, environment authorization or release approval. M3-11 overall remains BLOCKED / NOT ACCEPTED.
