@@ -106,9 +106,9 @@ These checks validate the repository/documentation changes only. All external/hu
 
 ## 10. Option A owner scope decision — 2026-11-17
 
-The Product Owner selected Option A: a controlled, limited V2 release containing only the already implemented M3-05 anonymous directory/search/profile surface and M3-06 manual text-locality discovery, constrained to eligible approved anonymous-directory projections and the existing public-field allowlist. The detailed owner scope record is [M3-11 M3-11-01 Option A Controlled Limited V2 Release Scope Charter](M3-11_OPTION_A_CONTROLLED_LIMITED_V2_RELEASE_SCOPE_CHARTER_2026-11-17.md).
+The Product Owner selected Option A: a controlled, limited V2 release containing only the already implemented M3-05 anonymous directory/search/profile surface and M3-06 manual text-locality discovery, constrained to eligible approved anonymous-directory projections and the existing public-field allowlist. The detailed owner scope record is [M3-11 Option A Controlled Limited V2 Release Scope Charter](M3-11_OPTION_A_CONTROLLED_LIMITED_V2_RELEASE_SCOPE_CHARTER_2026-11-17.md).
 
-M3-11-01 remains PARTIAL: exact initial geography/coverage, audience/minor safeguards, permitted real-data/source classes, target environment/release type and disposition of the pre-launch research/pilot deferral still require explicit owner decisions. No real data, participant activity, production environment, deployment or launch is authorized. M3-11 remains BLOCKED / NOT ACCEPTED; M3-11-02–M3-11-10 retain their existing gates.
+The subsequent Option 1 decision and exact owner boundary are recorded in Section 11 and [M3-11-01 Scope and Authority Closeout](M3-11-01_SCOPE_AND_AUTHORITY_CLOSEOUT_2026-11-17.md). M3-11-01 is now CLOSED for scope/authority definition only. M3-11-02–M3-11-10 retain their independent gates; no environment creation/access, pilot, production deployment or launch is authorized. M3-11 overall remains BLOCKED / NOT ACCEPTED.
 
 
 ## 11. M3-11-01 scope-definition closeout — 2026-11-17
