@@ -401,3 +401,10 @@ M3-11-02 and M3-11-03 reviewer preparation does not constitute qualified review,
 - [M3-11-05 Isolation Evidence Checklist](04-roadmap/M3-11-05_ISOLATION_EVIDENCE_CHECKLIST_2026-11-17.md) — 18-item evidence matrix; 0/18 verified, no hosted environment inspected.
 - [M3-11-05 Environment Authorization and Evidence Register](04-roadmap/M3-11-05_ENVIRONMENT_AUTHORIZATION_AND_EVIDENCE_REGISTER_2026-11-17.md) — separate exact-scope authorization template; provisioning/access not authorized.
 - [M3-11-05 Status and Handoff](04-roadmap/M3-11-05_STATUS_AND_HANDOFF_2026-11-17.md) — package status and required human/owner evidence.
+
+
+## M3-11-06 backup, restore and rollback readiness — 2026-11-17
+
+- [M3-11-06 Backup, Restore and Rollback Readiness Preparation](04-roadmap/M3-11-06_BACKUP_RESTORE_ROLLBACK_READINESS_2026-11-17.md) — recovery requirements, RPO/RTO decisions, V2-only backup and synthetic restore/rollback procedures; preparation only, no rehearsal.
+- [M3-11-06 Recovery Rehearsal Evidence Register](04-roadmap/M3-11-06_RECOVERY_REHEARSAL_EVIDENCE_REGISTER_2026-11-17.md) — 14-item evidence and rehearsal template; RPO/RTO unset and no backup/restore run.
+- [M3-11-06 Status and Handoff](04-roadmap/M3-11-06_STATUS_AND_HANDOFF_2026-11-17.md) — package status and prerequisite evidence.
