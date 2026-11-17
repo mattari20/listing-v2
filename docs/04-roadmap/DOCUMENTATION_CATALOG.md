@@ -1211,3 +1211,6 @@ The R13 repository desk review assessed all twelve scenarios (R01–R12) in the 
 
 
 **M3-11 preflight delivery evidence:** PR [#259](https://github.com/mattari20/listing-v2/pull/259) merged as `48e6742fc13324eaa2c081ce121b10877c316d22`; exact head `d2c7fd1d47f17fc71a77274cdc57e60f4373ac2a`; FND-01 PHP 8.5 CI #427 and Project documentation validation #832 passed; post-merge main identical to merge commit. Preflight documentation delivered; production readiness remains BLOCKED / NOT ACCEPTED.
+
+
+**M3-11 evidence closeout history:** PR [#260](https://github.com/mattari20/listing-v2/pull/260) merged as `a454a10ade0405cfc8a2d9d0e7bdc82a1a84a2bf`; exact head `877e6f2e9284e8fa6363b8e64efb97a46316bb73`; FND-01 CI #428 and Project documentation validation #834 passed; main verified identical to merge commit.
