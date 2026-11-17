@@ -1,3 +1,9 @@
+## Latest verified position — M3-11 gate-resolution coordination (2026-11-17)
+
+PR #276 M3-11-08 decision-pack preparation merged as `e226fdbef1f24314c2a0c4399403342ced158ef3`; exact-head PHP 8.5 foundation CI #44054165587 and documentation validation #44054165564 passed, and main was verified identical to the merge. M3-11-08 remains BLOCKED / NOT DECIDED. Current work adds a repository-only coordination plan and blank Product Owner/human evidence intake worksheet. These do not appoint reviewers/owners or grant operational authorization. M3-11-02–M3-11-06 substantive gates remain blocked; M3-11-07 has no candidate; M3-11-09 remains NOT AUTHORIZED. M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
+---
+
 ## Latest verified position — M3-11-08 decision-pack preparation (2026-11-17)
 
 PR #275 M3-11-07 documentation preparation merged as `c1e8c70cb3433773ac45e9e35c32c446a8bf1684`; exact-head PHP 8.5 foundation CI #44053861067 and documentation validation #44053861068 passed; main was verified identical to the merge commit. M3-11-07 remains NOT STARTED / BLOCKED because no candidate exists and M3-11-02–M3-11-06 substantive prerequisites remain blocked. M3-11-08 repository-only decision-pack preparation is now being delivered; no dossier is assembled and no GO/NO-GO decision is issued. M3-11-08 remains BLOCKED / NOT DECIDED. M3-11 overall remains BLOCKED / NOT ACCEPTED. No production, pilot, deployment or execution is authorized.

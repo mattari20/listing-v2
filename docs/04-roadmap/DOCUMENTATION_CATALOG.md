@@ -1,3 +1,8 @@
+## M3-11 gate-resolution coordination — 2026-11-17
+
+- [M3-11 Gate Resolution Coordination Plan](M3-11_GATE_RESOLUTION_COORDINATION_PLAN_2026-11-17.md) — **Delivered — review pending**; consolidates gate dependencies, accountable evidence sources, permitted next actions and stop conditions.
+- [M3-11 Owner Decisions and Evidence Intake](M3-11_OWNER_DECISIONS_AND_EVIDENCE_INTAKE_2026-11-17.md) — **Delivered — review pending**; blank owner decisions, human role acceptance and reviewer/evidence intake. No appointments, approvals or spend are implied.
+
 ## M3-11-08 change and decision-pack preparation — 2026-11-17
 
 - [M3-11-08 Change and Go/No-Go Decision Pack](M3-11-08_CHANGE_AND_GO_NO_GO_DECISION_PACK_2026-11-17.md) — **Delivered — review pending**; defines the future evidence dossier, decision roles/rules and change/rollback controls. No GO/NO-GO decision or authorization is issued.

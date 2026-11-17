@@ -1,3 +1,5 @@
+- [M3-11 Gate Resolution Coordination Plan](04-roadmap/M3-11_GATE_RESOLUTION_COORDINATION_PLAN_2026-11-17.md) — sequencing, accountable evidence sources, permissible next actions and stop conditions for M3-11 blockers.
+- [M3-11 Owner Decisions and Evidence Intake](04-roadmap/M3-11_OWNER_DECISIONS_AND_EVIDENCE_INTAKE_2026-11-17.md) — blank Product Owner decision and human role/evidence intake worksheet; no appointments or approvals implied.
 # Documentation Index
 
 This documentation is the governing source of truth for eStudent Institutes V2. Read the project controller first.
