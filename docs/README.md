@@ -36,6 +36,8 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [M3-11-07 Release Candidate Readiness](04-roadmap/M3-11-07_RELEASE_CANDIDATE_READINESS_2026-11-17.md) — candidate identity, prerequisite gates and exact-candidate verification contract; documentation preparation only, no candidate created.
 - [M3-11-07 Candidate Evidence Register](04-roadmap/M3-11-07_CANDIDATE_EVIDENCE_REGISTER_2026-11-17.md) — blank 23-item evidence register; no candidate-specific evidence is claimed.
 - [M3-11-07 Status and Handoff](04-roadmap/M3-11-07_STATUS_AND_HANDOFF_2026-11-17.md) — records blocked/not-started status and required prerequisites.
+- [M3-11-08 Change and Go/No-Go Decision Pack](04-roadmap/M3-11-08_CHANGE_AND_GO_NO_GO_DECISION_PACK_2026-11-17.md) — mandatory decision dossier, human authority, decision rules and change/rollback evidence; no decision is issued.
+- [M3-11-08 Status and Handoff](04-roadmap/M3-11-08_STATUS_AND_HANDOFF_2026-11-17.md) — records BLOCKED / NOT DECIDED status and prerequisite gates.
 
 ## Documentation tracking
 - [Documentation Completion Catalogue](04-roadmap/DOCUMENTATION_CATALOG.md) — owner-facing list of delivered, reviewed, accepted and planned documents; updated after every documentation PR update and merge.
