@@ -134,3 +134,16 @@ If these items are not supplied or cannot be safely evidenced, M3-11 remains BLO
 **Deeni Madaris:** DEFAULT-OFF; ZERO PUBLIC EXPOSURE.
 
 The Product Owner's M3-11 start instruction is recorded. The production launch itself cannot be marked complete until all applicable evidence, qualified human approvals, accepted operations and exact release authorization are independently present. No gate or standing restriction is relaxed by this record.
+
+
+## 10. PR delivery and exact-head validation evidence
+
+- PR [#259](https://github.com/mattari20/listing-v2/pull/259) merged as `48e6742fc13324eaa2c081ce121b10877c316d22`.
+- Exact PR head: `d2c7fd1d47f17fc71a77274cdc57e60f4373ac2a`.
+- FND-01 PHP 8.5 foundation CI #427 (run `44022069862`): SUCCESS.
+- Project documentation validation #832 (run `44022069888`): SUCCESS.
+- Synthetic suite on the exact PR head: 15 passed, 1,044 assertions; 218 non-fatal missing-local-`.env` warnings. No `.env` was created.
+- Post-merge `main` compared identical to merge commit `48e6742fc13324eaa2c081ce121b10877c316d22`.
+- No application code, migration, dependency, environment, production or deployment change was made.
+
+These results validate the repository/documentation preflight only. They do not validate a production runtime, external environment, legal/privacy/security compliance, human operations or a production release.

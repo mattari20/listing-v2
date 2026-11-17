@@ -3,8 +3,8 @@
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
 **Current agenda:** M3-11 — Controlled Production Launch Governance / Release Preflight
 **Status:** M3-10 authorized agenda COMPLETE/CLOSED; M3-11 preflight COMPLETE for current repository evidence; production readiness BLOCKED / NOT ACCEPTED
-**Verified main baseline at M3-11 start:** `f7193f99f19a71e2eb0e68931851e5a656857ddf`
-**Prior agenda evidence:** PR #254 merged as `f39ea422f713e5f9bc4636e74f09cf45269b0517`; exact head `c27e6327f60a3a69061582e59bb679536b23175f`; FND-01 PHP 8.5 CI #420 and Project documentation validation #820 passed. Main matched the merge commit.
+**Verified current main:** `48e6742fc13324eaa2c081ce121b10877c316d22` (PR #259 merge; identical main)
+**M3-11 preflight evidence:** PR [#259](https://github.com/mattari20/listing-v2/pull/259) merged as `48e6742fc13324eaa2c081ce121b10877c316d22`; exact head `d2c7fd1d47f17fc71a77274cdc57e60f4373ac2a`; FND-01 PHP 8.5 CI #427 and Project documentation validation #832 passed. Main matched the merge commit. Synthetic suite: 15 passed, 1,044 assertions, 218 non-fatal missing-local-`.env` warnings.
 
 M3-10 has delivered the readiness framework, Option B proposal-only decision, university representative API workflow, synthetic adversarial hardening, final readiness reconciliation, reviewer handoff and external-review intake procedure for their authorized scopes. The current governance reconciliation synchronizes the controller, roadmap, step register, traceability matrix, progress report and documentation indexes.
 
