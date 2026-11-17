@@ -75,7 +75,7 @@ final class UniversityRepresentativeWorkflowController extends Controller
             $request,
             $institution,
             'institution.claim.correct',
-            ['correct_claim', 'submit_directory_proposal'],
+            ['correct_claim', 'submit_directory_proposal', 'edit_directory_proposal'],
         );
 
         $prior = DB::table('claim_versions')
@@ -97,7 +97,16 @@ final class UniversityRepresentativeWorkflowController extends Controller
             'rationale' => ['required', 'string', 'min:10', 'max:1000'],
         ]);
 
-        $result = $this->corrections->correct(
+        $returnedCase = DB::table('editorial_review_cases')
+            ->where('entity_id', $institution)
+            ->where('claim_version_id', $claimVersion)
+            ->where('submitted_by_actor_id', $actor['actor_id'])
+            ->where('status', 'changes_requested')
+            ->first(['id']);
+        abort_if($returnedCase === null, 409);
+
+        $result = DB::transaction(function () use ($actor, $claimVersion, $validated, $institution, $request, $returnedCase): array {
+            $result = $this->corrections->correct(
             $actor,
             $claimVersion,
             $validated['value'],
@@ -108,7 +117,16 @@ final class UniversityRepresentativeWorkflowController extends Controller
             $validated['valid_to'] ?? null,
             $validated['reason_code'],
             $validated['rationale'],
-        );
+            );
+            $this->editorial->supersedeAfterCorrection(
+                $actor,
+                (string) $returnedCase->id,
+                $result['claim_version_id'],
+                $this->scopedIdempotencyKey('correction-close', $request->user(), $validated['idempotency_key']),
+            );
+
+            return $result;
+        });
 
         return response()->json([
             'status' => 'corrected_successor_submitted_for_editorial_review',
