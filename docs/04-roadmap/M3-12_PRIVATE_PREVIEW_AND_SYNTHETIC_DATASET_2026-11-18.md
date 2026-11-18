@@ -13,7 +13,7 @@ Provide a repeatable, fictional dataset so the existing server-rendered director
 
 ## 2. Delivered scope
 
-- Added `Database\\Seeders\\PrivatePreviewDirectorySeeder`.
+- Added `Database\Seeders\PrivatePreviewDirectorySeeder`.
 - Seven fictional entities across all five supported public categories: provider (1), institution (2), campus (1), programme (2), qualification (1).
 - Each example has a synthetic display name, clearly fictional overview and text-only locality fields.
 - Each fact is created with synthetic evidence, an audit event, a human adjudication workflow, an explicit publication decision and the existing outbox projection process.
@@ -37,7 +37,7 @@ Use a disposable/local SQLite database only. Confirm `.env` has `APP_ENV=local`,
 
 ```bash
 php artisan migrate
-php artisan db:seed --class='Database\\Seeders\\PrivatePreviewDirectorySeeder'
+php artisan db:seed --class='Database\Seeders\PrivatePreviewDirectorySeeder'
 php artisan serve
 ```
 
