@@ -1,7 +1,7 @@
 # M3-11-03 / M3-11-05 — SEC-06 Bounded Logging Policy Design
 
 **Date:** 2026-11-19  
-**Status:** CHANNEL POLICY APPROVED; RETENTION/OPERATIONAL DECISIONS AND IMPLEMENTATION AUTHORIZATION PENDING  
+**Status:** CHANNEL AND 30-DAY RETENTION POLICY APPROVED; ACTIVE-LOG DELETION RULE PROPOSED; TARGET STORAGE/ACCESS AND IMPLEMENTATION AUTHORIZATION PENDING  
 **Repository:** `mattari20/listing-v2`  
 **Scope:** Private V2 development and future private acceptance; synthetic fixtures only
 
@@ -51,10 +51,10 @@ The following are proposed for the private V2 acceptance target, subject to Prod
 | File location | V2-only private storage outside public document root | TARGET PATH NOT VERIFIED |
 | File permissions | Least-privilege read/write for the V2 runtime identity; no public/static access | NOT VERIFIED |
 | Access | Named authorized operators only; access evidence retained in restricted operational records | NOT ASSIGNED |
-| Deletion | Delete rotated application log files older than the approved 30-day retention period; account for any copies/backup behavior in the later documented operational procedure | **30-DAY RETENTION APPROVED; OPERATIONAL DELETION PROCEDURE STILL TO BE DEFINED** |
+| Deletion | Automatically remove rotated application log files older than 30 days from the active V2 log directory; do not assume this also deletes backup-held copies | **PROPOSED OPERATIONAL RULE; BACKUP-COPY HANDLING PENDING TARGET/BACKUP REVIEW** |
 | Incident evidence | Preserve only the minimum sanitized evidence under an approved incident process | OWNER/PROCESS NOT ASSIGNED |
 
-No retention duration is selected in this record. The Product Owner must approve the retention period and deletion rule after the actual hosting storage and operational constraints are known. The weekly Hostinger backup preference is a backup cadence decision; it does not define log retention.
+The Product Owner approved a 30-day retention period. The proposed operational rule is to remove active V2 rotated log files older than 30 days automatically. This does not establish deletion of any copies held in backups; backup inclusion, retention and expiry must be checked separately against the eventual private V2 backup behavior. The weekly Hostinger backup preference is a backup cadence decision; it does not itself define log retention.
 
 ## 5. Required negative controls and verification
 
@@ -68,7 +68,7 @@ Before environment acceptance, a separately authorized implementation and verifi
 6. Log files are outside the public document root and cannot be fetched through direct HTTP paths.
 7. File ownership and permissions restrict access to the V2 runtime and explicitly authorized operators.
 8. Application errors returned to clients do not expose stack traces, SQL, filesystem paths or secrets.
-9. Rotation, deletion and backup inclusion/exclusion behavior is documented and tested without touching V1 or production resources.
+9. Rotation and deletion of active V2 log files older than 30 days is documented and tested; backup inclusion, retention and expiry behavior is separately evidenced without touching V1 or production resources.
 10. A sanitized test report identifies exact commit, configuration, test commands, results and limitations.
 
 No hosted or browser verification is claimed. The online checks will be performed after the GitHub–Hostinger deployment connection and the separately authorized private V2 deployment are established.
@@ -77,7 +77,8 @@ No hosted or browser verification is claimed. The online checks will be performe
 
 - Product Owner approval recorded 2026-11-19: use the daily rotating local-file handler as the intended private V2 default; keep external forwarding disabled.
 - Product Owner approved a 30-day application-log retention period on 2026-11-19.
-- The operational deletion procedure (including how any copies or backup-held log files are handled) remains to be defined and verified.
+- Proposed active-log deletion rule: automatically remove rotated files older than 30 days from the active V2 log directory.
+- Backup-held copies are not covered by that rule; their inclusion, retention and expiry behavior must be checked against the eventual private V2 backup process before hosted acceptance.
 - Confirmation of the approved private V2 storage location and filesystem permissions after the target is identified.
 - Named human owner for log access, retention/deletion and incident evidence.
 - Exact implementation authorization for a local/CI-only code-and-test change.
@@ -93,8 +94,8 @@ V2 repository-only preparation continues. No V1 or existing eStudent.pk resource
 
 ## 8. Handoff
 
-The daily rotating channel, disabled external forwarding and 30-day retention period are now approved. Before implementation, the operational deletion procedure and storage/access details must be defined against the private V2 target. A separate explicit authorization for the narrow local/CI implementation remains required. Hosted configuration and online verification remain a later gate after the GitHub–Hostinger deployment connection is established and exact hosted actions are separately authorized.
+The daily rotating channel, disabled external forwarding and 30-day retention period are approved. The proposed active-log deletion rule is automatic removal of rotated files older than 30 days from the active V2 log directory; backup-held copies remain outside this rule until their handling is verified. Storage/access details must be defined against the private V2 target. A separate explicit authorization for the narrow local/CI implementation remains required. Hosted configuration and online verification remain a later gate after the GitHub–Hostinger deployment connection is established and exact hosted actions are separately authorized.
 
-**SEC-06 disposition:** DAILY ROTATING DEFAULT, DISABLED EXTERNAL FORWARDING AND 30-DAY RETENTION APPROVED; OPERATIONAL DELETION PROCEDURE AND STORAGE/ACCESS DETAILS PENDING; IMPLEMENTATION NOT AUTHORIZED.  
+**SEC-06 disposition:** DAILY ROTATING DEFAULT, DISABLED EXTERNAL FORWARDING AND 30-DAY RETENTION APPROVED; ACTIVE-LOG DELETION RULE PROPOSED; BACKUP-COPY HANDLING AND STORAGE/ACCESS DETAILS PENDING; IMPLEMENTATION NOT AUTHORIZED.  
 **M3-11-05:** BLOCKED / NOT ACCEPTED.  
 **M3-11 overall:** BLOCKED / NOT ACCEPTED.
