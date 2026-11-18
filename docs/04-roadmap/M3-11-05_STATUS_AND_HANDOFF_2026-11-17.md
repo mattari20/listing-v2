@@ -86,3 +86,12 @@ The owner-provided `.htaccess` screenshot shows Hostinger-generated marker comme
 **Actual full-path enforcement / static-file challenge:** NOT YET VERIFIED.
 **Direct `.htpasswd` HTTP denial and filesystem access safety:** NOT YET VERIFIED.
 **M3-11-05 hosted isolation acceptance:** BLOCKED / NOT ACCEPTED.
+
+
+## Latest update — Hostinger PHP configuration recorded (2026-11-18)
+
+Owner-provided PHP Configuration screenshots show PHP 8.5 selected; the separate PHP Info screenshot identifies PHP 8.5.12. PDO, `nd_pdo_mysql`, `mysqlnd`, `nd_mysqli`, `pdo_sqlite`, and `sqlite3` are visibly enabled. PHP Info separately confirms PDO drivers `mysql, sqlite` and PDO MySQL client API `mysqlnd 8.5.12`. Other checked extensions are recorded in the M3-11-05D evidence document. No PHP version or extension settings were changed.
+
+**PHP/PDO configuration evidence:** OBSERVED / SUITABLE AT CONFIGURATION LEVEL.
+**Live Laravel MySQL connection and hosted subfolder runtime test:** NOT PERFORMED.
+**Hosted isolation / M3-11-05 acceptance:** BLOCKED / NOT ACCEPTED.
