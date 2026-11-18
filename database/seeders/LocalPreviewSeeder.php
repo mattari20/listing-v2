@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use App\Services\Directory\CampusProgrammeCatalogueService;
 use App\Services\Governance\PersistedGovernanceWorkflowService;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
