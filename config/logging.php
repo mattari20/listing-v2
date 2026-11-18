@@ -2,7 +2,6 @@
 
 use App\Logging\AgeBasedRotatingFileHandler;
 use App\Logging\SafeLogContextProcessor;
-
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
