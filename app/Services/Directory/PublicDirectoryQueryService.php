@@ -396,7 +396,7 @@ final class PublicDirectoryQueryService
      * all remain valid. Raw claim payloads and internal identifiers never reach views.
      *
      * @param array<int, array<string, mixed>> $items
-     * @param array<string, string> $publishedClaims
+     * @param array<string, array<string, mixed>> $publishedClaims
      * @return array<int, array<string, mixed>>
      */
     private function attachPublicCatalogue(array $items, array $publishedClaims): array
