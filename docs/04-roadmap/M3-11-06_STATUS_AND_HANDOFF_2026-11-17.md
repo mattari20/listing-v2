@@ -30,3 +30,19 @@ First, obtain separately authorized and independently verified M3-11-05 V2-only 
 ## Handoff
 
 No backup, snapshot, database, storage, restore, migration, rollback, hosted access, production/V1/Hostinger, real data, deployment, new vendor, paid feature or spend was used. This package is documentation preparation only and does not authorize a rehearsal or downstream release action.
+
+
+## Product Owner backup-policy decision — 2026-11-18
+
+The Product Owner confirms that the existing Hostinger **weekly automated backup** is sufficient for the current V2 development stage. No paid backup upgrade, extra backup product, or increased backup frequency is required or approved. This is an owner policy decision for the current development stage, not a claim that a V2-only restore has been demonstrated or that weekly backups meet an as-yet-unset production RPO/RTO.
+
+The Product Owner does not require an additional IP Manager restriction layer for the private preview at this stage; the existing Hostinger directory password protection is the chosen access-control layer. Actual HTTP enforcement and complete static/nested-path coverage remain technically unverified and must not be described as independently tested.
+
+**Accepted now:** weekly backup cadence as the current-stage policy; no additional backup spend; no additional IP restriction layer.  
+**Not demonstrated:** backup restore outcome, V2-only file/database recovery boundary, retention, recovery time, or application rollback.  
+**Not authorized:** restore rehearsal against the current website/V1 or live database.  
+**M3-11-06 disposition:** repository preparation delivered; owner policy preference recorded; technical recovery acceptance remains BLOCKED / NOT ACCEPTED until the V2-only boundary and recovery procedure can be verified safely under separate authorization.
+
+## Next agenda
+
+Proceed with M3-11-06 recovery-policy and evidence reconciliation using repository documentation only. Carry the weekly-backup decision as accepted for this stage, retain the restore-boundary limitations explicitly, and do not purchase, restore, download, or alter any backup.

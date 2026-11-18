@@ -1462,3 +1462,15 @@ Repository preparation is delivered in the M3-11-06 recovery plan, 14-item rehea
 **M3-11-05 delivery evidence:** PR #273 merged as `ef136e183d9cbcd14358004b634672c19710e387`; exact head `1cacdd17bd6340a9cf41de68f171f0bc62dc137a`; FND-01 CI #445 and documentation validation #864 passed; main verified identical to merge commit. Actual M3-11-05 isolation remains blocked (target unidentified, 0/18 evidence items verified).
 
 **Current M3-11 position:** 01 CLOSED for scope definition only; 02 qualified legal/privacy/safeguarding review BLOCKED; 03 independent security/accessibility assessment BLOCKED; 04 actual human operations readiness BLOCKED; 05 environment/isolation BLOCKED; 06 backup/restore/rollback BLOCKED; 07 release candidate NOT STARTED; 08 go/no-go BLOCKED; 09 production execution NOT AUTHORIZED; 10 monitored operation/closure NOT STARTED. M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
+
+## Latest verified position — M3-11-05D evidence reconciliation and M3-11-06 owner backup-policy decision (2026-11-18)
+
+PR [#301](https://github.com/mattari20/listing-v2/pull/301) merged as 5b7b41757d87670a666e0e88382fed3ab78df462; exact-head FND-01 CI run #513 and project documentation validation run #954 passed. The Hostinger evidence record now includes the selected PHP 8.5 / runtime PHP 8.5.12 configuration, PDO MySQL and SQLite drivers, the dedicated V2 database details, selected /public_html/institutes-v2 folder, visible .htaccess / .htpasswd entries, and the Basic Authentication directives visible in the owner-provided screenshot. No credential/hash was recorded and no hosting file was changed.
+
+The Product Owner has now explicitly accepted the existing weekly automated backup cadence as sufficient for the current development stage, without paid upgrade or increased frequency; accepted the existing directory password protection as the selected preview control without adding IP Manager as a second layer; and confirmed the existing hosting plan is to be retained without additional spend. These owner decisions are recorded separately from technical verification.
+
+**M3-11-05D:** evidence substantially recorded; still not technically accepted for hosted preview because live Basic Auth enforcement/static-file coverage, Laravel document-root mapping and storage isolation, and final hosted route/DB smoke tests have not been performed.  
+**M3-11-06:** weekly-backup policy accepted for current development stage; no restore, download, backup alteration, or V1/live-site rehearsal performed. V2-only restore boundary, retention and measured recovery objectives remain unverified; M3-11-06 remains BLOCKED / NOT ACCEPTED.  
+**Cost:** no upgrade or extra spend approved.  
+**Next:** repository-only M3-11-06 recovery-policy/evidence reconciliation; no hosted restore or deployment.

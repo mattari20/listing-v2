@@ -160,3 +160,12 @@ The PHP Info screenshot separately confirms PDO is enabled with drivers `mysql, 
 - PDO MySQL module: enabled — observed.
 - PHP extension checkbox state: recorded from screenshots; no settings changed.
 - Live Laravel boot / database connection / hosted subfolder smoke test: not performed; remains deferred and unauthorized in this evidence-only phase.
+
+
+## Product Owner decisions recorded — 2026-11-18
+
+- Existing Hostinger directory password protection is the chosen private-preview access-control layer for this stage. No additional IP Manager restriction is required by the Product Owner. This decision does not itself prove live HTTP enforcement, nested/static-file coverage, or .htpasswd denial; those remain untested.
+- Existing weekly automated backups are accepted by the Product Owner as sufficient for the current development stage. No backup upgrade, extra service, or increased frequency is required or approved. Restore-boundary and recovery-time claims remain unverified; this is not a production RPO/RTO acceptance.
+- The existing Hostinger plan is to be retained; no upgrade or additional hosting spend is approved.
+
+These decisions remove any requirement to add a second access-control layer or purchase enhanced backup frequency for the current stage. They do not waive the need to keep unverified technical boundaries accurately documented. No hPanel changes, backup actions, restore, deployment, or live hosted tests were performed as part of recording these decisions.

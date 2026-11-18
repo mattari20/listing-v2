@@ -95,3 +95,10 @@ Owner-provided PHP Configuration screenshots show PHP 8.5 selected; the separate
 **PHP/PDO configuration evidence:** OBSERVED / SUITABLE AT CONFIGURATION LEVEL.
 **Live Laravel MySQL connection and hosted subfolder runtime test:** NOT PERFORMED.
 **Hosted isolation / M3-11-05 acceptance:** BLOCKED / NOT ACCEPTED.
+
+
+## Product Owner decisions — current-stage controls (2026-11-18)
+
+The Product Owner accepts the existing Hostinger directory password protection as the selected private-preview control and does not require a second IP restriction layer at this stage. The Product Owner accepts existing weekly automated backups as sufficient for the current development stage and does not approve a paid backup upgrade or increased frequency. The existing hosting plan is to be retained without additional spend.
+
+These are owner decisions about the selected controls and cost/frequency policy. They do not establish successful live authentication enforcement, static-file coverage, V2-only restore capability, or production recovery objectives. M3-11-05 remains partially evidenced and is not technically accepted for hosted preview or deployment until the remaining safe isolation checks are completed.
