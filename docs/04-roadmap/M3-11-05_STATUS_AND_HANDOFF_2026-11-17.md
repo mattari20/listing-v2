@@ -76,3 +76,13 @@ The owner-provided File Manager screenshot of `/public_html/institutes-v2` shows
 **Password protection correctly configured / full-path coverage:** NOT VERIFIED.
 **Laravel public-root mapping / rewrite behavior:** NOT VERIFIED.
 **Deployment or file changes:** NOT PERFORMED / NOT AUTHORIZED.
+
+
+## Latest update — Hostinger-generated Basic Authentication rule inspected (2026-11-18)
+
+The owner-provided `.htaccess` screenshot shows Hostinger-generated marker comments plus `AuthType Basic`, `AuthName "Restricted Access"`, an `AuthUserFile` path pointing to `/home/u537436044/domains/estudent.pk/public_html/institutes-v2/.htpasswd`, and `Require valid-user`. This establishes that a Basic Authentication rule is configured in the file. It does not prove live enforcement, static-asset coverage, inheritance/no child overrides, or denial of direct `.htpasswd` retrieval. The `.htpasswd` contents/hash were not opened or recorded. Preserve the generated marker block; do not edit or delete it. No hosted request, credential use, file change or deployment occurred.
+
+**Basic-auth directives present:** OBSERVED.
+**Actual full-path enforcement / static-file challenge:** NOT YET VERIFIED.
+**Direct `.htpasswd` HTTP denial and filesystem access safety:** NOT YET VERIFIED.
+**M3-11-05 hosted isolation acceptance:** BLOCKED / NOT ACCEPTED.
