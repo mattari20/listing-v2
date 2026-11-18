@@ -1,6 +1,6 @@
 ## M3-12 private preview and synthetic dataset — 2026-11-18
 
-- [M3-12 Private Preview and Synthetic Dataset](M3-12_PRIVATE_PREVIEW_AND_SYNTHETIC_DATASET_2026-11-18.md) — **Updated — review pending**; records the guarded local SQLite seeder, seven fictional records, local run instructions, tests and explicit operational boundaries. Exact-head CI and documentation validation pending. The package additionally documents the outbox-isolation guard, exact synthetic projection completion and separated governance actor identities. 
+- [M3-12 Private Preview and Synthetic Dataset](M3-12_PRIVATE_PREVIEW_AND_SYNTHETIC_DATASET_2026-11-18.md) — **Updated — review pending**; records the guarded local SQLite seeder, seven fictional records, local run instructions, tests and explicit operational boundaries. PHP 8.5 foundation CI #44212302774 and documentation validation #44212302867 passed at validation commit `db5e90f7e8fb21e7d5bf21bc78b13646d712cb11`; final documentation-only reconciliation receives fresh checks. PR #280 remains open/unmerged. The package additionally documents the outbox-isolation guard, exact synthetic projection completion and separated governance actor identities. 
 
 ## M3-11 gate-resolution coordination — 2026-11-17
 
