@@ -2,15 +2,19 @@
 
 declare(strict_types=1);
 
-namespace App\\Logging;
+namespace App\Logging;
 
 use DateTimeImmutable;
 use DateTimeZone;
-use Monolog\\Handler\\RotatingFileHandler;
-use Monolog\\Level;
+use Monolog\Handler\RotatingFileHandler;
+use Monolog\Level;
 
 final class AgeBasedRotatingFileHandler extends RotatingFileHandler
 {
+    private RotatedLogRetentionCleaner $cleaner;
+
+    private DateTimeZone $retentionTimezone;
+
     public function __construct(
         string $filename,
         RotatedLogRetentionCleaner $cleaner,
@@ -34,10 +38,6 @@ final class AgeBasedRotatingFileHandler extends RotatingFileHandler
             $this->retentionTimezone,
         );
     }
-
-    private RotatedLogRetentionCleaner $cleaner;
-
-    private DateTimeZone $retentionTimezone;
 
     protected function rotate(): void
     {
