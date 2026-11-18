@@ -112,6 +112,7 @@ final class ProgrammeOfferFactWorkflowService
             DB::table('programme_offer_fact_versions')->insert([
                 'id' => $versionId, 'programme_offer_fact_id' => $factId,
                 'version_number' => $versionNumber,
+                'idempotency_key' => $idempotencyKey,
                 'value' => $value === null ? null : json_encode($value, JSON_THROW_ON_ERROR),
                 'fact_state' => $factState, 'disposition' => 'proposed',
                 'observed_at' => $observedAt, 'valid_from' => $validFrom, 'valid_to' => $validTo,
@@ -247,8 +248,8 @@ final class ProgrammeOfferFactWorkflowService
                 DB::table('programme_offer_fact_versions')->where('supersedes_version_id', $factVersionId)->exists()) {
                 $this->reject('adjudication', 'A current accepted human adjudication is required.');
             }
-            if (! in_array($version->fact_state, ['known', 'not_stated', 'not_applicable'], true)) {
-                $this->reject('fact_state', 'Unknown, conflicting and withdrawn facts cannot be published as assertions.');
+            if (! in_array($version->fact_state, ['known', 'unknown', 'not_stated', 'not_applicable', 'conflicting'], true)) {
+                $this->reject('fact_state', 'Withdrawn facts cannot be published.');
             }
             if ($version->fact_state === 'known' && $version->freshness_policy_key !== null &&
                 $version->freshness_days !== null && $version->observed_at !== null &&
