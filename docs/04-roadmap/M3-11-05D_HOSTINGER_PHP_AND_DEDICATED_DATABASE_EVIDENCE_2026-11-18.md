@@ -90,8 +90,29 @@ The screenshot shows `institutes-v2` directly inside `public_html`, with its las
 **Owner-selected intended directory:** `/public_html/institutes-v2`  
 **Intended public path:** `/institutes-v2` (subject to confirming the actual web-server mapping and rewrite behavior).  
 **Observed directory permissions display:** `drwxr-xr-x` for the listed directories in this view.  
-**Folder contents:** Not inspected or established by this screenshot.  
+**Folder contents — subsequently inspected from the owner-provided File Manager screenshot (2026-11-18):**
+
+| Entry | Size shown | Last modified shown | Permission display |
+|---|---:|---|---|
+| `.htaccess` | 289 B | an hour ago | `-rw-r--r--` |
+| `.htpasswd` | 116 B | an hour ago | `-rw-r--r--` |
+
+These are the only two entries visible in the folder listing. The screenshot does not establish whether hidden entries are omitted by the File Manager view, nor does it expose either file's contents. Their presence is consistent with a password-protection configuration, but **does not prove** that protection is correctly configured, enabled, or covers every request including static assets. Do not read, disclose, copy, or change the `.htpasswd` contents. The `.htaccess` rules must be inspected in a controlled, read-only way before making any claim about routing or protection coverage. No content was changed.  
 **Document-root / Laravel public-directory mapping:** NOT VERIFIED.  
 **Protection coverage for static assets and the entire subfolder:** NOT VERIFIED.
 
 No files or folders were created, moved, renamed, deleted, or edited during this inspection. Existing WordPress, Institutes V1, and CV Builder folders are out of scope and must remain untouched. The owner-selected folder is a location decision only; it is not authorization to upload code, change permissions, configure rewrites, or deploy.
+
+
+## 6. Selected V2 folder contents — observed
+
+The owner-provided File Manager screenshot opened `/public_html/institutes-v2`. At capture time (2026-11-18), the listing showed exactly two visible entries:
+
+- `.htaccess` — 289 B, last modified "an hour ago", permission display `-rw-r--r--`.
+- `.htpasswd` — 116 B, last modified "an hour ago", permission display `-rw-r--r--`.
+
+No application directories or Laravel files are visible in this listing. This means the folder is **not empty**; it currently contains two access/configuration files. The screenshot does not prove there are no hidden or omitted entries.
+
+The presence of `.htaccess` and `.htpasswd` suggests a password-protection setup may have been created. Their contents were not inspected, so no claim is made that authentication is enabled, correct, or covers the full V2 path and static assets. Do not overwrite or delete these files. Before any deployment plan, obtain a safe read-only review of the `.htaccess` directives without exposing `.htpasswd` hashes or credentials.
+
+**Observed conclusion:** `/public_html/institutes-v2` is the selected V2 folder and currently shows only these two visible files. Laravel document-root mapping, rewrite behavior, actual password-protection coverage, and hidden-entry completeness remain unverified. No Hostinger files were changed.
