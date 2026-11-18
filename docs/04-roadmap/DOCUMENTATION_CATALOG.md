@@ -1,3 +1,7 @@
+## M3-11-05A-03 synthetic preview directory-route regression — 2026-11-18
+
+- [M3-11-05A-03 Synthetic Preview Directory-Route Regression](M3-11-05A-03_SYNTHETIC_PREVIEW_DIRECTORY_ROUTE_REGRESSION_2026-11-18.md) — **Implementation delivered — exact-head CI pending**; feature tests verify anonymous search, locality filtering and direct profile responses against temporary synthetic fixtures. No browser/visual review is claimed.
+
 ## M3-11-05A-02 local preview fixture integrity hardening — 2026-11-18
 
 - PR [#287](https://github.com/mattari20/listing-v2/pull/287) merged as `d3520252ab9600d34d25d06fbe00d5b9c64d7999`; exact head `bf3a39ba878839807e8ea7326268f338089fae6e`; FND-01 PHP 8.5 CI #487 and documentation validation #916 passed.

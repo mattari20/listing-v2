@@ -1,3 +1,9 @@
+## Latest authoritative position — M3-11-05A-03 preview route regression (2026-11-18)
+
+The next repository-only agenda extends the positive temporary-SQLite preview test to exercise the actual anonymous HTTP routes: institution search, locality filtering and direct profile display. It verifies the synthetic fixture-to-public-projection-to-route path without launching a browser or interrupting the planned visual review. Exact-head CI and documentation validation are pending; no merge is claimed. M3-11-05 hosted environment isolation and M3-11-06 recovery remain blocked, with no hosted access, production, V1, deployment, public launch or release authorized.
+
+---
+
 ## Latest authoritative position — M3-11-05A-02 fixture integrity hardening (2026-11-18)
 
 PR #287 merged as `d3520252ab9600d34d25d06fbe00d5b9c64d7999` from exact head `bf3a39ba878839807e8ea7326268f338089fae6e`; FND-01 PHP 8.5 CI #487 and documentation validation #916 passed on that exact head. The local preview seeder now creates the complete five-institution synthetic dataset in one transaction. Positive integration coverage runs migrations and seeding only against a uniquely created temporary `.local-preview.sqlite` file, then disconnects and removes it. It verifies five fictional institutions, 30 claims, 30 publication snapshots, 30 public projections, zero Deeni Madaris projections and no child/student/guardian/staff/age/date-of-birth/consent predicates. Browser preview remains intentionally deferred until planned implementation agendas are complete. Hosted M3-11-05 and recovery M3-11-06 remain blocked; no hosted access, production, V1, deployment, public launch or release is authorized.
