@@ -116,3 +116,23 @@ No application directories or Laravel files are visible in this listing. This me
 The presence of `.htaccess` and `.htpasswd` suggests a password-protection setup may have been created. Their contents were not inspected, so no claim is made that authentication is enabled, correct, or covers the full V2 path and static assets. Do not overwrite or delete these files. Before any deployment plan, obtain a safe read-only review of the `.htaccess` directives without exposing `.htpasswd` hashes or credentials.
 
 **Observed conclusion:** `/public_html/institutes-v2` is the selected V2 folder and currently shows only these two visible files. Laravel document-root mapping, rewrite behavior, actual password-protection coverage, and hidden-entry completeness remain unverified. No Hostinger files were changed.
+
+
+## 7. `.htaccess` authentication directives — observed (2026-11-18)
+
+The owner-provided screenshot of `/public_html/institutes-v2/.htaccess` shows Hostinger-generated password-protection marker comments and these Apache directives:
+
+```apache
+AuthType Basic
+AuthName "Restricted Access"
+AuthUserFile /home/u537436044/domains/estudent.pk/public_html/institutes-v2/.htpasswd
+Require valid-user
+```
+
+The marker comments instruct that the generated marker lines and lines below/above them must not be removed. Preserve the Hostinger-generated block; do not manually edit or delete it during this evidence phase.
+
+**What this establishes:** the folder's `.htaccess` is configured to request HTTP Basic Authentication and require a valid user, using the `.htpasswd` file at the displayed absolute path. This is direct evidence of an authentication rule in the directory configuration.
+
+**What remains unverified:** whether the rule is active on the live web-server path; whether all requests under `/institutes-v2` including static assets are challenged; whether child `.htaccess` files override/inherit the rule; whether the `.htpasswd` file is denied from direct HTTP retrieval; and whether the configured authentication file has suitably restrictive filesystem access. The File Manager earlier displayed `.htpasswd` permissions as `-rw-r--r--`; do not infer HTTP readability from that display alone, but treat direct-file exposure and filesystem access as explicit verification items. The `.htpasswd` contents/hash were not opened or recorded.
+
+No request was made to the hosted path, no credentials were used, and no Hostinger setting or file was changed. Before any preview upload, obtain a controlled owner-run check that unauthenticated requests to the V2 directory and a harmless static test file are challenged, and that direct access to `.htpasswd` is denied. Do not expose credentials or hashes in screenshots. This does not authorize deployment or hosted application testing.
