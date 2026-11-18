@@ -1,3 +1,9 @@
+## Latest verified planning position — M3-12 private preview and synthetic dataset (2026-11-18)
+
+A bounded local-only preview package is in progress on `feature/m3-12-private-preview-dataset`, based on main `5e68ac4ba70db0461a902832cb6ed483640b9a4c`. It adds a guarded SQLite-only seeder for seven fictional examples across all five supported directory categories and synthetic feature coverage for category visibility, profile rendering, idempotence and production-environment refusal. This is an additional private-preview work package, not a change to M3 weighted milestone allocations or M3-11 release gates. Exact-head CI and documentation validation remain pending. No production, V1, Hostinger, hosted database, deployment, pilot, real data, external service or spend is authorized.
+
+---
+
 ## Latest verified planning position — M3-11 gate-resolution coordination (2026-11-17)
 
 PR #276 merged as `e226fdbef1f24314c2a0c4399403342ced158ef3`. Exact-head foundation CI and documentation validation passed. M3-11 remains BLOCKED / NOT ACCEPTED; current work is repository-only coordination and intake preparation, not gate acceptance. M3-11-02–M3-11-06 substantive prerequisites remain blocked; M3-11-07 has no candidate; M3-11-08 remains BLOCKED / NOT DECIDED; M3-11-09 is NOT AUTHORIZED and M3-11-10 is NOT STARTED.
