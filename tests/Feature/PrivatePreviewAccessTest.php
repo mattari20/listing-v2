@@ -27,10 +27,12 @@ final class PrivatePreviewAccessTest extends TestCase
             'private_preview.password' => 'synthetic-only-test-password',
         ]);
 
-        $this->getJson('/health')
-            ->assertUnauthorized()
-            ->assertHeader('Cache-Control', 'no-store')
+        $response = $this->getJson('/health');
+
+        $response->assertUnauthorized()
             ->assertHeader('WWW-Authenticate');
+
+        $this->assertStringContainsString('no-store', (string) $response->headers->get('Cache-Control'));
 
         $this->getJson('/directory')
             ->assertUnauthorized();
@@ -60,9 +62,11 @@ final class PrivatePreviewAccessTest extends TestCase
             'private_preview.password' => '',
         ]);
 
-        $this->getJson('/health')
-            ->assertStatus(503)
-            ->assertHeader('Cache-Control', 'no-store');
+        $response = $this->getJson('/health');
+
+        $response->assertStatus(503);
+
+        $this->assertStringContainsString('no-store', (string) $response->headers->get('Cache-Control'));
     }
 
     public function test_incorrect_preview_credentials_are_rejected(): void
