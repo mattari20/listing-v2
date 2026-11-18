@@ -43,7 +43,7 @@ final class RotatedLogRetentionCleaner
 
         $realDirectory = realpath($directory);
 
-        if ($realDirectory === false || !is_dir($realDirectory) || is_link($directory)) {
+        if ($realDirectory === false || ! is_dir($realDirectory) || is_link($directory)) {
             throw new RuntimeException('SEC-06 log retention could not access its configured directory.');
         }
 
@@ -58,7 +58,7 @@ final class RotatedLogRetentionCleaner
         }
 
         foreach ($entries as $entry) {
-            if ($entry->isDot() || $entry->isLink() || !$entry->isFile()) {
+            if ($entry->isDot() || $entry->isLink() || ! $entry->isFile()) {
                 continue;
             }
 
@@ -84,7 +84,7 @@ final class RotatedLogRetentionCleaner
                 continue;
             }
 
-            if (!is_writable($realFile) || !unlink($realFile)) {
+            if (! is_writable($realFile) || ! unlink($realFile)) {
                 throw new RuntimeException('SEC-06 log retention could not remove an expired rotated log file.');
             }
 
