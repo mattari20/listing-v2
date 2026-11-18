@@ -40,7 +40,7 @@ final class RotatedLogRetentionCleanerTest extends TestCase
             );
 
             foreach ($iterator as $entry) {
-                $entry->isDir() && !$entry->isLink()
+                $entry->isDir() && ! $entry->isLink()
                     ? rmdir($entry->getPathname())
                     : unlink($entry->getPathname());
             }
@@ -86,7 +86,7 @@ final class RotatedLogRetentionCleanerTest extends TestCase
         file_put_contents($outside, 'preserve');
         $link = $this->directory.'/laravel-2026-10-01.log';
 
-        if (!@symlink($outside, $link)) {
+        if (! @symlink($outside, $link)) {
             unlink($outside);
             self::markTestSkipped('Symlinks are not available in this test environment.');
         }
