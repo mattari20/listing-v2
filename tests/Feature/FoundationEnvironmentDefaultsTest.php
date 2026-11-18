@@ -23,8 +23,8 @@ final class FoundationEnvironmentDefaultsTest extends TestCase
     public function test_logging_defaults_are_local_and_non_verbose(): void
     {
         $this->assertSame('stack', config('logging.default'));
-        $this->assertSame(['single'], config('logging.channels.stack.channels'));
-        $this->assertSame('warning', config('logging.channels.single.level'));
+        $this->assertSame(['daily'], config('logging.channels.stack.channels'));
+        $this->assertSame('warning', config('logging.channels.daily.level'));
         $this->assertSame('null', config('logging.deprecations.channel'));
         $this->assertFalse(config('logging.deprecations.trace'));
     }
