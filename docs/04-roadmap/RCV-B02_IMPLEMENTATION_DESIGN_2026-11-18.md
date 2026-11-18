@@ -84,4 +84,4 @@ Facts are attached to the public programme profile, grouped by the existing offe
 - Deeni Madaris exclusion and no new write/application routes.
 - Full exact-head PHP 8.5 foundation CI and documentation validation before merge consideration.
 
-**Status:** implementation branch created; migration, workflow service, public query, profile integration and initial synthetic feature tests committed. Exact-head CI and final implementation review remain pending. No production or external activity.
+**Status:** implementation branch and PR #305 contain the migration, workflow service, public query, programme-profile integration and synthetic feature tests. Exact-head validation is tracked by the required PHP 8.5 foundation CI and Project documentation validation checks on PR #305; both must pass on the final PR head before merge consideration. The implementation is not merged or released. No production or external activity.
