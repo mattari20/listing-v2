@@ -14,12 +14,16 @@
         dt { font-weight: 700; }
         dd { margin: 0; overflow-wrap: anywhere; }
         a { color: #174ea6; }
+        a:focus-visible, input:focus-visible, select:focus-visible, button:focus-visible { outline: 3px solid #005fcc; outline-offset: 3px; }
+        .skip-link { position: absolute; z-index: 10; top: 1rem; left: 1rem; padding: .75rem 1rem; color: #005fcc; background: #fff; border: 2px solid #005fcc; border-radius: .35rem; transform: translateY(-200%); }
+        .skip-link:focus { transform: translateY(0); }
         .meta { color: #4b5563; font-size: .94rem; }
         @media (max-width: 38rem) { dl { grid-template-columns: 1fr; gap: .2rem; } dd { margin-bottom: .8rem; } main { padding: .85rem; } }
     </style>
 </head>
 <body>
-<main>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<main id="main-content" tabindex="-1">
     <p><a href="{{ route('directory.index') }}">← Back to directory search</a></p>
     <article>
         <p class="meta">{{ $profile['type_label'] }}</p>
