@@ -1,5 +1,11 @@
 ## Latest authoritative position — M3-11-05A-03 preview route regression (2026-11-18)
 
+PR #289 merged as `dc1c5aa9debd75dc68209628e3d1a60295135dd6` from exact head `5851704f1367aaa00b51f248047e1d6c5484870a`; FND-01 PHP 8.5 CI #489 and documentation validation #920 passed. The positive integration test exercises anonymous institution search, Gulberg locality filtering and direct profile display against the synthetic fixtures in its temporary SQLite database. The test disconnects and removes the database in cleanup. This is automated HTTP evidence, not browser or visual acceptance. Preview visual review remains deferred until implementation agendas are complete. Hosted M3-11-05 and recovery M3-11-06 remain blocked; no hosted access, production, V1, deployment, public launch or release is authorized.
+
+---
+
+## Latest authoritative position — M3-11-05A-03 preview route regression (2026-11-18)
+
 The next repository-only agenda extends the positive temporary-SQLite preview test to exercise the actual anonymous HTTP routes: institution search, locality filtering and direct profile display. It verifies the synthetic fixture-to-public-projection-to-route path without launching a browser or interrupting the planned visual review. Exact-head CI and documentation validation are pending; no merge is claimed. M3-11-05 hosted environment isolation and M3-11-06 recovery remain blocked, with no hosted access, production, V1, deployment, public launch or release authorized.
 
 ---
