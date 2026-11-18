@@ -81,6 +81,29 @@ final class LocalPreviewSeederTest extends TestCase
                 0,
                 DB::table('claims')->whereIn('predicate', $forbiddenPredicates)->count()
             );
+
+            $this->get('/directory?q=Crescent&type=institution')
+                ->assertOk()
+                ->assertSee('Synthetic Crescent Learning Institute')
+                ->assertDontSee('Synthetic Riverbend College');
+
+            $this->get('/directory?locality=Gulberg')
+                ->assertOk()
+                ->assertSee('Synthetic Crescent Learning Institute')
+                ->assertDontSee('Synthetic Riverbend College');
+
+            $crescent = DB::table('directory_entities')
+                ->where('label', 'like', '%Synthetic Crescent Learning Institute')
+                ->value('id');
+
+            $this->assertIsString($crescent);
+            $this->get('/directory/'.$crescent)
+                ->assertOk()
+                ->assertSee('Synthetic Crescent Learning Institute')
+                ->assertSee('Fictional example institution for checking directory cards and profile presentation.')
+                ->assertSee('Punjab')
+                ->assertSee('Lahore')
+                ->assertSee('Gulberg');
         } finally {
             DB::disconnect('sqlite');
             @unlink($databasePath);
