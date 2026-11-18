@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\\Services\\Directory;
+namespace App\Services\Directory;
 
-use App\\Domain\\Governance\\GovernancePolicy;
-use Illuminate\\Support\\Facades\\DB;
+use App\Domain\Governance\GovernancePolicy;
+use Illuminate\Support\Facades\DB;
 
 final class PublicProgrammeOfferFactsQueryService
 {
