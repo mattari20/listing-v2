@@ -1,3 +1,7 @@
+## M3-11-05A local synthetic preview — 2026-11-18
+
+- [M3-11-05A Local Synthetic Preview and Test Dataset](M3-11-05A_LOCAL_SYNTHETIC_PREVIEW_AND_TEST_DATASET.md) — **Delivered — local execution and owner visual review pending**; guarded explicit seeder for five fictional institution profiles on a dedicated local SQLite file. Not hosted isolation or release evidence.
+
 ## M3-11 gate-resolution coordination — 2026-11-17
 
 - [M3-11 Gate Resolution Coordination Plan](M3-11_GATE_RESOLUTION_COORDINATION_PLAN_2026-11-17.md) — **Delivered — review pending**; consolidates gate dependencies, accountable evidence sources, permitted next actions and stop conditions.

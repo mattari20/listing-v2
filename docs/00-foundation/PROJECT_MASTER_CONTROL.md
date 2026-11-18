@@ -1,3 +1,9 @@
+## Latest authoritative position — M3-11-05A local synthetic preview (2026-11-18)
+
+M3-11-05A implementation is delivered on a feature branch for exact-head review: a non-default, explicitly invoked seeder creates five fictional institution profiles through the existing governance/publication workflow and refuses non-local, non-SQLite, non-dedicated-database or unconfirmed execution. The dataset contains no child/student/guardian/staff records and no Deeni Madaris. A test covers refusal in the PHPUnit environment. The local browser preview has not yet been run by the owner. M3-11-05 hosted environment isolation and M3-11-06 recovery remain blocked; no hosted access, production, V1, deployment, public launch or release is authorized.
+
+---
+
 ## Latest authoritative position — M3-11 gate-resolution coordination (2026-11-17)
 
 PR #276 M3-11-08 decision-pack preparation merged as `e226fdbef1f24314c2a0c4399403342ced158ef3`; exact-head CI and documentation validation passed and main matches the merge. M3-11-08 remains BLOCKED / NOT DECIDED. The current repository-only coordination plan and blank owner/evidence intake worksheet do not appoint people or grant environment/recovery/candidate/production authority. M3-11-02–M3-11-06 substantive gates remain blocked; M3-11-07 has no candidate; M3-11-09 remains NOT AUTHORIZED. M3-11 overall remains BLOCKED / NOT ACCEPTED.
