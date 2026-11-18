@@ -14,6 +14,43 @@ final class ProgrammeOfferFactWorkflowService
     private const CATEGORIES = ['eligibility', 'deadline', 'fee', 'scholarship'];
     private const STATES = ['known', 'unknown', 'not_stated', 'not_applicable', 'conflicting', 'withdrawn'];
 
+    public function approveFreshnessPolicy(array $actor, string $policyKey, string $category, int $freshnessDays, string $policyVersion, string $idempotencyKey): string
+    {
+        $this->requireHuman($actor, 'manage_offer_fact_freshness_policy');
+        if (preg_match('/^[a-z][a-z0-9_.-]{0,99}$/D', $policyKey) !== 1 ||
+            in_array($category, self::CATEGORIES, true) === false || $freshnessDays < 1 ||
+            trim($policyVersion) === '' || trim($idempotencyKey) === '') {
+            $this->reject('freshness_policy', 'A valid policy key, category, positive day limit, version and idempotency key are required.');
+        }
+
+        return DB::transaction(function () use ($actor, $policyKey, $category, $freshnessDays, $policyVersion, $idempotencyKey): string {
+            $existing = DB::table('programme_offer_fact_freshness_policies')->where('policy_key', $policyKey)->first();
+            if ($existing !== null) {
+                if ($existing->category !== $category || (int) $existing->freshness_days !== $freshnessDays ||
+                    $existing->owner_actor_id !== $actor['actor_id'] || $existing->policy_version !== $policyVersion) {
+                    $this->reject('freshness_policy', 'Freshness policy keys are immutable; use a new key for a changed policy.');
+                }
+
+                return (string) $existing->id;
+            }
+            $id = (string) Str::uuid();
+            $now = now();
+            DB::table('programme_offer_fact_freshness_policies')->insert([
+                'id' => $id, 'policy_key' => $policyKey, 'category' => $category,
+                'freshness_days' => $freshnessDays, 'owner_actor_id' => $actor['actor_id'],
+                'policy_version' => $policyVersion, 'status' => 'approved',
+                'approved_at' => $now, 'valid_from' => $now, 'valid_to' => null,
+                'created_at' => $now, 'updated_at' => $now,
+            ]);
+            $this->audit($actor, 'programme_offer_fact_freshness_policy_approved', 'programme_offer_fact_freshness_policy', $id, 'owner_approval', [
+                'policy_key' => $policyKey, 'category' => $category, 'freshness_days' => $freshnessDays,
+                'policy_version' => $policyVersion, 'idempotency_key' => $idempotencyKey,
+            ]);
+
+            return $id;
+        });
+    }
+
     public function submit(
         array $actor,
         string $offerId,
@@ -94,6 +131,25 @@ final class ProgrammeOfferFactWorkflowService
                     $priorVersion->disposition !== 'accepted' ||
                     DB::table('programme_offer_fact_versions')->where('supersedes_version_id', $supersedesVersionId)->exists()) {
                     $this->reject('correction', 'Only the current accepted version of this exact offer fact can be superseded.');
+                }
+            }
+
+            if ($factState === 'known') {
+                $approvedPolicy = DB::table('programme_offer_fact_freshness_policies')
+                    ->where('policy_key', $freshnessPolicyKey)
+                    ->where('category', $category)
+                    ->where('freshness_days', $freshnessDays)
+                    ->where('status', 'approved')
+                    ->where('approved_at', '<=', now())
+                    ->where(function ($query): void {
+                        $query->whereNull('valid_from')->orWhere('valid_from', '<=', now());
+                    })
+                    ->where(function ($query): void {
+                        $query->whereNull('valid_to')->orWhere('valid_to', '>', now());
+                    })
+                    ->first();
+                if ($approvedPolicy === null) {
+                    $this->reject('freshness_policy', 'A matching current owner-approved field-specific freshness policy is required.');
                 }
             }
 
