@@ -1,3 +1,9 @@
+## Latest M3-11-05 subfolder implementation status — 2026-11-18
+
+M3-11-05A owner architecture decision, M3-11-05B repository compatibility assessment and M3-11-05C repository implementation are delivered and merged in PRs #293–#295. PR #295 exact-head FND-01 PHP 8.5 CI #496 and documentation validation #933 passed. Repository-side MySQL configuration, V2 session path configuration and opt-in Laravel preview access gate are implemented. Hosted environment compatibility and isolation remain BLOCKED; no hosted evidence is verified and provisioning/deployment remain unauthorized.
+
+---
+
 # Milestone and Step Register
 
 **Status key:** Not started · In progress · Blocked · Complete · Accepted  

@@ -1,3 +1,9 @@
+## Latest verified planning position — M3-11-05C repository implementation (2026-11-18)
+
+PR [#295](https://github.com/mattari20/listing-v2/pull/295) merged as `09ae3ff31462cb2bf85566c5f9963565c067a69f`; exact-head FND-01 PHP 8.5 CI #496 and documentation validation #933 passed. M3-11-05C repository implementation adds MySQL connection configuration, V2 subfolder session-cookie settings and opt-in Laravel-wide preview Basic authentication. Local/CI remains synthetic SQLite. Hosted PHP/database compatibility, document-root/storage isolation and hosting-level access controls remain unverified. M3-11-05 is still BLOCKED / NOT ACCEPTED; no provisioning, deployment, production or V1 activity is authorized.
+
+---
+
 ## Latest verified planning position — M3-11 gate-resolution coordination (2026-11-17)
 
 PR #276 merged as `e226fdbef1f24314c2a0c4399403342ced158ef3`. Exact-head foundation CI and documentation validation passed. M3-11 remains BLOCKED / NOT ACCEPTED; current work is repository-only coordination and intake preparation, not gate acceptance. M3-11-02–M3-11-06 substantive prerequisites remain blocked; M3-11-07 has no candidate; M3-11-08 remains BLOCKED / NOT DECIDED; M3-11-09 is NOT AUTHORIZED and M3-11-10 is NOT STARTED.

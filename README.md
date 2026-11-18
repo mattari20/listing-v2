@@ -1,3 +1,12 @@
+## Latest verified update — 18 November 2026 (M3-11-05C subfolder database and private preview)
+
+- PR [#295](https://github.com/mattari20/listing-v2/pull/295) merged as `09ae3ff31462cb2bf85566c5f9963565c067a69f`; exact-head FND-01 PHP 8.5 CI #496 and documentation validation #933 passed.
+- V2 now has configurable MySQL connection support, while local/CI remains SQLite; the V2 session cookie can be scoped to the final subfolder path; and an opt-in global Laravel HTTP Basic gate protects requests entering Laravel.
+- Hosting-level protection is still required for static files served directly by the web server. Hostinger plan compatibility, storage permissions and hosted isolation remain unverified; no hosted resource was created or deployed.
+- See [M3-11-05C implementation record](docs/04-roadmap/M3-11-05C_SUBFOLDER_DATABASE_AND_PRIVATE_PREVIEW_CONTROLS_2026-11-18.md), [M3-11-05B compatibility assessment](docs/04-roadmap/M3-11-05B_SUBFOLDER_HOSTING_COMPATIBILITY_ASSESSMENT_2026-11-18.md) and [M3-11-05A owner architecture decision](docs/04-roadmap/M3-11-05A_OWNER_SUBFOLDER_ARCHITECTURE_DECISION_2026-11-18.md).
+
+---
+
 ## Latest verified update — 18 November 2026 (M3-11-05A local synthetic preview)
 
 - PR [#285](https://github.com/mattari20/listing-v2/pull/285) merged as `d3e554cd296d3edc23da52d9ffaefc01244c2cb4`; exact-head FND-01 CI #485 and documentation validation #912 passed.

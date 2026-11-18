@@ -1,3 +1,18 @@
+## M3-11-05C — subfolder database and private-preview controls — 2026-11-18
+
+- PR [#295](https://github.com/mattari20/listing-v2/pull/295) merged as `09ae3ff31462cb2bf85566c5f9963565c067a69f`; exact head `f8b50d7308f386be3768603f00717d53c875e1be`; FND-01 PHP 8.5 CI #496 and documentation validation #933 passed.
+- [M3-11-05C Subfolder Database and Private Preview Controls](M3-11-05C_SUBFOLDER_DATABASE_AND_PRIVATE_PREVIEW_CONTROLS_2026-11-18.md) — **Delivered and merged**; MySQL configuration added without changing SQLite CI defaults, V2 session cookie/path configurable, opt-in global Laravel Basic-auth gate tested with synthetic requests. No hosted database connection, static-file hosting control or Hostinger isolation is claimed.
+
+## M3-11-05B — subfolder hosting compatibility assessment — 2026-11-18
+
+- PR [#294](https://github.com/mattari20/listing-v2/pull/294) merged as `23d312baa550b67814f80703bcbb12a77fbac019`; exact head `1165df9e1131547ab38f90538f851558b1bc86f7`; FND-01 PHP 8.5 CI #494 and documentation validation #930 passed.
+- [M3-11-05B Subfolder Hosting Compatibility Assessment](M3-11-05B_SUBFOLDER_HOSTING_COMPATIBILITY_ASSESSMENT_2026-11-18.md) — **Delivered and merged**; repository configuration review and blockers documented; Hostinger facts remain unknown.
+
+## M3-11-05A — owner subfolder architecture decision — 2026-11-18
+
+- PR [#293](https://github.com/mattari20/listing-v2/pull/293) merged as `83f5fa6ce2cffcf35ae7f3b0e9007dab42ef8ddd`; exact-head FND-01 and documentation validation passed.
+- [M3-11-05A Owner Subfolder Architecture Decision](M3-11-05A_OWNER_SUBFOLDER_ARCHITECTURE_DECISION_2026-11-18.md) — **Delivered and merged**; records the owner-selected subfolder, dedicated database and storage-directory preferences plus the access-control and isolation caveats.
+
 ## M3-11-05A-04 five-city synthetic preview acceptance matrix — 2026-11-18
 
 - PR [#291](https://github.com/mattari20/listing-v2/pull/291) merged as `43b518439ba1dec27e9a93acad4f6d7664d21776`; exact head `f081358661dbaf38f6c9d9a90f7ff2e3380ff386`; FND-01 PHP 8.5 CI #491 and documentation validation #924 passed.

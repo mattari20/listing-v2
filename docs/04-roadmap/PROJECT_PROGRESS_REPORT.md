@@ -1,3 +1,21 @@
+## Latest verified position — M3-11-05C subfolder database and private-preview controls (2026-11-18)
+
+PR [#295](https://github.com/mattari20/listing-v2/pull/295) merged as `09ae3ff31462cb2bf85566c5f9963565c067a69f`; exact head `f8b50d7308f386be3768603f00717d53c875e1be`; FND-01 PHP 8.5 CI #496 and project documentation validation #933 passed. Added MySQL configuration, retained SQLite as the local/CI default, added a uniquely named V2 session cookie with configurable subfolder path, and implemented an opt-in global Laravel HTTP Basic preview gate. Synthetic tests cover route denial/allowance and configuration. One initial test assertion exposed Laravel's additional `private` cache directive; the assertion was corrected to verify the required `no-store` directive, and the final exact-head suite passed. No MySQL server, Hostinger, V1 or production system was contacted. Static-file protection remains a hosting-level requirement. M3-11-05 hosted isolation remains blocked, with 0/18 hosted evidence items verified.
+
+---
+
+## Latest verified position — M3-11-05B subfolder hosting compatibility assessment (2026-11-18)
+
+PR [#294](https://github.com/mattari20/listing-v2/pull/294) merged as `23d312baa550b67814f80703bcbb12a77fbac019`; exact head `1165df9e1131547ab38f90538f851558b1bc86f7`; FND-01 PHP 8.5 CI #494 and documentation validation #930 passed. The repository review identified the MySQL configuration, subfolder/session and preview access controls needed before hosted setup. Hosting plan, PHP extensions, database engine/grants, filesystem permissions and access restrictions remain unverified.
+
+---
+
+## Latest verified position — M3-11-05A owner subfolder architecture decision (2026-11-18)
+
+PR [#293](https://github.com/mattari20/listing-v2/pull/293) merged as `83f5fa6ce2cffcf35ae7f3b0e9007dab42ef8ddd`; exact-head checks passed. The owner's preference for V2 in a subfolder with a separate database and dedicated storage directory is recorded. The unlinked URL is not private access control; no hosting resource has been created.
+
+---
+
 ## Latest verified position — M3-11-05A-04 five-city preview acceptance matrix (2026-11-18)
 
 PR #291 merged as `43b518439ba1dec27e9a93acad4f6d7664d21776`; exact head `f081358661dbaf38f6c9d9a90f7ff2e3380ff386`; FND-01 PHP 8.5 CI #491 and documentation validation #924 passed. The temporary-SQLite integration test now covers all five fictional institution profiles through anonymous category, search, locality and direct-profile HTTP requests. The test database is removed in cleanup. This completes the repository-only synthetic local preview fixture and route-regression work. Browser visual review remains intentionally deferred. Hosted M3-11-05 isolation and M3-11-06 recovery remain blocked.

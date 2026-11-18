@@ -1,5 +1,24 @@
 # M3-11-05 — Status and Handoff
 
+## Latest update — repository subfolder readiness delivered (2026-11-18)
+
+Repository-side subfolder preparation is delivered through PRs #293, #294 and #295. PR #295 merged as `09ae3ff31462cb2bf85566c5f9963565c067a69f` from exact head `f8b50d7308f386be3768603f00717d53c875e1be`; FND-01 PHP 8.5 CI #496 and documentation validation #933 passed. The repository now supports a configurable MySQL connection, a V2-specific session cookie with configurable subfolder path and an opt-in global Laravel HTTP Basic preview gate. SQLite remains the local/CI default.
+
+**Repository implementation:** DELIVERED.  
+**Hostinger plan/PHP/PDO MySQL compatibility:** NOT VERIFIED.  
+**V2 database/resource:** NOT CREATED.  
+**V2 storage path/permissions:** NOT VERIFIED.  
+**Hosting-level protection for static files and the full subfolder URL:** NOT VERIFIED.  
+**Runtime/filesystem/configuration isolation:** NOT VERIFIED.  
+**Hosted isolation evidence:** 0/18 items verified.  
+**Provisioning, hPanel changes and deployment:** NOT PERFORMED / NOT AUTHORIZED.  
+**M3-11-05:** BLOCKED / NOT ACCEPTED.
+
+The unlinked URL is not access control. The Laravel gate only protects requests that enter Laravel; the web server must separately protect static files and the full V2 path before any hosted preview. Continue with read-only hosting capability verification and later exact-scope authorization; do not create resources or deploy under this package.
+
+---
+
+
 **Date:** 2026-11-17  
 **Package:** Runtime and Environment Separation
 

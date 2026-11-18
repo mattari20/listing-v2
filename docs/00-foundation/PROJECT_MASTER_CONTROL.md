@@ -1,3 +1,21 @@
+## Latest authoritative position — M3-11-05C subfolder database and private-preview controls (2026-11-18)
+
+PR [#295](https://github.com/mattari20/listing-v2/pull/295) merged as `09ae3ff31462cb2bf85566c5f9963565c067a69f`; exact head `f8b50d7308f386be3768603f00717d53c875e1be`; FND-01 PHP 8.5 CI #496 and project documentation validation #933 passed. The package adds a configurable MySQL connection while retaining SQLite for local/CI, a V2-specific session cookie with configurable subfolder path, and an opt-in global Laravel HTTP Basic preview gate that fails closed when enabled without credentials. Synthetic tests cover denied anonymous requests, accepted configured credentials, missing/incorrect credentials, MySQL config and session-path settings. No MySQL server or hosted environment was contacted. Static files served directly by the web server still require a hosting-level access restriction. Hostinger compatibility, storage permissions, static-file protection and all hosted isolation evidence remain unverified; M3-11-05 remains BLOCKED / NOT ACCEPTED.
+
+---
+
+## Latest authoritative position — M3-11-05B subfolder hosting compatibility assessment (2026-11-18)
+
+PR [#294](https://github.com/mattari20/listing-v2/pull/294) merged as `23d312baa550b67814f80703bcbb12a77fbac019`; exact head `1165df9e1131547ab38f90538f851558b1bc86f7`; FND-01 PHP 8.5 CI #494 and project documentation validation #930 passed. Repository inspection identified SQLite-only database configuration, root-scoped default session cookie path, no preview-wide access gate and hosting facts requiring hPanel evidence. No Hostinger access or change occurred.
+
+---
+
+## Latest authoritative position — M3-11-05A owner subfolder architecture decision (2026-11-18)
+
+PR [#293](https://github.com/mattari20/listing-v2/pull/293) merged as `83f5fa6ce2cffcf35ae7f3b0e9007dab42ef8ddd`; exact-head PHP 8.5 foundation and documentation checks passed. Owner preference recorded: V2 subfolder, separate V2 database, dedicated storage directory and no public website navigation link. An unlinked URL is not access control; the subfolder does not prove runtime isolation. No resource was created or deployed.
+
+---
+
 ## Latest authoritative position — M3-11-05A-04 five-city preview acceptance matrix (2026-11-18)
 
 PR #291 merged as `43b518439ba1dec27e9a93acad4f6d7664d21776` from exact head `f081358661dbaf38f6c9d9a90f7ff2e3380ff386`; FND-01 PHP 8.5 CI #491 and documentation validation #924 passed. The positive temporary-SQLite integration test verifies all five fictional profiles across anonymous category inclusion, distinct-token search, locality filtering and direct profile response for Lahore, Karachi, Peshawar, Quetta and Islamabad. The temporary database is removed after the test. This is automated HTTP evidence, not browser or visual acceptance. Preview visual review remains deferred until implementation agendas are complete. M3-11-05 hosted isolation and M3-11-06 recovery remain blocked; no hosted access, production, V1, deployment, public launch or release is authorized.
