@@ -27,7 +27,9 @@ final class ProgrammeOfferFactWorkflowService
         ?string $validTo,
         ?string $freshnessPolicyKey,
         ?int $freshnessDays,
-        string $idempotencyKey
+        string $idempotencyKey,
+        ?string $supersedesVersionId = null,
+        ?string $correctionReason = null
     ): string {
         $this->requireHuman($actor, 'submit_offer_fact');
         $this->validateFact($factKey, $category, $factState, $value, $observedAt, $validFrom, $validTo, $freshnessPolicyKey, $freshnessDays);
@@ -39,9 +41,10 @@ final class ProgrammeOfferFactWorkflowService
         $fingerprint = hash('sha256', json_encode([
             $offerId, $factKey, $category, $factState, $value, $evidenceReferenceIds,
             $observedAt, $validFrom, $validTo, $freshnessPolicyKey, $freshnessDays,
+            $supersedesVersionId, $correctionReason,
         ], JSON_THROW_ON_ERROR));
 
-        return DB::transaction(function () use ($actor, $offerId, $factKey, $category, $factState, $value, $evidenceReferenceIds, $observedAt, $validFrom, $validTo, $freshnessPolicyKey, $freshnessDays, $idempotencyKey, $fingerprint): string {
+        return DB::transaction(function () use ($actor, $offerId, $factKey, $category, $factState, $value, $evidenceReferenceIds, $observedAt, $validFrom, $validTo, $freshnessPolicyKey, $freshnessDays, $idempotencyKey, $fingerprint, $supersedesVersionId, $correctionReason): string {
             $priorEvents = DB::table('audit_events')
                 ->where('action', 'programme_offer_fact_version_submitted')
                 ->where('target_type', 'programme_offer_fact_version')
@@ -81,6 +84,19 @@ final class ProgrammeOfferFactWorkflowService
                 $factId = (string) $fact->id;
             }
 
+            if (($supersedesVersionId === null) !== ($correctionReason === null) ||
+                ($correctionReason !== null && trim($correctionReason) === '')) {
+                $this->reject('correction', 'A superseded version and correction reason must be supplied together.');
+            }
+            if ($supersedesVersionId !== null) {
+                $priorVersion = DB::table('programme_offer_fact_versions')->where('id', $supersedesVersionId)->lockForUpdate()->first();
+                if ($priorVersion === null || $priorVersion->programme_offer_fact_id !== $factId ||
+                    $priorVersion->disposition !== 'accepted' ||
+                    DB::table('programme_offer_fact_versions')->where('supersedes_version_id', $supersedesVersionId)->exists()) {
+                    $this->reject('correction', 'Only the current accepted version of this exact offer fact can be superseded.');
+                }
+            }
+
             $evidenceRows = DB::table('evidence_references')
                 ->whereIn('id', $evidenceReferenceIds)
                 ->get(['id', 'status', 'source_authorization_id']);
@@ -100,7 +116,7 @@ final class ProgrammeOfferFactWorkflowService
                 'fact_state' => $factState, 'disposition' => 'proposed',
                 'observed_at' => $observedAt, 'valid_from' => $validFrom, 'valid_to' => $validTo,
                 'freshness_policy_key' => $freshnessPolicyKey, 'freshness_days' => $freshnessDays,
-                'recorded_at' => $now, 'supersedes_version_id' => null, 'correction_reason' => null,
+                'recorded_at' => $now, 'supersedes_version_id' => $supersedesVersionId, 'correction_reason' => $correctionReason,
                 'created_at' => $now, 'updated_at' => $now,
             ]);
 
@@ -320,6 +336,33 @@ final class ProgrammeOfferFactWorkflowService
             ]);
 
             return $id;
+        });
+    }
+
+    public function withdrawFactVersion(array $actor, string $factVersionId, string $reasonCode, string $rationale): void
+    {
+        $this->requireHuman($actor, 'withdraw_claim');
+        if (trim($reasonCode) === '' || trim($rationale) === '') {
+            $this->reject('withdrawal', 'A reason code and rationale are required.');
+        }
+
+        DB::transaction(function () use ($actor, $factVersionId, $reasonCode, $rationale): void {
+            $version = DB::table('programme_offer_fact_versions')->where('id', $factVersionId)->lockForUpdate()->first();
+            if ($version === null || $version->disposition === 'withdrawn') {
+                $this->reject('fact_version', 'A current, non-withdrawn offer-fact version is required.');
+            }
+            $now = now();
+            DB::table('programme_offer_fact_versions')->where('id', $factVersionId)->update([
+                'disposition' => 'withdrawn', 'fact_state' => 'withdrawn', 'updated_at' => $now,
+            ]);
+            $snapshotIds = DB::table('programme_offer_fact_publication_snapshots')
+                ->where('fact_version_id', $factVersionId)->pluck('id');
+            DB::table('programme_offer_fact_publication_snapshots')->whereIn('id', $snapshotIds)->update(['status' => 'suppressed']);
+            DB::table('programme_offer_fact_public_projections')->whereIn('publication_snapshot_id', $snapshotIds)
+                ->update(['status' => 'suppressed', 'updated_at' => $now]);
+            $this->audit($actor, 'programme_offer_fact_version_withdrawn', 'programme_offer_fact_version', $factVersionId, $reasonCode, [
+                'rationale' => $rationale,
+            ]);
         });
     }
 
