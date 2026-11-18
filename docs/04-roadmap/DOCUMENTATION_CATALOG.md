@@ -1,3 +1,7 @@
+## M3-11-05A-02 local preview fixture integrity hardening — 2026-11-18
+
+- [M3-11-05A-02 Local Preview Fixture Integrity Hardening](M3-11-05A-02_LOCAL_PREVIEW_FIXTURE_INTEGRITY_HARDENING_2026-11-18.md) — **Implementation delivered — exact-head CI pending**; makes preview seeding atomic and adds positive synthetic publication checks using an isolated temporary SQLite file that is removed after the test.
+
 ## M3-11-05A local synthetic preview — 2026-11-18
 
 - PR [#285](https://github.com/mattari20/listing-v2/pull/285) merged as `d3e554cd296d3edc23da52d9ffaefc01244c2cb4`; exact head `5f6cffa984677ed8531b348b6cc2a141462007c2`; FND-01 PHP 8.5 CI #485 and documentation validation #912 passed.
