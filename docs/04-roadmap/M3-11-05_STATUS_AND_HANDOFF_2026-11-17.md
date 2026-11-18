@@ -2,13 +2,13 @@
 
 ## Latest update — Hostinger database and PDO evidence captured (2026-11-18)
 
-Owner-provided redacted hPanel screenshots now confirm a newly created dedicated MySQL database for Listing V2: database `u537436044_institutes`, user `u537436044_institutes_app`, host `srv1278.hstgr.io`, port `3306`, assigned/full access, 1 MB shown, created 2026-11-18, and external connections OFF. PHP Info shows PDO drivers `mysql, sqlite`, PDO MySQL enabled, and mysqlnd 8.5.12. The `/opt/alt/php85` include path strongly indicates PHP 8.5, but the exact PHP version is not fully confirmed because the top-level PHP Version row/selector was not included.
+Owner-provided redacted hPanel screenshots now confirm a newly created dedicated MySQL database for Listing V2: database `u537436044_institutes`, user `u537436044_institutes_app`, host `srv1278.hstgr.io`, port `3306`, assigned/full access, 1 MB shown, created 2026-11-18, and external connections OFF. PHP Info explicitly confirms PHP Version `8.5.12` and the response header `X-Powered-By: PHP/8.5.12`. PDO drivers are `mysql, sqlite`; PDO MySQL is enabled; mysqlnd is `8.5.12`.
 
-Detailed evidence and handling restrictions are recorded in [M3-11-05D Hostinger PHP and Dedicated Database Evidence](M3-11-05D_HOSTINGER_PHP_AND_DEDICATED_DATABASE_EVIDENCE_2026-11-18.md). The password is intentionally excluded. No database connection, external access enablement, migration, import, deployment, or hPanel configuration change has occurred.
+Detailed evidence and handling restrictions are recorded in [M3-11-05D Hostinger PHP and Dedicated Database Evidence](M3-11-05D_HOSTINGER_PHP_AND_DEDICATED_DATABASE_EVIDENCE_2026-11-18.md). The owner has selected the existing `/public_html/institutes-v2` folder for V2; no files were changed. The password is intentionally excluded. No database connection, external access enablement, migration, import, deployment, or hPanel configuration change has occurred.
 
 **Dedicated V2 database created:** OBSERVED.  
 **PDO MySQL:** OBSERVED ENABLED.  
-**Exact PHP version:** NOT FULLY CONFIRMED.  
+**PHP version:** CONFIRMED — 8.5.12.\n**Owner-selected V2 directory:** `/public_html/institutes-v2` (observed in File Manager; contents and Laravel public-root mapping not verified).  
 **Laravel hosted DB connection:** NOT TESTED.  
 **Hosting plan/resource limits, document root, subfolder placement, static-file protection, filesystem/storage isolation and backup boundary:** NOT VERIFIED.  
 **Hosted isolation acceptance:** BLOCKED / NOT ACCEPTED.  

@@ -1,6 +1,6 @@
 ## M3-11-05D — Hostinger PHP/PDO and dedicated V2 database evidence — 2026-11-18
 
-- [M3-11-05D Hostinger PHP and Dedicated Database Evidence](M3-11-05D_HOSTINGER_PHP_AND_DEDICATED_DATABASE_EVIDENCE_2026-11-18.md) — **Evidence recorded from owner-provided hPanel screenshots**; dedicated V2 MySQL database/host/user and PDO MySQL availability captured. Password omitted. Exact PHP version and remaining hosting isolation facts still require read-only confirmation.
+- [M3-11-05D Hostinger PHP and Dedicated Database Evidence](M3-11-05D_HOSTINGER_PHP_AND_DEDICATED_DATABASE_EVIDENCE_2026-11-18.md) — **Evidence recorded from owner-provided hPanel screenshots**; dedicated V2 MySQL database/host/user and PDO MySQL availability captured. Password omitted. PHP 8.5.12 is explicitly confirmed, and the owner-selected `/public_html/institutes-v2` directory is recorded; remaining hosting isolation facts still require read-only confirmation.
 
 ## M3-11-05C — subfolder database and private-preview controls — 2026-11-18
 
