@@ -45,7 +45,7 @@ The following are proposed for the private V2 acceptance target, subject to Prod
 | Decision | Proposed baseline | Current disposition |
 |---|---|---|
 | Default file channel | Daily rotating local file handler, rather than unbounded single file | **APPROVED BY PRODUCT OWNER — 2026-11-19** |
-| Log level | Warning and above for hosted private acceptance; local development may use a separately configured level | PROPOSED — NOT APPROVED |
+| Log level | Warning and above for hosted private acceptance; local development may use a separately configured level | **APPROVED BY PRODUCT OWNER — 2026-11-19** |
 | Retention | 30 days | **APPROVED BY PRODUCT OWNER — 2026-11-19** |
 | External forwarding | Disabled; no Slack, Papertrail, syslog service or third-party log vendor | **APPROVED TO REMAIN DISABLED — 2026-11-19** |
 | File location | V2-only private storage outside public document root | TARGET PATH NOT VERIFIED |
@@ -77,6 +77,7 @@ No hosted or browser verification is claimed. The online checks will be performe
 
 - Product Owner approval recorded 2026-11-19: use the daily rotating local-file handler as the intended private V2 default; keep external forwarding disabled.
 - Product Owner approved a 30-day application-log retention period on 2026-11-19.
+- Product Owner approved Warning and above as the hosted private V2 log level on 2026-11-19; local development may use a separately configured level.
 - Proposed active-log deletion rule: automatically remove rotated files older than 30 days from the active V2 log directory.
 - Backup-held copies are not covered by that rule; their inclusion, retention and expiry behavior must be checked against the eventual private V2 backup process before hosted acceptance.
 - Confirmation of the approved private V2 storage location and filesystem permissions after the target is identified.
@@ -94,8 +95,8 @@ V2 repository-only preparation continues. No V1 or existing eStudent.pk resource
 
 ## 8. Handoff
 
-The daily rotating channel, disabled external forwarding and 30-day retention period are approved. The proposed active-log deletion rule is automatic removal of rotated files older than 30 days from the active V2 log directory; backup-held copies remain outside this rule until their handling is verified. Storage/access details must be defined against the private V2 target. A separate explicit authorization for the narrow local/CI implementation remains required. Hosted configuration and online verification remain a later gate after the GitHub–Hostinger deployment connection is established and exact hosted actions are separately authorized.
+The daily rotating channel, disabled external forwarding, 30-day retention period and Warning-and-above hosted log level are approved. The proposed active-log deletion rule is automatic removal of rotated files older than 30 days from the active V2 log directory; backup-held copies remain outside this rule until their handling is verified. Storage/access details must be defined against the private V2 target. A separate explicit authorization for the narrow local/CI implementation remains required. Hosted configuration and online verification remain a later gate after the GitHub–Hostinger deployment connection is established and exact hosted actions are separately authorized.
 
-**SEC-06 disposition:** DAILY ROTATING DEFAULT, DISABLED EXTERNAL FORWARDING AND 30-DAY RETENTION APPROVED; ACTIVE-LOG DELETION RULE PROPOSED; BACKUP-COPY HANDLING AND STORAGE/ACCESS DETAILS PENDING; IMPLEMENTATION NOT AUTHORIZED.  
+**SEC-06 disposition:** DAILY ROTATING DEFAULT, DISABLED EXTERNAL FORWARDING, 30-DAY RETENTION AND WARNING-AND-ABOVE HOSTED LOG LEVEL APPROVED; ACTIVE-LOG DELETION RULE PROPOSED; BACKUP-COPY HANDLING AND STORAGE/ACCESS DETAILS PENDING; IMPLEMENTATION NOT AUTHORIZED.  
 **M3-11-05:** BLOCKED / NOT ACCEPTED.  
 **M3-11 overall:** BLOCKED / NOT ACCEPTED.
