@@ -106,6 +106,24 @@ final class PublicDirectoryTest extends TestCase
             'Synthetic offer publication suppression.'
         );
 
+        $mismatchedClaim = $this->publishFact($programme, 'programme_offer', [
+            'programme_entity_id' => $programme,
+            'delivery_location_entity_id' => $campus,
+            'admission_cycle' => 'Synthetic Approved Cycle',
+        ]);
+        DB::table('programme_offers')->insert([
+            'id' => (string) Str::uuid(),
+            'programme_entity_id' => $programme,
+            'delivery_location_entity_id' => $campus,
+            'admission_cycle' => 'Synthetic Tampered Cycle',
+            'status' => 'active',
+            'valid_from' => null,
+            'valid_to' => null,
+            'claim_version_id' => $mismatchedClaim['version_id'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
         $this->get('/directory/'.$institution)
             ->assertOk()
             ->assertSee('Synthetic Governed Institution')
@@ -114,7 +132,8 @@ final class PublicDirectoryTest extends TestCase
             ->assertSee('Programmes and admission offers')
             ->assertSee('Synthetic Computing Programme')
             ->assertSee('Synthetic 2027 Intake')
-            ->assertDontSee('Synthetic Suppressed Intake');
+            ->assertDontSee('Synthetic Suppressed Intake')
+            ->assertDontSee('Synthetic Tampered Cycle');
     }
 
     public function test_category_filter_and_facets_are_derived_from_eligible_public_entities(): void
