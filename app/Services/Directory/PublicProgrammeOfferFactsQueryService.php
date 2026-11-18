@@ -34,6 +34,8 @@ final class PublicProgrammeOfferFactsQueryService
             ->join('directory_entities as locations', 'locations.id', '=', 'offers.delivery_location_entity_id')
             ->where('offers.programme_entity_id', $programmeEntityId)
             ->where('offers.status', 'active')
+            ->where('programmes.status', 'active')
+            ->whereIn('locations.entity_type', ['campus', 'delivery_site'])
             ->where('projections.status', 'approved')
             ->where('projections.surface', 'directory')
             ->where('projections.audience', 'anonymous')
