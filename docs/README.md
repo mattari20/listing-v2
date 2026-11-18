@@ -27,6 +27,7 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [M1 Source Rights, Access and Provenance Evidence Register](03-research/M1_SOURCE_RIGHTS_ACCESS_EVIDENCE_REGISTER.md)
 
 ## Roadmap and implementation records
+- [M3-12 Private Preview and Synthetic Dataset](04-roadmap/M3-12_PRIVATE_PREVIEW_AND_SYNTHETIC_DATASET_2026-11-18.md) — local-only preview data package; implementation and exact-head validation pending.
 - [M3-09 Quality and Operational Hardening](04-roadmap/M3-09_QUALITY_OPERATIONAL_HARDENING_RECORD.md)
 - [M3-10 Pilot and Launch Readiness Work Plan](04-roadmap/M3-10_PILOT_AND_LAUNCH_READINESS_WORK_PLAN.md)
 - [M3-10 Readiness Acceptance Verification Record](04-roadmap/M3-10_READINESS_ACCEPTANCE_VERIFICATION_RECORD.md) — verifies framework delivery and records why pilot readiness/go/no-go remains blocked
@@ -45,6 +46,7 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [Documentation Completion Catalogue](04-roadmap/DOCUMENTATION_CATALOG.md) — owner-facing list of delivered, reviewed, accepted and planned documents; updated after every documentation PR update and merge.
 
 ## Implementation records
+- [M3-12 Private Preview and Synthetic Dataset](04-roadmap/M3-12_PRIVATE_PREVIEW_AND_SYNTHETIC_DATASET_2026-11-18.md) — guarded local SQLite seeder, seven fictional examples and synthetic-only feature tests; no production or deployment activity.
 - [FND-01 Laravel 13 Foundation Implementation Record](05-implementation/FND-01_IMPLEMENTATION_RECORD.md) — local/CI-only foundation, synthetic tests and safety boundaries
 - [M3-05 Public Directory and Search Work Plan](04-roadmap/M3-05_PUBLIC_DIRECTORY_SEARCH_WORK_PLAN.md) — completed public browsing/search scope, allowlist and acceptance contract
 - [M3-05 Public Directory and Search Implementation Record](04-roadmap/M3-05_PUBLIC_DIRECTORY_SEARCH_IMPLEMENTATION_RECORD.md) — merged anonymous directory routes, query service, profile pages and exact-head CI evidence
