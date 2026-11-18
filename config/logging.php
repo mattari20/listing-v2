@@ -1,4 +1,6 @@
 <?php
+
+use App\Logging\AgeBasedRotatingFileHandler;
 use App\Logging\SafeLogContextProcessor;
 
 use Monolog\Handler\NullHandler;
@@ -68,7 +70,7 @@ return [
 
         'daily' => [
             'driver' => 'monolog',
-            'handler' => App\Logging\AgeBasedRotatingFileHandler::class,
+            'handler' => AgeBasedRotatingFileHandler::class,
             'handler_with' => [
                 'filename' => storage_path('logs/laravel.log'),
             ],
