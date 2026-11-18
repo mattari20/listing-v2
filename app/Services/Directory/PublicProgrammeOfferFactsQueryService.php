@@ -38,6 +38,7 @@ final class PublicProgrammeOfferFactsQueryService
             ->where('publication_decisions.decision', 'approved')
             ->where('publication_decisions.surface', 'directory')
             ->where('publication_decisions.audience', 'anonymous')
+            ->whereColumn('publication_decisions.fact_version_id', 'snapshots.fact_version_id')
             ->where('adjudication_decisions.outcome', 'accepted')
             ->where('adjudication_decisions.actor_class', 'human')
             ->whereColumn('adjudication_cases.fact_version_id', 'versions.id')
