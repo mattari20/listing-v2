@@ -67,7 +67,7 @@ final class RotatedLogRetentionCleanerTest extends TestCase
             $this->directory,
             'laravel',
             'log',
-            new DateTimeImmutable('2026-11-19 00:00:00', new DateTimeZone('UTC')),
+            new DateTimeImmutable('2026-11-19 15:30:00', new DateTimeZone('UTC')),
         );
 
         self::assertSame(['laravel-2026-10-19.log'], $deleted);
