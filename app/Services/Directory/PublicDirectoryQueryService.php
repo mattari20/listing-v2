@@ -315,7 +315,10 @@ final class PublicDirectoryQueryService
             }
 
             if ($isCatalogueClaim) {
-                $publishedCatalogueClaims[(string) $row->claim_version_id] = $row->predicate;
+                $publishedCatalogueClaims[(string) $row->claim_version_id] = [
+                    'predicate' => $row->predicate,
+                    'value' => $payload['value'],
+                ];
                 continue;
             }
 
@@ -430,7 +433,9 @@ final class PublicDirectoryQueryService
         foreach ($campusRows as $row) {
             $claimId = (string) $row->claim_version_id;
             $entityId = (string) $row->entity_id;
-            if (($publishedClaims[$claimId] ?? null) !== 'campus' ||
+            if (($publishedClaims[$claimId]['predicate'] ?? null) !== 'campus' ||
+                is_array($publishedClaims[$claimId]['value'] ?? null) === false ||
+                ($publishedClaims[$claimId]['value']['institution_entity_id'] ?? null) !== (string) $row->institution_entity_id ||
                 isset($profiles[$entityId]) === false ||
                 $this->catalogueRecordIsCurrent($row->valid_from, $row->valid_to) === false) {
                 continue;
@@ -442,7 +447,9 @@ final class PublicDirectoryQueryService
         foreach ($siteRows as $row) {
             $claimId = (string) $row->claim_version_id;
             $entityId = (string) $row->entity_id;
-            if (($publishedClaims[$claimId] ?? null) !== 'delivery_site' ||
+            if (($publishedClaims[$claimId]['predicate'] ?? null) !== 'delivery_site' ||
+                is_array($publishedClaims[$claimId]['value'] ?? null) === false ||
+                ($publishedClaims[$claimId]['value']['institution_entity_id'] ?? null) !== (string) $row->institution_entity_id ||
                 isset($profiles[$entityId]) === false ||
                 $this->catalogueRecordIsCurrent($row->valid_from, $row->valid_to) === false) {
                 continue;
@@ -455,7 +462,11 @@ final class PublicDirectoryQueryService
         foreach ($programmeRows as $row) {
             $claimId = (string) $row->claim_version_id;
             $programmeId = (string) $row->entity_id;
-            if (($publishedClaims[$claimId] ?? null) !== 'programme' || isset($profiles[$programmeId]) === false) {
+            if (($publishedClaims[$claimId]['predicate'] ?? null) !== 'programme' ||
+                is_array($publishedClaims[$claimId]['value'] ?? null) === false ||
+                ($publishedClaims[$claimId]['value']['institution_entity_id'] ?? null) !== (string) $row->institution_entity_id ||
+                ($publishedClaims[$claimId]['value']['title'] ?? null) !== (string) $row->title ||
+                isset($profiles[$programmeId]) === false) {
                 continue;
             }
             $programmeIndexes[$programmeId] = [
@@ -469,7 +480,11 @@ final class PublicDirectoryQueryService
             $claimId = (string) $row->claim_version_id;
             $programmeId = (string) $row->programme_entity_id;
             $locationId = (string) $row->delivery_location_entity_id;
-            if (($publishedClaims[$claimId] ?? null) !== 'programme_offer' ||
+            if (($publishedClaims[$claimId]['predicate'] ?? null) !== 'programme_offer' ||
+                is_array($publishedClaims[$claimId]['value'] ?? null) === false ||
+                ($publishedClaims[$claimId]['value']['programme_entity_id'] ?? null) !== $programmeId ||
+                ($publishedClaims[$claimId]['value']['delivery_location_entity_id'] ?? null) !== $locationId ||
+                ($publishedClaims[$claimId]['value']['admission_cycle'] ?? null) !== (string) $row->admission_cycle ||
                 isset($programmeIndexes[$programmeId]) === false ||
                 isset($locationsByEntity[$locationId]) === false ||
                 $this->catalogueRecordIsCurrent($row->valid_from, $row->valid_to) === false) {
