@@ -70,3 +70,28 @@ No changes are to be made in hPanel while collecting these facts.
 - Full hosting/runtime isolation: **NOT VERIFIED**.
 - Provisioning/deployment/migration: **NOT PERFORMED OR AUTHORIZED**.
 - M3-11-05 hosted acceptance: **BLOCKED / NOT ACCEPTED**.
+
+
+## 4. V2 subfolder location — owner-selected, observed
+
+The owner-provided Hostinger File Manager screenshot for `public_html` shows the following directory entries at the time of capture (2026-11-18):
+
+- `cv-builder`
+- `cv-builder-v2`
+- `institutes`
+- `institutes-v2`
+- `wp-admin`
+- `wp-content`
+- `wp-includes`
+- hidden entries `.private` and `.tmb`
+
+The screenshot shows `institutes-v2` directly inside `public_html`, with its last-modified display reading "a few seconds ago". The owner explicitly selected this existing folder as the intended Listing V2 location.
+
+**Owner-selected intended directory:** `/public_html/institutes-v2`  
+**Intended public path:** `/institutes-v2` (subject to confirming the actual web-server mapping and rewrite behavior).  
+**Observed directory permissions display:** `drwxr-xr-x` for the listed directories in this view.  
+**Folder contents:** Not inspected or established by this screenshot.  
+**Document-root / Laravel public-directory mapping:** NOT VERIFIED.  
+**Protection coverage for static assets and the entire subfolder:** NOT VERIFIED.
+
+No files or folders were created, moved, renamed, deleted, or edited during this inspection. Existing WordPress, Institutes V1, and CV Builder folders are out of scope and must remain untouched. The owner-selected folder is a location decision only; it is not authorization to upload code, change permissions, configure rewrites, or deploy.
