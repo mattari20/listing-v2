@@ -20,7 +20,7 @@ The hPanel dashboard identifies the plan as **Premium Web Hosting** and shows:
 - Memory usage: **100 MB** at the dashboard capture.
 - The resource values are point-in-time dashboard readings, not guaranteed V2 capacity or headroom.
 
-The PHP Configuration page shows PHP 8.5 selected. The screenshot is on the **PHP version** tab; it does not show the PHP extensions tab or prove that any required extension is enabled. In particular, `pdo_mysql` remains unverified.
+The PHP Configuration page shows PHP 8.5 selected. Follow-up screenshots of the **PHP extensions** tab show the following relevant entries checked: `pdo`, `nd_pdo_mysql`, `mysqlnd`, `mbstring`, `fileinfo`, `openssl`, `curl`, `tokenizer`, `xml`, `ctype`, and `zip`. `pdo_sqlite` is also checked. The screenshots show the Hostinger extension label `nd_pdo_mysql`; they do not independently prove that the PHP runtime exposes the exact PDO MySQL driver name expected by Laravel (`pdo_mysql`). Runtime confirmation remains required. No extension selections were changed.
 
 ## Observed database inventory
 
@@ -84,7 +84,7 @@ These screenshots do not prove that a V2-only restore can be performed safely, t
 
 ## Remaining evidence required for M3-11-05D
 
-1. **PHP extensions:** capture the PHP Configuration `PHP extensions` tab for the selected PHP 8.5 runtime. Verify required extensions, especially `pdo_mysql`, `mbstring`, `openssl`, `tokenizer`, `xml`, `ctype`, `fileinfo`, `curl`, and `zip`. Do not change extension selections during evidence collection.
+1. **PHP runtime confirmation:** the PHP extensions tab has now been inspected. Confirm the actual runtime reports the PDO MySQL driver (for example through the hosting PHP Info page, without exposing configuration secrets). Do not change extension selections during evidence collection.
 2. **Database plan limits and engine:** inspect the plan database quota/details and, if available without opening or exposing credentials, the database engine/version and limits. Do not create a database.
 3. **Directory protection:** inspect the available Password Protect Directory and IP Manager capabilities without enabling them. Establish whether protection can cover the entire V2 path, including static assets, before Laravel is involved.
 4. **Document-root and filesystem isolation:** determine whether V2 can keep application source and sensitive runtime paths outside the web root while serving only Laravel `public/`. Confirm permissions and storage separation without modifying files.
@@ -94,4 +94,4 @@ After these facts are collected, update the compatibility decision. If the accou
 
 ## Current disposition
 
-**M3-11-05D remains IN PROGRESS / PARTIALLY VERIFIED / NOT ACCEPTED.** The screenshots provide useful initial evidence, but the missing items above prevent a hosted compatibility or release-readiness conclusion.
+**M3-11-05D remains IN PROGRESS / PARTIALLY VERIFIED / NOT ACCEPTED.** The PHP extension configuration is now partially evidenced, but runtime driver confirmation and the remaining hosting isolation, database, protection, and recovery facts are still outstanding.
