@@ -72,6 +72,10 @@ return [
                 'filename' => storage_path('logs/laravel.log'),
             ],
             'level' => env('LOG_LEVEL', 'warning'),
+            'processors' => [
+                App\\Logging\\SafeLogContextProcessor::class,
+                PsrLogMessageProcessor::class,
+            ],
             'replace_placeholders' => true,
         ],
 
