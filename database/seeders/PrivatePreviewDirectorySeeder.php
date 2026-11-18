@@ -103,6 +103,7 @@ final class PrivatePreviewDirectorySeeder extends Seeder
         string $authorizationId,
         mixed $now
     ): void {
+        $suffix = (string) Str::uuid();
         $evidenceId = (string) Str::uuid();
         $claimId = (string) Str::uuid();
         $versionId = (string) Str::uuid();
@@ -128,7 +129,7 @@ final class PrivatePreviewDirectorySeeder extends Seeder
             'target_id' => $evidenceId,
             'reason_code' => 'synthetic_private_preview_fixture',
             'occurred_at' => $now,
-            'metadata' => json_encode(['actor_id' => 'm3-12-synthetic-evidence-recorder'], JSON_THROW_ON_ERROR),
+            'metadata' => json_encode(['actor_id' => 'm3-12-synthetic-evidence-recorder-'.$suffix], JSON_THROW_ON_ERROR),
             'created_at' => $now,
             'updated_at' => $now,
         ]);
@@ -163,13 +164,13 @@ final class PrivatePreviewDirectorySeeder extends Seeder
         ]);
 
         $caseId = $workflow->openAdjudicationCase(
-            ['actor_id' => 'm3-12-synthetic-adjudicator', 'actor_class' => 'human', 'capabilities' => ['open_adjudication']],
+            ['actor_id' => 'm3-12-synthetic-case-opener-'.$suffix, 'actor_class' => 'human', 'capabilities' => ['open_adjudication']],
             $versionId,
             'm3-12-preview-case-'.$versionId
         );
 
         $decisionId = $workflow->decideAdjudication(
-            ['actor_id' => 'm3-12-synthetic-adjudicator', 'actor_class' => 'human', 'capabilities' => ['adjudicate_claim']],
+            ['actor_id' => 'm3-12-synthetic-adjudicator-'.$suffix, 'actor_class' => 'human', 'capabilities' => ['adjudicate_claim']],
             $caseId,
             'accepted',
             'synthetic_preview_fixture',
@@ -178,7 +179,7 @@ final class PrivatePreviewDirectorySeeder extends Seeder
         );
 
         $workflow->authorizePublication(
-            ['actor_id' => 'm3-12-synthetic-publisher', 'actor_class' => 'human', 'capabilities' => ['authorize_publication']],
+            ['actor_id' => 'm3-12-synthetic-publisher-'.$suffix, 'actor_class' => 'human', 'capabilities' => ['authorize_publication']],
             $versionId,
             $decisionId,
             'directory',
