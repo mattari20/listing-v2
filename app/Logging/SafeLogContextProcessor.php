@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace App\Logging;
 
 use Monolog\LogRecord;
+use Monolog\Processor\ProcessorInterface;
 
-final class SafeLogContextProcessor
+final class SafeLogContextProcessor implements ProcessorInterface
 {
     /**
      * Keep only bounded, non-user-controlled correlation metadata.
