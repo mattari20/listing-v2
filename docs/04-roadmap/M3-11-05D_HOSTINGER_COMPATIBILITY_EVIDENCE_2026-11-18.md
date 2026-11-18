@@ -94,7 +94,7 @@ These screenshots do not prove that a V2-only restore can be performed safely, t
 
 1. **PHP runtime confirmation:** the PHP extensions tab has now been inspected. Confirm the actual runtime reports the PDO MySQL driver (for example through the hosting PHP Info page, without exposing configuration secrets). Do not change extension selections during evidence collection.
 2. **Database plan limits and engine:** inspect the plan database quota/details and, if available without opening or exposing credentials, the database engine/version and limits. Do not create a database.
-3. **Directory protection enforcement:** password protection is now configured for `/institutes-v2`. Verify it later with harmless synthetic requests for the directory, nested path, and static asset. Confirm the existing website and `/institutes` remain unaffected. Do not share or commit the preview password.
+3. **Directory protection enforcement:** password protection is configured for `/institutes-v2` and is the selected private-preview access control. Product owner decision: do not add IP Manager restrictions as a second protection layer at this stage. Verify the existing password protection later with harmless synthetic requests for the directory, nested path, and static asset. Confirm the existing website and `/institutes` remain unaffected. Do not share or commit the preview password.
 4. **Document-root and filesystem isolation:** determine whether V2 can keep application source and sensitive runtime paths outside the web root while serving only Laravel `public/`. Confirm permissions and storage separation without modifying files.
 5. **Backup semantics:** establish retention and whether an isolated V2-only file/database recovery is possible without restoring or overwriting the existing website. Do not run a restore rehearsal on the current website.
 
@@ -102,4 +102,4 @@ After these facts are collected, update the compatibility decision. If the accou
 
 ## Current disposition
 
-**M3-11-05D remains IN PROGRESS / PARTIALLY VERIFIED / NOT ACCEPTED.** PHP extension configuration is partially evidenced and password protection is configured for `/institutes-v2`. Runtime driver confirmation, actual protection enforcement, document-root isolation, database limits, and V2-only recovery remain outstanding.
+**M3-11-05D remains IN PROGRESS / PARTIALLY VERIFIED / NOT ACCEPTED.** PHP extension configuration is partially evidenced and password protection is configured for `/institutes-v2`; IP Manager restrictions are intentionally not added per product-owner decision. Runtime driver confirmation, actual password-protection enforcement, document-root isolation, database limits, and V2-only recovery remain outstanding.
