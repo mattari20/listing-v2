@@ -67,7 +67,7 @@ final class PublicProgrammeOfferFactsQueryService
             ->get([
                 'offers.id as offer_id',
                 'offers.admission_cycle',
-                'locations.label as delivery_location',
+                'locations.entity_type as delivery_location_type',
                 'facts.id as fact_id',
                 'facts.fact_key',
                 'facts.category',
@@ -171,7 +171,7 @@ final class PublicProgrammeOfferFactsQueryService
                 $offers[$offerId] = [
                     'id' => $offerId,
                     'admission_cycle' => (string) $row->admission_cycle,
-                    'delivery_location' => (string) $row->delivery_location,
+                    'delivery_location' => $row->delivery_location_type === 'campus' ? 'Campus' : 'Delivery site',
                     'facts' => [],
                 ];
             }
