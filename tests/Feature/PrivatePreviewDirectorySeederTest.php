@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Tests\\Feature;
+namespace Tests\Feature;
 
-use App\\Services\\Directory\\PublicDirectoryQueryService;
-use Database\\Seeders\\PrivatePreviewDirectorySeeder;
-use Illuminate\\Foundation\\Testing\\RefreshDatabase;
+use App\Services\Directory\PublicDirectoryQueryService;
+use Database\Seeders\PrivatePreviewDirectorySeeder;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use RuntimeException;
-use Tests\\TestCase;
+use Tests\TestCase;
 
 final class PrivatePreviewDirectorySeederTest extends TestCase
 {
