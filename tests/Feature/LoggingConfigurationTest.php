@@ -19,6 +19,7 @@ final class LoggingConfigurationTest extends TestCase
         self::assertSame(AgeBasedRotatingFileHandler::class, $daily['handler']);
         self::assertSame('warning', $daily['level']);
         self::assertSame(storage_path('logs/laravel.log'), $daily['handler_with']['filename']);
-        self::assertSame('daily', config('logging.default'));
+        // PHPUnit explicitly sets LOG_CHANNEL=stack; the default stack resolves only to daily.
+        self::assertSame('stack', config('logging.default'));
     }
 }
