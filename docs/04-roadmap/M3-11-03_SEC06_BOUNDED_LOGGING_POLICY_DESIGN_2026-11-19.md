@@ -1,7 +1,7 @@
 # M3-11-03 / M3-11-05 — SEC-06 Bounded Logging Policy Design
 
 **Date:** 2026-11-19  
-**Status:** DESIGN PREPARATION ONLY — IMPLEMENTATION NOT AUTHORIZED  
+**Status:** CHANNEL POLICY APPROVED; RETENTION/OPERATIONAL DECISIONS AND IMPLEMENTATION AUTHORIZATION PENDING  
 **Repository:** `mattari20/listing-v2`  
 **Scope:** Private V2 development and future private acceptance; synthetic fixtures only
 
@@ -44,10 +44,10 @@ The following are proposed for the private V2 acceptance target, subject to Prod
 
 | Decision | Proposed baseline | Current disposition |
 |---|---|---|
-| Default file channel | Daily rotating local file handler, rather than unbounded single file | PROPOSED — NOT APPROVED |
+| Default file channel | Daily rotating local file handler, rather than unbounded single file | **APPROVED BY PRODUCT OWNER — 2026-11-19** |
 | Log level | Warning and above for hosted private acceptance; local development may use a separately configured level | PROPOSED — NOT APPROVED |
 | Retention | Explicit bounded value; do not assume 14 days is approved merely because it is a config default | NOT DECIDED |
-| External forwarding | Disabled; no Slack, Papertrail, syslog service or third-party log vendor | KEEP DISABLED |
+| External forwarding | Disabled; no Slack, Papertrail, syslog service or third-party log vendor | **APPROVED TO REMAIN DISABLED — 2026-11-19** |
 | File location | V2-only private storage outside public document root | TARGET PATH NOT VERIFIED |
 | File permissions | Least-privilege read/write for the V2 runtime identity; no public/static access | NOT VERIFIED |
 | Access | Named authorized operators only; access evidence retained in restricted operational records | NOT ASSIGNED |
@@ -75,8 +75,8 @@ No hosted or browser verification is claimed. The online checks will be performe
 
 ## 6. Decisions and evidence still required
 
-- Product Owner approval or rejection of the proposed daily rotating default.
-- Product Owner-selected log retention duration and deletion rule.
+- Product Owner approval recorded 2026-11-19: use the daily rotating local-file handler as the intended private V2 default; keep external forwarding disabled.
+- Product Owner-selected log retention duration and deletion rule remain pending.
 - Confirmation of the approved private V2 storage location and filesystem permissions after the target is identified.
 - Named human owner for log access, retention/deletion and incident evidence.
 - Exact implementation authorization for a local/CI-only code-and-test change.
@@ -92,8 +92,8 @@ V2 repository-only preparation continues. No V1 or existing eStudent.pk resource
 
 ## 8. Handoff
 
-Once the Product Owner resolves the policy decisions and separately authorizes the narrow implementation, engineering may implement and test the approved local/CI behavior using synthetic fixtures only. Hosted configuration and online verification remain a later gate after the GitHub–Hostinger deployment connection is established and exact hosted actions are separately authorized.
+The channel choice and external-forwarding prohibition are now approved. Before implementation, the Product Owner must still select the retention duration and deletion rule, and the storage/access operational details must be resolved when the private V2 target is identified. A separate explicit authorization for the narrow local/CI implementation remains required. Hosted configuration and online verification remain a later gate after the GitHub–Hostinger deployment connection is established and exact hosted actions are separately authorized.
 
-**SEC-06 disposition:** DESIGN PREPARED; POLICY DECISIONS AND IMPLEMENTATION PENDING.  
+**SEC-06 disposition:** DAILY ROTATING DEFAULT AND DISABLED EXTERNAL FORWARDING APPROVED; RETENTION/DELETION AND OPERATIONAL DETAILS PENDING; IMPLEMENTATION NOT AUTHORIZED.  
 **M3-11-05:** BLOCKED / NOT ACCEPTED.  
 **M3-11 overall:** BLOCKED / NOT ACCEPTED.
