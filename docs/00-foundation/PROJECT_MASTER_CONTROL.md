@@ -1,3 +1,9 @@
+## Latest authoritative position — M3-11-05A-02 fixture integrity hardening (2026-11-18)
+
+M3-11-05A implementation is merged in PR #285 (`d3e554cd296d3edc23da52d9ffaefc01244c2cb4`); post-merge documentation reconciliation PR #286 is merged as `6a2aec5294cf7eb78fbaa4876256d453c55a7286`. The next repository-only package makes the explicit local preview seeder transactional and adds a positive integration test that creates, migrates and removes its own temporary `.local-preview.sqlite` file. It verifies five fictional institutions, 30 claims/snapshots/projections, no Deeni Madaris projection and no child/student/guardian/staff-related predicates. Exact-head FND-01 CI and documentation validation are pending. Browser preview remains intentionally deferred until planned implementation agendas are complete. Hosted M3-11-05 and recovery M3-11-06 remain blocked; no hosted access, production, V1, deployment, public launch or release is authorized.
+
+---
+
 ## Latest authoritative position — M3-11-05A local synthetic preview (2026-11-18)
 
 M3-11-05A implementation is delivered on a feature branch for exact-head review: a non-default, explicitly invoked seeder creates five fictional institution profiles through the existing governance/publication workflow and refuses non-local, non-SQLite, non-dedicated-database or unconfirmed execution. The dataset contains no child/student/guardian/staff records and no Deeni Madaris. A test covers refusal in the PHPUnit environment. The local browser preview has not yet been run by the owner. M3-11-05 hosted environment isolation and M3-11-06 recovery remain blocked; no hosted access, production, V1, deployment, public launch or release is authorized.
