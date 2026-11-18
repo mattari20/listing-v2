@@ -1396,3 +1396,6 @@ PR [#272](https://github.com/mattari20/listing-v2/pull/272) merge evidence: merg
 | [M3-11-06 Status and Handoff](M3-11-06_STATUS_AND_HANDOFF_2026-11-17.md) | Records preparation delivery, blocked dependencies and next evidence | Preparation delivered; substantive gate BLOCKED |
 
 PR [#273](https://github.com/mattari20/listing-v2/pull/273) merge evidence: merge `ef136e183d9cbcd14358004b634672c19710e387`, exact head `1cacdd17bd6340a9cf41de68f171f0bc62dc137a`, FND-01 CI #445 and documentation validation #864 passed. M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
+
+- M3-11-05D `.htaccess` Basic Authentication directives — 2026-11-18: owner-provided screenshot confirms Hostinger-generated `AuthType Basic`, `AuthUserFile` and `Require valid-user` directives in `/public_html/institutes-v2/.htaccess`; live enforcement, static-file coverage, child overrides and `.htpasswd` HTTP denial remain unverified. Password/hash omitted.
