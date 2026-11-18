@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-18  
 **Review type:** AI-assisted repository/configuration inspection for Product Owner decision  
-**Status:** PRELIMINARY EVIDENCE REVIEW — OWNER FINDING DISPOSITIONS PENDING  
+**Status:** OWNER DISPOSITIONS RECORDED — INTERNAL SYNTHETIC-SCOPE DECISIONS; TARGET-SPECIFIC GATES REMAIN BLOCKED  
 **Scope:** Private V2 development/acceptance; synthetic fixtures only; no production or live environment inspected  
 **Repository baseline inspected:** `main` at `5e68ac4ba70db0461a902832cb6ed483640b9a4c`
 
@@ -101,15 +101,21 @@ The repository inspection cannot establish:
 
 Do not infer these facts from Laravel defaults, CI, source code or the fact that the current environment is unprovisioned.
 
-## 6. Product Owner decisions requested
+## 6. Product Owner dispositions recorded — 2026-11-18
 
-1. Confirm DP-01: synthetic pre-provisioned accounts only; no real user accounts or public registration during this private acceptance scope.
-2. Confirm DP-03 direction: before any private environment is provisioned, define a bounded log policy (fields prohibited from logs, approved destination, access roles, retention/deletion and no external forwarding by default).
-3. Confirm DP-02/DP-06: leave effective session settings, hosting/data region, processors, backups and environment-specific data flows DEFERRED until a separate target-specific authorization and review.
-4. Confirm DP-04/DP-05: accept only as partial synthetic implementation/test evidence, not production-grade assurance.
+The Product Owner accepted the following recommended dispositions for internal development/acceptance only:
 
-A response to these points records Product Owner internal dispositions only. It does not constitute legal advice or a professional privacy assessment.
+| ID | Owner disposition | Binding limitation |
+|---|---|---|
+| DP-01 | ACCEPT | Synthetic, pre-provisioned accounts only. No real user/student/provider accounts and no public registration in this private scope. |
+| DP-02 | DEFER | Effective session settings cannot be accepted until an exact private V2 target/configuration is separately authorized and inspected. |
+| DP-03 | CONDITION BEFORE PROVISIONING | Before any private environment provisioning or reviewer access, define and approve a bounded log policy covering prohibited fields, destination, access roles, retention/deletion and external forwarding disabled by default. No logging code/configuration change is authorized by this decision. |
+| DP-04 | ACCEPT AS LIMITED SYNTHETIC EVIDENCE | Audit metadata is accepted only for synthetic accounts during private development; no production-grade retention or tamper-resistance claim. |
+| DP-05 | ACCEPT AS PARTIAL TEST EVIDENCE | Existing negative route/schema tests count only as partial synthetic CI evidence. Full route/output/configuration review remains open. |
+| DP-06 | DEFER | Hosting/data region, processor roles, runtime variables, backups, access roster and deletion behavior remain unknown. No environment provisioning or real-data processing until exact facts and separate authorization/review. |
+
+These are Product Owner internal scope decisions, not legal advice, a formal privacy impact assessment, professional certification or approval to process personal data. DP-03 is a prerequisite condition, not a claim that a policy or remediation has already been implemented.
 
 ## 7. Current gate status
 
-M3-11-02 remains IN PROGRESS / BLOCKED pending owner disposition of the findings and any required code/configuration remediation. This document does not authorize target access, provisioning, external services, spend, data collection, public launch or production activity.
+The six preliminary finding dispositions are now recorded. M3-11-02 remains IN PROGRESS / BLOCKED because child-safeguarding applicability, broader data-flow review, target-specific facts and the remaining exit criteria are not complete. This document does not authorize target access, provisioning, external services, spend, data collection, public launch or production activity.
