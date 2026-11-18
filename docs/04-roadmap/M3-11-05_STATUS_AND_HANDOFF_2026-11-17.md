@@ -1,5 +1,23 @@
 # M3-11-05 — Status and Handoff
 
+## Latest update — Hostinger database and PDO evidence captured (2026-11-18)
+
+Owner-provided redacted hPanel screenshots now confirm a newly created dedicated MySQL database for Listing V2: database `u537436044_institutes`, user `u537436044_institutes_app`, host `srv1278.hstgr.io`, port `3306`, assigned/full access, 1 MB shown, created 2026-11-18, and external connections OFF. PHP Info shows PDO drivers `mysql, sqlite`, PDO MySQL enabled, and mysqlnd 8.5.12. The `/opt/alt/php85` include path strongly indicates PHP 8.5, but the exact PHP version is not fully confirmed because the top-level PHP Version row/selector was not included.
+
+Detailed evidence and handling restrictions are recorded in [M3-11-05D Hostinger PHP and Dedicated Database Evidence](M3-11-05D_HOSTINGER_PHP_AND_DEDICATED_DATABASE_EVIDENCE_2026-11-18.md). The password is intentionally excluded. No database connection, external access enablement, migration, import, deployment, or hPanel configuration change has occurred.
+
+**Dedicated V2 database created:** OBSERVED.  
+**PDO MySQL:** OBSERVED ENABLED.  
+**Exact PHP version:** NOT FULLY CONFIRMED.  
+**Laravel hosted DB connection:** NOT TESTED.  
+**Hosting plan/resource limits, document root, subfolder placement, static-file protection, filesystem/storage isolation and backup boundary:** NOT VERIFIED.  
+**Hosted isolation acceptance:** BLOCKED / NOT ACCEPTED.  
+**Provisioning/deployment:** NOT PERFORMED OR AUTHORIZED.
+
+---
+
+
+
 ## Latest update — repository subfolder readiness delivered (2026-11-18)
 
 Repository-side subfolder preparation is delivered through PRs #293, #294 and #295. PR #295 merged as `09ae3ff31462cb2bf85566c5f9963565c067a69f` from exact head `f8b50d7308f386be3768603f00717d53c875e1be`; FND-01 PHP 8.5 CI #496 and documentation validation #933 passed. The repository now supports a configurable MySQL connection, a V2-specific session cookie with configurable subfolder path and an opt-in global Laravel HTTP Basic preview gate. SQLite remains the local/CI default.
