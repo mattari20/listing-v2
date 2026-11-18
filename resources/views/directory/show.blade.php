@@ -58,6 +58,37 @@
                 @endforeach
             </dl>
         @endif
+
+        @if (!empty($profile['catalogue']['campuses']) || !empty($profile['catalogue']['programmes']))
+            <section aria-labelledby="campuses-heading">
+                @if (!empty($profile['catalogue']['campuses']))
+                    <h2 id="campuses-heading">Campuses</h2>
+                    <ul>
+                        @foreach ($profile['catalogue']['campuses'] as $campus)
+                            <li>{{ $campus['name'] }}</li>
+                        @endforeach
+                    </ul>
+                @endif
+
+                @if (!empty($profile['catalogue']['programmes']))
+                    <h2 id="programmes-heading">Programmes and admission offers</h2>
+                    @foreach ($profile['catalogue']['programmes'] as $programme)
+                        <section>
+                            <h3>{{ $programme['name'] }}</h3>
+                            @if ($programme['offers'] !== [])
+                                <ul>
+                                    @foreach ($programme['offers'] as $offer)
+                                        <li>{{ $offer['admission_cycle'] }} — {{ $offer['location'] }}</li>
+                                    @endforeach
+                                </ul>
+                            @else
+                                <p>No currently published admission offers are available.</p>
+                            @endif
+                        </section>
+                    @endforeach
+                @endif
+            </section>
+        @endif
     </article>
 </main>
 </body>
