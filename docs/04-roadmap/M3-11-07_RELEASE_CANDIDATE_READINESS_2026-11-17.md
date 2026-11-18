@@ -123,3 +123,10 @@ Even then, candidate acceptance is not a go decision, deployment authorization o
 - M3-11 overall: BLOCKED / NOT ACCEPTED.
 
 No production, V1, Hostinger/hPanel, live database, hosted environment, backup store, deployment, migration, external service, real data, participant activity or spend was accessed or used.
+
+
+## Owner policy decisions received after initial preparation — 2026-11-18
+
+The Product Owner accepts the existing weekly Hostinger automated backup cadence as sufficient for the current development stage, without paid upgrade or increased frequency. The Product Owner accepts the existing Hostinger directory password protection as the chosen private-preview control and does not require IP Manager as a second layer. The existing hosting plan is to be retained without additional spend.
+
+These decisions clarify the intended current-stage operating choices. They do not satisfy the candidate entry gates that require verified V2-only environment isolation and recovery evidence. In particular, weekly backup policy acceptance is not proof of V2-only restore capability, backup retention, measured RPO/RTO, or candidate-linked rollback. The password-protection configuration evidence is not proof of live enforcement across nested paths and static assets. The candidate remains uncreated until all mandatory entry gates have current, attributable evidence and separate Product Owner authorization.

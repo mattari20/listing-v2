@@ -33,3 +33,10 @@ Resolve the M3-11-02 through M3-11-06 substantive gates with qualified human evi
 ## Handoff
 
 No build, artifact, private environment, backup, restore, production/V1/Hostinger access, live database, deployment, migration, real data, participant activity, external service, new dependency or spend was used. This package does not authorize candidate creation, M3-11-08 go/no-go, production execution or launch.
+
+
+## Latest owner-decision reconciliation — 2026-11-18
+
+The Product Owner accepts weekly automated backups as sufficient for the current development stage, with no paid upgrade or increased frequency; selects the existing Hostinger directory password protection without a second IP restriction layer; and retains the current hosting plan without additional spend.
+
+These decisions resolve the owner preferences for backup cadence, access-control layering and cost. They do not close the technical candidate-entry gates. RC-05 remains blocked pending verified V2-only environment isolation and full-path password-protection behavior. RC-06 remains blocked pending V2-only recovery-boundary evidence and candidate-relevant rollback/recovery proof; weekly cadence acceptance is not a restore test or production RPO/RTO. RC-07 candidate creation remains unauthorized. M3-11-07 remains NOT STARTED / BLOCKED; no candidate was created, built or pinned.
