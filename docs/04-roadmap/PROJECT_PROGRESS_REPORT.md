@@ -1,3 +1,9 @@
+## Latest verified position — M3-12 private preview and synthetic dataset (2026-11-18)
+
+The Product Owner authorized a bounded local-only private preview package. Branch `feature/m3-12-private-preview-dataset` adds a guarded SQLite-only seeder for seven fictional records across provider, institution, campus, programme and qualification categories, plus synthetic feature tests and implementation documentation. The seeder refuses environments other than `local`/`testing`, refuses non-SQLite connections and is idempotent. Exact-head PHP 8.5 CI and documentation validation are pending; no local browser preview has been run or claimed. No schema, runtime route, dependency, production, V1, Hostinger, hosted database, deployment, external source, participant or spend activity occurred. M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED.
+
+---
+
 ## Latest verified position — M3-11 gate-resolution coordination (2026-11-17)
 
 PR #276 M3-11-08 decision-pack preparation merged as `e226fdbef1f24314c2a0c4399403342ced158ef3`; exact-head PHP 8.5 foundation CI #44054165587 and documentation validation #44054165564 passed, and main was verified identical to the merge. M3-11-08 remains BLOCKED / NOT DECIDED. Current work adds a repository-only coordination plan and blank Product Owner/human evidence intake worksheet. These do not appoint reviewers/owners or grant operational authorization. M3-11-02–M3-11-06 substantive gates remain blocked; M3-11-07 has no candidate; M3-11-09 remains NOT AUTHORIZED. M3-11 overall remains BLOCKED / NOT ACCEPTED.
