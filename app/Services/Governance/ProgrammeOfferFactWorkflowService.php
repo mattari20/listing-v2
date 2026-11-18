@@ -12,6 +12,7 @@ use Illuminate\Validation\ValidationException;
 final class ProgrammeOfferFactWorkflowService
 {
     private const CATEGORIES = ['eligibility', 'deadline', 'fee', 'scholarship'];
+
     private const STATES = ['known', 'unknown', 'not_stated', 'not_applicable', 'conflicting', 'withdrawn'];
 
     public function approveFreshnessPolicy(array $actor, string $policyKey, string $category, int $freshnessDays, string $policyVersion, string $idempotencyKey): string
