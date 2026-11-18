@@ -43,7 +43,7 @@ final class PublicDirectoryTest extends TestCase
 
         $campus = $this->createEntity('campus');
         $this->publishFact($campus, 'display_name', 'Synthetic North Campus');
-        $campusClaim = $this->publishFact($campus, 'campus', 'synthetic-campus-claim');
+        $campusClaim = $this->publishFact($campus, 'campus', ['institution_entity_id' => $institution]);
         DB::table('directory_campuses')->insert([
             'entity_id' => $campus,
             'institution_entity_id' => $institution,
@@ -58,7 +58,7 @@ final class PublicDirectoryTest extends TestCase
 
         $programme = $this->createEntity('programme');
         $this->publishFact($programme, 'display_name', 'Synthetic Computing Programme');
-        $programmeClaim = $this->publishFact($programme, 'programme', 'synthetic-programme-claim');
+        $programmeClaim = $this->publishFact($programme, 'programme', ['institution_entity_id' => $institution, 'title' => 'Synthetic Computing Programme']);
         DB::table('programme_catalogue_entries')->insert([
             'entity_id' => $programme,
             'institution_entity_id' => $institution,
@@ -71,7 +71,7 @@ final class PublicDirectoryTest extends TestCase
             'updated_at' => now(),
         ]);
 
-        $offerClaim = $this->publishFact($programme, 'programme_offer', 'synthetic-offer-claim');
+        $offerClaim = $this->publishFact($programme, 'programme_offer', ['programme_entity_id' => $programme, 'delivery_location_entity_id' => $campus, 'admission_cycle' => 'Synthetic 2027 Intake']);
         $offerId = (string) Str::uuid();
         DB::table('programme_offers')->insert([
             'id' => $offerId,
@@ -86,7 +86,7 @@ final class PublicDirectoryTest extends TestCase
             'updated_at' => now(),
         ]);
 
-        $suppressedClaim = $this->publishFact($programme, 'programme_offer', 'synthetic-suppressed-offer-claim');
+        $suppressedClaim = $this->publishFact($programme, 'programme_offer', ['programme_entity_id' => $programme, 'delivery_location_entity_id' => $campus, 'admission_cycle' => 'Synthetic Suppressed Intake']);
         DB::table('programme_offers')->insert([
             'id' => (string) Str::uuid(),
             'programme_entity_id' => $programme,
