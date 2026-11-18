@@ -1,3 +1,7 @@
+## M3-11-05D — Hostinger PHP/PDO and dedicated V2 database evidence — 2026-11-18
+
+- [M3-11-05D Hostinger PHP and Dedicated Database Evidence](M3-11-05D_HOSTINGER_PHP_AND_DEDICATED_DATABASE_EVIDENCE_2026-11-18.md) — **Evidence recorded from owner-provided hPanel screenshots**; dedicated V2 MySQL database/host/user and PDO MySQL availability captured. Password omitted. Exact PHP version and remaining hosting isolation facts still require read-only confirmation.
+
 ## M3-11-05C — subfolder database and private-preview controls — 2026-11-18
 
 - PR [#295](https://github.com/mattari20/listing-v2/pull/295) merged as `09ae3ff31462cb2bf85566c5f9963565c067a69f`; exact head `f8b50d7308f386be3768603f00717d53c875e1be`; FND-01 PHP 8.5 CI #496 and documentation validation #933 passed.
