@@ -1,7 +1,7 @@
 # M3-11-03 / M3-11-05 — SEC-06 Bounded Logging Policy Design
 
 **Date:** 2026-11-19  
-**Status:** CHANNEL, WARNING-AND-ABOVE LEVEL, 30-DAY RETENTION AND ACTIVE-LOG DELETION POLICY APPROVED; TARGET STORAGE/ACCESS AND IMPLEMENTATION AUTHORIZATION PENDING  
+**Status:** POLICY APPROVED; LOCAL/CI IMPLEMENTATION AUTHORIZED AND VALIDATED IN PR #312; HOSTED STORAGE/ACCESS AND VERIFICATION PENDING  
 **Repository:** `mattari20/listing-v2`  
 **Scope:** Private V2 development and future private acceptance; synthetic fixtures only
 
@@ -9,17 +9,19 @@
 
 Resolve the repository-side design gap identified by SEC-06 before any future environment provisioning or reviewer access. This record defines the decisions and controls required for a bounded application logging policy. It does not claim that the current runtime is configured safely, that logs have been inspected, or that a hosted environment is ready.
 
-The M3-11-03 Product Owner desk review records that the current default channel resolves to `stack` / `single`, the single-file channel has no rotation limit, the daily channel exists but is not the default, and the effective runtime channel, content, access, forwarding, retention and deletion are unknown.
+The M3-11-03 Product Owner desk review found that the then-current default resolved to `stack` / `single`, with no single-file rotation limit. PR #312 subsequently changed the repository default to bounded daily local-file logging. Effective hosted runtime channel, content, access, forwarding, retention and deletion remain unverified.
 
 ## 2. Existing repository configuration — source observation
 
-The inspected `config/logging.php` contains:
+The pre-implementation `config/logging.php` inspected for this policy contained:
 - Default channel: `env('LOG_CHANNEL', 'stack')`.
-- Stack channel defaults to `single`.
-- Single and daily file handlers both write to `storage/logs/laravel.log`.
-- Single has no configured maximum file count.
-- Daily uses `LOG_DAILY_DAYS`, defaulting to 14.
-- Monthly uses a fixed maximum of 3 files.
+- Stack channel defaulted to `single`.
+- Single and daily file handlers both wrote to `storage/logs/laravel.log`.
+- Single had no configured maximum file count.
+- Daily used `LOG_DAILY_DAYS`, defaulting to 14.
+- Monthly used a fixed maximum of 3 files.
+
+PR #312 changes the default to the custom daily rotating handler with explicit age-based active-directory cleanup. See its implementation evidence note for exact-head CI and limitations.
 - Slack, Papertrail, stderr, syslog and errorlog channel definitions exist.
 - The repository configuration alone does not prove that any external channel is active or that any runtime environment uses these settings.
 
@@ -36,7 +38,7 @@ The application must not deliberately log:
 
 Where diagnostic correlation is required, use a non-sensitive event code and a generated correlation identifier. Do not place raw user-controlled strings into structured log context without length limits and safe encoding. Error responses to users must not expose stack traces or secrets.
 
-These are design requirements; no implementation or log inspection is claimed.
+These are design requirements. The local/CI implementation is recorded in PR #312; no real log inspection or hosted verification is claimed.
 
 ## 4. Approved channel and retention decisions — target verification pending
 
@@ -82,7 +84,7 @@ No hosted or browser verification is claimed. The online checks will be performe
 - Backup-held copies are not covered by that rule; their inclusion, retention and expiry behavior must be checked against the eventual private V2 backup process before hosted acceptance.
 - Confirmation of the approved private V2 storage location and filesystem permissions after the target is identified.
 - Named human owner for log access, retention/deletion and incident evidence.
-- Exact implementation authorization for a local/CI-only code-and-test change.
+- Local/CI implementation authorization: APPROVED BY PRODUCT OWNER — 2026-11-19; implementation is recorded in PR #312.
 - Later exact-scope environment authorization before any hosted configuration or runtime verification.
 
 Do not infer these decisions from this proposal, the current `LOG_DAILY_DAYS=14` default, or the accepted weekly backup policy.
@@ -95,8 +97,8 @@ V2 repository-only preparation continues. No V1 or existing eStudent.pk resource
 
 ## 8. Handoff
 
-The daily rotating channel, disabled external forwarding, 30-day retention period, Warning-and-above hosted log level and automatic removal of rotated active-directory log files older than 30 days are approved. Backup-held copies remain outside this rule; backup-held copies remain outside this rule until their handling is verified. Storage/access details must be defined against the private V2 target. A separate explicit authorization for the narrow local/CI implementation remains required. Hosted configuration and online verification remain a later gate after the GitHub–Hostinger deployment connection is established and exact hosted actions are separately authorized.
+The daily rotating channel, disabled external forwarding, 30-day retention period, Warning-and-above hosted log level and automatic removal of rotated active-directory log files older than 30 days are approved. Backup-held copies remain outside this rule; backup-held copies remain outside this rule until their handling is verified. Storage/access details must be defined against the private V2 target. The narrow local/CI implementation was separately authorized by the Product Owner on 2026-11-19 and is recorded in PR #312. Hosted configuration and online verification still require a later exact-scope authorization. Hosted configuration and online verification remain a later gate after the GitHub–Hostinger deployment connection is established and exact hosted actions are separately authorized.
 
-**SEC-06 disposition:** DAILY ROTATING DEFAULT, DISABLED EXTERNAL FORWARDING, 30-DAY RETENTION, WARNING-AND-ABOVE HOSTED LOG LEVEL AND AUTOMATIC DELETION OF ACTIVE-DIRECTORY ROTATED LOGS OLDER THAN 30 DAYS APPROVED; BACKUP-COPY HANDLING AND STORAGE/ACCESS DETAILS PENDING; IMPLEMENTATION NOT AUTHORIZED.  
+**SEC-06 disposition:** DAILY ROTATING DEFAULT, DISABLED EXTERNAL FORWARDING, 30-DAY RETENTION, WARNING-AND-ABOVE HOSTED LOG LEVEL AND AUTOMATIC DELETION OF ACTIVE-DIRECTORY ROTATED LOGS OLDER THAN 30 DAYS APPROVED; LOCAL/CI IMPLEMENTATION AUTHORIZED AND VALIDATED IN PR #312; BACKUP-COPY HANDLING AND HOSTED STORAGE/ACCESS DETAILS PENDING.  
 **M3-11-05:** BLOCKED / NOT ACCEPTED.  
 **M3-11 overall:** BLOCKED / NOT ACCEPTED.
