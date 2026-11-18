@@ -23,6 +23,11 @@ final class PublicProgrammeOfferFactsQueryService
             ->join('programme_offer_fact_adjudication_cases as adjudication_cases', 'adjudication_cases.id', '=', 'adjudication_decisions.adjudication_case_id')
             ->join('programme_offer_fact_versions as versions', 'versions.id', '=', 'snapshots.fact_version_id')
             ->join('programme_offer_facts as facts', 'facts.id', '=', 'versions.programme_offer_fact_id')
+            ->leftJoin('programme_offer_fact_freshness_policies as freshness_policies', function ($join): void {
+                $join->on('freshness_policies.policy_key', '=', 'versions.freshness_policy_key')
+                    ->on('freshness_policies.category', '=', 'facts.category')
+                    ->on('freshness_policies.freshness_days', '=', 'versions.freshness_days');
+            })
             ->join('programme_offers as offers', 'offers.id', '=', 'facts.programme_offer_id')
             ->join('programme_catalogue_entries as programmes', 'programmes.entity_id', '=', 'offers.programme_entity_id')
             ->join('directory_entities as institutions', 'institutions.id', '=', 'programmes.institution_entity_id')
@@ -74,6 +79,9 @@ final class PublicProgrammeOfferFactsQueryService
                 'versions.valid_to',
                 'versions.freshness_policy_key',
                 'versions.freshness_days',
+                'freshness_policies.status as freshness_policy_status',
+                'freshness_policies.valid_from as freshness_policy_valid_from',
+                'freshness_policies.valid_to as freshness_policy_valid_to',
             ]);
 
         if ($rows->isEmpty()) {
@@ -110,8 +118,10 @@ final class PublicProgrammeOfferFactsQueryService
             $displayState = (string) $row->fact_state;
             if ($row->fact_state === 'known' &&
                 ($row->observed_at === null || $row->freshness_policy_key === null ||
-                    $row->freshness_days === null ||
-                    now()->greaterThanOrEqualTo(now()->parse($row->observed_at)->addDays((int) $row->freshness_days)))) {
+                    $row->freshness_days === null || $row->freshness_policy_status !== 'approved' ||
+                    ($row->freshness_policy_valid_from !== null && $row->freshness_policy_valid_from > now()) ||
+                    ($row->freshness_policy_valid_to !== null && $row->freshness_policy_valid_to <= now()) ||
+                    now()->greaterThanOrEqualTo(\\Illuminate\\Support\\Carbon::parse($row->observed_at)->addDays((int) $row->freshness_days)))) {
                 $displayState = 'stale';
             }
 
@@ -128,7 +138,7 @@ final class PublicProgrammeOfferFactsQueryService
                 $territories = is_array($evidence->territories)
                     ? $evidence->territories
                     : (json_decode((string) $evidence->territories, true) ?: []);
-                if ($territories === []) {
+                if (in_array('synthetic', $territories, true) === false) {
                     $evidenceValid = false;
                     break;
                 }
@@ -145,7 +155,7 @@ final class PublicProgrammeOfferFactsQueryService
                 $scope = $policy->authorizeSourceAction($authorization, 'publication', [
                     'purpose' => 'directory_publication',
                     'method' => 'approved_projection',
-                    'territory' => (string) $territories[0],
+                    'territory' => 'synthetic',
                 ]);
                 if ($scope['allowed'] !== true) {
                     $evidenceValid = false;
