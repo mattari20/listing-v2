@@ -1,5 +1,10 @@
 ## M3-11-05A local synthetic preview — 2026-11-18
 
+- PR [#285](https://github.com/mattari20/listing-v2/pull/285) merged as `d3e554cd296d3edc23da52d9ffaefc01244c2cb4`; exact head `5f6cffa984677ed8531b348b6cc2a141462007c2`; FND-01 PHP 8.5 CI #485 and documentation validation #912 passed.
+- [M3-11-05A Local Synthetic Preview and Test Dataset](M3-11-05A_LOCAL_SYNTHETIC_PREVIEW_AND_TEST_DATASET.md) — **Delivered and merged; local execution and owner visual review pending**; guarded explicit seeder for five fictional institution profiles on a dedicated local SQLite file. Not hosted isolation or release evidence.
+
+## M3-11-05A local synthetic preview — 2026-11-18
+
 - [M3-11-05A Local Synthetic Preview and Test Dataset](M3-11-05A_LOCAL_SYNTHETIC_PREVIEW_AND_TEST_DATASET.md) — **Delivered — local execution and owner visual review pending**; guarded explicit seeder for five fictional institution profiles on a dedicated local SQLite file. Not hosted isolation or release evidence.
 
 ## M3-11 gate-resolution coordination — 2026-11-17
