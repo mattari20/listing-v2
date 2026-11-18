@@ -70,10 +70,24 @@
                             @foreach ($offer['facts'] as $offerFact)
                                 <dt>{{ $offerFact['label'] }}</dt>
                                 <dd dir="auto">
-                                    @if ($offerFact['state'] === 'not_stated')
+                                    @if ($offerFact['state'] === 'unknown')
+                                        Not verified
+                                    @elseif ($offerFact['state'] === 'not_stated')
                                         Not stated
                                     @elseif ($offerFact['state'] === 'not_applicable')
                                         Not applicable
+                                    @elseif ($offerFact['state'] === 'conflicting')
+                                        Conflicting information — not verified
+                                    @elseif ($offerFact['state'] === 'stale')
+                                        <strong>Stale — verify before relying:</strong>
+                                        @if ($offerFact['category'] === 'deadline')
+                                            {{ $offerFact['value']['date'] ?? 'Date unavailable' }}
+                                        @elseif ($offerFact['category'] === 'fee')
+                                            {{ $offerFact['value']['component'] }}:
+                                            {{ $offerFact['value']['amount'] }} {{ $offerFact['value']['currency'] }}
+                                        @else
+                                            {{ $offerFact['value']['text'] ?? 'Information unavailable' }}
+                                        @endif
                                     @elseif ($offerFact['category'] === 'deadline')
                                         {{ $offerFact['value']['date'] ?? 'Date unavailable' }}
                                     @elseif ($offerFact['category'] === 'fee')
