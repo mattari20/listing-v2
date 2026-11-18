@@ -25,16 +25,18 @@ The owner created this database after deleting the prior empty/dummy `Institutes
 
 ## 2. PHP/PDO evidence — observed
 
-The supplied hPanel PHP Info screenshot shows:
+The owner-provided hPanel PHP Info screenshots confirm:
 
+- **PHP Version: `8.5.12`**, explicitly displayed at the top of PHP Info.
+- The response header also displays `X-Powered-By: PHP/8.5.12`.
 - PDO support: enabled.
 - PDO drivers: `mysql, sqlite`.
 - PDO Driver for MySQL: enabled.
 - MySQL client API: `mysqlnd 8.5.12`.
 - The PHP configuration screenshot shows the `pdo` and `nd_pdo_mysql` extensions selected.
-- The PHP include path contains `/opt/alt/php85`, which is consistent with the PHP 8.5 runtime path.
+- The PHP include path contains `/opt/alt/php85`, consistent with the confirmed PHP 8.5 runtime.
 
-The screenshot set does not include the PHP Info page's top-level PHP Version row or the PHP version selector itself. Therefore, record the PHP 8.5 identification as **strongly indicated, not fully confirmed** until a screenshot of the selected version/top of PHP Info is captured.
+**PHP runtime compatibility evidence:** PHP 8.5.12 and PDO MySQL availability are confirmed by the supplied screenshots. This confirms extension availability, not a successful Laravel connection to the newly created database.
 
 ## 3. Important safety and configuration notes
 
