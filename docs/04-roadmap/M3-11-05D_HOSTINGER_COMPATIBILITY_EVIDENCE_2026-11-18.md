@@ -20,7 +20,7 @@ The hPanel dashboard identifies the plan as **Premium Web Hosting** and shows:
 - Memory usage: **100 MB** at the dashboard capture.
 - The resource values are point-in-time dashboard readings, not guaranteed V2 capacity or headroom.
 
-The PHP Configuration page shows PHP 8.5 selected. Follow-up screenshots of the **PHP extensions** tab show the following relevant entries checked: `pdo`, `nd_pdo_mysql`, `mysqlnd`, `mbstring`, `fileinfo`, `openssl`, `curl`, `tokenizer`, `xml`, `ctype`, and `zip`. `pdo_sqlite` is also checked. The screenshots show the Hostinger extension label `nd_pdo_mysql`; they do not independently prove that the PHP runtime exposes the exact PDO MySQL driver name expected by Laravel (`pdo_mysql`). Runtime confirmation remains required. No extension selections were changed.
+The PHP Configuration page shows PHP 8.5 selected. Follow-up screenshots of the **PHP extensions** tab show the following relevant entries checked: `pdo`, `nd_pdo_mysql`, `mysqlnd`, `mbstring`, `fileinfo`, `openssl`, `curl`, `tokenizer`, `xml`, `ctype`, and `zip`. `pdo_sqlite` is also checked. The screenshots show the Hostinger extension label `nd_pdo_mysql`; they do not independently prove that the PHP runtime exposes the exact PDO MySQL driver name expected by Laravel (`pdo_mysql`). Runtime confirmation remains required. No extension selections were changed. A separate PHP Options screenshot shows `displayErrors` unchecked and `fileUploads` checked; no PHP option changes were made. The `PHP Info` sidebar item is visible, but the supplied screenshots do not show the PHP Info output page itself.
 
 ## Observed database inventory
 
@@ -92,7 +92,7 @@ These screenshots do not prove that a V2-only restore can be performed safely, t
 
 ## Remaining evidence required for M3-11-05D
 
-1. **PHP runtime confirmation:** the PHP extensions tab has now been inspected. Confirm the actual runtime reports the PDO MySQL driver (for example through the hosting PHP Info page, without exposing configuration secrets). Do not change extension selections during evidence collection.
+1. **PHP runtime confirmation:** open the separate `PHP Info` sidebar page and inspect the PDO drivers section (or equivalent module list) to confirm the actual runtime reports `mysql`. Avoid exposing environment variables, account-specific paths, or configuration secrets. Do not change PHP settings.
 2. **Database plan limits and engine:** inspect the plan database quota/details and, if available without opening or exposing credentials, the database engine/version and limits. Do not create a database.
 3. **Directory protection enforcement:** password protection is configured for `/institutes-v2` and is the selected private-preview access control. Product owner decision: do not add IP Manager restrictions as a second protection layer at this stage. Verify the existing password protection later with harmless synthetic requests for the directory, nested path, and static asset. Confirm the existing website and `/institutes` remain unaffected. Do not share or commit the preview password.
 4. **Document-root and filesystem isolation:** determine whether V2 can keep application source and sensitive runtime paths outside the web root while serving only Laravel `public/`. Confirm permissions and storage separation without modifying files.
