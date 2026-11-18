@@ -149,6 +149,89 @@ class ProgrammeOfferFactWorkflowTest extends TestCase
         );
     }
 
+    public function test_correction_supersedes_previous_public_value_for_the_same_offer_fact(): void
+    {
+        [$programme, $offer] = $this->offer('synthetic-cycle-2027');
+        $service = app(ProgrammeOfferFactWorkflowService::class);
+        $firstEvidence = $this->evidence('synthetic-evidence-author');
+        $firstVersion = $service->submit(
+            $this->actor('synthetic-submitter', ['submit_offer_fact']), $offer,
+            'application_fee', 'fee', 'known',
+            ['component' => 'Application fee', 'amount' => '10.00', 'currency' => 'PKR'],
+            [$firstEvidence], now()->subHour()->toDateTimeString(), null, null,
+            'synthetic.fee.v1', 30, 'synthetic-correction-first'
+        );
+        $firstCase = $service->openAdjudicationCase($this->actor('synthetic-opener-1', ['open_adjudication']), $firstVersion, 'synthetic-correction-case-1');
+        $firstDecision = $service->decideAdjudication($this->actor('synthetic-adjudicator-1', ['adjudicate_claim']), $firstCase, 'accepted', 'synthetic_acceptance', 'First synthetic value accepted.', 'synthetic-policy-v1');
+        $service->authorizePublication($this->actor('synthetic-publisher-1', ['authorize_publication']), $firstVersion, $firstDecision, 'directory', 'anonymous', 'synthetic-publication-v1', 'synthetic-correction-publication-1');
+
+        $secondEvidence = $this->evidence('synthetic-evidence-author-2');
+        $secondVersion = $service->submit(
+            $this->actor('synthetic-submitter-2', ['submit_offer_fact']), $offer,
+            'application_fee', 'fee', 'known',
+            ['component' => 'Application fee', 'amount' => '12.50', 'currency' => 'PKR'],
+            [$secondEvidence], now()->subMinutes(10)->toDateTimeString(), null, null,
+            'synthetic.fee.v1', 30, 'synthetic-correction-second',
+            $firstVersion, 'synthetic correction of fee fixture'
+        );
+        $secondCase = $service->openAdjudicationCase($this->actor('synthetic-opener-2', ['open_adjudication']), $secondVersion, 'synthetic-correction-case-2');
+        $secondDecision = $service->decideAdjudication($this->actor('synthetic-adjudicator-2', ['adjudicate_claim']), $secondCase, 'accepted', 'synthetic_acceptance', 'Corrected synthetic value accepted.', 'synthetic-policy-v1');
+        $service->authorizePublication($this->actor('synthetic-publisher-2', ['authorize_publication']), $secondVersion, $secondDecision, 'directory', 'anonymous', 'synthetic-publication-v1', 'synthetic-correction-publication-2');
+
+        $offers = app(PublicProgrammeOfferFactsQueryService::class)->forProgramme($programme);
+        $this->assertCount(1, $offers[0]['facts']);
+        $this->assertSame('12.50', $offers[0]['facts'][0]['value']['amount']);
+        $this->assertDatabaseHas('programme_offer_fact_versions', [
+            'id' => $secondVersion, 'supersedes_version_id' => $firstVersion,
+        ]);
+    }
+
+    public function test_withdrawal_suppresses_an_existing_public_offer_fact(): void
+    {
+        [$programme, $offer] = $this->offer('synthetic-cycle-2027');
+        $evidence = $this->evidence('synthetic-evidence-author');
+        $service = app(ProgrammeOfferFactWorkflowService::class);
+        $version = $service->submit(
+            $this->actor('synthetic-submitter', ['submit_offer_fact']), $offer,
+            'eligibility_rule', 'eligibility', 'known',
+            ['text' => 'Synthetic eligibility statement'], [$evidence],
+            now()->subHour()->toDateTimeString(), null, null,
+            'synthetic.eligibility.v1', 30, 'synthetic-withdrawal-submit'
+        );
+        $case = $service->openAdjudicationCase($this->actor('synthetic-case-opener', ['open_adjudication']), $version, 'synthetic-withdrawal-case');
+        $decision = $service->decideAdjudication($this->actor('synthetic-adjudicator', ['adjudicate_claim']), $case, 'accepted', 'synthetic_acceptance', 'Synthetic fact accepted.', 'synthetic-policy-v1');
+        $service->authorizePublication($this->actor('synthetic-publisher', ['authorize_publication']), $version, $decision, 'directory', 'anonymous', 'synthetic-publication-v1', 'synthetic-withdrawal-publication');
+
+        $this->assertCount(1, app(PublicProgrammeOfferFactsQueryService::class)->forProgramme($programme));
+        $service->withdrawFactVersion(
+            $this->actor('synthetic-withdrawer', ['withdraw_claim']),
+            $version,
+            'synthetic_withdrawal',
+            'Synthetic fixture withdrawn.'
+        );
+        $this->assertSame([], app(PublicProgrammeOfferFactsQueryService::class)->forProgramme($programme));
+    }
+
+    public function test_unknown_state_is_publicly_distinct_from_zero_or_not_stated(): void
+    {
+        [$programme, $offer] = $this->offer('synthetic-cycle-2027');
+        $evidence = $this->evidence('synthetic-evidence-author');
+        $service = app(ProgrammeOfferFactWorkflowService::class);
+        $version = $service->submit(
+            $this->actor('synthetic-submitter', ['submit_offer_fact']), $offer,
+            'scholarship_availability', 'scholarship', 'unknown', null,
+            [$evidence], now()->subHour()->toDateTimeString(), null, null,
+            null, null, 'synthetic-unknown-submit'
+        );
+        $case = $service->openAdjudicationCase($this->actor('synthetic-case-opener', ['open_adjudication']), $version, 'synthetic-unknown-case');
+        $decision = $service->decideAdjudication($this->actor('synthetic-adjudicator', ['adjudicate_claim']), $case, 'accepted', 'synthetic_unknown', 'Unknown state confirmed for synthetic fixture.', 'synthetic-policy-v1');
+        $service->authorizePublication($this->actor('synthetic-publisher', ['authorize_publication']), $version, $decision, 'directory', 'anonymous', 'synthetic-publication-v1', 'synthetic-unknown-publication');
+
+        $offers = app(PublicProgrammeOfferFactsQueryService::class)->forProgramme($programme);
+        $this->assertSame('unknown', $offers[0]['facts'][0]['state']);
+        $this->assertNull($offers[0]['facts'][0]['value']);
+    }
+
     public function test_source_authorization_revocation_removes_offer_fact_from_public_query(): void
     {
         [$programme, $offer] = $this->offer('synthetic-cycle-2027');
