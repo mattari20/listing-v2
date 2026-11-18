@@ -1,6 +1,6 @@
 ## M3-11-05D — Hostinger PHP/PDO and dedicated V2 database evidence — 2026-11-18
 
-- [M3-11-05D Hostinger PHP and Dedicated Database Evidence](M3-11-05D_HOSTINGER_PHP_AND_DEDICATED_DATABASE_EVIDENCE_2026-11-18.md) — **Evidence recorded from owner-provided hPanel screenshots**; dedicated V2 MySQL database/host/user and PDO MySQL availability captured. Password omitted. PHP 8.5.12 is explicitly confirmed, and the owner-selected `/public_html/institutes-v2` directory is recorded; remaining hosting isolation facts still require read-only confirmation.
+- [M3-11-05D Hostinger PHP and Dedicated Database Evidence](M3-11-05D_HOSTINGER_PHP_AND_DEDICATED_DATABASE_EVIDENCE_2026-11-18.md) — **Evidence recorded from owner-provided hPanel screenshots**; dedicated V2 MySQL database/host/user and PDO MySQL availability captured. Password omitted. PHP 8.5.12 is explicitly confirmed, and the owner-selected `/public_html/institutes-v2` directory is recorded; its listing shows `.htaccess` and `.htpasswd` only, but protection behavior and Laravel mapping remain unverified.
 
 ## M3-11-05C — subfolder database and private-preview controls — 2026-11-18
 
@@ -1396,3 +1396,8 @@ PR [#272](https://github.com/mattari20/listing-v2/pull/272) merge evidence: merg
 | [M3-11-06 Status and Handoff](M3-11-06_STATUS_AND_HANDOFF_2026-11-17.md) | Records preparation delivery, blocked dependencies and next evidence | Preparation delivered; substantive gate BLOCKED |
 
 PR [#273](https://github.com/mattari20/listing-v2/pull/273) merge evidence: merge `ef136e183d9cbcd14358004b634672c19710e387`, exact head `1cacdd17bd6340a9cf41de68f171f0bc62dc137a`, FND-01 CI #445 and documentation validation #864 passed. M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
+
+- M3-11-05D `.htaccess` Basic Authentication directives — 2026-11-18: owner-provided screenshot confirms Hostinger-generated `AuthType Basic`, `AuthUserFile` and `Require valid-user` directives in `/public_html/institutes-v2/.htaccess`; live enforcement, static-file coverage, child overrides and `.htpasswd` HTTP denial remain unverified. Password/hash omitted.
+
+- M3-11-05D Hostinger PHP configuration — 2026-11-18: PHP 8.5 selected; PHP Info runtime 8.5.12; PDO and MySQL/SQLite drivers enabled; selected additional extensions recorded in `M3-11-05D_HOSTINGER_PHP_AND_DEDICATED_DATABASE_EVIDENCE_2026-11-18.md`. No configuration changed. Hosted Laravel/database tests remain unperformed.
