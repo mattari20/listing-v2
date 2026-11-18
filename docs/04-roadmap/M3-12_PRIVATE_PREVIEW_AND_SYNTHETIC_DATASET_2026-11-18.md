@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** `5e68ac4ba70db0461a902832cb6ed483640b9a4c`  
 **Branch:** `feature/m3-12-private-preview-dataset`  
-**Status:** Implementation prepared; exact-head CI and review pending.  
+**Status:** PR #280 open and unmerged. PHP 8.5 foundation CI and documentation validation passed at validation commit `db5e90f7e8fb21e7d5bf21bc78b13646d712cb11`; final documentation reconciliation is receiving a fresh exact-head run.  
 **Authorization:** Product Owner approved the bounded local-only synthetic preview package on 2026-11-18.
 
 ## 1. Purpose
@@ -57,7 +57,7 @@ Open `/directory` in the local development server. The seeder refuses production
 | No schema, runtime route, dependency or production changes | PR diff review |
 | Existing outbox work is not swept into preview processing | Pending/leased outbox preflight and exact 42-event completion check |
 
-Exact-head PHP 8.5 foundation CI and documentation validation results must be added after the PR checks complete. A successful CI run is not a browser review or production acceptance.
+At validation commit `db5e90f7e8fb21e7d5bf21bc78b13646d712cb11`, PHP 8.5 foundation CI run [#44212302774](https://github.com/mattari20/listing-v2/actions/runs/44212302774) and documentation validation run [#44212302867](https://github.com/mattari20/listing-v2/actions/runs/44212302867) both passed. A fresh exact-head run is required after the final documentation-only reconciliation commit. A successful CI run is not a browser review or production acceptance.
 
 ## 6. Explicit non-goals and remaining gates
 
@@ -67,4 +67,4 @@ No production access, V1 access, Hostinger/hPanel access, migrations on hosted s
 
 ## 7. PR and review status
 
-PR number, exact head SHA, required check run IDs and review disposition are recorded in the PR and reconciled here after validation. This package is not merged by this record; merge requires separate Product Owner approval.
+PR [#280](https://github.com/mattari20/listing-v2/pull/280) targets `main` from `feature/m3-12-private-preview-dataset`. The validation commit and successful run IDs are recorded above. PR remains OPEN and UNMERGED; merge requires separate Product Owner approval.
