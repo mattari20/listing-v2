@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\\Services\\Governance;
+namespace App\Services\Governance;
 
-use App\\Domain\\Governance\\GovernancePolicy;
-use Illuminate\\Support\\Facades\\DB;
-use Illuminate\\Support\\Str;
-use Illuminate\\Validation\\ValidationException;
+use App\Domain\Governance\GovernancePolicy;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 final class ProgrammeOfferFactWorkflowService
 {
