@@ -33,6 +33,7 @@ Evidence is observational only. No hPanel settings, databases, files, DNS, or ho
 - External connections were **Off** for all three displayed entries.
 - The 10 MB entry was labelled for Institutes; the 1 MB entry was labelled for CV Builder; the 852 MB entry was another existing database.
 - Database names, usernames, hostnames, and credentials are intentionally excluded from this public record.
+- The **View plan databases** dialog displayed **“No other databases on your plan”** while the database inventory page showed the three assigned entries. This establishes that no additional database entries are currently listed; it does **not** disclose the plan's numerical database limit or confirm whether the Add database flow would permit another database without an upgrade.
 - The screenshot does not show the plan's maximum database count, remaining database quota, server engine/version, database host, or grants.
 - No new database was created, and no existing database was opened, changed, deleted, or repurposed.
 
@@ -72,7 +73,7 @@ Evidence is observational only. No hPanel settings, databases, files, DNS, or ho
 - Keep V2 synthetic-only and private.
 - Keep the existing `/institutes-v2` password protection in place; do not share its password.
 - Do not create a database or change hosting settings until database quota and isolation requirements are understood and the owner gives explicit, scoped authorization.
-- Next: open **View plan databases** in hPanel and provide a screenshot of the database limits/usage. Then inspect the existing Institutes database's non-secret metadata only (engine/version/host/grants if shown); do not expose credentials.
+- Next: if continuing quota discovery, open **Add database** only far enough to read any displayed plan-limit or upgrade notice; do not submit/create anything and do not purchase an upgrade. Then inspect the existing Institutes database's non-secret metadata only (engine/version/host/grants if shown); do not expose credentials.
 - No production/V1 access, deployment, DNS changes, new spend, or live data use is authorized by this evidence review.
 
 ## Status
