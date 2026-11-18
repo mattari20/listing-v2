@@ -223,6 +223,7 @@ class ProgrammeOfferFactWorkflowTest extends TestCase
             if (DB::table('programme_offer_fact_freshness_policies')->where('policy_key', $policyKey)->exists() === false) {
                 DB::table('programme_offer_fact_freshness_policies')->insert([
                     'id' => (string) str()->uuid(), 'policy_key' => $policyKey,
+                    'idempotency_key' => 'synthetic-policy-'.$policyKey,
                     'category' => $category, 'freshness_days' => $days,
                     'owner_actor_id' => 'synthetic-policy-owner', 'policy_version' => 'synthetic-policy-v1',
                     'status' => 'approved', 'approved_at' => $now, 'valid_from' => $now,
