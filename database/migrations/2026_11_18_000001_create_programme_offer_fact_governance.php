@@ -24,6 +24,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('programme_offer_fact_id')->constrained('programme_offer_facts')->restrictOnDelete();
             $table->unsignedInteger('version_number');
+            $table->string('idempotency_key', 160)->unique();
             $table->json('value')->nullable();
             $table->string('fact_state', 24);
             $table->string('disposition', 24)->default('proposed');
