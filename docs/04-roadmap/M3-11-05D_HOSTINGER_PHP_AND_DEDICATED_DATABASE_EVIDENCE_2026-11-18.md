@@ -136,3 +136,27 @@ The marker comments instruct that the generated marker lines and lines below/abo
 **What remains unverified:** whether the rule is active on the live web-server path; whether all requests under `/institutes-v2` including static assets are challenged; whether child `.htaccess` files override/inherit the rule; whether the `.htpasswd` file is denied from direct HTTP retrieval; and whether the configured authentication file has suitably restrictive filesystem access. The File Manager earlier displayed `.htpasswd` permissions as `-rw-r--r--`; do not infer HTTP readability from that display alone, but treat direct-file exposure and filesystem access as explicit verification items. The `.htpasswd` contents/hash were not opened or recorded.
 
 No request was made to the hosted path, no credentials were used, and no Hostinger setting or file was changed. Before any preview upload, obtain a controlled owner-run check that unauthenticated requests to the V2 directory and a harmless static test file are challenged, and that direct access to `.htpasswd` is denied. Do not expose credentials or hashes in screenshots. This does not authorize deployment or hosted application testing.
+
+
+## 8. PHP runtime and extension configuration — observed (2026-11-18)
+
+Owner-provided Hostinger PHP Configuration screenshots show PHP **8.5 selected** (the separate PHP Info screenshot identifies the actual runtime as **PHP 8.5.12**). No version change was made during evidence collection.
+
+### Built-in extensions shown enabled
+
+`bz2`, `calendar`, `core`, `ctype`, `curl`, `date`, `exif`, `filter`, `ftp`, `gettext`, `hash`, `iconv`, `json`, `lexbor`, `libxml`, `openssl`, `pcntl`, `pcre`, `random`, `readline`, `reflection`, `session`, `shmop`, `simplexml`, `spl`, `standard`, `tokenizer`, `uri`, `sqlite3`, `xml`, `Zend OPcache`, `zlib`.
+
+### Additional extensions visibly checked
+
+`bcmath`, `dom`, `fileinfo`, `gd`, `gmp`, `igbinary`, `imagick`, `imap`, `intl`, `mbstring`, `mysqlnd`, `nd_mysqli`, `nd_pdo_mysql`, `pdo`, `pdo_sqlite`, `phar`, `posix`, `soap`, `sockets`, `sysvmsg`, `sysvsem`, `sysvshm`, `tidy`, `timezonedb`, `xmlreader`, `xmlrpc`, `xmlwriter`, `xsl`, `zip`.
+
+The PHP Info screenshot separately confirms PDO is enabled with drivers `mysql, sqlite`, and PDO MySQL is enabled (client API shown as `mysqlnd 8.5.12`). This is strong configuration evidence for the Laravel MySQL PDO requirement and local SQLite test support. It does **not** establish a successful application connection to the newly created database, nor does it prove every Laravel/runtime requirement under the final subfolder deployment. Do not toggle extensions or change PHP version as part of evidence collection. Re-check after any Hostinger PHP configuration change or platform/runtime update.
+
+### Verification record
+
+- PHP version selector: PHP 8.5 selected — observed.
+- PHP Info runtime: PHP 8.5.12 — observed.
+- PDO driver list: `mysql, sqlite` — observed.
+- PDO MySQL module: enabled — observed.
+- PHP extension checkbox state: recorded from screenshots; no settings changed.
+- Live Laravel boot / database connection / hosted subfolder smoke test: not performed; remains deferred and unauthorized in this evidence-only phase.
