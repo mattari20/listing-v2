@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Tests\\Feature;
+namespace Tests\Feature;
 
-use Database\\Seeders\\LocalPreviewSeeder;
-use Illuminate\\Support\\Facades\\Artisan;
-use Illuminate\\Support\\Facades\\DB;
+use Database\Seeders\LocalPreviewSeeder;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\DB;
 use RuntimeException;
-use Tests\\TestCase;
+use Tests\TestCase;
 
 final class LocalPreviewSeederTest extends TestCase
 {
