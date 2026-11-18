@@ -94,10 +94,67 @@ final class LocalPreviewSeeder extends Seeder
 
                     $this->publishSyntheticFact($entityId, $predicate, $value, $index, $field);
                 }
+
+                $campusId = $this->createSyntheticEntity(
+                    'campus',
+                    'Synthetic '.$institution['city'].' Campus',
+                    $index,
+                    'campus'
+                );
+                $this->publishSyntheticFact($campusId, 'display_name', 'Synthetic '.$institution['city'].' Campus', $index, 'campus-name');
+                $campusVersionId = $this->publishSyntheticFact(
+                    $campusId,
+                    'campus',
+                    [
+                        'institution_entity_id' => $entityId,
+                        'location_label' => $institution['locality'],
+                    ],
+                    $index,
+                    'campus-catalogue',
+                    true
+                );
+                $this->materializeCatalogueClaim($campusVersionId, $index, 'campus');
+
+                $programmeTitle = 'Synthetic '.$institution['city'].' Computing Programme';
+                $programmeId = $this->createSyntheticEntity(
+                    'programme',
+                    $programmeTitle,
+                    $index,
+                    'programme'
+                );
+                $this->publishSyntheticFact($programmeId, 'display_name', $programmeTitle, $index, 'programme-name');
+                $programmeVersionId = $this->publishSyntheticFact(
+                    $programmeId,
+                    'programme',
+                    [
+                        'institution_entity_id' => $entityId,
+                        'title' => $programmeTitle,
+                        'description' => 'Fictional programme fixture for local visual review only.',
+                        'level' => 'Synthetic undergraduate',
+                    ],
+                    $index,
+                    'programme-catalogue',
+                    true
+                );
+                $this->materializeCatalogueClaim($programmeVersionId, $index, 'programme');
+
+                $offerVersionId = $this->publishSyntheticFact(
+                    $programmeId,
+                    'programme_offer',
+                    [
+                        'programme_entity_id' => $programmeId,
+                        'delivery_location_entity_id' => $campusId,
+                        'admission_cycle' => 'Synthetic 2027 Intake',
+                    ],
+                    $index,
+                    'programme-offer',
+                    true
+                );
+                $this->materializeCatalogueClaim($offerVersionId, $index, 'programme-offer');
             }
         });
 
-        $this->command?->info('Created 5 fictional institution profiles for local preview only.');
+        $this->command?->info('Created 5 fictional institutions, 5 campuses, 5 programmes and 5 admission offers for local preview only.');
         $this->command?->info('No real institution, student, child, guardian or staff records were used.');
     }
 
@@ -120,7 +177,43 @@ final class LocalPreviewSeeder extends Seeder
         }
     }
 
-    private function publishSyntheticFact(string $entityId, string $predicate, string $value, int $entityIndex, string $field): void
+    private function createSyntheticEntity(string $type, string $name, int $entityIndex, string $field): string
+    {
+        $entityId = (string) Str::uuid();
+        $now = now();
+
+        DB::table('directory_entities')->insert([
+            'id' => $entityId,
+            'entity_type' => $type,
+            'label' => self::MARKER.' '.$name,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+
+        return $entityId;
+    }
+
+    private function materializeCatalogueClaim(string $claimVersionId, int $entityIndex, string $field): void
+    {
+        app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord(
+            [
+                'actor_id' => 'preview-materializer-'.$entityIndex.'-'.$field,
+                'actor_class' => 'human',
+                'capabilities' => ['materialize_catalogue_record'],
+            ],
+            $claimVersionId,
+            'local-preview-materialize-'.$entityIndex.'-'.$field
+        );
+    }
+
+    private function publishSyntheticFact(
+        string $entityId,
+        string $predicate,
+        mixed $value,
+        int $entityIndex,
+        string $field,
+        bool $catalogueValue = false
+    ): string
     {
         $now = now();
         $authorizationId = (string) Str::uuid();
@@ -180,7 +273,7 @@ final class LocalPreviewSeeder extends Seeder
             'claim_id' => $claimId,
             'field_definition_version_id' => null,
             'version_number' => 1,
-            'value' => json_encode(['value' => $value], JSON_THROW_ON_ERROR),
+            'value' => json_encode($catalogueValue ? $value : ['value' => $value], JSON_THROW_ON_ERROR),
             'recorded_at' => $now,
             'disposition' => 'proposed',
             'created_at' => $now,
@@ -225,5 +318,7 @@ final class LocalPreviewSeeder extends Seeder
         if (! DB::table('publication_snapshots')->where('publication_decision_id', $publicationId)->exists()) {
             throw new RuntimeException('Synthetic preview publication did not produce its expected snapshot.');
         }
+
+        return $versionId;
     }
 }
