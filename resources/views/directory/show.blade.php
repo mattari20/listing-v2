@@ -58,6 +58,40 @@
                 @endforeach
             </dl>
         @endif
+
+        @if (($profile['programme_offers'] ?? []) !== [])
+            <section aria-labelledby="admissions-heading">
+                <h2 id="admissions-heading">Programme admissions information</h2>
+                @foreach ($profile['programme_offers'] as $offer)
+                    <section aria-labelledby="offer-{{ $loop->index }}-heading">
+                        <h3 id="offer-{{ $loop->index }}-heading">{{ $offer['admission_cycle'] }}</h3>
+                        <p class="meta">Delivery location: {{ $offer['delivery_location'] }}</p>
+                        <dl>
+                            @foreach ($offer['facts'] as $offerFact)
+                                <dt>{{ $offerFact['label'] }}</dt>
+                                <dd dir="auto">
+                                    @if ($offerFact['state'] === 'not_stated')
+                                        Not stated
+                                    @elseif ($offerFact['state'] === 'not_applicable')
+                                        Not applicable
+                                    @elseif ($offerFact['category'] === 'deadline')
+                                        {{ $offerFact['value']['date'] ?? 'Date unavailable' }}
+                                    @elseif ($offerFact['category'] === 'fee')
+                                        {{ $offerFact['value']['component'] }}:
+                                        {{ $offerFact['value']['amount'] }} {{ $offerFact['value']['currency'] }}
+                                    @else
+                                        {{ $offerFact['value']['text'] ?? 'Information unavailable' }}
+                                    @endif
+                                    @if ($offerFact['observed_at'] !== null)
+                                        <div class="meta">Evidence observed: {{ $offerFact['observed_at'] }}</div>
+                                    @endif
+                                </dd>
+                            @endforeach
+                        </dl>
+                    </section>
+                @endforeach
+            </section>
+        @endif
     </article>
 </main>
 </body>
