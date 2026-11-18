@@ -401,7 +401,7 @@ final class PublicDirectoryQueryService
      * projection, the related programme/location projections, and active status
      * all remain valid. Raw claim payloads and internal identifiers never reach views.
      *
-     * @param array<int, array<string, mixed>> $items
+     * @param array<int, array<string, mixed>>    $items
      * @param array<string, array<string, mixed>> $publishedClaims
      * @return array<int, array<string, mixed>>
      */
