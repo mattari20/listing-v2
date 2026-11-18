@@ -1399,3 +1399,5 @@ PR [#273](https://github.com/mattari20/listing-v2/pull/273) merge evidence: merg
 
 
 - M3-11-05D `.htaccess` Basic Authentication directives — 2026-11-18: owner-provided screenshot confirms Hostinger-generated `AuthType Basic`, `AuthUserFile` and `Require valid-user` directives in `/public_html/institutes-v2/.htaccess`; live enforcement, static-file coverage, child overrides and `.htpasswd` HTTP denial remain unverified. Password/hash omitted.
+
+- M3-11-05D Hostinger PHP configuration — 2026-11-18: PHP 8.5 selected; PHP Info runtime 8.5.12; PDO and MySQL/SQLite drivers enabled; selected additional extensions recorded in `M3-11-05D_HOSTINGER_PHP_AND_DEDICATED_DATABASE_EVIDENCE_2026-11-18.md`. No configuration changed. Hosted Laravel/database tests remain unperformed.
