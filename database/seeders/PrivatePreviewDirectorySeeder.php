@@ -2,24 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Database\\Seeders;
+namespace Database\Seeders;
 
-use App\\Services\\Governance\\PersistedGovernanceWorkflowService;
-use Illuminate\\Database\\Seeder;
-use Illuminate\\Support\\Facades\\DB;
-use Illuminate\\Support\\Str;
+use App\Services\Governance\PersistedGovernanceWorkflowService;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use RuntimeException;
 
 final class PrivatePreviewDirectorySeeder extends Seeder
 {
     private const SOURCE_FAMILY = 'm3-12-synthetic-private-preview-v1';
 
-    /**
-     * Populate a local SQLite database with fictional directory examples.
-     *
-     * This seeder intentionally refuses production/staging and non-SQLite
-     * connections. It is not a source-ingestion or production-data tool.
-     */
     public function run(): void
     {
         if (! app()->environment(['local', 'testing'])) {
@@ -53,69 +47,13 @@ final class PrivatePreviewDirectorySeeder extends Seeder
             ]);
 
             $examples = [
-                [
-                    'type' => 'provider',
-                    'name' => 'Demo Learning Network',
-                    'overview' => 'Fictional provider record created only to demonstrate the private V2 directory preview.',
-                    'province' => 'Punjab',
-                    'district' => 'Synthetic Lahore District',
-                    'city' => 'Lahore',
-                    'locality' => 'Demo Quarter',
-                ],
-                [
-                    'type' => 'institution',
-                    'name' => 'Example Knowledge Academy',
-                    'overview' => 'Fictional institution record. This is not a real school and does not represent an operating provider.',
-                    'province' => 'Punjab',
-                    'district' => 'Synthetic Lahore District',
-                    'city' => 'Lahore',
-                    'locality' => 'Sample Block',
-                ],
-                [
-                    'type' => 'institution',
-                    'name' => 'Sample Future College',
-                    'overview' => 'Fictional institution record for testing category browsing and profile presentation.',
-                    'province' => 'Sindh',
-                    'district' => 'Synthetic Karachi District',
-                    'city' => 'Karachi',
-                    'locality' => 'Preview Sector',
-                ],
-                [
-                    'type' => 'campus',
-                    'name' => 'Synthetic North Campus',
-                    'overview' => 'Fictional campus entry; no physical campus or address is implied.',
-                    'province' => 'Punjab',
-                    'district' => 'Synthetic Lahore District',
-                    'city' => 'Lahore',
-                    'locality' => 'Campus Demo Zone',
-                ],
-                [
-                    'type' => 'programme',
-                    'name' => 'Sample Computing Programme',
-                    'overview' => 'Fictional programme entry used to exercise programme category search.',
-                    'province' => 'Punjab',
-                    'district' => 'Synthetic Lahore District',
-                    'city' => 'Lahore',
-                    'locality' => 'Programme Demo Zone',
-                ],
-                [
-                    'type' => 'programme',
-                    'name' => 'Example Business Studies Programme',
-                    'overview' => 'Fictional programme entry; it is not an admissions offer.',
-                    'province' => 'Sindh',
-                    'district' => 'Synthetic Karachi District',
-                    'city' => 'Karachi',
-                    'locality' => 'Study Demo Zone',
-                ],
-                [
-                    'type' => 'qualification',
-                    'name' => 'Fictional Secondary Certificate',
-                    'overview' => 'Fictional qualification label for preview purposes only; it is not an accredited award.',
-                    'province' => 'Islamabad Capital Territory',
-                    'district' => 'Synthetic Capital District',
-                    'city' => 'Islamabad',
-                    'locality' => 'Qualification Demo Zone',
-                ],
+                ['type' => 'provider', 'name' => 'Demo Learning Network', 'overview' => 'Fictional provider record created only to demonstrate the private V2 directory preview.', 'province' => 'Punjab', 'district' => 'Synthetic Lahore District', 'city' => 'Lahore', 'locality' => 'Demo Quarter'],
+                ['type' => 'institution', 'name' => 'Example Knowledge Academy', 'overview' => 'Fictional institution record. This is not a real school and does not represent an operating provider.', 'province' => 'Punjab', 'district' => 'Synthetic Lahore District', 'city' => 'Lahore', 'locality' => 'Sample Block'],
+                ['type' => 'institution', 'name' => 'Sample Future College', 'overview' => 'Fictional institution record for testing category browsing and profile presentation.', 'province' => 'Sindh', 'district' => 'Synthetic Karachi District', 'city' => 'Karachi', 'locality' => 'Preview Sector'],
+                ['type' => 'campus', 'name' => 'Synthetic North Campus', 'overview' => 'Fictional campus entry; no physical campus or address is implied.', 'province' => 'Punjab', 'district' => 'Synthetic Lahore District', 'city' => 'Lahore', 'locality' => 'Campus Demo Zone'],
+                ['type' => 'programme', 'name' => 'Sample Computing Programme', 'overview' => 'Fictional programme entry used to exercise programme category search.', 'province' => 'Punjab', 'district' => 'Synthetic Lahore District', 'city' => 'Lahore', 'locality' => 'Programme Demo Zone'],
+                ['type' => 'programme', 'name' => 'Example Business Studies Programme', 'overview' => 'Fictional programme entry; it is not an admissions offer.', 'province' => 'Sindh', 'district' => 'Synthetic Karachi District', 'city' => 'Karachi', 'locality' => 'Study Demo Zone'],
+                ['type' => 'qualification', 'name' => 'Fictional Secondary Certificate', 'overview' => 'Fictional qualification label for preview purposes only; it is not an accredited award.', 'province' => 'Islamabad Capital Territory', 'district' => 'Synthetic Capital District', 'city' => 'Islamabad', 'locality' => 'Qualification Demo Zone'],
             ];
 
             $workflow = app(PersistedGovernanceWorkflowService::class);
@@ -139,14 +77,7 @@ final class PrivatePreviewDirectorySeeder extends Seeder
                     'city' => $example['city'],
                     'locality' => $example['locality'],
                 ] as $predicate => $value) {
-                    $this->publishSyntheticFact(
-                        $workflow,
-                        $entityId,
-                        $predicate,
-                        $value,
-                        $authorizationId,
-                        $now
-                    );
+                    $this->publishSyntheticFact($workflow, $entityId, $predicate, $value, $authorizationId, $now);
                 }
             }
 
@@ -224,21 +155,13 @@ final class PrivatePreviewDirectorySeeder extends Seeder
         ]);
 
         $caseId = $workflow->openAdjudicationCase(
-            [
-                'actor_id' => 'm3-12-synthetic-adjudicator',
-                'actor_class' => 'human',
-                'capabilities' => ['open_adjudication'],
-            ],
+            ['actor_id' => 'm3-12-synthetic-adjudicator', 'actor_class' => 'human', 'capabilities' => ['open_adjudication']],
             $versionId,
             'm3-12-preview-case-'.$versionId
         );
 
         $decisionId = $workflow->decideAdjudication(
-            [
-                'actor_id' => 'm3-12-synthetic-adjudicator',
-                'actor_class' => 'human',
-                'capabilities' => ['adjudicate_claim'],
-            ],
+            ['actor_id' => 'm3-12-synthetic-adjudicator', 'actor_class' => 'human', 'capabilities' => ['adjudicate_claim']],
             $caseId,
             'accepted',
             'synthetic_preview_fixture',
@@ -247,11 +170,7 @@ final class PrivatePreviewDirectorySeeder extends Seeder
         );
 
         $workflow->authorizePublication(
-            [
-                'actor_id' => 'm3-12-synthetic-publisher',
-                'actor_class' => 'human',
-                'capabilities' => ['authorize_publication'],
-            ],
+            ['actor_id' => 'm3-12-synthetic-publisher', 'actor_class' => 'human', 'capabilities' => ['authorize_publication']],
             $versionId,
             $decisionId,
             'directory',
