@@ -10,6 +10,21 @@ return new class extends Migration
 {
     public function up(): void
     {
+        Schema::create('programme_offer_fact_freshness_policies', function (Blueprint $table): void {
+            $table->uuid('id')->primary();
+            $table->string('policy_key', 100)->unique();
+            $table->string('category', 32);
+            $table->unsignedSmallInteger('freshness_days');
+            $table->string('owner_actor_id', 120);
+            $table->string('policy_version', 80);
+            $table->string('status', 24);
+            $table->timestamp('approved_at');
+            $table->timestamp('valid_from')->nullable();
+            $table->timestamp('valid_to')->nullable();
+            $table->timestamps();
+            $table->index(['category', 'status']);
+        });
+
         Schema::create('programme_offer_facts', function (Blueprint $table): void {
             $table->uuid('id')->primary();
             $table->foreignUuid('programme_offer_id')->constrained('programme_offers')->restrictOnDelete();
@@ -144,5 +159,6 @@ return new class extends Migration
         Schema::dropIfExists('programme_offer_fact_evidence_links');
         Schema::dropIfExists('programme_offer_fact_versions');
         Schema::dropIfExists('programme_offer_facts');
+        Schema::dropIfExists('programme_offer_fact_freshness_policies');
     }
 };
