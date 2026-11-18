@@ -27,7 +27,7 @@ Existing catalogue materialization tests remain the separate contract for accept
 ## Explicit limitations
 
 - No real institution, provider, source or student data is used.
-- No delivery-site-only offer is displayed unless the delivery location also has a supported public profile; this change does not add a new public delivery-site category.
+- Delivery-site-only offers remain withheld; this change does not add a public delivery-site category.
 - This is automated feature-test evidence, not browser visual acceptance, owner visual acceptance, manual accessibility testing, hosted isolation evidence, security certification, legal/privacy approval, or release acceptance.
 - No schema/migration, dependency, route, hosting, production, V1, Hostinger, deployment, public activation, pilot, external API/AI, paid feature or additional spend is included.
 - M3-11-05 hosted isolation, M3-11-06 recovery and M3-11-07 release-candidate readiness remain blocked and require their separate gates and authorizations.
