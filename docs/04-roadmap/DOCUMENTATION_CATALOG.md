@@ -1,5 +1,10 @@
 ## M3-11-05A-02 local preview fixture integrity hardening — 2026-11-18
 
+- PR [#287](https://github.com/mattari20/listing-v2/pull/287) merged as `d3520252ab9600d34d25d06fbe00d5b9c64d7999`; exact head `bf3a39ba878839807e8ea7326268f338089fae6e`; FND-01 PHP 8.5 CI #487 and documentation validation #916 passed.
+- [M3-11-05A-02 Local Preview Fixture Integrity Hardening](M3-11-05A-02_LOCAL_PREVIEW_FIXTURE_INTEGRITY_HARDENING_2026-11-18.md) — **Delivered and merged**; transactional fixture seeding and positive disposable-SQLite integration coverage. Browser preview remains deferred by plan.
+
+## M3-11-05A-02 local preview fixture integrity hardening — 2026-11-18
+
 - [M3-11-05A-02 Local Preview Fixture Integrity Hardening](M3-11-05A-02_LOCAL_PREVIEW_FIXTURE_INTEGRITY_HARDENING_2026-11-18.md) — **Implementation delivered — exact-head CI pending**; makes preview seeding atomic and adds positive synthetic publication checks using an isolated temporary SQLite file that is removed after the test.
 
 ## M3-11-05A local synthetic preview — 2026-11-18
