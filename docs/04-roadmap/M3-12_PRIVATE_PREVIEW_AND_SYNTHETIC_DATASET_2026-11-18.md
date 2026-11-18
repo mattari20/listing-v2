@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** `5e68ac4ba70db0461a902832cb6ed483640b9a4c`  
 **Branch:** `feature/m3-12-private-preview-dataset`  
-**Status:** PR #280 open and unmerged. PHP 8.5 foundation CI and documentation validation passed at validation commit `db5e90f7e8fb21e7d5bf21bc78b13646d712cb11`; final documentation reconciliation is receiving a fresh exact-head run.  
+**Status:** PR #280 open and unmerged. At validated revision `b84fd06666dfd29470da82eeec08a1c2b6e99c31`, PHP 8.5 foundation CI [#44212472885](https://github.com/mattari20/listing-v2/actions/runs/44212472885) and project documentation validation [#44212472908](https://github.com/mattari20/listing-v2/actions/runs/44212472908) both passed. A subsequent documentation-only evidence reconciliation is subject to fresh exact-head checks.  
 **Authorization:** Product Owner approved the bounded local-only synthetic preview package on 2026-11-18.
 
 ## 1. Purpose
