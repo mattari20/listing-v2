@@ -46,12 +46,12 @@ The following are proposed for the private V2 acceptance target, subject to Prod
 |---|---|---|
 | Default file channel | Daily rotating local file handler, rather than unbounded single file | **APPROVED BY PRODUCT OWNER — 2026-11-19** |
 | Log level | Warning and above for hosted private acceptance; local development may use a separately configured level | PROPOSED — NOT APPROVED |
-| Retention | Explicit bounded value; do not assume 14 days is approved merely because it is a config default | NOT DECIDED |
+| Retention | 30 days | **APPROVED BY PRODUCT OWNER — 2026-11-19** |
 | External forwarding | Disabled; no Slack, Papertrail, syslog service or third-party log vendor | **APPROVED TO REMAIN DISABLED — 2026-11-19** |
 | File location | V2-only private storage outside public document root | TARGET PATH NOT VERIFIED |
 | File permissions | Least-privilege read/write for the V2 runtime identity; no public/static access | NOT VERIFIED |
 | Access | Named authorized operators only; access evidence retained in restricted operational records | NOT ASSIGNED |
-| Deletion | Documented deletion process covering rotated files and any copies | NOT DEFINED |
+| Deletion | Delete rotated application log files older than the approved 30-day retention period; account for any copies/backup behavior in the later documented operational procedure | **30-DAY RETENTION APPROVED; OPERATIONAL DELETION PROCEDURE STILL TO BE DEFINED** |
 | Incident evidence | Preserve only the minimum sanitized evidence under an approved incident process | OWNER/PROCESS NOT ASSIGNED |
 
 No retention duration is selected in this record. The Product Owner must approve the retention period and deletion rule after the actual hosting storage and operational constraints are known. The weekly Hostinger backup preference is a backup cadence decision; it does not define log retention.
@@ -76,7 +76,8 @@ No hosted or browser verification is claimed. The online checks will be performe
 ## 6. Decisions and evidence still required
 
 - Product Owner approval recorded 2026-11-19: use the daily rotating local-file handler as the intended private V2 default; keep external forwarding disabled.
-- Product Owner-selected log retention duration and deletion rule remain pending.
+- Product Owner approved a 30-day application-log retention period on 2026-11-19.
+- The operational deletion procedure (including how any copies or backup-held log files are handled) remains to be defined and verified.
 - Confirmation of the approved private V2 storage location and filesystem permissions after the target is identified.
 - Named human owner for log access, retention/deletion and incident evidence.
 - Exact implementation authorization for a local/CI-only code-and-test change.
@@ -92,8 +93,8 @@ V2 repository-only preparation continues. No V1 or existing eStudent.pk resource
 
 ## 8. Handoff
 
-The channel choice and external-forwarding prohibition are now approved. Before implementation, the Product Owner must still select the retention duration and deletion rule, and the storage/access operational details must be resolved when the private V2 target is identified. A separate explicit authorization for the narrow local/CI implementation remains required. Hosted configuration and online verification remain a later gate after the GitHub–Hostinger deployment connection is established and exact hosted actions are separately authorized.
+The daily rotating channel, disabled external forwarding and 30-day retention period are now approved. Before implementation, the operational deletion procedure and storage/access details must be defined against the private V2 target. A separate explicit authorization for the narrow local/CI implementation remains required. Hosted configuration and online verification remain a later gate after the GitHub–Hostinger deployment connection is established and exact hosted actions are separately authorized.
 
-**SEC-06 disposition:** DAILY ROTATING DEFAULT AND DISABLED EXTERNAL FORWARDING APPROVED; RETENTION/DELETION AND OPERATIONAL DETAILS PENDING; IMPLEMENTATION NOT AUTHORIZED.  
+**SEC-06 disposition:** DAILY ROTATING DEFAULT, DISABLED EXTERNAL FORWARDING AND 30-DAY RETENTION APPROVED; OPERATIONAL DELETION PROCEDURE AND STORAGE/ACCESS DETAILS PENDING; IMPLEMENTATION NOT AUTHORIZED.  
 **M3-11-05:** BLOCKED / NOT ACCEPTED.  
 **M3-11 overall:** BLOCKED / NOT ACCEPTED.
