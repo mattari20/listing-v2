@@ -1,3 +1,4 @@
+- [M3-11-02 Product Owner Internal Data and Privacy Review](04-roadmap/M3-11-02_OWNER_INTERNAL_DATA_PRIVACY_REVIEW_2026-11-18.md) — preliminary code/config evidence, findings DP-01–DP-06 and owner dispositions pending; no environment or legal certification.
 - [M3-11 Product Owner-Led Internal Review Model](04-roadmap/M3-11_PRODUCT_OWNER_LED_INTERNAL_REVIEW_MODEL_2026-11-18.md) — current owner decision, internal review workflow, role-concentration limitation and retained release/operations blockers.
 - [M3-11 Gate Resolution Coordination Plan](04-roadmap/M3-11_GATE_RESOLUTION_COORDINATION_PLAN_2026-11-17.md) — sequencing, accountable evidence sources, permissible next actions and stop conditions for M3-11 blockers.
 - [M3-11 Owner Decisions and Evidence Intake](04-roadmap/M3-11_OWNER_DECISIONS_AND_EVIDENCE_INTAKE_2026-11-17.md) — blank Product Owner decision and human role/evidence intake worksheet; no appointments or approvals implied.
