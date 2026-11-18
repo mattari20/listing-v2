@@ -35,7 +35,7 @@ final class SafeLogContextProcessorTest extends TestCase
             ],
         );
 
-        $processed = (new SafeLogContextProcessor())($record);
+        $processed = (new SafeLogContextProcessor)($record);
 
         self::assertSame([
             'event_code' => 'SEC06.CLEANUP',
