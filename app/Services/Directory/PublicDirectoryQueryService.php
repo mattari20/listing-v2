@@ -427,7 +427,7 @@ final class PublicDirectoryQueryService
         $programmeRows = DB::table('programme_catalogue_entries')
             ->whereIn('institution_entity_id', $institutionIds)
             ->where('status', 'active')
-            ->get(['entity_id', 'institution_entity_id', 'claim_version_id']);
+            ->get(['entity_id', 'institution_entity_id', 'title', 'claim_version_id']);
         $programmeIds = $programmeRows->pluck('entity_id')->all();
         $offerQuery = DB::table('programme_offers')->where('status', 'active');
         $offerRows = $programmeIds === []
