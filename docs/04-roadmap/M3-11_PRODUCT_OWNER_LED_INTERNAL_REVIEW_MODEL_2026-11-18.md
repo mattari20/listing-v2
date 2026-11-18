@@ -97,3 +97,12 @@ This addendum changes who conducts the current internal review; it does not clai
 5. Reconcile M3-11-05 onward only when their exact prerequisites and separate authorizations exist.
 
 **No gate is passed merely by merging this addendum.**
+
+
+## 8. Product Owner scope disposition — 2026-11-18
+
+**Decision:** ACCEPTED by the Product Owner for the current M3-11-02 internal review baseline.
+
+The accepted scope is private development and acceptance using synthetic data only. It excludes real students, institutions and personal records; public launch; participant testing; and any Deeni Madaris exposure. Deeni Madaris remains excluded and default-OFF.
+
+This is an internal project-scope decision, not a legal opinion or a finding that all privacy, source-rights, safeguarding or regulatory questions have been resolved. The remaining M3-11-02 checklist must still be reviewed and dispositioned. Any material change to data, sources, users, public exposure or product scope requires renewed owner review.
