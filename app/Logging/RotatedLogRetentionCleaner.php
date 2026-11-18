@@ -48,7 +48,7 @@ final class RotatedLogRetentionCleaner
         }
 
         $pattern = '/^'.preg_quote($filenamePrefix, '/').'-(\d{4}-\d{2}-\d{2})\.'.preg_quote($extension, '/').'$/D';
-        $cutoff = $now->modify('-'.$retentionDays.' days');
+        $cutoff = $now->setTime(0, 0)->modify('-'.$retentionDays.' days');
         $deleted = [];
 
         try {
