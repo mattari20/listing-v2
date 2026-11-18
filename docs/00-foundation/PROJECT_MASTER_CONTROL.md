@@ -1,5 +1,11 @@
 ## Latest authoritative position — M3-11-05A-04 five-city preview acceptance matrix (2026-11-18)
 
+PR #291 merged as `43b518439ba1dec27e9a93acad4f6d7664d21776` from exact head `f081358661dbaf38f6c9d9a90f7ff2e3380ff386`; FND-01 PHP 8.5 CI #491 and documentation validation #924 passed. The positive temporary-SQLite integration test verifies all five fictional profiles across anonymous category inclusion, distinct-token search, locality filtering and direct profile response for Lahore, Karachi, Peshawar, Quetta and Islamabad. The temporary database is removed after the test. This is automated HTTP evidence, not browser or visual acceptance. Preview visual review remains deferred until implementation agendas are complete. M3-11-05 hosted isolation and M3-11-06 recovery remain blocked; no hosted access, production, V1, deployment, public launch or release is authorized.
+
+---
+
+## Latest authoritative position — M3-11-05A-04 five-city preview acceptance matrix (2026-11-18)
+
 The local synthetic preview route regression is expanded to all five fictional profiles. The temporary-SQLite integration test checks category inclusion, distinct-name search, locality filtering and direct profile responses for Lahore, Karachi, Peshawar, Quetta and Islamabad fixtures. Exact-head CI and documentation validation are pending; no merge is claimed. Browser visual review remains deferred until planned implementation agendas are complete. Hosted M3-11-05 and recovery M3-11-06 remain blocked; no hosted access, production, V1, deployment, public launch or release is authorized.
 
 ---
