@@ -34,6 +34,10 @@
 
 - [M3-11 Product Owner-Led Internal Review Model](M3-11_PRODUCT_OWNER_LED_INTERNAL_REVIEW_MODEL_2026-11-18.md) — **Delivered — owner review pending**; records the owner's decision to conduct internal review without appointing external reviewers at this stage, defines AI-assistance limits and preserves professional-assurance, staffing, environment, recovery and release blockers. No gate is passed by delivery.
 
+## M3-11-02 Product Owner internal data/privacy review — 2026-11-18
+
+- [M3-11-02 Product Owner Internal Data and Privacy Review](M3-11-02_OWNER_INTERNAL_DATA_PRIVACY_REVIEW_2026-11-18.md) — **Delivered — owner disposition pending**; preliminary repository/configuration evidence DP-01–DP-06, bounded test observations and unresolved environment/logging/legal facts. Not a legal opinion or completed privacy assessment.
+
 # Documentation Completion Catalogue
 
 **Project:** eStudent Institutes V2  
