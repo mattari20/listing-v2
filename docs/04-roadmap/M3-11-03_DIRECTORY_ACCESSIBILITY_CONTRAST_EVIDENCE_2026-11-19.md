@@ -62,7 +62,7 @@ No WCAG 2.2 AA conformance claim is made. A browser-based accessibility review r
 
 ## 6. Security and scope boundary
 
-The existing four global security response headers already have a dedicated synthetic feature regression in `tests/Feature/SecurityHeadersTest.php`; this work does not duplicate it. CSP/HSTS remain deferred to an HTTPS target-specific policy decision. SEC-06 logging policy is separately documented in PR #308 and has not been implemented or approved.
+The existing four global security response headers already have a dedicated synthetic feature regression in `tests/Feature/SecurityHeadersTest.php`; this work does not duplicate it. CSP/HSTS remain deferred to an HTTPS target-specific policy decision. SEC-06 logging policy is documented in PR #308; its separately authorized local/CI implementation is tracked in PR #312. Hosted logging configuration and runtime verification remain pending.
 
 No dependency, application route, database/schema, logging configuration, external service or hosted setting was changed. No Hostinger/hPanel, V1/production, live database, real data, backup, migration, deployment, public activation, pilot, release candidate or spend occurred.
 
