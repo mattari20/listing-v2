@@ -1,6 +1,6 @@
 # M3-11-05A-05 — Governed public campus, programme and offer display
 
-**Status:** Implementation submitted for exact-head CI review.  
+**Status:** Implementation delivered; exact-head PHP 8.5 foundation CI and project-document validation passed.  
 **Scope:** Synthetic-only implementation and automated tests for the private V2 directory code. This does not activate a public or hosted directory.
 
 ## Delivered in this change
