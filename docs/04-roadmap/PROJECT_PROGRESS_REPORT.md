@@ -1,5 +1,9 @@
 ## Latest verified position — M3-11-05A-02 fixture integrity hardening (2026-11-18)
 
+PR #287 merged as `d3520252ab9600d34d25d06fbe00d5b9c64d7999`; exact head `bf3a39ba878839807e8ea7326268f338089fae6e`; FND-01 PHP 8.5 CI #487 and documentation validation #916 passed. The seeder creates the five fictional institution profiles and their evidence/adjudication/publication chain atomically. Positive integration tests use a disposable temporary SQLite file and confirm 30 approved public projections, no Deeni Madaris projection and no child/student/guardian/staff-related predicates. The temporary file is removed in test cleanup. Browser preview remains deferred until implementation agendas are complete. M3-11-05 hosted isolation and M3-11-06 recovery remain blocked.
+
+## Latest verified position — M3-11-05A-02 fixture integrity hardening (2026-11-18)
+
 Implementation delivered on branch `test/m3-11-05a-fixture-integrity` for exact-head validation. Local preview fixture creation now uses a single database transaction. Feature coverage includes the non-local guard and a positive integration test against a uniquely named temporary SQLite database, checking five fictional entities, 30 claims, 30 snapshots, 30 non-Deeni-Madaris public projections and absence of child/student/guardian/staff-related predicates. The temporary database is disconnected and deleted in test cleanup. CI and documentation validation have not yet completed; no merge is claimed. Browser preview remains intentionally deferred until planned implementation agendas are complete. Hosted environment isolation and backup/recovery remain blocked.
 
 ## Latest verified position — M3-11-05A local synthetic preview (2026-11-18)
