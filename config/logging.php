@@ -1,4 +1,5 @@
 <?php
+use App\Logging\SafeLogContextProcessor;
 
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
@@ -73,7 +74,7 @@ return [
             ],
             'level' => env('LOG_LEVEL', 'warning'),
             'processors' => [
-                App\\Logging\\SafeLogContextProcessor::class,
+                SafeLogContextProcessor::class,
                 PsrLogMessageProcessor::class,
             ],
             'replace_placeholders' => true,
