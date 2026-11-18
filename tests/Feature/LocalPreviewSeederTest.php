@@ -82,28 +82,65 @@ final class LocalPreviewSeederTest extends TestCase
                 DB::table('claims')->whereIn('predicate', $forbiddenPredicates)->count()
             );
 
-            $this->get('/directory?q=Crescent&type=institution')
-                ->assertOk()
-                ->assertSee('Synthetic Crescent Learning Institute')
-                ->assertDontSee('Synthetic Riverbend College');
+            $expectedProfiles = [
+                [
+                    'name' => 'Synthetic Crescent Learning Institute',
+                    'search' => 'Crescent',
+                    'locality' => 'Gulberg',
+                    'city' => 'Lahore',
+                ],
+                [
+                    'name' => 'Synthetic Riverbend College',
+                    'search' => 'Riverbend',
+                    'locality' => 'Gulshan',
+                    'city' => 'Karachi',
+                ],
+                [
+                    'name' => 'Synthetic Frontier Skills Academy',
+                    'search' => 'Frontier',
+                    'locality' => 'University Road',
+                    'city' => 'Peshawar',
+                ],
+                [
+                    'name' => 'Synthetic Makran Science College',
+                    'search' => 'Makran',
+                    'locality' => 'Jinnah Town',
+                    'city' => 'Quetta',
+                ],
+                [
+                    'name' => 'Synthetic Capital Research Institute',
+                    'search' => 'Capital',
+                    'locality' => 'G-10',
+                    'city' => 'Islamabad',
+                ],
+            ];
 
-            $this->get('/directory?locality=Gulberg')
-                ->assertOk()
-                ->assertSee('Synthetic Crescent Learning Institute')
-                ->assertDontSee('Synthetic Riverbend College');
+            $allInstitutions = $this->get('/directory?type=institution')->assertOk();
+            foreach ($expectedProfiles as $profile) {
+                $allInstitutions->assertSee($profile['name']);
 
-            $crescent = DB::table('directory_entities')
-                ->where('label', 'like', '%Synthetic Crescent Learning Institute')
-                ->value('id');
+                $this->get('/directory?'.http_build_query([
+                    'q' => $profile['search'],
+                    'type' => 'institution',
+                ]))
+                    ->assertOk()
+                    ->assertSee($profile['name']);
 
-            $this->assertIsString($crescent);
-            $this->get('/directory/'.$crescent)
-                ->assertOk()
-                ->assertSee('Synthetic Crescent Learning Institute')
-                ->assertSee('Fictional example institution for checking directory cards and profile presentation.')
-                ->assertSee('Punjab')
-                ->assertSee('Lahore')
-                ->assertSee('Gulberg');
+                $this->get('/directory?'.http_build_query(['locality' => $profile['locality']]))
+                    ->assertOk()
+                    ->assertSee($profile['name']);
+
+                $entityId = DB::table('directory_entities')
+                    ->where('label', 'LOCAL PREVIEW ONLY — FICTIONAL '.$profile['name'])
+                    ->value('id');
+
+                $this->assertIsString($entityId);
+                $this->get('/directory/'.$entityId)
+                    ->assertOk()
+                    ->assertSee($profile['name'])
+                    ->assertSee($profile['city'])
+                    ->assertSee($profile['locality']);
+            }
         } finally {
             DB::disconnect('sqlite');
             @unlink($databasePath);
