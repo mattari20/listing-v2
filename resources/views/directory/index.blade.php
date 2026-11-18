@@ -16,6 +16,9 @@
         input, select, button { width: 100%; min-height: 2.75rem; padding: .55rem; border: 1px solid #8b95a5; border-radius: .35rem; font: inherit; }
         button { cursor: pointer; background: #172033; color: #fff; border-color: #172033; }
         a { color: #174ea6; }
+        a:focus-visible, input:focus-visible, select:focus-visible, button:focus-visible { outline: 3px solid #005fcc; outline-offset: 3px; }
+        .skip-link { position: absolute; z-index: 10; top: 1rem; left: 1rem; padding: .75rem 1rem; color: #005fcc; background: #fff; border: 2px solid #005fcc; border-radius: .35rem; transform: translateY(-200%); }
+        .skip-link:focus { transform: translateY(0); }
         .results { display: grid; gap: .75rem; margin-top: 1rem; }
         .meta, .notice { color: #4b5563; font-size: .94rem; }
         .facets { margin-top: 1rem; }
@@ -24,7 +27,8 @@
     </style>
 </head>
 <body>
-<main>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<main id="main-content" tabindex="-1">
     <header>
         <h1>Education Directory</h1>
         <p>Find providers, institutions, campuses, programmes and qualifications using publicly approved information.</p>
