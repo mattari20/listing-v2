@@ -30,6 +30,14 @@
 - [Post-M3 Scope and Gap Reconciliation](POST_M3_SCOPE_AND_GAP_RECONCILIATION_2026-11-17.md) — **Delivered — review pending**; maps historical M4–M12 labels to existing M3 synthetic implementation, deferred features and mandatory release gates. It does not authorize M4 code or M3-11 production release.
 - Exact PR-head checks and merge evidence must be recorded before acceptance; this entry is not an acceptance claim.
 
+## M3-11 Product Owner-led internal review model — 2026-11-18
+
+- [M3-11 Product Owner-Led Internal Review Model](M3-11_PRODUCT_OWNER_LED_INTERNAL_REVIEW_MODEL_2026-11-18.md) — **Delivered — owner review pending**; records the owner's decision to conduct internal review without appointing external reviewers at this stage, defines AI-assistance limits and preserves professional-assurance, staffing, environment, recovery and release blockers. No gate is passed by delivery.
+
+## M3-11-02 Product Owner internal data/privacy review — 2026-11-18
+
+- [M3-11-02 Product Owner Internal Data and Privacy Review](M3-11-02_OWNER_INTERNAL_DATA_PRIVACY_REVIEW_2026-11-18.md) — **Delivered — owner disposition pending**; preliminary repository/configuration evidence DP-01–DP-06, bounded test observations and unresolved environment/logging/legal facts. Not a legal opinion or completed privacy assessment.
+
 # Documentation Completion Catalogue
 
 **Project:** eStudent Institutes V2  
@@ -1261,6 +1269,27 @@ The R13 repository desk review assessed all twelve scenarios (R01–R12) in the 
 |---|---|---|
 | [M3-11-01 Scope and Authority Closeout](M3-11-01_SCOPE_AND_AUTHORITY_CLOSEOUT_2026-11-17.md) | Records standardized M3-11-01…M3-11-10 numbering, Option A, private acceptance-only target, synthetic-only data and explicit no-pilot boundary | **CLOSED — scope/authority definition only; M3-11 remains blocked** |
 
+
+## M3-11-02 Product Owner internal review evidence — 2026-11-18
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-11-02 Product Owner Internal Data and Privacy Review](M3-11-02_OWNER_INTERNAL_DATA_PRIVACY_REVIEW_2026-11-18.md) | AI-assisted repository/configuration evidence for account/session data, audit metadata, logging and bounded privacy tests; DP-01–DP-06 dispositions recorded by Product Owner | Delivered — internal synthetic-scope dispositions only; target-specific facts and M3-11-02 gate remain blocked |
+| [M3-11-02 Child Safeguarding and Sensitive-Data Review](M3-11-02_CHILD_SAFEGUARDING_SENSITIVE_DATA_REVIEW_2026-11-18.md) | Repository inspection of child/minor data boundaries, public projection, generic registry field types and Deeni Madaris exclusion | Delivered — preliminary evidence review; CS-01–CS-05 owner dispositions pending; no legal/safeguarding certification |
+
+## M3-11-04 owner-led private development operations disposition — 2026-11-18
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-11-04 Owner-Led Private Development Operations Disposition](M3-11-04_OWNER_LED_PRIVATE_DEVELOPMENT_OPERATIONS_DISPOSITION_2026-11-18.md) | Limits the current repository-only synthetic development scope to Product Owner accountability; defers nine-role operational staffing until hosted acceptance, participants, support or release are proposed | Delivered — current internal-development scope closed; hosted/participant/release operations remain blocked; 0/9 role acceptances unchanged |
+
+## M3-11-03 Product Owner internal security/accessibility desk review — 2026-11-18
+
+| Document | Purpose | Status |
+|---|---|---|
+| [M3-11-03 Product Owner Internal Security and Accessibility Desk Review](M3-11-03_PRODUCT_OWNER_INTERNAL_SECURITY_ACCESSIBILITY_DESK_REVIEW_2026-11-18.md) | Internal repository inspection of security headers, session configuration, authentication, scoped authorization, route throttling, public projection and directory accessibility | Delivered — internal evidence only; findings SEC-01–SEC-07 and A11Y-01–A11Y-04 recorded; independent review and WCAG conformance not claimed |
+
+The review identifies bounded positive evidence and remaining code/config/accessibility gaps. It does not authorize environment provisioning, active hosted testing, production access or release.
 
 ## M3-11-02 legal/privacy/safeguarding reviewer preparation — 2026-11-17
 
