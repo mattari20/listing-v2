@@ -38,9 +38,9 @@ Where diagnostic correlation is required, use a non-sensitive event code and a g
 
 These are design requirements; no implementation or log inspection is claimed.
 
-## 4. Proposed channel and retention decisions — owner approval required
+## 4. Approved channel and retention decisions — target verification pending
 
-The following are proposed for the private V2 acceptance target, subject to Product Owner approval and confirmation against the actual Hostinger runtime:
+The channel, log-level, retention and forwarding decisions below have Product Owner approval for the future private V2 acceptance target. Their effective runtime behavior remains unverified until a separately authorized private V2 environment exists. Storage, permissions, access and operational deletion details remain pending:
 
 | Decision | Proposed baseline | Current disposition |
 |---|---|---|
@@ -75,7 +75,7 @@ No hosted or browser verification is claimed. The online checks will be performe
 
 ## 6. Decisions and evidence still required
 
-- Product Owner approval recorded 2026-11-19: use the daily rotating local-file handler as the intended private V2 default; keep external forwarding disabled.
+- Approved 2026-11-19: use the daily rotating local-file handler as the intended private V2 default; keep external forwarding disabled.
 - Product Owner approved a 30-day application-log retention period on 2026-11-19.
 - Product Owner approved Warning and above as the hosted private V2 log level on 2026-11-19; local development may use a separately configured level.
 - Proposed active-log deletion rule: automatically remove rotated files older than 30 days from the active V2 log directory.
