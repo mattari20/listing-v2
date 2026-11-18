@@ -1,5 +1,9 @@
 ## Latest verified position — M3-11-05A local synthetic preview (2026-11-18)
 
+PR #285 merged as `d3e554cd296d3edc23da52d9ffaefc01244c2cb4`; exact head `5f6cffa984677ed8531b348b6cc2a141462007c2`; FND-01 PHP 8.5 CI #485 and documentation validation #912 passed. The explicit local-only seeder creates five fictional institution profiles through existing governance/publication workflows and is guarded by APP_ENV=local, SQLite, dedicated `.local-preview.sqlite` filename and LOCAL_PREVIEW_SEED=allow. The test suite verifies refusal in the PHPUnit/testing environment. Browser preview and owner visual inspection remain pending local execution. This does not close hosted M3-11-05 or recovery M3-11-06, and it does not authorize deployment or release.
+
+## Latest verified position — M3-11-05A local synthetic preview (2026-11-18)
+
 M3-11-05A implementation delivered on a feature branch for exact-head review. The explicit local-only seeder defines five fictional institution profiles spanning Lahore, Karachi, Peshawar, Quetta and Islamabad; publication uses the existing governance workflow. The seeder is excluded from default seeding and requires APP_ENV=local, SQLite, the dedicated `.local-preview.sqlite` filename and LOCAL_PREVIEW_SEED=allow. A PHPUnit test verifies refusal under APP_ENV=testing. Browser preview and owner visual inspection remain pending local execution. This does not close hosted M3-11-05 or recovery M3-11-06, and it does not authorize deployment or release.
 
 ## Latest verified position — M3-11 gate-resolution coordination (2026-11-17)
