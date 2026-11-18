@@ -12,7 +12,7 @@
 - The default stack contains only the daily channel.
 - Configured level baseline is Warning and above.
 - The custom Monolog rotating handler disables count-based garbage collection and invokes an age-based cleaner on rotation.
-- The cleaner matches only the exact daily rotated filename pattern for the configured basename and extension.
+- The cleaner matches only the exact daily rotated filename pattern for the configured basename and extension. Its 30-day cutoff is date-based (midnight in the configured rotation timezone), not dependent on the time of day the cleanup happens.
 - Only matching regular files with rotation dates strictly earlier than the 30-day cutoff are removed.
 - Files at or newer than the cutoff, the current day's file, unrelated names, backup-like suffixes, nested files and symlink entries are preserved.
 - The structured-context processor retains only bounded \`event_code\` and \`correlation_id\` strings; all other structured context is dropped.
@@ -22,9 +22,9 @@
 
 | Check | Run | Result |
 |---|---:|---|
-| FND-01 foundation CI | #567 | PASS |
-| Project documentation validation | #1011 | PASS |
-| Composer manifest validation | Within #567 | PASS |
+| FND-01 foundation CI | #573 | PASS |
+| Project documentation validation | #1017 | PASS |
+| Composer manifest validation | Within #573 | PASS |
 | Locked dependency installation | Within #567 | PASS |
 | Composer security audit | Within #567 | PASS — no advisories reported |
 | Pint formatting | Within #567 | PASS |
