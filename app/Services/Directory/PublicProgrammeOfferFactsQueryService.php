@@ -43,7 +43,7 @@ final class PublicProgrammeOfferFactsQueryService
             ->where('adjudication_decisions.actor_class', 'human')
             ->whereColumn('adjudication_cases.fact_version_id', 'versions.id')
             ->where('versions.disposition', 'accepted')
-            ->whereIn('versions.fact_state', ['known', 'not_stated', 'not_applicable'])
+            ->whereIn('versions.fact_state', ['known', 'unknown', 'not_stated', 'not_applicable', 'conflicting'])
             ->where('institutions.entity_type', '!=', 'deeni_madaris')
             ->whereNotExists(function ($query): void {
                 $query->selectRaw('1')
@@ -107,12 +107,12 @@ final class PublicProgrammeOfferFactsQueryService
             if ($row->valid_to !== null && $row->valid_to < now()->toDateString()) {
                 continue;
             }
-            if ($row->fact_state === 'known') {
-                if ($row->observed_at === null || $row->freshness_policy_key === null ||
+            $displayState = (string) $row->fact_state;
+            if ($row->fact_state === 'known' &&
+                ($row->observed_at === null || $row->freshness_policy_key === null ||
                     $row->freshness_days === null ||
-                    now()->greaterThanOrEqualTo(now()->parse($row->observed_at)->addDays((int) $row->freshness_days))) {
-                    continue;
-                }
+                    now()->greaterThanOrEqualTo(now()->parse($row->observed_at)->addDays((int) $row->freshness_days)))) {
+                $displayState = 'stale';
             }
 
             $evidenceRows = $evidenceByVersion->get($row->fact_version_id, collect());
@@ -170,7 +170,7 @@ final class PublicProgrammeOfferFactsQueryService
                 'key' => (string) $row->fact_key,
                 'label' => ucwords(str_replace('_', ' ', (string) $row->fact_key)),
                 'category' => (string) $row->category,
-                'state' => (string) $row->fact_state,
+                'state' => $displayState,
                 'value' => $value,
                 'observed_at' => $row->observed_at,
             ];
