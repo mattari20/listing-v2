@@ -214,8 +214,7 @@ final class LocalPreviewSeeder extends Seeder
         int $entityIndex,
         string $field,
         bool $catalogueValue = false
-    ): string
-    {
+    ): string {
         $now = now();
         $authorizationId = (string) Str::uuid();
         $evidenceId = (string) Str::uuid();
