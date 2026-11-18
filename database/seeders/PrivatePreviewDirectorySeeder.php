@@ -31,6 +31,10 @@ final class PrivatePreviewDirectorySeeder extends Seeder
         }
 
         DB::transaction(function (): void {
+            if (DB::table('governance_outbox')->whereIn('status', ['pending', 'processing'])->exists()) {
+                throw new RuntimeException('Existing pending or leased governance outbox events must be handled separately before preview seeding.');
+            }
+
             $now = now();
             $authorizationId = (string) Str::uuid();
 
@@ -81,7 +85,11 @@ final class PrivatePreviewDirectorySeeder extends Seeder
                 }
             }
 
-            $workflow->processOutbox();
+            $expectedPublications = count($examples) * 6;
+            $processed = $workflow->processOutbox(100);
+            if ($processed !== $expectedPublications) {
+                throw new RuntimeException('Not every synthetic preview publication was projected; the seed transaction has been rolled back.');
+            }
         });
 
         $this->command?->info('Created 7 fictional private-preview entities across all 5 supported directory categories.');
