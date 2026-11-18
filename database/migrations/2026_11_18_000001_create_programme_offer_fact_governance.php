@@ -13,6 +13,7 @@ return new class extends Migration
         Schema::create('programme_offer_fact_freshness_policies', function (Blueprint $table): void {
             $table->uuid('id')->primary();
             $table->string('policy_key', 100)->unique();
+            $table->string('idempotency_key', 160)->unique();
             $table->string('category', 32);
             $table->unsignedSmallInteger('freshness_days');
             $table->string('owner_actor_id', 120);
