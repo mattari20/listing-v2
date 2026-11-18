@@ -460,6 +460,9 @@ final class PublicDirectoryQueryService
             if (($publishedClaims[$claimId]['predicate'] ?? null) !== 'delivery_site' ||
                 is_array($publishedClaims[$claimId]['value'] ?? null) === false ||
                 ($publishedClaims[$claimId]['value']['institution_entity_id'] ?? null) !== (string) $row->institution_entity_id ||
+                ($publishedClaims[$claimId]['subject_entity_id'] ?? null) !== $entityId ||
+                ($publishedClaims[$claimId]['valid_from'] ?? null) !== $row->valid_from ||
+                ($publishedClaims[$claimId]['valid_to'] ?? null) !== $row->valid_to ||
                 isset($profiles[$entityId]) === false ||
                 $this->catalogueRecordIsCurrent($row->valid_from, $row->valid_to) === false) {
                 continue;
