@@ -24,6 +24,17 @@ final class ProgrammeOfferFactWorkflowService
         }
 
         return DB::transaction(function () use ($actor, $policyKey, $category, $freshnessDays, $policyVersion, $idempotencyKey): string {
+            $existingByKey = DB::table('programme_offer_fact_freshness_policies')->where('idempotency_key', $idempotencyKey)->first();
+            if ($existingByKey !== null) {
+                if ($existingByKey->policy_key !== $policyKey || $existingByKey->category !== $category ||
+                    (int) $existingByKey->freshness_days !== $freshnessDays ||
+                    $existingByKey->owner_actor_id !== $actor['actor_id'] ||
+                    $existingByKey->policy_version !== $policyVersion) {
+                    $this->reject('idempotency_key', 'Freshness policy idempotency key was reused for a different command.');
+                }
+
+                return (string) $existingByKey->id;
+            }
             $existing = DB::table('programme_offer_fact_freshness_policies')->where('policy_key', $policyKey)->first();
             if ($existing !== null) {
                 if ($existing->category !== $category || (int) $existing->freshness_days !== $freshnessDays ||
