@@ -73,27 +73,29 @@ final class LocalPreviewSeeder extends Seeder
             );
         }
 
-        foreach (self::INSTITUTIONS as $index => $institution) {
-            $entityId = (string) Str::uuid();
-            $now = now();
+        DB::transaction(function (): void {
+            foreach (self::INSTITUTIONS as $index => $institution) {
+                $entityId = (string) Str::uuid();
+                $now = now();
 
-            DB::table('directory_entities')->insert([
-                'id' => $entityId,
-                'entity_type' => 'institution',
-                'label' => self::MARKER.' '.$institution['name'],
-                'created_at' => $now,
-                'updated_at' => $now,
-            ]);
+                DB::table('directory_entities')->insert([
+                    'id' => $entityId,
+                    'entity_type' => 'institution',
+                    'label' => self::MARKER.' '.$institution['name'],
+                    'created_at' => $now,
+                    'updated_at' => $now,
+                ]);
 
-            foreach ($institution as $field => $value) {
-                $predicate = match ($field) {
-                    'name' => 'display_name',
-                    default => $field,
-                };
+                foreach ($institution as $field => $value) {
+                    $predicate = match ($field) {
+                        'name' => 'display_name',
+                        default => $field,
+                    };
 
-                $this->publishSyntheticFact($entityId, $predicate, $value, $index, $field);
+                    $this->publishSyntheticFact($entityId, $predicate, $value, $index, $field);
+                }
             }
-        }
+        });
 
         $this->command?->info('Created 5 fictional institution profiles for local preview only.');
         $this->command?->info('No real institution, student, child, guardian or staff records were used.');
