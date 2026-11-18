@@ -1,3 +1,7 @@
+## Latest verified position — M3-11-05A local synthetic preview (2026-11-18)
+
+M3-11-05A implementation delivered on a feature branch for exact-head review. The explicit local-only seeder defines five fictional institution profiles spanning Lahore, Karachi, Peshawar, Quetta and Islamabad; publication uses the existing governance workflow. The seeder is excluded from default seeding and requires APP_ENV=local, SQLite, the dedicated `.local-preview.sqlite` filename and LOCAL_PREVIEW_SEED=allow. A PHPUnit test verifies refusal under APP_ENV=testing. Browser preview and owner visual inspection remain pending local execution. This does not close hosted M3-11-05 or recovery M3-11-06, and it does not authorize deployment or release.
+
 ## Latest verified position — M3-11 gate-resolution coordination (2026-11-17)
 
 PR #276 M3-11-08 decision-pack preparation merged as `e226fdbef1f24314c2a0c4399403342ced158ef3`; exact-head PHP 8.5 foundation CI #44054165587 and documentation validation #44054165564 passed, and main was verified identical to the merge. M3-11-08 remains BLOCKED / NOT DECIDED. Current work adds a repository-only coordination plan and blank Product Owner/human evidence intake worksheet. These do not appoint reviewers/owners or grant operational authorization. M3-11-02–M3-11-06 substantive gates remain blocked; M3-11-07 has no candidate; M3-11-09 remains NOT AUTHORIZED. M3-11 overall remains BLOCKED / NOT ACCEPTED.
