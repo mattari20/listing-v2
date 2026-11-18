@@ -517,7 +517,7 @@ final class ProgrammeOfferFactWorkflowService
             checkdate((int) $parts[2], (int) $parts[3], (int) $parts[1]);
     }
 
-    private function evidenceRows(string $versionId): \Illuminate\Support\Collection
+    private function evidenceRows(string $versionId): Collection
     {
         return DB::table('programme_offer_fact_evidence_links')
             ->join('evidence_references', 'evidence_references.id', '=', 'programme_offer_fact_evidence_links.evidence_reference_id')
