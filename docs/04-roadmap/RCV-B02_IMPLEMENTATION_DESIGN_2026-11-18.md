@@ -15,6 +15,15 @@ Every fact is anchored to exactly one existing `programme_offers.id`. The offer 
 
 The new path uses dedicated fact identity, immutable fact versions, evidence links, human adjudication, human publication decisions, immutable snapshots, public projections and suppression records. Existing `evidence_references`, `source_authorizations` and `GovernancePolicy` are reused only through explicit checks. Existing claim, adjudication and publication tables/services remain unchanged.
 
+The implementation migration creates:
+- `programme_offer_fact_freshness_policies`: immutable, owner-approved, category-specific freshness policies with a positive day limit, owner identity and policy version.
+- `programme_offer_facts` and `programme_offer_fact_versions`: offer-bound fact identity, version number, typed JSON value, state, disposition, observation/validity and freshness policy snapshot, successor and idempotency.
+- `programme_offer_fact_evidence_links`: version-to-existing-evidence references.
+- Dedicated fact adjudication case/decision tables.
+- Dedicated fact publication decision/snapshot/projection/suppression tables.
+
+The separate `ProgrammeOfferFactWorkflowService` owns submission, owner policy approval, adjudication, publication, correction, withdrawal and suppression. `PublicProgrammeOfferFactsQueryService` resolves only approved projections through the exact offer, programme and delivery location, rechecks current source authorization and evidence, and derives stale state at read time.
+
 ## 2. Initial fact categories
 
 - `eligibility`
@@ -26,11 +35,12 @@ A stable `fact_key` identifies a fact within one offer. Multiple fee components 
 
 ## 3. Fact states and temporal rules
 
-Supported states: `known`, `unknown`, `not_stated`, `not_applicable`, `conflicting`, `withdrawn`.
+Supported states: `known`, `unknown`, `not_stated`, `not_applicable`, `conflicting`, `withdrawn`; `stale` is derived at read time.
 
 - `known` requires a non-null typed JSON value and admissible evidence.
 - Non-known states carry no asserted value. In particular, zero is a valid known numeric amount and is not an unknown marker.
-- `stale` is derived, not an assertion state: a known fact is stale when its explicit freshness policy has elapsed. A current label is permitted only when a field-specific policy key and positive day limit are supplied. No universal freshness interval is assumed.
+- `stale` is derived, not an assertion state: a known fact is stale when its owner-approved, category-specific freshness policy has elapsed. A current label is permitted only when a field-specific policy key matches an immutable approved policy record and positive day limit. No universal freshness interval is assumed.
+- The public query can show stale facts with an explicit warning, but never labels them current. Unknown, not-stated, not-applicable and conflicting states remain distinct; conflicting output contains no selected value.
 - Valid-time bounds are explicit and checked. No deadline is inferred or calculated.
 
 ## 4. Governance lifecycle
@@ -74,4 +84,4 @@ Facts are attached to the public programme profile, grouped by the existing offe
 - Deeni Madaris exclusion and no new write/application routes.
 - Full exact-head PHP 8.5 foundation CI and documentation validation before merge consideration.
 
-**Status:** implementation branch created; implementation in progress. No production or external activity.
+**Status:** implementation branch created; migration, workflow service, public query, profile integration and initial synthetic feature tests committed. Exact-head CI and final implementation review remain pending. No production or external activity.
