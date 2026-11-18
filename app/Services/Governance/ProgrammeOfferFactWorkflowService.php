@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\Governance;
 
 use App\Domain\Governance\GovernancePolicy;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
