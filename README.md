@@ -1,3 +1,11 @@
+## Latest verified update — 18 November 2026 (M3-11-05A local synthetic preview)
+
+- PR [#285](https://github.com/mattari20/listing-v2/pull/285) merged as `d3e554cd296d3edc23da52d9ffaefc01244c2cb4`; exact-head FND-01 CI #485 and documentation validation #912 passed.
+- A guarded, explicit local-only seeder provides five fictional institution profiles for the first browser preview. Local execution and owner visual review are still pending; see [M3-11-05A runbook](docs/04-roadmap/M3-11-05A_LOCAL_SYNTHETIC_PREVIEW_AND_TEST_DATASET.md).
+- Hosted environment isolation (M3-11-05), backup/recovery (M3-11-06), pilot, production, deployment and release remain blocked/not authorized.
+
+---
+
 ## Latest verified status — 17 November 2026 (M3-11 gate coordination)
 
 - PR #276 merged as `e226fdbef1f24314c2a0c4399403342ced158ef3`; exact-head PHP 8.5 foundation CI and documentation validation passed.
