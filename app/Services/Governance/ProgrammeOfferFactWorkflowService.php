@@ -27,7 +27,8 @@ final class ProgrammeOfferFactWorkflowService
             $existing = DB::table('programme_offer_fact_freshness_policies')->where('policy_key', $policyKey)->first();
             if ($existing !== null) {
                 if ($existing->category !== $category || (int) $existing->freshness_days !== $freshnessDays ||
-                    $existing->owner_actor_id !== $actor['actor_id'] || $existing->policy_version !== $policyVersion) {
+                    $existing->owner_actor_id !== $actor['actor_id'] || $existing->policy_version !== $policyVersion ||
+                    $existing->idempotency_key !== $idempotencyKey) {
                     $this->reject('freshness_policy', 'Freshness policy keys are immutable; use a new key for a changed policy.');
                 }
 
@@ -36,7 +37,7 @@ final class ProgrammeOfferFactWorkflowService
             $id = (string) Str::uuid();
             $now = now();
             DB::table('programme_offer_fact_freshness_policies')->insert([
-                'id' => $id, 'policy_key' => $policyKey, 'category' => $category,
+                'id' => $id, 'policy_key' => $policyKey, 'idempotency_key' => $idempotencyKey, 'category' => $category,
                 'freshness_days' => $freshnessDays, 'owner_actor_id' => $actor['actor_id'],
                 'policy_version' => $policyVersion, 'status' => 'approved',
                 'approved_at' => $now, 'valid_from' => $now, 'valid_to' => null,
