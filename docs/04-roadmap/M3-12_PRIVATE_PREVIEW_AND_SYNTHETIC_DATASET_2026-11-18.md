@@ -18,6 +18,8 @@ Provide a repeatable, fictional dataset so the existing server-rendered director
 - Each example has a synthetic display name, clearly fictional overview and text-only locality fields.
 - Each fact is created with synthetic evidence, an audit event, a human adjudication workflow, an explicit publication decision and the existing outbox projection process.
 - Seeder is idempotent: a source-family marker causes a subsequent run to make no changes.
+- Before writing, it refuses to run while unrelated outbox items are pending or leased; it requires all 42 expected synthetic publication events to be processed successfully inside the seed transaction.
+- Evidence recorder, case opener, adjudicator and publisher actor identities are distinct for each synthetic fact.
 - Added feature tests for category coverage, anonymous directory/profile rendering, idempotence and production-environment refusal.
 - No changes to runtime routes, views, schema, dependencies or existing public query behavior.
 
@@ -53,6 +55,7 @@ Open `/directory` in the local development server. The seeder refuses production
 | No duplicate records on repeated run | Idempotence feature test |
 | Production environment fails closed | Production guard feature test |
 | No schema, runtime route, dependency or production changes | PR diff review |
+| Existing outbox work is not swept into preview processing | Pending/leased outbox preflight and exact 42-event completion check |
 
 Exact-head PHP 8.5 foundation CI and documentation validation results must be added after the PR checks complete. A successful CI run is not a browser review or production acceptance.
 
