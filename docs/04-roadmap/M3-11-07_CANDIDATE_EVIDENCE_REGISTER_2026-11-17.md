@@ -41,3 +41,12 @@
 ## Current register summary
 
 No candidate ID, source SHA, artifact, digest, lock hash, build run or candidate-specific result exists in this package. All rows remain blocked, not run, not assembled or not decided as shown. This register is a template, not test evidence or release approval.
+
+
+## Owner decisions and gate reconciliation — 2026-11-18
+
+- **RC-05 — V2-only private environment and isolation:** remains BLOCKED. The Product Owner selected /public_html/institutes-v2 and existing directory password protection, but actual enforcement/static-file coverage, Laravel public-root mapping, private storage separation and hosted synthetic smoke evidence are not established.
+- **RC-06 — Backup/restore/rollback rehearsal and approved RPO/RTO:** weekly automated backup cadence is ACCEPTED by the Product Owner for the current development stage; no paid upgrade or increased frequency is required. RC-06 remains BLOCKED because V2-only restore boundary, retention, measured RPO/RTO and candidate-linked rollback/recovery evidence are not demonstrated. No restore or download is authorized or performed.
+- **RC-07 — Candidate creation authorization:** NOT GRANTED. No candidate may be created on the basis of these policy decisions alone.
+
+The Product Owner also decided not to add IP Manager as a second preview-protection layer and to retain the existing hosting plan without additional spend. These decisions are recorded as policy/cost choices, not as substitutes for technical evidence.
