@@ -214,6 +214,23 @@ class ProgrammeOfferFactWorkflowTest extends TestCase
             'claim_version_id' => $offerVersion, 'created_at' => $now, 'updated_at' => $now,
         ]);
 
+        foreach ([
+            ['synthetic.fee.v1', 'fee', 30],
+            ['synthetic.deadline.v1', 'deadline', 1],
+            ['synthetic.eligibility.v1', 'eligibility', 30],
+            ['synthetic.scholarship.v1', 'scholarship', 30],
+        ] as [$policyKey, $category, $days]) {
+            if (DB::table('programme_offer_fact_freshness_policies')->where('policy_key', $policyKey)->exists() === false) {
+                DB::table('programme_offer_fact_freshness_policies')->insert([
+                    'id' => (string) str()->uuid(), 'policy_key' => $policyKey,
+                    'category' => $category, 'freshness_days' => $days,
+                    'owner_actor_id' => 'synthetic-policy-owner', 'policy_version' => 'synthetic-policy-v1',
+                    'status' => 'approved', 'approved_at' => $now, 'valid_from' => $now,
+                    'valid_to' => null, 'created_at' => $now, 'updated_at' => $now,
+                ]);
+            }
+        }
+
         return [$programme, $offer];
     }
 
