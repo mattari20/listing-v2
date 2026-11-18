@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\\Logging;
+namespace App\Logging;
 
 use DateTimeImmutable;
 use DirectoryIterator;
 use InvalidArgumentException;
 use RuntimeException;
+use UnexpectedValueException;
 
 final class RotatedLogRetentionCleaner
 {
@@ -30,7 +31,7 @@ final class RotatedLogRetentionCleaner
             throw new InvalidArgumentException('Log retention must be at least one day.');
         }
 
-        if ($filenamePrefix === '' || str_contains($filenamePrefix, '/') || str_contains($filenamePrefix, '\\\\')) {
+        if ($filenamePrefix === '' || str_contains($filenamePrefix, '/') || str_contains($filenamePrefix, '\\')) {
             throw new InvalidArgumentException('The log filename prefix must be a basename.');
         }
 
@@ -46,13 +47,13 @@ final class RotatedLogRetentionCleaner
             throw new RuntimeException('SEC-06 log retention could not access its configured directory.');
         }
 
-        $pattern = '/^'.preg_quote($filenamePrefix, '/').'-(\\d{4}-\\d{2}-\\d{2})\\.'.preg_quote($extension, '/').'$/D';
+        $pattern = '/^'.preg_quote($filenamePrefix, '/').'-(\d{4}-\d{2}-\d{2})\.'.preg_quote($extension, '/').'$/D';
         $cutoff = $now->modify('-'.$retentionDays.' days');
         $deleted = [];
 
         try {
             $entries = new DirectoryIterator($realDirectory);
-        } catch (\\UnexpectedValueException) {
+        } catch (UnexpectedValueException) {
             throw new RuntimeException('SEC-06 log retention could not read its configured directory.');
         }
 
