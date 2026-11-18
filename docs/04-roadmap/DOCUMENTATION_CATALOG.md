@@ -1,3 +1,7 @@
+## M3-12 private preview and synthetic dataset — 2026-11-18
+
+- [M3-12 Private Preview and Synthetic Dataset](M3-12_PRIVATE_PREVIEW_AND_SYNTHETIC_DATASET_2026-11-18.md) — **Updated — review pending**; records the guarded local SQLite seeder, seven fictional records, local run instructions, tests and explicit operational boundaries. Exact-head CI and documentation validation pending.
+
 ## M3-11 gate-resolution coordination — 2026-11-17
 
 - [M3-11 Gate Resolution Coordination Plan](M3-11_GATE_RESOLUTION_COORDINATION_PLAN_2026-11-17.md) — **Delivered — review pending**; consolidates gate dependencies, accountable evidence sources, permitted next actions and stop conditions.
