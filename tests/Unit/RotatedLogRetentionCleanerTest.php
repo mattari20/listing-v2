@@ -63,7 +63,7 @@ final class RotatedLogRetentionCleanerTest extends TestCase
         mkdir($this->directory.'/nested');
         file_put_contents($this->directory.'/nested/laravel-2026-10-01.log', 'nested');
 
-        $deleted = (new RotatedLogRetentionCleaner())->prune(
+        $deleted = (new RotatedLogRetentionCleaner)->prune(
             $this->directory,
             'laravel',
             'log',
@@ -92,7 +92,7 @@ final class RotatedLogRetentionCleanerTest extends TestCase
         }
 
         try {
-            $deleted = (new RotatedLogRetentionCleaner())->prune(
+            $deleted = (new RotatedLogRetentionCleaner)->prune(
                 $this->directory,
                 'laravel',
                 'log',
@@ -111,7 +111,7 @@ final class RotatedLogRetentionCleanerTest extends TestCase
     {
         $this->expectException(RuntimeException::class);
 
-        (new RotatedLogRetentionCleaner())->prune(
+        (new RotatedLogRetentionCleaner)->prune(
             $this->directory.'/missing',
             'laravel',
             'log',
@@ -125,7 +125,7 @@ final class RotatedLogRetentionCleanerTest extends TestCase
 
         $handler = new AgeBasedRotatingFileHandler(
             $this->directory.'/laravel.log',
-            new RotatedLogRetentionCleaner(),
+            new RotatedLogRetentionCleaner,
             Level::Warning,
             new DateTimeZone('UTC'),
         );
