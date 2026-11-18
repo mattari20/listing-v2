@@ -1,3 +1,7 @@
+## M3-11-05A-04 five-city synthetic preview acceptance matrix — 2026-11-18
+
+- [M3-11-05A-04 Five-City Synthetic Preview Acceptance Matrix](M3-11-05A-04_FIVE_CITY_SYNTHETIC_PREVIEW_ACCEPTANCE_MATRIX_2026-11-18.md) — **Implementation delivered — exact-head CI pending**; checks anonymous category inclusion, search, locality filtering and direct profile responses for all five synthetic profiles using a temporary SQLite database. Not visual or hosted acceptance.
+
 ## M3-11-05A-03 synthetic preview directory-route regression — 2026-11-18
 
 - PR [#289](https://github.com/mattari20/listing-v2/pull/289) merged as `dc1c5aa9debd75dc68209628e3d1a60295135dd6`; exact head `5851704f1367aaa00b51f248047e1d6c5484870a`; FND-01 PHP 8.5 CI #489 and documentation validation #920 passed.
