@@ -319,7 +319,7 @@ final class PublicDirectoryQueryService
             if ($isCatalogueClaim) {
                 $publishedCatalogueClaims[(string) $row->claim_version_id] = [
                     'predicate' => $row->predicate,
-                    'value' => $payload['value'],
+                    'value' => is_array($payload['value']) ? ($payload['value']['value'] ?? null) : null,
                     'subject_entity_id' => (string) $row->entity_id,
                     'valid_from' => $row->claim_valid_from,
                     'valid_to' => $row->claim_valid_to,
