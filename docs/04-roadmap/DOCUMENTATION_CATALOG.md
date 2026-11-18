@@ -30,6 +30,10 @@
 - [Post-M3 Scope and Gap Reconciliation](POST_M3_SCOPE_AND_GAP_RECONCILIATION_2026-11-17.md) — **Delivered — review pending**; maps historical M4–M12 labels to existing M3 synthetic implementation, deferred features and mandatory release gates. It does not authorize M4 code or M3-11 production release.
 - Exact PR-head checks and merge evidence must be recorded before acceptance; this entry is not an acceptance claim.
 
+## M3-11 Product Owner-led internal review model — 2026-11-18
+
+- [M3-11 Product Owner-Led Internal Review Model](M3-11_PRODUCT_OWNER_LED_INTERNAL_REVIEW_MODEL_2026-11-18.md) — **Delivered — owner review pending**; records the owner's decision to conduct internal review without appointing external reviewers at this stage, defines AI-assistance limits and preserves professional-assurance, staffing, environment, recovery and release blockers. No gate is passed by delivery.
+
 # Documentation Completion Catalogue
 
 **Project:** eStudent Institutes V2  
