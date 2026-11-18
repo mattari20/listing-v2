@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Tests\\Feature;
+namespace Tests\Feature;
 
-use App\\Services\\Directory\\PublicProgrammeOfferFactsQueryService;
-use App\\Services\\Governance\\ProgrammeOfferFactWorkflowService;
-use Illuminate\\Foundation\\Testing\\RefreshDatabase;
-use Illuminate\\Support\\Facades\\DB;
-use Illuminate\\Validation\\ValidationException;
-use Tests\\TestCase;
+use App\Services\Directory\PublicProgrammeOfferFactsQueryService;
+use App\Services\Governance\ProgrammeOfferFactWorkflowService;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
+use Tests\TestCase;
 
 class ProgrammeOfferFactWorkflowTest extends TestCase
 {
