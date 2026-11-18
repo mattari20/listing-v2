@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\Directory;
 
 use App\Domain\Governance\GovernancePolicy;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 
 final class PublicProgrammeOfferFactsQueryService
@@ -121,9 +122,9 @@ final class PublicProgrammeOfferFactsQueryService
             if ($row->fact_state === 'known' &&
                 ($row->observed_at === null || $row->freshness_policy_key === null ||
                     $row->freshness_days === null || $row->freshness_policy_status !== 'approved' ||
-                    ($row->freshness_policy_valid_from !== null && \Illuminate\\Support\\Carbon::parse($row->freshness_policy_valid_from)->greaterThan(now())) ||
-                    ($row->freshness_policy_valid_to !== null && \Illuminate\\Support\\Carbon::parse($row->freshness_policy_valid_to)->lessThanOrEqualTo(now())) ||
-                    now()->greaterThanOrEqualTo(\Illuminate\\Support\\Carbon::parse($row->observed_at)->addDays((int) $row->freshness_days)))) {
+                    ($row->freshness_policy_valid_from !== null && Carbon::parse($row->freshness_policy_valid_from)->greaterThan(now())) ||
+                    ($row->freshness_policy_valid_to !== null && Carbon::parse($row->freshness_policy_valid_to)->lessThanOrEqualTo(now())) ||
+                    now()->greaterThanOrEqualTo(Carbon::parse($row->observed_at)->addDays((int) $row->freshness_days)))) {
                 $displayState = 'stale';
             }
 
