@@ -1,3 +1,9 @@
+## Latest verified position — M3-12 private preview and synthetic dataset (2026-11-20)
+
+M3-12 work is being reconciled onto current main from the existing PR #280 because that PR is based on an older main revision and currently has merge conflicts. The implementation includes a local/testing-only, SQLite-only seeder for seven fictional records across five existing directory categories, using synthetic evidence, audit, adjudication, publication and outbox projection workflows. The seeder refuses non-local/testing environments, non-SQLite connections and unrelated pending/leased outbox work; it is idempotent and requires all 42 expected synthetic publications to complete. No new migration/schema/route/view/dependency or hosted/public activity is authorized. Fresh exact-head CI is pending.
+
+---
+
 ## Latest verified position — M3-11-05C subfolder database and private-preview controls (2026-11-18)
 
 PR [#295](https://github.com/mattari20/listing-v2/pull/295) merged as `09ae3ff31462cb2bf85566c5f9963565c067a69f`; exact head `f8b50d7308f386be3768603f00717d53c875e1be`; FND-01 PHP 8.5 CI #496 and project documentation validation #933 passed. Added MySQL configuration, retained SQLite as the local/CI default, added a uniquely named V2 session cookie with configurable subfolder path, and implemented an opt-in global Laravel HTTP Basic preview gate. Synthetic tests cover route denial/allowance and configuration. One initial test assertion exposed Laravel's additional `private` cache directive; the assertion was corrected to verify the required `no-store` directive, and the final exact-head suite passed. No MySQL server, Hostinger, V1 or production system was contacted. Static-file protection remains a hosting-level requirement. M3-11-05 hosted isolation remains blocked, with 0/18 hosted evidence items verified.
