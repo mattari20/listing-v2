@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Reconciled baseline:** `507e760427beea885fc608f155d1f711e7c6bdee`  
 **Reconciliation branch:** `agenda/m3-12-private-preview-dataset`  
-**Status:** Reconciled implementation carried forward from PR #280; fresh exact-head validation is required on the current main baseline. At validated revision `b84fd06666dfd29470da82eeec08a1c2b6e99c31`, PHP 8.5 foundation CI [#44212472885](https://github.com/mattari20/listing-v2/actions/runs/44212472885) and project documentation validation [#44212472908](https://github.com/mattari20/listing-v2/actions/runs/44212472908) both passed. A subsequent documentation-only evidence reconciliation is subject to fresh exact-head checks.  
+**Status:** IMPLEMENTATION COMPLETED AND MERGED in PR #316 as `995be9afbc7e171b78d9dacaff950f6964e594f1`; exact-head `31fc0b2075a49f6a5b342eb8391f2e4ce3dea511` passed PHP 8.5 foundation CI run #44641907781 and project documentation validation run #44641907769. At validated revision `b84fd06666dfd29470da82eeec08a1c2b6e99c31`, PHP 8.5 foundation CI [#44212472885](https://github.com/mattari20/listing-v2/actions/runs/44212472885) and project documentation validation [#44212472908](https://github.com/mattari20/listing-v2/actions/runs/44212472908) both passed. A subsequent documentation-only evidence reconciliation is subject to fresh exact-head checks.  
 **Authorization:** Product Owner approved the bounded local-only synthetic preview package on 2026-11-18.
 
 ## 1. Purpose
@@ -57,7 +57,7 @@ Open `/directory` in the local development server. The seeder refuses production
 | No schema, runtime route, dependency or production changes | PR diff review |
 | Existing outbox work is not swept into preview processing | Pending/leased outbox preflight and exact 42-event completion check |
 
-At validation commit `db5e90f7e8fb21e7d5bf21bc78b13646d712cb11`, PHP 8.5 foundation CI run [#44212302774](https://github.com/mattari20/listing-v2/actions/runs/44212302774) and documentation validation run [#44212302867](https://github.com/mattari20/listing-v2/actions/runs/44212302867) both passed. A fresh exact-head run is required after the final documentation-only reconciliation commit. A successful CI run is not a browser review or production acceptance.
+At validation commit `db5e90f7e8fb21e7d5bf21bc78b13646d712cb11`, PHP 8.5 foundation CI run [#44212302774](https://github.com/mattari20/listing-v2/actions/runs/44212302774) and documentation validation run [#44212302867](https://github.com/mattari20/listing-v2/actions/runs/44212302867) both passed. The reconciled exact-head CI run #44641907781 reported 15 passed tests, 1,169 assertions and 235 non-fatal warnings. This is automated synthetic test evidence, not a browser review or production acceptance.
 
 ## 6. Explicit non-goals and remaining gates
 
