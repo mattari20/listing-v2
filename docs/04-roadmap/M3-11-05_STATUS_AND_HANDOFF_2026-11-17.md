@@ -102,3 +102,47 @@ Owner-provided PHP Configuration screenshots show PHP 8.5 selected; the separate
 The Product Owner accepts the existing Hostinger directory password protection as the selected private-preview control and does not require a second IP restriction layer at this stage. The Product Owner accepts existing weekly automated backups as sufficient for the current development stage and does not approve a paid backup upgrade or increased frequency. The existing hosting plan is to be retained without additional spend.
 
 These are owner decisions about the selected controls and cost/frequency policy. They do not establish successful live authentication enforcement, static-file coverage, V2-only restore capability, or production recovery objectives. M3-11-05 remains partially evidenced and is not technically accepted for hosted preview or deployment until the remaining safe isolation checks are completed.
+
+
+## Latest update — bounded Hostinger resource readiness and Laravel CLI boot verification (2026-11-19)
+
+The Product Owner authorized an isolated V2-only Hostinger Laravel boot verification. The authorized work was completed within the bounded scope using the existing Hostinger plan and synthetic/non-production conditions.
+
+### Verified outcomes
+
+- Hostinger CLI PHP: **8.5.12**.
+- Hostinger Composer: **2.9.8**; Composer Runtime API: **2.2.2**.
+- Source and target Composer manifests were confirmed identical before installation.
+- Locked production dependencies were installed under the V2 application directory: **77 production packages**.
+- `composer check-platform-reqs --lock --no-dev`: all reported production platform requirements passed.
+- Laravel CLI smoke test returned **Laravel Framework 13.42.0**.
+- `composer.lock` remained unchanged.
+- No `.env` was created and no credentials were placed in the repository or chat.
+
+### Scope boundaries observed
+
+- No database connection, query, migration, or seeder was run.
+- No V1/WordPress/root website file was changed.
+- No DNS or Hostinger Git auto-deployment setting was changed.
+- No public activation, launch, or production deployment was performed.
+- At the time of the CLI check, the V2 public `index.php` and `.htaccess` entry-point files were absent. Therefore this result is **CLI framework boot evidence only**, not an HTTP/LiteSpeed Laravel request test or proof of a working private preview.
+
+### Bounded agenda disposition
+
+| Work item | Result |
+|---|---|
+| Hostinger resource/PHP/Composer readiness | COMPLETED for the observed CLI/runtime requirements |
+| Locked production dependency installation | COMPLETED |
+| Composer platform requirement verification | PASSED |
+| Composer lock integrity | UNCHANGED |
+| Laravel CLI framework smoke test | PASSED — 13.42.0 |
+| HTTP/LiteSpeed Laravel boot | NOT TESTED |
+| Authenticated private preview | NOT TESTED |
+| Hosted database connection/schema | NOT TESTED; no DB action authorized |
+| Full hosted isolation / M3-11-05 acceptance | NOT ACCEPTED; remains a separate gate |
+
+**Bounded Resource Readiness and CLI Boot agenda:** COMPLETED.  
+**M3-11-05 hosted isolation acceptance:** REMAINS BLOCKED / NOT ACCEPTED.  
+**Next work:** continue with the next approved product-development agenda; return to HTTP preview and remaining hosted/release checks only under their applicable separate authorization.
+
+This closeout records only the work and results described above. It does not extend authorization to create a public entry point, connect a database, run migrations/seeders, configure hosted authentication, deploy, or activate the public site.
