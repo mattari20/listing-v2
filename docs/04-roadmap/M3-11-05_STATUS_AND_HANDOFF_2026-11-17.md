@@ -113,11 +113,11 @@ The Product Owner authorized an isolated V2-only Hostinger Laravel boot verifica
 - Hostinger CLI PHP: **8.5.12**.
 - Hostinger Composer: **2.9.8**; Composer Runtime API: **2.2.2**.
 - Source and target Composer manifests were confirmed identical before installation.
-- Locked production dependencies were installed under the V2 application directory: **77 production packages**.
-- `composer check-platform-reqs --lock --no-dev`: all reported production platform requirements passed.
-- Laravel CLI smoke test returned **Laravel Framework 13.42.0**.
+- Locked production dependencies were installed under the V2 application directory with Composer scripts and plugins disabled: **77 production packages**.
+- `composer check-platform-reqs --no-dev`: all reported production platform requirements passed.
+- Laravel CLI smoke test used one-command synthetic environment values (`APP_ENV=testing`, ephemeral `APP_KEY`, `DB_CONNECTION=sqlite`, `DB_DATABASE=:memory:`); `php artisan --version` returned **Laravel Framework 13.42.0**.
 - `composer.lock` remained unchanged.
-- No `.env` was created and no credentials were placed in the repository or chat.
+- No persistent `.env` or configuration cache was created; no credentials were placed in the repository or chat. No database connection was opened.
 
 ### Scope boundaries observed
 
