@@ -1,6 +1,6 @@
 ## Latest verified planning position — M3-12 private preview and synthetic dataset (2026-11-20)
 
-The bounded local-only M3-12 package is being reconciled from PR #280 onto current main `507e760427beea885fc608f155d1f711e7c6bdee`. It carries forward a guarded SQLite-only seeder for seven fictional records across provider, institution, campus, programme and qualification categories, with synthetic evidence/adjudication/publication, idempotence, pending/leased outbox isolation and 42-event completion checks. No new schema, migration, route, view, dependency, external service, Hostinger action, real data or public activation is included. Exact-head validation is pending; M3-11 hosted/release gates remain separate and blocked.
+The bounded local-only M3-12 package was reconciled from PR #280 and merged in PR #316 as `995be9afbc7e171b78d9dacaff950f6964e594f1`. Exact-head `31fc0b2075a49f6a5b342eb8391f2e4ce3dea511` passed PHP 8.5 foundation CI #44641907781 and documentation validation #44641907769. It adds a guarded SQLite-only seeder for seven fictional records across provider, institution, campus, programme and qualification categories, with synthetic evidence/adjudication/publication, idempotence, pending/leased outbox isolation and 42-event completion checks. Synthetic suite: 15 passed, 1,169 assertions, 235 non-fatal warnings. No new schema, migration, route, view, dependency, external service, Hostinger action, real data or public activation is included. M3-11 hosted/release gates remain separate and blocked.
 
 ---
 
