@@ -51,14 +51,26 @@ These results demonstrate that the tested LiteSpeed configuration enforced the t
 
 In particular:
 - `_app/` is planned to remain physically under `public_html`; HTTP denial is not private filesystem isolation.
-- PHP include/read access from the public front controller into `_app/` has not yet been verified.
+- A synthetic public PHP probe successfully included `_app/__v2_private_marker.php` and returned `V2_PRIVATE_INCLUDE_OK` (HTTP 200); direct HTTP access to that marker returned HTTP 403. Temporary files and `_app/` were removed and cleanup verified.
 - The actual Laravel front controller and application have not been installed or booted on Hostinger.
 - The exact locked Composer platform requirements have not yet been checked against the hosted runtime.
-- Source `public/` asset inventory and mapping have not yet been completed.
+- The source `public/` directory was enumerated on the PR branch and contains exactly three top-level files: `.htaccess`, `index.php`, and `robots.txt`; no subdirectories were returned by the GitHub contents listing. Their intended handling is recorded in Section 4.
 - Preview authentication, V1 isolation, and complete application-route behaviour remain unverified.
 - No Laravel source, dependencies, `.env`, secrets, database configuration, or real data were placed on Hostinger.
 
-## 4. Deployment and release controls
+## 4. Source public-directory inventory
+
+The GitHub contents listing for `public/` on branch `fix/hostinger-v2-subfolder-webroot` returned exactly:
+
+| Source path | Decision for V2 package | Reason |
+|---|---|---|
+| `public/.htaccess` | Do not copy verbatim; use the reviewed V2 subfolder-specific template | Source rules use root-relative front-controller assumptions and do not include the V2-specific `_app` denial rules |
+| `public/index.php` | Do not copy verbatim; use `deployment/hostinger-v2/public/index.php` | Original assumes Laravel app is one directory above `public/`; deployment entry point must resolve `_app/` |
+| `public/robots.txt` | Candidate to copy unchanged after final packaging review | Contains only `User-agent: *` and `Disallow:`; no other public files or subdirectories were listed |
+
+The original source `public/index.php` and `.htaccess` were inspected. No files were copied to Hostinger. This inventory is based on the current PR branch listing and should be rechecked if the branch changes before packaging.
+
+## 5. Deployment and release controls
 
 - New V2 staging target remains empty after testing.
 - Preserved backup was not modified.
@@ -67,7 +79,7 @@ In particular:
 - No Composer install, Artisan command, migration, database change, DNS change, deployment, or public activation occurred.
 - PR #313 remains draft and unmerged.
 
-## 5. Next required gates
+## 7. Next required gates
 
 1. Enumerate and review the exact repository source `public/` inventory.
 2. Check exact locked Composer platform requirements in a controlled project workspace.
