@@ -1,6 +1,6 @@
 ## M3-12 private preview and synthetic dataset — 2026-11-20
 
-- [M3-12 Private Preview and Synthetic Dataset](M3-12_PRIVATE_PREVIEW_AND_SYNTHETIC_DATASET_2026-11-18.md) — **Implementation carried forward for current-main reconciliation**; guarded local/testing + SQLite-only seeder for seven fictional entities across five existing directory categories, synthetic evidence/adjudication/publication flow, outbox isolation and idempotence. Fresh exact-head CI is required; no hosted preview, real data or public activation.
+- [M3-12 Private Preview and Synthetic Dataset](M3-12_PRIVATE_PREVIEW_AND_SYNTHETIC_DATASET_2026-11-18.md) — **Delivered and merged in PR #316** (`995be9afbc7e171b78d9dacaff950f6964e594f1`); exact-head `31fc0b2075a49f6a5b342eb8391f2e4ce3dea511` passed PHP 8.5 foundation CI #44641907781 and documentation validation #44641907769. Guarded local/testing + SQLite-only seeder for seven fictional entities across five existing directory categories, synthetic evidence/adjudication/publication flow, outbox isolation and idempotence. Synthetic suite: 15 passed, 1,169 assertions, 235 non-fatal warnings. No hosted preview, real data or public activation.
 
 ## M3-11-05D — Hostinger PHP/PDO and dedicated V2 database evidence — 2026-11-18
 
