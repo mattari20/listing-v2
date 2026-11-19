@@ -88,6 +88,46 @@ final class PublicDirectoryTest extends TestCase
             ->assertSee('Gulberg');
     }
 
+    public function test_registry_filter_controls_use_only_approved_public_filterable_values(): void
+    {
+        $punjab = $this->createEntity();
+        $sindh = $this->createEntity();
+        $this->publishFact($punjab, 'display_name', 'Synthetic Punjab College');
+        $this->publishFact($sindh, 'display_name', 'Synthetic Sindh College');
+
+        $region = $this->registryDefinition('institution_region', ['filterable' => true]);
+        $private = $this->registryDefinition('institution_private_filter', ['filterable' => false]);
+        $this->publishFact($punjab, 'institution_region', 'Punjab', '2026-11-13 10:00:00', $region);
+        $this->publishFact($sindh, 'institution_region', 'Sindh', '2026-11-13 10:00:00', $region);
+        $this->publishFact($punjab, 'institution_private_filter', 'Internal Only', '2026-11-13 10:00:00', $private);
+
+        $this->get('/directory')
+            ->assertOk()
+            ->assertSee('Institution Region')
+            ->assertSee('Punjab')
+            ->assertSee('Sindh')
+            ->assertDontSee('Institution Private Filter')
+            ->assertDontSee('Internal Only');
+
+        $this->get('/directory?filters[institution_region]=Punjab')
+            ->assertOk()
+            ->assertSee('Synthetic Punjab College')
+            ->assertDontSee('Synthetic Sindh College')
+            ->assertSee('name="filters[institution_region]"');
+    }
+
+    public function test_unknown_or_unavailable_registry_filter_is_ignored_without_exposing_private_values(): void
+    {
+        $entity = $this->createEntity();
+        $this->publishFact($entity, 'display_name', 'Synthetic Available College');
+        $this->publishFact($entity, 'internal_notes', 'Never expose this private note');
+
+        $this->get('/directory?filters[internal_notes]=Never%20expose%20this%20private%20note')
+            ->assertOk()
+            ->assertSee('Synthetic Available College')
+            ->assertDontSee('Never expose this private note');
+    }
+
     public function test_unpublished_entity_has_no_search_result_or_direct_profile(): void
     {
         $entity = $this->createEntity();
