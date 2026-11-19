@@ -45,6 +45,59 @@ The route response body was `V2_ROUTE_REWRITE_OK`; the public asset body was `V2
 
 All temporary files and directories were removed. The final shell cleanup assertion confirmed that `.htaccess`, `index.php`, `_app/`, and all marker files were absent and the V2 staging directory had returned to its original empty state.
 
+
+## 3. Expanded synthetic HTTP-denial and path-variant test
+
+A second temporary test set was run in the otherwise-empty V2 staging directory. It created only synthetic marker files under `_app/` and temporary V2-specific `.htaccess` rules. No real `.env`, Composer manifest, vendor package, Laravel source, credential, or application data was used.
+
+Observed results:
+
+| Probe | HTTP result | Outcome |
+|---|---:|---|
+| `/_app/` | 403 | PASS |
+| `/_app/.env` | 403 | PASS |
+| `/_app/composer.json` | 403 | PASS |
+| `/_app/vendor/autoload.php` | 403 | PASS |
+| `/_app/app/` | 403 | PASS |
+| `/_app/app/__v2_probe_marker.txt` | 403 | PASS |
+| `/%5Fapp/.env` | 403 | PASS |
+| `/_app%2F.env` | 403 | PASS |
+| `/%255Fapp/.env` | 403 | PASS |
+| `/_app/../_app/.env` | 403 | PASS |
+
+The response bodies were Hostinger denial-page HTML, not synthetic marker content. Cleanup was explicitly run and verified: the temporary root `.htaccess`, `index.php`, and `_app/` directory were absent afterwards.
+
+These results demonstrate denial for these ten exact requests only. They do not prove every possible URL normalization, server configuration, or complete security.
+
+## 4. CI on the recorded PR head
+
+For commit `3eb23deb44c70d02c1b4ae69e6028fcc7cec3c50`, the GitHub Actions runs associated with the commit completed successfully:
+- FND-01 foundation CI run #594: success.
+- Project documentation validation run #1038: success.
+
+These results apply to that exact commit; a later documentation commit requires its own fresh CI results.
+
+## 5. Composer lock inventory (static inspection only)
+
+The current branch's `composer.lock` was parsed without installing packages:
+- 77 production packages.
+- 33 development packages.
+- Locked root platform requirement: PHP `^8.3`.
+- `composer.json` also declares PHP `^8.3`.
+
+Hostinger PHP CLI and LiteSpeed web SAPI were previously observed as PHP `8.5.12`, which is within the root PHP constraint. This is a static compatibility observation, not the result of `composer check-platform-reqs --lock`. The full locked extension/platform check remains outstanding; the earlier 15-extension web probe did not cover every platform requirement in the lock.
+
+## 6. Updated deployment and release controls
+
+All prior deployment exclusions remain in force:
+- V2 staging target returned to empty after each synthetic test.
+- Preserved backup was not modified.
+- WordPress/V1 files and root `.htaccess` were not modified.
+- Git auto-deployment remains OFF.
+- No Composer install, Artisan command, migration, database change, DNS change, deployment, or public activation occurred.
+- PR #313 remains draft and unmerged.
+
+
 ## 3. Scope and limitations
 
 These results demonstrate that the tested LiteSpeed configuration enforced the tested URL denials and subfolder rewrite behaviour under synthetic conditions. They do not constitute a complete security assessment.
@@ -79,12 +132,9 @@ The original source `public/index.php` and `.htaccess` were inspected. No files 
 - No Composer install, Artisan command, migration, database change, DNS change, deployment, or public activation occurred.
 - PR #313 remains draft and unmerged.
 
-## 6. Next required gates
+## 7. Next required gates
 
-1. Enumerate and review the exact repository source `public/` inventory.
-2. Check exact locked Composer platform requirements in a controlled project workspace.
-3. Prove PHP can include a harmless file from `_app/` while direct HTTP access remains denied.
-4. Verify the actual Laravel front-controller path and app boot without secrets or production data.
-5. Verify preview authentication and V1 isolation.
-6. Obtain fresh CI results for the latest PR head.
-6. Keep deployment and public activation blocked until all gates and separate M3-11 release requirements are accepted.
+1. Complete the exact locked Composer platform check against the Hostinger runtime, including all required extensions and Composer runtime API.
+2. Verify the deployment-specific front-controller path and actual Laravel boot without secrets or production data.
+3. Verify preview authentication and V1 isolation.
+4. Keep deployment and public activation blocked until all gates and separate M3-11 release requirements are accepted.
