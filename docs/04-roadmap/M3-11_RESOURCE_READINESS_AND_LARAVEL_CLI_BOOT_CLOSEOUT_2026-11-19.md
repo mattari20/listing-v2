@@ -17,12 +17,12 @@ Complete the previously authorized Hostinger resource-readiness and isolated Lar
 | Hostinger Composer | 2.9.8 |
 | Composer Runtime API | 2.2.2 |
 | Source/target `composer.json` and `composer.lock` | Confirmed identical before install |
-| Locked production dependency install | Completed; 77 production packages installed |
-| `composer check-platform-reqs --lock --no-dev` | All reported production requirements passed |
-| Laravel CLI smoke test | Returned Laravel Framework 13.42.0 |
+| Locked production dependency install | Completed with Composer scripts/plugins disabled; 77 production packages installed |
+| `composer check-platform-reqs --no-dev` | All reported production requirements passed |
+| Laravel CLI smoke test | Temporary inline synthetic environment (`APP_ENV=testing`, ephemeral `APP_KEY`, `DB_CONNECTION=sqlite`, `DB_DATABASE=:memory:`); `php artisan --version` returned Laravel Framework 13.42.0 |
 | `composer.lock` | Unchanged |
 
-The dependency installation and CLI smoke test were run against the V2 application directory only. No additional hosting plan or paid service was used.
+The locked install used `--no-dev --no-scripts --no-plugins`; no package scripts or plugins were executed. The CLI smoke test used one-command environment variables only. No persistent `.env`, configuration cache, or database connection was created. No additional hosting plan or paid service was used.
 
 ## 3. Explicit exclusions and safeguards
 
