@@ -153,6 +153,40 @@ final class PublicDirectoryQueryService
         ];
     }
 
+    /**
+     * Expose only registry-managed fields and values that are currently present
+     * in the approved anonymous directory projection and explicitly filterable.
+     *
+     * @return array<string, array{label: string, values: array<int, string>}>
+     */
+    public function filterOptions(): array
+    {
+        $options = [];
+
+        foreach ($this->publishedEntities() as $entity) {
+            foreach ($entity['facts'] as $fact) {
+                if ($fact['is_registry_managed'] !== true || $fact['filterable'] !== true ||
+                    is_string($fact['label']) === false || trim($fact['label']) === '' ||
+                    is_string($fact['value']) === false || trim($fact['value']) === '') {
+                    continue;
+                }
+
+                $key = $fact['key'];
+                $options[$key] ??= ['label' => $fact['label'], 'values' => []];
+                $options[$key]['values'][mb_strtolower(trim($fact['value']))] = trim($fact['value']);
+            }
+        }
+
+        ksort($options);
+        foreach ($options as &$option) {
+            $option['values'] = array_values($option['values']);
+            sort($option['values'], SORT_NATURAL | SORT_FLAG_CASE);
+        }
+        unset($option);
+
+        return $options;
+    }
+
     public function find(string $entityId): ?array
     {
         foreach ($this->publishedEntities() as $entity) {

@@ -11,7 +11,7 @@
         main { max-width: 58rem; margin: 0 auto; padding: 1.25rem; }
         h1, h2 { line-height: 1.2; }
         form, .result, .facets { background: #fff; border: 1px solid #d9dee7; border-radius: .65rem; padding: 1rem; }
-        form { display: grid; grid-template-columns: minmax(0, 1fr) minmax(10rem, .55fr) minmax(10rem, .55fr) auto; gap: .75rem; align-items: end; }
+        form { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: .75rem; align-items: end; }
         label { display: block; font-weight: 600; margin-bottom: .25rem; }
         input, select, button { width: 100%; min-height: 2.75rem; padding: .55rem; border: 1px solid #8b95a5; border-radius: .35rem; font: inherit; }
         button { cursor: pointer; background: #172033; color: #fff; border-color: #172033; }
@@ -52,6 +52,17 @@
             <label for="locality">Province, district, city or locality</label>
             <input id="locality" name="locality" type="search" maxlength="120" value="{{ $locality }}" autocomplete="off">
         </div>
+        @foreach ($filterOptions as $key => $option)
+            <div>
+                <label for="filter-{{ $key }}">{{ $option['label'] }}</label>
+                <select id="filter-{{ $key }}" name="filters[{{ $key }}]">
+                    <option value="">All {{ strtolower($option['label']) }}</option>
+                    @foreach ($option['values'] as $value)
+                        <option value="{{ $value }}" @selected(($filters[$key] ?? null) === $value)>{{ $value }}</option>
+                    @endforeach
+                </select>
+            </div>
+        @endforeach
         <button type="submit">Search</button>
     </form>
 
@@ -59,7 +70,7 @@
         <nav class="facets" aria-label="Available categories">
             <strong>Categories:</strong>
             @foreach ($facets as $key => $count)
-                <a href="{{ route('directory.index', ['q' => $query, 'type' => $key, 'locality' => $locality]) }}">{{ $typeOptions[$key] ?? $key }} ({{ $count }})</a>
+                <a href="{{ route('directory.index', ['q' => $query, 'type' => $key, 'locality' => $locality, 'filters' => $filters]) }}">{{ $typeOptions[$key] ?? $key }} ({{ $count }})</a>
             @endforeach
         </nav>
     @endif
