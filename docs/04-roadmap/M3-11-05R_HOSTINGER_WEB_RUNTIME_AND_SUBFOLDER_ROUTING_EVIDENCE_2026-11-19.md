@@ -79,7 +79,7 @@ The original source `public/index.php` and `.htaccess` were inspected. No files 
 - No Composer install, Artisan command, migration, database change, DNS change, deployment, or public activation occurred.
 - PR #313 remains draft and unmerged.
 
-## 7. Next required gates
+## 6. Next required gates
 
 1. Enumerate and review the exact repository source `public/` inventory.
 2. Check exact locked Composer platform requirements in a controlled project workspace.
@@ -87,4 +87,4 @@ The original source `public/index.php` and `.htaccess` were inspected. No files 
 4. Verify the actual Laravel front-controller path and app boot without secrets or production data.
 5. Verify preview authentication and V1 isolation.
 6. Obtain fresh CI results for the latest PR head.
-7. Keep deployment and public activation blocked until all gates and separate M3-11 release requirements are accepted.
+6. Keep deployment and public activation blocked until all gates and separate M3-11 release requirements are accepted.
