@@ -151,3 +151,23 @@ Remaining gates:
 3. Keep deployment and public activation blocked until all gates and separate M3-11 release requirements are accepted.
 
 No merge, deployment, or public activation is authorized by this preparation work.
+
+
+## 8. Additional synthetic private-path and include verification (2026-11-19)
+
+A further temporary test was run only inside the V2 staging directory. It created a synthetic `_app/` tree with harmless marker files under `app/`, `bootstrap/`, and `storage/`, a deny-all `_app/.htaccess`, and a temporary public PHP include probe. No Laravel source, dependencies, credentials, `.env`, database configuration, or real data were used.
+
+Observed direct HTTP results:
+
+| Probe | HTTP result | Outcome |
+|---|---:|---|
+| `_app/app/marker.txt` | 403 | PASS |
+| `_app/bootstrap/app.php` | 403 | PASS |
+| `_app/storage/` | 403 | PASS |
+| `_app/storage/marker.txt` | 403 | PASS |
+
+The public PHP include probe required the synthetic `_app/bootstrap/app.php` file and returned the expected `V2_BOOTSTRAP_MARKER` response. This confirms filesystem inclusion for that harmless synthetic file while the tested direct HTTP requests were denied.
+
+Cleanup was explicitly run. Shell assertions confirmed that `_app/` and `__v2_path_include_probe.php` no longer existed. The transcript contains interleaved terminal paste fragments, but all four HTTP 403 outputs, the expected include marker, and both cleanup assertions are present.
+
+These results close the specific additional synthetic path checks for `app/`, `bootstrap/`, and `storage/`. They do not prove all possible private-path access patterns, private filesystem isolation, actual Laravel boot, or preview authentication.
