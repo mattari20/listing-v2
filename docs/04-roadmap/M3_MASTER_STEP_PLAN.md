@@ -1,3 +1,9 @@
+## Latest verified planning position — M3-12 private preview and synthetic dataset (2026-11-20)
+
+The bounded local-only M3-12 package is being reconciled from PR #280 onto current main `507e760427beea885fc608f155d1f711e7c6bdee`. It carries forward a guarded SQLite-only seeder for seven fictional records across provider, institution, campus, programme and qualification categories, with synthetic evidence/adjudication/publication, idempotence, pending/leased outbox isolation and 42-event completion checks. No new schema, migration, route, view, dependency, external service, Hostinger action, real data or public activation is included. Exact-head validation is pending; M3-11 hosted/release gates remain separate and blocked.
+
+---
+
 ## Latest verified planning position — M3-11-05C repository implementation (2026-11-18)
 
 PR [#295](https://github.com/mattari20/listing-v2/pull/295) merged as `09ae3ff31462cb2bf85566c5f9963565c067a69f`; exact-head FND-01 PHP 8.5 CI #496 and documentation validation #933 passed. M3-11-05C repository implementation adds MySQL connection configuration, V2 subfolder session-cookie settings and opt-in Laravel-wide preview Basic authentication. Local/CI remains synthetic SQLite. Hosted PHP/database compatibility, document-root/storage isolation and hosting-level access controls remain unverified. M3-11-05 is still BLOCKED / NOT ACCEPTED; no provisioning, deployment, production or V1 activity is authorized.
