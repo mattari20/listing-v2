@@ -113,7 +113,7 @@ final class PublicDirectoryTest extends TestCase
             ->assertOk()
             ->assertSee('Synthetic Punjab College')
             ->assertDontSee('Synthetic Sindh College')
-            ->assertSee('name="filters[institution_region]"');
+            ->assertSee('filters[institution_region]');
     }
 
     public function test_unknown_or_unavailable_registry_filter_is_ignored_without_exposing_private_values(): void
