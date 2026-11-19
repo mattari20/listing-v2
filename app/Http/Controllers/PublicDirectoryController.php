@@ -17,13 +17,22 @@ final class PublicDirectoryController extends Controller
             'q' => ['nullable', 'string', 'max:120'],
             'type' => ['nullable', 'string', 'max:40'],
             'locality' => ['nullable', 'string', 'max:120'],
+            'filters' => ['nullable', 'array', 'max:6'],
+            'filters.*' => ['nullable', 'string', 'max:120'],
             'page' => ['nullable', 'integer', 'min:1'],
         ]);
 
         $query = trim((string) ($validated['q'] ?? ''));
         $type = ($validated['type'] ?? '') !== '' ? (string) $validated['type'] : null;
         $locality = trim((string) ($validated['locality'] ?? ''));
-        $data = $directory->search($query, $type, $locality);
+        $filterOptions = $directory->filterOptions();
+        $filters = [];
+        foreach (($validated['filters'] ?? []) as $key => $value) {
+            if (isset($filterOptions[$key]) && in_array($value, $filterOptions[$key]['values'], true)) {
+                $filters[$key] = $value;
+            }
+        }
+        $data = $directory->search($query, $type, $locality, $filters);
         $perPage = 20;
         $page = LengthAwarePaginator::resolveCurrentPage();
         $results = new LengthAwarePaginator(
@@ -38,6 +47,8 @@ final class PublicDirectoryController extends Controller
             'query' => $query,
             'type' => $type,
             'locality' => $locality,
+            'filters' => $filters,
+            'filterOptions' => $filterOptions,
             'typeOptions' => $directory->typeOptions(),
             'facets' => $data['facets'],
             'results' => $results,
