@@ -3,7 +3,7 @@
 **Date:** 2026-11-20  
 **Repository:** `mattari20/listing-v2`  
 **Baseline main:** `2e24fd4e2b48b23a49a3dc012d48523103612d65`  
-**Status:** Repository-only design proposal; Product Owner decisions and implementation authorization pending.
+**Status:** Product Owner policy approved; fail-closed SEO/crawl controls implemented and merged in PR #335; sitemap and synthetic performance measurement remain gated follow-on slices.
 
 ## 1. Design principles
 
@@ -108,10 +108,10 @@ Capture, where available:
 
 ## 7. Implementation staging proposal
 
-1. Product Owner confirms indexability and language-alternate policy.
+1. Product Owner confirmed indexability and language-alternate policy on 2026-11-20.
 2. Owner identifies a future canonical public origin only when a public-release decision is appropriate; until then origin remains unset.
 3. Prepare exact files and tests for first-party metadata, noindex preview behavior, robots output and sitemap eligibility.
 4. Separately authorize a synthetic benchmark harness and fixture tiers; keep measurements explicitly local/CI.
 5. Present results and assumptions for numeric SLO decision; do not implement production monitoring or capacity changes in this agenda.
 
-No stage in this design is an implementation authorization.
+The B07-B fail-closed SEO/crawl implementation was separately authorized and merged in PR #335. Sitemap and performance harness implementation remain separate gated slices.

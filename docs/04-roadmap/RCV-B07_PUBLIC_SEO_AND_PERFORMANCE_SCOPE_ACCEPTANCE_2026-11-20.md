@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** `main` after RCV-B06 closeout merge `2e24fd4e2b48b23a49a3dc012d48523103612d65`  
 **Agenda:** RCV-B07 — Public SEO and Performance Evidence  
-**Status:** Repository-only evidence inventory COMPLETE; proposed scope and owner decision points prepared. No SEO code, crawl/index activation, public domain, production URL, numeric SLO or load/capacity claim is authorized.
+**Status:** Repository inventory COMPLETE; Product Owner policy decisions APPROVED; fail-closed SEO controls implemented in PR #335. Sitemap and synthetic performance measurement remain separate follow-on slices. No public indexing activation, production URL or numeric SLO is authorized.
 
 ## 1. Why this agenda is next
 
@@ -54,7 +54,7 @@ The RCV-01 precondition is explicit: no production URL/cutover, and numeric SLOs
 
 These are repository observations. No public website, search engine, hosting account, production service, real dataset or external performance service was accessed.
 
-## 3. Proposed product and crawl policy — owner decision required
+## 3. Product and crawl policy — Product Owner approved
 
 Recommended conservative first policy:
 
@@ -83,15 +83,15 @@ Use a staged, reproducible, synthetic-only method without adding a paid service 
 
 Do not add brittle wall-clock assertions to ordinary unit tests. A performance regression threshold must be justified by repeatable baseline evidence and explicit owner acceptance.
 
-## 5. Candidate implementation slices — not yet authorized
+## 5. Implementation slice status
 
 | Slice | Candidate deliverable | Authorization status |
 |---|---|---|
-| B07-A | Trusted canonical-origin and metadata design, indexability rules, language alternate policy | Design prepared; owner decision pending |
-| B07-B | Environment-aware robots/noindex controls and canonical metadata with tests | Not authorized |
-| B07-C | Conditional sitemap generation from approved public projections, with suppression/visibility tests | Not authorized |
-| B07-D | Reproducible synthetic workload/measurement harness and baseline report | Method proposed; implementation authorization pending |
-| B07-E | Owner-approved SLO and capacity acceptance record | Blocked pending measured evidence and owner decision |
+| B07-A | Trusted canonical-origin and metadata design, indexability rules, language alternate policy | APPROVED; design recorded |
+| B07-B | Environment-aware robots/noindex controls and canonical metadata with tests | IMPLEMENTED AND MERGED in PR #335 |
+| B07-C | Conditional sitemap generation from approved public projections, with suppression/visibility tests | DEFERRED pending approved public origin/release and verified safe enumeration contract |
+| B07-D | Reproducible synthetic workload/measurement harness and baseline report | NEXT bounded repository-only slice; numeric SLOs remain unset |
+| B07-E | Owner-approved SLO and capacity acceptance record | BLOCKED pending synthetic measurement review and separate owner approval |
 
 Any code stage must be separately bounded to repository/local/GitHub CI, synthetic fixtures only, with exact files, test coverage and no production URL/cutover.
 
@@ -121,14 +121,14 @@ Any code stage must be separately bounded to repository/local/GitHub CI, synthet
 - No numeric SLO adoption from M2-S09 draft proposals without owner approval.
 - No weakening of preview authentication, security headers, rate limits, publication eligibility or Deeni Madaris default-OFF behavior.
 
-## 8. Product Owner decisions requested before implementation
+## 8. Product Owner decisions — approved 2026-11-20
 
 1. Confirm the proposed indexability policy: no indexing until a public origin/release is separately approved; later index stable public directory/profile pages only; noindex search/filter/pagination/compare.
 2. Confirm whether the eventual public site should expose both English and Urdu as independently indexable equivalents, subject to verified equivalent URLs.
 3. Confirm that numeric SLOs remain unset until the synthetic measurement report is reviewed; do not adopt M2-S09's provisional values automatically.
 
-These decisions authorize no implementation by themselves. A separate exact-scope implementation authorization will follow after the policy is recorded.
+The Product Owner approved all three decisions unchanged. This approval enabled the exact bounded B07-B implementation authorization recorded in `RCV-B07_BOUNDED_IMPLEMENTATION_AUTHORIZATION_2026-11-20.md`. It does not authorize sitemap generation, public indexing activation, public-origin selection, production URL/cutover, performance SLO adoption or deployment.
 
 ## 9. Current disposition
 
-The repository-only inventory is complete. RCV-B07 is now in preflight: product policy decisions, trusted public-origin choice, synthetic workload assumptions and implementation authorization remain open. No application behavior has changed.
+The repository-only inventory and B07-B fail-closed crawl/SEO controls are complete. Indexing remains disabled by default and the canonical origin remains unset. Sitemap generation is deferred pending an approved public origin/release and safe eligible-projection enumeration. The next slice is a synthetic-only performance measurement harness; no numeric SLO, production capacity claim, deployment or public indexing activation is authorized.
