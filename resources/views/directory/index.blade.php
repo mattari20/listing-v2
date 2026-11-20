@@ -33,6 +33,9 @@
         .facets { margin-top: 1rem; }
         .facets a { margin-inline-end: .8rem; }
         fieldset { border: 1px solid #d9dee7; border-radius: .5rem; padding: .75rem; min-width: 0; }
+        .filter-help { color: #4b5563; font-size: .92rem; margin: .25rem 0 .6rem; }
+        .study-facts { margin: .55rem 0; padding-inline-start: 1.2rem; }
+        .empty-guidance { background: #fff; border: 1px solid #d9dee7; border-radius: .65rem; padding: 1rem; }
         legend { font-weight: 700; padding: 0 .3rem; }
         .active-filters { margin: .8rem 0; padding: .75rem; background: #eef3fa; border-radius: .5rem; }
         .active-filters span { display: inline-block; margin: .2rem .45rem .2rem 0; }
@@ -87,6 +90,7 @@
         @foreach ($filterGroups as $groupLabel => $groupOptions)
             <fieldset>
                 <legend>{{ $filterGroupLabels[$groupLabel] ?? $groupLabel }}</legend>
+                <p class="filter-help">{{ __('directory.filter_help') }}</p>
                 @foreach ($groupOptions as $key => $option)
                     <div>
                         <label for="filter-{{ $key }}">{{ $option['label'] }}</label>
@@ -135,6 +139,14 @@
                 @if ($locationFacts->isNotEmpty())
                     <p class="meta" dir="auto">{{ $locationFacts->pluck('value')->implode(', ') }}</p>
                 @endif
+                @php($studyFacts = collect($result['facts'])->filter(fn (array $fact): bool => in_array($fact['key'], ['education_level', 'programme_title', 'programme_level', 'institution_subject', 'subject', 'qualification_title', 'qualification_level', 'admission_status', 'admission_cycle'], true)))
+                @if ($studyFacts->isNotEmpty())
+                    <ul class="study-facts" aria-label="{{ __('directory.study_options') }}">
+                        @foreach ($studyFacts as $studyFact)
+                            <li dir="auto"><strong>{{ $studyFact['label'] }}:</strong> {{ $studyFact['value'] }}</li>
+                        @endforeach
+                    </ul>
+                @endif
                 @php($overview = collect($result['facts'])->firstWhere('key', 'overview'))
                 @if ($overview !== null)
                     <p dir="auto">{{ $overview['value'] }}</p>
@@ -162,7 +174,12 @@
                 @endif
             </article>
         @empty
-            <p>{{ __('directory.no_matches') }}</p>
+            <div class="empty-guidance" role="status">
+                <p>{{ __('directory.no_matches') }}</p>
+                <p>{{ __('directory.no_matches_guidance') }}</p>
+                <p><a href="{{ route('directory.index', array_filter(['q' => $query !== '' ? $query : null, 'lang' => $locale])) }}">{{ __('directory.broaden_search') }}</a></p>
+                <p><a href="{{ route('directory.index', ['lang' => $locale]) }}">{{ __('directory.clear_all') }}</a></p>
+            </div>
         @endforelse
         {{ $results->links() }}
     </section>
