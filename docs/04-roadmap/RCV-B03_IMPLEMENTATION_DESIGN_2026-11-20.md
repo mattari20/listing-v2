@@ -5,7 +5,7 @@
 **Baseline:** `main` at `7b3c65a6b9e3ab10a0996f315f03030cf7d90375`  
 **Branch:** `feat/rcv-b03-session-shortlist-comparison`  
 **Authorization:** Product Owner approved temporary session-only shortlist on 2026-11-20.  
-**Status:** Implementation and synthetic tests in progress; exact-head CI pending.
+**Status:** IMPLEMENTATION COMPLETE in PR #322; exact-head PHP 8.5 foundation CI #44645164583 and project documentation validation #44645164581 both passed on `c2669a85099bfb3640baaec2bc2f77b7c569f39f`. PR remains open and unmerged pending Product Owner merge approval.
 
 ## 1. Accepted first-slice decision
 
@@ -60,4 +60,4 @@ No schema/migration, persistent storage, public sharing, account registration, p
 
 ## 6. Validation
 
-The final PR head must pass the PHP 8.5 FND-01 foundation CI and Project documentation validation. No previous or superseded branch result substitutes for exact-head checks. A green CI run is automated synthetic validation, not browser acceptance or production readiness.
+Exact-head `c2669a85099bfb3640baaec2bc2f77b7c569f` passed PHP 8.5 FND-01 foundation CI run #44645164583 and Project documentation validation run #44645164581. The synthetic suite reported 15 passed, 1,262 assertions and 248 non-fatal warnings. A green CI run is automated synthetic validation, not browser acceptance or production readiness.
