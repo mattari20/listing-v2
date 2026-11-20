@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Search publicly approved education provider and institution information.">
-    <title>Education Directory</title>
+    <meta name="description" content="{{ __('directory.meta_directory') }}">
+    <title>{{ __('directory.directory_title') }}</title>
     <style>
         :root { color-scheme: light; font-family: system-ui, sans-serif; }
         body { margin: 0; color: #172033; background: #f7f8fa; line-height: 1.55; }
@@ -91,7 +91,7 @@
         <section class="active-filters" aria-label="{{ __('directory.active_search') }}" aria-live="polite">
             <strong>{{ __('directory.active_search') }}</strong>
             @if ($query !== '')<span>{{ __('directory.words', ['value' => $query]) }}</span>@endif
-            @if ($type !== null)<span>Category: {{ $typeOptions[$type] ?? $type }}</span>@endif
+            @if ($type !== null)<span>{{ __('directory.category_value', ['value' => $typeOptions[$type] ?? $type]) }}</span>@endif
             @if ($locality !== '')<span>{{ __('directory.location', ['value' => $locality]) }}</span>@endif
             @foreach ($filters as $key => $value)
                 <span>{{ $filterOptions[$key]['label'] ?? $key }}: {{ $value }}</span>
@@ -101,7 +101,7 @@
     @endif
 
     @if ($facets !== [])
-        <nav class="facets" aria-label="Available categories">
+        <nav class="facets" aria-label="{{ __('directory.categories') }}">
             <strong>{{ __('directory.categories') }}</strong> <span class="meta">{{ __('directory.facet_note') }}</span>
             @foreach ($facets as $key => $count)
                 <a href="{{ route('directory.index', ['q' => $query, 'type' => $key, 'locality' => $locality, 'filters' => $filters]) }}">{{ $typeOptions[$key] ?? $key }} ({{ $count }})</a>
@@ -113,11 +113,11 @@
         <h2 id="results-heading">{{ __('directory.results_heading') }}</h2>
         @forelse ($results as $result)
             <article class="result">
-                <h3><a href="{{ route('directory.show', ['entity' => $result['id']]) }}">{{ $result['name'] }}</a></h3>
+                <h3><a href="{{ route('directory.show', ['entity' => $result['id'], 'lang' => $locale]) }}" dir="auto">{{ $result['name'] }}</a></h3>
                 <p class="meta">{{ $typeOptions[$result['type']] ?? $result['type_label'] }}</p>
                 @php($locationFacts = collect($result['facts'])->whereIn('key', ['province', 'district', 'city', 'locality']))
                 @if ($locationFacts->isNotEmpty())
-                    <p class="meta">{{ $locationFacts->pluck('value')->implode(', ') }}</p>
+                    <p class="meta" dir="auto">{{ $locationFacts->pluck('value')->implode(', ') }}</p>
                 @endif
                 @php($overview = collect($result['facts'])->firstWhere('key', 'overview'))
                 @if ($overview !== null)
@@ -125,6 +125,7 @@
                 @endif
                 <form method="post" action="{{ route('directory.shortlist.add', ['entity' => $result['id']]) }}">
                     @csrf
+                    <input type="hidden" name="lang" value="{{ $locale }}">
                     <button type="submit" @disabled($shortlistCount >= $shortlistLimit)>{{ __('directory.add_shortlist') }}</button>
                 </form>
                 @if ($result['last_observed_at'] !== null)
