@@ -46,7 +46,8 @@ This documentation is the governing source of truth for eStudent Institutes V2. 
 - [M1 Source Rights, Access and Provenance Evidence Register](03-research/M1_SOURCE_RIGHTS_ACCESS_EVIDENCE_REGISTER.md)
 
 ## Roadmap and implementation records
-- [RCV-B02 Admissions and Programme Decision Facts](04-roadmap/RCV-B02_SCOPE_ACCEPTANCE_PACK_2026-11-18.md) — cycle-scoped eligibility, deadlines, fees, scholarships/aid, evidence and freshness scope; implementation design and synthetic tests are under validation.
+- [RCV-B02 Offer-Scoped Admissions Facts Implementation and Closeout](04-roadmap/RCV-B02_IMPLEMENTATION_DESIGN_2026-11-18.md) — synthetic offer-scoped admissions facts governance, exact-head validation and merge closeout; no live data or public application workflow.
+- [RCV-B02 Admissions and Programme Decision Facts](04-roadmap/RCV-B02_SCOPE_ACCEPTANCE_PACK_2026-11-18.md) — cycle-scoped eligibility, deadlines, fees, scholarships/aid, evidence and freshness; synthetic offer-fact governance implementation merged in PR #318 with exact-head CI passed; no live source data or public applications.
 - [M3-12 Private Preview and Synthetic Dataset](04-roadmap/M3-12_PRIVATE_PREVIEW_AND_SYNTHETIC_DATASET_2026-11-18.md) — guarded local SQLite preview seeder, seven fictional examples and synthetic-only feature tests; merged in PR #316 with exact-head foundation CI and documentation validation passed; no hosted or public activation.
 - [M3-09 Quality and Operational Hardening](04-roadmap/M3-09_QUALITY_OPERATIONAL_HARDENING_RECORD.md)
 - [M3-10 Pilot and Launch Readiness Work Plan](04-roadmap/M3-10_PILOT_AND_LAUNCH_READINESS_WORK_PLAN.md)

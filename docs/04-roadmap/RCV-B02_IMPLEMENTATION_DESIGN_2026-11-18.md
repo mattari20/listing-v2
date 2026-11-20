@@ -84,4 +84,4 @@ Facts are attached to the public programme profile, grouped by the existing offe
 - Deeni Madaris exclusion and no new write/application routes.
 - Full exact-head PHP 8.5 foundation CI and documentation validation before merge consideration.
 
-**Status:** Existing RCV-B02 implementation was reconciled onto current main. Exact-head PHP 8.5 foundation CI and Project documentation validation are required on the reconciled PR before merge. No production or external activity.
+**Status:** IMPLEMENTED AND MERGED in PR #318 as `f3651e4aa5222ccebe5eea859d47362a7145429a`; exact-head `240150ea7668a2568b87144c5c09bb9b7489ee95` passed PHP 8.5 foundation CI #44642616254 and Project documentation validation #44642616084. Synthetic suite: 15 passed, 1,216 assertions, 242 non-fatal warnings. No production or external activity.
