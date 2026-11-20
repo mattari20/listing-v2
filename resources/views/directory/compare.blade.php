@@ -38,7 +38,7 @@
         <span aria-hidden="true">|</span>
         <a href="{{ $languageUrls['ur'] }}" @if ($locale === 'ur') aria-current="page" @endif>{{ __('directory.urdu') }}</a>
     </nav>
-    <p><a href="{{ route('directory.index', ['lang' => $locale]) }}">← {{ __('directory.back_directory') }}</a></p>
+    <p><a href="/directory?lang={{ $locale }}">← {{ __('directory.back_directory') }}</a></p>
     <h1>{{ __('directory.compare_heading') }}</h1>
     <p class="meta">{{ __('directory.temporary_notice') }}</p>
     @if (count($profiles) < 2)
@@ -54,7 +54,7 @@
                     <th scope="col">{{ __('directory.comparison_detail') }}</th>
                     @foreach ($profiles as $profile)
                         <th scope="col">
-                            <a href="{{ route('directory.show', ['entity' => $profile['id'], 'lang' => $locale]) }}" dir="auto">{{ $profile['name'] }}</a>
+                            <a href="/directory/{{ $profile['id'] }}?lang={{ $locale }}" dir="auto">{{ $profile['name'] }}</a>
                             <div class="meta">{{ __('directory.types.'.$profile['type']) }}</div>
                             <form method="post" action="{{ route('directory.shortlist.remove', ['entity' => $profile['id']]) }}">
                                 @csrf
