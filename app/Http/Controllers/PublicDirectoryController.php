@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
-use App\Services\Directory\PublicDirectoryComparisonService;
 use App\Services\Directory\DirectorySeoMetadata;
+use App\Services\Directory\PublicDirectoryComparisonService;
 use App\Services\Directory\PublicDirectoryQueryService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
