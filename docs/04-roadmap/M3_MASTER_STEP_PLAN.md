@@ -56,7 +56,7 @@ Verified main at start: `c77ad95a85ecce845d06c24eb629e368ac46be13`. M3-11-07 rep
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** M0, M1 and M2 accepted and closed; M2 = 100%  
 **Current milestone:** M3 — Mobilization and Controlled Implementation  
-**Current step:** M3-11 — Controlled Production Launch Governance / Release Preflight. M3-11-01 scope/authority definition is CLOSED for Option A / private acceptance environment only. M3-11-02–M3-11-10 remain independently gated; M3-11 production readiness is BLOCKED / NOT ACCEPTED. See `M3-11_CONTROLLED_PRODUCTION_LAUNCH_PREFLIGHT.md`, `M3-11_RESIDUAL_GATE_RESOLUTION_PLAN_2026-11-17.md` and the M3-11-01 closeout record. No environment provisioning, access, pilot or production execution is authorized.
+**Current step:** Final M3 Acceptance Exercise — F02 repository-side consistency resolution (2026-11-20). M3-12 A01–A09 is closed for bounded repository verification; the final M3 acceptance exercise F01–F06 is now active. M3-11-01 scope/authority definition remains CLOSED for Option A / private acceptance scope; M3-11-02–M3-11-10 remain independently gated and M3-11 production readiness remains BLOCKED / NOT ACCEPTED. See `M3-11_CONTROLLED_PRODUCTION_LAUNCH_PREFLIGHT.md`, `M3-11_RESIDUAL_GATE_RESOLUTION_PLAN_2026-11-17.md` and the M3-11-01 closeout record. No environment provisioning, access, pilot or production execution is authorized.
 **Plan status:** M3-09 Q01–Q06 complete for authorized synthetic-only local/CI scope; M3-10 authorized readiness-preparation agenda complete/closed but pilot readiness NOT ACCEPTED; M3-11-01 scope-definition closed; M3-11-02–M3-11-10 remain gated and overall M3-11 production readiness BLOCKED / NOT ACCEPTED.
 **Application implementation:** M3-03 bounded synthetic implementation is closed. M3-04 P01–P04, M3-05, M3-06 and M3-07 I1-I6 are implemented, validated and merged for bounded synthetic local/CI scope. M3-07 I7 adds test-only regression, adversarial, privacy, migration/rollback, SQLite contention and query-count checks; it does not change application behavior or activate live source ingestion or an AI agent. Coordinates, distance search, device location, maps, geocoding, real/source data, external services, production and deployment remain separately gated.
 
@@ -635,3 +635,8 @@ M3-11-07 entry-gate review preserves the technical distinctions: RC-05 remains b
 ## M3 final acceptance exercise — F01 completed — 2026-11-20
 
 F01 established the cross-milestone disposition overlay and status-conflict register in `M3_FINAL_ACCEPTANCE_F01_CROSS_MILESTONE_TRACEABILITY_2026-11-20.md`. M3-00 approved deferrals, M3-10 pilot non-acceptance, M3-11 ten-gate blocked status and M3-12 repository-only closure are retained. F01 does not newly accept any requirement or authorize external/operational work. Continue with F02 repository-side blocker resolution, then consolidate decisions and perform requirement-level evidence assessment.
+
+
+## F02 — repository-side consistency resolution — 2026-11-20
+
+F02 updated the current-step pointer and clarified the M3-10 Option B proposal-only scope versus the M3-11 Option A private acceptance boundary. The M3-11-04 repository-development boundary is closed only for current private synthetic development; future hosted/reviewer/pilot/release operations remain blocked pending named human acceptances. See `M3_FINAL_ACCEPTANCE_F02_REPOSITORY_CONSISTENCY_2026-11-20.md`.
