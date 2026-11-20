@@ -7,7 +7,9 @@
 
 ## RCV-B06 — advanced geography — 2026-11-20
 
-- [RCV-B06 Advanced Geography Scope and Acceptance Pack](04-roadmap/RCV-B06_ADVANCED_GEOGRAPHY_SCOPE_ACCEPTANCE_2026-11-20.md) — current manual locality/campus location baseline inspected; staged optional nearby policy prepared. Product Owner decision required; no coordinates, source access, geolocation, maps, geocoding, vendor, schema change or spend authorized.
+- [RCV-B06 Advanced Geography Scope and Acceptance Pack](04-roadmap/RCV-B06_ADVANCED_GEOGRAPHY_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner policy approved; geography design and evidence review complete; no real coordinates, geolocation, maps, geocoding, schema change or spend authorized.
+- [RCV-B06 Geography Semantics and Optional Nearby Design](04-roadmap/RCV-B06_GEOGRAPHY_SEMANTICS_AND_NEARBY_DESIGN_2026-11-20.md) — entity ownership, coordinate quality, fail-closed eligibility, privacy and synthetic test contract.
+- [RCV-B06 Publication/Evidence Review and Bounded Implementation Authorization Request](04-roadmap/RCV-B06_PUBLICATION_EVIDENCE_REVIEW_AND_IMPLEMENTATION_AUTHORIZATION_REQUEST_2026-11-20.md) — current publication, evidence, source-rights, campus identity and Deeni Madaris controls reconciled; synthetic-only pure-domain proof-of-concept awaits Product Owner authorization.
 
 ## RCV-B04 — search and filter completeness — 2026-11-20
 

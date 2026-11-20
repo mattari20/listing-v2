@@ -127,6 +127,6 @@ The following require separate explicit approval before implementation or live u
 
 The Product Owner policy is approved. This document completes a repository-only definition of entity ownership, quality, fail-closed eligibility, privacy principles, distance semantics and synthetic test expectations.
 
-**Next safe step:** review this design against the existing V2 publication/evidence contracts and prepare a bounded implementation authorization request. Until that request is separately approved, do not change application code, schema, migrations, workflows or runtime configuration.
+**Next safe step:** the publication/evidence/suppression review is complete. See `RCV-B06_PUBLICATION_EVIDENCE_REVIEW_AND_IMPLEMENTATION_AUTHORIZATION_REQUEST_2026-11-20.md` for the proposed synthetic-only pure-domain proof-of-concept. It is not authorized until the Product Owner approves that exact scope. Until then, do not change application code, tests, schema, migrations, workflows or runtime configuration.
 
 All existing V2-only, synthetic-only, no-production, no-V1, no-Hostinger, no-real/source/personal-data, no-external-service/AI, no-spend and Deeni Madaris default-OFF restrictions remain binding.
