@@ -165,6 +165,7 @@ final class PublicDirectoryController extends Controller
             'shortlistLimit' => (int) config('directory.shortlist_limit', 5),
             'locale' => $locale,
             'direction' => $locale === 'ur' ? 'rtl' : 'ltr',
+            'languageUrls' => $this->directoryLanguageUrls($request),
         ]);
     }
 
