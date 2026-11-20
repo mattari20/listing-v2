@@ -2,6 +2,10 @@
 
 | Requirement ID | Requirement | Specification | Step | PR / commit | Test / evidence | Status |
 |---|---|---|---|---|---|---|
+| RCV-B05-SCOPE-001 | Language and accessibility scope/acceptance preparation | `RCV-B05_LANGUAGE_AND_ACCESSIBILITY_SCOPE_ACCEPTANCE_2026-11-20.md` | RCV-B05 | Branch `docs/rcv-b04-pagination-acceptance` | Inspected index/profile/comparison views; recorded English-only document language, current semantic/keyboard foundations, missing comparison skip link and absent qualified assessment | Scope proposal prepared; Product Owner language/content decision required |
+
+| Requirement ID | Requirement | Specification | Step | PR / commit | Test / evidence | Status |
+|---|---|---|---|---|---|---|
 | RCV-B04-001 | Deterministic student search and grouped approved registry filters | `RCV-B04_SEARCH_AND_FILTER_COMPLETENESS_SCOPE_ACCEPTANCE_2026-11-20.md`; `RCV-B04_IMPLEMENTATION_DESIGN_2026-11-20.md` | RCV-B04 | PR #324 (implementation) | Synthetic tests: approved subject substring search; unsearchable field exclusion; multiple exact filters; category facets before selected category; grouped filter controls; active filter summary and clear-all. Existing projection, Deeni Madaris, pagination query propagation and RCV-B03 regressions retained. Exact-head CI pending. | Implemented; exact-head validation pending |
 
 | Requirement ID | Requirement | Specification | Step | PR / commit | Test / evidence | Status |

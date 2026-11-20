@@ -1,6 +1,6 @@
-## Latest verified position — RCV-B04 student search and filter completeness (2026-11-20)
+## Latest verified position — RCV-B05 language and accessibility (2026-11-20)
 
-RCV-B03 shortlist/comparison is complete and merged in PR #322 as `f3590a785e690858d1a6626219f6dd4125befd4c`. The Product Owner approved RCV-B04's bounded synthetic-only scope. PR #324 implements searchable subject facts, grouped registry-backed filter controls, combined filters, category-facet semantics, visible active search state and clear-all. Exact-head PHP 8.5 foundation CI and project documentation validation are pending. No external services, AI, real/source data, Hostinger, V1, production, deployment, migrations, new dependencies or spend.
+RCV-B04 is merged in PR #324 as `8c1fce79cb088ebd8abc50179877781632c4290b`; exact-head FND-01 #44647031022 and documentation validation #44647031024 passed (15 tests, 1,280 assertions). PR #325 adds a dedicated pagination preservation test. The next residual package is RCV-B05. Its scope pack recommends an English/Urdu interface while preserving approved institute facts in their original approved language, plus RTL and accessibility improvements. Product Owner language/content decision is required before implementation; qualified human accessibility assessment remains separate.
 ---
 
 ## Latest verified position — RCV-B02 admissions and programme decision facts (2026-11-20)

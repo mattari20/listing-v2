@@ -5,6 +5,7 @@
 **Baseline:** `main` at `56f9bba683c153d455ebe4b58e9433a09bbeb41a`  
 **Scope:** Approved bounded RCV-B04 first slice  
 **Implementation branch:** `feat/rcv-b04-student-search-filter-completeness`
+**Merge commit:** `8c1fce79cb088ebd8abc50179877781632c4290b`
 
 ## 1. Delivered behavior
 
@@ -40,9 +41,11 @@ Deeni Madaris remains suppressed/default-OFF. No changes were made to V1, Hostin
 - `tests/Feature/PublicDirectoryTest.php` — synthetic subject-search, multi-filter composition/facet and grouped-control/active-state coverage.
 - Scope, roadmap, progress, traceability and documentation indexes updated.
 
-## 4. Validation required
+## 4. Validation and closeout
 
-- Exact-head FND-01 PHP 8.5 foundation CI.
-- Exact-head project documentation validation.
-- Synthetic feature suite includes the existing RCV-B02 and RCV-B03 regressions.
+- Exact-head FND-01 PHP 8.5 foundation CI #44647031022 — SUCCESS on `fc74b6b6ad9be5092b919ce5b28b64d148fba89a`.
+- Exact-head project documentation validation #44647031024 — SUCCESS on the same head.
+- Synthetic feature suite: 15 passed, 1,280 assertions, 251 non-fatal warnings from existing absent-`.env` test checks.
+- PR #324 squash-merged as `8c1fce79cb088ebd8abc50179877781632c4290b`; `main` verified at that merge commit.
+- Follow-up PR #325 adds an explicit pagination query-preservation regression, because this behavior was already implemented by passing the full request query to the paginator but had not yet had a dedicated assertion.
 - No browser acceptance or production readiness is claimed by automated CI.

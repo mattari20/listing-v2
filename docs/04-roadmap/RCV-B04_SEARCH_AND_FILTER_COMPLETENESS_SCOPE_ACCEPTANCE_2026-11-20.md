@@ -10,7 +10,7 @@
 
 RCV-01 identifies RCV-B04 as the next residual product capability after RCV-B03. RCV-B02 admissions/programme decision facts and RCV-B03 session-only shortlist/comparison are now implemented and merged for their bounded synthetic V2 scopes.
 
-The current directory already supports case-insensitive substring search over approved searchable names/facts, entity-type selection, text locality, registry-managed exact-value filters, and alphabetical default ordering. The controller exposes a maximum of six filter parameters. This is a useful base, but it does not yet demonstrate complete student-first subject/programme discovery, a deliberate filter catalogue, transparent facet behavior, or a complete acceptance matrix for unknown and non-comparable values.
+The current directory already supports case-insensitive substring search over approved searchable names/facts, entity-type selection, text locality, registry-managed exact-value filters, and alphabetical default ordering. The controller accepts up to 12 selected filter fields per request, with every key/value checked against the current approved filter-option catalogue. This is a useful base, but it does not yet demonstrate complete student-first subject/programme discovery, a deliberate filter catalogue, transparent facet behavior, or a complete acceptance matrix for unknown and non-comparable values.
 
 ## 2. Current behavior and gaps
 
@@ -107,14 +107,14 @@ If approved, implementation should:
 - Add deterministic synthetic tests and run exact-head PHP 8.5 foundation CI plus project documentation validation.
 - Merge automatically when the exact current PR head is clean, in-scope, mergeable and all required checks pass, under the standing project merge protocol.
 
-## 7. Current agenda disposition
+## 7. Implementation disposition
 
 | Work item | Status |
 |---|---|
 | RCV-01 residual backlog identifies RCV-B04 | COMPLETE |
 | Current search/filter behavior inspected | COMPLETE |
 | Search/filter gaps and exclusions documented | COMPLETE |
-| Bounded implementation recommendation | PREPARED |
+| Bounded implementation recommendation | IMPLEMENTED AND MERGED |
 | Product Owner decision on proposed scope | APPROVED 2026-11-20 |
 | Application implementation | Delivered in PR #324; exact-head checks pending at scope-pack update |
 | Production, Hostinger, V1, real data, external services, AI, deployment or spend | NOT AUTHORIZED |
