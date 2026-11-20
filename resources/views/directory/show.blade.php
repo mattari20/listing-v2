@@ -74,7 +74,7 @@
         <p class="meta" role="note">{{ __('directory.observation_is_not_verification') }}</p>
 
         <h2>{{ __('directory.public_info') }}</h2>
-        @if ($profile['facts'] === [])
+        @if ($profile['facts'] === [] && ($profile['type'] ?? null) !== 'programme')
             <p>{{ __('directory.no_details') }}</p>
         @elseif (($profile['type'] ?? null) === 'programme')
             @php
@@ -94,28 +94,32 @@
                 );
             @endphp
             @foreach ($programmeSectionLabels as $sectionKey => $sectionLabel)
-                @if ($programmeFactGroups->has($sectionKey))
-                    <h3>{{ $sectionLabel }}</h3>
-                    <dl>
-                        @foreach ($programmeFactGroups->get($sectionKey) as $fact)
-                            <dt dir="auto">{{ $fact['label'] }}</dt>
-                            <dd dir="auto">
-                                @if ($fact['is_external_url'])
-                                    <a href="{{ $fact['value'] }}" target="_blank" rel="noopener noreferrer">{{ $fact['value'] }}</a>
-                                @else
-                                    {{ $fact['value'] }}
-                                @endif
-                                <div class="meta">
-                                    @if ($fact['observed_at'] !== null)
-                                        {{ __('directory.evidence_observed', ['date' => $fact['observed_at']]) }}
+                <section aria-labelledby="programme-section-{{ $sectionKey }}">
+                    <h3 id="programme-section-{{ $sectionKey }}">{{ $sectionLabel }}</h3>
+                    @if ($programmeFactGroups->has($sectionKey))
+                        <dl>
+                            @foreach ($programmeFactGroups->get($sectionKey) as $fact)
+                                <dt dir="auto">{{ $fact['label'] }}</dt>
+                                <dd dir="auto">
+                                    @if ($fact['is_external_url'])
+                                        <a href="{{ $fact['value'] }}" target="_blank" rel="noopener noreferrer">{{ $fact['value'] }}</a>
                                     @else
-                                        {{ __('directory.observation_not_supplied') }}
+                                        {{ $fact['value'] }}
                                     @endif
-                                </div>
-                            </dd>
-                        @endforeach
-                    </dl>
-                @endif
+                                    <div class="meta">
+                                        @if ($fact['observed_at'] !== null)
+                                            {{ __('directory.evidence_observed', ['date' => $fact['observed_at']]) }}
+                                        @else
+                                            {{ __('directory.observation_not_supplied') }}
+                                        @endif
+                                    </div>
+                                </dd>
+                            @endforeach
+                        </dl>
+                    @else
+                        <p class="meta">{{ __('directory.programme_section_no_approved_details') }}</p>
+                    @endif
+                </section>
             @endforeach
             <p class="meta" role="note">{{ __('directory.programme_profile_sections_note') }}</p>
         @else
