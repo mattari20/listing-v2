@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-20  
 **Repository:** `mattari20/listing-v2`  
-**Baseline:** `main` at `8c1fce79cb088ebd8abc50179877781632c4290b`  
+**Baseline:** `main` at `40317c3f06111cac2122a25e35e5feb9b54ca08e`  
 **Agenda:** RCV-B05 — Language and Accessibility Completion  
 **Status:** Repository inspection and bounded recommendation prepared; Product Owner language/content decision required before implementation.
 
