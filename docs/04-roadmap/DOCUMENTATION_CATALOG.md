@@ -1,5 +1,10 @@
 ## M3-12 — architecture and database foundation — 2026-11-20
 
+- [M3-12 Agenda 01 — Architecture Conformance Review](M3-12_A01_ARCHITECTURE_CONFORMANCE_REVIEW_2026-11-20.md) — PR #350 merged as e10b7f7; exact-head PHP 8.5 CI #691 and documentation validation #1170 passed. Bounded conformance only; deferred assurance gates remain open.
+- [M3-12 Agenda 02 — Database Foundation Verification](M3-12_A02_DATABASE_FOUNDATION_VERIFICATION_2026-11-20.md) — PR #350 merged as e10b7f7; exact-head PHP 8.5 CI #691 and documentation validation #1170 passed. SQLite local/CI evidence verified; MySQL/hosted acceptance remains unverified.
+
+## M3-12 — architecture and database foundation — 2026-11-20
+
 - [M3-12 Agenda 01 — Architecture Conformance Review](M3-12_A01_ARCHITECTURE_CONFORMANCE_REVIEW_2026-11-20.md) — current-main repository reconciliation against accepted M2-S01–M2-S10 architecture; bounded conformance for private V2 scope, with accessibility, live-source/AI, UGC and production gates retained.
 - [M3-12 Agenda 02 — Database Foundation Verification](M3-12_A02_DATABASE_FOUNDATION_VERIFICATION_2026-11-20.md) — inventories 15 migrations/51 table definitions and verifies the existing disposable SQLite test evidence; MySQL and hosted database acceptance remain unverified.
 
