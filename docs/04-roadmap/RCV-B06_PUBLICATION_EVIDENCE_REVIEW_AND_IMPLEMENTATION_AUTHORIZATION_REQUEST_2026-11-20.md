@@ -2,8 +2,8 @@
 
 **Date:** 2026-11-20  
 **Repository:** mattari20/listing-v2  
-**Review baseline:** main after RCV-B06 policy/design merge  
-**Status:** Evidence review COMPLETE; Product Owner approved the exact synthetic-only proof-of-concept scope on 2026-11-20; implementation prepared, exact-head validation pending
+**Review baseline:** main after RCV-B06 synthetic implementation merge `c926d278de21229a66edc2ff3f1f78e0270b874e`  
+**Status:** Evidence review and approved synthetic implementation COMPLETE; PR #331 merged; exact-head CI passed
 
 ## 1. Decision requested
 
@@ -130,6 +130,6 @@ The Product Owner approved the synthetic-only, pure-domain proof-of-concept exac
 
 ## 8. Review and implementation status
 
-The repository publication/evidence/suppression review is complete. The bounded synthetic proof-of-concept and unit tests have been prepared in `app/Domain/Geography` and `tests/Unit/SyntheticNearbyRankingServiceTest.php`. Exact-head CI and merge remain pending. The existing public directory and manual locality implementation remain unchanged.
+The repository publication/evidence/suppression review is complete. The bounded synthetic proof-of-concept and unit tests were merged in PR #331 as `c926d278de21229a66edc2ff3f1f78e0270b874e`. Exact-head project documentation validation and FND-01 PHP 8.5 foundation CI passed. The existing public directory and manual locality implementation remain unchanged. The existing public directory and manual locality implementation remain unchanged.
 
 See `RCV-B06_SYNTHETIC_NEARBY_RANKING_IMPLEMENTATION_RECORD_2026-11-20.md` for implementation details and remaining validation gates.
