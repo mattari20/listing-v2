@@ -498,7 +498,7 @@ final class PublicDirectoryQueryService
             ->where('status', 'active')
             ->orderBy('title')
             ->orderBy('entity_id')
-            ->get(['entity_id', 'institution_entity_id', 'title', 'claim_version_id']);
+            ->get(['entity_id', 'institution_entity_id', 'title', 'description', 'level', 'claim_version_id']);
         $programmeIds = $programmeRows->pluck('entity_id')->all();
         $offerRows = $programmeIds === [] ? collect() : DB::table('programme_offers')
             ->whereIn('programme_entity_id', $programmeIds)
@@ -561,15 +561,25 @@ final class PublicDirectoryQueryService
                 is_array($claim['value'] ?? null) === false ||
                 ($claim['value']['institution_entity_id'] ?? null) !== (string) $row->institution_entity_id ||
                 ($claim['value']['title'] ?? null) !== (string) $row->title ||
+                ($claim['value']['description'] ?? null) !== $row->description ||
+                ($claim['value']['level'] ?? null) !== $row->level ||
                 ($claim['subject_entity_id'] ?? null) !== $programmeId ||
                 isset($profiles[$programmeId]) === false ||
                 $this->catalogueRecordIsCurrent($claim['valid_from'] ?? null, $claim['valid_to'] ?? null) === false) {
 
                 continue;
             }
+            $institutionProfile = $profiles[(string) $row->institution_entity_id] ?? null;
+            if ($institutionProfile === null || $institutionProfile['type'] !== 'institution') {
+                continue;
+            }
             $programmeIndexes[$programmeId] = [
+                'id' => $programmeId,
                 'name' => $profiles[$programmeId]['name'],
                 'institution_entity_id' => (string) $row->institution_entity_id,
+                'institution_name' => $institutionProfile['name'],
+                'description' => $this->cataloguePublicText($row->description, 4000),
+                'level' => $this->cataloguePublicText($row->level, 80),
                 'offers' => [],
             ];
             $programmesByInstitution[$row->institution_entity_id][] = $programmeId;
@@ -596,14 +606,18 @@ final class PublicDirectoryQueryService
                 continue;
             }
             $programmeIndexes[$programmeId]['offers'][] = [
+                'id' => (string) $row->id,
                 'admission_cycle' => (string) $row->admission_cycle,
                 'location' => $locationsByEntity[$locationId],
             ];
         }
 
         foreach ($items as $index => $item) {
-            if ($item['type'] !== 'institution') {
+            if ($item['type'] === 'programme' && isset($programmeIndexes[$item['id']])) {
+                $items[$index]['programme_catalogue'] = $programmeIndexes[$item['id']];
+            }
 
+            if ($item['type'] !== 'institution') {
                 continue;
             }
             $programmeItems = [];
@@ -617,6 +631,17 @@ final class PublicDirectoryQueryService
         }
 
         return $items;
+    }
+
+    private function cataloguePublicText(?string $value, int $maxLength): ?string
+    {
+        if ($value === null || trim($value) === '' || mb_strlen($value) > $maxLength ||
+            preg_match('//u', $value) !== 1 || strip_tags($value) !== $value ||
+            preg_match('/[\\x00-\\x1F\\x7F]/u', $value) === 1) {
+            return null;
+        }
+
+        return trim($value);
     }
 
     private function catalogueRecordIsCurrent(?string $validFrom, ?string $validTo): bool
@@ -684,6 +709,15 @@ final class PublicDirectoryQueryService
         $entity['programme_offers'] = ($entity['type'] ?? null) === 'programme'
             ? app(PublicProgrammeOfferFactsQueryService::class)->forProgramme((string) $entity['id'])
             : [];
+
+        if (($entity['type'] ?? null) === 'programme') {
+            $catalogueOffers = collect($entity['programme_catalogue']['offers'] ?? [])->keyBy('id');
+            foreach ($entity['programme_offers'] as &$offer) {
+                $catalogueOffer = $catalogueOffers->get($offer['id']);
+                $offer['delivery_location_name'] = $catalogueOffer['location'] ?? null;
+            }
+            unset($offer);
+        }
 
         return $entity;
     }

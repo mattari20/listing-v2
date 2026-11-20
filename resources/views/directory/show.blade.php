@@ -97,6 +97,30 @@
                 @endforeach
             </dl>
         @endif
+        @if (($profile['type'] ?? null) === 'programme' && !empty($profile['programme_catalogue']))
+            <section aria-labelledby="programme-details-heading">
+                <h2 id="programme-details-heading">{{ __('directory.programme_details_heading') }}</h2>
+                @if ($profile['programme_catalogue']['level'] !== null)
+                    <p><strong>{{ __('directory.programme_level_label') }}:</strong> {{ $profile['programme_catalogue']['level'] }}</p>
+                @endif
+                @if ($profile['programme_catalogue']['description'] !== null)
+                    <p dir="auto">{{ $profile['programme_catalogue']['description'] }}</p>
+                @endif
+                <p>
+                    <strong>{{ __('directory.institution_label') }}:</strong>
+                    <a href="{{ route('directory.show', ['entity' => $profile['programme_catalogue']['institution_entity_id'], 'lang' => $locale]) }}" dir="auto">{{ $profile['programme_catalogue']['institution_name'] }}</a>
+                </p>
+                @if ($profile['programme_catalogue']['offers'] !== [])
+                    <h3>{{ __('directory.admission_offers_heading') }}</h3>
+                    <ul>
+                        @foreach ($profile['programme_catalogue']['offers'] as $catalogueOffer)
+                            <li dir="auto">{{ $catalogueOffer['admission_cycle'] }} — {{ $catalogueOffer['location'] }}</li>
+                        @endforeach
+                    </ul>
+                @endif
+            </section>
+        @endif
+
         @if (!empty($profile['catalogue']['campuses']) || !empty($profile['catalogue']['programmes']))
             <section aria-labelledby="campuses-heading">
                 @if (!empty($profile['catalogue']['campuses']))
@@ -112,7 +136,7 @@
                     <h2 id="programmes-heading">{{ __('directory.programmes_offers_heading') }}</h2>
                     @foreach ($profile['catalogue']['programmes'] as $programme)
                         <section>
-                            <h3 dir="auto">{{ $programme['name'] }}</h3>
+                            <h3 dir="auto"><a href="{{ route('directory.show', ['entity' => $programme['id'], 'lang' => $locale]) }}">{{ $programme['name'] }}</a></h3>
                             @if ($programme['offers'] !== [])
                                 <ul>
                                     @foreach ($programme['offers'] as $offer)
