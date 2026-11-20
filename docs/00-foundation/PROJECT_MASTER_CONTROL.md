@@ -1,3 +1,24 @@
+## Latest authoritative position — M3 current-main evidence reconciliation (2026-11-20)
+
+**Latest verified main:** `fd21bfeacfa11cc85a1510fc41787f1f45b09c51` — PR #403, README status refresh. PR #403 exact-head FND-01 CI #750 and Project documentation validation #1282 passed before merge.
+
+PRs #395–#402 reconciled DP-02 through DP-06 and M3-11-05 through M3-11-08. Exact-head Foundation CI / documentation-validation pairs passed: #742/#1266, #743/#1268, #744/#1270, #745/#1272, #746/#1274, #747/#1276, #748/#1278 and #749/#1280. PRs #392–#402 are merged; no new gate acceptance is implied.
+
+- **M3-11-02:** Product Owner internal review and DP-01–DP-06 repository evidence are recorded; qualified independent legal/privacy/safeguarding assessment and target-specific evidence remain BLOCKED.
+- **M3-11-03:** repository-only internal review is closed for current development; SEC-06 local/CI implementation evidence is merged. Independent security assessment and manual accessibility/WCAG review remain outstanding.
+- **M3-11-04:** repository preparation delivered; 0/9 written human role acceptances and no coverage/deputies evidence.
+- **M3-11-05:** partial historical resource/runtime evidence only; private environment not accepted; 0/18 isolation items fully verified.
+- **M3-11-06:** weekly backup cadence accepted for current development only; no V2-only recovery proof/rehearsal; RPO/RTO unset.
+- **M3-11-07:** NOT STARTED / BLOCKED; no candidate or candidate-specific evidence.
+- **M3-11-08:** BLOCKED / NOT DECIDED; no dossier or GO/CONDITIONAL GO/NO-GO.
+- **M3-11-09:** NOT AUTHORIZED. **M3-11-10:** NOT STARTED.
+- **DP-05:** ACCEPT AS PARTIAL TEST EVIDENCE remains unchanged. Saved-items and session shortlist/comparison routes/UI exist despite exclusion from the accepted private-acceptance activity; any future candidate must prove those surfaces inaccessible/disabled. No route or product behavior was changed.
+- **LPS-29:** repository-side Track A qualified-review handoff pack is complete. The next event is a Product Owner human action to select and independently verify a qualified reviewer, agree scope/confidential handling, and obtain a written assessment. No reviewer has been appointed and no report received.
+
+**Overall disposition:** M3-10 pilot readiness NOT ACCEPTED; M3-11 BLOCKED / NOT ACCEPTED; overall M3 OPEN / PARTIALLY COMPLETE — NOT CLOSED. M3-11-09, candidate creation, hosted environment actions, recovery rehearsal, deployment, pilot, public launch and production execution remain unauthorized. Existing owner decisions and restrictions remain unchanged.
+
+---
+
 ## Latest authoritative position — M3-11-05C subfolder database and private-preview controls (2026-11-18)
 
 PR [#295](https://github.com/mattari20/listing-v2/pull/295) merged as `09ae3ff31462cb2bf85566c5f9963565c067a69f`; exact head `f8b50d7308f386be3768603f00717d53c875e1be`; FND-01 PHP 8.5 CI #496 and project documentation validation #933 passed. The package adds a configurable MySQL connection while retaining SQLite for local/CI, a V2-specific session cookie with configurable subfolder path, and an opt-in global Laravel HTTP Basic preview gate that fails closed when enabled without credentials. Synthetic tests cover denied anonymous requests, accepted configured credentials, missing/incorrect credentials, MySQL config and session-path settings. No MySQL server or hosted environment was contacted. Static files served directly by the web server still require a hosting-level access restriction. Hostinger compatibility, storage permissions, static-file protection and all hosted isolation evidence remain unverified; M3-11-05 remains BLOCKED / NOT ACCEPTED.
@@ -80,12 +101,12 @@ M3-11-06 repository preparation merged in PR #274 as `c77ad95a85ecce845d06c24eb6
 
 **Project:** eStudent Institutes V2  
 **Repository:** `mattari20/listing-v2`  
-**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03 through M3-06 delivered for bounded synthetic local/CI scope; M3-07 I1-I8-A bounded synthetic packages delivered; M3-08A/B/C/D bounded synthetic foundations merged; M3-09 Q01–Q06 complete for authorized synthetic/local/CI scope; M3-10 authorized readiness-preparation agenda COMPLETE/CLOSED; pilot readiness NOT ACCEPTED; M3-11 governance/release preflight COMPLETE; residual gate resolution documented; production readiness BLOCKED / NOT ACCEPTED; live AI/source activation blocked by G2-G9
-**Last reconciled:** 2026-11-17 — PR #266 merged as `a85908f0e64bca943593efbc246025dbc55fee15`; exact head `babbd16d8ef751d59bf5ba4b3fd35b1f3d48d742`; FND-01 PHP 8.5 CI run #434 and Project documentation validation run #846 passed; main verified identical to merge commit; M3-11 production readiness remains BLOCKED / NOT ACCEPTED
+**Status:** M0, M1, M2 and M3-00 accepted/closed; M3-01 planning/authorization milestone closed; M3-02 accepted as Laravel foundation only; M3-03 through M3-09 delivered only within recorded bounded scopes; M3-10 readiness preparation COMPLETE/CLOSED with pilot readiness NOT ACCEPTED; M3-11 repository evidence reconciliation progressed through LPS-29, but qualified review, independent assurance, human operations, environment isolation, recovery, candidate and go/no-go gates remain BLOCKED / NOT ACCEPTED; M3-11-09 NOT AUTHORIZED; overall M3 OPEN / PARTIALLY COMPLETE — NOT CLOSED; production readiness BLOCKED / NOT ACCEPTED; live AI/source activation remains blocked.
+**Last reconciled:** 2026-11-20 — main `fd21bfeacfa11cc85a1510fc41787f1f45b09c51` (PR #403); exact-head FND-01 CI #750 and Project documentation validation #1282 passed; DP-02–DP-06 current-main evidence reconciled in PRs #395–#398, environment/recovery/candidate/decision evidence reconciled in PRs #399–#402, and README status refreshed in PR #403; M3-11 remains BLOCKED / NOT ACCEPTED.
 
 ## Authoritative current position
 - M3-08 preflight documentation is complete and merged in PR #231. The separately authorized M3-08A/B first-party session identity and scoped authorization foundation is merged in PR #232 as `a693b2c701adb5328e755156e1900771400b1dca`; M3-08C/D synthetic moderation, appeals and privacy/security foundations are merged in PR #234 as `42eabe8a5757e6b4c291baa52d1c01df4e08bb15` for bounded local/CI scope. Public UGC, reviews and moderation activation remain disabled; reviews are post-launch only. Independent security and qualified legal/privacy/child-safeguarding release reviews remain open. See `../04-roadmap/M3-08C_D_IMPLEMENTATION_RECORD.md`.
-- Public V2 repository visibility verified; owner selected public visibility on 2026-11-11.
+- Source repository visibility remains PUBLIC during development; the Product Owner's 2026-11-20 decision to change it to PRIVATE when development is complete remains binding. This is distinct from the restricted/private application acceptance environment.
 - Repository auto-merge is enabled; active `main` ruleset requires the documentation validation check.
 - Founding documentation PR #1 merged into `main` as `0f2165f3d18e43f10cf6d6f717f145d3433769a4`.
 - Documentation Completion Catalogue: `../04-roadmap/DOCUMENTATION_CATALOG.md`; update after every documentation PR update and merge.
@@ -101,7 +122,7 @@ Build a student-first education discovery, admissions information and comparison
 The Documentation Completion Catalogue is the owner-facing inventory of delivered, updated, accepted and planned documents. A merged PR records delivery, not automatic content acceptance. Every documentation PR update and merge must reconcile the catalogue, index, controller, step register, traceability and progress report.
 
 ## Current milestone
-**M3 — M3-10 readiness framework and authorized synthetic/documentation delivery complete; pilot readiness remains NOT ACCEPTED pending exact owner charter, qualified reviews and accepted human operations ownership; no pilot/go-no-go; M3-11 governance/release preflight INITIATED; production launch BLOCKED / NOT ACCEPTED**
+**M3 — repository/synthetic/documentation agendas delivered within their recorded scopes; M3-10 pilot readiness NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED pending qualified independent review, human role acceptance, environment isolation, recovery, candidate and go/no-go evidence; M3-11-09 NOT AUTHORIZED; overall M3 OPEN / PARTIALLY COMPLETE — NOT CLOSED.**
 
 
 ## M3-06 closeout — 2026-11-14
