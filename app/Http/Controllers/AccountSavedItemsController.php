@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Models\SavedDirectoryItem;
+use App\Models\User;
 use App\Services\Directory\PublicDirectoryQueryService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\DB;
 
 final class AccountSavedItemsController extends Controller
 {
     public function index(Request $request, PublicDirectoryQueryService $directory): Response
     {
         $locale = $this->applyLocale($request);
-        $rows = DB::table('saved_directory_items')
+        $rows = SavedDirectoryItem::query()
             ->where('user_id', $request->user()->getAuthIdentifier())
             ->orderByDesc('created_at')
             ->orderByDesc('id')
@@ -48,23 +49,20 @@ final class AccountSavedItemsController extends Controller
 
         $userId = $request->user()->getAuthIdentifier();
         $limit = $this->savedItemsLimit();
-        $result = DB::transaction(function () use ($userId, $entity, $limit): string {
-            abort_if(DB::table('users')->where('id', $userId)->lockForUpdate()->first() === null, 401);
+        $result = \Illuminate\Support\Facades\DB::transaction(function () use ($userId, $entity, $limit): string {
+            User::query()->whereKey($userId)->lockForUpdate()->firstOrFail();
 
-            if (DB::table('saved_directory_items')->where('user_id', $userId)->where('entity_id', $entity)->exists()) {
+            if (SavedDirectoryItem::query()->where('user_id', $userId)->where('entity_id', $entity)->exists()) {
                 return 'exists';
             }
 
-            if (DB::table('saved_directory_items')->where('user_id', $userId)->count() >= $limit) {
+            if (SavedDirectoryItem::query()->where('user_id', $userId)->count() >= $limit) {
                 return 'full';
             }
 
-            $now = now();
-            DB::table('saved_directory_items')->insert([
+            SavedDirectoryItem::query()->create([
                 'user_id' => $userId,
                 'entity_id' => $entity,
-                'created_at' => $now,
-                'updated_at' => $now,
             ]);
 
             return 'saved';
@@ -80,7 +78,7 @@ final class AccountSavedItemsController extends Controller
     public function destroy(Request $request, string $entity): RedirectResponse
     {
         $this->applyLocale($request);
-        DB::table('saved_directory_items')
+        SavedDirectoryItem::query()
             ->where('user_id', $request->user()->getAuthIdentifier())
             ->where('entity_id', $entity)
             ->delete();
