@@ -1,3 +1,25 @@
+## Current M3 status and next eligible event — 2026-11-20
+
+Main is verified at `fd21bfeacfa11cc85a1510fc41787f1f45b09c51` (PR #403). PRs #395–#402 reconciled DP-02–DP-06 and M3-11-05–M3-11-08; all exact-head Foundation CI and documentation validation runs passed. PR #403 refreshed the README; FND-01 CI #750 and documentation validation #1282 passed.
+
+**M3-11 gate position:**
+- M3-11-01: scope/authority package closed.
+- M3-11-02: owner internal review and DP-01–DP-06 repository reconciliation recorded; qualified independent legal/privacy/safeguarding assessment and target-specific evidence BLOCKED.
+- M3-11-03: internal repository-only review closed for current development; independent security and manual accessibility/WCAG assessments outstanding.
+- M3-11-04: repository preparation delivered; 0/9 written human role acceptances.
+- M3-11-05: partial historical resource/runtime evidence; 0/18 isolation items fully verified; private acceptance environment NOT ACCEPTED.
+- M3-11-06: weekly backup cadence accepted for current development only; no V2-only recovery proof/rehearsal; RPO/RTO unset.
+- M3-11-07: NOT STARTED / BLOCKED; no release candidate or candidate evidence.
+- M3-11-08: BLOCKED / NOT DECIDED; no complete dossier or decision.
+- M3-11-09: NOT AUTHORIZED.
+- M3-11-10: NOT STARTED.
+
+**Next event:** LPS-29 Track A handoff preparation is complete. The next event is a Product Owner human action outside repository work: select and verify a qualified independent reviewer, agree the exact Track A scope and confidential handoff channel, and obtain a written assessment. No reviewer is appointed and no report has been received. Do not substitute repository coding or AI analysis for this qualified review.
+
+**Overall M3:** OPEN / PARTIALLY COMPLETE — NOT CLOSED. M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED. No candidate creation, hosted access, backup/restore rehearsal, M3-11-09 execution, deployment, pilot, public launch or production activity is authorized.
+
+---
+
 ## LPS-24–LPS-28 — Five-agenda repository/synthetic programme COMPLETE — 2026-11-20
 
 LPS-24–LPS-28 completed sequentially, with dedicated reports, PRs and exact-head Foundation CI plus documentation validation. All PRs #383–#387 are merged; final main is `340f8e472572449902beff6b9204acd858195165`. The detailed ledger and M3 progress/gate reconciliation are in [M3-11 LPS-24–LPS-28 Completion and M3 Progress Reconciliation](M3-11_LPS24-LPS28_FIVE_AGENDA_COMPLETION_AND_M3_PROGRESS_RECONCILIATION_2026-11-20.md).

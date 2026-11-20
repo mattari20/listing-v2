@@ -1,3 +1,14 @@
+## M3-11 current-main evidence reconciliation — 2026-11-20
+
+- [M3-11 DP-02–DP-06 and Gate Evidence Current-Main Reconciliation](M3-11-02_OWNER_INTERNAL_DATA_PRIVACY_REVIEW_2026-11-18.md) — PRs #395–#398 reconcile current session, logging, audit metadata, route/output privacy and provider/lifecycle evidence; all remain bounded to repository/source evidence and partial dispositions.
+- [M3-11 Environment, Recovery, Candidate and Decision Gate Reconciliation](M3-11-05_STATUS_AND_HANDOFF_2026-11-17.md) — PRs #399–#402 update historical resource/runtime, weekly backup policy, candidate-entry and decision-gate status; M3-11-05/06 remain blocked, M3-11-07 not started, M3-11-08 not decided.
+- [LPS-29 Track A Qualified Review Handoff Execution Pack](M3-11_LPS29_GAP03_TRACK_A_QUALIFIED_REVIEW_HANDOFF_EXECUTION_PACK_2026-11-20.md) — repository handoff preparation complete; Product Owner reviewer selection and a qualified written report remain outstanding.
+- PR #403 refreshed the README current status; exact-head FND-01 CI #750 and documentation validation #1282 passed. Main at that merge: `fd21bfeacfa11cc85a1510fc41787f1f45b09c51`.
+
+No entry above constitutes independent professional assessment, environment acceptance, recovery acceptance, candidate creation or release authorization.
+
+---
+
 ## M3-11 — LPS-24–LPS-28 five-agenda completion — 2026-11-20
 
 - [M3-11 LPS-24–LPS-28 Five-Agenda Completion and M3 Progress Reconciliation](M3-11_LPS24-LPS28_FIVE_AGENDA_COMPLETION_AND_M3_PROGRESS_RECONCILIATION_2026-11-20.md) — exact PR/head/CI/merge ledger, detailed GAP-01–GAP-06 and ten-gate updates, and overall M3 position.
