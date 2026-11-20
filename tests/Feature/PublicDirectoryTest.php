@@ -754,6 +754,70 @@ final class PublicDirectoryTest extends TestCase
             'updated_at' => now(),
         ]);
 
+        $firstCampus = $this->createEntity('campus');
+        $this->publishFact($firstCampus, 'display_name', 'Synthetic North Campus');
+        $firstCampusClaim = $this->publishFact($firstCampus, 'campus', ['institution_entity_id' => $firstInstitution]);
+        DB::table('directory_campuses')->insert([
+            'entity_id' => $firstCampus,
+            'institution_entity_id' => $firstInstitution,
+            'location_label' => null,
+            'status' => 'active',
+            'valid_from' => null,
+            'valid_to' => null,
+            'claim_version_id' => $firstCampusClaim['version_id'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        $firstOfferClaim = $this->publishFact($firstProgramme, 'programme_offer', [
+            'programme_entity_id' => $firstProgramme,
+            'delivery_location_entity_id' => $firstCampus,
+            'admission_cycle' => 'Synthetic 2027 Intake',
+        ]);
+        DB::table('programme_offers')->insert([
+            'id' => (string) Str::uuid(),
+            'programme_entity_id' => $firstProgramme,
+            'delivery_location_entity_id' => $firstCampus,
+            'admission_cycle' => 'Synthetic 2027 Intake',
+            'status' => 'active',
+            'valid_from' => null,
+            'valid_to' => null,
+            'claim_version_id' => $firstOfferClaim['version_id'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $secondCampus = $this->createEntity('campus');
+        $this->publishFact($secondCampus, 'display_name', 'Synthetic South Campus');
+        $secondCampusClaim = $this->publishFact($secondCampus, 'campus', ['institution_entity_id' => $secondInstitution]);
+        DB::table('directory_campuses')->insert([
+            'entity_id' => $secondCampus,
+            'institution_entity_id' => $secondInstitution,
+            'location_label' => null,
+            'status' => 'active',
+            'valid_from' => null,
+            'valid_to' => null,
+            'claim_version_id' => $secondCampusClaim['version_id'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        $secondOfferClaim = $this->publishFact($secondProgramme, 'programme_offer', [
+            'programme_entity_id' => $secondProgramme,
+            'delivery_location_entity_id' => $secondCampus,
+            'admission_cycle' => 'Synthetic 2027 Intake',
+        ]);
+        DB::table('programme_offers')->insert([
+            'id' => (string) Str::uuid(),
+            'programme_entity_id' => $secondProgramme,
+            'delivery_location_entity_id' => $secondCampus,
+            'admission_cycle' => 'Synthetic 2027 Intake',
+            'status' => 'active',
+            'valid_from' => null,
+            'valid_to' => null,
+            'claim_version_id' => $secondOfferClaim['version_id'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
         $this->withSession(['directory_shortlist' => [$firstProgramme, $secondProgramme]])
             ->get('/directory/compare')
             ->assertOk()
@@ -764,6 +828,11 @@ final class PublicDirectoryTest extends TestCase
             ->assertSee('Synthetic postgraduate')
             ->assertSee('Fictional computing curriculum for comparison.')
             ->assertSee('Programme description')
+            ->assertSee('Published delivery locations')
+            ->assertSee('Synthetic North Campus')
+            ->assertSee('Synthetic South Campus')
+            ->assertSee(route('directory.show', ['entity' => $firstProgramme, 'lang' => 'en']), false)
+            ->assertSee(route('directory.show', ['entity' => $secondProgramme, 'lang' => 'en']), false)
             ->assertSee('Not stated in approved public information');
     }
 
