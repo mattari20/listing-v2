@@ -1,3 +1,18 @@
+## LPS-24–LPS-28 implementation/evidence update — 2026-11-20
+
+Five sequential repository/synthetic agendas are complete and merged. Full ledger: [LPS-24–LPS-28 completion and M3 reconciliation](M3-11_LPS24-LPS28_FIVE_AGENDA_COMPLETION_AND_M3_PROGRESS_RECONCILIATION_2026-11-20.md).
+
+| Gap | Updated evidence | Current disposition |
+|---|---|---|
+| GAP-01 | Public profile now explains in English/Urdu that observation date is not independent verification; synthetic bilingual test passes | PARTIALLY IMPLEMENTED / OPEN; no rights-approved source attribution, complete field-level evidence state or approved freshness schedule |
+| GAP-02 | LPS-23 maps all 51 declared tables; LPS-25 maps primary write/read call-sites; LPS-24 adds structured log-context tests; LPS-26 adds suppressed-snapshot rollback regression | SCHEMA + PRIMARY CALL-SITE MAP COMPLETE / SYNTHETIC COVERAGE STRENGTHENED / OPERATIONAL LIFECYCLE OPEN |
+| GAP-03 | No new qualified reviewer report or source-specific decision received | REVIEW PACK PREPARED / OPEN |
+| GAP-04 | Existing authenticated representative correction/editorial workflow reconciled; LPS-28 tests guest rejection and absence of public complaint/moderation/appeal routes | PARTIALLY PREPARED / NOT OPERATIONAL / OPEN |
+| GAP-05 | No unified runtime/repository enforcement added by this programme | FRAMEWORK ONLY / OPEN |
+| GAP-06 | No hosted isolation or recovery evidence added | FRAMEWORK ONLY / NOT EVIDENCED / OPEN |
+
+No GAP is closed by these agendas. No retention duration, legal basis, source permission, operational role or hosted control is approved. All ten M3-11 gate dispositions remain unchanged; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
 ## LPS-18–LPS-22 — Five-agenda repository programme COMPLETE — 2026-11-20
 
 All five coordinated agendas are complete, merged and verified on main.
