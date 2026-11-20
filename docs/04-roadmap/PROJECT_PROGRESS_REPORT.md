@@ -1,6 +1,6 @@
 ## Latest verified position — RCV-B02 admissions and programme decision facts (2026-11-20)
 
-The RCV-B02 implementation is being reconciled onto current main after the original PR branch fell behind. The authorized scope adds offer-scoped fact persistence and governance for eligibility, deadlines, fee components and scholarships/aid, with immutable versions, evidence, human adjudication/publication, freshness policies, suppression, correction and withdrawal. Public output is constrained to approved offer-specific projections and preserves offer/cycle identity. Synthetic disposable-SQLite tests are carried forward. No real/source data, live DB, Hostinger, V1, external API/AI, deployment, application submission workflow or new spend. Fresh exact-head validation is pending.
+RCV-B02 implementation merged in PR #318 as `f3651e4aa5222ccebe5eea859d47362a7145429a`. Exact-head `240150ea7668a2568b87144c5c09bb9b7489ee95` passed PHP 8.5 foundation CI #44642616254 and project documentation validation #44642616084. Delivered offer-scoped facts governance for eligibility, deadlines, fee components and scholarships/aid, with immutable versions, evidence, human adjudication/publication, freshness policies, suppression, correction and withdrawal. Public output is constrained to approved offer-specific projections and preserves offer/cycle identity. Synthetic suite: 15 passed, 1,216 assertions, 242 non-fatal warnings. No real/source data, live DB, Hostinger, V1, external API/AI, deployment, application submission workflow or new spend.
 
 ---
 
