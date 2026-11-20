@@ -86,7 +86,6 @@
                     'financial_aid' => __('directory.profile_sections.financial_aid'),
                     'recognition' => __('directory.profile_sections.recognition'),
                     'additional_information' => __('directory.profile_sections.additional_information'),
-                    'general' => __('directory.profile_sections.additional_information'),
                 ];
                 $programmeFactGroups = collect($profile['facts'])->groupBy(
                     fn (array $fact): string => array_key_exists($fact['section'] ?? '', $programmeSectionLabels)
