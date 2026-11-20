@@ -3,6 +3,11 @@
 - [RCV-B05 Language and Accessibility Scope and Acceptance Pack](RCV-B05_LANGUAGE_AND_ACCESSIBILITY_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner approved English/Urdu UI, original-approved-language facts, no automatic translation and session/URL language selection.
 - [RCV-B05 Implementation Design](RCV-B05_IMPLEMENTATION_DESIGN_2026-11-20.md) — first-party translation catalogues, session locale persistence, RTL, mixed-direction fact isolation, accessibility changes and synthetic test coverage.
 - [RCV-B05 Manual Accessibility Review Checklist](RCV-B05_MANUAL_ACCESSIBILITY_REVIEW_CHECKLIST_2026-11-20.md) — keyboard, screen-reader, contrast, zoom/reflow and RTL manual review; all checks remain NOT PERFORMED and no conformance claim is made.
+- [RCV-B05 Implementation Closeout](RCV-B05_IMPLEMENTATION_CLOSEOUT_2026-11-20.md) — PR #327 merged as `74e355ef1e3d04b32c35391a37bc73badd56d898`; exact-head CI passed (15 tests, 1,318 assertions).
+
+## RCV-B06 — advanced geography — 2026-11-20
+
+- [RCV-B06 Advanced Geography Scope and Acceptance Pack](RCV-B06_ADVANCED_GEOGRAPHY_SCOPE_ACCEPTANCE_2026-11-20.md) — current manual locality/campus location baseline inspected; staged optional nearby policy prepared. Product Owner decision required; no coordinates, source access, geolocation, maps, geocoding, vendor, schema change or spend authorized.
 
 ## RCV-B04 — search and filter completeness — 2026-11-20
 
