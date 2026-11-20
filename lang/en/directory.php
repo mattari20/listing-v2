@@ -68,6 +68,7 @@ return [
     'programme_comparison_details' => 'Programme details',
     'programme_comparison_explainer' => 'Compare the published programme level, description and parent institution. An unstated value means it is not present in the approved public catalogue; it does not prove the programme lacks that feature.',
     'programme_description_label' => 'Programme description',
+    'programme_delivery_locations' => 'Published delivery locations',
     'published_offers' => 'Published offers',
     'no_offers' => 'No approved offer facts are currently published.',
     'delivery_locations' => ['campus' => 'Campus', 'delivery_site' => 'Delivery site'],
