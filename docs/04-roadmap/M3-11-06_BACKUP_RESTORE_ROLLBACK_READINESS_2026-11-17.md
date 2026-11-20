@@ -19,13 +19,22 @@ The Product Owner and accountable human operations/recovery owners must set and 
 |---|---|---|
 | RPO — Recovery Point Objective | Maximum acceptable data loss measured as elapsed time between last recoverable consistent point and incident | NOT SET |
 | RTO — Recovery Time Objective | Maximum acceptable elapsed time from declared recovery start to verified service restoration | NOT SET |
-| Backup frequency | Maximum interval between successful, consistent backups | NOT SET |
+| Backup frequency | Maximum interval between successful, consistent backups | Weekly automated backup accepted as the current-stage policy only; successful consistency and restore are NOT VERIFIED |
 | Retention | Approved number/age of recovery points and deletion schedule | NOT SET |
 | Restore verification frequency | How often a restore is tested and evidence refreshed | NOT SET |
 | Backup integrity check | Required checksum/manifest/restore validation method | NOT SET |
 | Recovery access | Named humans permitted to initiate, approve and verify recovery | NOT ASSIGNED |
 
 Do not select arbitrary RPO/RTO numbers or claim they are achievable. Proposed targets must be supported by actual system design, provider capabilities, human coverage, cost approval and measured rehearsal results.
+
+### 2.1 Product Owner policy decisions — 2026-11-18
+
+- Existing Hostinger weekly automated backups are accepted as sufficient for the current V2 development stage.
+- No paid backup upgrade, additional backup product or increased backup frequency is required or approved.
+- The existing hosting plan is to be retained; no additional hosting spend is approved.
+- The existing Hostinger directory password protection is the selected private-preview access-control layer for this stage; a second IP Manager restriction layer is not required by the Product Owner.
+
+These are policy and cost decisions only. They do not prove that a V2-only backup exists, that the backup contains only V2 resources, that retention or encryption meets a future requirement, that a restore works, or that any RPO/RTO is achieved. The access-control preference does not prove live HTTP enforcement or complete static/nested-path coverage.
 
 ## 3. Required backup boundaries
 
@@ -123,8 +132,9 @@ Stop immediately if:
 ## 10. Current disposition
 
 **Repository preparation:** DELIVERED.  
+**Current-stage backup cadence policy:** ACCEPTED — weekly automated backup; no additional spend.  
 **Environment and backup source:** NOT IDENTIFIED / NOT AUTHORIZED.  
-**Backup creation:** NOT PERFORMED.  
+**Backup creation/integrity/retention verification:** NOT PERFORMED / NOT VERIFIED.  
 **Restore/rollback rehearsal:** NOT PERFORMED.  
 **RPO/RTO:** NOT SET OR MEASURED.  
 **M3-11-06:** BLOCKED / NOT ACCEPTED.
