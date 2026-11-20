@@ -26,6 +26,15 @@ final class PublicDirectoryController extends Controller
             'filters' => ['nullable', 'array', 'max:12'],
             'filters.*' => ['nullable', 'string', 'max:120'],
             'page' => ['nullable', 'integer', 'min:1'],
+        ], [
+            'q.max' => __('directory.validation_search_max'),
+            'type.max' => __('directory.validation_category_max'),
+            'locality.max' => __('directory.validation_locality_max'),
+            'filters.max' => __('directory.validation_filters_max'),
+            'filters.*.string' => __('directory.validation_filter_value'),
+            'filters.*.max' => __('directory.validation_filter_value'),
+            'page.integer' => __('directory.validation_page'),
+            'page.min' => __('directory.validation_page'),
         ]);
 
         $query = trim((string) ($validated['q'] ?? ''));
