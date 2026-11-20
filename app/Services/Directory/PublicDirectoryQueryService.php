@@ -157,7 +157,7 @@ final class PublicDirectoryQueryService
      * Expose only registry-managed fields and values that are currently present
      * in the approved anonymous directory projection and explicitly filterable.
      *
-     * @return array<string, array{label: string, values: array<int, string>}>
+     * @return array<string, array{label: string, group: string, values: array<int, string>}>
      */
     public function filterOptions(): array
     {
