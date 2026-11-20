@@ -14,10 +14,12 @@
 - [RCV-B06 Agenda Closeout](04-roadmap/RCV-B06_ADVANCED_GEOGRAPHY_SCOPE_ACCEPTANCE_2026-11-20.md) — PR #332 merged; closes only the approved synthetic repository scope; live coordinates, geolocation, maps, schema and deployment remain unauthorized.
 
 ## RCV-B07 — public SEO and performance evidence — 2026-11-20
-- [RCV-B07 Public SEO and Performance Scope and Acceptance Pack](04-roadmap/RCV-B07_PUBLIC_SEO_AND_PERFORMANCE_SCOPE_ACCEPTANCE_2026-11-20.md) — repository inventory complete; Product Owner policy decisions approved; fail-closed crawl controls merged in PR #335.
-- [RCV-B07 SEO, Crawl Controls and Performance Evidence Design](04-roadmap/RCV-B07_SEO_CRAWL_AND_PERFORMANCE_EVIDENCE_DESIGN_2026-11-20.md) — trusted-origin, indexability, sitemap, preview noindex and synthetic measurement contracts; sitemap and performance measurement remain gated.
+- [RCV-B07 Public SEO and Performance Scope and Acceptance Pack](04-roadmap/RCV-B07_PUBLIC_SEO_AND_PERFORMANCE_SCOPE_ACCEPTANCE_2026-11-20.md) — repository inventory complete; Product Owner policy decisions approved; fail-closed crawl controls merged in PR #335; synthetic performance measurement completed in PR #337.
+- [RCV-B07 SEO, Crawl Controls and Performance Evidence Design](04-roadmap/RCV-B07_SEO_CRAWL_AND_PERFORMANCE_EVIDENCE_DESIGN_2026-11-20.md) — trusted-origin, indexability, sitemap, preview noindex and synthetic measurement contracts; sitemap remains gated on a future approved public origin/release.
 - [RCV-B07 Bounded Implementation Authorization](04-roadmap/RCV-B07_BOUNDED_IMPLEMENTATION_AUTHORIZATION_2026-11-20.md) — exact repository-only scope for fail-closed crawl controls.
 - [RCV-B07 Implementation Record](04-roadmap/RCV-B07_IMPLEMENTATION_RECORD_2026-11-20.md) — PR #335 merged as `a1d5ad14fe9b8f28682349c5cd4ee2ee5a91617b`; exact-head docs #44653998631 and PHP 8.5 CI #44653998645 passed (15 tests, 1,366 assertions, 273 non-fatal warnings).
+- [RCV-B07 Synthetic Performance Measurement Authorization](04-roadmap/RCV-B07_SYNTHETIC_PERFORMANCE_MEASUREMENT_AUTHORIZATION_2026-11-20.md) — seven-entity synthetic SQLite local/CI diagnostic workload scope.
+- [RCV-B07 Performance Measurement Record](04-roadmap/RCV-B07_PERFORMANCE_MEASUREMENT_RECORD_2026-11-20.md) — PR #337 merged as `049cb60fd8f60b6486450a88c9d4e8d8e176e656`; PHP 8.5 CI #44654818077 and docs #44654818021 passed (15 tests, 1,419 assertions, 274 non-fatal warnings); results are diagnostic, not production SLOs.
 
 ## RCV-B04 — search and filter completeness — 2026-11-20
 
