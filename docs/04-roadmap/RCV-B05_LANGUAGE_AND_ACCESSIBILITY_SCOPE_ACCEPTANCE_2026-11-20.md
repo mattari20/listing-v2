@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** `main` at `6ba18b907c51ac4c24af571cfb1b07899d0ada74`  
 **Agenda:** RCV-B05 — Language and Accessibility Completion  
-**Status:** Product Owner approved the recommended English/Urdu interface and original-approved-language fact policy on 2026-11-20. Bounded synthetic implementation delivered on branch `feat/rcv-b05-urdu-localization-accessibility`; exact-head CI pending.
+**Status:** Product Owner approved the recommended English/Urdu interface and original-approved-language fact policy on 2026-11-20. Bounded synthetic implementation merged in PR #327 as `74e355ef1e3d04b32c35391a37bc73badd56d898`; exact-head FND-01 #44649774054 and documentation validation #44649774060 passed on `a9a8b746c5c2195e51487e09360ef86d50378f38` (15 tests passed, 1,318 assertions).
 
 ## 1. Why this is next
 
@@ -99,7 +99,7 @@ Implementation is limited to the local workstation/GitHub CI and synthetic fixtu
 | Existing accessibility foundations and gaps recorded | COMPLETE |
 | Bounded bilingual/RTL recommendation prepared | COMPLETE |
 | Product Owner language/content decision | APPROVED 2026-11-20 |
-| Application implementation | DELIVERED ON IMPLEMENTATION BRANCH; exact-head CI pending |
+| Application implementation | COMPLETE AND MERGED in PR #327 |
 | Manual accessibility checklist | CREATED; all manual checks remain NOT PERFORMED |
 | Qualified accessibility assessment | NOT PERFORMED; separate human review required |
 
