@@ -522,6 +522,7 @@ final class PublicDirectoryQueryService
                 ($claim['valid_to'] ?? null) !== $row->valid_to ||
                 isset($profiles[$entityId]) === false ||
                 $this->catalogueRecordIsCurrent($row->valid_from, $row->valid_to) === false) {
+
                 continue;
             }
             $locationsByEntity[$entityId] = $profiles[$entityId]['name'];
@@ -542,6 +543,7 @@ final class PublicDirectoryQueryService
                 ($claim['valid_to'] ?? null) !== $row->valid_to ||
                 isset($profiles[$entityId]) === false ||
                 $this->catalogueRecordIsCurrent($row->valid_from, $row->valid_to) === false) {
+
                 continue;
             }
             $locationsByEntity[$entityId] = $profiles[$entityId]['name'];
@@ -561,6 +563,7 @@ final class PublicDirectoryQueryService
                 ($claim['subject_entity_id'] ?? null) !== $programmeId ||
                 isset($profiles[$programmeId]) === false ||
                 $this->catalogueRecordIsCurrent($claim['valid_from'] ?? null, $claim['valid_to'] ?? null) === false) {
+
                 continue;
             }
             $programmeIndexes[$programmeId] = [
@@ -588,6 +591,7 @@ final class PublicDirectoryQueryService
                 isset($locationsByEntity[$locationId]) === false ||
                 ($locationInstitutionByEntity[$locationId] ?? null) !== ($programmeIndexes[$programmeId]['institution_entity_id'] ?? null) ||
                 $this->catalogueRecordIsCurrent($row->valid_from, $row->valid_to) === false) {
+
                 continue;
             }
             $programmeIndexes[$programmeId]['offers'][] = [
@@ -598,6 +602,7 @@ final class PublicDirectoryQueryService
 
         foreach ($items as $index => $item) {
             if ($item['type'] !== 'institution') {
+
                 continue;
             }
             $programmeItems = [];
