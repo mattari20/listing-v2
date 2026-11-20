@@ -25,6 +25,14 @@
 <a class="skip-link" href="#main-content">Skip to main content</a>
 <main id="main-content" tabindex="-1">
     <p><a href="{{ route('directory.index') }}">← Back to directory search</a></p>
+    <p><a href="{{ route('directory.compare') }}">Compare shortlist ({{ $shortlistCount }}/{{ $shortlistLimit }})</a></p>
+    @if ($isShortlisted)
+        <form method="post" action="{{ route('directory.shortlist.remove', ['entity' => $profile['id']]) }}">@csrf @method('delete')<button type="submit">Remove from temporary shortlist</button></form>
+    @else
+        <form method="post" action="{{ route('directory.shortlist.add', ['entity' => $profile['id']]) }}">@csrf<button type="submit" @disabled($shortlistCount >= $shortlistLimit)>Add to temporary shortlist</button></form>
+    @endif
+    @if (session('shortlist_status'))<p role="status">{{ session('shortlist_status') }}</p>@endif
+    @if ($errors->has('shortlist'))<p role="alert">{{ $errors->first('shortlist') }}</p>@endif
     <article>
         <p class="meta">{{ $profile['type_label'] }}</p>
         <h1 dir="auto">{{ $profile['name'] }}</h1>
