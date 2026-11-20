@@ -152,3 +152,8 @@ PR [#273](https://github.com/mattari20/listing-v2/pull/273) merged as `ef136e183
 M3-11-06 repository preparation is delivered in the recovery plan, 14-item evidence register and handoff. No backup or restore was performed; RPO/RTO are unset/unmeasured; recovery ownership and independent verification are not evidenced. Actual rehearsal remains blocked on M3-11-05 isolation, accepted human owners and Product Owner-approved objectives. Do not create/access backups, restore data or run rollback without separate exact authorization for a disposable synthetic V2-only target.
 
 M3-11-07 cannot be pinned/accepted until its prerequisite gates and recovery evidence pass. M3-11-08 remains blocked; M3-11-09 remains not authorized; M3-11-10 remains not started. M3-11 overall remains BLOCKED / NOT ACCEPTED.
+
+
+## Superseding scope clarification — M3-11-04 — 2026-11-20
+
+The M3-11-04 row marked BLOCKED in this residual plan refers to future hosted/reviewer/pilot/release operations and support staffing. It is consistent with the later 2026-11-20 controlled intake ledger, which marks M3-11-04 CLOSED only for the current owner-led repository-only private synthetic development boundary and defers the future operational roster (0/9 accepted). No human role is appointed by this clarification. Before any future hosted/reviewer/pilot/release activity, the future role holders must be named and must explicitly accept their duties, competence, availability, deputy/coverage and escalation arrangements. No gate status is promoted.

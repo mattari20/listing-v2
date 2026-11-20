@@ -7,7 +7,7 @@ All milestones are planned outcomes. Step-level scope and acceptance criteria ar
 | M0 | Independent repository, documentation, governance and delivery controls | Accepted — PR #4 closeout |
 | M1 | Student requirements, provider discovery, data rights and open-source research | **Accepted and Closed — M1-S01 through M1-S10 accepted; 100%; primary research deferred** |
 | M2 | Architecture, domain model, technology evaluation, security and data design | **Accepted and Closed — 100%** |
-| M3 | Application foundation, environments, CI, identity and authorization | M3-10 authorized preparation closed; M3-11 governance/release preflight initiated; production readiness BLOCKED / NOT ACCEPTED pending qualified human gates, accepted operations, V2 isolation/recovery evidence and exact release approval |
+| M3 | Mobilization, bounded V2 implementation, verification and controlled release governance | M3-00–M3-10 bounded planning/implementation/readiness work recorded; M3-12 repository verification A01–A09 closed; final M3 acceptance exercise F01–F06 active; M3-11 production readiness BLOCKED / NOT ACCEPTED pending qualified human gates, accepted operations, V2 isolation/recovery evidence and exact release approval |
 | M4 | Institution, campus and programme management | Planned |
 | M5 | Nearby discovery, search, filters and maps | Planned |
 | M6 | Institution profiles and verified information presentation | Planned |
@@ -156,3 +156,8 @@ The Product Owner explicitly instructed ChatGPT to start and complete M3-11. Thi
 **M3-11 status:** INITIATED — GOVERNANCE / RELEASE PREFLIGHT ONLY. The preflight document is complete for current repository evidence. **Production readiness remains BLOCKED / NOT ACCEPTED.** The instruction does not satisfy missing qualified reviews, human owner acceptances, M3-10 pilot readiness, V2 environment/isolation proof, backup/restore/RPO/RTO evidence or a complete release candidate. No production/Hostinger/live database access, provisioning, deployment, migration, release, URL cutover, participant activity, real-data processing, external source/API/AI, new dependency/vendor or spend occurred or is authorized by this preflight. Existing V1 exclusion, public UGC/reviews/moderation disablement and Deeni Madaris default-OFF rule remain binding.
 
 M3-11 production execution and closure require all applicable gates, qualified human decisions and exact-scope release authorization. No production go/no-go is issued.
+
+
+## Current M3 status superseding the historical opening summary — 2026-11-20
+
+The opening M3 row above is now reconciled to the authoritative `M3_MASTER_STEP_PLAN.md` and current `PROJECT_PROGRESS_REPORT.md`. M3-12 A01–A09 is closed for bounded repository verification only. The final M3 acceptance exercise is active. M3-11 remains BLOCKED / NOT ACCEPTED; no pilot, release candidate, go/no-go, production execution, deployment or public launch is authorized. The earlier M3-00–M3-11 roadmap table remains the planning sequence; M3-12 and F01–F06 are later verification/acceptance work, not new production authority.

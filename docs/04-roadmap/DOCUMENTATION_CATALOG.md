@@ -1512,3 +1512,8 @@ The dated addendum in `RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.
 ## M3 final acceptance exercise — F01 — 2026-11-20
 
 - [F01 Cross-Milestone Traceability Reconciliation](M3_FINAL_ACCEPTANCE_F01_CROSS_MILESTONE_TRACEABILITY_2026-11-20.md) — establishes the M0–M3-12 disposition overlay, distinguishes repository delivery from human/hosted/release acceptance, and records stale status conflicts for F04/F05 reconciliation.
+
+
+## M3 final acceptance exercise — F02 — 2026-11-20
+
+- [F02 Repository-Side Consistency Resolution](M3_FINAL_ACCEPTANCE_F02_REPOSITORY_CONSISTENCY_2026-11-20.md) — reconciles current-step navigation, the high-level M3 roadmap status, completed evidence-intake handoff and M3-11-04/M3-10 scope wording without promoting any external gate.

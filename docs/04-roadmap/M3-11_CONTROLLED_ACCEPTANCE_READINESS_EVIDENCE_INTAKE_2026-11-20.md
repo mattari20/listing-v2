@@ -53,3 +53,12 @@ No new qualified reviewer report, signed role acceptance, exact-scope environmen
 This closes the repository-side intake reconciliation/preparation task only. It does not close the external or operational gates and does not change M3-11 overall status. Synthetic/fictional data only. No V1/production/Hostinger/hPanel or hosted access, live database, migration, backup/restore, deployment, DNS/URL cutover, public launch, participant activity, real/source/personal data, external API/AI/vendor/dependency or new spend is authorized.
 
 **Final disposition:** Controlled intake process reconciled for current evidence; new human/operational evidence remains outstanding. M3-11 remains **BLOCKED / NOT ACCEPTED**.
+
+
+## Superseding handoff clarification — final M3 acceptance exercise — 2026-11-20
+
+The repository-side controlled evidence intake reconciliation described above is COMPLETE. The phrase in §1 identifying intake as the “next agenda” is historical context from the RCV-01 handoff and is superseded by this dated clarification. F01 cross-milestone traceability and F02 repository-side consistency resolution are complete; the final acceptance exercise continues with F03–F06. No new qualified reviewer report, signed role acceptance, hosted authorization, isolation evidence, recovery rehearsal, candidate dossier or go/no-go evidence was received as part of F01/F02. The M3-11 ten-gate statuses in §3 remain unchanged.
+
+**M3-11-04 scope clarification:** CLOSED applies only to the owner-led repository-only private synthetic development boundary. Future hosted/reviewer/pilot/release operations remain BLOCKED/DEFERRED until named humans accept their roles with competence, availability, deputies/coverage and escalation. The residual gate plan's BLOCKED status refers to that future operational scope; it does not reopen the already accepted repository-development model.
+
+**M3-10/M3-11 decision clarification:** M3-10 Option B authorizes preparation of a possible future pilot proposal for separate review only; it does not authorize a pilot. M3-11 Option A defines the current private acceptance boundary and preserves no-pilot/no-production-execution restrictions. These are distinct work-package decisions, not conflicting alternatives.

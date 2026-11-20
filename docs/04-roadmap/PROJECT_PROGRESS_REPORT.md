@@ -1679,3 +1679,8 @@ The owner-led single-person model is accepted only for repository-only private s
 ## M3 final acceptance exercise — F01 cross-milestone traceability — 2026-11-20
 
 **Status: COMPLETE.** The current main baseline before F01 was `45bd066bd39b1833eb2308269c81eea8efe41042`. The cross-milestone disposition map now distinguishes accepted M0–M2 baselines, M3-00 approved deferrals, M3-01 bounded authorization, M3-02 platform-only acceptance, M3-03–M3-09 synthetic/local/CI delivery, M3-10 pilot non-acceptance, M3-11 BLOCKED / NOT ACCEPTED and M3-12 repository-only verification closure. Known stale traceability labels (including SR-01–SR-14, AI-ARCH-01–20 and historical governance/pilot entries) are explicitly queued for controlled requirement-level reconciliation in F04/F05. No requirement was newly accepted by F01. Evidence: `M3_FINAL_ACCEPTANCE_F01_CROSS_MILESTONE_TRACEABILITY_2026-11-20.md`.
+
+
+## M3 final acceptance exercise — F02 repository-side consistency — 2026-11-20
+
+**Status: COMPLETE.** Corrected the master plan's current-step pointer, reconciled the high-level M3 roadmap status with the authoritative detailed sequence, superseded the completed M3-11 intake “next agenda” pointer, and clarified the M3-11-04 repository-development versus future-operations boundary. M3-10 Option B remains proposal preparation only; M3-11 Option A remains the private acceptance boundary. No qualified, hosted, recovery, pilot or release gate was promoted. Evidence: `M3_FINAL_ACCEPTANCE_F02_REPOSITORY_CONSISTENCY_2026-11-20.md`.
