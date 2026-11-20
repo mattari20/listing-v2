@@ -1,3 +1,7 @@
+## RCV-B04 — search and filter completeness — 2026-11-20
+
+- [RCV-B04 Search and Filter Completeness Scope and Acceptance Pack](04-roadmap/RCV-B04_SEARCH_AND_FILTER_COMPLETENESS_SCOPE_ACCEPTANCE_2026-11-20.md) — bounded local/CI synthetic-only proposal, current search/filter baseline and acceptance criteria; Product Owner implementation decision required.
+
 ## Latest M3-11-05 subfolder environment records — 18 November 2026
 
 - [M3-11-05C Subfolder Database and Private Preview Controls](04-roadmap/M3-11-05C_SUBFOLDER_DATABASE_AND_PRIVATE_PREVIEW_CONTROLS_2026-11-18.md) — merged PR #295; exact-head FND-01 PHP 8.5 CI #496 and documentation validation #933 passed. Adds configurable MySQL, V2 session-cookie scoping and an opt-in global Laravel preview access gate; hosted/static-file protection remains unverified.
