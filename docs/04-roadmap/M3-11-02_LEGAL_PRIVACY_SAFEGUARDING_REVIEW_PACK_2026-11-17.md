@@ -5,7 +5,7 @@
 **Package:** M3-11-02 — Legal, privacy and safeguarding  
 **Status:** **REVIEW PACK PREPARED — QUALIFIED HUMAN REVIEW NOT PERFORMED; GATE BLOCKED**  
 **Decision owner:** Product Owner  
-**Target:** Option A / Option 1 — private V2-only acceptance environment, not provisioned
+**Target:** Option A / Option 1 — public GitHub source repository during development; separate restricted/private V2-only acceptance environment target, not provisioned
 
 ## 1. Purpose and limits
 
@@ -13,7 +13,7 @@ This pack organizes the evidence and questions for qualified human legal, privac
 
 No reviewer has been appointed or has returned findings in this record. Do not mark M3-11-02 complete until the applicable qualified reviewers have supplied dated written assessments, remediation conditions have owners, and the Product Owner has recorded a disposition. A blank template or repository CI result is not a review.
 
-The review concerns the exact bounded private-acceptance scope recorded in [M3-11-01 Scope and Authority Closeout](M3-11-01_SCOPE_AND_AUTHORITY_CLOSEOUT_2026-11-17.md) and the [Option A scope charter](M3-11_OPTION_A_CONTROLLED_LIMITED_V2_RELEASE_SCOPE_CHARTER_2026-11-17.md). Reviewers must identify the exact documents, source commit and assumptions they reviewed.
+The review concerns the exact bounded development and restricted-acceptance scope recorded in [M3-11-01 Scope and Authority Closeout](M3-11-01_SCOPE_AND_AUTHORITY_CLOSEOUT_2026-11-17.md) and the [Option A scope charter](M3-11_OPTION_A_CONTROLLED_LIMITED_V2_RELEASE_SCOPE_CHARTER_2026-11-17.md). Reviewers must identify the exact documents, source commit and assumptions they reviewed.
 
 ## 2. Binding scope presented to reviewers
 
@@ -147,3 +147,12 @@ M3-11-02 may be considered complete only when all applicable criteria are met:
 Stop and return for a new explicit owner decision if the review proposes or discovers any need for real student/provider/institution/source data, participant activity, public pilot, public UGC/reviews/moderation, external APIs/AI, new vendor/spend, V1 or Hostinger/production access, environment provisioning, deployment, migration or URL cutover. This pack authorizes none of those activities.
 
 Deeni Madaris remains default-OFF with zero public exposure. No private acceptance environment may be provisioned or accessed under this pack; M3-11-05 remains separately gated.
+
+
+## 9. Product Owner internal review and repository visibility reconciliation — 2026-11-20
+
+The Product Owner has completed the internal ten-question review exercise and accepted Decisions 1–3. The consolidated owner dispositions are recorded in [M3-11-02 Product Owner Internal Data and Privacy Review](M3-11-02_OWNER_INTERNAL_DATA_PRIVACY_REVIEW_2026-11-18.md). Those decisions close the owner-answer exercise; they do not constitute an independent legal/privacy/safeguarding assessment, and they do not establish uninspected target-specific facts.
+
+The source repository is PUBLIC during development and WILL be changed to PRIVATE when development is complete under the binding Product Owner decision recorded on 2026-11-20. This is distinct from the separate restricted/private V2 acceptance-environment target. The reviewer must assess the actual public-source-repository development facts, including public commit and CI artifact exposure, while preserving all existing restrictions on public application access, real data, source activity, hosted environment, participant activity and production.
+
+**Current disposition:** owner internal decisions COMPLETE; this review pack remains prepared for any required qualified independent assessment; Gate 02 remains blocked pending the required assessment and Product Owner disposition. This status is not a request for the Product Owner to repeat already accepted decisions.
