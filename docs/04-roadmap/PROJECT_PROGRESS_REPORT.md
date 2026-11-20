@@ -1,7 +1,6 @@
-## Latest verified position — RCV-B05 language and accessibility (2026-11-20)
+## Latest verified position — RCV-B06 advanced geography (2026-11-20)
 
-The Product Owner approved the English/Urdu interface, original-approved-language institute facts, no automatic translation and session/URL language choice. The bounded implementation is delivered on `feat/rcv-b05-urdu-localization-accessibility`: first-party translations, session locale persistence across directory/profile/shortlist/comparison, RTL document direction, mixed-direction source value isolation, accessible skip links/main landmarks, localized validation/status text and focus styling. Synthetic tests cover language persistence, source fact preservation, translated field labels, unsupported-language fallback and accessible landmarks. Exact-head PHP 8.5 foundation CI and docs validation pending. Manual keyboard/screen-reader/contrast/zoom/reflow review is NOT PERFORMED; no conformance claim. No production, V1, Hostinger, real/source data, external services, AI, migrations, new dependencies or spend.
-
+RCV-B05 is implemented and merged in PR #327 as `74e355ef1e3d04b32c35391a37bc73badd56d898`. Exact-head PHP 8.5 foundation CI #44649774054 and documentation validation #44649774060 passed (15 tests, 1,318 assertions). Manual accessibility checks remain NOT PERFORMED. RCV-B06 scope pack is prepared: keep manual locality search as default; any future nearby discovery should be optional/request-time and rely only on approved approximate entity coordinates with explicit precision/confidence/provenance. Product Owner decision is required before implementation; no coordinates, external sources, device geolocation, maps, geocoding, schema change or spend authorized.
 
 ## Latest verified position — RCV-B02 admissions and programme decision facts (2026-11-20)
 
