@@ -1,3 +1,53 @@
+## M3 overall position — M3-12 Agendas 07–09 and repository verification closeout — 2026-11-20
+
+**Current verified baseline before this agenda package:** `106ee260f32b621d8688fd6b7446cc4dd0ea1ca3`.  
+**Result:** M3-12 Agendas 01–09 are complete for the bounded repository-level verification scope. The overall M3 milestone is NOT CLOSED because M3-11 and the consolidated final M3 acceptance exercise remain open.
+
+### M3-12 final three agendas
+
+1. **A07 — Functional Integration and Regression Evidence Consolidation:** current cross-feature test/workflow surface reconciled. Exact-head PHP 8.5 foundation CI and documentation validation passed for PR #355 and PR #356. Each PHP run reported 20 passed, 1,501 assertions and 282 warnings. Logs include repeated missing-`.env` file-read warnings; CI keeps `.env` absent as required by artifact hygiene. No warning-free claim is made. The CI also reports a Node.js 20 deprecation notice for the pinned checkout action.
+2. **A08 — Accessibility and Usability Evidence Reconciliation:** current-main static templates, English/Urdu/RTL evidence and selected source-palette contrast pairs reconciled. Manual checklist still has nine NOT PERFORMED areas; no browser/device, screen-reader, participant or qualified independent assessment was performed. Draft PR #309 remains open/unmerged on an older base and its proposed test is not counted as current-main evidence.
+3. **A09 — Functional Readiness Closeout:** all nine M3-12 agendas reconciled. M3-12 is CLOSED for the bounded repository-level functional verification work package only. Full functional/operational/release readiness is PARTIAL / NOT ACCEPTED.
+
+Evidence documents:
+- `M3-12_A07_FUNCTIONAL_INTEGRATION_REGRESSION_EVIDENCE_CONSOLIDATION_2026-11-20.md`
+- `M3-12_A08_ACCESSIBILITY_USABILITY_EVIDENCE_RECONCILIATION_2026-11-20.md`
+- `M3-12_A09_FUNCTIONAL_READINESS_CLOSEOUT_2026-11-20.md`
+
+### Consolidated M3 status
+
+| Workstream | Current disposition |
+|---|---|
+| M3-00 through M3-10 | Previously recorded bounded delivery/acceptance dispositions retained; no accepted decision reopened by this package |
+| M3-11 — controlled production launch | BLOCKED / NOT ACCEPTED; see ten-gate ledger below |
+| M3-12 — functional verification | CLOSED for repository-level review A01–A09; external/browser/human readiness remains unaccepted |
+| Overall M3 | OPEN — final consolidated acceptance and closure decision not yet performed |
+
+### M3-11 ten-gate ledger — unchanged
+
+| Gate | Current disposition |
+|---|---|
+| M3-11-01 Scope and authority | CLOSED for accepted Option A / Option 1 scope definition |
+| M3-11-02 Legal/privacy/safeguarding | BLOCKED for qualified review |
+| M3-11-03 Security/accessibility | CLOSED for current repository-only internal review; independent future assessment BLOCKED |
+| M3-11-04 Human operations | CLOSED for repository-only development boundary; future staffing deferred |
+| M3-11-05 Environment separation | BLOCKED; hosted V2 isolation not accepted |
+| M3-11-06 Recovery | BLOCKED; no rehearsal; RPO/RTO not set or measured |
+| M3-11-07 Release candidate | NOT STARTED / BLOCKED |
+| M3-11-08 Go/no-go | BLOCKED / NOT DECIDED |
+| M3-11-09 Execution | NOT AUTHORIZED |
+| M3-11-10 Monitoring/closure | NOT STARTED |
+
+No qualified reviewer report, signed role acceptance, new exact-scope hosted authorization, independently verified V2 isolation, recovery rehearsal, release-candidate dossier, go/no-go decision or execution authority was supplied by M3-12 A07–A09. No gate status is inferred from repository CI or static source inspection.
+
+### Remaining overall M3 closeout work
+
+The next work is the consolidated final M3 acceptance exercise: complete cross-milestone traceability, resolve repository-side issues that are safely and explicitly in scope, reconcile the accepted Product Owner decision register once, assess every requirement with evidence-based status, and issue the final M3 report/closure decision. Any requirement depending on qualified human, hosted, recovery or release evidence must remain conditional, deferred or blocked until that evidence actually exists.
+
+No new production/V1/Hostinger/hPanel or hosted access, live database, migrations, backup/restore, deployment, DNS/URL cutover, public launch, pilot, release candidate, real/source/student/institute/personal data, external API/AI/vendor, participant activity, new dependency or spend is authorized.
+
+---
+
 ## M3-12 Agendas 04–06 — exact-head delivery closeout — 2026-11-20
 
 Coordinated PR [#355](https://github.com/mattari20/listing-v2/pull/355) merged as `1a482ac94402470e08e2b17d7d4a48d3be2290a9`. Exact PR head `efe36f69a4c4c9ada7e65c47e26c65bff903d325` passed PHP 8.5 foundation CI [run #44681875232](https://github.com/mattari20/listing-v2/actions/runs/44681875232) and project documentation validation [run #44681875222](https://github.com/mattari20/listing-v2/actions/runs/44681875222). Synthetic suite: 20 passed, 1,501 assertions, 282 warnings; not warning-free. Verified current `main` equals the merge SHA. Agendas A04–A06 and their progress/catalogue/traceability updates are delivered. This closes the three bounded repository-review agendas only; M3-12 continues and M3-11 remains BLOCKED / NOT ACCEPTED.

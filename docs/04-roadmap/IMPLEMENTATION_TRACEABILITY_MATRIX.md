@@ -1,3 +1,16 @@
+## M3-12 Agendas 07–09 — integration, accessibility and closeout traceability
+
+| Requirement ID | Requirement | Specification / source evidence | Verification evidence | Status |
+|---|---|---|---|---|
+| M3-12-A07-01 | Reconcile cross-feature synthetic regression coverage | Current feature test suite, routes/controllers/services, persistence and security boundary tests | PHP 8.5 foundation CI #44681875232 and #44682076798; documentation validation #44681875222 and #44682076783 | EXACT-HEAD WORKFLOWS PASS; 20 passed, 1,501 assertions, 282 warnings |
+| M3-12-A07-02 | Preserve test-output and CI hygiene limitations | FND-01 workflow and exact job logs | Logs include missing-`.env` file-read warnings; artifact-hygiene step confirms `.env` remains absent; pinned checkout action reports Node 20 deprecation | PARTIAL; warning-free baseline not established |
+| M3-12-A08-01 | Reconcile static accessibility/localization and selected palette contrast | Current directory/profile/compare/saved-items templates; English/Urdu catalogues; RCV-B05 manual checklist | Source-level relative-luminance calculations for selected text/focus/control pairs; semantic/focus/RTL template inspection | STATIC EVIDENCE RECONCILED; NO BROWSER OR WCAG ACCEPTANCE |
+| M3-12-A08-02 | Reconcile manual and independent accessibility evidence | RCV-B05 manual checklist; M3-11-03 independent review pack; draft PR #309 | Nine manual review areas remain NOT PERFORMED; PR #309 remains draft/unmerged on an older base | BLOCKED / NOT PERFORMED for manual and qualified assessment |
+| M3-12-A09-01 | Close all M3-12 repository verification agendas without overstating readiness | M3-12 A01–A09 evidence records; M3-11 ten-gate intake ledger | M3-12 Agenda 09 closeout; M3-11 gates retained unchanged | REPOSITORY REVIEW CLOSED; FULL FUNCTIONAL/OPERATIONAL READINESS PARTIAL / NOT ACCEPTED |
+| M3-12-A09-02 | Reconcile overall M3 milestone status and remaining final acceptance | PROJECT_PROGRESS_REPORT.md; M3-11 controlled evidence intake; accepted Product Owner decisions | Updated M3 overall status report and final M3 closeout work register | OVERALL M3 OPEN; M3-11 BLOCKED / NOT ACCEPTED |
+
+The A07 workflow results are successful but not warning-free. A08 source calculations do not replace browser rendering, manual assistive-technology testing, qualified review or a WCAG conformance assessment. A09 closes the bounded M3-12 repository verification scope only.
+
 ## M3-12 Agendas 04–06 — delivery verification
 
 Coordinated evidence PR [#355](https://github.com/mattari20/listing-v2/pull/355) merged as `1a482ac94402470e08e2b17d7d4a48d3be2290a9`. Exact head `efe36f69a4c4c9ada7e65c47e26c65bff903d325` passed PHP 8.5 foundation CI #44681875232 and project documentation validation #44681875222. Synthetic suite: 20 passed, 1,501 assertions, 282 warnings. This validates delivery and repository regression checks, not browser, manual accessibility, real-data, human operations or production acceptance.

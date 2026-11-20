@@ -1,3 +1,9 @@
+## M3-12 — Agendas 07–09 functional verification closeout — 2026-11-20
+
+- [M3-12 Agenda 07 — Functional Integration and Regression Evidence Consolidation](M3-12_A07_FUNCTIONAL_INTEGRATION_REGRESSION_EVIDENCE_CONSOLIDATION_2026-11-20.md) — maps the cross-feature synthetic test/workflow surface and exact-head CI evidence; both required workflows passed, with 282 test warnings retained as a quality follow-up.
+- [M3-12 Agenda 08 — Accessibility and Usability Evidence Reconciliation](M3-12_A08_ACCESSIBILITY_USABILITY_EVIDENCE_RECONCILIATION_2026-11-20.md) — records selected current-main static palette calculations and all outstanding manual/qualified accessibility checks; no WCAG claim.
+- [M3-12 Agenda 09 — Functional Readiness Closeout](M3-12_A09_FUNCTIONAL_READINESS_CLOSEOUT_2026-11-20.md) — closes M3-12 repository verification A01–A09 only; overall M3 remains open and M3-11 remains blocked.
+
 ## M3-12 — Agendas 04–06 delivery verification — 2026-11-20
 
 Coordinated PR [#355](https://github.com/mattari20/listing-v2/pull/355) merged as `1a482ac94402470e08e2b17d7d4a48d3be2290a9`; exact-head PHP 8.5 CI #44681875232 and documentation validation #44681875222 passed. The three agenda records and project progress/traceability updates are merged. Synthetic suite reported 20 passed, 1,501 assertions and 282 warnings; no warning-free claim. Browser, qualified accessibility, human operations and production acceptance remain outstanding.
