@@ -46,7 +46,12 @@
         <p>{{ __('directory.directory_intro') }}</p>
         <p><a href="{{ route('directory.compare', ['lang' => $locale]) }}">{{ __('directory.compare_shortlist', ['count' => $shortlistCount, 'limit' => $shortlistLimit]) }}</a></p>
         @if (session('shortlist_status'))<p role="status">{{ session('shortlist_status') }}</p>@endif
-        @if ($errors->has('shortlist'))<p role="alert">{{ $errors->first('shortlist') }}</p>@endif
+        @if ($errors->any())
+            <div role="alert" aria-labelledby="search-errors-heading">
+                <h2 id="search-errors-heading">{{ __('directory.validation_summary') }}</h2>
+                <ul>@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>
+            </div>
+        @endif
     </header>
 
     <form method="get" action="{{ route('directory.index') }}">
@@ -104,7 +109,7 @@
         <nav class="facets" aria-label="{{ __('directory.categories') }}">
             <strong>{{ __('directory.categories') }}</strong> <span class="meta">{{ __('directory.facet_note') }}</span>
             @foreach ($facets as $key => $count)
-                <a href="{{ route('directory.index', ['q' => $query, 'type' => $key, 'locality' => $locality, 'filters' => $filters]) }}">{{ $typeOptions[$key] ?? $key }} ({{ $count }})</a>
+                <a href="{{ route('directory.index', ['q' => $query, 'type' => $key, 'locality' => $locality, 'filters' => $filters, 'lang' => $locale]) }}">{{ $typeOptions[$key] ?? $key }} ({{ $count }})</a>
             @endforeach
         </nav>
     @endif
