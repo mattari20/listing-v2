@@ -1,3 +1,7 @@
+## M3-11 — LPS-15 GAP-03 source-rights and qualified-review preparation — 2026-11-20
+
+- [LPS-15 — GAP-03 Source Rights, Copyright, Privacy and Qualified Review Preparation](M3-11_LPS15_GAP03_SOURCE_RIGHTS_COPYRIGHT_PRIVACY_QUALIFIED_REVIEW_PREPARATION_2026-11-20.md) — defines source/material classes, source-specific rights evidence, privacy/safeguarding checklist, reviewer pack and deny-by-default decisions; no source approved and GAP-03 remains open.
+
 ## M3-11 — LPS-14 GAP-02 data lifecycle framework — 2026-11-20
 
 - [LPS-14 — GAP-02 Data Lifecycle Inventory, Retention and Deletion Framework](M3-11_LPS14_GAP02_DATA_LIFECYCLE_INVENTORY_RETENTION_DELETION_FRAMEWORK_2026-11-20.md) — defines the data-surface inventory, lifecycle, evidence classifications, retention schedule and deletion/backup propagation requirements; framework only, GAP-02 remains open.
