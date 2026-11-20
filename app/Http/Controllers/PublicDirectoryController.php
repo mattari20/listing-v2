@@ -53,7 +53,7 @@ final class PublicDirectoryController extends Controller
             'locality' => $locality,
             'filters' => $filters,
             'filterOptions' => $filterOptions,
-            'filterGroups' => collect($filterOptions)->groupBy('group'),
+            'filterGroups' => collect($filterOptions)->groupBy('group', true),
             'typeOptions' => $directory->typeOptions(),
             'facets' => $data['facets'],
             'results' => $results,
