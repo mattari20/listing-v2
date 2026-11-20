@@ -21,7 +21,7 @@ final class AgeBasedRotatingFileHandler extends RotatingFileHandler
         int|string|Level $level = Level::Warning,
         ?DateTimeZone $timezone = null,
     ) {
-        $this->cleaner = $cleaner ?? new RotatedLogRetentionCleaner();
+        $this->cleaner = $cleaner ?? new RotatedLogRetentionCleaner;
         $this->retentionTimezone = $timezone ?? new DateTimeZone(date_default_timezone_get());
 
         // Disable Monolog's count-based garbage collection. The approved policy
