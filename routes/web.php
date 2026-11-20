@@ -46,6 +46,20 @@ Route::middleware('auth')->prefix('/institutions/{institution}')->group(function
         ->name('institutions.editorial-cases.review.complete');
 });
 
+Route::get('/directory/compare', [PublicDirectoryController::class, 'compare'])
+    ->middleware('throttle:30,1')
+    ->name('directory.compare');
+
+Route::post('/directory/{entity}/shortlist', [PublicDirectoryController::class, 'addToShortlist'])
+    ->whereUuid('entity')
+    ->middleware('throttle:30,1')
+    ->name('directory.shortlist.add');
+
+Route::delete('/directory/shortlist/{entity}', [PublicDirectoryController::class, 'removeFromShortlist'])
+    ->whereUuid('entity')
+    ->middleware('throttle:30,1')
+    ->name('directory.shortlist.remove');
+
 Route::get('/directory', [PublicDirectoryController::class, 'index'])
     ->middleware('throttle:60,1')
     ->name('directory.index');

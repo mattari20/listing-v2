@@ -460,7 +460,7 @@ final class PublicDirectoryQueryService
         );
         unset($entity['name_searchable'], $entity['name_sortable']);
 
-        $entity['programme_offers'] = ($entity['entity_type'] ?? null) === 'programme'
+        $entity['programme_offers'] = ($entity['type'] ?? null) === 'programme'
             ? app(PublicProgrammeOfferFactsQueryService::class)->forProgramme((string) $entity['id'])
             : [];
 

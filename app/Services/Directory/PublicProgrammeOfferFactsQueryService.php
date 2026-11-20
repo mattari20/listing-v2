@@ -175,6 +175,7 @@ final class PublicProgrammeOfferFactsQueryService
                     'id' => $offerId,
                     'admission_cycle' => (string) $row->admission_cycle,
                     'delivery_location' => $row->delivery_location_type === 'campus' ? 'Campus' : 'Delivery site',
+                    'delivery_location_type' => $row->delivery_location_type === 'campus' ? 'Campus' : 'Delivery site',
                     'facts' => [],
                 ];
             }
@@ -186,6 +187,8 @@ final class PublicProgrammeOfferFactsQueryService
                 'state' => $displayState,
                 'value' => $value,
                 'observed_at' => $row->observed_at,
+                'valid_from' => $row->valid_from,
+                'valid_to' => $row->valid_to,
             ];
         }
 

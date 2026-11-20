@@ -444,6 +444,121 @@ final class PublicDirectoryTest extends TestCase
             ->assertDontSee('New private definition label');
     }
 
+    public function test_session_shortlist_adds_and_removes_only_approved_same_type_options(): void
+    {
+        $first = $this->createEntity();
+        $second = $this->createEntity();
+        $this->publishFact($first, 'display_name', 'Synthetic Shortlist College One');
+        $this->publishFact($first, 'city', 'Lahore');
+        $this->publishFact($second, 'display_name', 'Synthetic Shortlist College Two');
+        $this->publishFact($second, 'province', 'Punjab');
+
+        $this->from('/directory')->post('/directory/'.$first.'/shortlist')
+            ->assertRedirect('/directory')
+            ->assertSessionHas('directory_shortlist', [$first]);
+        $this->from('/directory')->post('/directory/'.$second.'/shortlist')
+            ->assertRedirect('/directory')
+            ->assertSessionHas('directory_shortlist', [$first, $second]);
+
+        $this->get('/directory/compare')
+            ->assertOk()
+            ->assertSee('Compare selected options')
+            ->assertSee('Synthetic Shortlist College One')
+            ->assertSee('Synthetic Shortlist College Two')
+            ->assertSee('Lahore')
+            ->assertSee('Not stated in approved public information');
+
+        $this->from('/directory/compare')->delete('/directory/shortlist/'.$first)
+            ->assertRedirect('/directory/compare')
+            ->assertSessionHas('directory_shortlist', [$second]);
+    }
+
+    public function test_shortlist_rejects_mixed_entity_types(): void
+    {
+        $institution = $this->createEntity('institution');
+        $programme = $this->createEntity('programme');
+        $this->publishFact($institution, 'display_name', 'Synthetic Shortlist Institution');
+        $this->publishFact($programme, 'display_name', 'Synthetic Shortlist Programme');
+
+        $this->from('/directory')->post('/directory/'.$institution.'/shortlist')
+            ->assertRedirect('/directory');
+        $this->from('/directory')->post('/directory/'.$programme.'/shortlist')
+            ->assertRedirect('/directory')
+            ->assertSessionHasErrors('shortlist')
+            ->assertSessionHas('directory_shortlist', [$institution]);
+
+        $this->get('/directory/compare')
+            ->assertOk()
+            ->assertSee('Select at least two options')
+            ->assertDontSee('Synthetic Shortlist Programme');
+    }
+
+    public function test_shortlist_limit_is_configurable_and_enforced(): void
+    {
+        config(['directory.shortlist_limit' => 2]);
+        $first = $this->createEntity();
+        $second = $this->createEntity();
+        $third = $this->createEntity();
+        $this->publishFact($first, 'display_name', 'Synthetic Limit College One');
+        $this->publishFact($second, 'display_name', 'Synthetic Limit College Two');
+        $this->publishFact($third, 'display_name', 'Synthetic Limit College Three');
+
+        $this->from('/directory')->post('/directory/'.$first.'/shortlist');
+        $this->from('/directory')->post('/directory/'.$second.'/shortlist');
+        $this->from('/directory')->post('/directory/'.$third.'/shortlist')
+            ->assertSessionHasErrors('shortlist')
+            ->assertSessionHas('directory_shortlist', [$first, $second]);
+
+        $this->get('/directory/compare')
+            ->assertOk()
+            ->assertSee('Synthetic Limit College One')
+            ->assertSee('Synthetic Limit College Two')
+            ->assertDontSee('Synthetic Limit College Three');
+    }
+
+    public function test_zero_value_is_preserved_and_absent_values_are_not_stated(): void
+    {
+        $first = $this->createEntity();
+        $second = $this->createEntity();
+        $this->publishFact($first, 'display_name', 'Synthetic Zero Fee College');
+        $this->publishFact($second, 'display_name', 'Synthetic Fee Unstated College');
+        $feeField = $this->registryDefinition('institution_synthetic_fee', [], 'public_eligible', 'public_eligible', 'decimal');
+        $this->publishFact($first, 'institution_synthetic_fee', '0', '2026-11-13 10:00:00', $feeField);
+
+        $this->withSession(['directory_shortlist' => [$first, $second]])
+            ->get('/directory/compare')
+            ->assertOk()
+            ->assertSee('0')
+            ->assertSee('Not stated in approved public information');
+    }
+
+    public function test_shortlist_is_session_only_and_does_not_create_persistent_saved_list_storage(): void
+    {
+        $entity = $this->createEntity();
+        $this->publishFact($entity, 'display_name', 'Synthetic Temporary Only College');
+
+        $this->from('/directory')->post('/directory/'.$entity.'/shortlist')
+            ->assertSessionHas('directory_shortlist', [$entity]);
+
+        $this->assertFalse(DB::getSchemaBuilder()->hasTable('directory_shortlists'));
+        $this->flushSession();
+
+        $this->get('/directory/compare')
+            ->assertOk()
+            ->assertSee('Select at least two options')
+            ->assertDontSee('Synthetic Temporary Only College');
+    }
+
+    public function test_deeni_madaris_cannot_be_added_to_the_temporary_shortlist(): void
+    {
+        $entity = $this->createEntity();
+        $this->publishFact($entity, 'display_name', 'Synthetic Suppressed Madrasah');
+        DB::table('directory_entities')->where('id', $entity)->update(['entity_type' => 'deeni_madaris']);
+
+        $this->post('/directory/'.$entity.'/shortlist')->assertNotFound();
+        $this->assertFalse(session()->has('directory_shortlist'));
+    }
+
     private function createEntity(string $type = 'institution'): string
     {
         $id = (string) Str::uuid();

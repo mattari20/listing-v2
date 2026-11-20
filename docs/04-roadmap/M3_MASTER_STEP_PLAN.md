@@ -1,6 +1,6 @@
 ## Latest verified planning position — RCV-B03 shortlist and comparison (2026-11-20)
 
-RCV-B02 is complete for its authorized synthetic V2 implementation. RCV-B03 is the next selected residual product capability. A focused scope/acceptance pack is prepared; no application code or schema changes are authorized yet. The key Product Owner decision is whether the first slice uses a temporary session-only shortlist (recommended; no persistent save/share) or requires persistent account-based save/share from the beginning. No real data, V1/production/Hostinger, external services, AI or spend.
+Product Owner approved the temporary session-only shortlist first slice. Implementation is underway on `feat/rcv-b03-session-shortlist-comparison`: add/remove controls, configurable five-option cap, same-type enforcement, comparison read model over approved anonymous projections, explicit missing values, preserved literal zero, separate programme-offer/cycle facts, and file-backed non-testing session default. No persistent saved-list table, share links, account registration, new migration, real/source data, V1/Hostinger/production access, external APIs/AI or spend. Exact-head `c2669a85099bfb3640baaec2bc2f77b7c569f39f` passed PHP 8.5 foundation CI #44645164583 and project documentation validation #44645164581 (15 passed, 1,262 assertions, 248 non-fatal warnings); PR #322 remains open pending merge approval.
 
 ---
 
