@@ -84,6 +84,7 @@ final class PublicDirectoryController extends Controller
             )->all(),
             'locale' => $locale,
             'direction' => $locale === 'ur' ? 'rtl' : 'ltr',
+            'languageUrls' => $this->directoryLanguageUrls($request),
             'facets' => $data['facets'],
             'results' => $results,
             'shortlistCount' => count($this->sessionShortlist($request)),
@@ -186,6 +187,20 @@ final class PublicDirectoryController extends Controller
             'locale' => $locale,
             'direction' => $locale === 'ur' ? 'rtl' : 'ltr',
         ]);
+    }
+
+    /** @return array{en: string, ur: string} */
+    private function directoryLanguageUrls(Request $request): array
+    {
+        $urls = [];
+        foreach (['en', 'ur'] as $locale) {
+            $query = $request->query();
+            $query['lang'] = $locale;
+            $queryString = http_build_query($query);
+            $urls[$locale] = $request->getPathInfo().($queryString === '' ? '' : '?'.$queryString);
+        }
+
+        return $urls;
     }
 
     private function applyDirectoryLocale(Request $request): string
