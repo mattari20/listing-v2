@@ -41,6 +41,14 @@ final class PublicDirectoryController extends Controller
         $type = ($validated['type'] ?? '') !== '' ? (string) $validated['type'] : null;
         $locality = trim((string) ($validated['locality'] ?? ''));
         $filterOptions = $directory->filterOptions();
+        foreach ($filterOptions as $fieldKey => &$filterOption) {
+            $translationKey = 'directory.fields.'.$fieldKey;
+            $translatedLabel = __($translationKey);
+            if ($translatedLabel !== $translationKey) {
+                $filterOption['label'] = $translatedLabel;
+            }
+        }
+        unset($filterOption);
         $filters = [];
         foreach (($validated['filters'] ?? []) as $key => $value) {
             if (isset($filterOptions[$key]) && in_array($value, $filterOptions[$key]['values'], true)) {
