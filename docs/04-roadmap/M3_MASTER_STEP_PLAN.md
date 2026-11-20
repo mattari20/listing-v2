@@ -1,7 +1,6 @@
-## Latest verified planning position — RCV-B04 search and filter completeness (2026-11-20)
+## Latest verified planning position — RCV-B04 student search and filter completeness (2026-11-20)
 
-RCV-B03 session-only shortlist and like-for-like comparison is complete and merged in PR #322 as `f3590a785e690858d1a6626219f6dd4125befd4c`. Exact-head `1eff3d364418a2d860cdc8be22a0ef1b00f3fc49` passed PHP 8.5 foundation CI #44645339493 and project documentation validation #44645339473 (15 passed, 1,262 assertions, 248 non-fatal warnings). RCV-B04 scope/acceptance pack is prepared on branch `docs/rcv-b04-search-filter-scope`; it proposes deterministic registry-backed search/filter completion using approved anonymous projections and synthetic tests only. Product Owner scope decision is required before application implementation. No external search, AI, real/source data, V1, Hostinger, production, deployment or spend.
-
+RCV-B03 session-only shortlist and like-for-like comparison is complete and merged in PR #322 as `f3590a785e690858d1a6626219f6dd4125befd4c`; exact-head `1eff3d364418a2d860cdc8be22a0ef1b00f3fc49` passed PHP 8.5 foundation CI #44645339493 and documentation validation #44645339473 (15 tests passed, 1,262 assertions, 248 non-fatal warnings). The Product Owner approved RCV-B04's bounded local/CI synthetic-only scope on 2026-11-20. Implementation is in PR #324: subject search constrained by approved searchable registry facts, grouped filter controls, a 12-filter request cap, active-filter summary/clear-all, and documented category-facet semantics. Exact-head validation is pending. No external search, AI, real/source data, V1, Hostinger, production, deployment, migration, new dependency or spend.
 ---
 
 ## Latest verified planning position — RCV-B02 admissions and programme decision facts (2026-11-20)
