@@ -54,6 +54,7 @@ return [
     'programme' => 'پروگرام',
     'published_offers' => 'شائع شدہ پیشکشیں',
     'no_offers' => 'اس وقت داخلے کی کوئی منظور شدہ معلومات شائع نہیں کی گئیں۔',
+    'delivery_locations' => ['campus' => 'کیمپس', 'delivery_site' => 'تدریسی مقام'],
     'delivery_location' => 'تدریسی مقام: :value',
     'unknown' => 'تصدیق نہیں ہوئی',
     'not_stated' => 'درج نہیں',
