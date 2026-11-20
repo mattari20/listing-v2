@@ -172,7 +172,11 @@ final class PublicDirectoryQueryService
                 }
 
                 $key = $fact['key'];
-                $options[$key] ??= ['label' => $fact['label'], 'values' => []];
+                $options[$key] ??= [
+                    'label' => $fact['label'],
+                    'group' => $this->filterGroupFor($key),
+                    'values' => [],
+                ];
                 $options[$key]['values'][mb_strtolower(trim($fact['value']))] = trim($fact['value']);
             }
         }
@@ -185,6 +189,28 @@ final class PublicDirectoryQueryService
         unset($option);
 
         return $options;
+    }
+
+    private function filterGroupFor(string $fieldKey): string
+    {
+        $key = mb_strtolower($fieldKey);
+
+        if (in_array($key, ['education_level', 'programme_title', 'programme_level'], true) ||
+            str_contains($key, 'subject') || str_starts_with($key, 'programme_') ||
+            str_starts_with($key, 'qualification_')) {
+            return 'Academic options';
+        }
+
+        if (str_contains($key, 'admission') || str_contains($key, 'intake') || str_contains($key, 'enrolment')) {
+            return 'Admissions';
+        }
+
+        if (in_array($key, ['provider_type', 'provider_sector', 'institution_type', 'institution_sector'], true) ||
+            str_contains($key, 'sector') || str_contains($key, 'institution_type')) {
+            return 'Institution details';
+        }
+
+        return 'Additional approved filters';
     }
 
     public function find(string $entityId): ?array
