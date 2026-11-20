@@ -55,6 +55,7 @@
         @auth
             <p><a href="{{ route('account.saved-items.index', ['lang' => $locale]) }}">{{ __('directory.saved_items_title') }}</a></p>
         @endauth
+        @if (session('saved_items_status'))<p role="status">{{ session('saved_items_status') }}</p>@endif
         @if (session('shortlist_status'))<p role="status">{{ session('shortlist_status') }}</p>@endif
         @if ($errors->any())
             <div role="alert" aria-labelledby="search-errors-heading">
