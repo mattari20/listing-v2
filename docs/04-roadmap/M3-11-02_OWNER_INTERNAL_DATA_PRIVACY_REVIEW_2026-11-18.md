@@ -2,13 +2,13 @@
 
 **Date:** 2026-11-18  
 **Review type:** AI-assisted repository/configuration inspection for Product Owner decision  
-**Status:** OWNER DISPOSITIONS RECORDED — INTERNAL SYNTHETIC-SCOPE DECISIONS; TARGET-SPECIFIC GATES REMAIN BLOCKED  
-**Scope:** Private V2 development/acceptance; synthetic fixtures only; no production or live environment inspected  
+**Status:** OWNER INTERNAL REVIEW CONSOLIDATED — DECISIONS 1–3 AND TEN-QUESTION OWNER EXERCISE ACCEPTED; TARGET-SPECIFIC / INDEPENDENT GATES REMAIN EVIDENCE-DEPENDENT  
+**Scope:** Public GitHub source-repository development, local workstation/GitHub CI, and separately restricted/private acceptance target category; synthetic fixtures only; no production or live environment inspected  
 **Repository baseline inspected:** `main` at `5e68ac4ba70db0461a902832cb6ed483640b9a4c`
 
 ## 1. Scope decision already received
 
-The Product Owner accepted private development and acceptance using synthetic/fictional fixtures only. Real students, institutions and personal records, public launch, participant testing and Deeni Madaris exposure are excluded. Deeni Madaris remains default-OFF.
+The Product Owner accepted development in the PUBLIC GitHub source repository and local/GitHub CI, with the source repository to become PRIVATE when development is complete under the binding visibility decision recorded on 2026-11-20. The application acceptance environment remains a separate restricted/private target category. Synthetic/fictional fixtures only. Real students, institutions and personal records, public launch, participant testing and Deeni Madaris exposure are excluded. Deeni Madaris remains default-OFF.
 
 This review does not change that scope or authorize environment provisioning, access, data collection, external services, spend or release.
 
@@ -119,3 +119,40 @@ These are Product Owner internal scope decisions, not legal advice, a formal pri
 ## 7. Current gate status
 
 The six preliminary finding dispositions are now recorded. M3-11-02 remains IN PROGRESS / BLOCKED because child-safeguarding applicability, broader data-flow review, target-specific facts and the remaining exit criteria are not complete. This document does not authorize target access, provisioning, external services, spend, data collection, public launch or production activity.
+
+
+## 8. Consolidated Product Owner internal review — 2026-11-20
+
+The Product Owner completed the ten-question internal review exercise and accepted the following dispositions. These decisions consolidate the owner's position; they do not replace independent professional review or establish target-specific facts that have not been inspected.
+
+| Review item | Product Owner decision | Recorded position |
+|---|---|---|
+| 1. Legal applicability | ACCEPT | The accountable operator is the individual Product Owner; Pakistan is the initial jurisdiction. Applicable duties must be assessed against verified facts; this is not a legal certification. |
+| 2. Identifiability | ACCEPT | Limited real developer/account metadata may identify people, including GitHub usernames, commit authorship, CI account metadata, logs and reviewer identity/contact details. No claim of zero personal data. |
+| 3. Provider roles | ACCEPT | GitHub and OpenAI/ChatGPT are used in the development workflow. Their precise legal roles and processing arrangements are not presumed; provider terms, settings and actual data flows would be needed for a formal conclusion. |
+| 4. Purpose and minimization | ACCEPT | Current development remains repository/local workstation/GitHub CI with synthetic/fictional fixtures. The synthetic-only rule applies to prompts, logs, exports, attachments and test evidence. |
+| 5. Lifecycle | ACCEPT WITH DEFERRED TARGET FACTS | The lifecycle framework is not a complete operational inventory. Retention/deletion propagation, audit/session/log handling, backup and export behavior require exact target evidence before any real personal data or hosted acceptance activity. |
+| 6. Safeguarding | ACCEPT | Child/student/guardian data, accounts and participant activity remain excluded from current scope. Deeni Madaris remains default-OFF with zero public exposure under the current acceptance scope. |
+| 7. Security/confidentiality | ACCEPT | The owner accepts the existing minimum safeguards: controlled access, no secrets in commits, protected CI secrets, minimum reviewer access, confidential evidence through a restricted channel and access removal after engagement. These are accepted requirements, not independently verified controls. |
+| 8. Formal assessment | ACCEPT WITH PROFESSIONAL DETERMINATION DEFERRED | The synthetic-only work may continue within its existing authorization. Whether a PIA/DPIA, safeguarding assessment or additional legal opinion is required remains a question for the relevant qualified review; no waiver is recorded. |
+| 9. Limitations | ACCEPT | Unknown hosting region/runtime, provider terms, access roster, log destinations, backup lifecycle, legal applicability and safeguarding certification must be disclosed as unknown, not assumed. |
+| 10. Conclusion | ACCEPT | The owner requires any formal review to state a clear outcome, non-waivable blockers, remediation, objective closure evidence, scope restrictions and reassessment triggers. |
+
+### 8.1 Additional Product Owner decisions accepted in this exercise
+
+- **Decision 1 — Responsibility and jurisdiction:** ACCEPT. The Product Owner remains the accountable owner/operator for project decisions; Pakistan is the initial jurisdiction; applicable obligations and provider risks must be considered.
+- **Decision 2 — Identification and classification:** ACCEPT. Treat relevant GitHub account/commit/CI metadata and reviewer details as potentially personal information. Keep credentials, secrets, personal records and confidential reviewer material out of the public repository; minimize personal information in prompts, attachments, logs and exports; use incident/credential-rotation procedures if exposure occurs.
+- **Decision 3 — Third-party providers:** ACCEPT. GitHub and OpenAI/ChatGPT are recognized as development providers for risk/data-flow assessment; do not assume their legal roles without examining applicable arrangements. Hostinger remains outside current authorized work. No new provider, external API, AI integration or paid service is activated by this decision.
+
+### 8.2 Binding source-repository visibility baseline
+
+The GitHub source repository `mattari20/listing-v2` remains PUBLIC throughout development and WILL be changed to PRIVATE when development is complete. This is a binding Product Owner decision, not a future decision awaiting another approval. The transition must occur at development completion after repository-history, forks/copies, public-artifact, workflow-log and prior-exposure review. This does not authorize public application access, pilot, release or production.
+
+### 8.3 Internal review completion and remaining boundaries
+
+The Product Owner's internal decision exercise is COMPLETE for the ten questions and Decisions 1–3 above. The existing DP-01–DP-06 dispositions remain as recorded in Sections 4 and 6. This internal completion does not close M3-11-02 / Gate 02 because:
+- no qualified independent legal/privacy/safeguarding report has been received and validated;
+- no target-specific runtime, hosting, processor, log, backup, access-roster or deletion evidence exists for an unprovisioned acceptance environment;
+- any condition requiring operational evidence remains unverified until the relevant scope is separately authorized.
+
+No extra activity is authorized by this consolidation. The current synthetic-only, no-production, no-Hostinger/V1, no-source-activity, no-real-data, no-external-service, no-deployment and no-additional-spend boundaries remain in force.
