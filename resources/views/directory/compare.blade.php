@@ -96,7 +96,6 @@
                                             @foreach ($profile['programme_offers'] as $offer)
                                                 <section class="offer">
                                                     <strong>{{ $offer['admission_cycle'] }}</strong>
-                                                    <div class="meta">Effective: {{ $fact['valid_from'] ?? 'not specified' }} to {{ $fact['valid_to'] ?? 'not specified' }}</div>
                                                     <div class="meta">{{ $offer['delivery_location'] }} ({{ $offer['delivery_location_type'] }})</div>
                                                     <ul>
                                                         @foreach ($offer['facts'] as $fact)
