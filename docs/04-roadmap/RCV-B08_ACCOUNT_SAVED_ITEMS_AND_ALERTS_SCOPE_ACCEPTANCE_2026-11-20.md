@@ -4,7 +4,7 @@
 **Repository:** mattari20/listing-v2  
 **Baseline main:** c6cb7b679271efdfe5fd5d6be8b93cd428036f19  
 **Agenda:** RCV-B08 — Account-Dependent Saved Items and Alerts  
-**Status:** Product Owner policy approved by instruction to proceed on 2026-11-20; private saved-items slice implemented in PR branch `feat/rcv-b08-private-saved-items`; exact-head validation pending. Sharing, alerts and public account lifecycle remain deferred.
+**Status:** Product Owner policy approved by instruction to proceed on 2026-11-20; private saved-items slice IMPLEMENTED AND MERGED in PR #340 as `d9d97ca15f31e6d0406090532b6fd63de9db42e7`. Sharing, alerts and public account lifecycle remain deferred.
 
 ## 1. Why this agenda is next
 
@@ -93,7 +93,7 @@ RCV-01 identifies RCV-B08 as the next P2 residual package after RCV-B07. Its sco
 | Slice | Candidate deliverable | Status |
 |---|---|---|
 | B08-A | Account lifecycle and saved-item privacy/retention policy | APPROVED for the bounded private saved-items slice; public account lifecycle deferred |
-| B08-B | Private account-owned saved items with synthetic tests and public-projection revalidation | IMPLEMENTED in PR branch `feat/rcv-b08-private-saved-items`; exact-head validation pending |
+| B08-B | Private account-owned saved items with synthetic tests and public-projection revalidation | IMPLEMENTED AND MERGED in PR #340; exact-head PHP 8.5 CI #44656958419 and docs validation #44656958556 passed (15 tests, 1,462 assertions, 281 non-fatal warnings) |
 | B08-C | Share tokens, expiry, revocation and read-only share surface | Deferred; separate authorization required |
 | B08-D | Notification preferences, consent/opt-out lifecycle and event semantics | Deferred; separate authorization required |
 | B08-E | Delivery channel/provider and operational retention | Not authorized; vendor/spend decision required |
@@ -129,4 +129,4 @@ This approval does not authorize a public account lifecycle, notifications, a me
 
 ## 9. Current disposition
 
-RCV-B08 repository inventory and privacy boundaries are complete. The approved B08-B private saved-items slice is implemented on `feat/rcv-b08-private-saved-items` and awaiting exact-head validation. B08-C sharing, B08-D alert preferences/event semantics, B08-E delivery/provider and public account lifecycle remain deferred; DP-02/DP-03 target privacy gates remain binding.
+RCV-B08 repository inventory and privacy boundaries are complete. The approved B08-B private saved-items slice is implemented and merged in PR #340 as `d9d97ca15f31e6d0406090532b6fd63de9db42e7`; exact-head PHP 8.5 CI #44656958419 and documentation validation #44656958556 passed (15 tests, 1,462 assertions, 281 non-fatal warnings). B08-C sharing, B08-D alert preferences/event semantics, B08-E delivery/provider and public account lifecycle remain deferred; DP-02/DP-03 target privacy gates remain binding.

@@ -17,7 +17,7 @@
 - [RCV-B08 Account Saved Items and Alerts Scope and Acceptance Pack](04-roadmap/RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner-approved bounded private saved-items policy; anonymous session shortlist unchanged; public registration, sharing and alerts deferred.
 - [RCV-B08 Account Saved Items and Alerts Privacy Design](04-roadmap/RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_PRIVACY_DESIGN_2026-11-20.md) — owner-only saved-item data, public-projection revalidation, private/no-store output, sharing and alert deferral.
 - [RCV-B08 Bounded Implementation Authorization](04-roadmap/RCV-B08_BOUNDED_IMPLEMENTATION_AUTHORIZATION_2026-11-20.md) — exact repository-only B08-B implementation scope.
-- [RCV-B08 Private Saved Items Implementation Record](04-roadmap/RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_IMPLEMENTATION_RECORD_2026-11-20.md) — migration, owner-scoped routes, private saved-items page and synthetic security tests; exact-head validation pending.
+- [RCV-B08 Private Saved Items Implementation Record](04-roadmap/RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_IMPLEMENTATION_RECORD_2026-11-20.md) — PR #340 merged as `d9d97ca15f31e6d0406090532b6fd63de9db42e7`; exact-head PHP 8.5 CI #44656958419 and docs validation #44656958556 passed (15 tests, 1,462 assertions, 281 non-fatal warnings).
 
 ## RCV-B07 — public SEO and performance evidence — 2026-11-20
 - [RCV-B07 Public SEO and Performance Scope and Acceptance Pack](04-roadmap/RCV-B07_PUBLIC_SEO_AND_PERFORMANCE_SCOPE_ACCEPTANCE_2026-11-20.md) — repository inventory complete; Product Owner policy decisions approved; fail-closed crawl controls merged in PR #335; synthetic performance measurement completed in PR #337.

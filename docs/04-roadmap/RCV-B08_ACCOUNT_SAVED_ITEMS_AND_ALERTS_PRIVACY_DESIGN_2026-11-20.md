@@ -3,7 +3,7 @@
 **Date:** 2026-11-20  
 **Repository:** mattari20/listing-v2  
 **Baseline main:** c6cb7b679271efdfe5fd5d6be8b93cd428036f19  
-**Status:** Product Owner-approved policy; B08-B private saved-items implementation is in progress under the bounded authorization; no public account lifecycle, sharing or alerts authorized.
+**Status:** Product Owner-approved policy; B08-B private saved-items implementation merged in PR #340; no public account lifecycle, sharing or alerts authorized.
 
 ## 1. Design constraints inherited from existing decisions
 
