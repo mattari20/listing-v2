@@ -1,7 +1,7 @@
 # M3-11-03 SEC-06 — Local/CI Implementation Evidence
 
 **Date:** 2026-11-19  
-**Status:** REBUILT ON CURRENT MAIN; FRESH EXACT-HEAD CI PENDING  
+**Status:** CURRENT-MAIN REBUILD VALIDATED; MERGE PENDING  
 **Integration PR:** #347  
 **Exact implementation commit:** \`84ed31e8d3a27b3e52c6de1e863d4153a7e0a333\`  
 **Scope:** Local repository implementation and GitHub CI only; synthetic fixtures only
@@ -24,7 +24,7 @@ The prior implementation commit passed the checks listed below. Because that bra
 
 ## 3. Current-main integration validation
 
-Fresh exact-head PHP 8.5 foundation CI and project documentation validation run on PR #347. The first integration attempt passed project documentation validation but stopped at Pint because the constructor default used redundant parentheses. The follow-up commit removes that style issue and adds a runtime-resolution assertion proving Laravel can instantiate the configured custom handler. Fresh CI must pass on the final PR head before merge.
+Fresh exact-head validation passed on `814d2b34837e967bfb1ce9957a8ed467d19279bc` (PR #347): FND-01 PHP 8.5 foundation CI run #685 and project documentation validation run #1161. The first integration attempt stopped at Pint because the constructor default used redundant parentheses; the style issue was corrected. The feature test now resolves Laravel's `daily` log channel and asserts the configured custom handler is actually instantiated. The complete synthetic suite passed: 20 tests, 1,501 assertions, 282 warnings. The suite is not warning-free; existing environment-file-dependent tests emit warnings because CI intentionally has no `.env` file. Composer validation, locked dependency installation, dependency audit, Pint, Laravel bootstrap/routes and repository artifact hygiene all passed.
 
 ## 4. Historical prior-branch CI evidence
 
@@ -61,7 +61,7 @@ No production or hosted environment variables were modified. No PR was merged du
 
 ## 7. Disposition
 
-**SEC-06 local/CI implementation:** prior branch checks passed; rebuilt current-main integration is pending fresh exact-head validation.  
+**SEC-06 local/CI implementation:** current-main rebuild passed both required exact-head workflows; merge pending.  
 **SEC-06 hosted configuration and verification:** NOT AUTHORIZED.  
 **Backup-held log copies:** deferred; no deletion or inspection performed.  
 **M3-11-05:** BLOCKED / NOT ACCEPTED.  
