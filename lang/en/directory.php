@@ -38,6 +38,7 @@ return [
     'remove_shortlist' => 'Remove from temporary shortlist',
     'observed' => 'Evidence observed: :date',
     'latest_observation' => 'Latest evidence observation: :date',
+    'observation_is_not_verification' => 'An observation date shows when evidence was recorded; it does not mean the information has been independently verified.',
     'observation_missing' => 'Observation date not supplied; freshness is not assessed.',
     'no_matches' => 'No publicly approved matches were found. Missing or unpublished information is not treated as a negative fact.',
     'search_limits' => 'Search uses case-insensitive substring matching over approved searchable names and facts. It does not provide typo correction, fuzzy or semantic search, transliteration, or relevance ranking. Only current, approved anonymous-directory projections are shown. Locality search uses published text only; precise device location, distance sorting and maps are not enabled.',

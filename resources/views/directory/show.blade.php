@@ -71,6 +71,7 @@
         @else
             <p class="meta">{{ __('directory.observation_missing') }}</p>
         @endif
+        <p class="meta" role="note">{{ __('directory.observation_is_not_verification') }}</p>
 
         <h2>{{ __('directory.public_info') }}</h2>
         @if ($profile['facts'] === [])
