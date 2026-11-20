@@ -1,3 +1,7 @@
+## RCV-B11 — production readiness — 2026-11-20
+
+- [RCV-B11 Production Readiness Final Gate Reconciliation](RCV-B11_PRODUCTION_READINESS_FINAL_GATE_RECONCILIATION_2026-11-20.md) — reconciles M3-11-01–10, including internal review dispositions, bounded Hostinger CLI readiness, unresolved hosted isolation/recovery/candidate/go-no-go gates and explicit production non-authorization.
+
 ## RCV-B10 — live source and AI activation — 2026-11-20
 
 - [RCV-B10 Live Source and AI Activation Gate Preflight](RCV-B10_LIVE_SOURCE_AND_AI_ACTIVATION_GATE_PREFLIGHT_2026-11-20.md) — repository-only reconciliation of source rights, retrieval methods, privacy, security, model/provider, cost/capacity, human governance and synthetic evaluation. GOV-04 remains research-only; no source/model/agent activation is authorized.
