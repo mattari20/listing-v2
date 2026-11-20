@@ -137,14 +137,11 @@ final class FieldAwareClaimReinstatementService
                 ->where('id', $prior->subject_entity_id)
                 ->lockForUpdate()
                 ->first(['entity_type']);
-            if ($entity === null || $entity->entity_type !== 'institution') {
-                $this->reject('subject', 'I5 reinstatement currently supports institution-level registry claims only.');
+            if ($entity === null || ! in_array($entity->entity_type, ['institution', 'programme'], true)) {
+                $this->reject('subject', 'I5 reinstatement supports explicitly governed institution and programme entities only.');
             }
 
-            $providerCategory = DB::table('directory_provider_category_assignments')
-                ->where('entity_id', $prior->subject_entity_id)
-                ->lockForUpdate()
-                ->value('provider_category');
+            $providerCategory = $this->registry->providerCategoryForEntity($prior->subject_entity_id, true);
             if (is_string($providerCategory) === false || $providerCategory === '') {
                 $this->reject('provider_category', 'A current human-governed provider category is required.');
             }
