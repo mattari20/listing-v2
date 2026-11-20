@@ -13,6 +13,10 @@
 - [RCV-B06 Synthetic Nearby Ranking Implementation Record](04-roadmap/RCV-B06_SYNTHETIC_NEARBY_RANKING_IMPLEMENTATION_RECORD_2026-11-20.md) — pure PHP domain proof, fail-closed eligibility and synthetic unit coverage; PR #331 merged, exact-head PHP 8.5 and documentation CI passed (15 tests, 1,340 assertions).
 - [RCV-B06 Agenda Closeout](04-roadmap/RCV-B06_ADVANCED_GEOGRAPHY_SCOPE_ACCEPTANCE_2026-11-20.md) — PR #332 merged; closes only the approved synthetic repository scope; live coordinates, geolocation, maps, schema and deployment remain unauthorized.
 
+## RCV-B08 — account-dependent saved items and alerts — 2026-11-20
+- [RCV-B08 Account Saved Items and Alerts Scope and Acceptance Pack](04-roadmap/RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_SCOPE_ACCEPTANCE_2026-11-20.md) — repository-only account, session shortlist, privacy and retention inventory; Product Owner policy decision pending; no persistent data or notification implementation authorized.
+- [RCV-B08 Account Saved Items and Alerts Privacy Design](04-roadmap/RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_PRIVACY_DESIGN_2026-11-20.md) — proposed private saved-item ownership, public-projection revalidation, sharing deferral, alert consent and deletion boundaries.
+
 ## RCV-B07 — public SEO and performance evidence — 2026-11-20
 - [RCV-B07 Public SEO and Performance Scope and Acceptance Pack](04-roadmap/RCV-B07_PUBLIC_SEO_AND_PERFORMANCE_SCOPE_ACCEPTANCE_2026-11-20.md) — repository inventory complete; Product Owner policy decisions approved; fail-closed crawl controls merged in PR #335; synthetic performance measurement completed in PR #337.
 - [RCV-B07 SEO, Crawl Controls and Performance Evidence Design](04-roadmap/RCV-B07_SEO_CRAWL_AND_PERFORMANCE_EVIDENCE_DESIGN_2026-11-20.md) — trusted-origin, indexability, sitemap, preview noindex and synthetic measurement contracts; sitemap remains gated on a future approved public origin/release.
