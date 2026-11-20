@@ -279,6 +279,8 @@ final class PublicDirectoryQueryService
                 'directory_entities.entity_type',
                 'claims.predicate',
                 'claim_versions.id as claim_version_id',
+                'claim_versions.valid_from as claim_valid_from',
+                'claim_versions.valid_to as claim_valid_to',
                 'claim_versions.field_definition_version_id',
                 'registry_versions.id as registry_version_id',
                 'registry_definitions.field_key as registry_field_key',
@@ -318,9 +320,11 @@ final class PublicDirectoryQueryService
 
         $entities = [];
         $policy = new GovernancePolicy;
+        $publishedCatalogueClaims = [];
 
         foreach ($rows as $row) {
             $isRegistryManaged = $row->field_definition_version_id !== null;
+            $isCatalogueClaim = false;
             if ($isRegistryManaged) {
                 if ((string) $row->registry_version_id !== (string) $row->field_definition_version_id ||
                     $row->registry_field_key !== $row->predicate ||
@@ -336,6 +340,13 @@ final class PublicDirectoryQueryService
                 }
                 $label = $this->registryPublicLabel($presentation);
                 $section = $this->registryPublicSection($presentation);
+                $value = null;
+            } elseif (in_array($row->predicate, ['campus', 'delivery_site', 'programme', 'programme_offer'], true)) {
+                $isCatalogueClaim = true;
+                $validationSchema = [];
+                $presentation = [];
+                $label = null;
+                $section = 'catalogue';
                 $value = null;
             } else {
                 if (array_key_exists($row->predicate, self::PUBLIC_FIELDS) === false) {
@@ -361,6 +372,22 @@ final class PublicDirectoryQueryService
                 ($payload['is_deeni_madaris'] ?? null) !== false ||
                 ($payload['predicate'] ?? null) !== $row->predicate ||
                 array_key_exists('value', $payload) === false) {
+                continue;
+            }
+
+            if ($isCatalogueClaim) {
+                $catalogueValue = $payload['value'];
+                if (is_array($catalogueValue) && array_keys($catalogueValue) === ['value']) {
+                    $catalogueValue = $catalogueValue['value'];
+                }
+                $publishedCatalogueClaims[(string) $row->claim_version_id] = [
+                    'predicate' => $row->predicate,
+                    'value' => $catalogueValue,
+                    'subject_entity_id' => (string) $row->entity_id,
+                    'valid_from' => $row->claim_valid_from,
+                    'valid_to' => $row->claim_valid_to,
+                ];
+
                 continue;
             }
 
@@ -429,7 +456,175 @@ final class PublicDirectoryQueryService
             $items[] = $entity;
         }
 
+        return $this->attachPublicCatalogue($items, $publishedCatalogueClaims);
+    }
+
+    /**
+     * Attach only current catalogue rows whose exact claim versions remain in the
+     * approved anonymous directory projection. The view receives public labels only.
+     *
+     * @param  array<int, array<string, mixed>>  $items
+     * @param  array<string, array<string, mixed>>  $publishedClaims
+     * @return array<int, array<string, mixed>>
+     */
+    private function attachPublicCatalogue(array $items, array $publishedClaims): array
+    {
+        $profiles = [];
+        $institutionIds = [];
+        foreach ($items as $item) {
+            $profiles[$item['id']] = $item;
+            if ($item['type'] === 'institution') {
+                $institutionIds[] = $item['id'];
+            }
+        }
+
+        if ($institutionIds === []) {
+
+            return $items;
+        }
+
+        $campusRows = DB::table('directory_campuses')
+            ->whereIn('institution_entity_id', $institutionIds)
+            ->where('status', 'active')
+            ->orderBy('entity_id')
+            ->get(['entity_id', 'institution_entity_id', 'location_label', 'claim_version_id', 'valid_from', 'valid_to']);
+        $siteRows = DB::table('directory_delivery_sites')
+            ->whereIn('institution_entity_id', $institutionIds)
+            ->where('status', 'active')
+            ->orderBy('entity_id')
+            ->get(['entity_id', 'institution_entity_id', 'location_label', 'claim_version_id', 'valid_from', 'valid_to']);
+        $programmeRows = DB::table('programme_catalogue_entries')
+            ->whereIn('institution_entity_id', $institutionIds)
+            ->where('status', 'active')
+            ->orderBy('title')
+            ->orderBy('entity_id')
+            ->get(['entity_id', 'institution_entity_id', 'title', 'claim_version_id']);
+        $programmeIds = $programmeRows->pluck('entity_id')->all();
+        $offerRows = $programmeIds === [] ? collect() : DB::table('programme_offers')
+            ->whereIn('programme_entity_id', $programmeIds)
+            ->where('status', 'active')
+            ->orderBy('admission_cycle')
+            ->orderBy('id')
+            ->get(['id', 'programme_entity_id', 'delivery_location_entity_id', 'admission_cycle', 'claim_version_id', 'valid_from', 'valid_to']);
+
+        $campusesByInstitution = [];
+        $locationsByEntity = [];
+        $locationInstitutionByEntity = [];
+        foreach ($campusRows as $row) {
+            $claimId = (string) $row->claim_version_id;
+            $entityId = (string) $row->entity_id;
+            $claim = $publishedClaims[$claimId] ?? null;
+            if (($claim['predicate'] ?? null) !== 'campus' ||
+                is_array($claim['value'] ?? null) === false ||
+                ($claim['value']['institution_entity_id'] ?? null) !== (string) $row->institution_entity_id ||
+                ($claim['value']['location_label'] ?? null) !== $row->location_label ||
+                ($claim['subject_entity_id'] ?? null) !== $entityId ||
+                ($claim['valid_from'] ?? null) !== $row->valid_from ||
+                ($claim['valid_to'] ?? null) !== $row->valid_to ||
+                isset($profiles[$entityId]) === false ||
+                $this->catalogueRecordIsCurrent($row->valid_from, $row->valid_to) === false) {
+
+                continue;
+            }
+            $locationsByEntity[$entityId] = $profiles[$entityId]['name'];
+            $locationInstitutionByEntity[$entityId] = (string) $row->institution_entity_id;
+            $campusesByInstitution[$row->institution_entity_id][] = ['name' => $profiles[$entityId]['name']];
+        }
+
+        foreach ($siteRows as $row) {
+            $claimId = (string) $row->claim_version_id;
+            $entityId = (string) $row->entity_id;
+            $claim = $publishedClaims[$claimId] ?? null;
+            if (($claim['predicate'] ?? null) !== 'delivery_site' ||
+                is_array($claim['value'] ?? null) === false ||
+                ($claim['value']['institution_entity_id'] ?? null) !== (string) $row->institution_entity_id ||
+                ($claim['value']['location_label'] ?? null) !== $row->location_label ||
+                ($claim['subject_entity_id'] ?? null) !== $entityId ||
+                ($claim['valid_from'] ?? null) !== $row->valid_from ||
+                ($claim['valid_to'] ?? null) !== $row->valid_to ||
+                isset($profiles[$entityId]) === false ||
+                $this->catalogueRecordIsCurrent($row->valid_from, $row->valid_to) === false) {
+
+                continue;
+            }
+            $locationsByEntity[$entityId] = $profiles[$entityId]['name'];
+            $locationInstitutionByEntity[$entityId] = (string) $row->institution_entity_id;
+        }
+
+        $programmesByInstitution = [];
+        $programmeIndexes = [];
+        foreach ($programmeRows as $row) {
+            $claimId = (string) $row->claim_version_id;
+            $programmeId = (string) $row->entity_id;
+            $claim = $publishedClaims[$claimId] ?? null;
+            if (($claim['predicate'] ?? null) !== 'programme' ||
+                is_array($claim['value'] ?? null) === false ||
+                ($claim['value']['institution_entity_id'] ?? null) !== (string) $row->institution_entity_id ||
+                ($claim['value']['title'] ?? null) !== (string) $row->title ||
+                ($claim['subject_entity_id'] ?? null) !== $programmeId ||
+                isset($profiles[$programmeId]) === false ||
+                $this->catalogueRecordIsCurrent($claim['valid_from'] ?? null, $claim['valid_to'] ?? null) === false) {
+
+                continue;
+            }
+            $programmeIndexes[$programmeId] = [
+                'name' => $profiles[$programmeId]['name'],
+                'institution_entity_id' => (string) $row->institution_entity_id,
+                'offers' => [],
+            ];
+            $programmesByInstitution[$row->institution_entity_id][] = $programmeId;
+        }
+
+        foreach ($offerRows as $row) {
+            $claimId = (string) $row->claim_version_id;
+            $programmeId = (string) $row->programme_entity_id;
+            $locationId = (string) $row->delivery_location_entity_id;
+            $claim = $publishedClaims[$claimId] ?? null;
+            if (($claim['predicate'] ?? null) !== 'programme_offer' ||
+                is_array($claim['value'] ?? null) === false ||
+                ($claim['subject_entity_id'] ?? null) !== $programmeId ||
+                ($claim['value']['programme_entity_id'] ?? null) !== $programmeId ||
+                ($claim['value']['delivery_location_entity_id'] ?? null) !== $locationId ||
+                ($claim['valid_from'] ?? null) !== $row->valid_from ||
+                ($claim['valid_to'] ?? null) !== $row->valid_to ||
+                ($claim['value']['admission_cycle'] ?? null) !== (string) $row->admission_cycle ||
+                isset($programmeIndexes[$programmeId]) === false ||
+                isset($locationsByEntity[$locationId]) === false ||
+                ($locationInstitutionByEntity[$locationId] ?? null) !== ($programmeIndexes[$programmeId]['institution_entity_id'] ?? null) ||
+                $this->catalogueRecordIsCurrent($row->valid_from, $row->valid_to) === false) {
+
+                continue;
+            }
+            $programmeIndexes[$programmeId]['offers'][] = [
+                'admission_cycle' => (string) $row->admission_cycle,
+                'location' => $locationsByEntity[$locationId],
+            ];
+        }
+
+        foreach ($items as $index => $item) {
+            if ($item['type'] !== 'institution') {
+
+                continue;
+            }
+            $programmeItems = [];
+            foreach ($programmesByInstitution[$item['id']] ?? [] as $programmeId) {
+                $programmeItems[] = $programmeIndexes[$programmeId];
+            }
+            $items[$index]['catalogue'] = [
+                'campuses' => $campusesByInstitution[$item['id']] ?? [],
+                'programmes' => $programmeItems,
+            ];
+        }
+
         return $items;
+    }
+
+    private function catalogueRecordIsCurrent(?string $validFrom, ?string $validTo): bool
+    {
+        $today = now()->toDateString();
+
+        return ($validFrom === null || $validFrom <= $today) &&
+            ($validTo === null || $validTo >= $today);
     }
 
     private function evidenceIsCurrentlyPublishable(Collection $evidenceRows, GovernancePolicy $policy): bool

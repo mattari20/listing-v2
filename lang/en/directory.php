@@ -77,6 +77,9 @@ return [
     'public_info' => 'Publicly approved information',
     'no_details' => 'No additional public details are available.',
     'admissions_info' => 'Programme admissions information',
+    'campuses_heading' => 'Campuses',
+    'programmes_offers_heading' => 'Programmes and admission offers',
+    'no_current_offers' => 'No currently published admission offers are available.',
     'evidence_observed' => 'Evidence observed: :date',
     'observation_not_supplied' => 'Observation date not supplied',
     'types' => [

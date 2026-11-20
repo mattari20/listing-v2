@@ -56,15 +56,21 @@ final class LocalPreviewSeederTest extends TestCase
             $this->seed(LocalPreviewSeeder::class);
 
             $this->assertSame(
-                5,
+                15,
                 DB::table('directory_entities')
                     ->where('label', 'like', 'LOCAL PREVIEW ONLY — FICTIONAL%')
                     ->count()
             );
-            $this->assertSame(30, DB::table('claims')->count());
-            $this->assertSame(30, DB::table('publication_snapshots')->count());
-            $this->assertSame(30, DB::table('public_projections')->where('is_deeni_madaris', false)->count());
+            $this->assertSame(55, DB::table('claims')->count());
+            $this->assertSame(55, DB::table('publication_snapshots')->count());
+            $this->assertSame(55, DB::table('public_projections')->where('is_deeni_madaris', false)->count());
             $this->assertSame(0, DB::table('public_projections')->where('is_deeni_madaris', true)->count());
+            $this->assertSame(5, DB::table('directory_entities')->where('entity_type', 'institution')->count());
+            $this->assertSame(5, DB::table('directory_entities')->where('entity_type', 'campus')->count());
+            $this->assertSame(5, DB::table('directory_entities')->where('entity_type', 'programme')->count());
+            $this->assertSame(5, DB::table('directory_campuses')->where('status', 'active')->count());
+            $this->assertSame(5, DB::table('programme_catalogue_entries')->where('status', 'active')->count());
+            $this->assertSame(5, DB::table('programme_offers')->where('status', 'active')->count());
 
             $forbiddenPredicates = [
                 'child',
@@ -139,7 +145,12 @@ final class LocalPreviewSeederTest extends TestCase
                     ->assertOk()
                     ->assertSee($profile['name'])
                     ->assertSee($profile['city'])
-                    ->assertSee($profile['locality']);
+                    ->assertSee($profile['locality'])
+                    ->assertSee('Campuses')
+                    ->assertSee('Synthetic '.$profile['city'].' Campus')
+                    ->assertSee('Programmes and admission offers')
+                    ->assertSee('Synthetic '.$profile['city'].' Computing Programme')
+                    ->assertSee('Synthetic 2027 Intake');
             }
         } finally {
             DB::disconnect('sqlite');

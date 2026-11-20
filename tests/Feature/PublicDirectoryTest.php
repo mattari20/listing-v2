@@ -36,6 +36,106 @@ final class PublicDirectoryTest extends TestCase
             ->assertDontSee('Synthetic Internal Label');
     }
 
+    public function test_institution_profile_shows_only_currently_published_governed_catalogue_records(): void
+    {
+        $institution = $this->createEntity('institution');
+        $this->publishFact($institution, 'display_name', 'Synthetic Governed Institution');
+
+        $campus = $this->createEntity('campus');
+        $this->publishFact($campus, 'display_name', 'Synthetic North Campus');
+        $campusClaim = $this->publishFact($campus, 'campus', ['institution_entity_id' => $institution]);
+        DB::table('directory_campuses')->insert([
+            'entity_id' => $campus,
+            'institution_entity_id' => $institution,
+            'location_label' => null,
+            'status' => 'active',
+            'valid_from' => null,
+            'valid_to' => null,
+            'claim_version_id' => $campusClaim['version_id'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $programme = $this->createEntity('programme');
+        $this->publishFact($programme, 'display_name', 'Synthetic Computing Programme');
+        $programmeClaim = $this->publishFact($programme, 'programme', ['institution_entity_id' => $institution, 'title' => 'Synthetic Computing Programme']);
+        DB::table('programme_catalogue_entries')->insert([
+            'entity_id' => $programme,
+            'institution_entity_id' => $institution,
+            'title' => 'Synthetic Computing Programme',
+            'description' => null,
+            'level' => null,
+            'status' => 'active',
+            'claim_version_id' => $programmeClaim['version_id'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $offerClaim = $this->publishFact($programme, 'programme_offer', ['programme_entity_id' => $programme, 'delivery_location_entity_id' => $campus, 'admission_cycle' => 'Synthetic 2027 Intake']);
+        $offerId = (string) Str::uuid();
+        DB::table('programme_offers')->insert([
+            'id' => $offerId,
+            'programme_entity_id' => $programme,
+            'delivery_location_entity_id' => $campus,
+            'admission_cycle' => 'Synthetic 2027 Intake',
+            'status' => 'active',
+            'valid_from' => null,
+            'valid_to' => null,
+            'claim_version_id' => $offerClaim['version_id'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $suppressedClaim = $this->publishFact($programme, 'programme_offer', ['programme_entity_id' => $programme, 'delivery_location_entity_id' => $campus, 'admission_cycle' => 'Synthetic Suppressed Intake']);
+        DB::table('programme_offers')->insert([
+            'id' => (string) Str::uuid(),
+            'programme_entity_id' => $programme,
+            'delivery_location_entity_id' => $campus,
+            'admission_cycle' => 'Synthetic Suppressed Intake',
+            'status' => 'active',
+            'valid_from' => null,
+            'valid_to' => null,
+            'claim_version_id' => $suppressedClaim['version_id'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        (new PersistedGovernanceWorkflowService)->suppressPublication(
+            $this->actor('catalogue-suppressor', ['suppress_publication']),
+            $suppressedClaim['snapshot_id'],
+            'synthetic_public_test',
+            'Synthetic offer publication suppression.'
+        );
+
+        $mismatchedClaim = $this->publishFact($programme, 'programme_offer', [
+            'programme_entity_id' => $programme,
+            'delivery_location_entity_id' => $campus,
+            'admission_cycle' => 'Synthetic Approved Cycle',
+        ]);
+        DB::table('programme_offers')->insert([
+            'id' => (string) Str::uuid(),
+            'programme_entity_id' => $programme,
+            'delivery_location_entity_id' => $campus,
+            'admission_cycle' => 'Synthetic Tampered Cycle',
+            'status' => 'active',
+            'valid_from' => null,
+            'valid_to' => null,
+            'claim_version_id' => $mismatchedClaim['version_id'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $this->get('/directory/'.$institution)
+            ->assertOk()
+            ->assertSee('Synthetic Governed Institution')
+            ->assertSee('Campuses')
+            ->assertSee('Synthetic North Campus')
+            ->assertSee('Programmes and admission offers')
+            ->assertSee('Synthetic Computing Programme')
+            ->assertSee('Synthetic 2027 Intake')
+            ->assertDontSee('Synthetic Suppressed Intake')
+            ->assertDontSee('Synthetic Tampered Cycle');
+    }
+
     public function test_urdu_interface_is_session_persistent_and_preserves_approved_source_language_facts(): void
     {
         $first = $this->createEntity();

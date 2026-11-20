@@ -97,6 +97,36 @@
                 @endforeach
             </dl>
         @endif
+        @if (!empty($profile['catalogue']['campuses']) || !empty($profile['catalogue']['programmes']))
+            <section aria-labelledby="campuses-heading">
+                @if (!empty($profile['catalogue']['campuses']))
+                    <h2 id="campuses-heading">{{ __('directory.campuses_heading') }}</h2>
+                    <ul>
+                        @foreach ($profile['catalogue']['campuses'] as $campus)
+                            <li dir="auto">{{ $campus['name'] }}</li>
+                        @endforeach
+                    </ul>
+                @endif
+
+                @if (!empty($profile['catalogue']['programmes']))
+                    <h2 id="programmes-heading">{{ __('directory.programmes_offers_heading') }}</h2>
+                    @foreach ($profile['catalogue']['programmes'] as $programme)
+                        <section>
+                            <h3 dir="auto">{{ $programme['name'] }}</h3>
+                            @if ($programme['offers'] !== [])
+                                <ul>
+                                    @foreach ($programme['offers'] as $offer)
+                                        <li dir="auto">{{ $offer['admission_cycle'] }} — {{ $offer['location'] }}</li>
+                                    @endforeach
+                                </ul>
+                            @else
+                                <p>{{ __('directory.no_current_offers') }}</p>
+                            @endif
+                        </section>
+                    @endforeach
+                @endif
+            </section>
+        @endif
         @if (($profile['programme_offers'] ?? []) !== [])
             <section aria-labelledby="admissions-heading">
                 <h2 id="admissions-heading">{{ __('directory.admissions_info') }}</h2>
