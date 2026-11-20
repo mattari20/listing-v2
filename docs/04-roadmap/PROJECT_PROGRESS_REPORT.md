@@ -1,3 +1,9 @@
+## Latest verified position — RCV-B03 shortlist and comparison (2026-11-20)
+
+Product Owner approved temporary session-only shortlist; persistent saving and public sharing are deferred. V2 implementation is underway with session-backed selection/removal, configurable five-option cap, same-category enforcement, like-for-like comparison of approved public facts, explicit not-stated values, preserved zero-fee values and separate programme offer/admission-cycle information. No new schema or migration. Synthetic feature tests have been added for selection, removal, mixed types, cap, zero/missing semantics, session clearing and Deeni Madaris exclusion. Exact-head CI pending; no real data, Hostinger, V1, production, external services, AI, deployment or spend.
+
+---
+
 ## Latest verified position — RCV-B02 admissions and programme decision facts (2026-11-20)
 
 RCV-B02 implementation merged in PR #318 as `f3651e4aa5222ccebe5eea859d47362a7145429a`. Exact-head `240150ea7668a2568b87144c5c09bb9b7489ee95` passed PHP 8.5 foundation CI #44642616254 and project documentation validation #44642616084. Delivered offer-scoped facts governance for eligibility, deadlines, fee components and scholarships/aid, with immutable versions, evidence, human adjudication/publication, freshness policies, suppression, correction and withdrawal. Public output is constrained to approved offer-specific projections and preserves offer/cycle identity. Synthetic suite: 15 passed, 1,216 assertions, 242 non-fatal warnings. No real/source data, live DB, Hostinger, V1, external API/AI, deployment, application submission workflow or new spend.
