@@ -1,3 +1,24 @@
+## M3 final position — F01–F06 acceptance exercise complete — 2026-11-20
+
+**Overall M3: OPEN / PARTIALLY COMPLETE — NOT CLOSED.** The final M3 acceptance exercise F01–F06 is complete. M3-12 A01–A09 is CLOSED for bounded repository-level verification only. M3-11 remains BLOCKED / NOT ACCEPTED; production execution is NOT AUTHORIZED.
+
+| Area | Final disposition |
+|---|---|
+| M0–M2 | Accepted and closed |
+| M3-00 | Accepted/closed for planning and decision-record deliverables only |
+| M3-01 | Planning/authorization work closed; later implementation slices separately authorized |
+| M3-02–M3-09 | Accepted only within recorded bounded repository/synthetic/local/CI scopes |
+| M3-10 | Readiness-preparation complete; pilot readiness NOT ACCEPTED |
+| M3-11 | BLOCKED / NOT ACCEPTED; ten-gate ledger remains controlling |
+| M3-12 | CLOSED for repository verification A01–A09 only |
+| F01–F06 | COMPLETE — final acceptance exercise closed; overall M3 remains open |
+
+**Final acceptance PRs:** #361–#366 merged after exact-head PHP 8.5 foundation CI and documentation validation passed. Final main baseline before F06: `03d10c879a6efb73f8da4556dc21ad66a4f958f6`. The six PHP runs each reported 20 passed, 1,501 assertions and 282 warnings; no warning-free claim is made. See `M3_FINAL_ACCEPTANCE_F06_FINAL_REPORT_AND_CLOSURE_RECOMMENDATION_2026-11-20.md` for the final classification, exact PR/head/check/merge ledger, M3-11 gates and closure recommendation.
+
+**Closure recommendation:** close F01–F06 and retain M3-12 as repository-verified/closed; do not close overall M3 until applicable M3-11 qualified, human, hosted-isolation, recovery, candidate, go/no-go, execution and monitoring gates are actually evidenced and separately accepted. No new authorization is created. Existing synthetic/local/CI-only, no V1/production, no real data, no external AI/API/source, no deployment/pilot/release and no new-spend restrictions remain binding.
+
+---
+
 ## M3 overall position — M3-12 Agendas 07–09 and repository verification closeout — 2026-11-20
 
 **Baseline before this agenda package:** `106ee260f32b621d8688fd6b7446cc4dd0ea1ca3`.  
