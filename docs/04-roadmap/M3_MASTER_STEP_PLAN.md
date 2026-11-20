@@ -1,3 +1,11 @@
+## LPS-22 — Final M3-11 repository reconciliation and next-stage decision pack — 2026-11-20
+
+LPS-22 reconciles the five-agenda programme delivery ledger, six policy gaps, ten M3-11 gates, outstanding evidence and next-stage decision boundaries in M3-11_LPS22_FINAL_REPOSITORY_RECONCILIATION_AND_NEXT_STAGE_DECISION_PACK_2026-11-20.md.
+
+**Five-agenda programme:** LPS-18, LPS-19, LPS-20 and LPS-21 are merged and main-verified. LPS-22 is being finalized in this PR. Each completed agenda passed exact-head PHP 8.5 foundation CI and documentation validation; merge commits were verified identical to main and changed files fetched.
+
+**Disposition:** this closes only the LPS-18–LPS-22 repository programme after LPS-22 is merged and verified. GAP-01–GAP-06 remain open/partial/design-only; all ten M3-11 gate dispositions remain unchanged; M3-11 remains BLOCKED / NOT ACCEPTED; production execution remains NOT AUTHORIZED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
 ## LPS-21 — GAP-01–GAP-06 cross-gap traceability matrix — 2026-11-20
 
 LPS-21 completed repository-only cross-gap reconciliation. It maps all six gaps to LPS-01–LPS-10 principles, LPS-11–LPS-20 evidence, current status, missing proof, dependencies, decision roles, acceptance rules and M3-11 gate impact. It creates a consolidated outstanding-evidence register and safe sequencing model.
