@@ -95,7 +95,9 @@ return [
         'additional_information' => 'Additional approved information',
         'general' => 'Additional approved information',
     ],
-    'programme_profile_sections_note' => 'Only approved published information is shown. A section or detail that is not shown may be unavailable, not supplied, not applicable or not currently approved; its absence does not establish that the programme lacks that feature.',
+    'programme_section_no_approved_details' => 'No approved public details are currently displayed in this section.',
+    'programme_profile_sections_note' => 'A section with no details does not mean the programme lacks that feature. Information may be unavailable, not supplied, not applicable or not currently approved. Only approved published information is shown.',
+
 
     'no_details' => 'No additional public details are available.',
     'admissions_info' => 'Programme admissions information',
