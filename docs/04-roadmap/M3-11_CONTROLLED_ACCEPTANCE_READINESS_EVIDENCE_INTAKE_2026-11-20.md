@@ -66,3 +66,7 @@ The repository-side controlled evidence intake reconciliation described above is
 ## F03 ten-gate review confirmation — 2026-11-20
 
 F03 rechecked the ten-gate ledger against RCV-B11 and the underlying evidence packs. No new qualified reviewer report, role acceptance, hosted isolation authorization/evidence, recovery rehearsal, candidate dossier or go/no-go was received. The SEC-06 implementation closeout, PHP 8.5.12 runtime observation and weekly backup policy decision are now described consistently in their source evidence records. These corrections do not change any gate disposition in §3. M3-11 remains BLOCKED / NOT ACCEPTED.
+
+## F04 Product Owner decision consolidation reference — 2026-11-20
+
+F04 carries forward the prior R1.1–R1.18 approvals and the M3/RCV-B owner decisions without reopening unchanged decisions. The future Deeni Madaris category-inclusion direction is distinguished from the current M3-11 Option A / Option 1 private acceptance boundary, where Deeni Madaris remains default-OFF/zero exposure. No M3-11 gate is waived or promoted by decision consolidation. See `M3_FINAL_ACCEPTANCE_F04_PRODUCT_OWNER_DECISION_CONSOLIDATION_2026-11-20.md`.
