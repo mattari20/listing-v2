@@ -3,6 +3,10 @@
 declare(strict_types=1);
 
 return [
+    'meta_directory' => 'منظور شدہ عوامی تعلیمی اداروں کی معلومات تلاش کریں۔',
+    'meta_profile' => 'تعلیمی ڈائریکٹری میں منظور شدہ عوامی پروفائل۔',
+    'meta_compare' => 'منظور شدہ عوامی معلومات کی مدد سے منتخب تعلیمی اداروں کا موازنہ کریں۔',
+    'category_value' => 'قسم: :value',
     'language' => 'زبان',
     'english' => 'English',
     'urdu' => 'اردو',
