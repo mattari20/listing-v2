@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Services\Directory\DirectorySeoMetadata;
 use App\Services\Directory\PublicDirectoryComparisonService;
 use App\Services\Directory\PublicDirectoryQueryService;
 use Illuminate\Contracts\View\View;
@@ -16,7 +17,7 @@ final class PublicDirectoryController extends Controller
 {
     private const SHORTLIST_SESSION_KEY = 'directory_shortlist';
 
-    public function index(Request $request, PublicDirectoryQueryService $directory): View
+    public function index(Request $request, PublicDirectoryQueryService $directory, DirectorySeoMetadata $seoMetadata): View
     {
         $locale = $this->applyDirectoryLocale($request);
         $validated = $request->validate([
@@ -83,6 +84,7 @@ final class PublicDirectoryController extends Controller
                 static fn (string $label, string $key): array => [$key => __('directory.types.'.$key)]
             )->all(),
             'locale' => $locale,
+            'seo' => $seoMetadata->forDirectoryLanding($request, $locale),
             'direction' => $locale === 'ur' ? 'rtl' : 'ltr',
             'languageUrls' => $this->directoryLanguageUrls($request),
             'facets' => $data['facets'],
@@ -141,7 +143,8 @@ final class PublicDirectoryController extends Controller
     public function compare(
         Request $request,
         PublicDirectoryQueryService $directory,
-        PublicDirectoryComparisonService $comparison
+        PublicDirectoryComparisonService $comparison,
+        DirectorySeoMetadata $seoMetadata
     ): View {
         $locale = $this->applyDirectoryLocale($request);
         $ids = $this->sessionShortlist($request);
@@ -161,6 +164,7 @@ final class PublicDirectoryController extends Controller
 
         return view('directory.compare', [
             'profiles' => $profiles,
+            'seo' => $seoMetadata->forComparison(),
             'rows' => $comparisonData['rows'],
             'shortlistLimit' => (int) config('directory.shortlist_limit', 5),
             'locale' => $locale,
@@ -169,7 +173,7 @@ final class PublicDirectoryController extends Controller
         ]);
     }
 
-    public function show(Request $request, string $entity, PublicDirectoryQueryService $directory): View
+    public function show(Request $request, string $entity, PublicDirectoryQueryService $directory, DirectorySeoMetadata $seoMetadata): View
     {
         $locale = $this->applyDirectoryLocale($request);
         $profile = $directory->find($entity);
@@ -182,6 +186,7 @@ final class PublicDirectoryController extends Controller
 
         return view('directory.show', [
             'profile' => $profile,
+            'seo' => $seoMetadata->forProfile($request, $entity, $locale),
             'shortlistCount' => count($ids),
             'shortlistLimit' => (int) config('directory.shortlist_limit', 5),
             'isShortlisted' => in_array($entity, $ids, true),

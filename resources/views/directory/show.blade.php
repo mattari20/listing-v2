@@ -4,6 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ __('directory.meta_profile') }}">
+    <meta name="robots" content="{{ $seo['robots'] }}">
+    @if ($seo['canonical'] !== null)
+        <link rel="canonical" href="{{ $seo['canonical'] }}">
+        @foreach ($seo['alternates'] as $language => $alternateUrl)
+            <link rel="alternate" hreflang="{{ $language }}" href="{{ $alternateUrl }}">
+        @endforeach
+    @endif
     <title>{{ $profile['name'] }} — {{ __('directory.directory_title') }}</title>
     <style>
         :root { color-scheme: light; font-family: system-ui, sans-serif; }
