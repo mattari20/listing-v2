@@ -34,9 +34,9 @@
 <main id="main-content" tabindex="-1">
     <nav class="language-switch" aria-label="{{ __('directory.language') }}">
         <span>{{ __('directory.language') }}:</span>
-        <a href="{{ request()->fullUrlWithQuery(['lang' => 'en']) }}" @if ($locale === 'en') aria-current="page" @endif>{{ __('directory.english') }}</a>
+        <a href="{{ $languageUrls['en'] }}" @if ($locale === 'en') aria-current="page" @endif>{{ __('directory.english') }}</a>
         <span aria-hidden="true">|</span>
-        <a href="{{ request()->fullUrlWithQuery(['lang' => 'ur']) }}" @if ($locale === 'ur') aria-current="page" @endif>{{ __('directory.urdu') }}</a>
+        <a href="{{ $languageUrls['ur'] }}" @if ($locale === 'ur') aria-current="page" @endif>{{ __('directory.urdu') }}</a>
     </nav>
     <p><a href="{{ route('directory.index', ['lang' => $locale]) }}">← {{ __('directory.back_directory') }}</a></p>
     <h1>{{ __('directory.compare_heading') }}</h1>
