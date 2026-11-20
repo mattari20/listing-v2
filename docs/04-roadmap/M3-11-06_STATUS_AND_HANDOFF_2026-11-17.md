@@ -46,3 +46,17 @@ The Product Owner does not require an additional IP Manager restriction layer fo
 ## Next agenda
 
 Proceed with M3-11-06 recovery-policy and evidence reconciliation using repository documentation only. Carry the weekly-backup decision as accepted for this stage, retain the restore-boundary limitations explicitly, and do not purchase, restore, download, or alter any backup.
+
+
+## 2026-11-20 — weekly backup policy and DP-06 lifecycle reconciliation
+
+The current-stage weekly automated backup cadence is an accepted Product Owner policy decision. No paid upgrade, additional backup product or increased frequency is approved. The stale statement that backup frequency is wholly “NOT SET” is corrected by the current decision: **frequency = weekly for the current development stage**.
+
+This does not set RPO/RTO, retention/deletion, restore verification cadence or integrity requirements, and it does not prove the weekly backup contains the V2 application/database, is isolated from V1, or can be restored. The DP-06 lifecycle inventory also confirms that backup-held log copies and provider-side retention/deletion behavior remain unknown.
+
+**Accepted policy:** weekly cadence for current development; no extra spend.  
+**Not verified:** V2-only source/destination, contents, consistency, encryption/key custody, access, retention, deletion, restore integrity, RPO/RTO and rollback.  
+**Not performed:** backup access/download, backup creation, restore, database operation or rollback.  
+**M3-11-06:** repository policy reconciliation complete; recovery readiness remains BLOCKED / NOT ACCEPTED.
+
+No existing Product Owner decision is reopened or changed. This is documentation-only reconciliation of the already accepted cadence and its technical limits.

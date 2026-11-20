@@ -19,7 +19,7 @@ The Product Owner and accountable human operations/recovery owners must set and 
 |---|---|---|
 | RPO — Recovery Point Objective | Maximum acceptable data loss measured as elapsed time between last recoverable consistent point and incident | NOT SET |
 | RTO — Recovery Time Objective | Maximum acceptable elapsed time from declared recovery start to verified service restoration | NOT SET |
-| Backup frequency | Maximum interval between successful, consistent backups | NOT SET |
+| Backup frequency | Maximum interval between successful, consistent backups | WEEKLY automated backups — owner-accepted for the current development stage only; V2-only recovery coverage is not verified |
 | Retention | Approved number/age of recovery points and deletion schedule | NOT SET |
 | Restore verification frequency | How often a restore is tested and evidence refreshed | NOT SET |
 | Backup integrity check | Required checksum/manifest/restore validation method | NOT SET |
@@ -139,3 +139,15 @@ M3-11 overall remains BLOCKED / NOT ACCEPTED. This document authorizes no enviro
 ## Superseding backup cadence decision — 2026-11-20
 
 The Product Owner accepted the existing weekly automated backup cadence for the current development stage and declined a paid upgrade or increased frequency. This supersedes only the earlier “Backup frequency: NOT SET” policy field. It does not establish the actual V2-only backup source/destination, backup consistency/integrity, retention/deletion, encryption/key custody, recovery owner, approved RPO/RTO, successful restore or rollback rehearsal. No backup or restore was performed or authorized by this clarification.
+
+## 11. Superseding owner backup-frequency decision reconciliation — 2026-11-20
+
+The Product Owner's existing decision accepts the current **weekly automated backup cadence** for the current development stage and does not approve a paid backup upgrade, additional backup product or increased frequency. The earlier “Backup frequency: NOT SET” entry in §2 is superseded for this limited current-stage policy question.
+
+This decision does **not** set or imply an RPO, RTO, retention period, restore-verification cadence, integrity standard or production recovery objective. It does not prove that the observed weekly backup includes the V2 folder/database, is a consistent V2-only recovery point, has an isolated destination, uses verified encryption/key custody, or can be restored. The weekly cadence is a policy decision, not technical recovery evidence.
+
+The following remain **NOT SET / NOT VERIFIED**: RPO, RTO, retention/deletion, restore verification cadence, integrity verification method, recovery evidence retention, backup source/destination, V2-only inclusion, consistency, encryption, access controls and successful restore. REC-01–REC-14 remain blocked/not run/not measured as recorded in the recovery evidence register.
+
+No backup was inspected, downloaded, created, changed, restored or deleted. No Hostinger/hPanel or live database access was performed. No new spend or provider is authorized. The existing owner decisions are preserved without reopening them.
+
+**M3-11-06 status:** repository policy reconciliation complete; technical recovery readiness remains BLOCKED / NOT ACCEPTED pending the separately authorized M3-11-05 environment boundary, accepted human recovery roles, approved measurable recovery objectives and a separately authorized synthetic-only rehearsal.
