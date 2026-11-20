@@ -173,9 +173,9 @@ final class PublicDirectoryController extends Controller
 
     private function applyDirectoryLocale(Request $request): string
     {
-        $requested = $request->input('lang');
-        if (is_string($requested)) {
-            $locale = in_array($requested, ['en', 'ur'], true) ? $requested : 'en';
+        if ($request->exists('lang')) {
+            $requested = $request->input('lang');
+            $locale = is_string($requested) && in_array($requested, ['en', 'ur'], true) ? $requested : 'en';
         } else {
             $stored = $request->session()->get('directory_locale', 'en');
             $locale = in_array($stored, ['en', 'ur'], true) ? $stored : 'en';
