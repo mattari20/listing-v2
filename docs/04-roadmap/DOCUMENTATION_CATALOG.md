@@ -1,3 +1,7 @@
+## RCV-B03 — shortlist and comparison scope — 2026-11-20
+
+- [RCV-B03 Shortlist and Comparison Scope and Acceptance](RCV-B03_SHORTLIST_AND_COMPARISON_SCOPE_2026-11-20.md) — **Scope/preflight prepared; implementation not authorized**. Defines like-for-like comparison, missing/stale/conflicting value treatment, sponsored placement separation, privacy boundaries and the owner decision on temporary session-only vs persistent account-based shortlist/share.
+
 ## RCV-B02 — admissions and programme decision facts — 2026-11-20
 
 - [RCV-B02 Scope and Acceptance Pack](RCV-B02_SCOPE_ACCEPTANCE_PACK_2026-11-18.md) — original requirements/architecture preflight; later bounded implementation authorization is recorded separately.
