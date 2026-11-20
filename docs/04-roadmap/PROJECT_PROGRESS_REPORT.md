@@ -1,6 +1,6 @@
 ## Latest verified position — RCV-B05 language and accessibility (2026-11-20)
 
-RCV-B04 is merged in PR #324 as `8c1fce79cb088ebd8abc50179877781632c4290b`; exact-head FND-01 #44647031022 and documentation validation #44647031024 passed (15 tests, 1,280 assertions). PR #325 adds a dedicated pagination preservation test. The next residual package is RCV-B05. Its scope pack recommends an English/Urdu interface while preserving approved institute facts in their original approved language, plus RTL and accessibility improvements. Product Owner language/content decision is required before implementation; qualified human accessibility assessment remains separate.
+RCV-B04 is fully complete: PR #324 and pagination regression PR #325 are merged. PR #325 exact-head FND-01 #44647444231 and documentation validation #44647444379 passed (15 tests, 1,289 assertions). The next residual package is RCV-B05. Its scope pack recommends an English/Urdu interface, source-language preservation for approved institute facts, RTL support and bounded accessibility improvements. Product Owner language/content decision is required before implementation; qualified human accessibility assessment remains separate.
 ---
 
 ## Latest verified position — RCV-B02 admissions and programme decision facts (2026-11-20)

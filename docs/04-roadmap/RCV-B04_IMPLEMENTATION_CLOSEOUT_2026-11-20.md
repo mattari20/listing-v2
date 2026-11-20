@@ -17,7 +17,7 @@
 - Category counts are explicitly defined as counts after text, locality and approved field filters, but before applying the selected category.
 - Search limitations are disclosed: substring matching only, without fuzzy matching, typo correction, transliteration, semantic search or relevance ranking.
 - Existing alphabetical ordering, unknown/missing value treatment, Deeni Madaris suppression and RCV-B03 session-only comparison remain unchanged.
-- A follow-up synthetic pagination regression is added in PR #325 to verify query/category/locality/registry filters survive page navigation.
+- A synthetic pagination regression was added and merged in PR #325 as `40317c3f06111cac2122a25e35e5feb9b54ca08e`; it verifies query/category/locality/registry filters survive page navigation.
 
 ## 2. Exact-head validation for implementation PR #324
 
@@ -27,7 +27,15 @@
 - PHP formatting, Composer validation/install, dependency advisory checks, Laravel bootstrap/routes, repository artifact hygiene and exact checkout passed.
 - PR #324 was squash-merged with expected-head guard as `8c1fce79cb088ebd8abc50179877781632c4290b`; verified `main` points to this commit.
 
-## 3. Boundaries
+## 3. Pagination acceptance follow-up — PR #325
+
+- Exact validated head: `c02c29c7a0b52d36e5255d555611f72bc109567d`.
+- FND-01 PHP 8.5 foundation CI run #44647444231 — **SUCCESS**.
+- Project documentation validation run #44647444379 — **SUCCESS**.
+- Synthetic suite: **15 passed, 1,289 assertions**; **252 non-fatal warnings** from existing absent-`.env` checks.
+- PR #325 squash-merged as `40317c3f06111cac2122a25e35e5feb9b54ca08e`; verified `main` points to this commit.
+
+## 4. Boundaries
 
 No fee ranges, scholarship filters, fee aggregation, fuzzy/semantic search, typo correction, transliteration, relevance ranking, geolocation, maps, paid placement or public reviews were introduced. No external services, AI, source retrieval, real data, V1/Hostinger/production access, migrations, new dependencies, deployment, public activation or spend occurred. Deeni Madaris remains suppressed/default-OFF.
 

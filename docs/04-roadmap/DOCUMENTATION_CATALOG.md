@@ -1,7 +1,12 @@
+## RCV-B05 — language and accessibility — 2026-11-20
+
+- [RCV-B05 Language and Accessibility Scope and Acceptance Pack](RCV-B05_LANGUAGE_AND_ACCESSIBILITY_SCOPE_ACCEPTANCE_2026-11-20.md) — inspected the three public directory views; recommends English/Urdu interface localization, source-language preservation for approved facts, RTL handling and bounded accessibility improvements. Product Owner language/content decision required; qualified human assessment remains separate.
+
 ## RCV-B04 — search and filter completeness — 2026-11-20
 
 - [RCV-B04 Search and Filter Completeness Scope and Acceptance Pack](RCV-B04_SEARCH_AND_FILTER_COMPLETENESS_SCOPE_ACCEPTANCE_2026-11-20.md) — bounded local/CI scope approved 2026-11-20; excludes external search, AI, fee ranges, real data and production activity.
-- [RCV-B04 Implementation Design](RCV-B04_IMPLEMENTATION_DESIGN_2026-11-20.md) — grouped registry-backed filters, subject search, active-filter state, facet semantics and synthetic acceptance coverage; implementation PR #324.
+- [RCV-B04 Implementation Design](RCV-B04_IMPLEMENTATION_DESIGN_2026-11-20.md) — grouped registry-backed filters, subject search, active-filter state and facet semantics; PR #324 merged.
+- [RCV-B04 Implementation Closeout](RCV-B04_IMPLEMENTATION_CLOSEOUT_2026-11-20.md) — PR #324 feature implementation and PR #325 pagination regression both merged; exact-head checks and final synthetic test evidence.
 
 ## RCV-B03 — shortlist and comparison — 2026-11-20
 
