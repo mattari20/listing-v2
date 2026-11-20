@@ -109,6 +109,43 @@ class FieldDefinitionGovernanceTest extends TestCase
         );
     }
 
+    public function test_programme_scope_requires_a_matching_programme_entity_allowlist(): void
+    {
+        $service = app(FieldDefinitionGovernanceService::class);
+        $programme = $this->definition('programme_duration_scope_test');
+        $programme['scope_key'] = 'programme';
+        $programme['entity_types'] = ['programme'];
+
+        $versionId = $service->propose(
+            $this->actor('programme-proposer', ['propose_field_definition']),
+            $programme,
+            'synthetic_programme_field',
+            'Define a programme-scoped synthetic field.',
+            'proposal-programme-scope-1'
+        );
+        $this->assertDatabaseHas('field_definition_versions', [
+            'id' => $versionId,
+            'scope_key' => 'programme',
+            'lifecycle_state' => 'proposed',
+        ]);
+        $this->assertDatabaseHas('field_definition_version_entity_types', [
+            'field_definition_version_id' => $versionId,
+            'entity_type' => 'programme',
+        ]);
+
+        $mismatch = $this->definition('programme_scope_mismatch_test');
+        $mismatch['scope_key'] = 'programme';
+        $mismatch['entity_types'] = ['institution'];
+        $this->expectException(ValidationException::class);
+        $service->propose(
+            $this->actor('programme-proposer', ['propose_field_definition']),
+            $mismatch,
+            'synthetic_programme_field',
+            'Reject mismatched entity applicability.',
+            'proposal-programme-scope-2'
+        );
+    }
+
     public function test_independent_review_approval_and_separate_activation_are_required(): void
     {
         [$versionId, $caseId] = $this->proposed();
