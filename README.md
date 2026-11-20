@@ -1,3 +1,24 @@
+## Latest verified update — 20 November 2026 (M3-11 current-main reconciliation)
+
+- **Latest verified main:** `355d0d6208e43b6221c520eeb728070f0d7b2125` — PR [#402](https://github.com/mattari20/listing-v2/pull/402), M3-11-08 current decision-gate reconciliation.
+- PRs [#395–#402](https://github.com/mattari20/listing-v2/pulls?q=is%3Apr+is%3Amerged+395) were merged after exact-head verification. Their FND-01 / documentation-validation runs passed respectively: #742/#1266, #743/#1268, #744/#1270, #745/#1272, #746/#1274, #747/#1276, #748/#1278 and #749/#1280.
+- DP-02 through DP-06 source/repository evidence was reconciled. These records do not establish effective hosted settings, independent professional assurance or production-grade controls.
+- **M3-11-02:** Product Owner internal review and DP-01–DP-06 repository reconciliations are recorded; qualified independent legal/privacy/safeguarding assessment and target-specific evidence remain BLOCKED.
+- **M3-11-03:** repository-only internal review is closed for current development and SEC-06 local/CI evidence is merged; independent security assessment and manual accessibility/WCAG evaluation remain BLOCKED.
+- **M3-11-04:** repository preparation delivered; human operations readiness remains BLOCKED at 0/9 written role acceptances, with coverage/deputies not evidenced.
+- **M3-11-05:** historical resource/runtime evidence is partial; private environment isolation remains NOT ACCEPTED, with 0/18 items fully verified.
+- **M3-11-06:** weekly automated backup cadence is accepted for the current development stage only, with no extra spend. No V2-only recovery proof or rehearsal exists; RPO/RTO remain unset.
+- **M3-11-07:** NOT STARTED / BLOCKED; no candidate ID, pinned candidate SHA, artifact or candidate-specific evidence exists.
+- **M3-11-08:** BLOCKED / NOT DECIDED; no complete dossier and no GO, CONDITIONAL GO or NO-GO decision has been issued.
+- **M3-11-09:** NOT AUTHORIZED. **M3-11-10:** NOT STARTED.
+- **DP-05 scope discrepancy remains open:** saved-items and session shortlist/comparison routes and UI exist in source although these surfaces are excluded from the accepted private-acceptance activity. Any future candidate must prove the excluded surfaces inaccessible/disabled for that activity; no route or product behavior was changed in the reconciliation.
+- **M3-10 pilot readiness remains NOT ACCEPTED. Production readiness remains BLOCKED / NOT ACCEPTED.** No pilot, public launch, deployment, URL cutover, production/V1 access, live database operation, private environment provisioning, backup/restore rehearsal, real-data use or participant activity is authorized.
+- The source repository remains PUBLIC during development; the already accepted decision to make it PRIVATE when development is complete remains unchanged. Do not change visibility as part of this update.
+
+See the [M3 Master Step Plan](docs/04-roadmap/M3_MASTER_STEP_PLAN.md), [Project Progress Report](docs/04-roadmap/PROJECT_PROGRESS_REPORT.md), [M3-11 Preflight](docs/04-roadmap/M3-11_CONTROLLED_PRODUCTION_LAUNCH_PREFLIGHT.md), [M3-11 Residual Gate Resolution Plan](docs/04-roadmap/M3-11_RESIDUAL_GATE_RESOLUTION_PLAN_2026-11-17.md), and the [M3-11-08 decision pack](docs/04-roadmap/M3-11-08_CHANGE_AND_GO_NO_GO_DECISION_PACK_2026-11-17.md).
+
+---
+
 ## Latest verified update — 18 November 2026 (M3-11-05C subfolder database and private preview)
 
 - PR [#295](https://github.com/mattari20/listing-v2/pull/295) merged as `09ae3ff31462cb2bf85566c5f9963565c067a69f`; exact-head FND-01 PHP 8.5 CI #496 and documentation validation #933 passed.
@@ -46,16 +67,16 @@
 
 An independent, greenfield education discovery and decision-support platform for students in Pakistan.
 
-## Current verified status — 17 November 2026
+## Current verified status — 20 November 2026
 
 - **Repository:** `mattari20/listing-v2`
 - **Milestone:** M3 — Mobilization and Controlled Implementation.
 - **M3-00 through M3-09:** bounded planning, implementation and synthetic/local/CI packages delivered as recorded in the governing roadmap; remaining independent and operational gates are not implied complete.
 - **M3-10:** authorized readiness-preparation agenda COMPLETE/CLOSED; pilot readiness NOT ACCEPTED; no pilot go/no-go; two-person tabletop NOT EXECUTED.
-- **M3-11:** governance/release preflight COMPLETE for current repository evidence; residual owner, qualified-review, human-operations and environment gates remain BLOCKED / NOT ACCEPTED.
+- **M3-11:** repository governance and evidence reconciliation progressed through M3-11-08. M3-11-02–M3-11-06 still have substantive independent, human-operations, environment or recovery gates BLOCKED; M3-11-07 is NOT STARTED / BLOCKED; M3-11-08 is BLOCKED / NOT DECIDED.
 - **Production readiness:** BLOCKED / NOT ACCEPTED.
 - **Production access, deployment, release and URL cutover:** NOT AUTHORIZED.
-- **Latest verified main:** `a85908f0e64bca943593efbc246025dbc55fee15` (PR #266 post-merge evidence reconciliation; exact-head CI and documentation validation passed).
+- **Latest verified main:** `355d0d6208e43b6221c520eeb728070f0d7b2125` (PR #402 current decision-gate reconciliation; exact-head FND-01 CI and documentation validation passed).
 
 ## Start here
 
