@@ -157,8 +157,17 @@
                                                     <ul>
                                                         @foreach ($offer['facts'] as $fact)
                                                             <li>
-                                                                <strong dir="auto">{{ $fact['label'] }}:</strong>
-                                                                @if ($fact['state'] === 'unknown')
+                                                                <strong dir="auto">{{ __('directory.offer_fact_labels.'.$fact['key']) !== 'directory.offer_fact_labels.'.$fact['key'] ? __('directory.offer_fact_labels.'.$fact['key']) : $fact['label'] }}:</strong>
+                                                                @if ($fact['state'] === 'expired')
+                                                                    <span class="state">{{ __('directory.expired') }}</span>
+                                                                    @if (is_array($fact['value']) && isset($fact['value']['amount'], $fact['value']['currency']))
+                                                                        <span dir="auto">{{ $fact['value']['component'] ?? '' }} {{ $fact['value']['currency'] }} {{ $fact['value']['amount'] }}</span>
+                                                                    @elseif (is_array($fact['value']) && isset($fact['value']['date']))
+                                                                        <span dir="auto">{{ $fact['value']['date'] }}</span>
+                                                                    @elseif ($fact['value'] !== null)
+                                                                        <span dir="auto">{{ is_array($fact['value']) ? json_encode($fact['value'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) : $fact['value'] }}</span>
+                                                                    @endif
+                                                                @elseif ($fact['state'] === 'unknown')
                                                                     {{ __('directory.unknown') }}
                                                                 @elseif ($fact['state'] === 'not_stated')
                                                                     {{ __('directory.not_stated') }}
@@ -169,6 +178,10 @@
                                                                 @elseif ($fact['state'] === 'stale')
                                                                     {{ __('directory.stale') }}
                                                                     <span dir="auto">{{ is_array($fact['value']) ? json_encode($fact['value'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) : $fact['value'] }}</span>
+                                                                @elseif (is_array($fact['value']) && isset($fact['value']['amount'], $fact['value']['currency']))
+                                                                    <span dir="auto">{{ $fact['value']['component'] ?? '' }} {{ $fact['value']['currency'] }} {{ $fact['value']['amount'] }}</span>
+                                                                @elseif (is_array($fact['value']) && isset($fact['value']['date']))
+                                                                    <span dir="auto">{{ $fact['value']['date'] }}</span>
                                                                 @else
                                                                     <span dir="auto">{{ is_array($fact['value']) ? json_encode($fact['value'], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) : $fact['value'] }}</span>
                                                                 @endif
