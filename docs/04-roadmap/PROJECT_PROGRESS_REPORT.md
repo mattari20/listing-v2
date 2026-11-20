@@ -1,3 +1,26 @@
+## M3-11 DP-02–DP-06 and gate evidence current-main reconciliation — 2026-11-20
+
+PRs #395–#402 are merged and exact-head verified. The eight Foundation CI / documentation-validation pairs passed: #742/#1266, #743/#1268, #744/#1270, #745/#1272, #746/#1274, #747/#1276, #748/#1278 and #749/#1280. PR #403 then refreshed the README and merged as `fd21bfeacfa11cc85a1510fc41787f1f45b09c51`, with exact-head FND-01 CI #750 and documentation validation #1282 passed.
+
+| Evidence package | Current result |
+|---|---|
+| DP-02 session configuration | Source-level configuration reconciled; effective target settings, permissions and cleanup remain unverified. |
+| DP-03 logging | Source and SEC-06 local/CI evidence reconciled; hosted destinations, permissions and backup copies remain unknown; message text is not sanitized. |
+| DP-04 audit metadata | Limited synthetic role grant/revoke audit evidence accepted as partial; no immutable store or complete audit coverage claim. |
+| DP-05 route/output privacy | ACCEPT AS PARTIAL TEST EVIDENCE retained; saved-items and session shortlist/comparison routes/UI remain implemented despite acceptance-scope exclusion; future candidate must prove these surfaces inaccessible/disabled. |
+| DP-06 provider/lifecycle | Source defaults and lifecycle unknowns inventoried; target/provider terms, regions, retention and deletion propagation remain unverified; DEFER retained. |
+| M3-11-05 environment | Partial historical resource/runtime evidence only; 0/18 isolation items fully verified; private acceptance environment NOT ACCEPTED. |
+| M3-11-06 recovery | Weekly backup cadence accepted for current development only; no V2-only recovery proof or rehearsal; RPO/RTO unset. |
+| M3-11-07 candidate | NOT STARTED / BLOCKED; no candidate or candidate-specific evidence. |
+| M3-11-08 decision | BLOCKED / NOT DECIDED; no complete dossier or GO/CONDITIONAL GO/NO-GO. |
+| M3-11-09 / M3-11-10 | Execution NOT AUTHORIZED; monitored operation NOT STARTED. |
+
+LPS-29 Track A reviewer handoff preparation is complete, but the next event is outside repository work: the Product Owner must select and verify a qualified independent reviewer, agree the exact scope and confidential handoff method, and obtain a written assessment. No reviewer has been appointed or report received. This does not promote Gate 02.
+
+**Disposition:** no M3-11 gate is newly accepted or promoted. M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED. All existing no-production/V1/Hostinger/hosted access, synthetic-only, no-real/source/personal data, no-external-AI/API, no-deployment/pilot/release and no-new-spend restrictions remain binding.
+
+---
+
 ## LPS-24–LPS-28 — Five-agenda repository/synthetic programme COMPLETE — 2026-11-20
 
 All five agendas are merged and exact-head verified. See [LPS-24–LPS-28 Five-Agenda Completion and M3 Progress Reconciliation](M3-11_LPS24-LPS28_FIVE_AGENDA_COMPLETION_AND_M3_PROGRESS_RECONCILIATION_2026-11-20.md) for the complete PR/head/check/merge ledger, updated GAP-01–GAP-06 positions and M3 ten-gate status.
