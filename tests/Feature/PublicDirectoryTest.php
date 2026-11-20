@@ -705,6 +705,21 @@ final class PublicDirectoryTest extends TestCase
         $this->assertFalse(session()->has('directory_shortlist'));
     }
 
+    public function test_profile_explains_that_observation_date_is_not_independent_verification_in_both_languages(): void
+    {
+        $entity = $this->createEntity();
+        $this->publishFact($entity, 'display_name', 'Synthetic Transparency Academy');
+
+        $this->get('/directory/'.$entity)
+            ->assertOk()
+            ->assertSee('An observation date shows when evidence was recorded; it does not mean the information has been independently verified.');
+
+        $this->withSession(['directory_locale' => 'ur'])
+            ->get('/directory/'.$entity.'?lang=ur')
+            ->assertOk()
+            ->assertSee('مشاہدے کی تاریخ صرف یہ بتاتی ہے کہ شواہد کب درج کیے گئے؛ اس کا مطلب یہ نہیں کہ معلومات کی آزادانہ تصدیق ہو چکی ہے۔');
+    }
+
     private function createEntity(string $type = 'institution'): string
     {
         $id = (string) Str::uuid();
