@@ -161,3 +161,7 @@ M3-11 production execution and closure require all applicable gates, qualified h
 ## Current M3 status superseding the historical opening summary — 2026-11-20
 
 The opening M3 row above is now reconciled to the authoritative `M3_MASTER_STEP_PLAN.md` and current `PROJECT_PROGRESS_REPORT.md`. M3-12 A01–A09 is closed for bounded repository verification only. The final M3 acceptance exercise is active. M3-11 remains BLOCKED / NOT ACCEPTED; no pilot, release candidate, go/no-go, production execution, deployment or public launch is authorized. The earlier M3-00–M3-11 roadmap table remains the planning sequence; M3-12 and F01–F06 are later verification/acceptance work, not new production authority.
+
+## Final M3 acceptance and closure recommendation — 2026-11-20
+
+The F01–F06 final acceptance exercise is complete. M3-12 A01–A09 is closed for repository-level verification only. M3-11 remains BLOCKED / NOT ACCEPTED; M3-10 pilot readiness remains NOT ACCEPTED. The overall M3 milestone remains OPEN / PARTIALLY COMPLETE — NOT CLOSED. Close the acceptance exercise, not the overall M3 milestone. See `M3_FINAL_ACCEPTANCE_F06_FINAL_REPORT_AND_CLOSURE_RECOMMENDATION_2026-11-20.md`.
