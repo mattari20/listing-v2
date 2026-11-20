@@ -14,8 +14,10 @@
 
 ## RCV-B08 — account-dependent saved items and alerts — 2026-11-20
 
-- [RCV-B08 Account Saved Items and Alerts Scope and Acceptance Pack](RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_SCOPE_ACCEPTANCE_2026-11-20.md) — repository-only account, session shortlist, privacy and retention inventory; Product Owner policy decision pending; no persistent data or notification implementation authorized.
-- [RCV-B08 Account Saved Items and Alerts Privacy Design](RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_PRIVACY_DESIGN_2026-11-20.md) — proposed private saved-item ownership, public-projection revalidation, sharing deferral, alert consent and deletion boundaries.
+- [RCV-B08 Account Saved Items and Alerts Scope and Acceptance Pack](RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner-approved bounded private saved-items policy; anonymous session shortlist unchanged; public registration, sharing and alerts deferred.
+- [RCV-B08 Account Saved Items and Alerts Privacy Design](RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_PRIVACY_DESIGN_2026-11-20.md) — owner-only saved-item data, public-projection revalidation, private/no-store output, sharing and alert deferral.
+- [RCV-B08 Bounded Implementation Authorization](RCV-B08_BOUNDED_IMPLEMENTATION_AUTHORIZATION_2026-11-20.md) — exact repository-only B08-B implementation scope.
+- [RCV-B08 Private Saved Items Implementation Record](RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_IMPLEMENTATION_RECORD_2026-11-20.md) — migration, owner-scoped routes, private saved-items page and synthetic security tests; exact-head validation pending.
 
 ## RCV-B07 — public SEO and performance evidence — 2026-11-20
 
