@@ -1,7 +1,7 @@
 ## Latest verified position — RCV-B05 language and accessibility (2026-11-20)
 
-RCV-B04 is fully complete: PR #324 and pagination regression PR #325 are merged. PR #325 exact-head FND-01 #44647444231 and documentation validation #44647444379 passed (15 tests, 1,289 assertions). The next residual package is RCV-B05. Its scope pack recommends an English/Urdu interface, source-language preservation for approved institute facts, RTL support and bounded accessibility improvements. Product Owner language/content decision is required before implementation; qualified human accessibility assessment remains separate.
----
+The Product Owner approved the English/Urdu interface, original-approved-language institute facts, no automatic translation and session/URL language choice. The bounded implementation is delivered on `feat/rcv-b05-urdu-localization-accessibility`: first-party translations, session locale persistence across directory/profile/shortlist/comparison, RTL document direction, mixed-direction source value isolation, accessible skip links/main landmarks, localized validation/status text and focus styling. Synthetic tests cover language persistence, source fact preservation, translated field labels, unsupported-language fallback and accessible landmarks. Exact-head PHP 8.5 foundation CI and docs validation pending. Manual keyboard/screen-reader/contrast/zoom/reflow review is NOT PERFORMED; no conformance claim. No production, V1, Hostinger, real/source data, external services, AI, migrations, new dependencies or spend.
+
 
 ## Latest verified position — RCV-B02 admissions and programme decision facts (2026-11-20)
 
