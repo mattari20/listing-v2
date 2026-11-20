@@ -242,6 +242,62 @@ class PersistedConflictAndRollbackTest extends TestCase
         $this->assertNotEmpty($event->last_error);
     }
 
+    public function test_suppressed_snapshot_cannot_become_a_rollback_target(): void
+    {
+        $fixture = $this->fixture();
+        $workflow = new PersistedGovernanceWorkflowService;
+        $caseId = $workflow->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'suppressed-rollback-case');
+        $decisionId = $workflow->decideAdjudication(
+            $this->actor('adjudicator', ['adjudicate_claim']),
+            $caseId,
+            'accepted',
+            'synthetic_acceptance',
+            'Accepted for suppressed rollback fixture.',
+            'policy-v1',
+        );
+
+        $workflow->authorizePublication($this->actor('publisher-one', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'suppressed-rollback-publish-one');
+        $workflow->processOutbox();
+        $workflow->authorizePublication($this->actor('publisher-two', ['authorize_publication']), $fixture['version'], $decisionId, 'directory', 'anonymous', 'policy-v1', 'suppressed-rollback-publish-two');
+        $workflow->processOutbox();
+
+        $snapshots = DB::table('publication_snapshots')->orderBy('snapshot_version')->get();
+        $this->assertCount(2, $snapshots);
+        $workflow->suppressPublication(
+            $this->actor('suppressor', ['suppress_publication']),
+            $snapshots[0]->id,
+            'synthetic_safety_hold',
+            'Suppressed snapshots must not be eligible for rollback.',
+        );
+
+        $this->assertDatabaseHas('publication_snapshots', ['id' => $snapshots[0]->id, 'status' => 'suppressed']);
+        $this->assertDatabaseHas('public_projections', [
+            'projection_key' => $fixture['version'].':directory:anonymous',
+            'publication_snapshot_id' => $snapshots[1]->id,
+            'status' => 'approved',
+        ]);
+
+        try {
+            (new PersistedConflictAndRollbackService)->rollbackPublication(
+                $this->actor('rollback-officer', ['rollback_publication']),
+                $snapshots[0]->id,
+                'policy-v2',
+                'synthetic_rollback',
+                'suppressed-target-rollback-key',
+            );
+            $this->fail('A suppressed snapshot must never be accepted as a rollback target.');
+        } catch (ValidationException $exception) {
+            $this->assertArrayHasKey('target_snapshot', $exception->errors());
+        }
+
+        $this->assertDatabaseCount('publication_rollbacks', 0);
+        $this->assertDatabaseHas('public_projections', [
+            'projection_key' => $fixture['version'].':directory:anonymous',
+            'publication_snapshot_id' => $snapshots[1]->id,
+            'status' => 'approved',
+        ]);
+    }
+
     private function fixture(): array
     {
         $now = now();
