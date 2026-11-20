@@ -7,13 +7,13 @@ namespace App\Http\Controllers;
 use App\Services\Directory\PublicDirectoryQueryService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
-use Illuminate\View\View;
 
 final class AccountSavedItemsController extends Controller
 {
-    public function index(Request $request, PublicDirectoryQueryService $directory): View
+    public function index(Request $request, PublicDirectoryQueryService $directory): Response
     {
         $locale = $this->applyLocale($request);
         $rows = DB::table('saved_directory_items')
@@ -49,16 +49,13 @@ final class AccountSavedItemsController extends Controller
         $userId = $request->user()->getAuthIdentifier();
         $limit = $this->savedItemsLimit();
         $result = DB::transaction(function () use ($userId, $entity, $limit): string {
-            DB::table('users')->where('id', $userId)->lockForUpdate()->first();
+            abort_if(DB::table('users')->where('id', $userId)->lockForUpdate()->first() === null, 401);
 
-            $query = DB::table('saved_directory_items')
-                ->where('user_id', $userId);
-
-            if ((clone $query)->where('entity_id', $entity)->exists()) {
+            if (DB::table('saved_directory_items')->where('user_id', $userId)->where('entity_id', $entity)->exists()) {
                 return 'exists';
             }
 
-            if ($query->count() >= $limit) {
+            if (DB::table('saved_directory_items')->where('user_id', $userId)->count() >= $limit) {
                 return 'full';
             }
 
