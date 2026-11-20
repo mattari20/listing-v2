@@ -1,3 +1,14 @@
+## LPS-24–LPS-28 repository/synthetic evidence received — 2026-11-20
+
+The five agendas are merged and exact-head CI-verified. The new evidence is limited to repository-level test and documentation records:
+- GAP-02: structured log-context payload tests, primary persistence/read call-site map, synthetic lifecycle coverage and suppressed-snapshot rollback regression.
+- GAP-01: English/Urdu public profile notice distinguishing observation date from independent verification.
+- GAP-04: authenticated correction boundary test and confirmation that no public complaint/moderation/appeal route is registered.
+
+See [LPS-24–LPS-28 completion and M3 progress reconciliation](M3-11_LPS24-LPS28_FIVE_AGENDA_COMPLETION_AND_M3_PROGRESS_RECONCILIATION_2026-11-20.md) for exact PR/head/check/merge evidence.
+
+**Intake effect:** repository evidence is updated only. No qualified legal/privacy/safeguarding report, source-specific rights approval, independent security/accessibility report, hosted isolation proof, RPO/RTO approval/measurement, backup/recovery evidence, operations appointment or release authorization was received. All ten M3-11 gate dispositions remain unchanged. M3-11 remains BLOCKED / NOT ACCEPTED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
 ## LPS-18–LPS-22 — Five-agenda repository programme COMPLETE — 2026-11-20
 
 All five coordinated agendas are complete, merged and verified on main.

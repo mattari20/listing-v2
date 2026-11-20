@@ -1,3 +1,15 @@
+## LPS-24–LPS-28 — Five-agenda repository/synthetic programme COMPLETE — 2026-11-20
+
+LPS-24–LPS-28 completed sequentially, with dedicated reports, PRs and exact-head Foundation CI plus documentation validation. All PRs #383–#387 are merged; final main is `340f8e472572449902beff6b9204acd858195165`. The detailed ledger and M3 progress/gate reconciliation are in [M3-11 LPS-24–LPS-28 Completion and M3 Progress Reconciliation](M3-11_LPS24-LPS28_FIVE_AGENDA_COMPLETION_AND_M3_PROGRESS_RECONCILIATION_2026-11-20.md).
+
+- LPS-24: structured log-context payload tests; message-text sanitization explicitly remains outside processor scope.
+- LPS-25: primary payload persistence/read call-sites mapped.
+- LPS-26: synthetic lifecycle coverage reconciled; suppressed snapshot rollback regression added.
+- LPS-27: English/Urdu notice states observation date is not independent verification.
+- LPS-28: authenticated institution correction boundary tested; public complaint/moderation/appeal intake remains absent.
+
+This programme closes only its five repository/synthetic agendas. GAP-01, GAP-02 and GAP-04 remain partial/open; GAP-03/05/06 remain open; M3-11 ten-gate ledger is unchanged; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
 ## LPS-18–LPS-22 — Five-agenda repository programme COMPLETE — 2026-11-20
 
 All five coordinated agendas are complete, merged and verified on main.

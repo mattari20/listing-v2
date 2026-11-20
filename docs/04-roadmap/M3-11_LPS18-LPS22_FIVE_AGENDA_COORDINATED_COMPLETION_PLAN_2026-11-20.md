@@ -1,3 +1,7 @@
+## Follow-on five-agenda programme LPS-24–LPS-28 — COMPLETE — 2026-11-20
+
+The subsequent five-agenda programme is also complete, merged and exact-head verified. See [LPS-24–LPS-28 Completion and M3 Progress Reconciliation](M3-11_LPS24-LPS28_FIVE_AGENDA_COMPLETION_AND_M3_PROGRESS_RECONCILIATION_2026-11-20.md) for the full delivery ledger and updated M3 status. This follow-on does not change the scope or acceptance boundary of LPS-18–LPS-22 and does not close any GAP or M3-11 gate.
+
 ## LPS-18–LPS-22 — Five-agenda repository programme COMPLETE — 2026-11-20
 
 All five coordinated agendas are complete, merged and verified on main.

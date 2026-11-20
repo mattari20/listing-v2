@@ -1,3 +1,15 @@
+## Follow-on programme LPS-24–LPS-28 — completed repository/synthetic work — 2026-11-20
+
+After LPS-22, five additional agendas were completed sequentially. The authoritative follow-on ledger is [M3-11 LPS-24–LPS-28 Five-Agenda Completion and M3 Progress Reconciliation](M3-11_LPS24-LPS28_FIVE_AGENDA_COMPLETION_AND_M3_PROGRESS_RECONCILIATION_2026-11-20.md).
+
+- LPS-24 / PR #383 — structured log-context synthetic payload boundary tests.
+- LPS-25 / PR #384 — primary persistence/read call-site reconciliation.
+- LPS-26 / PR #385 — synthetic lifecycle matrix and suppressed-snapshot rollback regression.
+- LPS-27 / PR #386 — bilingual observation-date-not-verification disclosure.
+- LPS-28 / PR #387 — authenticated correction boundary and no-public-intake regression.
+
+All five PRs passed exact-head Foundation CI and documentation validation and are merged. This adds bounded evidence only. GAP-01/02/04 remain open/partial; GAP-03/05/06 remain open; no M3-11 gate is promoted. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
 # M3-11 LPS-22 — Final Repository Reconciliation and Next-Stage Decision Pack
 
 **Date:** 2026-11-20  

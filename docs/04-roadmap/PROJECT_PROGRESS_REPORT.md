@@ -1,3 +1,17 @@
+## LPS-24–LPS-28 — Five-agenda repository/synthetic programme COMPLETE — 2026-11-20
+
+All five agendas are merged and exact-head verified. See [LPS-24–LPS-28 Five-Agenda Completion and M3 Progress Reconciliation](M3-11_LPS24-LPS28_FIVE_AGENDA_COMPLETION_AND_M3_PROGRESS_RECONCILIATION_2026-11-20.md) for the complete PR/head/check/merge ledger, updated GAP-01–GAP-06 positions and M3 ten-gate status.
+
+| Agenda | PR | Foundation CI | Documentation validation | Merge commit | Result |
+|---|---:|---|---|---|---|
+| LPS-24 — GAP-02 synthetic payload minimization | #383 | #44713597304 PASS | #44713595705 PASS | 58b68e5ea5ba27b9e8fdf4ddc6886d1e76563fe8 | MERGED / VERIFIED |
+| LPS-25 — GAP-02 persistence call-site map | #384 | #44713861967 PASS | #44713858533 PASS | 6f8b6b9ca8a591915eb29a96899f30be0fb91003 | MERGED / VERIFIED |
+| LPS-26 — GAP-02 synthetic lifecycle verification | #385 | #44714126916 PASS | #44714126869 PASS | 2d6acfd67edf25844614f5648065bbeaea91220c | MERGED / VERIFIED |
+| LPS-27 — GAP-01 bilingual observation/verification disclosure | #386 | #44714403865 PASS | #44714403871 PASS | 81a0fda532e65c7a73f4e0392e8dd943b0719830 | MERGED / VERIFIED |
+| LPS-28 — GAP-04 correction operations boundary | #387 | #44714823980 PASS | #44714823989 PASS | 340f8e472572449902beff6b9204acd858195165 | MERGED / VERIFIED |
+
+**Result:** GAP-02 schema inventory and primary call-site map are complete at repository level, with synthetic logging/lifecycle coverage strengthened; operational retention/deletion remains open. GAP-01 has a bounded bilingual disclosure, not full source attribution/verification. GAP-04 has an authenticated correction workflow boundary test, not an operational complaint service. No GAP or M3-11 gate closed. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
 ## LPS-18–LPS-22 — Five-agenda repository programme COMPLETE — 2026-11-20
 
 All five coordinated agendas are complete, merged and verified on main.
