@@ -46,7 +46,7 @@ final class UniversityRepresentativeWorkflowTest extends TestCase
     public function test_correction_requires_authenticated_scope_and_no_public_complaint_or_appeal_route_is_registered(): void
     {
         [$institution, $evidence] = $this->fixture();
-        $claimVersion = (string) DB::table('claim_versions')->value('id');
+        $claimVersion = (string) str()->uuid();
         $claimCount = DB::table('claim_versions')->count();
         $caseCount = DB::table('editorial_review_cases')->count();
 
