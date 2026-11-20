@@ -554,3 +554,8 @@ The R13 repository desk review assessed all twelve scenarios (R01–R12) in the 
 F01 is complete for the milestone-level overlay. The governing disposition map and stale-status/conflict register are recorded in `M3_FINAL_ACCEPTANCE_F01_CROSS_MILESTONE_TRACEABILITY_2026-11-20.md`. Preserve historical requirement rows; use the F01 overlay and later F04/F05 dated dispositions to reconcile them without erasing history.
 
 Key boundaries: M0–M2 remain accepted/closed; M3-00 is accepted with recorded deferrals; M3-01 is closed as planning/authorization; M3-02 is accepted for platform foundation only; M3-03–M3-09 are complete only within their authorized synthetic/local/CI scopes; M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED; M3-12 is closed for repository-level A01–A09 verification only. No overall M3 closure is implied.
+
+
+## M3 final acceptance exercise — F02 repository-side consistency — 2026-11-20
+
+F02 corrected the current M3 step pointer, reconciled the high-level roadmap M3 status with the authoritative detailed plan, superseded the completed M3-11 intake “next agenda” handoff, and clarified M3-11-04 scope. The repository-development boundary is closed only for private synthetic work; future operations remain blocked. M3-10 Option B remains proposal preparation only; M3-11 Option A remains the private acceptance boundary. Evidence: `M3_FINAL_ACCEPTANCE_F02_REPOSITORY_CONSISTENCY_2026-11-20.md`. No external or operational gate was accepted.
