@@ -228,3 +228,38 @@ Before any separately authorized private acceptance environment or reviewer acce
 No production or hosted environment was inspected. No runtime override was assumed. This reconciliation does not authorize environment provisioning, Hostinger/hPanel access or real account processing.
 
 **Gate effect:** current source defaults are now accurately documented. DP-02 remains deferred for any target because runtime values, file permissions, HTTPS and operational cleanup are not evidenced. This does not close M3-11-02 or M3-11-05.
+
+
+## 11. DP-04 superseding audit-metadata implementation reconciliation — current main
+
+**Reconciliation date:** 2026-11-20  
+**Sources inspected:** `app/Models/PrivilegedActionAudit.php`, `app/Services/Identity/RoleAssignmentService.php`, `app/Models/RoleAssignment.php`, `database/migrations/2026_11_16_000002_create_identity_and_authorization_tables.php`, `tests/Feature/ScopedAuthorizationTest.php`, and the M3-08A/B implementation record.
+
+The current repository confirms a bounded role-change audit implementation for the synthetic identity foundation:
+
+- The role-change service records `role.granted` and `role.revoked` events with actor account ID, subject account ID, role action, exact resource scope, a controlled reason code and metadata containing only the role name.
+- Grant and revoke operations execute inside database transactions; the service uses row locks for the relevant target/assignment operations.
+- Grantable roles require a non-empty exact resource scope. Application-level administrator grants are excluded from this service; self-grant/self-revocation and unsupported reason codes are rejected.
+- Repeated active grants return the existing assignment rather than creating a duplicate grant. Repeated revocation of an already-revoked assignment returns the existing assignment.
+- Synthetic feature tests verify scoped grants, audit rows for grants and revocations, immediate authorization denial after revocation, and rejection of several prohibited role changes.
+- The audit schema stores a nullable actor foreign key, action, subject type/ID, optional scope, controlled reason code, JSON metadata and creation timestamp. It indexes subject/time and actor/time lookups.
+
+### 11.1 Material limitations and corrected characterization
+
+The audit model is append-only **by application convention only**. The inspected model does not prohibit Eloquent updates/deletes, and the migration creates no database trigger or database privilege boundary that makes records immutable. A database owner or sufficiently privileged application/database actor could alter or delete records. No external immutable/WORM copy, export pipeline, cryptographic chaining, independent monitoring or tamper alert is evidenced.
+
+Additional boundaries:
+- Deleting an actor account sets `actor_user_id` to null through the foreign-key `nullOnDelete` behavior; the event does not preserve a durable identity snapshot of that actor.
+- The audit record's subject is stored as type/ID text; this does not itself prove the continued identity or retention of the referenced account.
+- The tests establish representative grant/revoke behavior with synthetic fixtures, not exhaustive failure-injection proof that every transaction rollback, database failure, concurrent request or event path preserves audit completeness.
+- The service records successful role grant/revoke operations; it is not a general audit log for sign-in attempts, reads, exports, configuration changes, denied actions or all administrator activity.
+- No retention/deletion schedule, backup treatment, reviewer access policy or hosted database controls are established by these source files.
+- Idempotent no-op requests do not create a second audit event because no new role state change occurs.
+
+### 11.2 Updated DP-04 disposition — existing owner decision retained
+
+**DP-04 remains ACCEPT AS LIMITED SYNTHETIC EVIDENCE, exactly as already decided by the Product Owner.** Current-main source and test inspection corroborate that bounded successful role grant/revocation events are recorded for the synthetic identity foundation. No prior owner decision is reopened or changed.
+
+The accepted boundary remains: synthetic accounts and local/CI development only; no production-grade retention, completeness, immutable storage, tamper-resistance, independent audit or hosted control claim. Any future private acceptance target would require a separately scoped review of actor identity preservation, audit coverage, retention/deletion, backup handling, read access, database-owner privileges and tamper detection before real personal data or operational role administration.
+
+**Gate effect:** DP-04 repository evidence is reconciled against current implementation and existing tests. This does not close M3-11-02 / Gate 02, does not authorize environment provisioning or real data, and does not certify a production audit system.
