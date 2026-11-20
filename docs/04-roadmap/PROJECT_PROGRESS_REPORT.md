@@ -1,3 +1,9 @@
+## Latest verified position — RCV-B02 admissions and programme decision facts (2026-11-20)
+
+The RCV-B02 implementation is being reconciled onto current main after the original PR branch fell behind. The authorized scope adds offer-scoped fact persistence and governance for eligibility, deadlines, fee components and scholarships/aid, with immutable versions, evidence, human adjudication/publication, freshness policies, suppression, correction and withdrawal. Public output is constrained to approved offer-specific projections and preserves offer/cycle identity. Synthetic disposable-SQLite tests are carried forward. No real/source data, live DB, Hostinger, V1, external API/AI, deployment, application submission workflow or new spend. Fresh exact-head validation is pending.
+
+---
+
 ## Latest verified position — M3-12 private preview and synthetic dataset (2026-11-20)
 
 M3-12 was reconciled from the older conflicting PR #280 and merged in PR #316 as `995be9afbc7e171b78d9dacaff950f6964e594f1`. Exact-head `31fc0b2075a49f6a5b342eb8391f2e4ce3dea511` passed PHP 8.5 foundation CI #44641907781 and project documentation validation #44641907769. The local/testing-only, SQLite-only seeder creates seven fictional records across five existing directory categories, using synthetic evidence, audit, adjudication, publication and outbox projection workflows. It refuses non-local/testing environments, non-SQLite connections and unrelated pending/leased outbox work; it is idempotent and requires all 42 expected synthetic publications to complete. Synthetic suite: 15 passed, 1,169 assertions, 235 non-fatal warnings. No new migration/schema/route/view/dependency or hosted/public activity was authorized.
