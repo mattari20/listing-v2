@@ -154,7 +154,7 @@ final class I7DisposableSqliteMigrationTest extends TestCase
                 '--force' => true,
             ])->assertExitCode(0);
 
-            $this->assertSame(14, (int) $connection->table('migrations')->count());
+            $this->assertSame(15, (int) $connection->table('migrations')->count());
             foreach ($expectedTables as $table) {
                 $this->assertTrue($schema->hasTable($table), $table.' must be recreated by re-migration.');
             }
