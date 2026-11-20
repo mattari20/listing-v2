@@ -5,7 +5,7 @@
 **Baseline:** 47599d655c8e5761d593bc80df6824e8b6ef2680 (main after LPS-21 / PR #379)  
 **Agenda:** LPS-22 — Final repository reconciliation and next-stage decision pack  
 **Work type:** Repository-only closeout of coordinated LPS-18–LPS-22 programme  
-**Status:** RECONCILIATION PREPARED — FIVE-AGENDA PROGRAMME CLOSEOUT PENDING THIS PR; M3-11 REMAINS BLOCKED / NOT ACCEPTED
+**Status:** RECONCILIATION COMPLETE — FIVE-AGENDA PROGRAMME COMPLETE — M3-11 REMAINS BLOCKED / NOT ACCEPTED
 
 ## 1. Purpose and scope
 
@@ -146,7 +146,7 @@ No external review procurement, source access, real-data processing, hosted insp
 - [x] LPS-19 report merged and verified on main.
 - [x] LPS-20 report merged and verified on main.
 - [x] LPS-21 report merged and verified on main.
-- [ ] LPS-22 report merged and verified on main — pending this PR.
+- [x] LPS-22 report merged and verified on main in PR #380.
 - [x] Gap register, progress report, catalog, master plan and evidence intake updated at each completed agenda.
 - [x] Each completed agenda had exact-head PHP 8.5 foundation CI and documentation validation pass.
 - [x] Each completed agenda merge commit matched main exactly.
@@ -158,6 +158,6 @@ When LPS-22 is merged and verified, the LPS-18–LPS-22 five-agenda repository p
 
 ## 9. Final disposition
 
-LPS-22 completes the repository-side final reconciliation and next-stage decision pack. The five-agenda programme is ready for closure once this PR passes exact-head checks and is merged/verified.
+LPS-22 completes the repository-side final reconciliation and next-stage decision pack. The five-agenda LPS-18–LPS-22 repository programme is COMPLETE, with all five PRs merged, exact-head checks passed and main verification completed.
 
 M3-11 remains BLOCKED / NOT ACCEPTED. The ten gate dispositions remain as listed in §5. GAP-01 through GAP-06 remain open/partial/design-only. Production execution remains NOT AUTHORIZED. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
