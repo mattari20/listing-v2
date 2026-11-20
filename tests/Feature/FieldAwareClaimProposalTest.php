@@ -593,8 +593,7 @@ class FieldAwareClaimProposalTest extends TestCase
         string $entityType = 'institution',
         string $scopeKey = 'institution',
         string $fieldKey = 'institution_display_name'
-    ): string
-    {
+    ): string {
         $definitionId = (string) str()->uuid();
         $versionId = (string) str()->uuid();
         DB::table('field_definitions')->insert([
