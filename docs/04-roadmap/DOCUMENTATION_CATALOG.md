@@ -1,3 +1,7 @@
+## M3-12 — Agendas 04–06 delivery verification — 2026-11-20
+
+Coordinated PR [#355](https://github.com/mattari20/listing-v2/pull/355) merged as `1a482ac94402470e08e2b17d7d4a48d3be2290a9`; exact-head PHP 8.5 CI #44681875232 and documentation validation #44681875222 passed. The three agenda records and project progress/traceability updates are merged. Synthetic suite reported 20 passed, 1,501 assertions and 282 warnings; no warning-free claim. Browser, qualified accessibility, human operations and production acceptance remain outstanding.
+
 ## M3-12 — student discovery, administration/editorial and browser UX verification — 2026-11-20
 
 - [M3-12 Agenda 04 — Student Discovery Journey Functional Verification](M3-12_A04_STUDENT_DISCOVERY_JOURNEY_FUNCTIONAL_VERIFICATION_2026-11-20.md) — repository-level verification of public search/filter/locality, approved profiles, offer-scoped admissions facts, temporary comparison and private saved items; broader guided journey, account lifecycle and applications remain partial/deferred.
