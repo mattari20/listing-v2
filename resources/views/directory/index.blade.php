@@ -38,9 +38,9 @@
     <header>
         <nav class="language-switch" aria-label="{{ __('directory.language') }}">
             <span>{{ __('directory.language') }}:</span>
-            <a href="{{ request()->fullUrlWithQuery(['lang' => 'en']) }}" @if ($locale === 'en') aria-current="page" @endif>{{ __('directory.english') }}</a>
+            <a href="{{ $languageUrls['en'] }}" @if ($locale === 'en') aria-current="page" @endif>{{ __('directory.english') }}</a>
             <span aria-hidden="true">|</span>
-            <a href="{{ request()->fullUrlWithQuery(['lang' => 'ur']) }}" @if ($locale === 'ur') aria-current="page" @endif>{{ __('directory.urdu') }}</a>
+            <a href="{{ $languageUrls['ur'] }}" @if ($locale === 'ur') aria-current="page" @endif>{{ __('directory.urdu') }}</a>
         </nav>
         <h1>{{ __('directory.directory_title') }}</h1>
         <p>{{ __('directory.directory_intro') }}</p>
