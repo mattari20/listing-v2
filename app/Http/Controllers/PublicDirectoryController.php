@@ -10,6 +10,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\App;
 
 final class PublicDirectoryController extends Controller
 {
@@ -17,6 +18,7 @@ final class PublicDirectoryController extends Controller
 
     public function index(Request $request, PublicDirectoryQueryService $directory): View
     {
+        $locale = $this->applyDirectoryLocale($request);
         $validated = $request->validate([
             'q' => ['nullable', 'string', 'max:120'],
             'type' => ['nullable', 'string', 'max:40'],
@@ -54,7 +56,17 @@ final class PublicDirectoryController extends Controller
             'filters' => $filters,
             'filterOptions' => $filterOptions,
             'filterGroups' => collect($filterOptions)->groupBy('group', true),
-            'typeOptions' => $directory->typeOptions(),
+            'filterGroupLabels' => [
+                'Academic options' => __('directory.filter_groups.academic'),
+                'Admissions' => __('directory.filter_groups.admissions'),
+                'Institution details' => __('directory.filter_groups.institution'),
+                'Additional approved filters' => __('directory.filter_groups.additional'),
+            ],
+            'typeOptions' => collect($directory->typeOptions())->mapWithKeys(
+                static fn (string $label, string $key): array => [$key => __('directory.types.'.$key)]
+            )->all(),
+            'locale' => $locale,
+            'direction' => $locale === 'ur' ? 'rtl' : 'ltr',
             'facets' => $data['facets'],
             'results' => $results,
             'shortlistCount' => count($this->sessionShortlist($request)),
@@ -64,12 +76,13 @@ final class PublicDirectoryController extends Controller
 
     public function addToShortlist(Request $request, string $entity, PublicDirectoryQueryService $directory): RedirectResponse
     {
+        $this->applyDirectoryLocale($request);
         $profile = $directory->find($entity);
         abort_if($profile === null, 404);
 
         $ids = $this->sessionShortlist($request);
         if (in_array($entity, $ids, true)) {
-            return back()->with('shortlist_status', 'This option is already in your temporary shortlist.');
+            return back()->with('shortlist_status', __('directory.shortlist_exists'));
         }
 
         $profiles = array_values(array_filter(array_map(
@@ -80,30 +93,31 @@ final class PublicDirectoryController extends Controller
         $request->session()->put(self::SHORTLIST_SESSION_KEY, $ids);
         foreach ($profiles as $selectedProfile) {
             if ($selectedProfile['type'] !== $profile['type']) {
-                return back()->withErrors(['shortlist' => 'Choose the same category for every comparison.'])->withInput();
+                return back()->withErrors(['shortlist' => __('directory.shortlist_same_type')])->withInput();
             }
         }
 
         $limit = max(2, min(10, (int) config('directory.shortlist_limit', 5)));
         if (count($ids) >= $limit) {
-            return back()->withErrors(['shortlist' => 'Your temporary shortlist is full. Remove an option before adding another.'])->withInput();
+            return back()->withErrors(['shortlist' => __('directory.shortlist_full')])->withInput();
         }
 
         $ids[] = $entity;
         $request->session()->put(self::SHORTLIST_SESSION_KEY, array_values(array_unique($ids)));
 
-        return back()->with('shortlist_status', 'Added to your temporary shortlist.');
+        return back()->with('shortlist_status', __('directory.shortlist_added'));
     }
 
     public function removeFromShortlist(Request $request, string $entity): RedirectResponse
     {
+        $this->applyDirectoryLocale($request);
         $ids = array_values(array_filter(
             $this->sessionShortlist($request),
             static fn (string $id): bool => $id !== $entity
         ));
         $request->session()->put(self::SHORTLIST_SESSION_KEY, $ids);
 
-        return back()->with('shortlist_status', 'Removed from your temporary shortlist.');
+        return back()->with('shortlist_status', __('directory.shortlist_removed'));
     }
 
     public function compare(
@@ -111,6 +125,7 @@ final class PublicDirectoryController extends Controller
         PublicDirectoryQueryService $directory,
         PublicDirectoryComparisonService $comparison
     ): View {
+        $locale = $this->applyDirectoryLocale($request);
         $ids = $this->sessionShortlist($request);
         $profiles = array_values(array_filter(array_map(
             static fn (string $id): ?array => $directory->find($id),
@@ -130,15 +145,18 @@ final class PublicDirectoryController extends Controller
             'profiles' => $profiles,
             'rows' => $comparisonData['rows'],
             'shortlistLimit' => (int) config('directory.shortlist_limit', 5),
+            'locale' => $locale,
+            'direction' => $locale === 'ur' ? 'rtl' : 'ltr',
         ]);
     }
 
-    public function show(string $entity, PublicDirectoryQueryService $directory): View
+    public function show(Request $request, string $entity, PublicDirectoryQueryService $directory): View
     {
+        $locale = $this->applyDirectoryLocale($request);
         $profile = $directory->find($entity);
         abort_if($profile === null, 404);
 
-        $ids = request()->session()->get(self::SHORTLIST_SESSION_KEY, []);
+        $ids = $request->session()->get(self::SHORTLIST_SESSION_KEY, []);
         if (is_array($ids) === false) {
             $ids = [];
         }
@@ -148,7 +166,25 @@ final class PublicDirectoryController extends Controller
             'shortlistCount' => count($ids),
             'shortlistLimit' => (int) config('directory.shortlist_limit', 5),
             'isShortlisted' => in_array($entity, $ids, true),
+            'locale' => $locale,
+            'direction' => $locale === 'ur' ? 'rtl' : 'ltr',
         ]);
+    }
+
+    private function applyDirectoryLocale(Request $request): string
+    {
+        $requested = $request->input('lang');
+        if (is_string($requested)) {
+            $locale = in_array($requested, ['en', 'ur'], true) ? $requested : 'en';
+        } else {
+            $stored = $request->session()->get('directory_locale', 'en');
+            $locale = in_array($stored, ['en', 'ur'], true) ? $stored : 'en';
+        }
+
+        $request->session()->put('directory_locale', $locale);
+        App::setLocale($locale);
+
+        return $locale;
     }
 
     /** @return array<int, string> */
