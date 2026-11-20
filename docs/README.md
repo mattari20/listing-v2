@@ -14,8 +14,8 @@
 - [RCV-B06 Agenda Closeout](04-roadmap/RCV-B06_ADVANCED_GEOGRAPHY_SCOPE_ACCEPTANCE_2026-11-20.md) — PR #332 merged; closes only the approved synthetic repository scope; live coordinates, geolocation, maps, schema and deployment remain unauthorized.
 
 ## RCV-B07 — public SEO and performance evidence — 2026-11-20
-- [RCV-B07 Public SEO and Performance Scope and Acceptance Pack](04-roadmap/RCV-B07_PUBLIC_SEO_AND_PERFORMANCE_SCOPE_ACCEPTANCE_2026-11-20.md) — repository-only inventory complete; owner decisions and implementation authorization pending.
-- [RCV-B07 SEO, Crawl Controls and Performance Evidence Design](04-roadmap/RCV-B07_SEO_CRAWL_AND_PERFORMANCE_EVIDENCE_DESIGN_2026-11-20.md) — proposed trusted-origin, indexability, sitemap, preview noindex and synthetic measurement contracts; no code or SLO activation authorized.
+- [RCV-B07 Public SEO and Performance Scope and Acceptance Pack](04-roadmap/RCV-B07_PUBLIC_SEO_AND_PERFORMANCE_SCOPE_ACCEPTANCE_2026-11-20.md) — repository-only inventory complete; PR #333 merged as `11896deab444d288006627cace6eb3d9d2aed0c1`; owner policy decisions and implementation authorization pending.
+- [RCV-B07 SEO, Crawl Controls and Performance Evidence Design](04-roadmap/RCV-B07_SEO_CRAWL_AND_PERFORMANCE_EVIDENCE_DESIGN_2026-11-20.md) — proposed trusted-origin, indexability, sitemap, preview noindex and synthetic measurement contracts; exact-head docs validation #44652840047 and PHP 8.5 CI #44652840046 passed (15 tests, 1,340 assertions; 266 non-fatal warnings); no code or SLO activation authorized.
 
 ## RCV-B04 — search and filter completeness — 2026-11-20
 
