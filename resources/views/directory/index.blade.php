@@ -32,7 +32,7 @@
     <header>
         <h1>Education Directory</h1>
         <p>Find providers, institutions, campuses, programmes and qualifications using publicly approved information.</p>
-        <p><a href="{{ route('directory.compare') }}">Compare shortlist ({{ $shortlistCount }}/{{ $shortlistLimit }})</a></p>
+        <p><a href="/directory/compare">Compare shortlist ({{ $shortlistCount }}/{{ $shortlistLimit }})</a></p>
         @if (session('shortlist_status'))<p role="status">{{ session('shortlist_status') }}</p>@endif
         @if ($errors->has('shortlist'))<p role="alert">{{ $errors->first('shortlist') }}</p>@endif
     </header>
