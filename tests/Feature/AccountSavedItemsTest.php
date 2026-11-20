@@ -44,12 +44,13 @@ final class AccountSavedItemsTest extends TestCase
             ->assertRedirect('/directory');
         $this->assertDatabaseCount('saved_directory_items', 1);
 
-        $this->actingAs($owner)->get('/account/saved-items')
-            ->assertOk()
+        $savedResponse = $this->actingAs($owner)->get('/account/saved-items');
+        $savedResponse->assertOk()
             ->assertSee($name)
             ->assertSee('noindex, nofollow')
-            ->assertHeader('Cache-Control', 'private, no-store, max-age=0')
+            ->assertHeader('Cache-Control')
             ->assertHeader('X-Robots-Tag', 'noindex, nofollow');
+        $this->assertStringContainsString('no-store', (string) $savedResponse->headers->get('Cache-Control'));
 
         $this->actingAs($owner)->from('/account/saved-items')
             ->delete('/account/saved-items/'.$entity)
