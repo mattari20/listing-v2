@@ -96,7 +96,8 @@
                                             @foreach ($profile['programme_offers'] as $offer)
                                                 <section class="offer">
                                                     <strong>{{ $offer['admission_cycle'] }}</strong>
-                                                    <div class="meta">{{ $offer['delivery_location'] }}</div>
+                                                    <div class="meta">Effective: {{ $fact['valid_from'] ?? 'not specified' }} to {{ $fact['valid_to'] ?? 'not specified' }}</div>
+                                                    <div class="meta">{{ $offer['delivery_location'] }} ({{ $offer['delivery_location_type'] }})</div>
                                                     <ul>
                                                         @foreach ($offer['facts'] as $fact)
                                                             <li>
@@ -117,6 +118,9 @@
                                                                 @endif
                                                                 @if ($fact['observed_at'] !== null)
                                                                     <span class="meta">(observed {{ $fact['observed_at'] }})</span>
+                                                                @endif
+                                                                @if ($fact['valid_from'] !== null || $fact['valid_to'] !== null)
+                                                                    <span class="meta">(effective {{ $fact['valid_from'] ?? 'not specified' }} to {{ $fact['valid_to'] ?? 'not specified' }})</span>
                                                                 @endif
                                                             </li>
                                                         @endforeach
