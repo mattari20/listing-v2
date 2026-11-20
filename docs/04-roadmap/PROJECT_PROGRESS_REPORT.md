@@ -1684,3 +1684,7 @@ The owner-led single-person model is accepted only for repository-only private s
 ## M3 final acceptance exercise — F02 repository-side consistency — 2026-11-20
 
 **Status: COMPLETE.** Corrected the master plan's current-step pointer, reconciled the high-level M3 roadmap status with the authoritative detailed sequence, superseded the completed M3-11 intake “next agenda” pointer, and clarified the M3-11-04 repository-development versus future-operations boundary. M3-10 Option B remains proposal preparation only; M3-11 Option A remains the private acceptance boundary. No qualified, hosted, recovery, pilot or release gate was promoted. Evidence: `M3_FINAL_ACCEPTANCE_F02_REPOSITORY_CONSISTENCY_2026-11-20.md`.
+
+## M3 final acceptance exercise — F03 M3-11 ten-gate review — 2026-11-20
+
+**Status: COMPLETE.** Reconciled all ten M3-11 gates against the current controlled intake ledger and RCV-B11. Corrected stale SEC-06 final-merge wording, PHP 8.5.12 confirmation and the accepted weekly backup policy cadence. No gate was promoted: M3-11-02 qualified review, M3-11-03 independent assurance, M3-11-04 future operations, M3-11-05 hosted isolation, M3-11-06 recovery, M3-11-07 candidate, M3-11-08 go/no-go, M3-11-09 execution and M3-11-10 monitoring remain blocked/not authorized/not started as applicable. M3-11 overall remains BLOCKED / NOT ACCEPTED. Evidence: `M3_FINAL_ACCEPTANCE_F03_M311_TEN_GATE_REVIEW_2026-11-20.md`.
