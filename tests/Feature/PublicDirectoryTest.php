@@ -184,6 +184,31 @@ final class PublicDirectoryTest extends TestCase
             ->assertSee('Physics');
     }
 
+    public function test_pagination_preserves_search_category_locality_and_registry_filters(): void
+    {
+        $region = $this->registryDefinition('institution_region', ['filterable' => true]);
+
+        for ($index = 1; $index <= 21; $index++) {
+            $entity = $this->createEntity();
+            $this->publishFact($entity, 'display_name', sprintf('Synthetic Pagination College %02d', $index));
+            $this->publishFact($entity, 'city', 'Lahore');
+            $this->publishFact($entity, 'institution_region', 'Punjab', '2026-11-13 10:00:00', $region);
+        }
+
+        $this->get('/directory?q=Pagination&type=institution&locality=Lahore&filters[institution_region]=Punjab')
+            ->assertOk()
+            ->assertSee('Synthetic Pagination College 01')
+            ->assertDontSee('Synthetic Pagination College 21')
+            ->assertSee('filters%5Binstitution_region%5D=Punjab', false)
+            ->assertSee('q=Pagination', false)
+            ->assertSee('locality=Lahore', false)
+            ->assertSee('page=2', false);
+
+        $this->get('/directory?q=Pagination&type=institution&locality=Lahore&filters[institution_region]=Punjab&page=2')
+            ->assertOk()
+            ->assertSee('Synthetic Pagination College 21');
+    }
+
     public function test_unknown_or_unavailable_registry_filter_is_ignored_without_exposing_private_values(): void
     {
         $entity = $this->createEntity();
