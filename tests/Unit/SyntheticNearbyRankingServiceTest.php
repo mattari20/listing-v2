@@ -63,6 +63,8 @@ final class SyntheticNearbyRankingServiceTest extends TestCase
             $this->candidate('institution', 'synthetic-withdrawn', 'synthetic-withdrawn', 31.5108, 74.3000, ['verificationState' => 'withdrawn']),
             $this->candidate('institution', 'synthetic-no-provenance', 'synthetic-no-provenance', 31.5109, 74.3000, ['provenanceReference' => '']),
             $this->candidate('institution', 'synthetic-real-marker', 'synthetic-real-marker', 31.5110, 74.3000, ['provenanceReference' => 'source:unapproved']),
+            $this->candidate('institution', 'synthetic-unpublished', 'synthetic-unpublished', 31.5111, 74.3000, ['publicationEligible' => false]),
+            $this->candidate('institution', 'synthetic-deeni', 'synthetic-deeni', 31.5112, 74.3000, ['deeniMadaris' => true]),
         ];
 
         $results = $service->rank($origin, $candidates);
@@ -94,6 +96,7 @@ final class SyntheticNearbyRankingServiceTest extends TestCase
             $this->candidate('institution', 'synthetic-inst-a', null, 31.51, 74.3),
             $this->candidate('institution', 'synthetic-inst-b', 'synthetic-inst-other', 31.51, 74.3),
             $this->candidate('campus', 'synthetic-campus-a', 'synthetic-campus-a', 31.51, 74.3),
+            $this->candidate('campus', 'synthetic-unverified-owner', 'synthetic-inst-a', 31.51, 74.3, ['ownershipVerified' => false]),
             $this->candidate('delivery_site', 'synthetic-site-a', null, 31.51, 74.3),
             $this->candidate('programme', 'synthetic-programme-a', 'synthetic-inst-a', 31.51, 74.3),
             $this->candidate('', 'synthetic-empty-type', 'synthetic-empty-type', 31.51, 74.3),
@@ -164,6 +167,9 @@ final class SyntheticNearbyRankingServiceTest extends TestCase
         array $overrides = [],
     ): NearbyCoordinateCandidate {
         $defaults = [
+            'ownershipVerified' => true,
+            'publicationEligible' => true,
+            'deeniMadaris' => false,
             'sourceAuthorized' => true,
             'visibilityClass' => 'public_generalized',
             'precisionClass' => 'approximate',
@@ -179,6 +185,11 @@ final class SyntheticNearbyRankingServiceTest extends TestCase
             $institutionId,
             $latitude,
             $longitude,
+            $values['ownershipVerified'],
+            $latitude,
+            $longitude,
+            $values['publicationEligible'],
+            $values['deeniMadaris'],
             $values['sourceAuthorized'],
             $values['visibilityClass'],
             $values['precisionClass'],
