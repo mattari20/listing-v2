@@ -74,3 +74,12 @@ The exact PR #349 head cb9783ecef734ff3560d84e7871eee0c817fcdf0 passed PHP 8.5 f
 No database provisioning, connection, credentials, schema change, migration execution outside the existing CI test, seeding, backup/restore, production/Hostinger/hPanel/V1 access, real/source/personal data, external service/AI, deployment, vendor/dependency or spend.
 
 **Agenda 02 disposition:** Database foundation verification COMPLETE for the existing local/CI SQLite evidence. MySQL live validation and hosted isolation remain outside scope and not accepted.
+
+
+## 8. Delivery and exact-head verification
+
+- Combined delivery PR [#350](https://github.com/mattari20/listing-v2/pull/350) merged as `e10b7f7e769e2f191bd521a56191c448666f3c31`.
+- Exact PR head: `15cbf4796e5ff197213aad8173520aecf2026a52`.
+- PHP 8.5 foundation CI #691 (run ID `44679014364`): SUCCESS.
+- Project documentation validation #1170 (run ID `44679014390`): SUCCESS.
+- Both checks ran on the exact PR head. The change was documentation-only; no application or database implementation was changed.
