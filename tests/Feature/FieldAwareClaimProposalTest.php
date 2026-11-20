@@ -74,6 +74,95 @@ class FieldAwareClaimProposalTest extends TestCase
         $this->assertSame(0, DB::table('public_projections')->count());
     }
 
+    public function test_programme_field_proposal_requires_an_active_accepted_catalogue_parent_and_explicit_programme_definition(): void
+    {
+        $institutionId = $this->entity();
+        app(ProviderCategoryAssignmentService::class)->assign(
+            $this->taxonomyActor(), $institutionId, 'private_school', 'synthetic_assignment', 'programme-parent-category'
+        );
+
+        $programmeId = $this->entity('programme', 'Synthetic Programme');
+        $catalogueClaimId = (string) str()->uuid();
+        $catalogueVersionId = (string) str()->uuid();
+        $catalogueValue = [
+            'institution_entity_id' => $institutionId,
+            'title' => 'Synthetic Programme',
+            'description' => 'Fictional programme description.',
+            'level' => 'Synthetic undergraduate',
+        ];
+        DB::table('claims')->insert([
+            'id' => $catalogueClaimId,
+            'subject_entity_id' => $programmeId,
+            'predicate' => 'programme',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('claim_versions')->insert([
+            'id' => $catalogueVersionId,
+            'claim_id' => $catalogueClaimId,
+            'version_number' => 1,
+            'value' => json_encode($catalogueValue, JSON_THROW_ON_ERROR),
+            'recorded_at' => now(),
+            'disposition' => 'accepted',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('programme_catalogue_entries')->insert([
+            'entity_id' => $programmeId,
+            'institution_entity_id' => $institutionId,
+            'title' => 'Synthetic Programme',
+            'description' => 'Fictional programme description.',
+            'level' => 'Synthetic undergraduate',
+            'status' => 'active',
+            'claim_version_id' => $catalogueVersionId,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $definitionVersionId = $this->definition(['private_school'], 'programme', 'programme', 'programme_duration');
+        $evidenceId = $this->evidence();
+        $result = app(FieldAwareClaimProposalService::class)->propose(
+            $this->proposalActor(),
+            $programmeId,
+            'programme_duration',
+            1,
+            '3 years',
+            [$evidenceId],
+            $this->sourceContext(),
+            'programme',
+            'programme-scope-proposal-key'
+        );
+
+        $this->assertDatabaseHas('claims', [
+            'id' => $result['claim_id'],
+            'subject_entity_id' => $programmeId,
+            'predicate' => 'programme_duration',
+        ]);
+        $this->assertDatabaseHas('claim_versions', [
+            'id' => $result['claim_version_id'],
+            'field_definition_version_id' => $definitionVersionId,
+            'disposition' => 'proposed',
+        ]);
+        $this->assertSame(0, DB::table('publication_decisions')->count());
+        $this->assertSame(0, DB::table('public_projections')->count());
+
+        DB::table('programme_catalogue_entries')->where('entity_id', $programmeId)->update([
+            'title' => 'Tampered Programme Title',
+        ]);
+        $this->expectException(ValidationException::class);
+        app(FieldAwareClaimProposalService::class)->propose(
+            $this->proposalActor(),
+            $programmeId,
+            'programme_duration',
+            1,
+            '4 years',
+            [$evidenceId],
+            $this->sourceContext(),
+            'programme',
+            'programme-scope-tampered-parent-key'
+        );
+    }
+
     public function test_exact_definition_provider_category_and_scope_are_mandatory(): void
     {
         [$entityId, , $evidenceId] = $this->fixture('college');
@@ -467,23 +556,28 @@ class FieldAwareClaimProposalTest extends TestCase
         return [$entityId, $versionId, $evidenceId];
     }
 
-    private function entity(): string
+    private function entity(string $entityType = 'institution', ?string $label = null): string
     {
         $id = (string) str()->uuid();
         DB::table('directory_entities')->insert([
-            'id' => $id, 'entity_type' => 'institution', 'label' => 'Synthetic Institution',
+            'id' => $id, 'entity_type' => $entityType, 'label' => $label ?? 'Synthetic Institution',
             'created_at' => now(), 'updated_at' => now(),
         ]);
 
         return $id;
     }
 
-    private function definition(array $categories): string
+    private function definition(
+        array $categories,
+        string $entityType = 'institution',
+        string $scopeKey = 'institution',
+        string $fieldKey = 'institution_display_name'
+    ): string
     {
         $definitionId = (string) str()->uuid();
         $versionId = (string) str()->uuid();
         DB::table('field_definitions')->insert([
-            'id' => $definitionId, 'field_key' => 'institution_display_name',
+            'id' => $definitionId, 'field_key' => $fieldKey,
             'created_at' => now(), 'updated_at' => now(),
         ]);
         DB::table('field_definition_versions')->insert([
@@ -495,7 +589,7 @@ class FieldAwareClaimProposalTest extends TestCase
             'compatibility_class' => 'initial',
             'value_type' => 'short_text',
             'cardinality' => 'one',
-            'scope_key' => 'institution',
+            'scope_key' => $scopeKey,
             'privacy_class' => 'public_eligible',
             'visibility_class' => 'public_eligible',
             'searchable' => false,
@@ -515,7 +609,7 @@ class FieldAwareClaimProposalTest extends TestCase
         ]);
         DB::table('field_definition_version_entity_types')->insert([
             'id' => (string) str()->uuid(), 'field_definition_version_id' => $versionId,
-            'entity_type' => 'institution', 'created_at' => now(), 'updated_at' => now(),
+            'entity_type' => $entityType, 'created_at' => now(), 'updated_at' => now(),
         ]);
         foreach ($categories as $category) {
             DB::table('field_definition_version_provider_categories')->insert([
