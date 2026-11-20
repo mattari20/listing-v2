@@ -54,6 +54,7 @@ return [
     'programme' => 'Programme',
     'published_offers' => 'Published offers',
     'no_offers' => 'No approved offer facts are currently published.',
+    'delivery_locations' => ['campus' => 'Campus', 'delivery_site' => 'Delivery site'],
     'delivery_location' => 'Delivery location: :value',
     'unknown' => 'Not verified',
     'not_stated' => 'Not stated',
