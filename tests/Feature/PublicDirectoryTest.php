@@ -15,6 +15,49 @@ final class PublicDirectoryTest extends TestCase
 {
     use RefreshDatabase;
 
+    public function test_programme_profile_groups_approved_facts_by_student_information_section(): void
+    {
+        $programme = $this->createEntity('programme');
+        $this->publishFact($programme, 'display_name', 'Synthetic Sectioned Programme');
+
+        $facts = [
+            'programme_subjects' => ['academic', 'Subjects', 'Synthetic Mathematics and Physics'],
+            'programme_duration' => ['academic', 'Duration', 'Synthetic four years'],
+            'programme_entry_requirements' => ['admissions', 'Entry requirements', 'Synthetic intermediate qualification'],
+            'programme_fee_schedule' => ['fees', 'Tuition fee', 'Synthetic PKR 100000 per semester'],
+            'programme_scholarship' => ['financial_aid', 'Scholarship information', 'Synthetic merit award information'],
+            'programme_recognition_note' => ['recognition', 'Recognition information', 'Synthetic recognition review note'],
+        ];
+
+        foreach ($facts as $fieldKey => [$section, $label, $value]) {
+            $versionId = $this->registryDefinition($fieldKey);
+            DB::table('field_definition_versions')->where('id', $versionId)->update([
+                'presentation_metadata' => json_encode([
+                    'section_key' => $section,
+                    'public_label' => $label,
+                    'label_key' => 'synthetic.'.$fieldKey,
+                ], JSON_THROW_ON_ERROR),
+            ]);
+            $this->publishFact($programme, $fieldKey, $value, '2026-11-19 10:00:00', $versionId);
+        }
+
+        $this->get('/directory/'.$programme)
+            ->assertOk()
+            ->assertSee('Synthetic Sectioned Programme')
+            ->assertSee('Academic information')
+            ->assertSee('Admissions information')
+            ->assertSee('Fees and costs')
+            ->assertSee('Scholarships and financial assistance')
+            ->assertSee('Recognition and affiliation')
+            ->assertSee('Synthetic Mathematics and Physics')
+            ->assertSee('Synthetic four years')
+            ->assertSee('Synthetic intermediate qualification')
+            ->assertSee('Synthetic PKR 100000 per semester')
+            ->assertSee('Synthetic merit award information')
+            ->assertSee('Synthetic recognition review note')
+            ->assertSee('Only approved published information is shown');
+    }
+
     public function test_anonymous_search_and_profile_show_only_allowlisted_approved_facts(): void
     {
         $entity = $this->createEntity();
