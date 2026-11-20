@@ -187,6 +187,7 @@ final class PublicDirectoryController extends Controller
             'isShortlisted' => in_array($entity, $ids, true),
             'locale' => $locale,
             'direction' => $locale === 'ur' ? 'rtl' : 'ltr',
+            'languageUrls' => $this->directoryLanguageUrls($request),
         ]);
     }
 
