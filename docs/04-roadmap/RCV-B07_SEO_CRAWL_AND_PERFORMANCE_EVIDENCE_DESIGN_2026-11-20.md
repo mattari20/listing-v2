@@ -3,7 +3,7 @@
 **Date:** 2026-11-20  
 **Repository:** `mattari20/listing-v2`  
 **Baseline main:** `2e24fd4e2b48b23a49a3dc012d48523103612d65`  
-**Status:** Product Owner policy approved; fail-closed SEO/crawl controls implemented and merged in PR #335; sitemap and synthetic performance measurement remain gated follow-on slices.
+**Status:** Product Owner policy approved; fail-closed SEO/crawl controls implemented and merged in PR #335; sitemap generation remains gated on future public-origin/release approval; the synthetic performance measurement harness is implemented in PR #337.
 
 ## 1. Design principles
 
@@ -114,4 +114,4 @@ Capture, where available:
 4. Separately authorize a synthetic benchmark harness and fixture tiers; keep measurements explicitly local/CI.
 5. Present results and assumptions for numeric SLO decision; do not implement production monitoring or capacity changes in this agenda.
 
-The B07-B fail-closed SEO/crawl implementation was separately authorized and merged in PR #335. Sitemap and performance harness implementation remain separate gated slices.
+The B07-B fail-closed SEO/crawl implementation was separately authorized and merged in PR #335. The B07-D synthetic measurement harness was separately authorized and merged in PR #337. Sitemap generation remains gated on future public-origin/release approval; numeric SLO adoption remains pending owner review.
