@@ -1,5 +1,7 @@
 <?php
 
+use App\Logging\AgeBasedRotatingFileHandler;
+use App\Logging\SafeLogContextProcessor;
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
@@ -18,7 +20,7 @@ return [
     |
     */
 
-    'default' => env('LOG_CHANNEL', 'stack'),
+    'default' => env('LOG_CHANNEL', 'daily'),
 
     /*
     |--------------------------------------------------------------------------
@@ -54,7 +56,7 @@ return [
 
         'stack' => [
             'driver' => 'stack',
-            'channels' => explode(',', (string) env('LOG_STACK', 'single')),
+            'channels' => explode(',', (string) env('LOG_STACK', 'daily')),
             'ignore_exceptions' => false,
         ],
 
@@ -66,10 +68,16 @@ return [
         ],
 
         'daily' => [
-            'driver' => 'daily',
-            'path' => storage_path('logs/laravel.log'),
+            'driver' => 'monolog',
+            'handler' => AgeBasedRotatingFileHandler::class,
+            'handler_with' => [
+                'filename' => storage_path('logs/laravel.log'),
+            ],
             'level' => env('LOG_LEVEL', 'warning'),
-            'max_files' => env('LOG_DAILY_DAYS', 14),
+            'processors' => [
+                SafeLogContextProcessor::class,
+                PsrLogMessageProcessor::class,
+            ],
             'replace_placeholders' => true,
         ],
 
