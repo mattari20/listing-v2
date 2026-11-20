@@ -153,13 +153,13 @@ final class FieldAwareClaimProposalService
             $this->reject('subject', 'Claim subject does not exist.');
         }
 
-        if ($entity->entity_type !== 'institution' || $scopeKey !== 'institution') {
-            $this->reject('scope', 'I3 currently accepts institution-level claims only; campus and programme scopes remain excluded.');
+        if (! in_array($entity->entity_type, ['institution', 'programme'], true) || $scopeKey !== $entity->entity_type) {
+            $this->reject('scope', 'Field claims require an explicitly matching institution or programme entity and scope.');
         }
 
         $providerCategory = $this->registry->providerCategoryForEntity($subjectEntityId);
         if ($providerCategory === null) {
-            $this->reject('provider_category', 'No human-governed provider category is assigned to this institution.');
+            $this->reject('provider_category', 'A current human-governed institution category and, for programmes, an active accepted catalogue relationship are required.');
         }
 
         $applicability = $this->registry->resolveApplicable(
@@ -221,10 +221,9 @@ final class FieldAwareClaimProposalService
             }
 
             $lockedEntity = DB::table('directory_entities')->where('id', $subjectEntityId)->lockForUpdate()->first(['entity_type']);
-            $lockedCategory = DB::table('directory_provider_category_assignments')
-                ->where('entity_id', $subjectEntityId)->lockForUpdate()->value('provider_category');
-            if ($lockedEntity === null || $lockedCategory !== $providerCategory) {
-                $this->reject('provider_category', 'Provider category changed during proposal validation; retry against the current governed assignment.');
+            $lockedCategory = $this->registry->providerCategoryForEntity($subjectEntityId, true);
+            if ($lockedEntity === null || $lockedEntity->entity_type !== $scopeKey || $lockedCategory !== $providerCategory) {
+                $this->reject('provider_category', 'The entity scope, parent catalogue relationship or governed provider category changed during proposal validation; retry against the current assignment.');
             }
             $currentApplicability = $this->registry->resolveApplicable(
                 $fieldKey, $definitionVersion, (string) $lockedEntity->entity_type, (string) $lockedCategory
