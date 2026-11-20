@@ -469,3 +469,20 @@ The R13 repository desk review assessed all twelve scenarios (R01–R12) in the 
 |---|---|---|---|---|---|---|
 | M3-11-PF-001 | Record owner instruction to begin M3-11 and define a gated, evidence-based controlled production launch preflight | M3 Master Step Plan; M3-10 final gate reconciliation; M3-01 P06 release/rollback plan | M3-11 | PR #259 merged as `48e6742fc13324eaa2c081ce121b10877c316d22`; exact head `d2c7fd1d47f17fc71a77274cdc57e60f4373ac2a` | M11-01–M11-10 work packages, inherited M10-G01–G14 blockers, release/rollback requirements and stop conditions | Preflight documentation prepared; production readiness BLOCKED / NOT ACCEPTED |
 | M3-11-PF-002 | Prevent production execution until qualified reviews, accepted human operations, V2 isolation/recovery evidence, release candidate and explicit go/no-go are present | M3-11 Controlled Production Launch Preflight and Authorization Record | M3-11 | PR #259 exact-head CI #427 and docs validation #832 passed | Blocker register B11-01–B11-11 and explicit non-execution boundary | Binding stop; no production activity performed or authorized by preflight |
+
+
+## RCV-01 current delivery and controlled acceptance handoff — 2026-11-20
+
+| Requirement / agenda | Current evidence | Status |
+|---|---|---|
+| RCV-B02 admissions facts | PRs #318/#319; offer-scoped immutable facts, governance, publication/suppression and synthetic tests | Complete for approved synthetic V2 scope |
+| RCV-B03 shortlist/comparison | PRs #320/#322; session-only shortlist and like-for-like public-projection comparison | Complete for bounded session-only scope |
+| RCV-B04 search/filter | PRs #323–#326; registry-backed filters, composition, active filters and pagination regression | Complete for bounded scope |
+| RCV-B05 language/accessibility | PRs #327/#328; English/Urdu UI and RTL/accessibility code | Code scope complete; manual/qualified accessibility evaluation remains open |
+| RCV-B06 geography | PRs #329–#332; approved pure-domain synthetic ranking proof | Synthetic proof complete; no live coordinate/public integration |
+| RCV-B07 SEO/performance | PRs #333–#337; fail-closed SEO and synthetic performance measurement | Bounded implementation complete; indexing off and representative load/SLO evidence absent |
+| RCV-B08 saved items | PRs #340/#341; private account-owned saved items | First slice complete; sharing/alerts/public account lifecycle deferred |
+| RCV-B09 public reviews/moderation | PR #342 | Preflight only; public UGC remains disabled |
+| RCV-B10 live source/AI | PR #343 | Preflight only; no live source or AI activation |
+| RCV-B11 production readiness | PR #344 | Documentary reconciliation only; M3-11 blocked/not accepted |
+| Controlled acceptance/readiness intake | RCV-01 dated addendum and current handoff | Next agenda; no new feature implementation or production authority implied |
