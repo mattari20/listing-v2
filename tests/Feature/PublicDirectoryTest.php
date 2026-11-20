@@ -113,7 +113,7 @@ final class PublicDirectoryTest extends TestCase
             ->assertOk()
             ->assertSee('Synthetic Punjab College')
             ->assertDontSee('Synthetic Sindh College')
-            ->assertSee('filters[institution_region]');
+            ->assertSee('name="filters[institution_region]"', false);
     }
 
     public function test_subject_search_uses_only_public_registry_facts_marked_searchable(): void
