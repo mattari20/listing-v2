@@ -1,3 +1,8 @@
+## M3-12 — architecture and database foundation — 2026-11-20
+
+- [M3-12 Agenda 01 — Architecture Conformance Review](M3-12_A01_ARCHITECTURE_CONFORMANCE_REVIEW_2026-11-20.md) — current-main repository reconciliation against accepted M2-S01–M2-S10 architecture; bounded conformance for private V2 scope, with accessibility, live-source/AI, UGC and production gates retained.
+- [M3-12 Agenda 02 — Database Foundation Verification](M3-12_A02_DATABASE_FOUNDATION_VERIFICATION_2026-11-20.md) — inventories 15 migrations/51 table definitions and verifies the existing disposable SQLite test evidence; MySQL and hosted database acceptance remain unverified.
+
 ## M3-11 — Controlled acceptance/readiness evidence intake — 2026-11-20
 
 - [M3-11 Controlled Acceptance and Readiness Evidence Intake Reconciliation](M3-11_CONTROLLED_ACCEPTANCE_READINESS_EVIDENCE_INTAKE_2026-11-20.md) — consolidated current gate evidence, preserves accepted Product Owner decisions, defines receipt-versus-acceptance rules, and records outstanding human/operational dependencies. Repository-side intake preparation only; M3-11 remains BLOCKED / NOT ACCEPTED.
