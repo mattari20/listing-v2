@@ -26,7 +26,7 @@ This record implements the bounded synthetic measurement authorization. The purp
 6. Fictional institution profile read.
 7. Session-only comparison of two fictional programme entries.
 
-Each scenario uses one warm-up request followed by ten measured sequential requests.
+Each scenario uses one warm-up request followed by seven measured sequential requests.
 
 ## 4. Captured metrics
 
@@ -41,7 +41,7 @@ Timing, query and byte summaries are emitted as a machine-readable JSON line in 
 ## 5. Limitations
 
 - This is a warm, sequential, in-process SQLite microbenchmark. It excludes network latency, TLS, reverse proxy, shared-host behavior, production MySQL, browser rendering, real user traffic, cold cache, concurrent load, CPU saturation, memory peaks and operational availability.
-- Ten samples per scenario are too small for contractual percentile targets. Reported p95/p99 are diagnostic only.
+- Seven samples per scenario are too small for contractual percentile targets. Reported p95/p99 are diagnostic only.
 - The page-two case is empty because the fixture contains seven entities and the application page size is 20.
 - No medium/stress dataset is available in this slice. Do not extrapolate these measurements to larger catalogues.
 - No numeric SLO or production capacity statement is adopted. M2-S09 remains a proposal only.
