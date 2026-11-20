@@ -90,3 +90,8 @@ M3-11-01 is closed for owner scope/authority definition only. This charter is no
 - [M3-06 Geography and Discovery Work Plan](M3-06_GEOGRAPHY_AND_DISCOVERY_WORK_PLAN.md)
 - [RCV-01 Requirements-to-Capability Reconciliation](RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.md)
 - [M3-11 Controlled Production Launch Preflight](M3-11_CONTROLLED_PRODUCTION_LAUNCH_PREFLIGHT.md)
+
+
+## Superseding future product-direction clarification — Deeni Madaris — 2026-11-19
+
+The Product Owner later clarified that Deeni Madaris should be included in the **future V2 directory** as a distinct, clearly identified category, with relevant institution details for future student/parent discovery; the earlier default-OFF posture is not a permanent product exclusion. This is a long-term product-direction decision only. It does not amend the current M3-11 Option A / Option 1 private acceptance scope in this charter: Deeni Madaris remains default-OFF and absent from current private-acceptance public projections and all public surfaces until a separate dated scope amendment and applicable source-rights, privacy, safeguarding, security, governance and publication controls are accepted. No current exposure or activation is authorized. Do not collect, infer or expose sect/maslak as a general discovery attribute.

@@ -644,3 +644,7 @@ F02 updated the current-step pointer and clarified the M3-10 Option B proposal-o
 ## F03 — M3-11 ten-gate review completed — 2026-11-20
 
 All ten M3-11 gates were reconciled against the current controlled intake ledger and RCV-B11. SEC-06 local/CI merge, PHP 8.5.12 runtime and weekly backup cadence descriptions were corrected to match later evidence. No qualified, independent, hosted, recovery, candidate, go/no-go, execution or monitoring gate was promoted. M3-11 remains BLOCKED / NOT ACCEPTED. See `M3_FINAL_ACCEPTANCE_F03_M311_TEN_GATE_REVIEW_2026-11-20.md`.
+
+## F04 — Product Owner decision consolidation completed — 2026-11-20
+
+Previously accepted R1.1–R1.18 and M3/RCV-B owner decisions are carried forward without repeat approval. R1.1 Option A/Option 1, R1.2 provisional baseline with three clarifications, R1.3–R1.17 and R1.18 remain approved. The 2026-11-19 Deeni Madaris future-inclusion clarification does not change current M3-11 Option A / Option 1 private-release suppression. No implementation or release authority is created. See `M3_FINAL_ACCEPTANCE_F04_PRODUCT_OWNER_DECISION_CONSOLIDATION_2026-11-20.md`.

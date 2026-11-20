@@ -1521,3 +1521,7 @@ The dated addendum in `RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.
 ## M3 final acceptance exercise — F03 — 2026-11-20
 
 - [F03 M3-11 Ten-Gate Review](M3_FINAL_ACCEPTANCE_F03_M311_TEN_GATE_REVIEW_2026-11-20.md) — revalidates all ten gates and corrects stale SEC-06 merge, PHP 8.5.12 runtime and weekly backup policy statements; M3-11 remains BLOCKED / NOT ACCEPTED.
+
+## M3 final acceptance exercise — F04 — 2026-11-20
+
+- [F04 Product Owner Decision Consolidation](M3_FINAL_ACCEPTANCE_F04_PRODUCT_OWNER_DECISION_CONSOLIDATION_2026-11-20.md) — consolidates R1.1–R1.18 and M3/RCV-B owner decisions, distinguishes accepted policy from implementation/release evidence, and clarifies future Deeni Madaris inclusion versus current private-release suppression.
