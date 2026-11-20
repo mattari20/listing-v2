@@ -1,6 +1,8 @@
 ## RCV-B05 — language and accessibility — 2026-11-20
 
-- [RCV-B05 Language and Accessibility Scope and Acceptance Pack](04-roadmap/RCV-B05_LANGUAGE_AND_ACCESSIBILITY_SCOPE_ACCEPTANCE_2026-11-20.md) — next residual package; English/Urdu interface and RTL recommendation prepared; Product Owner language/content decision required before implementation.
+- [RCV-B05 Language and Accessibility Scope and Acceptance Pack](04-roadmap/RCV-B05_LANGUAGE_AND_ACCESSIBILITY_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner approved English/Urdu UI, original-approved-language facts, no automatic translation and session/URL language selection.
+- [RCV-B05 Implementation Design](04-roadmap/RCV-B05_IMPLEMENTATION_DESIGN_2026-11-20.md) — first-party translation catalogues, session locale persistence, RTL, mixed-direction fact isolation, accessibility changes and synthetic test coverage.
+- [RCV-B05 Manual Accessibility Review Checklist](04-roadmap/RCV-B05_MANUAL_ACCESSIBILITY_REVIEW_CHECKLIST_2026-11-20.md) — keyboard, screen-reader, contrast, zoom/reflow and RTL manual review; all checks remain NOT PERFORMED and no conformance claim is made.
 
 ## RCV-B04 — search and filter completeness — 2026-11-20
 

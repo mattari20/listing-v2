@@ -19,7 +19,7 @@ final class M309QualityOperationalHardeningTest extends TestCase
         $response = $this->get('/directory')->assertOk();
         $html = (string) $response->getContent();
 
-        $this->assertStringContainsString('<html lang="en">', $html);
+        $this->assertStringContainsString('<html lang="en" dir="ltr">', $html);
         $this->assertStringContainsString('<h1>Education Directory</h1>', $html);
         $this->assertStringContainsString('<label for="q">', $html);
         $this->assertStringContainsString('<input id="q"', $html);

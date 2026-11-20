@@ -1,7 +1,7 @@
 ## Latest verified planning position — RCV-B05 language and accessibility (2026-11-20)
 
-RCV-B04 is fully complete. PR #324 merged the student search/filter implementation as `8c1fce79cb088ebd8abc50179877781632c4290b`; PR #325 merged the pagination preservation regression as `40317c3f06111cac2122a25e35e5feb9b54ca08e`. Exact-head checks passed for both PRs. Final PR #325 synthetic suite: 15 passed, 1,289 assertions, 252 non-fatal warnings. RCV-B05 scope pack is prepared against the merged baseline. It recommends an English/Urdu interface, preservation of approved facts in their approved source language, RTL handling and bounded accessibility improvements. Product Owner language/content decision is required before implementation. Qualified accessibility assessment remains separate; no conformance claim.
----
+The Product Owner approved the English/Urdu interface, preservation of approved institute facts in their original approved language, no automatic translation and session/URL-scoped language choice. The bounded implementation is delivered on `feat/rcv-b05-urdu-localization-accessibility`: first-party English/Urdu translation catalogues, session locale persistence across directory search/profile/shortlist/comparison, RTL document direction, mixed-direction fact isolation, accessible skip links/main landmarks, labelled errors/status, keyboard focus and responsive comparison handling. Synthetic feature tests cover Urdu persistence, source-language facts, translated filter labels, unsupported-language fallback and accessible landmarks. Exact-head FND-01 PHP 8.5 foundation CI and project documentation validation are pending. Manual keyboard/screen-reader/contrast/zoom/reflow review remains NOT PERFORMED; no WCAG conformance claim. No production/Hostinger/V1, real data, external services/AI, migration, new dependency or spend.
+
 
 ## Latest verified planning position — RCV-B02 admissions and programme decision facts (2026-11-20)
 
