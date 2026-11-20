@@ -90,19 +90,89 @@ final class FieldDefinitionRegistryReader
     }
 
     /**
-     * Resolve the current human-governed provider category for an institution.
-     * No request-supplied category or label inference is accepted.
+     * Resolve a human-governed provider category for an institution or a programme.
+     *
+     * Programme applicability is contextual only: the programme must have one active,
+     * accepted catalogue relationship whose exact accepted claim version still matches
+     * the programme entity and parent institution. The programme does not inherit
+     * institution fields; its own definition must explicitly allow programme scope.
      */
-    public function providerCategoryForEntity(string $entityId): ?string
+    public function providerCategoryForEntity(string $entityId, bool $lockForUpdate = false): ?string
     {
-        $entity = DB::table('directory_entities')->where('id', $entityId)->first(['entity_type']);
-        if ($entity === null || $entity->entity_type !== 'institution') {
+        $entityQuery = DB::table('directory_entities')->where('id', $entityId);
+        if ($lockForUpdate) {
+            $entityQuery->lockForUpdate();
+        }
+        $entity = $entityQuery->first(['entity_type']);
+
+        if ($entity === null) {
             return null;
         }
 
-        $category = DB::table('directory_provider_category_assignments')
-            ->where('entity_id', $entityId)
-            ->value('provider_category');
+        if ($entity->entity_type === 'institution') {
+            $categoryQuery = DB::table('directory_provider_category_assignments')
+                ->where('entity_id', $entityId);
+            if ($lockForUpdate) {
+                $categoryQuery->lockForUpdate();
+            }
+            $category = $categoryQuery->value('provider_category');
+
+            return is_string($category) && $category !== '' ? $category : null;
+        }
+
+        if ($entity->entity_type !== 'programme') {
+            return null;
+        }
+
+        $catalogueQuery = DB::table('programme_catalogue_entries as catalogue')
+            ->join('directory_entities as parent', 'parent.id', '=', 'catalogue.institution_entity_id')
+            ->join('claims', function ($join): void {
+                $join->on('claims.subject_entity_id', '=', 'catalogue.entity_id')
+                    ->where('claims.predicate', '=', 'programme');
+            })
+            ->join('claim_versions', function ($join): void {
+                $join->on('claim_versions.id', '=', 'catalogue.claim_version_id')
+                    ->on('claim_versions.claim_id', '=', 'claims.id')
+                    ->where('claim_versions.disposition', '=', 'accepted');
+            })
+            ->where('catalogue.entity_id', $entityId)
+            ->where('catalogue.status', 'active')
+            ->where('parent.entity_type', 'institution')
+            ->whereNotExists(function ($query): void {
+                $query->selectRaw('1')
+                    ->from('claim_versions as successor')
+                    ->whereColumn('successor.supersedes_version_id', 'claim_versions.id');
+            });
+        if ($lockForUpdate) {
+            $catalogueQuery->lockForUpdate();
+        }
+        $catalogue = $catalogueQuery->first([
+            'catalogue.institution_entity_id',
+            'catalogue.title',
+            'catalogue.description',
+            'catalogue.level',
+            'claim_versions.value',
+        ]);
+
+        if ($catalogue === null) {
+            return null;
+        }
+
+        $claimValue = json_decode((string) $catalogue->value, true);
+        if (is_array($claimValue) === false ||
+            ($claimValue['institution_entity_id'] ?? null) !== (string) $catalogue->institution_entity_id ||
+            ($claimValue['title'] ?? null) !== (string) $catalogue->title ||
+            ($claimValue['description'] ?? null) !== $catalogue->description ||
+            ($claimValue['level'] ?? null) !== $catalogue->level) {
+            return null;
+        }
+
+        $categoryQuery = DB::table('directory_provider_category_assignments')
+            ->where('entity_id', $catalogue->institution_entity_id);
+        if ($lockForUpdate) {
+            $categoryQuery->lockForUpdate();
+        }
+        $category = $categoryQuery->value('provider_category');
 
         return is_string($category) && $category !== '' ? $category : null;
     }
