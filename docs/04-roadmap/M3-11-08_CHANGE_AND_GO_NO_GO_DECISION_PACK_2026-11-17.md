@@ -91,3 +91,35 @@ No command, migration, deployment or production operation is authorized by this 
 ## 8. Non-authorization statement
 
 No pilot, public launch, production access, Hostinger/hPanel access, V1 access, live database access, private environment provisioning, backup/restore rehearsal, deployment, migration, DNS/URL cutover, external service, real data, participant activity, new dependency, vendor or spend is authorized.
+
+
+
+## 9. Current-main prerequisite reconciliation — 2026-11-20
+
+This addendum supersedes stale shorthand in §2 where current repository evidence has since been reconciled. It does not issue or imply a GO, CONDITIONAL GO or NO-GO decision.
+
+| Decision input | Current evidence-backed state as of 2026-11-20 |
+|---|---|
+| M3-10 pilot/readiness | NOT ACCEPTED; no pilot authorization or participant activity. |
+| M3-11-02 legal/privacy/safeguarding | Product Owner internal review and DP-01–DP-06 repository reconciliations recorded; qualified independent legal/privacy/safeguarding assessment and target-specific evidence remain BLOCKED. |
+| M3-11-03 security/accessibility | Product Owner-led repository-only review closed for current development; SEC-06 local/CI implementation evidence merged. Independent security assessment, manual accessibility evaluation and candidate-specific WCAG assessment remain BLOCKED. |
+| M3-11-04 human operations/support | Repository preparation delivered; role register remains 0/9 written acceptances with no evidenced coverage/deputies. |
+| M3-11-05 environment/isolation | Historical resource/runtime evidence is partial; PHP 8.5.12 and bounded synthetic/in-memory CLI boot were recorded. Full isolation remains unaccepted; 0/18 items fully verified. |
+| M3-11-06 backup/recovery | Weekly automated backup cadence accepted for current development only; no additional spend. RPO/RTO, V2-only backup/restore/rollback, retention and integrity remain unverified; no rehearsal. |
+| M3-11-07 candidate | NOT STARTED / BLOCKED; no candidate ID, source SHA, artifact or candidate-specific evidence; no candidate-creation authorization. |
+| M3-11-08 decision | BLOCKED / NOT DECIDED; this pack is not a complete dossier and no GO/NO-GO is issued. |
+| M3-11-09 execution | NOT AUTHORIZED. |
+| M3-11-10 monitored operation | NOT STARTED. |
+
+### 9.1 Material scope discrepancy carried into any future dossier
+
+The current repository implements saved-items and session shortlist/comparison routes and UI, although these capabilities are excluded from the accepted M3-11 private acceptance scope. DP-05 records this discrepancy. Any future dossier must include exact-candidate evidence that excluded surfaces are inaccessible/disabled for the accepted activity; the scope exclusion in a document alone is insufficient.
+
+The DP-06 reconciliation records source configuration defaults and lifecycle unknowns, not effective target configuration or provider/hosting legal roles. The DP-04 audit evidence is bounded to synthetic role grant/revocation events and does not establish immutable retention or complete audit coverage.
+
+### 9.2 Decision result remains NOT DECIDED
+
+The Product Owner's existing scope, jurisdiction, provider-risk, data-minimization, safeguarding, weekly-backup, no-extra-spend and repository-visibility decisions remain in force and are not reopened. They do not constitute candidate acceptance, waive independent review, or authorize an environment, backup operation, change window or execution.
+
+A future GO is not available while the mandatory gates above remain blocked. This is not a new NO-GO decision; it is the current evidence state. No conditional GO or waiver is created.
+
