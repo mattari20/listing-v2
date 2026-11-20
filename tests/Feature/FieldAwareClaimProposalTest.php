@@ -146,6 +146,27 @@ class FieldAwareClaimProposalTest extends TestCase
         $this->assertSame(0, DB::table('publication_decisions')->count());
         $this->assertSame(0, DB::table('public_projections')->count());
 
+        DB::table('evidence_references')->where('id', $evidenceId)->update(['status' => 'eligible_for_review']);
+        $correction = app(FieldAwareClaimCorrectionService::class)->correct(
+            $this->actor('programme-correction-editor', ['correct_claim', 'submit_directory_proposal']),
+            $result['claim_version_id'],
+            '4 years',
+            [$evidenceId],
+            $this->sourceContext(),
+            'programme-correction-key',
+            '2026-11-16',
+            null,
+            'synthetic_value_correction',
+            'Synthetic programme duration correction.'
+        );
+        $this->assertDatabaseHas('claim_versions', [
+            'id' => $correction['claim_version_id'],
+            'claim_id' => $result['claim_id'],
+            'field_definition_version_id' => $definitionVersionId,
+            'disposition' => 'proposed',
+            'supersedes_version_id' => $result['claim_version_id'],
+        ]);
+
         DB::table('programme_catalogue_entries')->where('entity_id', $programmeId)->update([
             'title' => 'Tampered Programme Title',
         ]);
