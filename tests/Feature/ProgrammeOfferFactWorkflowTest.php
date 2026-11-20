@@ -120,7 +120,7 @@ class ProgrammeOfferFactWorkflowTest extends TestCase
             'known',
             ['date' => '2025-12-15'],
             [$evidence],
-            now()->subDays(2)->toDateTimeString(),
+            now()->subHour()->toDateTimeString(),
             '2025-01-01',
             '2025-12-31',
             'synthetic.deadline.v1',
