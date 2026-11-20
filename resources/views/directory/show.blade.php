@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Publicly approved education directory profile.">
-    <title>{{ $profile['name'] }} — Education Directory</title>
+    <meta name="description" content="{{ __('directory.meta_profile') }}">
+    <title>{{ $profile['name'] }} — {{ __('directory.directory_title') }}</title>
     <style>
         :root { color-scheme: light; font-family: system-ui, sans-serif; }
         body { margin: 0; color: #172033; background: #f7f8fa; line-height: 1.6; }
@@ -56,7 +56,7 @@
         @else
             <dl>
                 @foreach ($profile['facts'] as $fact)
-                    <dt>{{ $fact['label'] }}</dt>
+                    <dt dir="auto">{{ $fact['label'] }}</dt>
                     <dd dir="auto">
                         @if ($fact['is_external_url'])
                             <a href="{{ $fact['value'] }}" target="_blank" rel="noopener noreferrer">{{ $fact['value'] }}</a>
@@ -67,7 +67,7 @@
                             @if ($fact['observed_at'] !== null)
                                 {{ __('directory.evidence_observed', ['date' => $fact['observed_at']]) }}
                             @else
-                                Observation date not supplied
+                                {{ __('directory.observation_not_supplied') }}
                             @endif
                         </div>
                     </dd>
@@ -79,11 +79,11 @@
                 <h2 id="admissions-heading">{{ __('directory.admissions_info') }}</h2>
                 @foreach ($profile['programme_offers'] as $offer)
                     <section aria-labelledby="offer-{{ $loop->index }}-heading">
-                        <h3 id="offer-{{ $loop->index }}-heading">{{ $offer['admission_cycle'] }}</h3>
+                        <h3 id="offer-{{ $loop->index }}-heading" dir="auto">{{ $offer['admission_cycle'] }}</h3>
                         <p class="meta">{{ __('directory.delivery_location', ['value' => $offer['delivery_location']]) }}</p>
                         <dl>
                             @foreach ($offer['facts'] as $offerFact)
-                                <dt>{{ $offerFact['label'] }}</dt>
+                                <dt dir="auto">{{ $offerFact['label'] }}</dt>
                                 <dd dir="auto">
                                     @if ($offerFact['state'] === 'unknown')
                                         {{ __('directory.unknown') }}
@@ -104,12 +104,12 @@
                                             {{ $offerFact['value']['text'] ?? __('directory.information_unavailable') }}
                                         @endif
                                     @elseif ($offerFact['category'] === 'deadline')
-                                        {{ $offerFact['value']['date'] ?? 'Date unavailable' }}
+                                        {{ $offerFact['value']['date'] ?? __('directory.date_unavailable') }}
                                     @elseif ($offerFact['category'] === 'fee')
                                         {{ $offerFact['value']['component'] }}:
                                         {{ $offerFact['value']['amount'] }} {{ $offerFact['value']['currency'] }}
                                     @else
-                                        {{ $offerFact['value']['text'] ?? 'Information unavailable' }}
+                                        {{ $offerFact['value']['text'] ?? __('directory.information_unavailable') }}
                                     @endif
                                     @if ($offerFact['observed_at'] !== null)
                                         <div class="meta">{{ __('directory.evidence_observed', ['date' => $offerFact['observed_at']]) }}</div>
