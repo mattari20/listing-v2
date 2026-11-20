@@ -79,3 +79,8 @@ Detailed source evidence and limitations are in [M1 Student Journey Research](..
 - IBCC equivalence FAQs.
 
 No primary participant evidence has been collected. Requirements remain a desk-research baseline until a separately authorized validation phase is completed.
+
+
+## M3 final acceptance — SR-01–SR-14 evidence disposition — 2026-11-20
+
+The SR-01–SR-14 requirements remain the accepted M1-S01 student discovery baseline. Their current implementation/evidence status is reconciled in `../04-roadmap/M3_FINAL_ACCEPTANCE_F05_REQUIREMENT_EVIDENCE_ASSESSMENT_2026-11-20.md`, Section 2. Direct discovery, deterministic search, filters, comparison, offer-scoped facts, provenance, language, and private saved items have bounded synthetic/local/CI evidence. Pathway-led discovery, real nearby/location services, live national data, public sharing/alerts/reviews, full application actions, browser/device acceptance, manual/qualified accessibility and participant validation remain partial or deferred as stated there. SR-13 and SR-14 are accepted for the current private synthetic/anonymous scope only; no privacy certification is implied. No owner-approved requirement is rejected by this assessment.

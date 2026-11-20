@@ -648,3 +648,7 @@ All ten M3-11 gates were reconciled against the current controlled intake ledger
 ## F04 — Product Owner decision consolidation completed — 2026-11-20
 
 Previously accepted R1.1–R1.18 and M3/RCV-B owner decisions are carried forward without repeat approval. R1.1 Option A/Option 1, R1.2 provisional baseline with three clarifications, R1.3–R1.17 and R1.18 remain approved. The 2026-11-19 Deeni Madaris future-inclusion clarification does not change current M3-11 Option A / Option 1 private-release suppression. No implementation or release authority is created. See `M3_FINAL_ACCEPTANCE_F04_PRODUCT_OWNER_DECISION_CONSOLIDATION_2026-11-20.md`.
+
+## F05 — requirement-level evidence assessment completed — 2026-11-20
+
+SR-01–SR-14 and the institution/programme, AI-agent, M2 architecture, AI-ARCH, M3 and RCV-B requirement families have been classified against current evidence. Accepted requirements are preserved; bounded synthetic implementation is not promoted into real-world or operational acceptance; deferred and blocked gates remain explicit. No requirement is newly rejected. M3 remains OPEN pending F06 final report and closure recommendation; M3-11 remains BLOCKED / NOT ACCEPTED. See `M3_FINAL_ACCEPTANCE_F05_REQUIREMENT_EVIDENCE_ASSESSMENT_2026-11-20.md`.

@@ -1525,3 +1525,7 @@ The dated addendum in `RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.
 ## M3 final acceptance exercise — F04 — 2026-11-20
 
 - [F04 Product Owner Decision Consolidation](M3_FINAL_ACCEPTANCE_F04_PRODUCT_OWNER_DECISION_CONSOLIDATION_2026-11-20.md) — consolidates R1.1–R1.18 and M3/RCV-B owner decisions, distinguishes accepted policy from implementation/release evidence, and clarifies future Deeni Madaris inclusion versus current private-release suppression.
+
+## M3 final acceptance exercise — F05 — 2026-11-20
+
+- [F05 Requirement-Level Evidence Assessment](M3_FINAL_ACCEPTANCE_F05_REQUIREMENT_EVIDENCE_ASSESSMENT_2026-11-20.md) — classifies SR-01–SR-14, institution/programme, AI-agent, architecture, M3 and RCV-B02–B11 requirements as accepted, resolved, conditionally accepted, deferred, blocked or rejected against actual evidence.

@@ -172,3 +172,8 @@ This review strengthens P04 evidence but does not complete P04 or select a stack
 - [ ] Confirm P04–P08 remain subject to their existing evidence and owner decision gates.
 
 **Disposition:** Recommended for owner review. This document does not constitute acceptance or implementation authorization.
+
+
+## M3 final acceptance — AI-ARCH decision mapping clarification — 2026-11-20
+
+The R1.1–R1.18 Product Owner approval sequence is preserved by F04, but current canonical repository records do not map those decisions item-by-item to AI-ARCH-01–AI-ARCH-20. Therefore this document's original status “owner decision required” remains controlling for the AI-ARCH set; no blanket acceptance is inferred. Individual architecture controls may have bounded implementation evidence, but that does not constitute approval of the entire 20-item set or authorization for live source/model/agent activity. See `../04-roadmap/M3_FINAL_ACCEPTANCE_F04_PRODUCT_OWNER_DECISION_CONSOLIDATION_2026-11-20.md` and `../04-roadmap/M3_FINAL_ACCEPTANCE_F05_REQUIREMENT_EVIDENCE_ASSESSMENT_2026-11-20.md`.

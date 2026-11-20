@@ -44,3 +44,8 @@ This is a product requirement and owner decision, not an implementation authoriz
 ## M1-S03 TVET/QAB and Deeni Madaris cross-category research — 2026-11-12
 
 The official source register now includes NAVTTC's production QAB list, Punjab TEVTA/PSDA/TTB, Sindh STEVTA, KPTEVTA and B-TEVTA/BSIS. B-TEVTA public registry and home-page counts differ (16 versus six), and BSIS 413 total providers do not reconcile with displayed gender categories totaling 112. Punjab TEVTA/TTB also list vocational-training relationships involving some Deeni Madaris. This does not alter V2-DEC-006: Deeni Madaris remain hidden by default. Whether a separately registered vocational provider at the same location may be shown independently is deferred to M2 design. See `../03-research/M1_S03_TVET_QAB_SOURCE_REVIEW_2026-11-12.md`.
+
+
+## Superseding future product-direction clarification — Deeni Madaris — 2026-11-19
+
+The Product Owner later clarified that Deeni Madaris should be included in the **future V2 directory** as a distinct, clearly identified category, with relevant institution details for future student/parent discovery; the earlier OFF posture is not a permanent product exclusion. This future direction does not authorize exposure in the current M3-11 Option A / Option 1 private acceptance scope, which remains default-OFF with zero exposure until a separate dated scope amendment and applicable source-rights, privacy, safeguarding, security, governance and publication controls are accepted. Do not collect, infer or expose sect/maslak as a general discovery attribute. This clarification is consistent with the current M3-11 scope charter and F04 decision register.
