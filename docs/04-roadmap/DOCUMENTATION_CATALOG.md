@@ -1,7 +1,7 @@
 ## RCV-B03 — shortlist and comparison — 2026-11-20
 
 - [RCV-B03 Scope and Acceptance Decision](RCV-B03_SHORTLIST_AND_COMPARISON_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner approved temporary session-only shortlist; no persistent save/share.
-- [RCV-B03 Implementation Design](RCV-B03_IMPLEMENTATION_DESIGN_2026-11-20.md) — bounded implementation details, session behavior, files, test coverage and exclusions; exact-head validation pending.
+- [RCV-B03 Implementation Design](RCV-B03_IMPLEMENTATION_DESIGN_2026-11-20.md) — bounded implementation details, session behavior, files, test coverage and exclusions; exact-head PHP 8.5 foundation CI #44645164583 and documentation validation #44645164581 passed; PR #322 open and unmerged.
 
 ## RCV-B02 — admissions and programme decision facts — 2026-11-20
 
