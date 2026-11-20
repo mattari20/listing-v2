@@ -177,8 +177,8 @@
             <div class="empty-guidance" role="status">
                 <p>{{ __('directory.no_matches') }}</p>
                 <p>{{ __('directory.no_matches_guidance') }}</p>
-                <p><a href="{{ route('directory.index', array_filter(['q' => $query !== '' ? $query : null, 'lang' => $locale])) }}">{{ __('directory.broaden_search') }}</a></p>
-                <p><a href="{{ route('directory.index', ['lang' => $locale]) }}">{{ __('directory.clear_all') }}</a></p>
+                <p><a href="/directory?{{ http_build_query(array_filter(['q' => $query !== '' ? $query : null, 'lang' => $locale])) }}">{{ __('directory.broaden_search') }}</a></p>
+                <p><a href="/directory?lang={{ $locale }}">{{ __('directory.clear_all') }}</a></p>
             </div>
         @endforelse
         {{ $results->links() }}
