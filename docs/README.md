@@ -1,3 +1,11 @@
+## M3-11 — current gate evidence and qualified-review handoff — 2026-11-20
+
+- [M3-11 Product Owner Internal Data and Privacy Review](04-roadmap/M3-11-02_OWNER_INTERNAL_DATA_PRIVACY_REVIEW_2026-11-18.md) — current DP-02–DP-06 source/repository reconciliations, partial dispositions and remaining target-specific limitations; qualified independent assessment remains outstanding.
+- [LPS-29 Track A Qualified Review Handoff Execution Pack](04-roadmap/M3-11_LPS29_GAP03_TRACK_A_QUALIFIED_REVIEW_HANDOFF_EXECUTION_PACK_2026-11-20.md) — exact synthetic-scope reviewer handoff manifest, qualification/independence checks, mandatory questions and report/disposition protocol; no reviewer appointed or report received.
+- [M3-11-08 Change and Go/No-Go Decision Pack](04-roadmap/M3-11-08_CHANGE_AND_GO_NO_GO_DECISION_PACK_2026-11-17.md) — current prerequisite reconciliation; BLOCKED / NOT DECIDED, no GO/NO-GO issued, M3-11-09 not authorized.
+
+---
+
 ## RCV-B05 — language and accessibility — 2026-11-20
 
 - [RCV-B05 Language and Accessibility Scope and Acceptance Pack](04-roadmap/RCV-B05_LANGUAGE_AND_ACCESSIBILITY_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner approved English/Urdu UI, original-approved-language facts, no automatic translation and session/URL language selection.
