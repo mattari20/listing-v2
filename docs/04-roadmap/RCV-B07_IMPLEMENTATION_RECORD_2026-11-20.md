@@ -3,7 +3,7 @@
 **Date:** 2026-11-20  
 **Repository:** mattari20/listing-v2  
 **Branch:** feat/rcv-b07-fail-closed-seo-controls  
-**Status:** Implementation submitted for exact-head validation; no deployment or indexing activation.
+**Status:** IMPLEMENTED AND MERGED in PR #335 as `a1d5ad14fe9b8f28682349c5cd4ee2ee5a91617b`; no deployment or indexing activation.
 
 ## 1. Approved policy
 
@@ -29,4 +29,4 @@ The Product Owner approved: (a) indexing stays disabled until a public canonical
 
 ## 4. Validation record
 
-Pending exact-head Project documentation validation and FND-01 PHP 8.5 CI. Final test count, assertions, warnings, run IDs and merge commit will be recorded after required checks complete.
+Exact-head Project documentation validation #44653998631 and FND-01 PHP 8.5 CI #44653998645 passed on `fca6e1151ebb16e0de6cf153f94d0e947ee13bc5`. Synthetic suite: 15 passed, 1,366 assertions, zero failures, 273 non-fatal warnings. Formatting, Composer validation, dependency advisories, Laravel bootstrap/routes and artifact hygiene passed. PR #335 merged as `a1d5ad14fe9b8f28682349c5cd4ee2ee5a91617b`.
