@@ -112,7 +112,7 @@
                                                     <ul>
                                                         @foreach ($offer['facts'] as $fact)
                                                             <li>
-                                                                <strong>{{ $fact['label'] }}:</strong>
+                                                                <strong dir="auto">{{ $fact['label'] }}:</strong>
                                                                 @if ($fact['state'] === 'unknown')
                                                                     {{ __('directory.unknown') }}
                                                                 @elseif ($fact['state'] === 'not_stated')
