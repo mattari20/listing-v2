@@ -8,7 +8,7 @@
 |---|---|---|
 | RPO | NOT SET | NOT RECEIVED |
 | RTO | NOT SET | NOT RECEIVED |
-| Backup frequency | NOT SET | NOT RECEIVED |
+| Backup frequency | Weekly automated backups for current development stage | Product Owner decision recorded in M3-11 controlled evidence intake / RCV-B11, 2026-11-20; no paid upgrade or increased frequency |
 | Retention and deletion | NOT SET | NOT RECEIVED |
 | Restore verification cadence | NOT SET | NOT RECEIVED |
 | Integrity verification method | NOT SET | NOT RECEIVED |
@@ -58,3 +58,8 @@
 - Product Owner acceptance/residual risks:
 
 **Current result:** 0/14 evidence items accepted; no backup, restore, rollback or RPO/RTO measurement has been performed.
+
+
+## Superseding backup-frequency policy decision — 2026-11-20
+
+The Product Owner accepted **weekly automated backups** for the current development stage and declined a paid upgrade or increased frequency. The decision is a policy cadence only; it is not proof of a V2-only backup, retention, integrity, destination isolation or recovery capability. RPO/RTO remain NOT SET; recovery ownership remains NOT ASSIGNED; REC-01–REC-14 evidence states remain unchanged. No backup, download, restore or rollback was performed or authorized.

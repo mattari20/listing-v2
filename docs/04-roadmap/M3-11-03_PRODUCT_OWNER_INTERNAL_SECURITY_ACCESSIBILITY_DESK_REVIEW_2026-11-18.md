@@ -150,3 +150,8 @@ No changes to application code, dependencies, runtime configuration or environme
 - No WCAG 2.2 AA conformance claim is made.
 - M3-11-03 remains IN PROGRESS / BLOCKED pending remediation of internal findings, a pinned candidate and any separately required assessment. Under the owner-led internal review model, the Product Owner may accept internal findings, but the implementer/AI does not independently certify its own work.
 - M3-11 overall remains BLOCKED / NOT ACCEPTED. No environment provisioning, public pilot, deployment, production action or release is authorized.
+
+
+## Superseding SEC-06 implementation disposition — 2026-11-20
+
+The SEC-06 logging finding in this internal review is historical and is superseded for the bounded local/CI implementation scope by PR #347 (implementation merged as `0e4f94287150d6a8b6e2e7db9416f8c601ed9e8a`) and PR #348 (final evidence closeout merged as `e07a8dd23583f574d13e901ace390623d1b4e562`). Exact-head PHP 8.5 foundation CI #688 and documentation validation #1164 passed on the final documentation closeout head `758324da66fd8d34784997045fc1055d69689337`. This closes the local/CI logging implementation gap only. It does not establish hosted log path, filesystem permissions, operator access, backup-held copies, complete application-wide message producer review, independent security assessment or accessibility conformance. All other internal findings and future M3-11 assurance boundaries remain as recorded.

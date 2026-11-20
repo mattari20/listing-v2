@@ -1,7 +1,7 @@
 # M3-11-03 SEC-06 — Local/CI Implementation Evidence
 
 **Date:** 2026-11-20  
-**Status:** CURRENT-MAIN IMPLEMENTATION AND SYNTHETIC VALIDATION PASSED; FINAL DOCUMENTATION-HEAD CHECKS REQUIRED  
+**Status:** IMPLEMENTATION AND FINAL CLOSEOUT MERGED; EXACT-HEAD CI PASSED; HOSTED CONTROLS AND INDEPENDENT REVIEW REMAIN OPEN  
 **Integration PR:** #347  
 **Implementation/test head validated:** `814d2b34837e967bfb1ce9957a8ed467d19279bc`  
 **Current-main integration baseline:** `7319fbd88cfbcd16cd03e23f8b3af1253031f9a5`  
@@ -38,7 +38,7 @@ On implementation/test head `814d2b34837e967bfb1ce9957a8ed467d19279bc` (PR #347)
 
 The synthetic suite reported **20 passed, 282 warnings, 1,501 assertions**. It is not warning-free. Existing environment-file-dependent tests emit warnings because CI intentionally does not create a real `.env` file. The first current-main integration run stopped at Pint because of redundant parentheses in the handler constructor default; this was corrected, and the final implementation/test head passed Pint and the full workflow.
 
-The evidence-note updates after the validated implementation/test head were documentation-only; no application code or tests changed after `814d2b34837e967bfb1ce9957a8ed467d19279bc`. The final PR-head checks remain required before merge.
+The evidence-note updates after the validated implementation/test head were documentation-only; no application code or tests changed after `814d2b34837e967bfb1ce9957a8ed467d19279bc`. The implementation was merged in PR #347 as `0e4f94287150d6a8b6e2e7db9416f8c601ed9e8a`. The final documentation closeout was merged in PR #348 as `e07a8dd23583f574d13e901ace390623d1b4e562`; final documentation closeout head `758324da66fd8d34784997045fc1055d69689337` passed PHP 8.5 foundation CI #688 and documentation validation #1164.
 
 ## 3. Historical prior-branch CI evidence
 
@@ -75,8 +75,13 @@ No production or hosted environment variables were modified.
 
 ## 6. Disposition
 
-**SEC-06 local/CI implementation:** current-main implementation and synthetic checks passed; final PR-head validation and merge remain.  
+**SEC-06 local/CI implementation:** implemented, exact-head validated and merged in PR #347; final evidence closeout merged in PR #348.  
 **SEC-06 hosted configuration and verification:** NOT AUTHORIZED.  
 **Backup-held log copies:** deferred; no deletion or inspection performed.  
 **M3-11-05:** BLOCKED / NOT ACCEPTED.  
 **M3-11 overall:** BLOCKED / NOT ACCEPTED.
+
+
+## Superseding final delivery closeout — 2026-11-20
+
+This dated addendum supersedes the pre-merge status language in the original sections above. PR #347 implementation merged as `0e4f94287150d6a8b6e2e7db9416f8c601ed9e8a`; PR #348 final documentation closeout merged as `e07a8dd23583f574d13e901ace390623d1b4e562`. The final closeout head `758324da66fd8d34784997045fc1055d69689337` passed PHP 8.5 foundation CI #688 and documentation validation #1164. Local/CI implementation and its evidence closeout are COMPLETE. Hosted log path/permissions/forwarding/backup copies, full log-message producer audit and independent security/accessibility review remain unverified or blocked. M3-11-03 is not closed for future hosted/release assurance.

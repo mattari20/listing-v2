@@ -62,3 +62,7 @@ The repository-side controlled evidence intake reconciliation described above is
 **M3-11-04 scope clarification:** CLOSED applies only to the owner-led repository-only private synthetic development boundary. Future hosted/reviewer/pilot/release operations remain BLOCKED/DEFERRED until named humans accept their roles with competence, availability, deputies/coverage and escalation. The residual gate plan's BLOCKED status refers to that future operational scope; it does not reopen the already accepted repository-development model.
 
 **M3-10/M3-11 decision clarification:** M3-10 Option B authorizes preparation of a possible future pilot proposal for separate review only; it does not authorize a pilot. M3-11 Option A defines the current private acceptance boundary and preserves no-pilot/no-production-execution restrictions. These are distinct work-package decisions, not conflicting alternatives.
+
+## F03 ten-gate review confirmation — 2026-11-20
+
+F03 rechecked the ten-gate ledger against RCV-B11 and the underlying evidence packs. No new qualified reviewer report, role acceptance, hosted isolation authorization/evidence, recovery rehearsal, candidate dossier or go/no-go was received. The SEC-06 implementation closeout, PHP 8.5.12 runtime observation and weekly backup policy decision are now described consistently in their source evidence records. These corrections do not change any gate disposition in §3. M3-11 remains BLOCKED / NOT ACCEPTED.

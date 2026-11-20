@@ -559,3 +559,7 @@ Key boundaries: M0–M2 remain accepted/closed; M3-00 is accepted with recorded 
 ## M3 final acceptance exercise — F02 repository-side consistency — 2026-11-20
 
 F02 corrected the current M3 step pointer, reconciled the high-level roadmap M3 status with the authoritative detailed plan, superseded the completed M3-11 intake “next agenda” handoff, and clarified M3-11-04 scope. The repository-development boundary is closed only for private synthetic work; future operations remain blocked. M3-10 Option B remains proposal preparation only; M3-11 Option A remains the private acceptance boundary. Evidence: `M3_FINAL_ACCEPTANCE_F02_REPOSITORY_CONSISTENCY_2026-11-20.md`. No external or operational gate was accepted.
+
+## M3 final acceptance exercise — F03 M3-11 ten-gate review — 2026-11-20
+
+F03 revalidated all ten M3-11 gates against the current controlled intake ledger and RCV-B11 final reconciliation. M3-11-01 remains closed for scope definition; M3-11-02 qualified review blocked; M3-11-03 internal review/SEC-06 local-CI delivery closed but independent future assurance blocked; M3-11-04 repository-only development closed but future operations 0/9; M3-11-05 hosted isolation blocked (0/18); M3-11-06 policy cadence accepted but recovery blocked (0/14, RPO/RTO unset); M3-11-07 no candidate; M3-11-08 not decided; M3-11-09 not authorized; M3-11-10 not started. F03 corrected stale SEC-06, PHP 8.5.12 and weekly backup-cadence descriptions without promoting any gate. Evidence: `M3_FINAL_ACCEPTANCE_F03_M311_TEN_GATE_REVIEW_2026-11-20.md`.
