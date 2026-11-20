@@ -38,7 +38,7 @@ On implementation/test head `814d2b34837e967bfb1ce9957a8ed467d19279bc` (PR #347)
 
 The synthetic suite reported **20 passed, 282 warnings, 1,501 assertions**. It is not warning-free. Existing environment-file-dependent tests emit warnings because CI intentionally does not create a real `.env` file. The first current-main integration run stopped at Pint because of redundant parentheses in the handler constructor default; this was corrected, and the final implementation/test head passed Pint and the full workflow.
 
-The evidence-note update itself is documentation-only. The required workflows must also pass on the final PR head before merge.
+The evidence-note updates after the validated implementation/test head were documentation-only; no application code or tests changed after `814d2b34837e967bfb1ce9957a8ed467d19279bc`. The final PR-head checks remain required before merge.
 
 ## 3. Historical prior-branch CI evidence
 
