@@ -1,6 +1,6 @@
 ## M3-12 — institute directory and management functional verification — 2026-11-20
 
-- [M3-12 Agenda 03 — Institute Directory and Management Functional Verification](M3-12_A03_INSTITUTE_DIRECTORY_MANAGEMENT_FUNCTIONAL_VERIFICATION_2026-11-20.md) — reconciles provider/institution and authority relationships, campus/programme catalogue, dynamic field governance, representative HTTP workflows, editorial review and public projection tests. Repository evidence review only; browser, real-data, human and hosted acceptance remain outstanding.
+- [M3-12 Agenda 03 — Institute Directory and Management Functional Verification](M3-12_A03_INSTITUTE_DIRECTORY_MANAGEMENT_FUNCTIONAL_VERIFICATION_2026-11-20.md) — COMPLETE; PR #352 merged as `2d38e78408f7a3791ee77f9a931739e6d21d72ff`. Exact head `32fc97cdc4d2ebf938ff8910810800da73637203` passed PHP 8.5 CI #693 and documentation validation #1174. Browser, real-data, human and hosted acceptance remain outstanding.
 
 ## M3-12 — architecture and database foundation — 2026-11-20
 
