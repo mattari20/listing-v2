@@ -23,6 +23,10 @@
         .meta, .notice { color: #4b5563; font-size: .94rem; }
         .facets { margin-top: 1rem; }
         .facets a { margin-right: .8rem; }
+        fieldset { border: 1px solid #d9dee7; border-radius: .5rem; padding: .75rem; min-width: 0; }
+        legend { font-weight: 700; padding: 0 .3rem; }
+        .active-filters { margin: .8rem 0; padding: .75rem; background: #eef3fa; border-radius: .5rem; }
+        .active-filters span { display: inline-block; margin: .2rem .45rem .2rem 0; }
         @media (max-width: 42rem) { form { grid-template-columns: 1fr; } main { padding: .85rem; } }
     </style>
 </head>
@@ -55,23 +59,41 @@
             <label for="locality">Province, district, city or locality</label>
             <input id="locality" name="locality" type="search" maxlength="120" value="{{ $locality }}" autocomplete="off">
         </div>
-        @foreach ($filterOptions as $key => $option)
-            <div>
-                <label for="filter-{{ $key }}">{{ $option['label'] }}</label>
-                <select id="filter-{{ $key }}" name="filters[{{ $key }}]">
-                    <option value="">All {{ strtolower($option['label']) }}</option>
-                    @foreach ($option['values'] as $value)
-                        <option value="{{ $value }}" @selected(($filters[$key] ?? null) === $value)>{{ $value }}</option>
-                    @endforeach
-                </select>
-            </div>
+        @foreach ($filterGroups as $groupLabel => $groupOptions)
+            <fieldset>
+                <legend>{{ $groupLabel }}</legend>
+                @foreach ($groupOptions as $key => $option)
+                    <div>
+                        <label for="filter-{{ $key }}">{{ $option['label'] }}</label>
+                        <select id="filter-{{ $key }}" name="filters[{{ $key }}]">
+                            <option value="">All {{ strtolower($option['label']) }}</option>
+                            @foreach ($option['values'] as $value)
+                                <option value="{{ $value }}" @selected(($filters[$key] ?? null) === $value)>{{ $value }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                @endforeach
+            </fieldset>
         @endforeach
         <button type="submit">Search</button>
     </form>
 
+    @if ($query !== '' || $type !== null || $locality !== '' || $filters !== [])
+        <section class="active-filters" aria-label="Active search filters">
+            <strong>Active search:</strong>
+            @if ($query !== '')<span>Words: {{ $query }}</span>@endif
+            @if ($type !== null)<span>Category: {{ $typeOptions[$type] ?? $type }}</span>@endif
+            @if ($locality !== '')<span>Location: {{ $locality }}</span>@endif
+            @foreach ($filters as $key => $value)
+                <span>{{ $filterOptions[$key]['label'] ?? $key }}: {{ $value }}</span>
+            @endforeach
+            <a href="{{ route('directory.index') }}">Clear all filters</a>
+        </section>
+    @endif
+
     @if ($facets !== [])
         <nav class="facets" aria-label="Available categories">
-            <strong>Categories:</strong>
+            <strong>Categories:</strong> <span class="meta">Counts reflect the current text, locality and approved field filters; category selection does not hide the other category counts.</span>
             @foreach ($facets as $key => $count)
                 <a href="{{ route('directory.index', ['q' => $query, 'type' => $key, 'locality' => $locality, 'filters' => $filters]) }}">{{ $typeOptions[$key] ?? $key }} ({{ $count }})</a>
             @endforeach
@@ -108,7 +130,7 @@
         {{ $results->links() }}
     </section>
     <footer>
-        <p class="notice">Only current, approved anonymous-directory projections are shown. Locality search uses published text only; precise device location, distance sorting and maps are not enabled.</p>
+        <p class="notice">Search uses case-insensitive substring matching over approved searchable names and facts. It does not provide typo correction, fuzzy or semantic search, transliteration, or relevance ranking. Only current, approved anonymous-directory projections are shown. Locality search uses published text only; precise device location, distance sorting and maps are not enabled.</p>
     </footer>
 </main>
 </body>
