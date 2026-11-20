@@ -3,7 +3,7 @@
 **Date:** 2026-11-20  
 **Repository:** mattari20/listing-v2  
 **Branch:** feat/rcv-b07-synthetic-performance-harness  
-**Status:** Harness submitted for exact-head validation; no SLO or capacity claim.
+**Status:** IMPLEMENTED AND MERGED in PR #337 as `049cb60fd8f60b6486450a88c9d4e8d8e176e656`; no SLO or capacity claim.
 
 ## 1. Authorization and purpose
 
@@ -48,4 +48,22 @@ Timing, query and byte summaries are emitted as a machine-readable JSON line in 
 
 ## 6. Validation
 
-Pending exact-head PHP 8.5 CI and project documentation validation. After CI, append the exact head, run IDs, test count/assertions/warnings and a captured sample summary.
+PR #337 head `7648c4bf6916eec5290b8f997c0be35e5f1c2be8` merged as `049cb60fd8f60b6486450a88c9d4e8d8e176e656`. FND-01 PHP 8.5 CI #44654818077 and Project documentation validation #44654818021 passed. The CI job ran on generated PR merge ref `61d2d16be55b6d0897631dccbb15490efe717ee8`, which contains the exact PR head and base `538259bb47475579722fc2b4877d94e9a5e9e8d4`. Full suite: 15 passed, 1,419 assertions, 274 non-fatal warnings.
+
+## 7. Captured diagnostic results
+
+Environment: PHP 8.5.13, SQLite in-memory, seven fictional entities, one warm-up plus three measured requests per scenario, concurrency 1. Latency values are milliseconds; response bytes are uncompressed HTML. Quantiles use nearest-rank samples and are descriptive only.
+
+| Scenario | p50 ms | p95 ms | p99 ms | Median SQL queries | Median HTML bytes |
+|---|---:|---:|---:|---:|---:|
+| Directory landing | 4.256 | 4.400 | 4.400 | 6 | 13,550 |
+| Text search | 3.688 | 3.690 | 3.690 | 5 | 9,189 |
+| Manual locality filter | 3.711 | 3.730 | 3.730 | 5 | 10,501 |
+| Category filter | 4.508 | 5.063 | 5.063 | 6 | 8,423 |
+| Page-two request | 4.062 | 4.077 | 4.077 | 6 | 10,589 |
+| Profile read | 1.920 | 1.982 | 1.982 | 2 | 5,582 |
+| Session comparison | 3.742 | 3.754 | 3.754 | 6 | 11,288 |
+
+Machine-readable JSON was emitted in FND-01 run #665. The full suite passed. Existing rate limits were preserved; an initial larger sample run correctly hit HTTP 429, so the final harness uses a smaller throttle-safe sample count. No rate limit was bypassed or weakened.
+
+These measurements are a tiny warm in-process SQLite diagnostic only. They are not production/Hostinger latency, not a concurrency/capacity test, not browser metrics and not an SLO. M2-S09 remains unapproved.
