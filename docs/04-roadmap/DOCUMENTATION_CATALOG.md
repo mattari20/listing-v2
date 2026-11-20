@@ -7,7 +7,15 @@
 
 ## RCV-B06 — advanced geography — 2026-11-20
 
-- [RCV-B06 Advanced Geography Scope and Acceptance Pack](RCV-B06_ADVANCED_GEOGRAPHY_SCOPE_ACCEPTANCE_2026-11-20.md) — current manual locality/campus location baseline inspected; staged optional nearby policy prepared. Product Owner decision required; no coordinates, source access, geolocation, maps, geocoding, vendor, schema change or spend authorized.
+- [RCV-B06 Advanced Geography Scope and Acceptance Pack](RCV-B06_ADVANCED_GEOGRAPHY_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner policy and synthetic-only proof approved; PR #331 implementation and PR #332 closeout merged; exact-head PHP 8.5 and documentation CI passed. Live coordinates, source access, geolocation, maps, schema, vendors and spend remain unauthorized.
+- [RCV-B06 Geography Semantics and Optional Nearby Design](RCV-B06_GEOGRAPHY_SEMANTICS_AND_NEARBY_DESIGN_2026-11-20.md) — entity ownership, coordinate quality, fail-closed eligibility, privacy and synthetic test contract.
+- [RCV-B06 Publication/Evidence Review and Bounded Implementation Authorization Request](RCV-B06_PUBLICATION_EVIDENCE_REVIEW_AND_IMPLEMENTATION_AUTHORIZATION_REQUEST_2026-11-20.md) — publication/evidence/suppression controls reconciled; synthetic-only implementation approval and closeout recorded.
+- [RCV-B06 Synthetic Nearby Ranking Implementation Record](RCV-B06_SYNTHETIC_NEARBY_RANKING_IMPLEMENTATION_RECORD_2026-11-20.md) — PR #331 merged as `c926d278de21229a66edc2ff3f1f78e0270b874e`; exact-head FND-01 #44652073842 and documentation validation #44652073843 passed (15 tests, 1,340 assertions).
+
+## RCV-B07 — public SEO and performance evidence — 2026-11-20
+
+- [RCV-B07 Public SEO and Performance Scope and Acceptance Pack](RCV-B07_PUBLIC_SEO_AND_PERFORMANCE_SCOPE_ACCEPTANCE_2026-11-20.md) — repository-only inventory complete; Product Owner decisions and implementation authorization pending.
+- [RCV-B07 SEO, Crawl Controls and Performance Evidence Design](RCV-B07_SEO_CRAWL_AND_PERFORMANCE_EVIDENCE_DESIGN_2026-11-20.md) — proposed trusted-origin, indexability, sitemap, preview noindex and synthetic measurement contracts; no code or SLO activation authorized.
 
 ## RCV-B04 — search and filter completeness — 2026-11-20
 
