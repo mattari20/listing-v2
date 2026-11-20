@@ -1464,3 +1464,12 @@ PR [#273](https://github.com/mattari20/listing-v2/pull/273) merge evidence: merg
 - M3-11-05D `.htaccess` Basic Authentication directives — 2026-11-18: owner-provided screenshot confirms Hostinger-generated `AuthType Basic`, `AuthUserFile` and `Require valid-user` directives in `/public_html/institutes-v2/.htaccess`; live enforcement, static-file coverage, child overrides and `.htpasswd` HTTP denial remain unverified. Password/hash omitted.
 
 - M3-11-05D Hostinger PHP configuration — 2026-11-18: PHP 8.5 selected; PHP Info runtime 8.5.12; PDO and MySQL/SQLite drivers enabled; selected additional extensions recorded in `M3-11-05D_HOSTINGER_PHP_AND_DEDICATED_DATABASE_EVIDENCE_2026-11-18.md`. No configuration changed. Hosted Laravel/database tests remain unperformed.
+
+
+## RCV-01 current delivery and controlled acceptance handoff — 2026-11-20
+
+| Document | Purpose | Status |
+|---|---|---|
+| [RCV-01 Current Delivery Reconciliation and Controlled Acceptance Handoff](RCV-01_CURRENT_DELIVERY_AND_ACCEPTANCE_HANDOFF_2026-11-20.md) | Reconciles merged RCV-B02–B08 bounded implementation, RCV-B09/B10 preflight-only outcomes, RCV-B11 documentary readiness, and the next controlled human-evidence intake agenda | Delivered — feature-package status reconciled; M3-11 remains BLOCKED / NOT ACCEPTED |
+
+The dated addendum in `RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.md` updates the original residual backlog without altering its historical inspection baseline.
