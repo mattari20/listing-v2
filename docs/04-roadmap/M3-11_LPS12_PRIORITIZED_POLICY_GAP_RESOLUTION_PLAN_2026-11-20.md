@@ -1,3 +1,9 @@
+## LPS-14 follow-on — GAP-02 data lifecycle framework — 2026-11-20
+
+LPS-14 has defined the repository-only data inventory, lifecycle, retention, deletion-propagation and verification framework in `M3-11_LPS14_GAP02_DATA_LIFECYCLE_INVENTORY_RETENTION_DELETION_FRAMEWORK_2026-11-20.md`. This is framework preparation only: GAP-02 remains OPEN / NOT IMPLEMENTED / NOT CLOSED pending complete exact-scope inventory, justified and approved retention schedule, deletion/backup verification, named operational ownership and qualified privacy review. No real data, hosted access, backup inspection, production change or implementation is authorized.
+
+---
+
 # M3-11 LPS-12 — Prioritized Policy Gap Resolution Plan
 
 **Date:** 2026-11-20  
