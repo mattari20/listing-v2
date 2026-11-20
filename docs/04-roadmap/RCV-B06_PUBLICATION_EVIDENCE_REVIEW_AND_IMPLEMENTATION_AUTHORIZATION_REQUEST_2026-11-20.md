@@ -3,7 +3,7 @@
 **Date:** 2026-11-20  
 **Repository:** mattari20/listing-v2  
 **Review baseline:** main after RCV-B06 policy/design merge  
-**Status:** Evidence review COMPLETE; implementation authorization REQUESTED, not granted
+**Status:** Evidence review COMPLETE; Product Owner approved the exact synthetic-only proof-of-concept scope on 2026-11-20; implementation prepared, exact-head validation pending
 
 ## 1. Decision requested
 
@@ -124,14 +124,12 @@ Even if this proof-of-concept is approved and merged, the following remain unapp
 - Maps, geocoding, routing, vendors, external APIs and any spend.
 - Production/Hostinger/V1 access, deployment, public activation or URL cutover.
 
-## 7. Product Owner response
+## 7. Product Owner decision — APPROVED 2026-11-20
 
-**Requested decision:** approve the synthetic-only, pure-domain proof-of-concept exactly as bounded in Sections 1, 4 and 5, or decline/amend it.
+The Product Owner approved the synthetic-only, pure-domain proof-of-concept exactly as bounded in Sections 1, 4 and 5. This authorizes only the repository-local component and fictional unit tests described here. It does not authorize any excluded item or any subsequent integration stage.
 
-Approval of this request would authorize only the listed repository-local synthetic component and tests. It would not authorize any excluded item or any subsequent integration stage.
+## 8. Review and implementation status
 
-Until approval is recorded, do not add application code, tests, schema, migrations, workflows or runtime configuration for RCV-B06.
+The repository publication/evidence/suppression review is complete. The bounded synthetic proof-of-concept and unit tests have been prepared in `app/Domain/Geography` and `tests/Unit/SyntheticNearbyRankingServiceTest.php`. Exact-head CI and merge remain pending. The existing public directory and manual locality implementation remain unchanged.
 
-## 8. Review completion
-
-The repository publication/evidence/suppression review is complete. The bounded proof-of-concept request is prepared for Product Owner decision. The existing public directory and manual locality implementation remain unchanged.
+See `RCV-B06_SYNTHETIC_NEARBY_RANKING_IMPLEMENTATION_RECORD_2026-11-20.md` for implementation details and remaining validation gates.
