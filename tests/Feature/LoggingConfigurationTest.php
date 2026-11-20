@@ -6,6 +6,8 @@ namespace Tests\Feature;
 
 use App\Logging\AgeBasedRotatingFileHandler;
 use App\Logging\SafeLogContextProcessor;
+use Illuminate\Support\Facades\Log;
+use Monolog\Logger as MonologLogger;
 use Monolog\Processor\PsrLogMessageProcessor;
 use Tests\TestCase;
 
@@ -28,5 +30,9 @@ final class LoggingConfigurationTest extends TestCase
 
         // PHPUnit explicitly sets LOG_CHANNEL=stack; the default stack resolves only to daily.
         self::assertSame('stack', config('logging.default'));
+
+        $resolvedLogger = Log::channel('daily')->getLogger();
+        self::assertInstanceOf(MonologLogger::class, $resolvedLogger);
+        self::assertInstanceOf(AgeBasedRotatingFileHandler::class, $resolvedLogger->getHandlers()[0]);
     }
 }
