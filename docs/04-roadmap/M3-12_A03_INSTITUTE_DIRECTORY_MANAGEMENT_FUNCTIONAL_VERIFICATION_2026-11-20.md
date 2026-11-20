@@ -112,3 +112,15 @@ Test-method counts above are source inventory counts, not a fresh execution resu
 No application or schema changes, migration execution, database connection, real/source/student/institute data, source retrieval, external API/AI/provider/connector, participant or representative contact, Hostinger/hPanel/V1/production access, backup/restore, deployment, public launch, new dependency/vendor or spend.
 
 **Agenda 03 disposition:** COMPLETE for repository-level implementation and synthetic-test evidence review, subject to exact-head CI and documentation validation. No browser, real-data, human, hosted or production acceptance is claimed.
+
+
+## 8. Delivery and exact-head verification
+
+- Delivery PR [#352](https://github.com/mattari20/listing-v2/pull/352) merged as `2d38e78408f7a3791ee77f9a931739e6d21d72ff`.
+- Exact PR head: `32fc97cdc4d2ebf938ff8910810800da73637203`.
+- PHP 8.5 foundation CI [run #693](https://github.com/mattari20/listing-v2/actions/runs/44680598762): SUCCESS.
+- Project documentation validation [run #1174](https://github.com/mattari20/listing-v2/actions/runs/44680598807): SUCCESS.
+- Both required checks completed successfully on the exact PR head.
+- Verified PR #352 is merged and `main` points to the merge commit `2d38e78408f7a3791ee77f9a931739e6d21d72ff`.
+
+**Final disposition:** M3-12 Agenda 03 is COMPLETE for repository-level institute directory/management implementation and synthetic-test evidence review. The agenda did not execute a new test suite independently of CI and does not claim browser, real-data, human, hosted or production acceptance.
