@@ -96,7 +96,7 @@
                                             @foreach ($profile['programme_offers'] as $offer)
                                                 <section class="offer">
                                                     <strong>{{ $offer['admission_cycle'] }}</strong>
-                                                    <div class="meta">{{ $offer['delivery_location'] }} ({{ $offer['delivery_location_type'] }})</div>
+                                                    <div class="meta">{{ $offer['delivery_location'] }}</div>
                                                     <ul>
                                                         @foreach ($offer['facts'] as $fact)
                                                             <li>
