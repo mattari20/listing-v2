@@ -68,3 +68,8 @@ Repository CI proves only the changed repository/documentation checks. It does n
 - No public UGC/reviews/ratings/reporting/moderation; Deeni Madaris remains default-OFF.
 
 **Final disposition:** **M3-11-01 CLOSED** for scope/authority definition. **M3-11 overall remains BLOCKED / NOT ACCEPTED** until all remaining independent gates are satisfied. No private environment creation/access or production action is authorized by this record.
+
+
+## Repository visibility clarification — Product Owner decision, 2026-11-20
+
+The Product Owner clarified that the GitHub source repository `mattari20/listing-v2` is intentionally **PUBLIC during the development phase** and is intended to become **PRIVATE after development is complete**, following a separately recorded Product Owner decision. This is distinct from the restricted/private V2 acceptance-environment target and does not authorize public application access, public pilot, release, production operation, real-data processing, source acquisition or participant activity. No credentials, secrets, personal records or confidential reviewer materials may be placed in the public repository. All existing M3-11 scope, environment, data and stop restrictions remain unchanged.
