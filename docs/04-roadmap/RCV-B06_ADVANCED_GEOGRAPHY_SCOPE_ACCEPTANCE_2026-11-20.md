@@ -2,9 +2,9 @@
 
 **Date:** 2026-11-20  
 **Repository:** `mattari20/listing-v2`  
-**Baseline:** `main` at `74e355ef1e3d04b32c35391a37bc73badd56d898`  
+**Baseline:** `main` after RCV-B06 policy/design merge `ae5484045c9c36fac4deab37f3db9d12773be621`  
 **Agenda:** RCV-B06 — Advanced Geography  
-**Status:** Product Owner policy APPROVED 2026-11-20; bounded design definition in progress. No real coordinates, source access, device geolocation, schema change, external service, deployment or spend is authorized.
+**Status:** Product Owner policy APPROVED 2026-11-20; geography semantics/design and publication/evidence/suppression review COMPLETE. Bounded synthetic proof-of-concept authorization REQUESTED, not granted. No real coordinates, source access, device geolocation, schema change, external service, deployment or spend is authorized.
 
 ## 1. Why this is next
 
@@ -86,7 +86,9 @@ Interactive maps, geocoding, tile hosting, routing and third-party location APIs
 | Coordinate/geospatial capability inventory | COMPLETE |
 | Safe staged approach prepared | COMPLETE |
 | Product Owner nearby-discovery policy | APPROVED 2026-11-20 |
-| Repository-only geography semantics/design | IN PROGRESS |
+| Repository-only geography semantics/design | COMPLETE — PR #329 merged |
+| Publication/evidence/suppression contract review | COMPLETE — repository-only |
+| Bounded synthetic proof-of-concept authorization request | PREPARED — Product Owner decision required |
 | Real/source coordinates, device geolocation and schema/application implementation | NOT AUTHORIZED |
 | Maps/geocoding/vendor, privacy/security/data-rights and cost approvals | NOT REQUESTED / NOT APPROVED |
 
