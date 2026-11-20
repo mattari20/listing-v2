@@ -62,3 +62,12 @@ No V1 or production repository was inspected. No Hostinger/hPanel, hosted applic
 No code/schema/migration changes, no live database or MySQL connection, no source access, no real/source/personal/student/institute data, no external API/AI/provider/connector, no Hostinger/hPanel/V1/production access, no backup/restore, deployment, DNS/URL cutover, pilot, public launch, new dependency/vendor or spend.
 
 **Agenda 01 disposition:** Repository architecture conformance review COMPLETE for the pinned private V2 source snapshot. It is not full platform acceptance or independent certification.
+
+
+## 8. Delivery and exact-head verification
+
+- Combined delivery PR [#350](https://github.com/mattari20/listing-v2/pull/350) merged as `e10b7f7e769e2f191bd521a56191c448666f3c31`.
+- Exact PR head: `15cbf4796e5ff197213aad8173520aecf2026a52`.
+- PHP 8.5 foundation CI #691 (run ID `44679014364`): SUCCESS.
+- Project documentation validation #1170 (run ID `44679014390`): SUCCESS.
+- Both checks ran on the exact PR head. The change was documentation-only; no application or database implementation was changed.
