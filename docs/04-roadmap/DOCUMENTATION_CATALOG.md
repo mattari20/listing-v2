@@ -12,6 +12,10 @@
 - [RCV-B06 Publication/Evidence Review and Bounded Implementation Authorization Request](RCV-B06_PUBLICATION_EVIDENCE_REVIEW_AND_IMPLEMENTATION_AUTHORIZATION_REQUEST_2026-11-20.md) — publication/evidence/suppression controls reconciled; synthetic-only implementation approval and closeout recorded.
 - [RCV-B06 Synthetic Nearby Ranking Implementation Record](RCV-B06_SYNTHETIC_NEARBY_RANKING_IMPLEMENTATION_RECORD_2026-11-20.md) — PR #331 merged as `c926d278de21229a66edc2ff3f1f78e0270b874e`; exact-head FND-01 #44652073842 and documentation validation #44652073843 passed (15 tests, 1,340 assertions).
 
+## RCV-B09 — public reviews and moderation activation — 2026-11-20
+
+- [RCV-B09 Public Reviews and Moderation Gate Preflight](RCV-B09_PUBLIC_REVIEWS_AND_MODERATION_GATE_PREFLIGHT_2026-11-20.md) — repository-only gate assessment; synthetic moderation foundation exists but public UGC, ratings, reporting, appeals and moderation remain disabled; qualified reviews, human operations and separate activation authorization are not evidenced.
+
 ## RCV-B08 — account-dependent saved items and alerts — 2026-11-20
 
 - [RCV-B08 Account Saved Items and Alerts Scope and Acceptance Pack](RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner-approved bounded private saved-items policy; anonymous session shortlist unchanged; public registration, sharing and alerts deferred.
