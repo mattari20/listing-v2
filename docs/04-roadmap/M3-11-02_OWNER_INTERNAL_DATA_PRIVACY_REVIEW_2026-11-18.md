@@ -263,3 +263,54 @@ Additional boundaries:
 The accepted boundary remains: synthetic accounts and local/CI development only; no production-grade retention, completeness, immutable storage, tamper-resistance, independent audit or hosted control claim. Any future private acceptance target would require a separately scoped review of actor identity preservation, audit coverage, retention/deletion, backup handling, read access, database-owner privileges and tamper detection before real personal data or operational role administration.
 
 **Gate effect:** DP-04 repository evidence is reconciled against current implementation and existing tests. This does not close M3-11-02 / Gate 02, does not authorize environment provisioning or real data, and does not certify a production audit system.
+
+
+## 12. DP-05 superseding route, schema and public-output privacy reconciliation — current main
+
+**Reconciliation date:** 2026-11-20  
+**Sources inspected:** `routes/web.php`; `app/Http/Controllers/PublicDirectoryController.php`; `app/Http/Controllers/AccountSavedItemsController.php`; `app/Http/Controllers/UniversityRepresentativeWorkflowController.php`; `app/Services/Directory/PublicDirectoryQueryService.php`; `app/Services/Directory/PublicDirectoryComparisonService.php`; `app/Services/Directory/DirectorySeoMetadata.php`; `resources/views/directory/index.blade.php`; `resources/views/directory/show.blade.php`; `resources/views/directory/compare.blade.php`; `resources/views/account/saved-items.blade.php`; `tests/Feature/ModerationPrivacyBoundaryTest.php`; `tests/Feature/AccountSavedItemsTest.php`; `tests/Feature/DirectorySeoMetadataTest.php`.
+
+### 12.1 Current route inventory and scope discrepancy
+
+The current checked-in route file contains these relevant surfaces:
+
+| Surface | Current route behavior | Access boundary evidenced in source |
+|---|---|---|
+| Health | `GET /health` | Public route; private-preview middleware behavior is applied elsewhere in the application stack and the SEO test verifies its denial response when private preview is enabled. |
+| Account session | `POST /account/session`, `DELETE /account/session` | Sign-in throttled; sign-out requires authentication. |
+| Saved account items | `GET/POST/DELETE /account/saved-items...` | Authentication middleware; saved-list response adds private/no-store and noindex headers. |
+| Public directory | `GET /directory`, `GET /directory/{entity}` | Public read routes with throttling. |
+| Session shortlist and comparison | `POST/DELETE /directory/.../shortlist`, `GET /directory/compare` | No authentication middleware on these routes; shortlist is held in the visitor's session. Comparison metadata is always noindex/nofollow. |
+| Institution workflow | Claims, corrections and editorial review start/complete routes under `/institutions/{institution}` | Authentication middleware and throttling; controller additionally checks active/verified user, institution-scoped capability and resource ownership. |
+
+**Material discrepancy:** the M3-11-02 review pack's bounded product scope and exclusions state that saved items and comparison are not included in the acceptance activity. Current `routes/web.php` and directory templates nevertheless expose account saved-items and session shortlist/comparison routes and UI links. These are implemented capabilities, not merely future roadmap labels. This reconciliation does not silently expand the approved review scope or remove/reopen any Product Owner decision.
+
+For the separately restricted/private acceptance activity, saved-items and comparison/shortlist must be treated as **out of scope and not exercised** unless a later, properly authorized scope change says otherwise. The exact acceptance candidate must demonstrate that excluded surfaces are inaccessible or otherwise disabled for that activity; source-level statements that they are excluded are not enough while routes and UI affordances remain present in the candidate. No such target exists or was inspected.
+
+### 12.2 Public projection and rendered output controls inspected
+
+The public directory query service reads the approved anonymous directory projection and applies multiple server-side eligibility checks, including approved publication decision/snapshot state, accepted claim-version state, latest-version/supersession checks, active suppression exclusion, Deeni Madaris exclusion, supported entity types and current evidence/source-authorization eligibility. Registry-managed fields must be marked public-eligible for both visibility and privacy; values are type-bounded and validated. Legacy fields are restricted to an explicit allowlist. The view-facing profile removes internal search/filter/sort permission metadata and retains display fields.
+
+The directory index/profile and comparison templates inspected use escaped Blade echo expressions; no raw Blade echo expression (`{!!`) was found in those templates. The saved-items view also uses escaped output. This is useful source-level output evidence, not a substitute for exhaustive template/route/data-flow testing or browser/runtime inspection.
+
+### 12.3 Existing tests and what they do not establish
+
+- `ModerationPrivacyBoundaryTest` asserts that public moderation, appeal and rating routes are absent, that exactly two editorial-review routes exist and require authentication, and that selected moderation/user schemas omit listed UGC, identity-document and child/student-related columns. It does not inventory all routes or establish that saved-items/shortlist/comparison are absent.
+- `AccountSavedItemsTest` covers guest denial, owner-only access, idempotent save, current-publication checks, stale projection suppression, server-side limits and account-row cascade deletion. It verifies the saved-list response is noindex and private/no-store. It does not establish that saved-items belongs in the M3-11 acceptance scope.
+- `DirectorySeoMetadataTest` verifies indexing is disabled by default, query variants are noindex, trusted canonical-origin behavior and comparison noindex/nofollow. It does not prove route disablement or prevent a user from reaching comparison.
+- No complete automated route-to-data-output privacy matrix was found in the inspected evidence. No claim is made that every route, response, log, export, error path or template has been exhaustively reviewed.
+
+### 12.4 Updated DP-05 disposition — existing owner decision retained, discrepancy surfaced
+
+**DP-05 remains ACCEPT AS PARTIAL TEST EVIDENCE, exactly as already decided by the Product Owner.** The existing negative moderation/schema tests and saved-items/SEO tests are useful synthetic CI evidence for their stated assertions. The broader route/output review is still incomplete, and the discovered saved-items/shortlist/comparison implementation conflicts with the current M3-11 acceptance-scope exclusion.
+
+Before any separately authorized private acceptance activity, the pinned candidate needs:
+- a complete route/middleware inventory reconciled to the accepted feature scope;
+- a decision-neutral verification that out-of-scope saved-items and shortlist/comparison surfaces are inaccessible/disabled in the acceptance candidate, without changing the already accepted product decisions;
+- route-to-controller-to-service-to-view/output tracing for each in-scope public and authenticated surface;
+- schema/output allowlist and negative tests covering unpublished, suppressed, superseded, private and Deeni Madaris records, plus prohibited identity/child/UGC fields;
+- verification of cache, robots, session and authorization behavior against the actual candidate/runtime configuration.
+
+No route was changed, no capability was activated, and no acceptance environment was accessed as part of this source inspection.
+
+**Gate effect:** DP-05 remains partial. The source-level route/scope discrepancy is now explicit and must be reconciled before the excluded surfaces can be considered safely out of scope for any future acceptance activity. This does not close M3-11-02 / Gate 02 or authorize provisioning, real data, public launch or deployment.
