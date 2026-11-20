@@ -91,6 +91,9 @@ final class PublicDirectoryController extends Controller
             'results' => $results,
             'shortlistCount' => count($this->sessionShortlist($request)),
             'shortlistLimit' => (int) config('directory.shortlist_limit', 5),
+            'savedEntityIds' => auth()->check()
+                ? auth()->user()->savedDirectoryItems()->whereIn('entity_id', $results->getCollection()->pluck('id')->all())->pluck('entity_id')->all()
+                : [],
         ]);
     }
 
@@ -190,6 +193,7 @@ final class PublicDirectoryController extends Controller
             'shortlistCount' => count($ids),
             'shortlistLimit' => (int) config('directory.shortlist_limit', 5),
             'isShortlisted' => in_array($entity, $ids, true),
+            'isSavedItem' => auth()->check() && auth()->user()->savedDirectoryItems()->where('entity_id', $entity)->exists(),
             'locale' => $locale,
             'direction' => $locale === 'ur' ? 'rtl' : 'ltr',
             'languageUrls' => $this->directoryLanguageUrls($request),
