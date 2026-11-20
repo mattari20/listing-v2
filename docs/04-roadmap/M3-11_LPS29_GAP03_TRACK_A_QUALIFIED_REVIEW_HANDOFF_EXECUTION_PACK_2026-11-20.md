@@ -20,7 +20,7 @@ The reviewer must make their own professional assessment from the evidence actua
 **Question:** Is the currently accepted V2 development and restricted acceptance scope, using a public GitHub source repository during development and limited to repository/local workstation/GitHub CI plus synthetic/fictional fixtures, acceptable from the applicable legal, privacy and safeguarding perspectives, and what conditions must be met before any separately proposed next stage?
 
 The reviewer must assess only the scope and materials expressly identified in the written engagement. The current boundary includes:
-- V2 source repository development in a public GitHub repository during the development phase, plus local/GitHub CI activity; the source repository is intended to become private after development is complete under a separately recorded Product Owner decision;
+- V2 source repository development in a public GitHub repository during the development phase, plus local/GitHub CI activity; the source repository will be changed to private when development is complete under this already-recorded Product Owner decision;
 - the application's acceptance environment remains a separate restricted/private environment category and is not authorized or provisioned by this handoff pack;
 - fictional/synthetic institution, account and workflow fixtures only;
 - the Product Owner's current owner-led development model;
@@ -155,7 +155,7 @@ Until then, retain synthetic/fictional fixtures only and all existing exclusions
 
 ## Repository visibility clarification — Product Owner decision, 2026-11-20
 
-The Product Owner clarified that `mattari20/listing-v2` is intentionally **PUBLIC during the development phase** and is intended to become **PRIVATE after development is complete**, at a separately recorded Product Owner decision. GitHub repository visibility was verified as `public` on `main` at commit `2fe4831327043c0fba8c375fe4f3bfaeeb64a2a1` when this clarification was prepared.
+The Product Owner clarified that `mattari20/listing-v2` is intentionally **PUBLIC during the development phase** and will be changed to **PRIVATE when development is complete**; this is the binding future visibility transition in this decision record. GitHub repository visibility was verified as `public` on `main` at commit `2fe4831327043c0fba8c375fe4f3bfaeeb64a2a1` when this clarification was prepared.
 
 This source-repository visibility lifecycle is distinct from the application's restricted/private acceptance-environment boundary and does not authorize public application access, a public pilot, release, production operation, real-data processing, source acquisition or participant activity. The reviewer must assess the exact public-repository/synthetic-only development facts. Never place secrets, credentials, personal records or confidential reviewer materials in the public repository. Confidential reviewer materials must be exchanged separately through an agreed restricted channel.
 
