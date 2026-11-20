@@ -1,3 +1,9 @@
+## LPS-17 — GAP-04 institute correction and complaint operations framework — 2026-11-20
+
+LPS-17 is complete as repository-only documentation in `M3-11_LPS17_GAP04_INSTITUTE_CORRECTION_COMPLAINT_APPEAL_REMOVAL_OPERATIONS_FRAMEWORK_2026-11-20.md`. It defines request taxonomy, separate identity/authority verification, evidence assessment, case states and triage, interim protections, reasoned outcomes, appeals, removal/suppression/restoration, role definitions and separation of duties, privacy/security/abuse controls, communication templates, synthetic scenarios and future implementation acceptance criteria.
+
+**Disposition:** GAP-04 is DESIGNED / NOT IMPLEMENTED / OPEN. No intake channel, operational staffing, SLA, runtime workflow, public service or institution contact was created. No real data or evidence was collected. Qualified legal/privacy/safeguarding review remains outstanding where required. All M3-11 gates remain unchanged; M3-11 remains BLOCKED / NOT ACCEPTED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
 ## LPS-16 — GAP-01 public evidence and verification transparency framework — 2026-11-20
 
 LPS-16 is complete as repository-only documentation in `M3-11_LPS16_GAP01_PUBLIC_EVIDENCE_SOURCE_ATTRIBUTION_VERIFICATION_TRANSPARENCY_FRAMEWORK_2026-11-20.md`. It defines field-level evidence provenance, truthful verification states, source-rights-linked attribution, risk-based freshness, conflict/dispute/correction/suppression handling, privacy-safe public projection, synthetic examples, future implementation acceptance criteria and stop conditions.
