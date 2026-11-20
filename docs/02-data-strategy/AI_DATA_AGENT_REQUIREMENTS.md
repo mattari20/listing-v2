@@ -45,3 +45,8 @@ Additional mandatory requirements:
 - No connector, model, crawler, scheduler, database or orchestration technology is selected in M1.
 
 The research uses NIST AI RMF/Generative AI Profile, W3C PROV and the UK Government Data and AI Ethics Framework as non-binding design references. Source rights and S07 security controls remain controlling. No live source was accessed and no agent was activated.
+
+
+## M3 final acceptance — current requirements and activation disposition — 2026-11-20
+
+The M1-S08 AI data-agent requirements remain an accepted **requirements/design baseline**. They do not select or authorize a connector, crawler, browser automation, scheduler, model/provider, agent runtime or live source. The current allowed model-like mechanism is the deterministic fake adapter for synthetic local/CI tests only. Source-specific rights/authorization, privacy, retrieval security, model/provider terms, cost/capacity, human governance, evaluation and separate Product Owner activation must pass before any live activity. M3-07 R1 source inventory is research only and does not grant source rights. See `../04-roadmap/M3_FINAL_ACCEPTANCE_F05_REQUIREMENT_EVIDENCE_ASSESSMENT_2026-11-20.md`, Section 4.
