@@ -65,6 +65,10 @@ class ProgrammeOfferFactWorkflowTest extends TestCase
         $this->assertCount(1, $offers);
         $this->assertSame($offerA, $offers[0]['id']);
         $this->assertSame('synthetic-cycle-2027', $offers[0]['admission_cycle']);
+        $this->assertSame('Synthetic Location', $offers[0]['delivery_location']);
+        $this->assertSame('Campus', $offers[0]['delivery_location_type']);
+        $this->assertSame('2026-01-01', $offers[0]['facts'][0]['valid_from']);
+        $this->assertSame('2027-12-31', $offers[0]['facts'][0]['valid_to']);
         $this->assertSame('0.00', $offers[0]['facts'][0]['value']['amount']);
         $this->assertSame('PKR', $offers[0]['facts'][0]['value']['currency']);
         $this->assertNotSame($offerB, $offers[0]['id']);
