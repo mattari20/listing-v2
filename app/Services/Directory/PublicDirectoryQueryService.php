@@ -387,6 +387,7 @@ final class PublicDirectoryQueryService
                     'valid_from' => $row->claim_valid_from,
                     'valid_to' => $row->claim_valid_to,
                 ];
+
                 continue;
             }
 
