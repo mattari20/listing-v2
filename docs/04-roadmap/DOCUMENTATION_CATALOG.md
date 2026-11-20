@@ -1537,3 +1537,7 @@ The dated addendum in `RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.
 ## M3 final acceptance exercise — F06 — 2026-11-20
 
 - [F06 Final M3 Report and Closure Recommendation](M3_FINAL_ACCEPTANCE_F06_FINAL_REPORT_AND_CLOSURE_RECOMMENDATION_2026-11-20.md) — closes the F01–F06 acceptance exercise, records the final accepted/conditional/deferred/blocked/rejected classifications, exact PR/CI ledger and recommends keeping overall M3 OPEN because M3-11 remains BLOCKED / NOT ACCEPTED.
+## M3-11 — LPS-11 policy-to-implementation evidence mapping — 2026-11-20
+
+- [M3-11 LPS-11 Policy-to-Implementation Evidence Map](M3-11_LPS11_POLICY_TO_IMPLEMENTATION_EVIDENCE_MAP_2026-11-20.md) — maps all ten accepted Product Owner policy principles to current-main code, tests, configuration and governance evidence; records partial implementation, cross-cutting gaps, external assessment requirements and unchanged M3-11 blocked status.
+
