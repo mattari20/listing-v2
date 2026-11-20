@@ -489,7 +489,7 @@ final class PublicDirectoryTest extends TestCase
 
         $this->get('/directory/compare')
             ->assertOk()
-            ->assertSee('Synthetic Shortlist Institution')
+            ->assertSee('Select at least two options')
             ->assertDontSee('Synthetic Shortlist Programme');
     }
 
