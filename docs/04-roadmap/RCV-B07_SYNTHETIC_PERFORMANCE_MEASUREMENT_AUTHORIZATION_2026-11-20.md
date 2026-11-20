@@ -14,7 +14,7 @@ Produce a reproducible, low-cost baseline for the existing anonymous directory r
 
 - Add a PHPUnit feature-level measurement harness using the existing PrivatePreviewDirectorySeeder in the disposable in-memory SQLite testing database only.
 - Exercise stable synthetic HTTP GET scenarios: directory landing, text search, manual locality filter, category filter, later pagination page, one fictional profile and session-only comparison.
-- Use a warm-up request and a fixed repeated sample count per scenario; measure in-process request elapsed time with a monotonic clock, SQL query count, HTTP status and rendered response byte count.
+- Use a warm-up request and a seven measured requests per scenario after one warm-up request, keeping the full workload below the existing route throttle; measure in-process request elapsed time with a monotonic clock, SQL query count, HTTP status and rendered response byte count.
 - Report p50/p95/p99 diagnostic quantiles, sample count, query-count median, response-byte median, fixture count, PHP version, database driver and exact Git revision when CI supplies it.
 - Emit a machine-readable JSON summary to test output for CI log capture.
 - Assert functional HTTP success and non-empty response only. Do not assert absolute timing, throughput or concurrency thresholds.
