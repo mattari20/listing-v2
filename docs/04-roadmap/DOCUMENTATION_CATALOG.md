@@ -1630,3 +1630,8 @@ The dated addendum in `RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.
 ## M3-11 — LPS-13 GAP-05 change-impact governance framework — 2026-11-20
 
 - [M3-11 LPS-13 GAP-05 Change-Impact Governance Framework](M3-11_LPS13_GAP05_CHANGE_IMPACT_GOVERNANCE_FRAMEWORK_2026-11-20.md) — defines C0–C3 change classification, impact assessment, change record, approval/separation-of-duties matrix, lifecycle gates, evidence/testing, versioning, rollback and stop conditions. Governance design only; GAP-05 remains DESIGNED / NOT IMPLEMENTED.
+
+
+## M3-11 — LPS-29 Track A qualified-review handoff execution pack — 2026-11-20
+
+- [LPS-29 — GAP-03 Track A Qualified Review Handoff Execution Pack](M3-11_LPS29_GAP03_TRACK_A_QUALIFIED_REVIEW_HANDOFF_EXECUTION_PACK_2026-11-20.md) — final execution-ready cover, ordered evidence manifest, Track A scope/exclusions, reviewer qualification and independence checklist, mandatory questions, report structure and post-report disposition protocol. Repository handoff preparation complete; reviewer not appointed, qualified report not received, Gate 02 remains BLOCKED / NOT ACCEPTED.
