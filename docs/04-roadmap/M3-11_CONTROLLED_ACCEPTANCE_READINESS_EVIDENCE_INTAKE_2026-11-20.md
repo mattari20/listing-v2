@@ -70,3 +70,7 @@ F03 rechecked the ten-gate ledger against RCV-B11 and the underlying evidence pa
 ## F04 Product Owner decision consolidation reference — 2026-11-20
 
 F04 carries forward the prior R1.1–R1.18 approvals and the M3/RCV-B owner decisions without reopening unchanged decisions. The future Deeni Madaris category-inclusion direction is distinguished from the current M3-11 Option A / Option 1 private acceptance boundary, where Deeni Madaris remains default-OFF/zero exposure. No M3-11 gate is waived or promoted by decision consolidation. See `M3_FINAL_ACCEPTANCE_F04_PRODUCT_OWNER_DECISION_CONSOLIDATION_2026-11-20.md`.
+
+## F06 final M3 acceptance disposition — 2026-11-20
+
+The F01–F06 final M3 acceptance exercise is complete. The final report recommends closing the acceptance exercise and retaining M3-12 as repository-verified/closed, while overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED. M3-11 remains BLOCKED / NOT ACCEPTED and production execution remains NOT AUTHORIZED. No new qualified reviewer report, role acceptance, V2-only isolation proof, recovery rehearsal, candidate dossier, go/no-go or execution authorization was received. The ten gate dispositions in §3 remain unchanged. See `M3_FINAL_ACCEPTANCE_F06_FINAL_REPORT_AND_CLOSURE_RECOMMENDATION_2026-11-20.md`.

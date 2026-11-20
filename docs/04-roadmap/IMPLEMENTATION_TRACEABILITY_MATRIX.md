@@ -1,3 +1,9 @@
+## Final M3 acceptance disposition — F01–F06 — 2026-11-20
+
+The final M3 acceptance exercise is COMPLETE. Requirement-level dispositions are recorded in `M3_FINAL_ACCEPTANCE_F05_REQUIREMENT_EVIDENCE_ASSESSMENT_2026-11-20.md`; final milestone and gate decisions are in `M3_FINAL_ACCEPTANCE_F06_FINAL_REPORT_AND_CLOSURE_RECOMMENDATION_2026-11-20.md`. M0–M2 remain accepted/closed; M3-00 planning accepted; M3-02–M3-09 bounded repository/synthetic/local/CI scopes conditionally accepted; M3-10 pilot NOT ACCEPTED; M3-11 BLOCKED / NOT ACCEPTED; M3-12 CLOSED for repository verification A01–A09 only. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED. No requirement is newly rejected. Historical rows below are preserved; dated F01–F06 overlays control current classification.
+
+---
+
 ## M3-12 Agendas 07–09 — integration, accessibility and closeout traceability
 
 | Requirement ID | Requirement | Specification / source evidence | Verification evidence | Status |
