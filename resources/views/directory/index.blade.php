@@ -44,7 +44,7 @@
         </nav>
         <h1>{{ __('directory.directory_title') }}</h1>
         <p>{{ __('directory.directory_intro') }}</p>
-        <p><a href="{{ route('directory.compare', ['lang' => $locale]) }}">{{ __('directory.compare_shortlist', ['count' => $shortlistCount, 'limit' => $shortlistLimit]) }}</a></p>
+        <p><a href="/directory/compare?lang={{ $locale }}">{{ __('directory.compare_shortlist', ['count' => $shortlistCount, 'limit' => $shortlistLimit]) }}</a></p>
         @if (session('shortlist_status'))<p role="status">{{ session('shortlist_status') }}</p>@endif
         @if ($errors->any())
             <div role="alert" aria-labelledby="search-errors-heading">
@@ -101,7 +101,7 @@
             @foreach ($filters as $key => $value)
                 <span>{{ $filterOptions[$key]['label'] ?? $key }}: {{ $value }}</span>
             @endforeach
-            <a href="{{ route('directory.index', ['lang' => $locale]) }}">{{ __('directory.clear_all') }}</a>
+            <a href="/directory?lang={{ $locale }}">{{ __('directory.clear_all') }}</a>
         </section>
     @endif
 
@@ -109,7 +109,7 @@
         <nav class="facets" aria-label="{{ __('directory.categories') }}">
             <strong>{{ __('directory.categories') }}</strong> <span class="meta">{{ __('directory.facet_note') }}</span>
             @foreach ($facets as $key => $count)
-                <a href="{{ route('directory.index', ['q' => $query, 'type' => $key, 'locality' => $locality, 'filters' => $filters, 'lang' => $locale]) }}">{{ $typeOptions[$key] ?? $key }} ({{ $count }})</a>
+                <a href="/directory?{{ http_build_query(['q' => $query, 'type' => $key, 'locality' => $locality, 'filters' => $filters, 'lang' => $locale]) }}">{{ $typeOptions[$key] ?? $key }} ({{ $count }})</a>
             @endforeach
         </nav>
     @endif
@@ -118,7 +118,7 @@
         <h2 id="results-heading">{{ __('directory.results_heading') }}</h2>
         @forelse ($results as $result)
             <article class="result">
-                <h3><a href="{{ route('directory.show', ['entity' => $result['id'], 'lang' => $locale]) }}" dir="auto">{{ $result['name'] }}</a></h3>
+                <h3><a href="/directory/{{ $result['id'] }}?lang={{ $locale }}" dir="auto">{{ $result['name'] }}</a></h3>
                 <p class="meta">{{ $typeOptions[$result['type']] ?? $result['type_label'] }}</p>
                 @php($locationFacts = collect($result['facts'])->whereIn('key', ['province', 'district', 'city', 'locality']))
                 @if ($locationFacts->isNotEmpty())
