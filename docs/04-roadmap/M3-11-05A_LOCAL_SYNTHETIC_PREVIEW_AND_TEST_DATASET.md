@@ -5,12 +5,13 @@
 
 ## What is included
 
-The explicit `Database\\Seeders\\LocalPreviewSeeder` creates five fictional institution profiles using the existing claim, evidence, adjudication and publication workflow. The profiles cover Lahore, Karachi, Peshawar, Quetta and Islamabad so the existing directory can be inspected for:
+The explicit `Database\\Seeders\\LocalPreviewSeeder` creates five fictional institution profiles, five linked campus records, five programme records and five admission offers using the existing claim, evidence, adjudication, publication and catalogue-materialization workflows. The profiles cover Lahore, Karachi, Peshawar, Quetta and Islamabad so the existing directory can be inspected for:
 
 - anonymous directory cards and direct institution profiles;
 - name/overview search;
 - province, district, city and locality display/filter behavior;
-- approved publication projection behavior.
+- approved publication projection behavior;
+- institution-profile campus, programme and admission-offer sections, with each offer linked to its synthetic programme and campus.
 
 All names and descriptions are invented. Geographic labels are real place names used only as test geography; they do not identify real institutions. No contact details are included. No child, student, guardian or staff records/fields are created. No Deeni Madaris records are created. No external source is fetched or represented as a real source.
 
@@ -61,7 +62,7 @@ Run from the V2 repository root in a local development checkout only. Do not run
    php artisan serve
    ```
 
-   Visit `http://127.0.0.1:8000/directory`. Open a fictional institution profile from a result card. Try searches such as `Crescent`, `Riverbend`, and locality filters `Lahore`, `Gulberg`, `Karachi`, and `Gulshan`.
+   Visit `http://127.0.0.1:8000/directory`. Open each fictional institution profile from a result card. Confirm its synthetic campus, programme and `Synthetic 2027 Intake` admission offer are displayed. Try searches such as `Crescent`, `Riverbend`, and locality filters `Lahore`, `Gulberg`, `Karachi`, and `Gulshan`.
 
 ## Reset and cleanup
 
