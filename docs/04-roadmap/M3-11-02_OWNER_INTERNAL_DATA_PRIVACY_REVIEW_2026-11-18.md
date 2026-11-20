@@ -314,3 +314,61 @@ Before any separately authorized private acceptance activity, the pinned candida
 No route was changed, no capability was activated, and no acceptance environment was accessed as part of this source inspection.
 
 **Gate effect:** DP-05 remains partial. The source-level route/scope discrepancy is now explicit and must be reconciled before the excluded surfaces can be considered safely out of scope for any future acceptance activity. This does not close M3-11-02 / Gate 02 or authorize provisioning, real data, public launch or deployment.
+
+
+## 13. DP-06 superseding provider, hosting and lifecycle evidence reconciliation — current main
+
+**Reconciliation date:** 2026-11-20  
+**Sources inspected:** `config/filesystems.php`, `config/cache.php`, `config/queue.php`, `config/session.php`, `config/logging.php`, `app/Http/Controllers/AccountSessionController.php`, `app/Models/User.php`, `app/Models/PrivilegedActionAudit.php`, `.gitignore`, `docs/02-data-strategy/DATA_RIGHTS_AND_PROVENANCE.md`, `docs/04-roadmap/M3-08A_B_IDENTITY_AUTHORIZATION_IMPLEMENTATION_RECORD.md`, the M3-11 legal/privacy/safeguarding review pack, and the previously merged DP-02/DP-03/DP-04/DP-05 reconciliations in this document.
+
+### 13.1 Corrected current-main configuration facts
+
+The current checked-in configuration defaults are:
+
+| Area | Current source default | What this establishes — and does not establish |
+|---|---|---|
+| Session | `file`; 120-minute idle lifetime; browser-close expiry false; encryption false; HTTP-only true; SameSite lax; secure-cookie value environment-controlled | Source defaults only. Effective target settings, file permissions, session cleanup execution and session data deletion are unverified. |
+| Logs | `daily` channel; custom age-based handler; warning level; bounded structured-context processor | Source configuration only. The implementation evidence describes 30-day date-based cleanup triggered on log rotation, not a scheduled independent purge. Message text is not sanitized; backups are not addressed. |
+| Cache | `array` | Default process-local cache configuration only. Environment overrides and any external cache services are unknown. |
+| Queue | `sync` | Default synchronous queue configuration only. Environment overrides, workers, failed-job storage and runtime job payloads are unknown. |
+| Filesystem | `local`, rooted at `storage/app/private` | Source default path only. Runtime path, permissions, web-server exposure and actual storage use are not verified. |
+| Public disk | Separate `public` local disk at `storage/app/public`, with a configured public storage URL/link target | A public disk is configured as an available option; this does not prove it is used or linked in any environment. |
+| S3 / cloud queue/cache | Example configuration entries are present and environment-driven | Configuration examples are not evidence of activation, credentials, account ownership, region or data transfer. No cloud service is approved by this reconciliation. |
+| Git ignore | `.env`, backup environment files, `*.log`, and common generated directories are ignored | Ignore rules reduce accidental commits; they do not establish workstation cleanup, GitHub retention, secret scanning coverage, CI artifact retention or deletion from prior commits/caches. |
+
+The older narrative in Sections 3.2 and 3.4 above is superseded where it conflicts with the current-main DP-02 and DP-03 addenda: session default is `file`, not `array`; logging default is the `daily` channel, not `single`. The DP-02 and DP-03 reconciliations remain the controlling source-level descriptions. No configuration was changed in this DP-06 exercise.
+
+### 13.2 Lifecycle inventory and evidence boundary
+
+| Data / record class | Source-level facts found | Lifecycle status |
+|---|---|---|
+| Account identity | User model stores email, password hash, verification timestamp, active state and remember token; password and remember token are hidden from normal model serialization. | No end-to-end account closure, subject-rights workflow, retention period or verified deletion propagation evidenced. |
+| Sessions | File-backed default and sign-in/logout session regeneration/invalidation behavior. | Expiry, garbage collection, backups and deletion from any target storage not verified. |
+| Role/audit metadata | Role grant/revoke events record actor/subject/scope/reason/time. | No defined retention period, immutable external archive, database-owner protection, backup expiry or audit deletion policy evidenced. |
+| Application logs | Daily file logging; bounded structured context; rotation-triggered age-based cleanup. | 30-day cleanup is conditional on rotation; message content is not sanitized; backup copies, access, filesystem and hosted retention unknown. |
+| Cache | Array default; file and external cache stores are configurable. | No active target store or cache TTL/key inventory verified; no target purge evidence. |
+| Queue / failed jobs | Sync default; database, SQS, Redis and other drivers are configurable; failed-job storage defaults to database-UUID driver if used. | No active worker/driver, job payload inventory, failed-job retention or purge evidence. |
+| Files / exports | Private local disk is the default; a separate public disk and S3 option are configured. | No inventory of generated exports/uploads or actual storage use, object access, lifecycle rules, backup copies or deletion propagation. |
+| GitHub source / CI metadata | Source repository is intentionally public during development; commit authorship, issue/PR activity and CI metadata may identify contributors. | Repository visibility lifecycle is already decided (private when development is complete); provider-side metadata retention, backups, logs and deletion are not controlled by this application repository. |
+| ChatGPT/OpenAI development workflow | Provider is used in development; the owner has accepted synthetic-only inputs for prompts, attachments, logs, exports and test evidence. | Exact account settings, retention terms, processing region, provider/subprocessor roles and deletion behavior are not established by repository code. No private conversation access or provider account inspection is claimed. |
+| Hosting / runtime | No private V2 acceptance environment has been provisioned or inspected under current authority. | Hosting provider, region, runtime, database, filesystem, backups, operators, support access, network/telemetry and deletion behavior remain unknown. |
+
+### 13.3 Provider and jurisdiction findings
+
+The repository cannot establish the legal identity or role of GitHub, OpenAI/ChatGPT, a future hosting provider, or any configured-but-unused cloud service for the actual processing operations. Provider role labels must be determined from the applicable contracts, product settings, actual data flows, instructions and access. The presence of an S3/SQS/Redis/Papertrail configuration block is not evidence that the corresponding service is active or approved.
+
+The initial Pakistan jurisdiction decision remains unchanged. The applicable legal regime, cross-border transfer position, localization requirements, government-access exposure, breach duties and contractual obligations cannot be conclusively mapped until the operator/provider identities, actual hosting/processing regions, data classes and transfer paths are established and reviewed by qualified counsel/reviewers. This is an explicit limitation, not a new jurisdiction decision.
+
+### 13.4 Lifecycle requirements for any future separately authorized target
+
+Before any real personal data or hosted acceptance activity is considered, a target-specific lifecycle schedule must identify, for each data class: purpose and owner; exact fields; source and recipients; storage/processing location; access roles; active retention period and trigger; archive/backup copies; deletion mechanism; propagation delay; legal-hold exception; evidence/log of completion; and accountable operator. The schedule must explicitly cover accounts, sessions, audit records, application/server logs, error traces, cache, queued/failed jobs, uploads/exports, database snapshots, infrastructure backups, CI artifacts and provider-held copies.
+
+The acceptance evidence must pin the exact target and configuration, provider terms/settings and data-flow map; verify actual access roster and region; and demonstrate deletion/expiry behavior in a synthetic test where authorized. No such target-specific facts or deletion test were available or performed in this repository-only review.
+
+### 13.5 Updated DP-06 disposition — existing owner decision retained
+
+**DP-06 remains DEFER, exactly as already decided by the Product Owner.** This reconciliation makes the source-level defaults and the lifecycle unknowns more precise; it does not satisfy the target-specific evidence requirement, change the defer decision, authorize environment provisioning, or authorize real-data processing.
+
+The following remain unknown and are not to be inferred: hosting provider and region; runtime environment variables; actual database, filesystem, cache, queue and logging destinations; provider legal roles and applicable terms/settings; subprocessor and cross-border paths; backup and export inventory; operator/reviewer/support access roster; retention/deletion propagation; and incident/breach handling in the actual environment.
+
+**Gate effect:** DP-06 source/configuration inventory is reconciled. The existing defer disposition remains in force. M3-11-05 stays BLOCKED / NOT ACCEPTED because no exact private acceptance environment, isolation evidence, access roster or target-specific lifecycle proof has been authorized or established. M3-11-02 / Gate 02 also remains blocked pending qualified independent review and the required exact-scope evidence. No earlier Product Owner decision is reopened or modified.
