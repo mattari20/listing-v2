@@ -11,9 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 final class SearchEngineVisibility
 {
-    public function __construct(private readonly DirectorySeoMetadata $metadata)
-    {
-    }
+    public function __construct(private readonly DirectorySeoMetadata $metadata) {}
 
     public function handle(Request $request, Closure $next): Response
     {
