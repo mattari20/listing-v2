@@ -1,3 +1,9 @@
+## M3-12 Agenda 03 — Institute Directory and Management Functional Verification — 2026-11-20
+
+**Status:** REPOSITORY REVIEW COMPLETE; exact-head delivery validation pending. The current institute management foundation was reconciled against source and synthetic tests: provider/institution and authority relationships, campus/programme catalogue, dynamic field governance/typed validation, university representative HTTP workflows, editorial review and public projection controls. Evidence and limitations are recorded in `M3-12_A03_INSTITUTE_DIRECTORY_MANAGEMENT_FUNCTIONAL_VERIFICATION_2026-11-20.md`. The review inventories existing test methods but did not execute them; exact-head PHP 8.5 foundation CI and project documentation validation are required for closeout. No feature duplication or application/schema/database/hosting changes were made. Browser journey, real-world institution data, human operational acceptance and hosted/production readiness remain unverified and separately gated. Next agenda: M3-12 Agenda 04 — Student Discovery Journey Functional Verification.
+
+---
+
 ## M3-12 Agenda 01/02 delivery verification — 2026-11-20
 
 PR #350 merged as e10b7f7e769e2f191bd521a56191c448666f3c31. Exact PR head 15cbf4796e5ff197213aad8173520aecf2026a52 passed PHP 8.5 foundation CI #691 and project documentation validation #1170. Both M3-12 repository review agendas are complete; M3-11 remains BLOCKED / NOT ACCEPTED and hosted/production actions remain unauthorized.
