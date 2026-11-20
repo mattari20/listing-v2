@@ -39,7 +39,7 @@ final readonly class NearbyCoordinateCandidate
         }
 
         if (in_array($this->entityType, ['campus', 'delivery_site'], true) &&
-            ($this->institutionId === $this->entityId || !$this->ownershipVerified)) {
+            ($this->institutionId === $this->entityId || $this->ownershipVerified === false)) {
             return false;
         }
 
