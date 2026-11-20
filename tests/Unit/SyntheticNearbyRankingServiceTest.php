@@ -183,8 +183,6 @@ final class SyntheticNearbyRankingServiceTest extends TestCase
             $entityType,
             $entityId,
             $institutionId,
-            $latitude,
-            $longitude,
             $values['ownershipVerified'],
             $latitude,
             $longitude,
