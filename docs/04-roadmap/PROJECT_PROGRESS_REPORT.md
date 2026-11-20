@@ -1,6 +1,14 @@
+## M3-12 Agendas 04–06 — exact-head delivery closeout — 2026-11-20
+
+Coordinated PR [#355](https://github.com/mattari20/listing-v2/pull/355) merged as `1a482ac94402470e08e2b17d7d4a48d3be2290a9`. Exact PR head `efe36f69a4c4c9ada7e65c47e26c65bff903d325` passed PHP 8.5 foundation CI [run #44681875232](https://github.com/mattari20/listing-v2/actions/runs/44681875232) and project documentation validation [run #44681875222](https://github.com/mattari20/listing-v2/actions/runs/44681875222). Synthetic suite: 20 passed, 1,501 assertions, 282 warnings; not warning-free. Verified current `main` equals the merge SHA. Agendas A04–A06 and their progress/catalogue/traceability updates are delivered. This closes the three bounded repository-review agendas only; M3-12 continues and M3-11 remains BLOCKED / NOT ACCEPTED.
+
+**Next agenda:** M3-12 Agenda 07 — Functional Integration and Regression Evidence Consolidation.
+
+---
+
 ## M3-12 Agendas 04–06 — student discovery, administration/editorial and browser UX verification — 2026-11-20
 
-**Status:** COMPLETE for bounded repository-level review; exact-head delivery validation pending. The three coordinated agendas were inspected against current `main` baseline `44397a2b65da77541cf1ff1358518c4278a2e865` and the existing implementation was reused rather than rebuilt.
+**Status:** COMPLETE for bounded repository-level review and exact-head delivery validation. Coordinated PR #355 merged as `1a482ac94402470e08e2b17d7d4a48d3be2290a9`. The three coordinated agendas were inspected against current `main` baseline `44397a2b65da77541cf1ff1358518c4278a2e865` and the existing implementation was reused rather than rebuilt.
 
 1. **Agenda 04 — Student Discovery Journey:** verified directory search/filter/locality, approved public profiles, cycle/offer-scoped admissions facts, temporary session shortlist/comparison and private account-owned saved items. Source/test inventory: PublicDirectoryTest (33 methods), ProgrammeOfferFactWorkflowTest (7), AccountSavedItemsTest (7), AccountSessionTest (7). Bounded feature foundation passes source review; broader guided/semantic journey, account lifecycle, applications and alerts remain partial/deferred.
 2. **Agenda 05 — Administration and Editorial Operations:** verified provider/institution and catalogue services, university-representative API, field-definition lifecycle, editorial/adjudication/publication separation and synthetic moderation boundaries. Source/test inventory: UniversityRepresentativeWorkflowTest (13), EditorialReviewServiceTest (5), FieldDefinitionGovernanceTest (17), FieldDefinitionRegistryReaderTest (10), TypedFieldValueValidatorTest (15), ProviderInstitutionRelationshipTest (17), CampusProgrammeCatalogueTest (13), plus moderation boundary tests. Backend governance contracts pass source review; a complete browser admin console, broad provider self-service and staffed operations are not established.
