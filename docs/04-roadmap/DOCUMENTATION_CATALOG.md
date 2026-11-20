@@ -1529,3 +1529,7 @@ The dated addendum in `RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.
 ## M3 final acceptance exercise — F05 — 2026-11-20
 
 - [F05 Requirement-Level Evidence Assessment](M3_FINAL_ACCEPTANCE_F05_REQUIREMENT_EVIDENCE_ASSESSMENT_2026-11-20.md) — classifies SR-01–SR-14, institution/programme, AI-agent, architecture, M3 and RCV-B02–B11 requirements as accepted, resolved, conditionally accepted, deferred, blocked or rejected against actual evidence.
+
+## M3 final acceptance exercise — F06 — 2026-11-20
+
+- [F06 Final M3 Report and Closure Recommendation](M3_FINAL_ACCEPTANCE_F06_FINAL_REPORT_AND_CLOSURE_RECOMMENDATION_2026-11-20.md) — closes the F01–F06 acceptance exercise, records the final accepted/conditional/deferred/blocked/rejected classifications, exact PR/CI ledger and recommends keeping overall M3 OPEN because M3-11 remains BLOCKED / NOT ACCEPTED.
