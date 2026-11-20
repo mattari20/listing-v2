@@ -80,7 +80,7 @@
                 @foreach ($profile['programme_offers'] as $offer)
                     <section aria-labelledby="offer-{{ $loop->index }}-heading">
                         <h3 id="offer-{{ $loop->index }}-heading" dir="auto">{{ $offer['admission_cycle'] }}</h3>
-                        <p class="meta">{{ __('directory.delivery_location', ['value' => $offer['delivery_location']]) }}</p>
+                        <p class="meta">{{ __('directory.delivery_location', ['value' => $offer['delivery_location_type'] === 'Campus' ? __('directory.delivery_locations.campus') : __('directory.delivery_locations.delivery_site')]) }}</p>
                         <dl>
                             @foreach ($offer['facts'] as $offerFact)
                                 <dt dir="auto">{{ $offerFact['label'] }}</dt>
