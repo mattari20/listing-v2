@@ -107,7 +107,7 @@
                         <thead><tr>
                             <th scope="col">{{ __('directory.comparison_detail') }}</th>
                             @foreach ($profiles as $profile)
-                                <th scope="col"><a href="/directory/{{ $profile['id'] }}?lang={{ $locale }}" dir="auto">{{ $profile['name'] }}</a></th>
+                                <th scope="col"><a href="{{ route('directory.show', ['entity' => $profile['id'], 'lang' => $locale]) }}" dir="auto">{{ $profile['name'] }}</a></th>
                             @endforeach
                         </tr></thead>
                         <tbody>
