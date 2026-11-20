@@ -1,3 +1,17 @@
+## LPS-18–LPS-22 — Five-agenda repository programme COMPLETE — 2026-11-20
+
+All five coordinated agendas are complete, merged and verified on main.
+
+| Agenda | PR | Exact-head checks | Merge commit | Result |
+|---|---:|---|---|---|
+| LPS-18 — GAP-06 isolation/recovery framework | #376 | Foundation #718 PASS; Docs #1223 PASS | 892d1ab7c2250560d80bea1117928968045dd683 | MERGED / VERIFIED |
+| LPS-19 — GAP-02 data lifecycle reconciliation | #377 | Foundation #720 PASS; Docs #1226 PASS | 1d741f076d1494d963183dadd71c10e768a570b3 | MERGED / VERIFIED |
+| LPS-20 — GAP-03 qualified review handoff | #378 | Foundation #722 PASS; Docs #1229 PASS | 9f56c2c03045589abd4d53dfb3ebb3f4bd8d94db | MERGED / VERIFIED |
+| LPS-21 — Cross-gap traceability | #379 | Foundation #724 PASS; Docs #1232 PASS | 47599d655c8e5761d593bc80df6824e8b6ef2680 | MERGED / VERIFIED |
+| LPS-22 — Final reconciliation/decision pack | #380 | Foundation #726 PASS; Docs #1235 PASS | f3cc0dcba2a8c6269c8f7c076b980be752b556af | MERGED / VERIFIED |
+
+**Programme disposition:** COMPLETE for repository-only documentation, evidence reconciliation and decision-pack preparation. This does not close M3-11, any of GAP-01–GAP-06, or overall M3. All ten M3-11 gate dispositions remain unchanged; M3-11 remains BLOCKED / NOT ACCEPTED; production execution remains NOT AUTHORIZED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
 ## LPS-22 — Final repository reconciliation and next-stage decision pack — IN PROGRESS — 2026-11-20
 
 LPS-22 consolidates the five-agenda delivery ledger, current GAP-01–GAP-06 dispositions, M3-11 ten-gate status, outstanding evidence and next-stage decision boundaries. It closes only the repository-side LPS-18–LPS-22 programme after exact-head CI, merge and main verification.
