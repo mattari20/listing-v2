@@ -50,3 +50,29 @@ No candidate ID, source SHA, artifact, digest, lock hash, build run or candidate
 - **RC-07 — Candidate creation authorization:** NOT GRANTED. No candidate may be created on the basis of these policy decisions alone.
 
 The Product Owner also decided not to add IP Manager as a second preview-protection layer and to retain the existing hosting plan without additional spend. These decisions are recorded as policy/cost choices, not as substitutes for technical evidence.
+
+
+## Current-main prerequisite reconciliation — 2026-11-20
+
+This addendum records the latest evidence state without treating pre-candidate evidence as candidate evidence. Candidate ID, candidate SHA and artifact remain NOT CREATED / NOT PINNED.
+
+| ID | Updated status | Current evidence / limitation |
+|---|---|---|
+| RC-01 | BLOCKED | Owner internal review and DP-01–DP-06 dispositions recorded; qualified independent legal/privacy/safeguarding assessment and target-specific review absent. |
+| RC-02 | BLOCKED | Product Owner-led repository review closed for current development; independent candidate-specific security assessment absent. |
+| RC-03 | BLOCKED | Skip links, visible focus and selected automated checks exist; manual keyboard/screen-reader/assistive-technology and candidate-specific accessibility assessment absent. |
+| RC-04 | BLOCKED | M3-11-04 register records 0/9 written role acceptances; coverage/deputies not evidenced. |
+| RC-05 | BLOCKED | M3-11-05 has partial historical resource/runtime evidence; 0/18 isolation items fully verified; no accepted private environment. |
+| RC-06 | BLOCKED | Weekly backup cadence accepted for current development only; no V2-only backup/restore/rollback evidence; RPO/RTO unset. |
+| RC-07 | BLOCKED | No separate candidate-creation authorization recorded. |
+| RC-08–RC-14 | NOT RUN / NOT VERIFIED | No candidate source SHA, build, artifact, lock digest or candidate configuration review. Historical main/CI evidence is not candidate evidence. |
+| RC-15 | BLOCKED | DP-05 is partial; saved-items and shortlist/comparison routes/UI exist despite exclusion from the accepted acceptance scope. Candidate-specific exclusion verification is absent. |
+| RC-16 | NOT RUN | Existing repository tests and default-OFF controls are pre-candidate evidence; candidate-specific invariant verification has not run. |
+| RC-17 | NOT RUN | Historical CLI boot was not a private-environment functional smoke test. No hosted HTTP or database test is evidenced. |
+| RC-18–RC-19 | BLOCKED | Independent security and accessibility assessments absent. |
+| RC-20 | BLOCKED | No candidate-linked, independently verified V2 recovery/rollback evidence. |
+| RC-21 | BLOCKED | Human operations/support/incident role acceptances and coverage absent. |
+| RC-22 | NOT ASSEMBLED | No candidate evidence bundle exists. |
+| RC-23 | NOT DECIDED | No candidate exists for Product Owner acceptance or M3-11-08 submission. This is a future candidate disposition, not a request to reopen any previously accepted owner decision. |
+
+**Summary:** 0 candidate items accepted; no candidate created. Pre-candidate source, CI and owner policy evidence is retained only for the limited purpose stated. M3-11-07 remains NOT STARTED / BLOCKED.
