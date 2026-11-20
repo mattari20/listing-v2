@@ -11,6 +11,7 @@ use App\Services\Identity\RoleAssignmentService;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 use Tests\TestCase;
 
 final class UniversityRepresentativeWorkflowTest extends TestCase
@@ -40,6 +41,33 @@ final class UniversityRepresentativeWorkflowTest extends TestCase
         $this->actingAs($unscoped, 'web')
             ->postJson("/institutions/{$institution}/claims", $payload)
             ->assertForbidden();
+    }
+
+    public function test_correction_requires_authenticated_scope_and_no_public_complaint_or_appeal_route_is_registered(): void
+    {
+        [$institution, $evidence] = $this->fixture();
+        $claimVersion = (string) str()->uuid();
+        $claimCount = DB::table('claim_versions')->count();
+        $caseCount = DB::table('editorial_review_cases')->count();
+
+        $this->postJson("/institutions/{$institution}/claims/{$claimVersion}/correction", [
+            'value' => 'Synthetic unauthenticated correction attempt',
+            'evidence_reference_ids' => [$evidence],
+            'idempotency_key' => 'unauthenticated-correction',
+            'valid_from' => '2026-11-20',
+            'reason_code' => 'synthetic_value_correction',
+            'rationale' => 'Synthetic unauthenticated correction attempt.',
+        ])->assertUnauthorized();
+
+        $this->assertSame($claimCount, DB::table('claim_versions')->count());
+        $this->assertSame($caseCount, DB::table('editorial_review_cases')->count());
+
+        $routeNames = array_keys(Route::getRoutes()->getRoutesByName());
+        foreach ($routeNames as $routeName) {
+            $this->assertStringNotContainsString('complaint', strtolower($routeName));
+            $this->assertStringNotContainsString('moderation', strtolower($routeName));
+            $this->assertStringNotContainsString('appeal', strtolower($routeName));
+        }
     }
 
     public function test_university_representative_can_submit_a_synthetic_registry_bound_proposal_without_publication(): void
