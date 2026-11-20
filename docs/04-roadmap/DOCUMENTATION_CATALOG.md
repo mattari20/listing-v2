@@ -1,3 +1,8 @@
+## RCV-B02 — admissions and programme decision facts — 2026-11-20
+
+- [RCV-B02 Scope and Acceptance Pack](RCV-B02_SCOPE_ACCEPTANCE_PACK_2026-11-18.md) — original requirements/architecture preflight; later bounded implementation authorization is recorded separately.
+- [RCV-B02 Offer-Scoped Admissions Facts Implementation Design](RCV-B02_IMPLEMENTATION_DESIGN_2026-11-18.md) — implementation design for offer-bound facts, immutable versions, human evidence/adjudication/publication, freshness, suppression, correction and public read model. Current-main reconciliation and exact-head CI pending.
+
 ## M3-12 private preview and synthetic dataset — 2026-11-20
 
 - [M3-12 Private Preview and Synthetic Dataset](M3-12_PRIVATE_PREVIEW_AND_SYNTHETIC_DATASET_2026-11-18.md) — **Delivered and merged in PR #316** (`995be9afbc7e171b78d9dacaff950f6964e594f1`); exact-head `31fc0b2075a49f6a5b342eb8391f2e4ce3dea511` passed PHP 8.5 foundation CI #44641907781 and documentation validation #44641907769. Guarded local/testing + SQLite-only seeder for seven fictional entities across five existing directory categories, synthetic evidence/adjudication/publication flow, outbox isolation and idempotence. Synthetic suite: 15 passed, 1,169 assertions, 235 non-fatal warnings. No hosted preview, real data or public activation.
