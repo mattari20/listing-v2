@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ $locale }}" dir="{{ $direction }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,37 +14,45 @@
         dt { font-weight: 700; }
         dd { margin: 0; overflow-wrap: anywhere; }
         a { color: #174ea6; }
-        a:focus-visible, input:focus-visible, select:focus-visible, button:focus-visible { outline: 3px solid #005fcc; outline-offset: 3px; }
-        .skip-link { position: absolute; z-index: 10; top: 1rem; left: 1rem; padding: .75rem 1rem; color: #005fcc; background: #fff; border: 2px solid #005fcc; border-radius: .35rem; transform: translateY(-200%); }
+        a:focus-visible, input:focus-visible, select:focus-visible, button:focus-visible { outline: 3px solid #005fcc; outline-offset: 3px; scroll-margin-block: 1rem; }
+        button:disabled { opacity: 1; background: #e5e7eb; color: #374151; border-color: #667085; cursor: not-allowed; }
+        .language-switch { margin-block-end: .75rem; }
+        .skip-link { position: absolute; z-index: 10; top: 1rem; inset-inline-start: 1rem; padding: .75rem 1rem; color: #005fcc; background: #fff; border: 2px solid #005fcc; border-radius: .35rem; transform: translateY(-200%); }
         .skip-link:focus { transform: translateY(0); }
         .meta { color: #4b5563; font-size: .94rem; }
         @media (max-width: 38rem) { dl { grid-template-columns: 1fr; gap: .2rem; } dd { margin-bottom: .8rem; } main { padding: .85rem; } }
     </style>
 </head>
 <body>
-<a class="skip-link" href="#main-content">Skip to main content</a>
+<a class="skip-link" href="#main-content">{{ __('directory.skip') }}</a>
 <main id="main-content" tabindex="-1">
-    <p><a href="{{ route('directory.index') }}">← Back to directory search</a></p>
-    <p><a href="{{ route('directory.compare') }}">Compare shortlist ({{ $shortlistCount }}/{{ $shortlistLimit }})</a></p>
+    <nav class="language-switch" aria-label="{{ __('directory.language') }}">
+        <span>{{ __('directory.language') }}:</span>
+        <a href="{{ request()->fullUrlWithQuery(['lang' => 'en']) }}" @if ($locale === 'en') aria-current="page" @endif>{{ __('directory.english') }}</a>
+        <span aria-hidden="true">|</span>
+        <a href="{{ request()->fullUrlWithQuery(['lang' => 'ur']) }}" @if ($locale === 'ur') aria-current="page" @endif>{{ __('directory.urdu') }}</a>
+    </nav>
+    <p><a href="{{ route('directory.index', ['lang' => $locale]) }}">← {{ __('directory.back_search') }}</a></p>
+    <p><a href="{{ route('directory.compare', ['lang' => $locale]) }}">{{ __('directory.compare_shortlist', ['count' => $shortlistCount, 'limit' => $shortlistLimit]) }}</a></p>
     @if ($isShortlisted)
-        <form method="post" action="{{ route('directory.shortlist.remove', ['entity' => $profile['id']]) }}">@csrf @method('delete')<button type="submit">Remove from temporary shortlist</button></form>
+        <form method="post" action="{{ route('directory.shortlist.remove', ['entity' => $profile['id']]) }}">@csrf @method('delete')<input type="hidden" name="lang" value="{{ $locale }}"><button type="submit">{{ __('directory.remove_shortlist') }}</button></form>
     @else
-        <form method="post" action="{{ route('directory.shortlist.add', ['entity' => $profile['id']]) }}">@csrf<button type="submit" @disabled($shortlistCount >= $shortlistLimit)>Add to temporary shortlist</button></form>
+        <form method="post" action="{{ route('directory.shortlist.add', ['entity' => $profile['id']]) }}">@csrf<input type="hidden" name="lang" value="{{ $locale }}"><button type="submit" @disabled($shortlistCount >= $shortlistLimit)>{{ __('directory.add_shortlist') }}</button></form>
     @endif
     @if (session('shortlist_status'))<p role="status">{{ session('shortlist_status') }}</p>@endif
     @if ($errors->has('shortlist'))<p role="alert">{{ $errors->first('shortlist') }}</p>@endif
     <article>
-        <p class="meta">{{ $profile['type_label'] }}</p>
+        <p class="meta">{{ __('directory.types.'.$profile['type']) }}</p>
         <h1 dir="auto">{{ $profile['name'] }}</h1>
         @if ($profile['last_observed_at'] !== null)
-            <p class="meta">Latest evidence observation: {{ $profile['last_observed_at'] }}</p>
+            <p class="meta">{{ __('directory.latest_observation', ['date' => $profile['last_observed_at']]) }}</p>
         @else
-            <p class="meta">Observation date not supplied; freshness is not assessed.</p>
+            <p class="meta">{{ __('directory.observation_missing') }}</p>
         @endif
 
-        <h2>Publicly approved information</h2>
+        <h2>{{ __('directory.public_info') }}</h2>
         @if ($profile['facts'] === [])
-            <p>No additional public details are available.</p>
+            <p>{{ __('directory.no_details') }}</p>
         @else
             <dl>
                 @foreach ($profile['facts'] as $fact)
@@ -57,7 +65,7 @@
                         @endif
                         <div class="meta">
                             @if ($fact['observed_at'] !== null)
-                                Evidence observed: {{ $fact['observed_at'] }}
+                                {{ __('directory.evidence_observed', ['date' => $fact['observed_at']]) }}
                             @else
                                 Observation date not supplied
                             @endif
@@ -68,32 +76,32 @@
         @endif
         @if (($profile['programme_offers'] ?? []) !== [])
             <section aria-labelledby="admissions-heading">
-                <h2 id="admissions-heading">Programme admissions information</h2>
+                <h2 id="admissions-heading">{{ __('directory.admissions_info') }}</h2>
                 @foreach ($profile['programme_offers'] as $offer)
                     <section aria-labelledby="offer-{{ $loop->index }}-heading">
                         <h3 id="offer-{{ $loop->index }}-heading">{{ $offer['admission_cycle'] }}</h3>
-                        <p class="meta">Delivery location: {{ $offer['delivery_location'] }}</p>
+                        <p class="meta">{{ __('directory.delivery_location', ['value' => $offer['delivery_location']]) }}</p>
                         <dl>
                             @foreach ($offer['facts'] as $offerFact)
                                 <dt>{{ $offerFact['label'] }}</dt>
                                 <dd dir="auto">
                                     @if ($offerFact['state'] === 'unknown')
-                                        Not verified
+                                        {{ __('directory.unknown') }}
                                     @elseif ($offerFact['state'] === 'not_stated')
-                                        Not stated
+                                        {{ __('directory.not_stated') }}
                                     @elseif ($offerFact['state'] === 'not_applicable')
-                                        Not applicable
+                                        {{ __('directory.not_applicable') }}
                                     @elseif ($offerFact['state'] === 'conflicting')
-                                        Conflicting information — not verified
+                                        {{ __('directory.conflicting') }}
                                     @elseif ($offerFact['state'] === 'stale')
-                                        <strong>Stale — verify before relying:</strong>
+                                        <strong>{{ __('directory.stale') }}:</strong>
                                         @if ($offerFact['category'] === 'deadline')
-                                            {{ $offerFact['value']['date'] ?? 'Date unavailable' }}
+                                            {{ $offerFact['value']['date'] ?? __('directory.date_unavailable') }}
                                         @elseif ($offerFact['category'] === 'fee')
                                             {{ $offerFact['value']['component'] }}:
                                             {{ $offerFact['value']['amount'] }} {{ $offerFact['value']['currency'] }}
                                         @else
-                                            {{ $offerFact['value']['text'] ?? 'Information unavailable' }}
+                                            {{ $offerFact['value']['text'] ?? __('directory.information_unavailable') }}
                                         @endif
                                     @elseif ($offerFact['category'] === 'deadline')
                                         {{ $offerFact['value']['date'] ?? 'Date unavailable' }}
@@ -104,7 +112,7 @@
                                         {{ $offerFact['value']['text'] ?? 'Information unavailable' }}
                                     @endif
                                     @if ($offerFact['observed_at'] !== null)
-                                        <div class="meta">Evidence observed: {{ $offerFact['observed_at'] }}</div>
+                                        <div class="meta">{{ __('directory.evidence_observed', ['date' => $offerFact['observed_at']]) }}</div>
                                     @endif
                                 </dd>
                             @endforeach
