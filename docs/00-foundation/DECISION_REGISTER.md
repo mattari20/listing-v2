@@ -89,3 +89,40 @@ Official source routes for NAVTTC QABs, Punjab TEVTA/PSDA/TTB, Sindh STEVTA, KPT
 - **Interpretation:** This is owner participation capacity only. It must not be counted as engineering, QA, security-review or production-operations capacity unless the owner separately confirms the relevant skills and role. Named human delivery capacity, review/approval cadence and continuity arrangements remain open.
 - **Consequences:** The range informs planning only. It does not authorize hiring, contracting, procurement, spend or implementation.
 - **Review trigger:** Reconfirm if the owner's availability materially changes or the project schedule requires a different commitment.
+
+
+## M3 final acceptance — consolidated Product Owner decisions — 2026-11-20
+
+The following dated decision consolidation is the current cross-workstream index of previously accepted Product Owner choices. It does not reopen unchanged decisions or create implementation/operational authority. See `../04-roadmap/M3_FINAL_ACCEPTANCE_F04_PRODUCT_OWNER_DECISION_CONSOLIDATION_2026-11-20.md` for the scope and evidence distinctions.
+
+### R1.1–R1.18 approval sequence
+
+- **R1.1:** Option A / Option 1 accepted unchanged.
+- **R1.2:** student discovery and institutional requirements accepted as the provisional long-term baseline with three clarifications.
+- **R1.3–R1.17:** approved, with flexibility for future updates.
+- **R1.18:** approved.
+
+The exact per-item text for R1.3–R1.18 and the three R1.2 clarifications is not reproduced in this register because the canonical itemized source record is not present in current main. Preserve the prior approvals; do not invent a restatement or ask for repeat approval. Map only to exact requirement text available in the source records. This R1 sequence is distinct from M3-07 R1 Pakistan National Education Source Master Inventory.
+
+### V2-DEC-006 — future Deeni Madaris inclusion clarification — 2026-11-19
+
+The original V2-DEC-006 remains the initial default-hidden implementation decision. The Product Owner later clarified that Deeni Madaris is to be included in the **future V2 directory** as a distinct, clearly identified provider category, with relevant institution details for future student/parent discovery; the earlier OFF posture is not a permanent product exclusion. This future product direction does not authorize Deeni Madaris exposure in the current M3-11 Option A / Option 1 private acceptance scope, which remains default-OFF with zero exposure until a separate scope amendment and applicable source-rights, privacy, safeguarding, security, governance and publication gates pass. Do not collect, infer or expose sect/maslak as a general discovery attribute.
+
+### M3-10 and M3-11 owner options
+
+- **M3-10 Option B:** selected for preparation of a narrowly bounded future pilot proposal for separate review only. No pilot, participant contact/recruitment/consent, human usability session, real data or hosted activity is authorized; pilot readiness remains NOT ACCEPTED.
+- **M3-11 Option A / Option 1:** selected limited V2 product scope with private acceptance environment only, synthetic fixtures, no public audience, no participants, no real/source/personal data, no pilot and no production execution. M3-11-01 scope/authority is closed; M3-11-02–10 remain separately gated and M3-11 remains BLOCKED / NOT ACCEPTED.
+
+### Current product/operating decisions consolidated
+
+- Owner-led, ChatGPT-assisted repository development; Product Owner remains final decision-maker. Single-owner model is accepted for private synthetic repository work only; future operational roster remains deferred (0/9 accepted).
+- Existing Hostinger plan retained; no hosting upgrade or new project spend. Weekly automated backup cadence accepted for the current development stage; no paid upgrade or increased frequency. Neither decision proves hosted isolation or recovery capability.
+- Current private scope excludes child/student/guardian data and pre-launch participant research; public reviews/ratings/UGC/reporting/appeals/moderation remain disabled.
+- RCV-B03 temporary session-only shortlist remains distinct from the later RCV-B08 private saved-items slice; public registration, sharing and alerts remain deferred.
+- RCV-B05 English/Urdu UI, original-approved-language facts and no automatic translation remain approved.
+- RCV-B06 manual locality default and optional request-time nearby policy remain approved; real coordinates, device location, maps, geocoding and vendor use remain separately gated.
+- RCV-B07 crawl/indexing policy remains fail-closed pending public origin/release; sitemap and numeric SLOs remain deferred.
+- RCV-B08 private saved-items scope remains limited to pre-provisioned active/verified accounts, owner deletion, no public registration/sharing/alerts and no automatic retention duration.
+- RCV-B09 public UGC/reviews/moderation activation and RCV-B10 live source/AI activation remain disabled/not authorized.
+
+All implementation, qualified-review, hosted, recovery, candidate, go/no-go and production-execution statuses remain separately controlled by their current evidence records and M3-11 gates.
