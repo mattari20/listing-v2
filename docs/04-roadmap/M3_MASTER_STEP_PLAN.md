@@ -1,3 +1,9 @@
+## Latest verified planning position — RCV-B03 shortlist and comparison (2026-11-20)
+
+Product Owner approved the temporary session-only shortlist first slice. Implementation is underway on `feat/rcv-b03-session-shortlist-comparison`: add/remove controls, configurable five-option cap, same-type enforcement, comparison read model over approved anonymous projections, explicit missing values, preserved literal zero, separate programme-offer/cycle facts, and file-backed non-testing session default. No persistent saved-list table, share links, account registration, new migration, real/source data, V1/Hostinger/production access, external APIs/AI or spend. Exact-head PHP 8.5 foundation CI and project documentation validation remain required.
+
+---
+
 ## Latest verified planning position — RCV-B02 admissions and programme decision facts (2026-11-20)
 
 The Product Owner selected RCV-B02 as the first residual product capability after RCV-01 and separately authorized the bounded synthetic V2 implementation, including the necessary in-scope schema change. The implementation merged in PR #318 as `f3651e4aa5222ccebe5eea859d47362a7145429a`; exact-head `240150ea7668a2568b87144c5c09bb9b7489ee95` passed PHP 8.5 foundation CI #44642616254 and documentation validation #44642616084. Delivered offer-scoped immutable fact identity/versions, evidence links, human adjudication and publication, category-specific freshness, public projections/suppression/correction/withdrawal, and programme-profile read model. Synthetic suite: 15 passed, 1,216 assertions, 242 non-fatal warnings. No real/source data, Hostinger/production/V1 access, external services, AI, public applications or spend.
