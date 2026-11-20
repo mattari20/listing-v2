@@ -110,3 +110,12 @@ LPS-12 is complete as a repository-only planning record. See [M3-11 LPS-12 Prior
 Six open workstreams are registered: GAP-01 public evidence/verification transparency (P1); GAP-02 complete data inventory, retention and deletion (P0 before real-data/hosted activity); GAP-03 source rights and qualified legal/privacy/safeguarding assessment (P0 before relevant real-world activity); GAP-04 institute correction/complaint operations (P1 before a real service); GAP-05 unified change-impact governance (P2 before material changes); GAP-06 hosted isolation, independent assurance and recovery evidence (P0 before hosted/release consideration). The plan includes dependencies, acceptance criteria, expected evidence and stop conditions.
 
 **No gap is closed by this planning exercise.** No code or test implementation, real/source data, external assessment, source access, AI/API, hosted access, recovery rehearsal, deployment, pilot or additional spend was authorized or performed. M3-11-02 remains BLOCKED / NOT ACCEPTED; all ten M3-11 gate dispositions remain unchanged; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED. Continue only with a separately selected repository-documentation agenda inside the existing boundary.
+
+
+## LPS-13 GAP-05 change-impact governance framework — 2026-11-20
+
+LPS-13 governance design is complete as repository-only documentation. See [M3-11 LPS-13 GAP-05 Change-Impact Governance Framework](M3-11_LPS13_GAP05_CHANGE_IMPACT_GOVERNANCE_FRAMEWORK_2026-11-20.md).
+
+The framework defines C0–C3 classification, change-record requirements, impact assessment, approval/separation of duties, lifecycle gates, test/evidence standards, versioning, audit, rollback and stop conditions. It is a proposed governance process, not a runtime enforcement feature or implementation authorization.
+
+**GAP-05 status: DESIGNED / NOT IMPLEMENTED / OPEN.** No reviewer/operations role is appointed by the matrix. No C1–C3 work is authorized. All M3-11 gates and existing restrictions remain unchanged; M3-11-02 remains BLOCKED / NOT ACCEPTED and overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.

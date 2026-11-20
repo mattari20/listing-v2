@@ -673,3 +673,10 @@ LPS-12 converts the six LPS-11 cross-cutting gaps into a prioritized resolution 
 GAP-01 public evidence/verification transparency is P1; GAP-02 complete data lifecycle/retention/deletion is P0 before real-data/hosted activity; GAP-03 source rights and qualified legal/privacy/safeguarding review is P0 before relevant real-world activity; GAP-04 institute correction/complaint operations is P1 before a real service; GAP-05 unified change-impact governance is P2 before material changes; GAP-06 hosted isolation, independent assurance and recovery evidence is P0 before hosted/release consideration.
 
 LPS-12 is planning only. The six gaps remain open; no implementation or external/operational work is authorized. M3-11-02 remains BLOCKED / NOT ACCEPTED; M3-11 overall remains BLOCKED / NOT ACCEPTED; overall M3 remains OPEN / PARTIALLY COMPLETE. Existing synthetic-only, no-production/V1/Hostinger/hosted access, no real/source/personal data, no live AI/API, no pilot/deployment and no-new-spend restrictions remain binding. The next agenda, if continuing, should remain repository-documentation-only and should not treat the P0/P1/P2 ranking as authority to execute.
+
+
+## LPS-13 — GAP-05 Change-Impact Governance Framework completed — 2026-11-20
+
+LPS-13 defines the proposed unified change-impact governance process in M3-11_LPS13_GAP05_CHANGE_IMPACT_GOVERNANCE_FRAMEWORK_2026-11-20.md. It covers change domains, C0–C3 classification, mandatory change record, impact dimensions, approval and separation of duties, lifecycle gates, test/evidence standards, versioning/audit, rollback and stop conditions.
+
+**Disposition:** governance design complete; GAP-05 is DESIGNED / NOT IMPLEMENTED / OPEN. This does not create runtime enforcement or authorize C1–C3 implementation, scope expansion, external review, hosted work or release. M3-11-02 remains BLOCKED / NOT ACCEPTED; M3-11 overall remains BLOCKED / NOT ACCEPTED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED. Continue only within the existing repository-documentation boundary unless separately authorized.

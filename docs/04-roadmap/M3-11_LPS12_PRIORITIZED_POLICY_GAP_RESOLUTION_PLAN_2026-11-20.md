@@ -175,3 +175,10 @@ Any evidence gap is recorded as a gap; it must not be filled by inference, fabri
 - [ ] Substantive remediation, qualified review, hosted assurance or operational work — not part of LPS-12 and not authorized.
 
 **Final disposition:** LPS-12 is COMPLETE as a repository-only prioritization and planning record. The six gaps remain OPEN. No code, tests, schema, migrations, dependencies, runtime behavior, source activity, hosted configuration or external service was changed or used.
+
+
+## LPS-13 follow-on — GAP-05 governance framework design — 2026-11-20
+
+The next agenda, LPS-13, defines the proposed change-impact governance framework for GAP-05 in M3-11_LPS13_GAP05_CHANGE_IMPACT_GOVERNANCE_FRAMEWORK_2026-11-20.md. It specifies C0–C3 change classes, required change records, impact dimensions, approval/separation-of-duties matrix, lifecycle gates, evidence/testing, versioning, rollback and stop conditions.
+
+This follow-on is governance design only. GAP-05 is **DESIGNED / NOT IMPLEMENTED**; the LPS-12 GAP-05 workstream remains open until any separately authorized implementation and acceptance evidence exists. LPS-13 does not authorize runtime enforcement, tooling, or any C1–C3 change.
