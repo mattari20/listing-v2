@@ -26,7 +26,7 @@ final readonly class NearbyCoordinateCandidate
 
     public function isEligibleForSyntheticRanking(): bool
     {
-        if (! in_array($this->entityType, ['institution', 'campus', 'delivery_site'], true) ||
+        if (in_array($this->entityType, ['institution', 'campus', 'delivery_site'], true) === false ||
             trim($this->entityId) === '' ||
             $this->institutionId === null ||
             trim($this->institutionId) === '') {
@@ -34,7 +34,7 @@ final readonly class NearbyCoordinateCandidate
         }
 
         if ($this->entityType === 'institution' &&
-            ($this->institutionId !== $this->entityId || !$this->ownershipVerified)) {
+            ($this->institutionId !== $this->entityId || $this->ownershipVerified === false)) {
             return false;
         }
 
@@ -44,14 +44,14 @@ final readonly class NearbyCoordinateCandidate
         }
 
         if ($this->latitude === null || $this->longitude === null ||
-            ! is_finite($this->latitude) || ! is_finite($this->longitude) ||
+            is_finite($this->latitude) === false || is_finite($this->longitude) === false ||
             $this->latitude < -90.0 || $this->latitude > 90.0 ||
             $this->longitude < -180.0 || $this->longitude > 180.0) {
             return false;
         }
 
         return $this->publicationEligible &&
-            !$this->deeniMadaris &&
+            $this->deeniMadaris === false &&
             $this->sourceAuthorized &&
             $this->visibilityClass === 'public_generalized' &&
             in_array($this->precisionClass, ['approximate', 'area_centroid', 'generalized'], true) &&
