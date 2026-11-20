@@ -1,3 +1,11 @@
+## LPS-18 — GAP-06 hosted isolation, independent assurance and recovery framework — 2026-11-20
+
+LPS-18 is complete as repository-only documentation in `M3-11_LPS18_GAP06_HOSTED_ISOLATION_INDEPENDENT_ASSURANCE_RECOVERY_FRAMEWORK_2026-11-20.md`. It defines V2-only environment boundaries, threat scenarios, independent security/accessibility assessment requirements, backup controls, RPO/RTO approval, an unexecuted synthetic recovery-rehearsal plan, rollback/incident evidence and acceptance criteria.
+
+**Disposition:** GAP-06 is DESIGNED / NOT EVIDENCED / OPEN. No hosted environment was accessed, no independent assessor report was received, no backup was inspected, no RPO/RTO was set or measured, and no recovery/restore/rehearsal was authorized or performed. M3-11-05 and M3-11-06 remain BLOCKED / NOT ACCEPTED; all ten M3-11 gates remain unchanged. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
+---
+
 ## LPS-17 — GAP-04 institute correction and complaint operations framework — 2026-11-20
 
 LPS-17 is complete as repository-only documentation in `M3-11_LPS17_GAP04_INSTITUTE_CORRECTION_COMPLAINT_APPEAL_REMOVAL_OPERATIONS_FRAMEWORK_2026-11-20.md`. It defines request taxonomy, separate identity/authority verification, evidence assessment, case states and triage, interim protections, reasoned outcomes, appeals, removal/suppression/restoration, role definitions and separation of duties, privacy/security/abuse controls, communication templates, synthetic scenarios and future implementation acceptance criteria.
