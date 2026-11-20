@@ -46,3 +46,14 @@ A blank, incomplete or ambiguous record is not authorization. Any change in targ
 - Hosted access and testing: NOT AUTHORIZED.
 
 Do not treat the broader M3-11 agenda-start instruction or acceptance of a private-environment scope as permission to provision, access or test a hosted environment.
+
+
+## Historical authorization and current boundary clarification — 2026-11-20
+
+A narrowly scoped 2026-11-19 Hostinger CLI resource-readiness/boot verification is documented in the M3-11-05 Status and Handoff record. That completed historical authorization covered only the described CLI smoke verification under synthetic/in-memory conditions. It did not authorize or perform a database connection/query, HTTP/LiteSpeed test, deployment, migration, backup operation or full environment-isolation test.
+
+This register remains a template for any future, separately scoped environment action. The historical CLI authorization is not a standing or reusable authorization. No further Hostinger/hPanel access, HTTP request, database connection/query, configuration change, migration, deployment, backup access/restore or isolation probing is authorized by this clarification.
+
+The existing owner decisions on the selected private-preview access-control approach, weekly backup cadence for the current development stage and no additional hosting spend remain unchanged. They do not constitute technical acceptance of full V2 isolation or recovery capability.
+
+**Current disposition:** candidate resources/runtime have partial historical evidence; full isolation acceptance remains 0/18 fully verified; no further hosted action authorized.
