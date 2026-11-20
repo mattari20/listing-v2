@@ -190,3 +190,41 @@ The following limitations remain and must not be represented as solved:
 **Current acceptance boundary:** accept SEC-06 as implemented synthetic/local/CI evidence. Before any separately authorized hosted/private acceptance provisioning or access, verify effective log-channel configuration, filesystem location and permissions, access roles, external forwarding, message-content controls and backup treatment against the actual target. This addendum does not authorize that target access or provisioning.
 
 **Gate effect:** this reconciliation closes the stale repository-evidence gap in DP-03. It does not close M3-11-02 or M3-11-05, and it does not certify hosted logging, full data lifecycle, privacy compliance or independent security assurance.
+
+
+## 10. DP-02 superseding source-configuration reconciliation — current main
+
+**Reconciliation date:** 2026-11-20  
+**Source inspected:** `config/session.php` on current `main` (blob `45b4dabaf05db2c1fb4fb52187197dffc526202f`).
+
+The older Section 3.2 description is stale in one important respect: current checked-in configuration defaults the session driver to `file`, not `array`. Current source defaults are:
+
+| Setting | Current checked-in default | Interpretation / limitation |
+|---|---|---|
+| Driver | `file` | Server-side file sessions under Laravel's configured storage path; actual filesystem controls are not verified. |
+| Lifetime | 120 minutes | Idle lifetime default; effective runtime override unknown. |
+| Expire on browser close | `false` | Cookie may persist until its configured expiry; target policy decision remains. |
+| Session encryption | `false` | Laravel session-data encryption is not enabled by default; storage permissions and any at-rest protection are unverified. |
+| Secure cookie | `SESSION_SECURE_COOKIE` with no source default | Effective value depends on runtime environment; HTTPS-only cookie behavior is not established from source alone. |
+| HTTP-only | `true` | JavaScript access is disabled by default. |
+| SameSite | `lax` | Checked-in default. |
+| Partitioned cookie | `false` | Checked-in default. |
+| Session file path | `storage/framework/sessions` | Actual path exposure, ownership and permissions are not verified. |
+
+The authentication controller's session regeneration/invalidation behavior and existing synthetic tests remain useful repository evidence, but they do not establish the effective cookie flags, file permissions, session cleanup, or target runtime values.
+
+### 10.1 Updated DP-02 disposition
+
+**DP-02 is PARTIALLY RECONCILED at source/configuration level; target-specific acceptance remains DEFERRED.** The earlier claim that the checked-in default driver is `array` is superseded by the current source fact that it defaults to `file`.
+
+Before any separately authorized private acceptance environment or reviewer access, the exact target must provide evidence for:
+- HTTPS enforcement and effective `SESSION_SECURE_COOKIE=true`;
+- the approved session driver and effective lifetime/close-expiry policy;
+- whether session-data encryption is required and, if enabled, how keys are protected and rotated;
+- session-file path outside public document exposure, ownership, least-privilege permissions and cleanup;
+- effective `http_only` and `same_site` values;
+- session invalidation/expiry behavior and test evidence under the actual target configuration.
+
+No production or hosted environment was inspected. No runtime override was assumed. This reconciliation does not authorize environment provisioning, Hostinger/hPanel access or real account processing.
+
+**Gate effect:** current source defaults are now accurately documented. DP-02 remains deferred for any target because runtime values, file permissions, HTTPS and operational cleanup are not evidenced. This does not close M3-11-02 or M3-11-05.
