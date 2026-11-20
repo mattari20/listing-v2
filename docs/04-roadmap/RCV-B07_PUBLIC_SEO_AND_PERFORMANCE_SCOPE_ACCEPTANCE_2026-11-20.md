@@ -90,7 +90,7 @@ Do not add brittle wall-clock assertions to ordinary unit tests. A performance r
 | B07-A | Trusted canonical-origin and metadata design, indexability rules, language alternate policy | APPROVED; design recorded |
 | B07-B | Environment-aware robots/noindex controls and canonical metadata with tests | IMPLEMENTED AND MERGED in PR #335 |
 | B07-C | Conditional sitemap generation from approved public projections, with suppression/visibility tests | DEFERRED pending approved public origin/release and verified safe enumeration contract |
-| B07-D | Reproducible synthetic workload/measurement harness and baseline report | NEXT bounded repository-only slice; numeric SLOs remain unset |
+| B07-D | Reproducible synthetic workload/measurement harness and baseline report | IMPLEMENTED AND MERGED in PR #337; seven synthetic scenarios measured; no capacity claim |
 | B07-E | Owner-approved SLO and capacity acceptance record | BLOCKED pending synthetic measurement review and separate owner approval |
 
 Any code stage must be separately bounded to repository/local/GitHub CI, synthetic fixtures only, with exact files, test coverage and no production URL/cutover.
@@ -131,4 +131,4 @@ The Product Owner approved all three decisions unchanged. This approval enabled 
 
 ## 9. Current disposition
 
-The repository-only inventory and B07-B fail-closed crawl/SEO controls are complete. Indexing remains disabled by default and the canonical origin remains unset. Sitemap generation is deferred pending an approved public origin/release and safe eligible-projection enumeration. The next slice is a synthetic-only performance measurement harness; no numeric SLO, production capacity claim, deployment or public indexing activation is authorized.
+The repository-only inventory, B07-B fail-closed crawl/SEO controls and B07-D synthetic measurement harness are complete for the approved scope. Indexing remains disabled by default and the canonical origin remains unset. The seven-entity SQLite microbenchmark is documented in the performance measurement record; it does not establish production capacity or SLOs. Sitemap generation is deferred pending an approved public origin/release and safe eligible-projection enumeration. Numeric SLOs remain unset pending owner review and representative capacity evidence. No deployment or public indexing activation is authorized.
