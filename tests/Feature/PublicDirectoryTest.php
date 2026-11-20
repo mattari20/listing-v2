@@ -179,7 +179,7 @@ final class PublicDirectoryTest extends TestCase
         $this->get('/directory?filters[institution_subject]=Physics')
             ->assertOk()
             ->assertSee('Academic options')
-            ->assertSee('Active search filters')
+            ->assertSee('Active search:')
             ->assertSee('Clear all filters')
             ->assertSee('Physics');
     }
