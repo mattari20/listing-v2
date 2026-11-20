@@ -1,3 +1,7 @@
+## RCV-B04 — search and filter completeness — 2026-11-20
+
+- [RCV-B04 Search and Filter Completeness Scope and Acceptance Pack](RCV-B04_SEARCH_AND_FILTER_COMPLETENESS_SCOPE_ACCEPTANCE_2026-11-20.md) — current query/controller/view inspected; proposes deterministic registry-backed student-first search and filter completion. Product Owner scope decision required before implementation; no external search/AI or real data.
+
 ## RCV-B03 — shortlist and comparison — 2026-11-20
 
 - [RCV-B03 Scope and Acceptance Decision](RCV-B03_SHORTLIST_AND_COMPARISON_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner approved temporary session-only shortlist; no persistent save/share.
