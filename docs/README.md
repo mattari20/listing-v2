@@ -9,7 +9,8 @@
 
 - [RCV-B06 Advanced Geography Scope and Acceptance Pack](04-roadmap/RCV-B06_ADVANCED_GEOGRAPHY_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner policy approved; geography design and evidence review complete; no real coordinates, geolocation, maps, geocoding, schema change or spend authorized.
 - [RCV-B06 Geography Semantics and Optional Nearby Design](04-roadmap/RCV-B06_GEOGRAPHY_SEMANTICS_AND_NEARBY_DESIGN_2026-11-20.md) — entity ownership, coordinate quality, fail-closed eligibility, privacy and synthetic test contract.
-- [RCV-B06 Publication/Evidence Review and Bounded Implementation Authorization Request](04-roadmap/RCV-B06_PUBLICATION_EVIDENCE_REVIEW_AND_IMPLEMENTATION_AUTHORIZATION_REQUEST_2026-11-20.md) — current publication, evidence, source-rights, campus identity and Deeni Madaris controls reconciled; synthetic-only pure-domain proof-of-concept awaits Product Owner authorization.
+- [RCV-B06 Publication/Evidence Review and Bounded Implementation Authorization Request](04-roadmap/RCV-B06_PUBLICATION_EVIDENCE_REVIEW_AND_IMPLEMENTATION_AUTHORIZATION_REQUEST_2026-11-20.md) — publication/evidence/suppression controls reconciled; Product Owner approved the synthetic-only pure-domain proof-of-concept.
+- [RCV-B06 Synthetic Nearby Ranking Implementation Record](04-roadmap/RCV-B06_SYNTHETIC_NEARBY_RANKING_IMPLEMENTATION_RECORD_2026-11-20.md) — pure PHP domain proof, fail-closed eligibility and synthetic unit coverage; exact-head CI pending.
 
 ## RCV-B04 — search and filter completeness — 2026-11-20
 
