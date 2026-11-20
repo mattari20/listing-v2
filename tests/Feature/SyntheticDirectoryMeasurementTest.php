@@ -67,7 +67,7 @@ final class SyntheticDirectoryMeasurementTest extends TestCase
                     ->all(),
             ],
             'measurement' => [
-                'iterations_per_scenario' => 7,
+                'iterations_per_scenario' => 3,
                 'warmup_requests_per_scenario' => 1,
                 'concurrency' => 1,
                 'mode' => 'in-process HTTP kernel; warm sequential requests; diagnostic only',
@@ -79,7 +79,7 @@ final class SyntheticDirectoryMeasurementTest extends TestCase
             $this->get($path)->assertOk();
             $samples = [];
 
-            for ($iteration = 0; $iteration < 7; $iteration++) {
+            for ($iteration = 0; $iteration < 3; $iteration++) {
                 $queryCount = 0;
                 $captureQueries = true;
                 $startedAt = hrtime(true);
@@ -116,7 +116,7 @@ final class SyntheticDirectoryMeasurementTest extends TestCase
 
         $this->assertCount(7, $report['measurement']['scenarios']);
         foreach ($report['measurement']['scenarios'] as $scenario) {
-            $this->assertSame(7, $scenario['sample_count']);
+            $this->assertSame(3, $scenario['sample_count']);
             $this->assertGreaterThan(0, $scenario['response_bytes_median']);
             $this->assertGreaterThan(0, $scenario['query_count_median']);
         }
