@@ -3,7 +3,7 @@
 **Date:** 2026-11-20  
 **Repository:** `mattari20/listing-v2`  
 **Baseline main:** `e4a0903f370d506986d5aa4422c7397d4172c758`  
-**Agenda:** LPS-29 — final execution-ready handoff pack for the current private synthetic-scope legal/privacy/safeguarding review  
+**Agenda:** LPS-29 — final execution-ready handoff pack for the current synthetic-scope legal/privacy/safeguarding review  
 **Work type:** Repository-only documentary consolidation; no external reviewer activity  
 **Disposition:** **REPOSITORY HANDOFF PACKAGE COMPLETE / READY FOR PRODUCT OWNER TO SELECT A QUALIFIED REVIEWER / QUALIFIED REPORT NOT RECEIVED / M3-11-02 REMAINS BLOCKED**
 
@@ -17,17 +17,18 @@ The reviewer must make their own professional assessment from the evidence actua
 
 ## 2. Exact Track A scope to be offered for review
 
-**Question:** Is the currently accepted private V2 development/acceptance scope, limited to repository/local workstation/GitHub CI and synthetic/fictional fixtures, acceptable from the applicable legal, privacy and safeguarding perspectives, and what conditions must be met before any separately proposed next stage?
+**Question:** Is the currently accepted V2 development and restricted acceptance scope, using a public GitHub source repository during development and limited to repository/local workstation/GitHub CI plus synthetic/fictional fixtures, acceptable from the applicable legal, privacy and safeguarding perspectives, and what conditions must be met before any separately proposed next stage?
 
 The reviewer must assess only the scope and materials expressly identified in the written engagement. The current boundary includes:
-- private V2 repository development and local/GitHub CI activity;
+- V2 source repository development in a public GitHub repository during the development phase, plus local/GitHub CI activity; the source repository is intended to become private after development is complete under a separately recorded Product Owner decision;
+- the application's acceptance environment remains a separate restricted/private environment category and is not authorized or provisioned by this handoff pack;
 - fictional/synthetic institution, account and workflow fixtures only;
 - the Product Owner's current owner-led development model;
 - the repository evidence and known limitations listed below;
 - Deeni Madaris default-OFF and zero public exposure;
 - no intended child/student/guardian data, accounts, profiles, contact, recruitment or participation in this scope.
 
-The review must not silently extend to any real-data, source, hosted, public, pilot, release or production scenario. If those scenarios are considered, they must be marked out of scope and treated as requiring separate future review and authorization.
+The review must not silently extend to any real-data, source, hosted, public-application-access, public-pilot, release or production scenario. Public visibility of the development source repository does not authorize public application access, a pilot, release or production operation. Any such scenario requires separate future review and authorization.
 
 ## 3. Binding exclusions to include in the reviewer's written scope
 
@@ -70,7 +71,7 @@ Before engagement, the Product Owner should obtain and record outside this repos
 1. the reviewer's legal name and professional/organizational role;
 2. relevant qualifications, current standing where applicable, jurisdictional competence and demonstrable experience in technology/privacy/IP/education or child safeguarding as relevant;
 3. a written conflict-of-interest and independence declaration;
-4. confirmation that the reviewer can assess the exact private synthetic-only scope and will not imply approval of excluded future stages;
+4. confirmation that the reviewer can assess the exact synthetic-only development/restricted-acceptance scope and will not imply approval of excluded future stages;
 5. written acceptance of scope, exclusions, deliverables, limitations, confidentiality arrangements and any fee;
 6. an explicit decision on whether separate legal, privacy and safeguarding specialists are required because one reviewer does not cover all domains.
 
@@ -80,10 +81,10 @@ No particular professional, firm, jurisdictional conclusion, legal basis or qual
 
 The written assessment must address each item and identify missing facts rather than assume answers:
 
-1. **Applicability:** Which laws, duties and professional standards apply to the actual operator and the exact private synthetic-only activity? Which facts are unknown?
+1. **Applicability:** Which laws, duties and professional standards apply to the actual operator and the exact synthetic-only development/restricted-acceptance activity, including public source-repository visibility? Which facts are unknown?
 2. **Identifiability:** Could account identifiers, staff/reviewer information, audit metadata, logs, cookies, telemetry or other artifacts identify or relate to a natural person despite synthetic business fixtures?
 3. **Roles:** Who is the accountable operator/controller or equivalent decision-maker? Are processors or subprocessors involved? Which conclusions cannot be made before an actual environment exists?
-4. **Purpose and minimization:** Are the stated purposes, fields, access boundaries and synthetic-only constraints adequate for the exact activity?
+4. **Purpose and minimization:** Are the stated purposes, fields, access boundaries and synthetic-only constraints adequate for the exact activity, including development in a publicly visible source repository?
 5. **Lifecycle:** Are retention, deletion, audit, session, log, backup, export and propagation controls sufficiently defined? Identify where repository evidence is incomplete and what must be decided before a later stage.
 6. **Safeguarding:** Does the expressly child/student/guardian-excluded scope create any remaining safeguarding obligations or foreseeable exposure that needs a condition? Identify triggers requiring a new review if scope changes.
 7. **Security and confidentiality:** What minimum organizational, access, confidentiality and security conditions apply before any reviewer receives materials or any later environment is proposed?
@@ -150,3 +151,12 @@ A verbal discussion, unsigned note, generic statement of comfort, blank template
 The next event is a human action outside this repository: the Product Owner selects an appropriately qualified independent reviewer, verifies competence/independence, agrees the exact Track A scope and confidential handoff method, and obtains a written assessment. No further repository coding can substitute for that event.
 
 Until then, retain synthetic/fictional fixtures only and all existing exclusions. Do not contact or access sources, provision or inspect hosting, access V1/production/Hostinger, inspect databases/backups, conduct restore/recovery, process real data, activate public intake, deploy, pilot, create a release candidate, authorize execution or incur new spend.
+
+
+## Repository visibility clarification — Product Owner decision, 2026-11-20
+
+The Product Owner clarified that `mattari20/listing-v2` is intentionally **PUBLIC during the development phase** and is intended to become **PRIVATE after development is complete**, at a separately recorded Product Owner decision. GitHub repository visibility was verified as `public` on `main` at commit `2fe4831327043c0fba8c375fe4f3bfaeeb64a2a1` when this clarification was prepared.
+
+This source-repository visibility lifecycle is distinct from the application's restricted/private acceptance-environment boundary and does not authorize public application access, a public pilot, release, production operation, real-data processing, source acquisition or participant activity. The reviewer must assess the exact public-repository/synthetic-only development facts. Never place secrets, credentials, personal records or confidential reviewer materials in the public repository. Confidential reviewer materials must be exchanged separately through an agreed restricted channel.
+
+This clarification supersedes only wording that describes the GitHub source repository itself as private. It does not amend the product scope, acceptance-environment restrictions, exclusions, gates or stop conditions.
