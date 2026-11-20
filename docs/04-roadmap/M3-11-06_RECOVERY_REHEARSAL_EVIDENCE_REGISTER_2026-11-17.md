@@ -63,3 +63,7 @@
 ## Superseding backup-frequency policy decision — 2026-11-20
 
 The Product Owner accepted **weekly automated backups** for the current development stage and declined a paid upgrade or increased frequency. The decision is a policy cadence only; it is not proof of a V2-only backup, retention, integrity, destination isolation or recovery capability. RPO/RTO remain NOT SET; recovery ownership remains NOT ASSIGNED; REC-01–REC-14 evidence states remain unchanged. No backup, download, restore or rollback was performed or authorized.
+
+## DP-06 lifecycle alignment — 2026-11-20
+
+The current-stage weekly backup cadence remains accepted as stated above. The DP-06 repository inventory does not establish the actual target backup source/destination, backup-held log copies, provider retention, deletion propagation or account-level recovery behavior. Therefore REC-05 and REC-06 remain BLOCKED; REC-07 remains NOT RUN; REC-08–REC-14 retain their existing blocked/not-run/not-measured states. No backup artifact was accessed and no recovery operation was performed.
