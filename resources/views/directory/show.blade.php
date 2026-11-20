@@ -32,8 +32,8 @@
         <span aria-hidden="true">|</span>
         <a href="{{ $languageUrls['ur'] }}" @if ($locale === 'ur') aria-current="page" @endif>{{ __('directory.urdu') }}</a>
     </nav>
-    <p><a href="{{ route('directory.index', ['lang' => $locale]) }}">← {{ __('directory.back_search') }}</a></p>
-    <p><a href="{{ route('directory.compare', ['lang' => $locale]) }}">{{ __('directory.compare_shortlist', ['count' => $shortlistCount, 'limit' => $shortlistLimit]) }}</a></p>
+    <p><a href="/directory?lang={{ $locale }}">← {{ __('directory.back_search') }}</a></p>
+    <p><a href="/directory/compare?lang={{ $locale }}">{{ __('directory.compare_shortlist', ['count' => $shortlistCount, 'limit' => $shortlistLimit]) }}</a></p>
     @if ($isShortlisted)
         <form method="post" action="{{ route('directory.shortlist.remove', ['entity' => $profile['id']]) }}">@csrf @method('delete')<input type="hidden" name="lang" value="{{ $locale }}"><button type="submit">{{ __('directory.remove_shortlist') }}</button></form>
     @else
