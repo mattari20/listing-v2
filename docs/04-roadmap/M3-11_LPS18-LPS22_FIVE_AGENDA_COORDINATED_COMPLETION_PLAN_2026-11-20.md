@@ -1,3 +1,23 @@
+## LPS-21 — cross-gap policy/control/evidence traceability matrix — COMPLETE — 2026-11-20
+
+LPS-21 reconciles GAP-01 through GAP-06 against LPS-01–LPS-10, LPS-11–LPS-20, current repository evidence, missing proof, dependencies, accountable decision roles and M3-11 gate impact. It adds a consolidated outstanding-evidence register and cross-gap dependency sequence.
+
+**Disposition:** no gap or gate is closed/promoted. All M3-11 ten-gate dispositions remain unchanged; M3-11 remains BLOCKED / NOT ACCEPTED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
+## Coordinated five-agenda programme status — updated after LPS-21 — 2026-11-20
+
+| Order | Agenda | Status |
+|---|---|---|
+| 1 | LPS-18 — GAP-06 hosted isolation and recovery framework | COMPLETE / MERGED / MAIN VERIFIED |
+| 2 | LPS-19 — GAP-02 data lifecycle evidence reconciliation | COMPLETE / MERGED / MAIN VERIFIED |
+| 3 | LPS-20 — GAP-03 qualified review handoff | COMPLETE / MERGED / MAIN VERIFIED |
+| 4 | LPS-21 — GAP-01–GAP-06 cross-gap traceability matrix | COMPLETE / IN PROGRESS OF MERGE |
+| 5 | LPS-22 — M3-11 final repository reconciliation and next-stage decision pack | PLANNED / NOT STARTED |
+
+All five agendas remain repository-only. No gap or gate is closed by framework preparation or traceability alone. No external review, source access, hosted/production/Hostinger activity, recovery rehearsal, public service, deployment, pilot, release or spend is authorized.
+
+---
+
 ## LPS-20 — GAP-03 qualified review handoff dossier — COMPLETE — 2026-11-20
 
 LPS-20 completed repository-only handoff reconciliation. It separates the current private synthetic-scope legal/privacy/safeguarding review from any future source-specific rights/privacy/safeguarding assessment; reconciles LPS-15, M3-11-02 review pack and blank reviewer response template, Product Owner internal review, and LPS-14/LPS-16/LPS-17/LPS-18/LPS-19 dependencies; and defines reviewer competence, independence, handoff packet manifests, mandatory questions, report format, disposition states and missing-evidence register.
