@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** `main` at `19b4fd80c645b99085d7c4cd5329a043aaadd0e6`  
 **Agenda:** RCV-B03 — Shortlist and Comparison  
-**Status:** Product Owner approved temporary session-only shortlist on 2026-11-20. Implementation completed in PR #322; exact-head PHP 8.5 foundation CI #44645164583 and documentation validation #44645164581 passed on `c2669a85099bfb3640baaec2bc2f77b7c569f39f`. PR remains open and unmerged pending Product Owner approval.
+**Status:** Product Owner approved temporary session-only shortlist on 2026-11-20. Implementation completed in PR #322; exact-head PHP 8.5 foundation CI #44645164583 and documentation validation #44645164581 passed on `c2669a85099bfb3640baaec2bc2f77b7c569f39f`. PR #322 is merged into main; see the implementation closeout and merge commit above.
 
 ## 1. Why this is next
 
@@ -92,7 +92,7 @@ These remain separate product or release decisions.
 
 ## 6. Authorization and next gate
 
-RCV-B03 is selected as the next agenda, but this document is not implementation authorization. Before code begins, the Product Owner must decide whether to accept the recommended temporary session-only shortlist with no persistent save/share in the first slice, or require persistent account-based saving/sharing from the beginning.
+RCV-B03 was selected and implemented under the Product Owner's temporary session-only decision. The Product Owner approved temporary session-only shortlist with no persistent save/share on 2026-11-20; implementation was merged in PR #322.
 
 After that decision, a narrow implementation authorization can specify the exact files, data handling, tests and any schema implications. Existing no-V1, no-production, synthetic-only, no-external-service, no-spend and Deeni Madaris default-OFF restrictions remain binding.
 
@@ -105,5 +105,5 @@ After that decision, a narrow implementation authorization can specify the exact
 | Existing comparison implementation inventory | COMPLETE — no shortlist/comparison workflow found |
 | RCV-B03 product/privacy scope | PREPARED |
 | Persistence/share decision | AWAITING PRODUCT OWNER DECISION |
-| Application implementation | NOT AUTHORIZED / NOT STARTED |
+| Application implementation | COMPLETE AND MERGED in PR #322 |
 | Production, real data, external services or spend | NOT AUTHORIZED |

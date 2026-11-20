@@ -1,6 +1,6 @@
-## Latest verified planning position — RCV-B03 shortlist and comparison (2026-11-20)
+## Latest verified planning position — RCV-B04 search and filter completeness (2026-11-20)
 
-Product Owner approved the temporary session-only shortlist first slice. Implementation is underway on `feat/rcv-b03-session-shortlist-comparison`: add/remove controls, configurable five-option cap, same-type enforcement, comparison read model over approved anonymous projections, explicit missing values, preserved literal zero, separate programme-offer/cycle facts, and file-backed non-testing session default. No persistent saved-list table, share links, account registration, new migration, real/source data, V1/Hostinger/production access, external APIs/AI or spend. Exact-head `c2669a85099bfb3640baaec2bc2f77b7c569f39f` passed PHP 8.5 foundation CI #44645164583 and project documentation validation #44645164581 (15 passed, 1,262 assertions, 248 non-fatal warnings); PR #322 remains open pending merge approval.
+RCV-B03 session-only shortlist and like-for-like comparison is complete and merged in PR #322 as `f3590a785e690858d1a6626219f6dd4125befd4c`. Exact-head `1eff3d364418a2d860cdc8be22a0ef1b00f3fc49` passed PHP 8.5 foundation CI #44645339493 and project documentation validation #44645339473 (15 passed, 1,262 assertions, 248 non-fatal warnings). RCV-B04 scope/acceptance pack is prepared on branch `docs/rcv-b04-search-filter-scope`; it proposes deterministic registry-backed search/filter completion using approved anonymous projections and synthetic tests only. Product Owner scope decision is required before application implementation. No external search, AI, real/source data, V1, Hostinger, production, deployment or spend.
 
 ---
 
