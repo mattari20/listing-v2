@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Compare selected education directory options using approved public information.">
-    <title>Compare options — Education Directory</title>
+    <meta name="description" content="{{ __('directory.meta_compare') }}">
+    <title>{{ __('directory.compare_heading') }} — {{ __('directory.directory_title') }}</title>
     <style>
         :root { color-scheme: light; font-family: system-ui, sans-serif; }
         body { margin: 0; color: #172033; background: #f7f8fa; line-height: 1.55; }
@@ -54,7 +54,7 @@
                     <th scope="col">{{ __('directory.comparison_detail') }}</th>
                     @foreach ($profiles as $profile)
                         <th scope="col">
-                            <a href="{{ route('directory.show', ['entity' => $profile['id'], 'lang' => $locale]) }}">{{ $profile['name'] }}</a>
+                            <a href="{{ route('directory.show', ['entity' => $profile['id'], 'lang' => $locale]) }}" dir="auto">{{ $profile['name'] }}</a>
                             <div class="meta">{{ __('directory.types.'.$profile['type']) }}</div>
                             <form method="post" action="{{ route('directory.shortlist.remove', ['entity' => $profile['id']]) }}">
                                 @csrf
@@ -68,7 +68,7 @@
                 <tbody>
                     @forelse ($rows as $row)
                         <tr>
-                            <th scope="row">{{ $row['label'] }}</th>
+                            <th scope="row" dir="auto">{{ $row['label'] }}</th>
                             @foreach ($profiles as $profile)
                                 @php($cell = $row['values'][$profile['id']])
                                 <td>
@@ -100,14 +100,14 @@
                         <thead><tr><th scope="col">{{ __('directory.programme') }}</th><th scope="col">{{ __('directory.published_offers') }}</th></tr></thead>
                         <tbody>
                             @foreach ($profiles as $profile)
-                                <tr><th scope="row">{{ $profile['name'] }}</th><td>
+                                <tr><th scope="row" dir="auto">{{ $profile['name'] }}</th><td>
                                     @if (($profile['programme_offers'] ?? []) === [])
                                         {{ __('directory.no_offers') }}
                                     @else
                                         <div class="offers">
                                             @foreach ($profile['programme_offers'] as $offer)
                                                 <section class="offer">
-                                                    <strong>{{ $offer['admission_cycle'] }}</strong>
+                                                    <strong dir="auto">{{ $offer['admission_cycle'] }}</strong>
                                                     <div class="meta">{{ $offer['delivery_location'] }}</div>
                                                     <ul>
                                                         @foreach ($offer['facts'] as $fact)
