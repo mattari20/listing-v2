@@ -91,3 +91,15 @@ Test-method counts are an inventory of source declarations; they are not a new t
 No application/schema changes, migration execution, database connection, real/source/student/institute data, source retrieval, external API/AI, maps/geocoding, user or participant contact, Hostinger/hPanel/V1/production access, backup/restore, deployment, public launch, new dependency/vendor or spend.
 
 **Final result:** BOUNDED STUDENT DISCOVERY FOUNDATION VERIFIED BY SOURCE AND TEST INVENTORY; FULL STUDENT JOURNEY AND BROWSER ACCEPTANCE NOT ESTABLISHED.
+
+
+## 8. Delivery and exact-head verification
+
+- Coordinated delivery PR [#355](https://github.com/mattari20/listing-v2/pull/355) merged as `1a482ac94402470e08e2b17d7d4a48d3be2290a9`.
+- Exact PR head: `efe36f69a4c4c9ada7e65c47e26c65bff903d325`.
+- PHP 8.5 foundation CI [run #44681875232](https://github.com/mattari20/listing-v2/actions/runs/44681875232): SUCCESS.
+- Project documentation validation [run #44681875222](https://github.com/mattari20/listing-v2/actions/runs/44681875222): SUCCESS; required control documents and relative Markdown links passed.
+- Both required checks completed successfully on the exact PR head. Synthetic suite reported 20 passed, 1,501 assertions and 282 warnings; it was not warning-free.
+- Verified PR #355 is merged and `main` points to merge commit `1a482ac94402470e08e2b17d7d4a48d3be2290a9`.
+
+**Delivery disposition:** Agenda evidence and project tracking updates are merged. This delivery validation does not convert the documented partial/deferred capabilities into full student journey, browser, accessibility, human operations or production acceptance.
