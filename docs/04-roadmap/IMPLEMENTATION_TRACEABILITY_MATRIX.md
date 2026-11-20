@@ -1,5 +1,7 @@
 # Implementation Traceability Matrix
 
+| M3-11-03-SEC06-001 | Implement bounded daily local-file logging, age-based rotated-log retention and minimized structured context | M3-11-03 approved logging policy and SEC-06 local/CI implementation authorization | M3-11-03 | PR #347 merged as `0e4f94287150d6a8a6b2e7db9416f8c601ed9e8a`; `M3-11-03_SEC06_LOCAL_CI_IMPLEMENTATION_EVIDENCE_2026-11-19.md` | Final exact-head PHP 8.5 foundation CI #688 and docs validation #1164 passed on `758324da66fd8d34784997045fc1055d69689337`; 20 passed, 1,501 assertions, 282 warnings | LOCAL/CI IMPLEMENTATION COMPLETE; independent review and hosted controls remain BLOCKED |
+
 | M3-11-STAGE1-INDEX-001 | Prepare a controlled Stage 1 repository-review handoff against an immutable source baseline | M3-11-02 legal/privacy/safeguarding review pack; M3-11-03 independent security/accessibility review pack; M3-11 gate coordination plan | M3-11 Stage 1 | `M3-11_STAGE_1_REPOSITORY_REVIEW_BASELINE_AND_EVIDENCE_INDEX_2026-11-20.md`; baseline `f1f9d779fa280e1c0a57618c301a535aad635a85` | Existing review packs/templates indexed; source entry points and reviewer record requirements documented; no independent assessment or new access authorized | HANDOFF PREPARATION COMPLETE; independent reviews and M3-11 readiness gates remain BLOCKED |
 
 | Requirement ID | Requirement | Specification | Step | PR / commit | Test / evidence | Status |
