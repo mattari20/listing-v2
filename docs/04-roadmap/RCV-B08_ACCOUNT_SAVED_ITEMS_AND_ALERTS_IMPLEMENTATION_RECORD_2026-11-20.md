@@ -3,7 +3,7 @@
 **Date:** 2026-11-20  
 **Repository:** mattari20/listing-v2  
 **Branch:** feat/rcv-b08-private-saved-items  
-**Status:** Implementation submitted for exact-head validation; no production activation.
+**Status:** IMPLEMENTED AND MERGED in PR #340 as `d9d97ca15f31e6d0406090532b6fd63de9db42e7`; no production activation.
 
 ## 1. Product Owner decision and scope
 
@@ -37,7 +37,9 @@ Tests cover guest denial, owner save/list/remove, idempotent save, cross-account
 
 ## 5. Validation and merge evidence
 
-Pending exact-head PHP 8.5 foundation CI and Project documentation validation. After checks, record exact PR head, workflow run IDs, total tests/assertions/warnings and merge SHA.
+Exact-head FND-01 PHP 8.5 CI #44656958419 (run #676) and Project documentation validation #44656958556 (run #1145) passed on PR head `c11a439bfa6213801f0755a3b250e02036df3266`. Full synthetic suite: 15 passed, 1,462 assertions, 281 non-fatal warnings. Formatting, Composer validation, dependency advisories, Laravel bootstrap/routes, migration rollback/reinstall, and repository artifact hygiene passed. PR #340 merged as `d9d97ca15f31e6d0406090532b6fd63de9db42e7`.
+
+The migration-sequence test now verifies 15 migrations and includes `saved_directory_items`; the existing anonymous shortlist and governance contracts remain green.
 
 ## 6. Remaining RCV-B08 stages
 
