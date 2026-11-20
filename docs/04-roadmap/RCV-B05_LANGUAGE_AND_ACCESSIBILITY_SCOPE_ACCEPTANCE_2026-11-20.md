@@ -2,9 +2,9 @@
 
 **Date:** 2026-11-20  
 **Repository:** `mattari20/listing-v2`  
-**Baseline:** `main` at `40317c3f06111cac2122a25e35e5feb9b54ca08e`  
+**Baseline:** `main` at `6ba18b907c51ac4c24af571cfb1b07899d0ada74`  
 **Agenda:** RCV-B05 — Language and Accessibility Completion  
-**Status:** Repository inspection and bounded recommendation prepared; Product Owner language/content decision required before implementation.
+**Status:** Product Owner approved the recommended English/Urdu interface and original-approved-language fact policy on 2026-11-20. Bounded synthetic implementation delivered on branch `feat/rcv-b05-urdu-localization-accessibility`; exact-head CI pending.
 
 ## 1. Why this is next
 
@@ -25,8 +25,8 @@ Observed existing accessibility foundations:
 - Comparison table uses column/row headers and a keyboard-focusable labelled horizontal-scroll region.
 - Responsive layout rules exist for the search/profile views.
 - Public values use `dir=auto` in several locations to avoid forcing left-to-right rendering on mixed-language values.
-- All three pages currently declare `lang="en"`; there is no language selector, translation catalogue or complete RTL layout policy.
-- The comparison page lacks the skip link present on index/profile.
+- At the inspected baseline all three pages declared `lang="en"`; there was no language selector or translation catalogue.
+- At the inspected baseline the comparison page lacked the skip link present on index/profile.
 - Existing automated tests are not a screen-reader, keyboard-only, contrast, zoom/reflow or qualified WCAG audit.
 
 These are repository observations, not a conformance finding.
@@ -84,11 +84,11 @@ Automated tests and code inspection can catch regressions but cannot establish W
 - Hostinger, V1, production DB, deployment, public activation or new spend.
 - Any change to Deeni Madaris default-OFF suppression.
 
-## 6. Product Owner decision requested
+## 6. Product Owner decision and authorization
 
-Approve or amend the recommended language strategy in Section 3.1: **English and Urdu interface; preserve approved institute facts in their original approved language; no automatic translation; language choice remains session/URL scoped.**
+**APPROVED 2026-11-20.** The Product Owner said: “ok approve as u stated above and move further to next agenda”. This approves the Section 3.1 strategy unchanged: **English and Urdu interface; preserve approved institute facts in their original approved language; no automatic translation; language choice remains session/URL scoped.**
 
-Once accepted, the first implementation can be limited to local workstation/GitHub CI and synthetic fixtures. The separate qualified accessibility assessment remains a later human review and is not included in the code implementation.
+Implementation is limited to the local workstation/GitHub CI and synthetic fixtures. The separate qualified accessibility assessment remains a later human review and is not included in the code implementation.
 
 ## 7. Current agenda disposition
 
@@ -97,9 +97,10 @@ Once accepted, the first implementation can be limited to local workstation/GitH
 | RCV-01 identifies RCV-B05 | COMPLETE |
 | Current public view baseline inspected | COMPLETE |
 | Existing accessibility foundations and gaps recorded | COMPLETE |
-| Bounded bilingual/RTL recommendation prepared | PREPARED |
-| Product Owner language/content decision | REQUIRED |
-| Application implementation | NOT STARTED / NOT AUTHORIZED |
+| Bounded bilingual/RTL recommendation prepared | COMPLETE |
+| Product Owner language/content decision | APPROVED 2026-11-20 |
+| Application implementation | DELIVERED ON IMPLEMENTATION BRANCH; exact-head CI pending |
+| Manual accessibility checklist | CREATED; all manual checks remain NOT PERFORMED |
 | Qualified accessibility assessment | NOT PERFORMED; separate human review required |
 
 Existing V2-only, synthetic-only, no-production, no-V1, no-Hostinger, no-real/source/personal-data, no-external-service/AI, no-spend and Deeni Madaris default-OFF restrictions remain binding.
