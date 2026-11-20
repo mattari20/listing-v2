@@ -134,3 +134,8 @@ Related artifacts:
 - [Status and Handoff](M3-11-06_STATUS_AND_HANDOFF_2026-11-17.md)
 
 M3-11 overall remains BLOCKED / NOT ACCEPTED. This document authorizes no environment access, backup, restore, rollback, pilot, production or release action.
+
+
+## Superseding backup cadence decision — 2026-11-20
+
+The Product Owner accepted the existing weekly automated backup cadence for the current development stage and declined a paid upgrade or increased frequency. This supersedes only the earlier “Backup frequency: NOT SET” policy field. It does not establish the actual V2-only backup source/destination, backup consistency/integrity, retention/deletion, encryption/key custody, recovery owner, approved RPO/RTO, successful restore or rollback rehearsal. No backup or restore was performed or authorized by this clarification.
