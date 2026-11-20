@@ -77,6 +77,9 @@ return [
     'public_info' => 'منظور شدہ عوامی معلومات',
     'no_details' => 'مزید عوامی تفصیلات دستیاب نہیں۔',
     'admissions_info' => 'پروگرام میں داخلے کی معلومات',
+    'campuses_heading' => 'کیمپسز',
+    'programmes_offers_heading' => 'پروگرامز اور داخلے کی پیشکشیں',
+    'no_current_offers' => 'اس وقت داخلے کی کوئی موجودہ منظور شدہ پیشکش دستیاب نہیں۔',
     'evidence_observed' => 'شواہد کے مشاہدے کی تاریخ: :date',
     'observation_not_supplied' => 'مشاہدے کی تاریخ فراہم نہیں کی گئی',
     'types' => [
