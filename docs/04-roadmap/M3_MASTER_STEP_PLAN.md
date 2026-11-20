@@ -1,3 +1,9 @@
+## Latest verified planning position — RCV-B02 admissions and programme decision facts (2026-11-20)
+
+The Product Owner selected RCV-B02 as the first residual product capability after RCV-01 and separately authorized the bounded synthetic V2 implementation, including the necessary in-scope schema change. The implementation is being reconciled onto current main `05d666936239b90b23dbc175c9f428151f70a5e0`: offer-scoped immutable fact identity/versions, evidence links, human adjudication and publication, category-specific freshness, public projections/suppression/correction/withdrawal, and a programme-profile read model. Synthetic-only disposable-SQLite tests cover offer isolation, zero-fee semantics, freshness, separation of duties, revocation, correction, withdrawal and unknown states. No real/source data, Hostinger/production/V1 access, external services, AI, public applications or spend. Exact-head validation pending.
+
+---
+
 ## Latest verified planning position — M3-12 private preview and synthetic dataset (2026-11-20)
 
 The bounded local-only M3-12 package was reconciled from PR #280 and merged in PR #316 as `995be9afbc7e171b78d9dacaff950f6964e594f1`. Exact-head `31fc0b2075a49f6a5b342eb8391f2e4ce3dea511` passed PHP 8.5 foundation CI #44641907781 and documentation validation #44641907769. It adds a guarded SQLite-only seeder for seven fictional records across provider, institution, campus, programme and qualification categories, with synthetic evidence/adjudication/publication, idempotence, pending/leased outbox isolation and 42-event completion checks. Synthetic suite: 15 passed, 1,169 assertions, 235 non-fatal warnings. No new schema, migration, route, view, dependency, external service, Hostinger action, real data or public activation is included. M3-11 hosted/release gates remain separate and blocked.
