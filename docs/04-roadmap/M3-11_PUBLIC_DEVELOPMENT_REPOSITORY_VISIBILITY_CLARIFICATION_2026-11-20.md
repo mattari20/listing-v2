@@ -3,14 +3,14 @@
 **Decision date:** 2026-11-20  
 **Repository:** `mattari20/listing-v2`  
 **Decision owner:** Product Owner  
-**Status:** OWNER CLARIFICATION RECORDED — DOCUMENTARY RECONCILIATION
+**Status:** BINDING PRODUCT OWNER DECISION RECORDED — FUTURE TRANSITION PENDING DEVELOPMENT COMPLETION
 
 ## 1. Owner decision
 
-The Product Owner confirms the intended GitHub source-repository visibility lifecycle:
+The Product Owner fixes the GitHub source-repository visibility lifecycle as a binding baseline decision:
 
 - **During development:** the `mattari20/listing-v2` source repository remains PUBLIC.
-- **After development is complete:** the repository is intended to become PRIVATE, following a separately recorded Product Owner decision.
+- **After development is complete:** the repository WILL be changed to PRIVATE when development is complete. This is already decided; no second approval of the visibility choice is required.
 
 The repository was verified as public on `main` at commit `2fe4831327043c0fba8c375fe4f3bfaeeb64a2a1` when this clarification was prepared.
 
@@ -41,7 +41,7 @@ While the repository is public:
 
 ## 4. Future transition to private
 
-The transition to private is a future development-completion action, not an action authorized or required now. Before changing visibility, the Product Owner should record the completion decision and review repository history, forks/copies, public artifacts, workflow logs and any prior exposure. Changing repository visibility must not be represented as proof that previously accessible copies or data have been erased.
+The transition to private is a mandatory future development-completion action. It must not be performed before development is complete. At completion, record that the development-completion condition has been met, review repository history, forks/copies, public artifacts, workflow logs and any prior exposure, and then execute and verify the visibility change. No second Product Owner approval of the public-to-private decision is required. Changing repository visibility must not be represented as proof that previously accessible copies or data have been erased.
 
 ## 5. Effect on existing records
 
