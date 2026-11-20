@@ -116,6 +116,74 @@ final class PublicDirectoryTest extends TestCase
             ->assertSee('filters[institution_region]');
     }
 
+    public function test_subject_search_uses_only_public_registry_facts_marked_searchable(): void
+    {
+        $matching = $this->createEntity();
+        $notMatching = $this->createEntity();
+        $this->publishFact($matching, 'display_name', 'Synthetic Science College');
+        $this->publishFact($notMatching, 'display_name', 'Synthetic Arts College');
+
+        $subject = $this->registryDefinition('institution_subject', ['searchable' => true]);
+        $hidden = $this->registryDefinition('institution_unsearchable_subject', ['searchable' => false]);
+        $this->publishFact($matching, 'institution_subject', 'Applied Biology', '2026-11-13 10:00:00', $subject);
+        $this->publishFact($notMatching, 'institution_unsearchable_subject', 'Applied Biology', '2026-11-13 10:00:00', $hidden);
+
+        $this->get('/directory?q=Biology')
+            ->assertOk()
+            ->assertSee('Synthetic Science College')
+            ->assertDontSee('Synthetic Arts College');
+
+        $this->get('/directory?q=Applied%20Biology')
+            ->assertOk()
+            ->assertSee('Synthetic Science College');
+
+        $this->get('/directory?q=Unsearchable')
+            ->assertOk()
+            ->assertDontSee('Synthetic Arts College');
+    }
+
+    public function test_multiple_registry_filters_compose_and_category_facets_ignore_selected_category(): void
+    {
+        $punjabCollege = $this->createEntity('institution');
+        $punjabProgramme = $this->createEntity('programme');
+        $sindhCollege = $this->createEntity('institution');
+        $this->publishFact($punjabCollege, 'display_name', 'Synthetic Punjab Biology College');
+        $this->publishFact($punjabProgramme, 'display_name', 'Synthetic Punjab Biology Diploma');
+        $this->publishFact($sindhCollege, 'display_name', 'Synthetic Sindh Biology College');
+
+        $region = $this->registryDefinition('institution_region', ['filterable' => true]);
+        $subject = $this->registryDefinition('institution_subject', ['filterable' => true]);
+        foreach ([$punjabCollege, $punjabProgramme] as $entity) {
+            $this->publishFact($entity, 'institution_region', 'Punjab', '2026-11-13 10:00:00', $region);
+            $this->publishFact($entity, 'institution_subject', 'Biology', '2026-11-13 10:00:00', $subject);
+        }
+        $this->publishFact($sindhCollege, 'institution_region', 'Sindh', '2026-11-13 10:00:00', $region);
+        $this->publishFact($sindhCollege, 'institution_subject', 'Biology', '2026-11-13 10:00:00', $subject);
+
+        $this->get('/directory?q=Biology&filters[institution_region]=Punjab&filters[institution_subject]=Biology&type=institution')
+            ->assertOk()
+            ->assertSee('Synthetic Punjab Biology College')
+            ->assertDontSee('Synthetic Punjab Biology Diploma')
+            ->assertDontSee('Synthetic Sindh Biology College')
+            ->assertSee('Institution (1)')
+            ->assertSee('Programme (1)');
+    }
+
+    public function test_filter_options_are_grouped_and_active_filters_can_be_cleared(): void
+    {
+        $entity = $this->createEntity();
+        $this->publishFact($entity, 'display_name', 'Synthetic Grouped Filters College');
+        $subject = $this->registryDefinition('institution_subject', ['filterable' => true]);
+        $this->publishFact($entity, 'institution_subject', 'Physics', '2026-11-13 10:00:00', $subject);
+
+        $this->get('/directory?filters[institution_subject]=Physics')
+            ->assertOk()
+            ->assertSee('Academic options')
+            ->assertSee('Active search filters')
+            ->assertSee('Clear all filters')
+            ->assertSee('Physics');
+    }
+
     public function test_unknown_or_unavailable_registry_filter_is_ignored_without_exposing_private_values(): void
     {
         $entity = $this->createEntity();
