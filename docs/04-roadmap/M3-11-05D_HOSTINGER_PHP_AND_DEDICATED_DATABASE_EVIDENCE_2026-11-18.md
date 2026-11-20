@@ -169,3 +169,8 @@ The PHP Info screenshot separately confirms PDO is enabled with drivers `mysql, 
 - The existing Hostinger plan is to be retained; no upgrade or additional hosting spend is approved.
 
 These decisions remove any requirement to add a second access-control layer or purchase enhanced backup frequency for the current stage. They do not waive the need to keep unverified technical boundaries accurately documented. No hPanel changes, backup actions, restore, deployment, or live hosted tests were performed as part of recording these decisions.
+
+
+## Superseding PHP runtime status — 2026-11-20
+
+The earlier status line “Exact PHP version: NOT FULLY CONFIRMED” is superseded. The owner-provided PHP Info evidence in §2 explicitly identifies PHP `8.5.12`, and the later 2026-11-19 bounded resource/CLI closeout independently observed Hostinger CLI PHP `8.5.12`. PDO MySQL availability is also observed. This confirms the runtime version and extension availability only; it does not prove hosted Laravel HTTP boot, database connection, full V2/V1 isolation, Basic Auth/static-file enforcement, private storage separation or M3-11-05 acceptance. No additional hosting access is authorized by this correction.
