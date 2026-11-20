@@ -1151,6 +1151,4 @@ final class PublicDirectoryTest extends TestCase
             ->assertSee('NoSuchSyntheticCourse')
             ->assertSee('Clear all filters');
     }
-
-
 }
