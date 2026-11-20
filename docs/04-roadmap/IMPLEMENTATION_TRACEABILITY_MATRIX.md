@@ -1,3 +1,21 @@
+## M3-12 Agendas 04–06 — student discovery, administration/editorial and browser UX verification
+
+| Requirement ID | Requirement | Specification / source evidence | Verification evidence | Status |
+|---|---|---|---|---|
+| M3-12-A04-01 | Verify student-facing search, filters, manual locality and public profiles | PublicDirectoryController; PublicDirectoryQueryService; M3-05/M3-06; RCV-B04 | PublicDirectoryTest (33 source methods): approved projection, filter/search flags, locality, pagination, suppression, safe rendering and shortlist | Repository source/test inventory complete; no fresh test run or browser acceptance |
+| M3-12-A04-02 | Verify admissions/programme decision facts and unknown/zero semantics | PublicProgrammeOfferFactsQueryService; RCV-B02 | ProgrammeOfferFactWorkflowTest (7 source methods): offer isolation, known zero, unknown, stale, correction, withdrawal and source revocation | Bounded synthetic read model verified; no applications, reminders or live facts |
+| M3-12-A04-03 | Verify shortlist, comparison and saved-item boundaries | PublicDirectoryComparisonService; AccountSavedItemsController; RCV-B03/RCV-B08 | PublicDirectoryTest (33) and AccountSavedItemsTest (7): same-type session shortlist, owner isolation, current-public recheck, no-store/noindex | Bounded slices verified; registration, sharing and alerts deferred |
+| M3-12-A05-01 | Verify provider/institution identity, relationships and catalogue governance | ProviderInstitutionRelationshipService; AuthorityRelationshipService; CampusProgrammeCatalogueService | ProviderInstitutionRelationshipTest (17); CampusProgrammeCatalogueTest (13); authority test inventory | Synthetic backend contracts verified |
+| M3-12-A05-02 | Verify representative workflow and editorial separation | UniversityRepresentativeWorkflowController; EditorialReviewService; routes/web.php | UniversityRepresentativeWorkflowTest (13); EditorialReviewServiceTest (5): scoped actors, immutable correction, separate review/adjudication/publication and audit behavior | Bounded university API workflow verified; complete admin UI not demonstrated |
+| M3-12-A05-03 | Verify dynamic field lifecycle, exact-version and typed/privacy validation | FieldDefinitionGovernanceService; FieldDefinitionRegistryReader; TypedFieldValueValidator | FieldDefinitionGovernanceTest (17); FieldDefinitionRegistryReaderTest (10); TypedFieldValueValidatorTest (15) | Synthetic service contracts verified; no browser administration console or staffed operations |
+| M3-12-A05-04 | Preserve disabled public UGC/moderation boundary | SyntheticModerationWorkflow; ModerationPrivacyBoundaryTest; RCV-B09 preflight | Synthetic moderation and route-boundary test source | Public reviews, ratings, reports, appeals and UGC remain disabled/not authorized |
+| M3-12-A06-01 | Inspect student-facing browser templates, localization and UX affordances | Directory index/profile/compare/saved-items Blade views; English/Urdu catalogues; RCV-B05 | Static source review of semantic structure, labels, skip links, focus styles, responsive CSS, RTL and metadata | Static review complete; no browser/device or manual accessibility testing |
+| M3-12-A06-02 | Reconcile manual accessibility and usability evidence | RCV-B05 manual accessibility checklist; M3-11-03 | Existing checklist and source evidence | NOT PERFORMED; no WCAG or human usability acceptance claim |
+
+The three agendas are repository-only source/test reviews. Test-method counts are inventories, not fresh execution or branch coverage. Browser/device, participant, real-data, qualified accessibility, human operations, hosted and production acceptance remain separate.
+
+---
+
 ## M3-12 Agenda 03 — institute directory and management functional verification
 
 | Requirement ID | Requirement | Specification / source evidence | Verification evidence | Status |
