@@ -76,6 +76,49 @@
         <h2>{{ __('directory.public_info') }}</h2>
         @if ($profile['facts'] === [])
             <p>{{ __('directory.no_details') }}</p>
+        @elseif (($profile['type'] ?? null) === 'programme')
+            @php
+                $programmeSectionLabels = [
+                    'identity' => __('directory.profile_sections.identity'),
+                    'academic' => __('directory.profile_sections.academic'),
+                    'admissions' => __('directory.profile_sections.admissions'),
+                    'fees' => __('directory.profile_sections.fees'),
+                    'financial_aid' => __('directory.profile_sections.financial_aid'),
+                    'recognition' => __('directory.profile_sections.recognition'),
+                    'additional_information' => __('directory.profile_sections.additional_information'),
+                    'general' => __('directory.profile_sections.additional_information'),
+                ];
+                $programmeFactGroups = collect($profile['facts'])->groupBy(
+                    fn (array $fact): string => array_key_exists($fact['section'] ?? '', $programmeSectionLabels)
+                        ? $fact['section']
+                        : 'additional_information'
+                );
+            @endphp
+            @foreach ($programmeSectionLabels as $sectionKey => $sectionLabel)
+                @if ($programmeFactGroups->has($sectionKey))
+                    <h3>{{ $sectionLabel }}</h3>
+                    <dl>
+                        @foreach ($programmeFactGroups->get($sectionKey) as $fact)
+                            <dt dir="auto">{{ $fact['label'] }}</dt>
+                            <dd dir="auto">
+                                @if ($fact['is_external_url'])
+                                    <a href="{{ $fact['value'] }}" target="_blank" rel="noopener noreferrer">{{ $fact['value'] }}</a>
+                                @else
+                                    {{ $fact['value'] }}
+                                @endif
+                                <div class="meta">
+                                    @if ($fact['observed_at'] !== null)
+                                        {{ __('directory.evidence_observed', ['date' => $fact['observed_at']]) }}
+                                    @else
+                                        {{ __('directory.observation_not_supplied') }}
+                                    @endif
+                                </div>
+                            </dd>
+                        @endforeach
+                    </dl>
+                @endif
+            @endforeach
+            <p class="meta" role="note">{{ __('directory.programme_profile_sections_note') }}</p>
         @else
             <dl>
                 @foreach ($profile['facts'] as $fact)
