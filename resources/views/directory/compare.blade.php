@@ -45,7 +45,7 @@
         <section class="empty">
             <h2>{{ __('directory.select_two') }}</h2>
             <p>{{ __('directory.add_two') }}</p>
-            <a href="{{ route('directory.index', ['lang' => $locale]) }}">{{ __('directory.browse_directory') }}</a>
+            <a href="/directory?lang={{ $locale }}">{{ __('directory.browse_directory') }}</a>
         </section>
     @else
         <div class="table-wrap" role="region" aria-label="{{ __('directory.comparison_region') }}" tabindex="0">
@@ -148,7 +148,7 @@
             </section>
         @endif
     @endif
-    <p><a href="{{ route('directory.index', ['lang' => $locale]) }}">{{ __('directory.return_search') }}</a></p>
+    <p><a href="/directory?lang={{ $locale }}">{{ __('directory.return_search') }}</a></p>
 </main>
 </body>
 </html>
