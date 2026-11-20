@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-19  
 **Status:** REBUILT ON CURRENT MAIN; FRESH EXACT-HEAD CI PENDING  
-**PR:** #312  
+**Integration PR:** #347  
 **Exact implementation commit:** \`84ed31e8d3a27b3e52c6de1e863d4153a7e0a333\`  
 **Scope:** Local repository implementation and GitHub CI only; synthetic fixtures only
 
@@ -24,9 +24,9 @@ The prior implementation commit passed the checks listed below. Because that bra
 
 ## 3. Current-main integration validation
 
-Fresh exact-head PHP 8.5 foundation CI and project documentation validation are required before merge. The constructor accepts an optional cleaner and constructs the bounded cleaner by default so Laravel's Monolog handler factory can instantiate it using only the configured filename. Current-main integration validation results will be added after the workflows complete.
+Fresh exact-head PHP 8.5 foundation CI and project documentation validation run on PR #347. The first integration attempt passed project documentation validation but stopped at Pint because the constructor default used redundant parentheses. The follow-up commit removes that style issue and adds a runtime-resolution assertion proving Laravel can instantiate the configured custom handler. Fresh CI must pass on the final PR head before merge.
 
-## 4. Important implementation limitations
+## 4. Historical prior-branch CI evidence
 
 | Check | Run | Result |
 |---|---:|---|
