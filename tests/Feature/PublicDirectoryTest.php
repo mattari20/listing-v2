@@ -58,13 +58,18 @@ final class PublicDirectoryTest extends TestCase
 
         $programme = $this->createEntity('programme');
         $this->publishFact($programme, 'display_name', 'Synthetic Computing Programme');
-        $programmeClaim = $this->publishFact($programme, 'programme', ['institution_entity_id' => $institution, 'title' => 'Synthetic Computing Programme']);
+        $programmeClaim = $this->publishFact($programme, 'programme', [
+            'institution_entity_id' => $institution,
+            'title' => 'Synthetic Computing Programme',
+            'description' => 'A fictional computing programme description for profile testing.',
+            'level' => 'Synthetic undergraduate',
+        ]);
         DB::table('programme_catalogue_entries')->insert([
             'entity_id' => $programme,
             'institution_entity_id' => $institution,
             'title' => 'Synthetic Computing Programme',
-            'description' => null,
-            'level' => null,
+            'description' => 'A fictional computing programme description for profile testing.',
+            'level' => 'Synthetic undergraduate',
             'status' => 'active',
             'claim_version_id' => $programmeClaim['version_id'],
             'created_at' => now(),
@@ -131,9 +136,21 @@ final class PublicDirectoryTest extends TestCase
             ->assertSee('Synthetic North Campus')
             ->assertSee('Programmes and admission offers')
             ->assertSee('Synthetic Computing Programme')
+            ->assertSee(route('directory.show', ['entity' => $programme, 'lang' => 'en']), false)
             ->assertSee('Synthetic 2027 Intake')
             ->assertDontSee('Synthetic Suppressed Intake')
             ->assertDontSee('Synthetic Tampered Cycle');
+
+        $this->get('/directory/'.$programme)
+            ->assertOk()
+            ->assertSee('Programme details')
+            ->assertSee('A fictional computing programme description for profile testing.')
+            ->assertSee('Synthetic undergraduate')
+            ->assertSee('Institution')
+            ->assertSee('Synthetic Governed Institution')
+            ->assertSee(route('directory.show', ['entity' => $institution, 'lang' => 'en']), false)
+            ->assertSee('Admission offers')
+            ->assertSee('Synthetic North Campus');
     }
 
     public function test_urdu_interface_is_session_persistent_and_preserves_approved_source_language_facts(): void
