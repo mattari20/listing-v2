@@ -21,8 +21,7 @@ final readonly class NearbyCoordinateCandidate
         public string $confidenceClass,
         public string $verificationState,
         public string $provenanceReference,
-    ) {
-    }
+    ) {}
 
     public function isEligibleForSyntheticRanking(): bool
     {
