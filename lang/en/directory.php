@@ -3,6 +3,10 @@
 declare(strict_types=1);
 
 return [
+    'meta_directory' => 'Search publicly approved education provider and institution information.',
+    'meta_profile' => 'Publicly approved education directory profile.',
+    'meta_compare' => 'Compare selected education directory options using approved public information.',
+    'category_value' => 'Category: :value',
     'language' => 'Language',
     'english' => 'English',
     'urdu' => 'اردو',
