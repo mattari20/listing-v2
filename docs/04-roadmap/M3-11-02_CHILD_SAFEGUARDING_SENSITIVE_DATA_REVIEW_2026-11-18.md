@@ -2,15 +2,15 @@
 
 **Date:** 2026-11-18  
 **Review type:** AI-assisted repository/code/test inspection for Product Owner decision  
-**Status:** PRODUCT OWNER SCOPE DECISION RECORDED — SYNTHETIC-ONLY PRIVATE V2; NO CHILD DATA OR CHILD-DIRECTED SCOPE  
-**Scope:** Private V2 development/acceptance; synthetic fixtures only; no production or live environment inspected  
+**Status:** PRODUCT OWNER SCOPE DECISION RECORDED — SYNTHETIC-ONLY DEVELOPMENT; PUBLIC SOURCE REPOSITORY; NO CHILD DATA OR CHILD-DIRECTED SCOPE  
+**Scope:** Public GitHub source-repository development and separate restricted/private acceptance target category; synthetic fixtures only; no production or live environment inspected  
 **Repository baseline inspected:** `main` at `5e68ac4ba70db0461a902832cb6ed483640b9a4c`
 
 ## 1. Scope and limitations
 
 This review checks repository evidence relevant to child/minor data, sensitive-data exposure, anonymous public directory projections and the Deeni Madaris default-OFF boundary. It is not a legal applicability determination, child-safeguarding assessment, privacy impact assessment, penetration test, accessibility audit or review of a running environment.
 
-The Product Owner's accepted boundary remains: private V2 development/acceptance only; synthetic/fictional fixtures only; no real students, institutions or personal records; no public launch or participant testing; Deeni Madaris excluded and default-OFF. No child, student, guardian or research participant is to be recruited, contacted or asked to test.
+The Product Owner's accepted boundary is: public GitHub source-repository development and local/GitHub CI, with the application acceptance environment remaining a separate restricted/private target category; synthetic/fictional fixtures only; no real students, institutions or personal records; no public launch or participant testing; Deeni Madaris excluded and default-OFF. No child, student, guardian or research participant is to be recruited, contacted or asked to test.
 
 ## 2. Evidence inspected
 
@@ -97,7 +97,7 @@ No assumption about these matters should be inferred from synthetic tests or the
 
 ## 6. Continuing controls
 
-- Keep the current private scope synthetic-only and institution/provider-only.
+- Keep current development and any separately authorized acceptance activity synthetic-only and institution/provider-only.
 - Do not add child/student/guardian fields, accounts, profile types, registration, messaging, tracking, content or participation features.
 - Keep Deeni Madaris default-OFF and excluded from anonymous public projections.
 - Treat any future proposal to change these boundaries as a new scope request requiring explicit owner authorization and a fresh review.
@@ -107,3 +107,14 @@ No assumption about these matters should be inferred from synthetic tests or the
 M3-11-02 remains IN PROGRESS for the wider privacy package. The Product Owner has explicitly excluded children and child-related data from the current product scope, so a child-data collection feature is not a pending product decision. The repository evidence is bounded to the inspected code/tests and does not establish target-specific privacy facts or complete every possible future data path.
 
 No environment provisioning, real-data processing, participant activity, external service, spend, deployment, public pilot or launch is authorized. Deeni Madaris remains default-OFF with zero public exposure.
+
+
+## 8. Product Owner review and repository visibility reconciliation — 2026-11-20
+
+The Product Owner's internal ten-question review and Decisions 1–3 are complete and consolidated in [M3-11-02 Product Owner Internal Data and Privacy Review](M3-11-02_OWNER_INTERNAL_DATA_PRIVACY_REVIEW_2026-11-18.md). The Product Owner reaffirmed that the current scope excludes child/student/guardian data and child participation; this is an owner scope decision, not a jurisdiction-wide legal conclusion or independent safeguarding certification.
+
+The GitHub source repository remains PUBLIC throughout development and WILL be changed to PRIVATE when development is complete under the binding Product Owner visibility decision. This source-repository visibility does not make the application public, authorize a pilot or release, or alter the separate restricted/private acceptance-environment boundary.
+
+The inspected repository evidence remains bounded to the files, routes, tests and baseline identified in this review. No uninspected route, export, log, backup, runtime, hosted environment or future product surface is certified by this record.
+
+**Owner review status:** COMPLETE for the decisions recorded in the consolidated owner review. **Independent safeguarding/legal/privacy assessment:** not represented as completed by this owner exercise. Any gate that explicitly requires independent professional assessment remains evidence-dependent; the owner is not asked to repeat accepted scope decisions.
