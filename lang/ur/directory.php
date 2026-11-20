@@ -68,6 +68,7 @@ return [
     'programme_comparison_details' => 'پروگرام کی تفصیلات',
     'programme_comparison_explainer' => 'شائع شدہ پروگرام کی سطح، تفصیل اور متعلقہ ادارے کا موازنہ کریں۔ غیر درج شدہ قدر کا مطلب ہے کہ منظور شدہ عوامی کیٹلاگ میں یہ معلومات موجود نہیں؛ اس سے یہ ثابت نہیں ہوتا کہ پروگرام میں یہ خصوصیت نہیں ہے۔',
     'programme_description_label' => 'پروگرام کی تفصیل',
+    'programme_delivery_locations' => 'شائع شدہ تدریسی مقامات',
     'published_offers' => 'شائع شدہ پیشکشیں',
     'no_offers' => 'اس وقت داخلے کی کوئی منظور شدہ معلومات شائع نہیں کی گئیں۔',
     'delivery_locations' => ['campus' => 'کیمپس', 'delivery_site' => 'تدریسی مقام'],
