@@ -30,6 +30,7 @@ final class PublicDirectoryComparisonService
                     'label' => (string) $fact['label'],
                     'values' => [],
                 ];
+                $rows[$key]['section'] = (string) ($fact['section'] ?? 'additional_information');
                 $rows[$key]['values'][$profile['id']] = [
                     'state' => 'published',
                     'value' => $fact['value'],
