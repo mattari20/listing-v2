@@ -13,6 +13,9 @@
 - [RCV-B06 Synthetic Nearby Ranking Implementation Record](04-roadmap/RCV-B06_SYNTHETIC_NEARBY_RANKING_IMPLEMENTATION_RECORD_2026-11-20.md) — pure PHP domain proof, fail-closed eligibility and synthetic unit coverage; PR #331 merged, exact-head PHP 8.5 and documentation CI passed (15 tests, 1,340 assertions).
 - [RCV-B06 Agenda Closeout](04-roadmap/RCV-B06_ADVANCED_GEOGRAPHY_SCOPE_ACCEPTANCE_2026-11-20.md) — PR #332 merged; closes only the approved synthetic repository scope; live coordinates, geolocation, maps, schema and deployment remain unauthorized.
 
+## RCV-B09 — public reviews and moderation activation — 2026-11-20
+- [RCV-B09 Public Reviews and Moderation Gate Preflight](04-roadmap/RCV-B09_PUBLIC_REVIEWS_AND_MODERATION_GATE_PREFLIGHT_2026-11-20.md) — repository-only gate assessment; synthetic moderation foundation exists but public UGC, ratings, reporting, appeals and moderation remain disabled; qualified reviews, human operations and separate activation authorization are not evidenced.
+
 ## RCV-B08 — account-dependent saved items and alerts — 2026-11-20
 - [RCV-B08 Account Saved Items and Alerts Scope and Acceptance Pack](04-roadmap/RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner-approved bounded private saved-items policy; anonymous session shortlist unchanged; public registration, sharing and alerts deferred.
 - [RCV-B08 Account Saved Items and Alerts Privacy Design](04-roadmap/RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_PRIVACY_DESIGN_2026-11-20.md) — owner-only saved-item data, public-projection revalidation, private/no-store output, sharing and alert deferral.
