@@ -124,7 +124,7 @@ class ProgrammeOfferFactWorkflowTest extends TestCase
             '2025-01-01',
             '2025-12-31',
             'synthetic.deadline.v1',
-            30,
+            1,
             'synthetic-expired-submit'
         );
         $case = $service->openAdjudicationCase(
