@@ -146,3 +146,31 @@ The Product Owner authorized an isolated V2-only Hostinger Laravel boot verifica
 **Next work:** continue with the next approved product-development agenda; return to HTTP preview and remaining hosted/release checks only under their applicable separate authorization.
 
 This closeout records only the work and results described above. It does not extend authorization to create a public entry point, connect a database, run migrations/seeders, configure hosted authentication, deploy, or activate the public site.
+
+
+## 2026-11-20 — current-main and historical resource evidence reconciliation
+
+This addendum reconciles the earlier “target not identified / 0 of 18” shorthand with the historical owner-provided evidence and the bounded 2026-11-19 resource-readiness/CLI boot record.
+
+### Established historical evidence
+
+- The owner-provided records identify a candidate V2 subfolder and record a dedicated MySQL database/user resource, external database connections shown disabled, and PHP 8.5.12 with PDO MySQL support.
+- The owner-provided directory screenshots recorded Basic Authentication directives in the selected V2 folder. This is evidence of configuration text, not proof of live enforcement, full nested/static-file coverage or direct credential-file denial.
+- The bounded 2026-11-19 CLI verification recorded Hostinger CLI PHP 8.5.12, Composer 2.9.8, locked production dependency installation, passing platform requirements and a Laravel CLI version response using ephemeral synthetic environment values and in-memory SQLite.
+- That CLI verification did not open a database connection, run a query, create a persistent environment file, run migrations/seeders, test HTTP/LiteSpeed routing or deploy a public entry point.
+
+### Corrected interpretation
+
+The candidate folder and some resource/runtime facts are **identified/observed historically**. Therefore, “no resource has ever been identified” would be inaccurate. However, the exact acceptance environment is **not accepted or verified as isolated**: the complete resource boundary, runtime/web entry point, database connectivity and separation, storage, secrets, network, identities, logs, backup destination and independent isolation evidence are incomplete.
+
+The 18-item checklist is now annotated with evidence states. **0/18 are fully verified for isolation acceptance**; some items are PARTIAL rather than wholly unsupported. This does not mean the environment is proven insecure; it means the acceptance evidence is incomplete.
+
+### DP-06 alignment
+
+The DP-06 source/configuration reconciliation now records the checked-in session, cache, queue, filesystem and logging defaults. These repository defaults do not establish effective Hostinger runtime overrides, file permissions, external destinations or target deletion/backup behavior. The current source configuration must not be presented as proof of the historical hosted resource configuration.
+
+### Authorization boundary
+
+The 2026-11-19 CLI smoke check is recorded as a completed, narrowly bounded historical authorization. It is not standing authorization for further Hostinger/hPanel access, HTTP requests, database connection/query, configuration changes, migrations, deployment, backup download/restore or isolation probing. No such action is performed or authorized by this addendum. Existing V1/production, no-real-data, no-new-spend and no-deployment restrictions remain in force.
+
+**M3-11-05:** repository/evidence reconciliation updated; hosted isolation acceptance remains BLOCKED / NOT ACCEPTED.
