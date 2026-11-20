@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** `main` at `19b4fd80c645b99085d7c4cd5329a043aaadd0e6`  
 **Agenda:** RCV-B03 — Shortlist and Comparison  
-**Status:** Scope/preflight only; implementation authorization has not yet been granted.
+**Status:** Product Owner approved the temporary session-only shortlist on 2026-11-20. Bounded V2 implementation is underway on `feat/rcv-b03-session-shortlist-comparison`; no persistent save/share.
 
 ## 1. Why this is next
 
@@ -40,7 +40,7 @@ Ratings/reviews are not included in this agenda's first slice. They remain post-
 - Preserve currency, fee period, admission cycle and effective/observation dates. Do not calculate totals, infer deadlines or normalize unlike values without a separately approved deterministic rule.
 - Do not introduce composite ranking, recommendation scores, AI suggestions, paid-result boosting or “best” labels.
 
-### 3.2 Shortlist persistence and sharing — owner decision required
+### 3.2 Shortlist persistence and sharing — Product Owner decision recorded
 
 **Recommended low-risk first slice:** keep the shortlist temporary to the visitor's active session. Do not create persistent saved lists, shareable public URLs, reminder subscriptions or notifications in the first implementation.
 
@@ -50,7 +50,7 @@ Reasons:
 - Persistent saved items create retention, deletion, account lifecycle and access-control requirements.
 - Share links create a separate public-disclosure surface requiring token entropy, expiry, revocation, access logging and clear user controls.
 
-If persistent account-based saving or sharing is required from the start, those capabilities need a separately specified privacy/retention and security contract before implementation.
+**Decision recorded 2026-11-20:** Product Owner approved the recommended temporary session-only approach for the first implementation. Persistent account-based saving and public sharing are deferred; either requires a separate privacy/retention and security contract and explicit authorization.
 
 ### 3.3 Privacy and safety boundary
 
@@ -66,13 +66,13 @@ If persistent account-based saving or sharing is required from the start, those 
 
 1. A visitor can select and remove comparison candidates from the existing public directory/profile experience.
 2. Comparison refuses mixed entity types and unsupported comparison units.
-3. A maximum shortlist size is enforced by an owner-approved setting; the provisional 3–5 target is not hard-coded as final until accepted.
+3. A configurable shortlist maximum is enforced; the initial V2 default is five options, within the provisional 3–5 target.
 4. All displayed facts originate from approved anonymous public projections.
 5. Missing, unknown, stale, conflicting and non-comparable values remain visibly distinct; none are silently converted to zero or a negative match.
 6. Fees retain currency, amount, period and applicable effective/observation date.
 7. Programme/admission comparisons preserve offer and admission-cycle identity.
 8. No composite score, default “best” ranking or undisclosed sponsorship influence is introduced.
-9. Temporary shortlist state expires with the visitor session if the recommended first slice is accepted.
+9. Shortlist state exists only in the Laravel session and expires according to the configured session lifetime; it is not written to a saved-list table or user account.
 10. Automated synthetic tests cover selection limits, mixed-type rejection, missing/stale values, like-for-like rows, fee semantics, Deeni Madaris exclusion and zero persistence after session expiry.
 11. No new schema is added unless the selected persistence option demonstrably requires it and receives explicit authorization.
 12. No production, Hostinger, V1, real data, external service or spend activity occurs.
