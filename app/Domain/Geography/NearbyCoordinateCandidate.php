@@ -10,8 +10,11 @@ final readonly class NearbyCoordinateCandidate
         public string $entityType,
         public string $entityId,
         public ?string $institutionId,
+        public bool $ownershipVerified,
         public ?float $latitude,
         public ?float $longitude,
+        public bool $publicationEligible,
+        public bool $deeniMadaris,
         public bool $sourceAuthorized,
         public string $visibilityClass,
         public string $precisionClass,
@@ -30,12 +33,13 @@ final readonly class NearbyCoordinateCandidate
             return false;
         }
 
-        if ($this->entityType === 'institution' && $this->institutionId !== $this->entityId) {
+        if ($this->entityType === 'institution' &&
+            ($this->institutionId !== $this->entityId || ! $this->ownershipVerified)) {
             return false;
         }
 
         if (in_array($this->entityType, ['campus', 'delivery_site'], true) &&
-            $this->institutionId === $this->entityId) {
+            ($this->institutionId === $this->entityId || ! $this->ownershipVerified)) {
             return false;
         }
 
@@ -46,7 +50,9 @@ final readonly class NearbyCoordinateCandidate
             return false;
         }
 
-        return $this->sourceAuthorized &&
+        return $this->publicationEligible &&
+            ! $this->deeniMadaris &&
+            $this->sourceAuthorized &&
             $this->visibilityClass === 'public_generalized' &&
             in_array($this->precisionClass, ['approximate', 'area_centroid', 'generalized'], true) &&
             in_array($this->confidenceClass, ['high', 'medium'], true) &&
