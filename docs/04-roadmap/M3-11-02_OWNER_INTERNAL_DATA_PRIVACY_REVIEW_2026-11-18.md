@@ -156,3 +156,37 @@ The Product Owner's internal decision exercise is COMPLETE for the ten questions
 - any condition requiring operational evidence remains unverified until the relevant scope is separately authorized.
 
 No extra activity is authorized by this consolidation. The current synthetic-only, no-production, no-Hostinger/V1, no-source-activity, no-real-data, no-external-service, no-deployment and no-additional-spend boundaries remain in force.
+
+
+## 9. DP-03 superseding evidence reconciliation — SEC-06 current-main implementation
+
+**Reconciliation date:** 2026-11-20  
+**Evidence record:** [M3-11-03 SEC-06 Local/CI Implementation Evidence](M3-11-03_SEC06_LOCAL_CI_IMPLEMENTATION_EVIDENCE_2026-11-19.md)  
+**Implementation merge:** PR #347, commit `0e4f94287150d6a8b6e2e7db9416f8c601ed9e8a`  
+**Evidence closeout:** PR #348, commit `e07a8dd23583f574d13e901ace390623d1b4e562`
+
+The earlier DP-03 disposition stated that a bounded log policy was required before environment provisioning and that no logging code/configuration change had been authorized by that earlier decision. Subsequent separately delivered SEC-06 work has now implemented and tested the following local/CI controls:
+
+- Daily local-file logging is the default channel and default stack member.
+- Warning and above is the configured baseline.
+- The custom rotating handler invokes an age-based cleaner on rotation.
+- The cleaner removes only matching daily rotated log files strictly older than the 30-day date-based cutoff; it preserves current/recent, unrelated, nested, backup-like and symlink entries.
+- Structured context is reduced to bounded `event_code` and `correlation_id` values; unapproved structured context is discarded.
+- Configuration tests verify that Laravel resolves the configured daily channel and custom handler.
+- SEC-06 evidence records exact-head PHP 8.5 Foundation CI and documentation validation as passed on the implementation and final evidence closeout.
+
+### 9.1 Updated DP-03 disposition
+
+**DP-03 is PARTIALLY SATISFIED for repository/local/CI implementation.** The previous wording that implied no bounded logging implementation existed is superseded by the SEC-06 evidence above.
+
+The following limitations remain and must not be represented as solved:
+- The context processor does not sanitize message text; log messages must not contain secrets, personal data, request bodies or copied evidence payloads.
+- Rotation cleanup runs when log rotation is triggered by logging activity; it is not an independent scheduled cleanup job.
+- A complete audit of every log-message producer has not been performed.
+- Effective runtime overrides, filesystem path exposure, ownership/permissions, named operator access and any external forwarding remain unverified.
+- Backup-held log copies are not touched by this implementation.
+- Optional Slack/Papertrail channels exist in configuration; no target-specific proof establishes whether they are configured or disabled in any future runtime.
+
+**Current acceptance boundary:** accept SEC-06 as implemented synthetic/local/CI evidence. Before any separately authorized hosted/private acceptance provisioning or access, verify effective log-channel configuration, filesystem location and permissions, access roles, external forwarding, message-content controls and backup treatment against the actual target. This addendum does not authorize that target access or provisioning.
+
+**Gate effect:** this reconciliation closes the stale repository-evidence gap in DP-03. It does not close M3-11-02 or M3-11-05, and it does not certify hosted logging, full data lifecycle, privacy compliance or independent security assurance.
