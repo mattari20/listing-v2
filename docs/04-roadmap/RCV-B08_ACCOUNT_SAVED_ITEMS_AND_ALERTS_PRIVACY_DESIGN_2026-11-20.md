@@ -3,7 +3,7 @@
 **Date:** 2026-11-20  
 **Repository:** mattari20/listing-v2  
 **Baseline main:** c6cb7b679271efdfe5fd5d6be8b93cd428036f19  
-**Status:** Design proposal only; Product Owner decision pending; no implementation authorization.
+**Status:** Product Owner-approved policy; B08-B private saved-items implementation is in progress under the bounded authorization; no public account lifecycle, sharing or alerts authorized.
 
 ## 1. Design constraints inherited from existing decisions
 
@@ -17,7 +17,7 @@
 
 ## 2. Proposed data boundaries for private saved items
 
-If B08-B is approved, a minimal saved-item record should contain only:
+The approved B08-B minimal saved-item record contains only:
 
 | Field | Purpose | Constraint |
 |---|---|---|
@@ -69,13 +69,12 @@ Do not create default subscriptions, send messages or choose a vendor in this ag
 
 The current sign-in endpoint authenticates only pre-provisioned verified accounts. A public saved-items feature cannot be treated as a complete public product until the owner separately decides whether to introduce registration, verification, recovery, account closure and support processes.
 
-Recommended order:
-1. Decide the account lifecycle and whether first release remains internal/pre-provisioned only.
-2. Approve saved-item ownership, privacy, deletion and retention policy.
-3. Authorize a minimal private saved-item table and owner-scoped routes, with synthetic-only fixtures.
-4. Separately design share tokens if sharing is desired.
-5. Separately design alert events, consent, delivery and retention; approve any provider/spend before integration.
-6. Reconcile session cookie/security settings and log policy before any target provisioning or real account use.
+Execution order:
+1. B08-A policy approved for pre-provisioned verified accounts only; public lifecycle remains separate.
+2. B08-B private saved-item table and owner-scoped routes implemented with synthetic-only fixtures under the bounded authorization.
+3. Share tokens remain a separate deferred design and authorization.
+4. Alert events, consent, delivery and retention remain separate deferred decisions; any provider/spend requires separate approval.
+5. Session cookie/security settings and log policy must be reconciled before any target provisioning or real account use.
 
 ## 7. Test contract for a future B08-B implementation
 
@@ -97,4 +96,4 @@ Policy choices are listed in the companion RCV-B08 scope and acceptance pack. Th
 
 ## 9. Current disposition
 
-Design is prepared for Product Owner review. No code, schema, migration, route, message, external service or target configuration has changed.
+Design policy is approved for the bounded private saved-items slice. Implementation evidence is recorded in `RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_IMPLEMENTATION_RECORD_2026-11-20.md`. No share token, alert subscription, external message, public account lifecycle or target configuration is included.
