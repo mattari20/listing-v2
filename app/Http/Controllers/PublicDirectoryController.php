@@ -75,8 +75,12 @@ final class PublicDirectoryController extends Controller
             static fn (string $id): ?array => $directory->find($id),
             $ids
         )));
-        if ($profiles !== [] && $profiles[0]['type'] !== $profile['type']) {
-            return back()->withErrors(['shortlist' => 'Choose the same category for every comparison.'])->withInput();
+        $ids = array_column($profiles, 'id');
+        $request->session()->put(self::SHORTLIST_SESSION_KEY, $ids);
+        foreach ($profiles as $selectedProfile) {
+            if ($selectedProfile['type'] !== $profile['type']) {
+                return back()->withErrors(['shortlist' => 'Choose the same category for every comparison.'])->withInput();
+            }
         }
 
         $limit = max(2, min(10, (int) config('directory.shortlist_limit', 5)));
@@ -156,7 +160,7 @@ final class PublicDirectoryController extends Controller
 
         return array_values(array_unique(array_filter(
             $ids,
-            static fn (mixed $id): bool => is_string($id) && preg_match('/^[0-9a-f-]{36}$/iD', $id) === 1
+            static fn (mixed $id): bool => is_string($id) && preg_match('/^[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/iD', $id) === 1
         )));
     }
 }
