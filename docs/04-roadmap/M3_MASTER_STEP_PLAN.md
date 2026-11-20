@@ -1,3 +1,9 @@
+## Latest verified planning position — F01–F06 final acceptance exercise complete — 2026-11-20
+
+F01–F06 are complete and merged. The final M3 acceptance report recommends closing the acceptance exercise but keeping overall M3 OPEN / PARTIALLY COMPLETE — NOT CLOSED. M3-12 A01–A09 is closed for repository verification only. M3-11 remains BLOCKED / NOT ACCEPTED; production execution is NOT AUTHORIZED. No current repository-only acceptance task remains. Any next M3-11 progress depends on actual qualified human, operational, hosted-isolation, recovery and release evidence plus separate exact-scope authorization. See `M3_FINAL_ACCEPTANCE_F06_FINAL_REPORT_AND_CLOSURE_RECOMMENDATION_2026-11-20.md` and `PROJECT_PROGRESS_REPORT.md`.
+
+---
+
 ## Latest verified planning position — M3-12 Agendas 07–09 and functional verification closeout (2026-11-20)
 
 M3-12 Agendas 01–09 are complete for the bounded repository-level verification work package. A07 reconciled cross-feature synthetic regression coverage and exact-head PHP 8.5/documentation CI; both latest PHP runs passed but each reported 20 passed, 1,501 assertions and 282 warnings. A08 reconciled current-main static accessibility/localization evidence and selected source-palette contrast calculations; all nine manual checklist areas remain NOT PERFORMED, and no WCAG claim is made. A09 closes M3-12 repository verification only. The overall M3 milestone remains OPEN; M3-11 remains BLOCKED / NOT ACCEPTED. No hosted access, recovery rehearsal, release candidate, go/no-go, deployment or public launch is authorized. See `M3-12_A07_FUNCTIONAL_INTEGRATION_REGRESSION_EVIDENCE_CONSOLIDATION_2026-11-20.md`, `M3-12_A08_ACCESSIBILITY_USABILITY_EVIDENCE_RECONCILIATION_2026-11-20.md`, `M3-12_A09_FUNCTIONAL_READINESS_CLOSEOUT_2026-11-20.md` and `PROJECT_PROGRESS_REPORT.md`.
