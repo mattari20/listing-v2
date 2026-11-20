@@ -1,3 +1,4 @@
+- [M3-11 Stage 1 Repository Review Baseline and Evidence Index](M3-11_STAGE_1_REPOSITORY_REVIEW_BASELINE_AND_EVIDENCE_INDEX_2026-11-20.md) — indexes existing legal/privacy/safeguarding and security/accessibility review packs against immutable baseline `f1f9d779fa280e1c0a57618c301a535aad635a85`; preparation only, no independent review or new access authorization.
 ## RCV-B11 — production readiness — 2026-11-20
 
 - [RCV-B11 Production Readiness Final Gate Reconciliation](RCV-B11_PRODUCTION_READINESS_FINAL_GATE_RECONCILIATION_2026-11-20.md) — reconciles M3-11-01–10, including internal review dispositions, bounded Hostinger CLI readiness, unresolved hosted isolation/recovery/candidate/go-no-go gates and explicit production non-authorization.
