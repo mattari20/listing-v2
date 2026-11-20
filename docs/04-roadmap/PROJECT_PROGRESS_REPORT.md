@@ -2,7 +2,6 @@
 
 **Baseline before this agenda package:** `106ee260f32b621d8688fd6b7446cc4dd0ea1ca3`.  
 **M3-12 A07–A09 delivery merge:** `f4ff01335df9d6fa55b29db05de442696cebcf68` (PR #357).  
-**Final verified main after report-consistency PR #358:** `81bb6fada5e6b247384fda430720bb4bc10345e3`.  
 **Result:** M3-12 Agendas 01–09 are complete for the bounded repository-level verification scope. The overall M3 milestone is NOT CLOSED because M3-11 and the consolidated final M3 acceptance exercise remain open.
 
 ### M3-12 final three agendas
