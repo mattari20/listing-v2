@@ -548,3 +548,9 @@ The R13 repository desk review assessed all twelve scenarios (R01–R12) in the 
 | RCV-B10 live source/AI | PR #343 | Preflight only; no live source or AI activation |
 | RCV-B11 production readiness | PR #344 | Documentary reconciliation only; M3-11 blocked/not accepted |
 | Controlled acceptance/readiness intake | RCV-01 dated addendum and current handoff | Next agenda; no new feature implementation or production authority implied |
+
+## M3 final acceptance exercise — F01 cross-milestone traceability — 2026-11-20
+
+F01 is complete for the milestone-level overlay. The governing disposition map and stale-status/conflict register are recorded in `M3_FINAL_ACCEPTANCE_F01_CROSS_MILESTONE_TRACEABILITY_2026-11-20.md`. Preserve historical requirement rows; use the F01 overlay and later F04/F05 dated dispositions to reconcile them without erasing history.
+
+Key boundaries: M0–M2 remain accepted/closed; M3-00 is accepted with recorded deferrals; M3-01 is closed as planning/authorization; M3-02 is accepted for platform foundation only; M3-03–M3-09 are complete only within their authorized synthetic/local/CI scopes; M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED; M3-12 is closed for repository-level A01–A09 verification only. No overall M3 closure is implied.

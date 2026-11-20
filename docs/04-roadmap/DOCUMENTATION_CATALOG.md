@@ -1509,3 +1509,6 @@ PR [#273](https://github.com/mattari20/listing-v2/pull/273) merge evidence: merg
 | [RCV-01 Current Delivery Reconciliation and Controlled Acceptance Handoff](RCV-01_CURRENT_DELIVERY_AND_ACCEPTANCE_HANDOFF_2026-11-20.md) | Reconciles merged RCV-B02–B08 bounded implementation, RCV-B09/B10 preflight-only outcomes, RCV-B11 documentary readiness, and the next controlled human-evidence intake agenda | Delivered — feature-package status reconciled; M3-11 remains BLOCKED / NOT ACCEPTED |
 
 The dated addendum in `RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.md` updates the original residual backlog without altering its historical inspection baseline.
+## M3 final acceptance exercise — F01 — 2026-11-20
+
+- [F01 Cross-Milestone Traceability Reconciliation](M3_FINAL_ACCEPTANCE_F01_CROSS_MILESTONE_TRACEABILITY_2026-11-20.md) — establishes the M0–M3-12 disposition overlay, distinguishes repository delivery from human/hosted/release acceptance, and records stale status conflicts for F04/F05 reconciliation.
