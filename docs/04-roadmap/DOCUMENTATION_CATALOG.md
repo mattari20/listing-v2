@@ -1,3 +1,8 @@
+## RCV-B03 — shortlist and comparison — 2026-11-20
+
+- [RCV-B03 Scope and Acceptance Decision](RCV-B03_SHORTLIST_AND_COMPARISON_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner approved temporary session-only shortlist; no persistent save/share.
+- [RCV-B03 Implementation Design](RCV-B03_IMPLEMENTATION_DESIGN_2026-11-20.md) — bounded implementation details, session behavior, files, test coverage and exclusions; exact-head validation pending.
+
 ## RCV-B02 — admissions and programme decision facts — 2026-11-20
 
 - [RCV-B02 Scope and Acceptance Pack](RCV-B02_SCOPE_ACCEPTANCE_PACK_2026-11-18.md) — original requirements/architecture preflight; later bounded implementation authorization is recorded separately.
