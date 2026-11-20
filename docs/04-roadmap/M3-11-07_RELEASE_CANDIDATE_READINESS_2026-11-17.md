@@ -11,7 +11,7 @@ This record defines the evidence required before a V2 release candidate (RC) may
 
 The owner-selected Option A / Option 1 scope remains limited to the existing M3-05 anonymous directory/search/profile surface and M3-06 manual text-locality discovery, in a future private V2-only acceptance environment for internal reviewers/operators and synthetic data. It does not authorize public access, a pilot, participants, production release or deployment.
 
-The environment remains unprovisioned. M3-11-02 through M3-11-06 substantive gates remain blocked. Consequently no exact candidate commit, built artifact, artifact digest, dependency-lock digest, private-environment verification or acceptance record is supplied here.
+The private acceptance environment remains NOT ACCEPTED. Historical owner-provided resource evidence and a narrowly authorized CLI boot check exist, but full isolation and hosted HTTP/database behavior are not verified. M3-11-02 through M3-11-06 substantive entry gates remain blocked. Consequently no exact candidate commit, built artifact, artifact digest, dependency-lock digest, candidate-specific verification or acceptance record is supplied here.
 
 ## 2. Candidate identity contract — future use only
 
@@ -130,3 +130,25 @@ No production, V1, Hostinger/hPanel, live database, hosted environment, backup s
 The Product Owner accepts the existing weekly Hostinger automated backup cadence as sufficient for the current development stage, without paid upgrade or increased frequency. The Product Owner accepts the existing Hostinger directory password protection as the chosen private-preview control and does not require IP Manager as a second layer. The existing hosting plan is to be retained without additional spend.
 
 These decisions clarify the intended current-stage operating choices. They do not satisfy the candidate entry gates that require verified V2-only environment isolation and recovery evidence. In particular, weekly backup policy acceptance is not proof of V2-only restore capability, backup retention, measured RPO/RTO, or candidate-linked rollback. The password-protection configuration evidence is not proof of live enforcement across nested paths and static assets. The candidate remains uncreated until all mandatory entry gates have current, attributable evidence and separate Product Owner authorization.
+
+
+## 8. Current-main entry-gate reconciliation — 2026-11-20
+
+This dated reconciliation supersedes any shorthand that treated all pre-candidate evidence as absent. It does not promote any prerequisite gate, create a candidate or authorize candidate-specific work.
+
+| Prerequisite | Current evidence position | Candidate-entry effect |
+|---|---|---|
+| M3-11-02 legal/privacy/safeguarding | Product Owner's ten-question internal review and DP-01–DP-06 dispositions are recorded. DP-02 source settings, DP-03 local/CI logging, DP-04 synthetic role-audit, DP-05 partial route/output and DP-06 lifecycle/provider inventories have been reconciled. Qualified independent legal/privacy/safeguarding assessment and target-specific facts remain absent. | BLOCKED — internal owner decisions are not professional assessment or target acceptance. |
+| M3-11-03 security/accessibility | Product Owner-led repository-only review is closed for current private development; local/CI evidence includes bounded logging, selected security-header tests, skip links and visible focus. No independent security assessment, manual assistive-technology review or WCAG conformance assessment is evidenced. | BLOCKED for candidate-specific independent assurance. |
+| M3-11-04 human operations | Preparation is delivered, but the role register records 0/9 written human role acceptances and no evidenced deputy/coverage arrangements. | BLOCKED — do not infer acceptance from repository contributions or AI assistance. |
+| M3-11-05 environment | Historical resource/runtime evidence is partial; PHP 8.5.12 and a narrowly authorized synthetic/in-memory CLI boot were observed. The reconciled isolation checklist remains 0/18 fully verified. HTTP/static protection, database connectivity, full resource separation, network, secrets, access and backup isolation remain unverified. | BLOCKED — no accepted private V2 environment. |
+| M3-11-06 recovery | Weekly automated backup cadence is accepted for the current development stage, with no additional spend. RPO/RTO, retention, V2-only backup contents/destination, integrity, restore and rollback remain unverified; no rehearsal occurred. | BLOCKED — cadence policy is not recovery evidence. |
+| DP-05 scope/output discrepancy | Current source contains saved-items and session shortlist/comparison routes/UI although those surfaces are excluded from the accepted private acceptance scope. The DP-05 reconciliation requires candidate-specific proof that these excluded surfaces are inaccessible/disabled in the candidate. | BLOCKED until candidate-specific scope conformance is demonstrated. |
+
+### 8.1 Candidate creation remains unauthorized
+
+No Product Owner authorization to create/pin an M3-11-07 release candidate is recorded. Repository documentation reconciliation and historical CI results do not constitute that authorization. Do not create a candidate branch/tag/artifact, perform candidate build, or run candidate-specific private-environment smoke checks until the mandatory entry gates are satisfied and the exact candidate action is separately authorized.
+
+The accepted Option A / Option 1 scope, public source repository during development/private-after-development decision, synthetic-only data boundary, no additional spend, Deeni Madaris default-OFF rule and all existing exclusions remain unchanged.
+
+**Current disposition:** M3-11-07 remains NOT STARTED / BLOCKED. No existing Product Owner decision is reopened or changed.
