@@ -73,28 +73,76 @@
                     @endforeach
                 </tr></thead>
                 <tbody>
-                    @forelse ($rows as $row)
-                        <tr>
-                            <th scope="row" dir="auto">{{ $row['label'] }}</th>
-                            @foreach ($profiles as $profile)
-                                @php($cell = $row['values'][$profile['id']])
-                                <td>
-                                    @if ($cell['state'] === 'not_stated')
-                                        <span class="state">{{ __('directory.not_stated_public') }}</span>
-                                    @else
-                                        <span dir="auto">{{ $cell['value'] }}</span>
-                                        @if ($cell['observed_at'] !== null)
-                                            <div class="meta">{{ __('directory.observed', ['date' => $cell['observed_at']]) }}; {{ __('directory.freshness_note') }}</div>
-                                        @else
-                                            <div class="meta">{{ __('directory.observation_unavailable') }}</div>
-                                        @endif
-                                    @endif
-                                </td>
+                    @if (($profiles[0]['type'] ?? null) === 'programme')
+                        @php
+                            $comparisonSectionLabels = [
+                                'identity' => __('directory.profile_sections.identity'),
+                                'academic' => __('directory.profile_sections.academic'),
+                                'admissions' => __('directory.profile_sections.admissions'),
+                                'fees' => __('directory.profile_sections.fees'),
+                                'financial_aid' => __('directory.profile_sections.financial_aid'),
+                                'recognition' => __('directory.profile_sections.recognition'),
+                                'additional_information' => __('directory.profile_sections.additional_information'),
+                            ];
+                            $comparisonRowsBySection = collect($rows)->groupBy(
+                                fn (array $row): string => array_key_exists($row['section'] ?? '', $comparisonSectionLabels)
+                                    ? $row['section']
+                                    : 'additional_information'
+                            );
+                        @endphp
+                        @if ($rows === [])
+                            <tr><td colspan="{{ count($profiles) + 1 }}">{{ __('directory.no_comparable') }}</td></tr>
+                        @else
+                            @foreach ($comparisonSectionLabels as $sectionKey => $sectionLabel)
+                                @if ($comparisonRowsBySection->has($sectionKey))
+                                    <tr><th scope="colgroup" colspan="{{ count($profiles) + 1 }}">{{ $sectionLabel }}</th></tr>
+                                    @foreach ($comparisonRowsBySection->get($sectionKey) as $row)
+                                        <tr>
+                                            <th scope="row" dir="auto">{{ $row['label'] }}</th>
+                                            @foreach ($profiles as $profile)
+                                                @php($cell = $row['values'][$profile['id']])
+                                                <td>
+                                                    @if ($cell['state'] === 'not_stated')
+                                                        <span class="state">{{ __('directory.not_stated_public') }}</span>
+                                                    @else
+                                                        <span dir="auto">{{ $cell['value'] }}</span>
+                                                        @if ($cell['observed_at'] !== null)
+                                                            <div class="meta">{{ __('directory.observed', ['date' => $cell['observed_at']]) }}; {{ __('directory.freshness_note') }}</div>
+                                                        @else
+                                                            <div class="meta">{{ __('directory.observation_unavailable') }}</div>
+                                                        @endif
+                                                    @endif
+                                                </td>
+                                            @endforeach
+                                        </tr>
+                                    @endforeach
+                                @endif
                             @endforeach
-                        </tr>
-                    @empty
-                        <tr><td colspan="{{ count($profiles) + 1 }}">{{ __('directory.no_comparable') }}</td></tr>
-                    @endforelse
+                        @endif
+                    @else
+                        @forelse ($rows as $row)
+                            <tr>
+                                <th scope="row" dir="auto">{{ $row['label'] }}</th>
+                                @foreach ($profiles as $profile)
+                                    @php($cell = $row['values'][$profile['id']])
+                                    <td>
+                                        @if ($cell['state'] === 'not_stated')
+                                            <span class="state">{{ __('directory.not_stated_public') }}</span>
+                                        @else
+                                            <span dir="auto">{{ $cell['value'] }}</span>
+                                            @if ($cell['observed_at'] !== null)
+                                                <div class="meta">{{ __('directory.observed', ['date' => $cell['observed_at']]) }}; {{ __('directory.freshness_note') }}</div>
+                                            @else
+                                                <div class="meta">{{ __('directory.observation_unavailable') }}</div>
+                                            @endif
+                                        @endif
+                                    </td>
+                                @endforeach
+                            </tr>
+                        @empty
+                            <tr><td colspan="{{ count($profiles) + 1 }}">{{ __('directory.no_comparable') }}</td></tr>
+                        @endforelse
+                    @endif
                 </tbody>
             </table>
         </div>

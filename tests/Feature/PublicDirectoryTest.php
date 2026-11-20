@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
+use App\Services\Directory\PublicDirectoryComparisonService;
 use App\Services\Directory\PublicDirectoryQueryService;
 use App\Services\Governance\PersistedGovernanceWorkflowService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -765,6 +766,31 @@ final class PublicDirectoryTest extends TestCase
             ->assertSee('Institution Historical Fact')
             ->assertSee('Value remains bound to version one.')
             ->assertDontSee('New private definition label');
+    }
+
+    public function test_programme_comparison_service_preserves_student_information_sections_and_missing_states(): void
+    {
+        $result = app(PublicDirectoryComparisonService::class)->compare([
+            [
+                'id' => 'synthetic-programme-one',
+                'facts' => [[
+                    'key' => 'programme_duration',
+                    'label' => 'Duration',
+                    'section' => 'academic',
+                    'value' => 'Synthetic four years',
+                    'observed_at' => null,
+                ]],
+            ],
+            [
+                'id' => 'synthetic-programme-two',
+                'facts' => [],
+            ],
+        ]);
+
+        $this->assertCount(1, $result['rows']);
+        $this->assertSame('academic', $result['rows'][0]['section']);
+        $this->assertSame('Synthetic four years', $result['rows'][0]['values']['synthetic-programme-one']['value']);
+        $this->assertSame('not_stated', $result['rows'][0]['values']['synthetic-programme-two']['state']);
     }
 
     public function test_programme_comparison_shows_approved_catalogue_level_description_and_parent_institution(): void
