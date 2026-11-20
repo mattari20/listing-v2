@@ -707,7 +707,6 @@ final class PublicDirectoryTest extends TestCase
             ->assertDontSee('New private definition label');
     }
 
-
     public function test_programme_comparison_shows_approved_catalogue_level_description_and_parent_institution(): void
     {
         $firstInstitution = $this->createEntity('institution');
