@@ -4,7 +4,7 @@
 **Repository:** `mattari20/listing-v2`  
 **Baseline:** `main` after RCV-B06 closeout merge `2e24fd4e2b48b23a49a3dc012d48523103612d65`  
 **Agenda:** RCV-B07 — Public SEO and Performance Evidence  
-**Status:** Repository inventory COMPLETE; Product Owner policy decisions APPROVED; fail-closed SEO controls implemented in PR #335. Sitemap and synthetic performance measurement remain separate follow-on slices. No public indexing activation, production URL or numeric SLO is authorized.
+**Status:** Repository inventory and policy decisions COMPLETE; fail-closed SEO controls (B07-B) and synthetic performance measurement (B07-D) IMPLEMENTED AND MERGED in PRs #335 and #337. Sitemap generation remains gated on a future approved public origin/release; numeric SLO adoption remains pending representative evidence and owner review. No public indexing activation or production URL is authorized.
 
 ## 1. Why this agenda is next
 
