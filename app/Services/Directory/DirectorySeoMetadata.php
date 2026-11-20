@@ -32,6 +32,10 @@ final class DirectorySeoMetadata
 
     public function robotsDirective(Request $request): string
     {
+        if ($request->is('account/*')) {
+            return 'noindex, nofollow';
+        }
+
         if ((bool) config('private_preview.enabled', false)) {
             return 'noindex, nofollow';
         }

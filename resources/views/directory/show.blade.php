@@ -41,11 +41,26 @@
     </nav>
     <p><a href="/directory?lang={{ $locale }}">← {{ __('directory.back_search') }}</a></p>
     <p><a href="/directory/compare?lang={{ $locale }}">{{ __('directory.compare_shortlist', ['count' => $shortlistCount, 'limit' => $shortlistLimit]) }}</a></p>
+    @auth
+        <p><a href="{{ route('account.saved-items.index', ['lang' => $locale]) }}">{{ __('directory.saved_items_title') }}</a></p>
+    @endauth
     @if ($isShortlisted)
         <form method="post" action="{{ route('directory.shortlist.remove', ['entity' => $profile['id']]) }}">@csrf @method('delete')<input type="hidden" name="lang" value="{{ $locale }}"><button type="submit">{{ __('directory.remove_shortlist') }}</button></form>
     @else
         <form method="post" action="{{ route('directory.shortlist.add', ['entity' => $profile['id']]) }}">@csrf<input type="hidden" name="lang" value="{{ $locale }}"><button type="submit" @disabled($shortlistCount >= $shortlistLimit)>{{ __('directory.add_shortlist') }}</button></form>
     @endif
+    @auth
+        @if ($isSavedItem)
+            <p role="status">{{ __('directory.saved_in_account') }}</p>
+        @else
+            <form method="post" action="{{ route('account.saved-items.store', ['entity' => $profile['id']]) }}">
+                @csrf
+                <input type="hidden" name="lang" value="{{ $locale }}">
+                <button type="submit">{{ __('directory.save_to_account') }}</button>
+            </form>
+        @endif
+    @endauth
+    @if (session('saved_items_status'))<p role="status">{{ session('saved_items_status') }}</p>@endif
     @if (session('shortlist_status'))<p role="status">{{ session('shortlist_status') }}</p>@endif
     @if ($errors->has('shortlist'))<p role="alert">{{ $errors->first('shortlist') }}</p>@endif
     <article>

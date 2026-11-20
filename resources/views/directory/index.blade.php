@@ -52,6 +52,10 @@
         <h1>{{ __('directory.directory_title') }}</h1>
         <p>{{ __('directory.directory_intro') }}</p>
         <p><a href="/directory/compare?lang={{ $locale }}">{{ __('directory.compare_shortlist', ['count' => $shortlistCount, 'limit' => $shortlistLimit]) }}</a></p>
+        @auth
+            <p><a href="{{ route('account.saved-items.index', ['lang' => $locale]) }}">{{ __('directory.saved_items_title') }}</a></p>
+        @endauth
+        @if (session('saved_items_status'))<p role="status">{{ session('saved_items_status') }}</p>@endif
         @if (session('shortlist_status'))<p role="status">{{ session('shortlist_status') }}</p>@endif
         @if ($errors->any())
             <div role="alert" aria-labelledby="search-errors-heading">
@@ -140,6 +144,17 @@
                     <input type="hidden" name="lang" value="{{ $locale }}">
                     <button type="submit" @disabled($shortlistCount >= $shortlistLimit)>{{ __('directory.add_shortlist') }}</button>
                 </form>
+                @auth
+                    @if (in_array($result['id'], $savedEntityIds, true))
+                        <p role="status">{{ __('directory.saved_in_account') }}</p>
+                    @else
+                        <form method="post" action="{{ route('account.saved-items.store', ['entity' => $result['id']]) }}">
+                            @csrf
+                            <input type="hidden" name="lang" value="{{ $locale }}">
+                            <button type="submit">{{ __('directory.save_to_account') }}</button>
+                        </form>
+                    @endif
+                @endauth
                 @if ($result['last_observed_at'] !== null)
                     <p class="meta">{{ __('directory.observed', ['date' => $result['last_observed_at']]) }}</p>
                 @else

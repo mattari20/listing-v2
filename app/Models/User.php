@@ -38,6 +38,11 @@ final class User extends Authenticatable
         return $this->hasMany(RoleAssignment::class);
     }
 
+    public function savedDirectoryItems(): HasMany
+    {
+        return $this->hasMany(SavedDirectoryItem::class);
+    }
+
     public function setEmailAttribute(string $value): void
     {
         $this->attributes['email'] = mb_strtolower(trim($value));

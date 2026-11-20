@@ -4,7 +4,7 @@
 **Repository:** mattari20/listing-v2  
 **Baseline main:** c6cb7b679271efdfe5fd5d6be8b93cd428036f19  
 **Agenda:** RCV-B08 — Account-Dependent Saved Items and Alerts  
-**Status:** Repository-only capability/privacy preflight complete; Product Owner policy decision required. No implementation, migration, persistent user-data collection or notification activation is authorized.
+**Status:** Product Owner policy approved by instruction to proceed on 2026-11-20; private saved-items slice implemented in PR branch `feat/rcv-b08-private-saved-items`; exact-head validation pending. Sharing, alerts and public account lifecycle remain deferred.
 
 ## 1. Why this agenda is next
 
@@ -92,8 +92,8 @@ RCV-01 identifies RCV-B08 as the next P2 residual package after RCV-B07. Its sco
 
 | Slice | Candidate deliverable | Status |
 |---|---|---|
-| B08-A | Account lifecycle and saved-item privacy/retention policy | Preflight complete; Product Owner decision pending |
-| B08-B | Private account-owned saved items with synthetic tests and public-projection revalidation | Not authorized; schema/migration likely required |
+| B08-A | Account lifecycle and saved-item privacy/retention policy | APPROVED for the bounded private saved-items slice; public account lifecycle deferred |
+| B08-B | Private account-owned saved items with synthetic tests and public-projection revalidation | IMPLEMENTED in PR branch `feat/rcv-b08-private-saved-items`; exact-head validation pending |
 | B08-C | Share tokens, expiry, revocation and read-only share surface | Deferred; separate authorization required |
 | B08-D | Notification preferences, consent/opt-out lifecycle and event semantics | Deferred; separate authorization required |
 | B08-E | Delivery channel/provider and operational retention | Not authorized; vendor/spend decision required |
@@ -123,10 +123,10 @@ RCV-01 identifies RCV-B08 as the next P2 residual package after RCV-B07. Its sco
 
 ## 8. Product Owner decisions requested
 
-Please review the recommendations in Section 4. The recommended first slice is private account-owned saved items for pre-provisioned verified accounts only, with no public registration, no share links and no message delivery; anonymous session shortlist remains unchanged. User deletion is supported, but no automatic retention duration is chosen yet.
+The Product Owner instructed the project to move forward and complete the agenda after this recommendation was presented; this is recorded as approval of the bounded first slice unchanged: private saved items for pre-provisioned active/verified accounts, no public registration, no share links, no message delivery, anonymous session shortlist unchanged, owner deletion supported and no automatic retention duration selected. The exact-file B08-B implementation authorization is recorded in `RCV-B08_BOUNDED_IMPLEMENTATION_AUTHORIZATION_2026-11-20.md`.
 
-Confirm whether to accept this staged policy unchanged. If accepted, prepare a separate exact-file implementation authorization for B08-B. Do not treat this preflight or a policy decision as permission to create a public account lifecycle, activate notifications, select a vendor or provision a target environment.
+This approval does not authorize a public account lifecycle, notifications, a messaging vendor, external delivery, target provisioning or production use.
 
 ## 9. Current disposition
 
-RCV-B08 repository inventory and proposed product/privacy boundaries are complete. Product Owner decision remains pending. No application behavior or data schema has changed.
+RCV-B08 repository inventory and privacy boundaries are complete. The approved B08-B private saved-items slice is implemented on `feat/rcv-b08-private-saved-items` and awaiting exact-head validation. B08-C sharing, B08-D alert preferences/event semantics, B08-E delivery/provider and public account lifecycle remain deferred; DP-02/DP-03 target privacy gates remain binding.

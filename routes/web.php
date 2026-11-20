@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountSavedItemsController;
 use App\Http\Controllers\AccountSessionController;
 use App\Http\Controllers\PublicDirectoryController;
 use App\Http\Controllers\UniversityRepresentativeWorkflowController;
@@ -20,6 +21,12 @@ Route::post('/account/session', [AccountSessionController::class, 'store'])
 Route::delete('/account/session', [AccountSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('account.session.destroy');
+
+Route::middleware(['auth', 'throttle:60,1'])->prefix('/account/saved-items')->name('account.saved-items.')->group(function (): void {
+    Route::get('/', [AccountSavedItemsController::class, 'index'])->name('index');
+    Route::post('/{entity}', [AccountSavedItemsController::class, 'store'])->whereUuid('entity')->middleware('throttle:20,1')->name('store');
+    Route::delete('/{entity}', [AccountSavedItemsController::class, 'destroy'])->whereUuid('entity')->middleware('throttle:30,1')->name('destroy');
+});
 
 Route::middleware('auth')->prefix('/institutions/{institution}')->group(function (): void {
     Route::post('/claims', [UniversityRepresentativeWorkflowController::class, 'store'])
