@@ -6,6 +6,7 @@ namespace Tests\Feature;
 
 use App\Services\Directory\DirectorySeoMetadata;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route as RoutingRoute;
 use Tests\TestCase;
 
 final class DirectorySeoMetadataTest extends TestCase
@@ -114,17 +115,9 @@ final class DirectorySeoMetadataTest extends TestCase
     private function requestWithRoute(string $uri, string $routeName): Request
     {
         $request = Request::create($uri);
-        $request->setRouteResolver(static fn (): object => new class($routeName)
-        {
-            public function __construct(private readonly string $name)
-            {
-            }
-
-            public function getName(): string
-            {
-                return $this->name;
-            }
-        });
+        $route = new RoutingRoute(['GET'], (string) parse_url($uri, PHP_URL_PATH), ['uses' => static fn (): null => null]);
+        $route->name($routeName);
+        $request->setRouteResolver(static fn (): RoutingRoute => $route);
 
         return $request;
     }
