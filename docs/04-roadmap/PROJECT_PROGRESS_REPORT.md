@@ -1,3 +1,9 @@
+## Latest verified position — RCV-B03 shortlist and comparison (2026-11-20)
+
+RCV-B02 is implemented and merged for the authorized synthetic V2 scope. RCV-B03 has been selected as the next residual capability and its focused product/privacy scope pack is prepared. No code or schema work has started or been authorized. The outstanding owner decision is shortlist persistence/sharing: temporary session-only state (recommended first slice) or persistent account-based save/share. Comparison must remain like-for-like, evidence-backed, explicit about missing/stale/conflicting values, and separate from sponsored placement. No real data, production/Hostinger, V1, external services, AI or spend.
+
+---
+
 ## Latest verified position — RCV-B02 admissions and programme decision facts (2026-11-20)
 
 RCV-B02 implementation merged in PR #318 as `f3651e4aa5222ccebe5eea859d47362a7145429a`. Exact-head `240150ea7668a2568b87144c5c09bb9b7489ee95` passed PHP 8.5 foundation CI #44642616254 and project documentation validation #44642616084. Delivered offer-scoped facts governance for eligibility, deadlines, fee components and scholarships/aid, with immutable versions, evidence, human adjudication/publication, freshness policies, suppression, correction and withdrawal. Public output is constrained to approved offer-specific projections and preserves offer/cycle identity. Synthetic suite: 15 passed, 1,216 assertions, 242 non-fatal warnings. No real/source data, live DB, Hostinger, V1, external API/AI, deployment, application submission workflow or new spend.
