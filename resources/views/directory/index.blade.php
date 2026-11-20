@@ -58,7 +58,7 @@
         <input type="hidden" name="lang" value="{{ $locale }}">
         <div>
             <label for="q">{{ __('directory.search_label') }}</label>
-            <input id="q" name="q" type="search" maxlength="120" value="{{ $query }}" autocomplete="off">
+            <input id="q" name="q" type="search" dir="auto" maxlength="120" value="{{ $query }}" autocomplete="off">
         </div>
         <div>
             <label for="type">{{ __('directory.category') }}</label>
@@ -71,7 +71,7 @@
         </div>
         <div>
             <label for="locality">{{ __('directory.locality_label') }}</label>
-            <input id="locality" name="locality" type="search" maxlength="120" value="{{ $locality }}" autocomplete="off">
+            <input id="locality" name="locality" type="search" dir="auto" maxlength="120" value="{{ $locality }}" autocomplete="off">
         </div>
         @foreach ($filterGroups as $groupLabel => $groupOptions)
             <fieldset>
@@ -82,7 +82,7 @@
                         <select id="filter-{{ $key }}" name="filters[{{ $key }}]">
                             <option value="">{{ __('directory.all_values', ['label' => mb_strtolower($option['label'])]) }}</option>
                             @foreach ($option['values'] as $value)
-                                <option value="{{ $value }}" @selected(($filters[$key] ?? null) === $value)>{{ $value }}</option>
+                                <option value="{{ $value }}" dir="auto" @selected(($filters[$key] ?? null) === $value)>{{ $value }}</option>
                             @endforeach
                         </select>
                     </div>
