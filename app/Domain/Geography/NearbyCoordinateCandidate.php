@@ -26,7 +26,7 @@ final readonly class NearbyCoordinateCandidate
 
     public function isEligibleForSyntheticRanking(): bool
     {
-        if (!in_array($this->entityType, ['institution', 'campus', 'delivery_site'], true) ||
+        if (! in_array($this->entityType, ['institution', 'campus', 'delivery_site'], true) ||
             trim($this->entityId) === '' ||
             $this->institutionId === null ||
             trim($this->institutionId) === '') {
@@ -44,7 +44,7 @@ final readonly class NearbyCoordinateCandidate
         }
 
         if ($this->latitude === null || $this->longitude === null ||
-            !is_finite($this->latitude) || !is_finite($this->longitude) ||
+            ! is_finite($this->latitude) || ! is_finite($this->longitude) ||
             $this->latitude < -90.0 || $this->latitude > 90.0 ||
             $this->longitude < -180.0 || $this->longitude > 180.0) {
             return false;
