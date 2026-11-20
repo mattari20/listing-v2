@@ -21,7 +21,7 @@ final class PublicDirectoryController extends Controller
             'q' => ['nullable', 'string', 'max:120'],
             'type' => ['nullable', 'string', 'max:40'],
             'locality' => ['nullable', 'string', 'max:120'],
-            'filters' => ['nullable', 'array', 'max:6'],
+            'filters' => ['nullable', 'array', 'max:12'],
             'filters.*' => ['nullable', 'string', 'max:120'],
             'page' => ['nullable', 'integer', 'min:1'],
         ]);
@@ -53,6 +53,7 @@ final class PublicDirectoryController extends Controller
             'locality' => $locality,
             'filters' => $filters,
             'filterOptions' => $filterOptions,
+            'filterGroups' => collect($filterOptions)->groupBy('group', true),
             'typeOptions' => $directory->typeOptions(),
             'facets' => $data['facets'],
             'results' => $results,

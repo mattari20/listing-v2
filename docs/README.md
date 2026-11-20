@@ -1,6 +1,7 @@
 ## RCV-B04 — search and filter completeness — 2026-11-20
 
-- [RCV-B04 Search and Filter Completeness Scope and Acceptance Pack](04-roadmap/RCV-B04_SEARCH_AND_FILTER_COMPLETENESS_SCOPE_ACCEPTANCE_2026-11-20.md) — bounded local/CI synthetic-only proposal, current search/filter baseline and acceptance criteria; Product Owner implementation decision required.
+- [RCV-B04 Search and Filter Completeness Scope and Acceptance Pack](04-roadmap/RCV-B04_SEARCH_AND_FILTER_COMPLETENESS_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner-approved bounded scope for local/CI synthetic-only implementation.
+- [RCV-B04 Implementation Design](04-roadmap/RCV-B04_IMPLEMENTATION_DESIGN_2026-11-20.md) — grouped registry-backed filters, approved subject search, active-filter state, category facet semantics and exclusions; PR #324.
 
 ## Latest M3-11-05 subfolder environment records — 18 November 2026
 

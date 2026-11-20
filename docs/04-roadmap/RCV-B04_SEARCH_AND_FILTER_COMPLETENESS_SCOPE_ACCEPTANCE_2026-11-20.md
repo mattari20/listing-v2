@@ -2,9 +2,9 @@
 
 **Date:** 2026-11-20  
 **Repository:** `mattari20/listing-v2`  
-**Baseline:** `main` at `f3590a785e690858d1a6626219f6dd4125befd4c`  
+**Baseline:** `main` at `56f9bba683c153d455ebe4b58e9433a09bbeb41a`  
 **Agenda:** RCV-B04 — Search and Filter Completeness  
-**Status:** Scope and acceptance proposal prepared; Product Owner implementation decision required. No application implementation is authorized by this document.
+**Status:** Product Owner approved the bounded Sections 3–4 scope on 2026-11-20 in the follow-up project conversation. Implementation is delivered in PR #324; this document records the accepted boundary.
 
 ## 1. Why this is next
 
@@ -96,9 +96,9 @@ The UI should group filters into a small number of labelled sections, preserve s
 - Hostinger, V1, production DB, deployment, public activation or additional spend.
 - Any change to Deeni Madaris default-OFF suppression.
 
-## 6. Product Owner decision requested
+## 6. Product Owner decision and implementation authorization
 
-Approve the recommended bounded first slice in Sections 3–4, with the stated exclusions, so implementation can proceed on local workstation/GitHub CI using synthetic fixtures only.
+**Decision: APPROVED.** The Product Owner said: “ok move toward next agenda and complete it soon.” This accepts the recommended bounded first slice in Sections 3–4, with the stated exclusions, for local workstation/GitHub CI using synthetic fixtures only.
 
 If approved, implementation should:
 - Reuse the existing query service and field registry.
@@ -115,8 +115,8 @@ If approved, implementation should:
 | Current search/filter behavior inspected | COMPLETE |
 | Search/filter gaps and exclusions documented | COMPLETE |
 | Bounded implementation recommendation | PREPARED |
-| Product Owner decision on proposed scope | REQUIRED |
-| Application implementation | NOT STARTED / NOT AUTHORIZED |
+| Product Owner decision on proposed scope | APPROVED 2026-11-20 |
+| Application implementation | Delivered in PR #324; exact-head checks pending at scope-pack update |
 | Production, Hostinger, V1, real data, external services, AI, deployment or spend | NOT AUTHORIZED |
 
 Existing V2-only, synthetic-only, no-production, no-V1, no-Hostinger, no-real/source/personal-data, no-external-service/AI, no-spend and Deeni Madaris default-OFF restrictions remain binding.

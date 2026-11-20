@@ -1,7 +1,6 @@
-## Latest verified position — RCV-B04 search and filter completeness (2026-11-20)
+## Latest verified position — RCV-B04 student search and filter completeness (2026-11-20)
 
-RCV-B03 session-only shortlist and like-for-like comparison is complete and merged in PR #322 as `f3590a785e690858d1a6626219f6dd4125befd4c`. Exact-head `1eff3d364418a2d860cdc8be22a0ef1b00f3fc49` passed PHP 8.5 foundation CI #44645339493 and project documentation validation #44645339473 (15 passed, 1,262 assertions, 248 non-fatal warnings). RCV-B04 search/filter scope and acceptance pack is prepared on branch `docs/rcv-b04-search-filter-scope`. Product Owner scope decision is required before implementation. The proposed slice reuses the current anonymous projection and dynamic field registry; synthetic-only tests, no new dependencies or external search services. No real/source data, Hostinger, V1, production, AI, deployment or spend.
-
+RCV-B03 shortlist/comparison is complete and merged in PR #322 as `f3590a785e690858d1a6626219f6dd4125befd4c`. The Product Owner approved RCV-B04's bounded synthetic-only scope. PR #324 implements searchable subject facts, grouped registry-backed filter controls, combined filters, category-facet semantics, visible active search state and clear-all. Exact-head PHP 8.5 foundation CI and project documentation validation are pending. No external services, AI, real/source data, Hostinger, V1, production, deployment, migrations, new dependencies or spend.
 ---
 
 ## Latest verified position — RCV-B02 admissions and programme decision facts (2026-11-20)
