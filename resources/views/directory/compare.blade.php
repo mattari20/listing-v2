@@ -131,6 +131,23 @@
                                     @endforeach
                                 </tr>
                             @endforeach
+                            <tr>
+                                <th scope="row">{{ __('directory.programme_delivery_locations') }}</th>
+                                @foreach ($profiles as $profile)
+                                    @php($catalogueOffers = $profile['programme_catalogue']['offers'] ?? [])
+                                    <td>
+                                        @if ($catalogueOffers !== [])
+                                            <ul>
+                                                @foreach ($catalogueOffers as $catalogueOffer)
+                                                    <li dir="auto">{{ $catalogueOffer['location'] }}</li>
+                                                @endforeach
+                                            </ul>
+                                        @else
+                                            <span class="state">{{ __('directory.not_stated_public') }}</span>
+                                        @endif
+                                    </td>
+                                @endforeach
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -145,7 +162,7 @@
                         <thead><tr><th scope="col">{{ __('directory.programme') }}</th><th scope="col">{{ __('directory.published_offers') }}</th></tr></thead>
                         <tbody>
                             @foreach ($profiles as $profile)
-                                <tr><th scope="row" dir="auto">{{ $profile['name'] }}</th><td>
+                                <tr><th scope="row" dir="auto"><a href="{{ route('directory.show', ['entity' => $profile['id'], 'lang' => $locale]) }}">{{ $profile['name'] }}</a></th><td>
                                     @if (($profile['programme_offers'] ?? []) === [])
                                         {{ __('directory.no_offers') }}
                                     @else
@@ -153,6 +170,9 @@
                                             @foreach ($profile['programme_offers'] as $offer)
                                                 <section class="offer">
                                                     <strong dir="auto">{{ $offer['admission_cycle'] }}</strong>
+                                                    @if (! empty($offer['delivery_location_name']))
+                                                        <strong dir="auto">{{ $offer['delivery_location_name'] }}</strong>
+                                                    @endif
                                                     <div class="meta">{{ $offer['delivery_location_type'] === 'Campus' ? __('directory.delivery_locations.campus') : __('directory.delivery_locations.delivery_site') }}</div>
                                                     <ul>
                                                         @foreach ($offer['facts'] as $fact)
