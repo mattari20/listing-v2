@@ -5,7 +5,7 @@
 **Baseline:** `main` at `7b3c65a6b9e3ab10a0996f315f03030cf7d90375`  
 **Branch:** `feat/rcv-b03-session-shortlist-comparison`  
 **Authorization:** Product Owner approved temporary session-only shortlist on 2026-11-20.  
-**Status:** IMPLEMENTATION COMPLETE in PR #322; exact-head PHP 8.5 foundation CI #44645164583 and project documentation validation #44645164581 both passed on `c2669a85099bfb3640baaec2bc2f77b7c569f39f`. PR remains open and unmerged pending Product Owner merge approval.
+**Status:** IMPLEMENTATION COMPLETE and merged in PR #322 as `f3590a785e690858d1a6626219f6dd4125befd4c`; exact-head `1eff3d364418a2d860cdc8be22a0ef1b00f3fc49` passed PHP 8.5 foundation CI #44645339493 and project documentation validation #44645339473. Synthetic suite: 15 passed, 1,262 assertions, 248 non-fatal warnings. Automated synthetic validation only; no browser acceptance or production readiness claimed.
 
 ## 1. Accepted first-slice decision
 
