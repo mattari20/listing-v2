@@ -1124,4 +1124,31 @@ final class PublicDirectoryTest extends TestCase
             'The directory query count should remain bounded as the synthetic result set grows.'
         );
     }
+
+    public function test_student_search_results_show_approved_study_facts_and_empty_results_offer_broader_search_guidance(): void
+    {
+        $institution = $this->createEntity('institution');
+        $this->publishFact($institution, 'display_name', 'Synthetic Lahore Science College');
+        $this->publishFact($institution, 'city', 'Lahore');
+        $this->publishFact($institution, 'education_level', 'Intermediate');
+        $subject = $this->registryDefinition('institution_subject', ['filterable' => true]);
+        $this->publishFact($institution, 'institution_subject', 'Physics', '2026-11-13 10:00:00', $subject);
+        $this->publishFact($institution, 'internal_notes', 'Synthetic private admission note');
+
+        $this->get('/directory?q=Science')
+            ->assertOk()
+            ->assertSee('Synthetic Lahore Science College')
+            ->assertSee('Intermediate')
+            ->assertSee('Physics')
+            ->assertDontSee('Synthetic private admission note')
+            ->assertSee('Published study options');
+
+        $this->get('/directory?q=NoSuchSyntheticCourse&type=programme&locality=Karachi&lang=en')
+            ->assertOk()
+            ->assertSee('No publicly approved matches were found.')
+            ->assertSee('Try a broader search')
+            ->assertSee('Search again with fewer filters')
+            ->assertSee('NoSuchSyntheticCourse')
+            ->assertSee('Clear all filters');
+    }
 }
