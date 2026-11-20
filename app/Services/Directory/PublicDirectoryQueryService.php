@@ -478,6 +478,7 @@ final class PublicDirectoryQueryService
         }
 
         if ($institutionIds === []) {
+
             return $items;
         }
 
