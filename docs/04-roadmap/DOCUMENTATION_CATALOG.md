@@ -1,11 +1,12 @@
 ## RCV-B04 — search and filter completeness — 2026-11-20
 
-- [RCV-B04 Search and Filter Completeness Scope and Acceptance Pack](RCV-B04_SEARCH_AND_FILTER_COMPLETENESS_SCOPE_ACCEPTANCE_2026-11-20.md) — current query/controller/view inspected; proposes deterministic registry-backed student-first search and filter completion. Product Owner scope decision required before implementation; no external search/AI or real data.
+- [RCV-B04 Search and Filter Completeness Scope and Acceptance Pack](RCV-B04_SEARCH_AND_FILTER_COMPLETENESS_SCOPE_ACCEPTANCE_2026-11-20.md) — bounded local/CI scope approved 2026-11-20; excludes external search, AI, fee ranges, real data and production activity.
+- [RCV-B04 Implementation Design](RCV-B04_IMPLEMENTATION_DESIGN_2026-11-20.md) — grouped registry-backed filters, subject search, active-filter state, facet semantics and synthetic acceptance coverage; implementation PR #324.
 
 ## RCV-B03 — shortlist and comparison — 2026-11-20
 
 - [RCV-B03 Scope and Acceptance Decision](RCV-B03_SHORTLIST_AND_COMPARISON_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner approved temporary session-only shortlist; no persistent save/share.
-- [RCV-B03 Implementation Design](RCV-B03_IMPLEMENTATION_DESIGN_2026-11-20.md) — bounded implementation details, session behavior, files, test coverage and exclusions; exact-head PHP 8.5 foundation CI #44645164583 and documentation validation #44645164581 passed; PR #322 open and unmerged.
+- [RCV-B03 Implementation Design](RCV-B03_IMPLEMENTATION_DESIGN_2026-11-20.md) — bounded implementation merged in PR #322 as `f3590a785e690858d1a6626219f6dd4125befd4c`; exact-head `1eff3d364418a2d860cdc8be22a0ef1b00f3fc49` passed PHP 8.5 foundation CI #44645339493 and documentation validation #44645339473.
 
 ## RCV-B02 — admissions and programme decision facts — 2026-11-20
 
