@@ -11,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
 
 final class AccountSavedItemsController extends Controller
 {
@@ -49,7 +50,7 @@ final class AccountSavedItemsController extends Controller
 
         $userId = $request->user()->getAuthIdentifier();
         $limit = $this->savedItemsLimit();
-        $result = \Illuminate\Support\Facades\DB::transaction(function () use ($userId, $entity, $limit): string {
+        $result = DB::transaction(function () use ($userId, $entity, $limit): string {
             User::query()->whereKey($userId)->lockForUpdate()->firstOrFail();
 
             if (SavedDirectoryItem::query()->where('user_id', $userId)->where('entity_id', $entity)->exists()) {
