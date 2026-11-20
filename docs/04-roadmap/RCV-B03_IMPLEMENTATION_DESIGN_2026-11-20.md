@@ -32,7 +32,7 @@ The initial configurable maximum is five options, within the provisional 3–5 p
 - `app/Http/Controllers/PublicDirectoryController.php`
 - `app/Services/Directory/PublicDirectoryComparisonService.php`
 - `app/Services/Directory/PublicDirectoryQueryService.php` (programme-offer profile discriminator correction)
-- `app/Services/Directory/PublicProgrammeOfferFactsQueryService.php` (retain delivery-location label and fact effective dates)
+- `app/Services/Directory/PublicProgrammeOfferFactsQueryService.php` (retain delivery-location category and fact effective dates)
 - `tests/Feature/ProgrammeOfferFactWorkflowTest.php` (offer location, cycle and effective-date assertions)
 - `routes/web.php`
 - `config/directory.php`
