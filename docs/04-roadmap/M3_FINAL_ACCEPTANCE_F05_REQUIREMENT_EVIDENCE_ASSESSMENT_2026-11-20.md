@@ -109,9 +109,9 @@ The M3-01 AI-era architecture readiness review labels AI-ARCH-01–20 as propose
 |---|---|---|
 | RCV-B02 admissions/programme facts | Offer-scoped immutable fact versions, provenance, evidence, human adjudication/publication and public read model; PR #318 merged. | Live source data and release acceptance deferred. |
 | RCV-B03 shortlist/comparison | Temporary session-only shortlist and like-for-like comparison; PR #322 merged. | Sharing deferred; later RCV-B08 saved items remain separate. |
-| RCV-B04 search/filter | Registry-backed deterministic filters and subject/programme search enhancements; PRs #324/#325 merged. | External search and live data deferred. |
+| RCV-B04 search/filter | Registry-backed deterministic filters and subject/programme search enhancements; PR #324 merged. | External search and live data deferred. |
 | RCV-B05 language/accessibility | English/Urdu UI, original-language facts, no auto-translation, RTL; PR #327 merged. | Manual/qualified accessibility and WCAG conformance not performed. |
-| RCV-B06 geography | Manual locality default and synthetic nearby-ranking proof; PRs #331/#332 merged. | Real coordinates, device location, maps/geocoding/vendor activation not authorized. |
+| RCV-B06 geography | Manual locality default and synthetic nearby-ranking proof; PR #331 merged. | Real coordinates, device location, maps/geocoding/vendor activation not authorized. |
 | RCV-B07 SEO/performance | Fail-closed crawl controls and synthetic benchmark; PRs #335/#337 merged. | Public origin/indexing/sitemap and numeric SLO acceptance deferred. |
 | RCV-B08 saved items/alerts | Private saved-items slice for pre-provisioned active/verified accounts; PR #340 merged. | Public registration, sharing, alerts and external delivery deferred. |
 | RCV-B09 public reviews/moderation | Repository preflight and synthetic moderation foundation. | Public reviews/UGC/reporting/appeals/moderation disabled and not authorized. |
