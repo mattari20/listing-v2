@@ -1,6 +1,10 @@
 # Implementation Traceability Matrix
 
 | Requirement ID | Requirement | Specification | Step | PR / commit | Test / evidence | Status |
+|---|---|---|---|---|---|---|
+| RCV-B04-SCOPE-001 | Search and filter completeness scope/acceptance preparation | `RCV-B04_SEARCH_AND_FILTER_COMPLETENESS_SCOPE_ACCEPTANCE_2026-11-20.md` | RCV-B04 | Branch `docs/rcv-b04-search-filter-scope` | Current `PublicDirectoryQueryService`, controller and directory view inspected against RCV-01 SR-01–SR-04 / AR-003–AR-008 | Scope pack prepared; implementation not authorized pending Product Owner decision |
+
+| Requirement ID | Requirement | Specification | Step | PR / commit | Test / evidence | Status |
 | M3-11-05C-001 | Subfolder deployment preparation: separate MySQL connection, V2-scoped session cookie and opt-in private-preview access gate | M3-11-05B compatibility assessment; M3-11-05C implementation record | M3-11-05 | PR #295 merged as `09ae3ff31462cb2bf85566c5f9963565c067a69f` | `SubfolderDatabaseConfigurationTest`; `PrivatePreviewAccessTest`; FND-01 PHP 8.5 CI #496 and docs validation #933 on exact head `f8b50d7308f386be3768603f00717d53c875e1be` | Repository implementation delivered; hosted database, static-file access control and isolation not verified |
 |---|---|---|---|---|---|---|
 | M3-08-PF-001 | Least-privilege identity, scoped authorization, post-launch reviews, privacy/minor safeguarding and security preflight | M2-S08; M2-S07/S08/S09 Joint Architecture Validation; Comparison, Reviews and Student Trust | M3-08 | PR #231 merged as `4e453520b86fefc322a168de85f58d3cfddf18f1` | Preflight inspection, role/action/resource-scope matrix and synthetic acceptance plan; see `M3-08_IDENTITY_REVIEWS_SECURITY_PREFLIGHT.md` | Preflight complete and merged; implementation separately authorized |
