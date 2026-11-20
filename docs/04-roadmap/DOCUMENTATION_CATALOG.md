@@ -1517,3 +1517,7 @@ The dated addendum in `RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.
 ## M3 final acceptance exercise — F02 — 2026-11-20
 
 - [F02 Repository-Side Consistency Resolution](M3_FINAL_ACCEPTANCE_F02_REPOSITORY_CONSISTENCY_2026-11-20.md) — reconciles current-step navigation, the high-level M3 roadmap status, completed evidence-intake handoff and M3-11-04/M3-10 scope wording without promoting any external gate.
+
+## M3 final acceptance exercise — F03 — 2026-11-20
+
+- [F03 M3-11 Ten-Gate Review](M3_FINAL_ACCEPTANCE_F03_M311_TEN_GATE_REVIEW_2026-11-20.md) — revalidates all ten gates and corrects stale SEC-06 merge, PHP 8.5.12 runtime and weekly backup policy statements; M3-11 remains BLOCKED / NOT ACCEPTED.
