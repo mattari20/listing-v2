@@ -36,6 +36,55 @@ final class PublicDirectoryTest extends TestCase
             ->assertDontSee('Synthetic Internal Label');
     }
 
+    public function test_urdu_interface_is_session_persistent_and_preserves_approved_source_language_facts(): void
+    {
+        $first = $this->createEntity();
+        $second = $this->createEntity();
+        $this->publishFact($first, 'display_name', 'Synthetic English Academy');
+        $this->publishFact($first, 'overview', 'Approved source text remains in English.');
+        $this->publishFact($second, 'display_name', 'Synthetic Urdu Comparison College');
+
+        $this->get('/directory?lang=ur')
+            ->assertOk()
+            ->assertSee('<html lang="ur" dir="rtl">', false)
+            ->assertSee('تعلیمی اداروں کی ڈائریکٹری')
+            ->assertSee('نام یا شائع شدہ معلومات سے تلاش کریں')
+            ->assertSee('name="lang" value="ur"', false)
+            ->assertSee('Synthetic English Academy');
+
+        $this->get('/directory/'.$first)
+            ->assertOk()
+            ->assertSee('<html lang="ur" dir="rtl">', false)
+            ->assertSee('منظور شدہ عوامی معلومات')
+            ->assertSee('Approved source text remains in English.')
+            ->assertSee('تعلیمی ادارہ')
+            ->assertSee('id="main-content"', false)
+            ->assertSee('class="skip-link"', false);
+
+        $this->post('/directory/'.$first.'/shortlist', ['lang' => 'ur'])->assertRedirect();
+        $this->post('/directory/'.$second.'/shortlist', ['lang' => 'ur'])->assertRedirect();
+
+        $this->get('/directory/compare')
+            ->assertOk()
+            ->assertSee('<html lang="ur" dir="rtl">', false)
+            ->assertSee('منتخب اداروں کا موازنہ')
+            ->assertSee('ساتھ ساتھ موازنہ')
+            ->assertSee('مرکزی مواد پر جائیں')
+            ->assertSee('id="main-content"', false)
+            ->assertSee('Synthetic English Academy')
+            ->assertSee('Approved source text remains in English.');
+    }
+
+    public function test_unsupported_directory_language_falls_back_to_english(): void
+    {
+        $this->withSession(['directory_locale' => 'ur'])
+            ->get('/directory?lang=fr')
+            ->assertOk()
+            ->assertSee('<html lang="en" dir="ltr">', false)
+            ->assertSee('Education Directory')
+            ->assertSessionHas('directory_locale', 'en');
+    }
+
     public function test_category_filter_and_facets_are_derived_from_eligible_public_entities(): void
     {
         $institution = $this->createEntity('institution');
