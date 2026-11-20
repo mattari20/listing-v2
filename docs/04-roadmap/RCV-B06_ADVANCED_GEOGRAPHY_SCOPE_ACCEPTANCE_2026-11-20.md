@@ -2,9 +2,9 @@
 
 **Date:** 2026-11-20  
 **Repository:** `mattari20/listing-v2`  
-**Baseline:** `main` after RCV-B06 policy/design merge `ae5484045c9c36fac4deab37f3db9d12773be621`  
+**Baseline:** `main` after RCV-B06 synthetic implementation merge `c926d278de21229a66edc2ff3f1f78e0270b874e`  
 **Agenda:** RCV-B06 — Advanced Geography  
-**Status:** Product Owner policy and bounded synthetic-only proof-of-concept APPROVED 2026-11-20; geography semantics/design and publication/evidence/suppression review COMPLETE; implementation prepared, exact-head CI pending. No real coordinates, source access, device geolocation, schema change, external service, deployment or spend is authorized.
+**Status:** RCV-B06 bounded agenda COMPLETE for the approved repository-only synthetic scope. Policy and proof-of-concept approved; design/evidence review complete; synthetic implementation merged and exact-head CI passed. Real coordinates, source access, device geolocation, schema change, external services, deployment and spend remain unauthorized. No real coordinates, source access, device geolocation, schema change, external service, deployment or spend is authorized.
 
 ## 1. Why this is next
 
@@ -89,7 +89,7 @@ Interactive maps, geocoding, tile hosting, routing and third-party location APIs
 | Repository-only geography semantics/design | COMPLETE — PR #329 merged |
 | Publication/evidence/suppression contract review | COMPLETE — repository-only |
 | Bounded synthetic proof-of-concept authorization | APPROVED 2026-11-20 — exact scope only |
-| Synthetic pure-domain component and unit tests | IMPLEMENTED — PR/CI validation pending |
+| Synthetic pure-domain component and unit tests | COMPLETE — PR #331 merged; exact-head CI passed |
 | Real/source coordinates, device geolocation and schema/application implementation | NOT AUTHORIZED |
 | Maps/geocoding/vendor, privacy/security/data-rights and cost approvals | NOT REQUESTED / NOT APPROVED |
 
