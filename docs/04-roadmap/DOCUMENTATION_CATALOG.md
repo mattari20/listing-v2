@@ -1,3 +1,7 @@
+## M3-11 — Controlled acceptance/readiness evidence intake — 2026-11-20
+
+- [M3-11 Controlled Acceptance and Readiness Evidence Intake Reconciliation](M3-11_CONTROLLED_ACCEPTANCE_READINESS_EVIDENCE_INTAKE_2026-11-20.md) — consolidated current gate evidence, preserves accepted Product Owner decisions, defines receipt-versus-acceptance rules, and records outstanding human/operational dependencies. Repository-side intake preparation only; M3-11 remains BLOCKED / NOT ACCEPTED.
+
 - [M3-11-03 SEC-06 Local/CI Implementation Evidence](M3-11-03_SEC06_LOCAL_CI_IMPLEMENTATION_EVIDENCE_2026-11-19.md) — records the merged bounded daily logging implementation, 30-day active rotated-log retention, structured-context allowlist and exact-head CI results; hosted path, permissions and backup-held copies remain unverified.
 - [M3-11 Stage 1 Repository Review Baseline and Evidence Index](M3-11_STAGE_1_REPOSITORY_REVIEW_BASELINE_AND_EVIDENCE_INDEX_2026-11-20.md) — indexes existing legal/privacy/safeguarding and security/accessibility review packs against immutable baseline `f1f9d779fa280e1c0a57618c301a535aad635a85`; preparation only, no independent review or new access authorization.
 ## RCV-B11 — production readiness — 2026-11-20
