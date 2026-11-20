@@ -12,6 +12,11 @@
 - [RCV-B06 Publication/Evidence Review and Bounded Implementation Authorization Request](RCV-B06_PUBLICATION_EVIDENCE_REVIEW_AND_IMPLEMENTATION_AUTHORIZATION_REQUEST_2026-11-20.md) — publication/evidence/suppression controls reconciled; synthetic-only implementation approval and closeout recorded.
 - [RCV-B06 Synthetic Nearby Ranking Implementation Record](RCV-B06_SYNTHETIC_NEARBY_RANKING_IMPLEMENTATION_RECORD_2026-11-20.md) — PR #331 merged as `c926d278de21229a66edc2ff3f1f78e0270b874e`; exact-head FND-01 #44652073842 and documentation validation #44652073843 passed (15 tests, 1,340 assertions).
 
+## RCV-B08 — account-dependent saved items and alerts — 2026-11-20
+
+- [RCV-B08 Account Saved Items and Alerts Scope and Acceptance Pack](RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_SCOPE_ACCEPTANCE_2026-11-20.md) — repository-only account, session shortlist, privacy and retention inventory; Product Owner policy decision pending; no persistent data or notification implementation authorized.
+- [RCV-B08 Account Saved Items and Alerts Privacy Design](RCV-B08_ACCOUNT_SAVED_ITEMS_AND_ALERTS_PRIVACY_DESIGN_2026-11-20.md) — proposed private saved-item ownership, public-projection revalidation, sharing deferral, alert consent and deletion boundaries.
+
 ## RCV-B07 — public SEO and performance evidence — 2026-11-20
 
 - [RCV-B07 Public SEO and Performance Scope and Acceptance Pack](RCV-B07_PUBLIC_SEO_AND_PERFORMANCE_SCOPE_ACCEPTANCE_2026-11-20.md) — repository inventory complete; Product Owner policy decisions approved; fail-closed crawl controls merged in PR #335; synthetic performance measurement completed in PR #337.
