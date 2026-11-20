@@ -1541,3 +1541,8 @@ The dated addendum in `RCV-01_REQUIREMENTS_CAPABILITY_RECONCILIATION_2026-11-17.
 
 - [M3-11 LPS-11 Policy-to-Implementation Evidence Map](M3-11_LPS11_POLICY_TO_IMPLEMENTATION_EVIDENCE_MAP_2026-11-20.md) — maps all ten accepted Product Owner policy principles to current-main code, tests, configuration and governance evidence; records partial implementation, cross-cutting gaps, external assessment requirements and unchanged M3-11 blocked status.
 
+
+
+## M3-11 — LPS-12 prioritized policy gap resolution plan — 2026-11-20
+
+- [M3-11 LPS-12 Prioritized Policy Gap Resolution Plan](M3-11_LPS12_PRIORITIZED_POLICY_GAP_RESOLUTION_PLAN_2026-11-20.md) — prioritizes the six cross-cutting LPS-11 gaps, defines workstream acceptance criteria/evidence, dependencies, sequencing, authorization boundaries and unchanged M3-11 gate status. Planning only; all six gaps remain open.
