@@ -3,7 +3,7 @@
 **Date:** 2026-11-20  
 **Repository:** mattari20/listing-v2  
 **Authorization:** Product Owner approval recorded 2026-11-20 in this conversation, limited to the synthetic-only pure-domain proof-of-concept in the publication/evidence review authorization request.  
-**Status:** Implementation prepared; exact-head CI and merge pending.
+**Status:** COMPLETE — PR #331 merged as `c926d278de21229a66edc2ff3f1f78e0270b874e`; exact-head CI passed.
 
 ## 1. Delivered scope
 
@@ -76,8 +76,9 @@ Existing manual locality search and Deeni Madaris policy/configuration are uncha
 
 Required exact-head validation:
 
-- Project documentation validation.
-- FND-01 PHP 8.5 foundation CI, including PHP formatting, Laravel bootstrap/routes and the synthetic-only test suite.
+- Project documentation validation run #1113 — passed on exact head `2e5dc05190ae3c1d34dc7c8590bee44e16f408aa`.
+- FND-01 PHP 8.5 foundation CI run #653 — passed on the same exact head, including PHP formatting, Laravel bootstrap/routes, synthetic-only test suite and repository artifact hygiene.
+- Full suite result: 15 passed, 1,340 assertions, 0 failures. CI also reported 266 non-fatal warnings; logs include existing missing-`.env` read warnings.
 
 A passing CI result validates only this isolated code and synthetic fixtures. It does not approve real coordinates, coordinate sources, schema/persistence, integration, user-origin collection, privacy/security, external services, production or public activation.
 
@@ -87,4 +88,6 @@ Separate explicit approval is still required for real coordinate sources and rig
 
 ## 8. Completion disposition
 
-The bounded synthetic code and unit tests are prepared. The agenda is not marked merged/validated until exact-head workflows complete successfully and the PR is merged. No excluded activity has been performed.
+The bounded synthetic code and unit tests are merged and exact-head validated in PR #331. The full test suite completed with 15 passed and 1,340 assertions; no failures. The 266 warnings are non-fatal, with missing-`.env` read warnings visible in the logs. No excluded activity has been performed.
+
+**Agenda disposition:** COMPLETE for the approved repository-only synthetic proof-of-concept. Live coordinate acquisition, production nearby integration, browser/device geolocation, maps/geocoding/vendors, schema/persistence, external services/spend and deployment remain separate, unapproved stages.
