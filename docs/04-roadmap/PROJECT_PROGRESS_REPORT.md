@@ -1,3 +1,18 @@
+## M3-12 combined delivery — Agendas 01 and 02 — 2026-11-20
+
+**Status:** BOTH REPOSITORY-ONLY REVIEW AGENDAS COMPLETE; NO APPLICATION OR DATABASE IMPLEMENTATION CHANGE REQUIRED.
+
+The two sequential M3-12 agendas were completed against immutable current-main baseline b685bf75895b68180b4e0b8e4808183c8ee722eb:
+
+1. **M3-12 Agenda 01 — Architecture Conformance Review:** current implementation reconciled against accepted M2-S01–M2-S10 architecture. Result: bounded conformance for the current private V2 repository scope. Current implementation includes domain/catalogue, provenance, adjudication/publication, anonymous directory, search/comparison, programme-offer facts, identity/saved items and synthetic preview foundations. Accessibility evaluation, real-source rights, live AI, UGC activation, hosted operations and production readiness remain separately gated. Evidence: M3-12_A01_ARCHITECTURE_CONFORMANCE_REVIEW_2026-11-20.md.
+2. **M3-12 Agenda 02 — Database Foundation Verification:** 15 migration files and 51 table-creation definitions inventoried; SQLite in-memory remains the local/CI default; existing disposable SQLite tests cover full migrate/reset/reinstall, foreign-key checks, idempotency and contention. MySQL configuration is present but has not been validated against a MySQL server. Hosted database isolation, grants, TLS, backup/restore and RPO/RTO remain unverified. Evidence: M3-12_A02_DATABASE_FOUNDATION_VERIFICATION_2026-11-20.md.
+
+Both agendas were read-only repository reviews. No schema, migration, application code, environment, credential, data, hosting resource or spend was changed. The existing PR #349 exact-head CI #690 passed before this review; these new documentation records require fresh exact-head CI in their own PR.
+
+M3-12 private preview/synthetic dataset remains delivered as recorded in M3-12_PRIVATE_PREVIEW_AND_SYNTHETIC_DATASET_2026-11-18.md. These two reviews do not claim full M3-12 functional acceptance, browser acceptance, production readiness or closure of M3-11. M3-11 remains BLOCKED / NOT ACCEPTED; no hosted access, recovery rehearsal, release candidate, go/no-go, deployment or public launch is authorized.
+
+---
+
 ## Controlled acceptance/readiness evidence intake reconciliation — 2026-11-20
 
 **Status:** INTAKE PROCESS RECONCILED; EXTERNAL / HUMAN GATE EVIDENCE NOT RECEIVED. M3-11 remains BLOCKED / NOT ACCEPTED.
