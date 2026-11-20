@@ -58,6 +58,23 @@ final class PublicDirectoryTest extends TestCase
             ->assertSee('Only approved published information is shown');
     }
 
+    public function test_programme_profile_shows_empty_student_sections_without_claiming_features_are_absent(): void
+    {
+        $programme = $this->createEntity('programme');
+        $this->publishFact($programme, 'display_name', 'Synthetic Programme With Limited Details');
+
+        $this->get('/directory/'.$programme)
+            ->assertOk()
+            ->assertSee('Academic information')
+            ->assertSee('Admissions information')
+            ->assertSee('Fees and costs')
+            ->assertSee('Scholarships and financial assistance')
+            ->assertSee('Recognition and affiliation')
+            ->assertSee('No approved public details are currently displayed in this section.')
+            ->assertSee('A section with no details does not mean the programme lacks that feature.')
+            ->assertSee('Synthetic Programme With Limited Details');
+    }
+
     public function test_anonymous_search_and_profile_show_only_allowlisted_approved_facts(): void
     {
         $entity = $this->createEntity();
