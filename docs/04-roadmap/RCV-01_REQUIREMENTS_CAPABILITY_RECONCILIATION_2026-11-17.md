@@ -138,3 +138,64 @@ The following backlog is a **planning recommendation**, not implementation autho
 - Verified `main` points to the merge commit `54045426067eb8cd48403e2829ceff0c4602dac1`.
 
 **Final disposition:** RCV-01 is **CLOSED** for requirements-to-capability documentary reconciliation. This acceptance is not owner acceptance of every product requirement, a fresh manual functional audit, or permission to implement RCV-B02 onward. M3-11 remains BLOCKED / NOT ACCEPTED.
+
+
+---
+
+## 10. Current delivery reconciliation and controlled acceptance handoff — 2026-11-20
+
+This dated addendum supersedes the 2026-11-17 *planning-only* status of the residual feature packages below where subsequent merged implementation and closeout evidence exists. It does not rewrite the original inspection baseline or convert bounded synthetic delivery into production acceptance.
+
+### 10.1 Current residual-package disposition
+
+| Package | Current repository evidence | Current disposition | Remaining boundary |
+|---|---|---|---|
+| RCV-B01 — requirement traceability | RCV-01 and subsequent traceability updates | Reconciled for the bounded repository evidence now recorded | Continue maintaining evidence; do not infer unimplemented capability |
+| RCV-B02 — admissions, fees and scholarships | PR #318 implementation; PR #319 closeout | COMPLETE for approved synthetic offer-scoped admissions-fact governance | No live/source data, admissions application, applicant accounts, payments or notifications |
+| RCV-B03 — shortlist and comparison | PR #320 scope decision; PR #322 implementation/closeout | COMPLETE for temporary session-only shortlist and like-for-like comparison | No persistent list in this slice, share links or alerts; separate RCV-B08 private saved-items slice is distinct |
+| RCV-B04 — search and filter completeness | PR #324 implementation; PR #325 pagination/regression closeout; PR #326 documentation reconciliation | COMPLETE for bounded registry-backed search/filter and pagination behavior | No external search, semantic/fuzzy/transliteration search, recommendations or ranking |
+| RCV-B05 — language and accessibility | PR #327 implementation; PR #328 closeout | COMPLETE for English/Urdu UI and bounded RTL/accessibility code/tests | Manual keyboard, screen-reader, contrast, zoom/reflow and qualified accessibility evaluation remain outstanding; no WCAG conformance claim |
+| RCV-B06 — advanced geography | PR #329 design/policy; PR #331 synthetic domain proof; PR #332 closeout | COMPLETE for approved pure-domain synthetic proof only | No real coordinates, source rights, schema/persistence, public nearby integration, device geolocation, maps or geocoding |
+| RCV-B07 — SEO and performance | PR #335 fail-closed SEO implementation; PR #337 synthetic performance harness and associated closeout evidence | COMPLETE for bounded fail-closed SEO controls and synthetic in-process measurement | Indexing remains disabled by default; no public sitemap/indexing activation, production URL, representative load/capacity evidence or numeric SLO |
+| RCV-B08 — account saved items and alerts | PR #340 private saved-items implementation; PR #341 closeout | COMPLETE for private account-owned saved items for existing pre-provisioned active/verified accounts | Sharing, alert preferences/delivery, public registration/recovery/closure and automatic expiry remain deferred; DP-02/DP-03 target gates remain |
+| RCV-B09 — public reviews and moderation | PR #342 preflight | PREFLIGHT COMPLETE ONLY | Public reviews, ratings, reports, moderation and appeals remain disabled; qualified review, staffing and separate activation approval absent |
+| RCV-B10 — live source and AI activation | PR #343 preflight | PREFLIGHT COMPLETE ONLY | No source access, extraction, model/provider, agent, connector, crawler or scheduler activation |
+| RCV-B11 — production readiness | PR #344 final gate reconciliation | DOCUMENTARY RECONCILIATION COMPLETE ONLY | M3-11 remains BLOCKED / NOT ACCEPTED; no candidate, go/no-go or production execution |
+
+### 10.2 Current controlled acceptance position
+
+The implementation backlog RCV-B02 through RCV-B08 has received its bounded repository implementation/closeout work. This is not a declaration that every SR-01–SR-14 requirement is fully satisfied or that every feature is ready for real users. The remaining product limitations above are explicit and remain visible.
+
+**The next agenda is controlled acceptance/readiness evidence intake, not another speculative feature package.** Do not start a duplicate implementation agenda unless the Product Owner selects a specific remaining capability and approves its exact scope.
+
+### 10.3 M3-11 current gate interpretation
+
+| Gate | Current supported status | Next required evidence |
+|---|---|---|
+| M3-11-01 scope/authority | CLOSED for scope definition | New dated owner decision only if scope changes |
+| M3-11-02 legal/privacy/safeguarding | Owner internal review delivered; qualified gate remains BLOCKED | Qualified written assessments where applicable and Product Owner dispositions |
+| M3-11-03 security/accessibility | Internal repository desk review and bounded code remediation delivered; independent release assurance remains BLOCKED | Independent candidate/target security review and qualified accessibility evaluation, findings, remediation and retest |
+| M3-11-04 operations/support | CLOSED for current repository-only private development under owner-led model | Before hosted acceptance, external reviewer access, real users, public support, pilot or release: identify applicable human roles and obtain acceptance, competence, availability and coverage |
+| M3-11-05 environment separation | Resource/CLI readiness subtask complete; hosted isolation BLOCKED | Separate exact-scope authorization and accepted V2-only HTTP, filesystem, storage, identity and resource-isolation evidence; current isolation register remains 0/18 accepted |
+| M3-11-06 recovery | Weekly backup cadence accepted as current-stage policy; recovery gate BLOCKED | Approved recovery objectives, named recovery owner/verifier, V2-only boundary and separately authorized restore/rollback rehearsal with measured RPO/RTO |
+| M3-11-07 candidate | NOT STARTED / BLOCKED | All prerequisite gates plus separate candidate-creation authorization |
+| M3-11-08 decision | BLOCKED / NOT DECIDED | Complete exact-candidate dossier and required accountable human decisions |
+| M3-11-09 execution | NOT AUTHORIZED | Separate exact-scope written execution authorization |
+| M3-11-10 monitoring/closure | NOT STARTED | Only after a validly authorized operation |
+
+M3-10 pilot readiness remains NOT ACCEPTED and the two-person tabletop remains NOT EXECUTED. No signed GO, conditional GO or NO-GO is recorded. The current decision state is NOT DECIDED / BLOCKED.
+
+### 10.4 Work permitted now
+
+1. Keep repository records, requirement traceability and exact evidence references consistent.
+2. Receive and reconcile actual reviewer reports, owner decisions and human role acceptances when supplied.
+3. Continue only already-authorized synthetic local/CI maintenance that does not expand product or operational scope.
+4. Reassess the next implementation agenda only after a concrete gap is selected and its scope/acceptance is approved.
+
+### 10.5 Stop conditions
+
+No V1 or production access; no additional Hostinger/hPanel or hosted environment activity; no live database, migration, backup download or restore; no deployment, DNS/URL cutover or public launch; no real/source/personal/student/guardian/child/staff data or participant activity; no external source, API, AI/model/provider, connector, crawler, scheduler, vendor or new dependency; no additional spend; no public UGC/reviews/ratings/reporting/moderation activation; Deeni Madaris remains default-OFF with zero public exposure.
+
+Passing CI, merged documentation, the owner’s internal desk reviews or AI-assisted analysis must not be represented as independent professional assurance or production acceptance.
+
+**Disposition:** RCV-01 current delivery status is reconciled for repository evidence. The next active agenda is controlled acceptance/readiness evidence intake. M3-11 production readiness remains BLOCKED / NOT ACCEPTED, and no production execution is authorized.
