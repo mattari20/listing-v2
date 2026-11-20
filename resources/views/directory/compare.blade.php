@@ -98,6 +98,44 @@
                 </tbody>
             </table>
         </div>
+        @if (($profiles[0]['type'] ?? null) === 'programme')
+            <section class="panel" aria-labelledby="programme-details-heading" style="margin-top: 1rem">
+                <h2 id="programme-details-heading">{{ __('directory.programme_comparison_details') }}</h2>
+                <p class="meta">{{ __('directory.programme_comparison_explainer') }}</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead><tr>
+                            <th scope="col">{{ __('directory.comparison_detail') }}</th>
+                            @foreach ($profiles as $profile)
+                                <th scope="col"><a href="/directory/{{ $profile['id'] }}?lang={{ $locale }}" dir="auto">{{ $profile['name'] }}</a></th>
+                            @endforeach
+                        </tr></thead>
+                        <tbody>
+                            @foreach ([
+                                'institution_name' => 'directory.institution_label',
+                                'level' => 'directory.programme_level_label',
+                                'description' => 'directory.programme_description_label',
+                            ] as $catalogueKey => $labelKey)
+                                <tr>
+                                    <th scope="row">{{ __($labelKey) }}</th>
+                                    @foreach ($profiles as $profile)
+                                        @php($catalogue = $profile['programme_catalogue'] ?? [])
+                                        <td>
+                                            @php($catalogueValue = $catalogue[$catalogueKey] ?? null)
+                                            @if (is_string($catalogueValue) && trim($catalogueValue) !== '')
+                                                <span dir="auto">{{ $catalogueValue }}</span>
+                                            @else
+                                                <span class="state">{{ __('directory.not_stated_public') }}</span>
+                                            @endif
+                                        </td>
+                                    @endforeach
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        @endif
         @if (collect($profiles)->contains(fn (array $profile): bool => ($profile['programme_offers'] ?? []) !== []))
             <section class="panel" aria-labelledby="offer-comparison-heading" style="margin-top: 1rem">
                 <h2 id="offer-comparison-heading">{{ __('directory.programme_offers') }}</h2>
