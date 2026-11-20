@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Feature;
 
+use App\Services\Directory\PublicDirectoryComparisonService;
 use App\Services\Directory\PublicDirectoryQueryService;
 use App\Services\Governance\PersistedGovernanceWorkflowService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -769,7 +770,7 @@ final class PublicDirectoryTest extends TestCase
 
     public function test_programme_comparison_service_preserves_student_information_sections_and_missing_states(): void
     {
-        $result = app(\App\Services\Directory\PublicDirectoryComparisonService::class)->compare([
+        $result = app(PublicDirectoryComparisonService::class)->compare([
             [
                 'id' => 'synthetic-programme-one',
                 'facts' => [[
