@@ -707,6 +707,67 @@ final class PublicDirectoryTest extends TestCase
             ->assertDontSee('New private definition label');
     }
 
+
+    public function test_programme_comparison_shows_approved_catalogue_level_description_and_parent_institution(): void
+    {
+        $firstInstitution = $this->createEntity('institution');
+        $this->publishFact($firstInstitution, 'display_name', 'Synthetic North University');
+        $secondInstitution = $this->createEntity('institution');
+        $this->publishFact($secondInstitution, 'display_name', 'Synthetic South Institute');
+
+        $firstProgramme = $this->createEntity('programme');
+        $this->publishFact($firstProgramme, 'display_name', 'Synthetic Computing Degree');
+        $firstClaim = $this->publishFact($firstProgramme, 'programme', [
+            'institution_entity_id' => $firstInstitution,
+            'title' => 'Synthetic Computing Degree',
+            'description' => 'Fictional computing curriculum for comparison.',
+            'level' => 'Synthetic undergraduate',
+        ]);
+        DB::table('programme_catalogue_entries')->insert([
+            'entity_id' => $firstProgramme,
+            'institution_entity_id' => $firstInstitution,
+            'title' => 'Synthetic Computing Degree',
+            'description' => 'Fictional computing curriculum for comparison.',
+            'level' => 'Synthetic undergraduate',
+            'status' => 'active',
+            'claim_version_id' => $firstClaim['version_id'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $secondProgramme = $this->createEntity('programme');
+        $this->publishFact($secondProgramme, 'display_name', 'Synthetic Applied Mathematics');
+        $secondClaim = $this->publishFact($secondProgramme, 'programme', [
+            'institution_entity_id' => $secondInstitution,
+            'title' => 'Synthetic Applied Mathematics',
+            'description' => null,
+            'level' => 'Synthetic postgraduate',
+        ]);
+        DB::table('programme_catalogue_entries')->insert([
+            'entity_id' => $secondProgramme,
+            'institution_entity_id' => $secondInstitution,
+            'title' => 'Synthetic Applied Mathematics',
+            'description' => null,
+            'level' => 'Synthetic postgraduate',
+            'status' => 'active',
+            'claim_version_id' => $secondClaim['version_id'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $this->withSession(['directory_shortlist' => [$firstProgramme, $secondProgramme]])
+            ->get('/directory/compare')
+            ->assertOk()
+            ->assertSee('Programme details')
+            ->assertSee('Synthetic North University')
+            ->assertSee('Synthetic South Institute')
+            ->assertSee('Synthetic undergraduate')
+            ->assertSee('Synthetic postgraduate')
+            ->assertSee('Fictional computing curriculum for comparison.')
+            ->assertSee('Programme description')
+            ->assertSee('Not stated in approved public information');
+    }
+
     public function test_session_shortlist_adds_and_removes_only_approved_same_type_options(): void
     {
         $first = $this->createEntity();
