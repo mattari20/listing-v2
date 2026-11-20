@@ -16,10 +16,10 @@ final class SyntheticNearbyRankingServiceTest extends TestCase
     public function test_it_ranks_eligible_synthetic_points_by_approximate_straight_line_distance(): void
     {
         $service = new SyntheticNearbyRankingService;
-        $origin = new NearbyOrigin(31.5000, 74.3000);
+        $origin = new NearbyOrigin(0.5000, -0.5000);
 
-        $farther = $this->candidate('institution', 'synthetic-inst-b', 'synthetic-inst-b', 31.6000, 74.3000);
-        $nearer = $this->candidate('campus', 'synthetic-campus-a', 'synthetic-inst-a', 31.5100, 74.3000);
+        $farther = $this->candidate('institution', 'synthetic-inst-b', 'synthetic-inst-b', 0.6000, -0.5000);
+        $nearer = $this->candidate('campus', 'synthetic-campus-a', 'synthetic-inst-a', 0.5100, -0.5000);
 
         $results = $service->rank($origin, [$farther, $nearer]);
 
@@ -33,9 +33,9 @@ final class SyntheticNearbyRankingServiceTest extends TestCase
     public function test_equal_distances_have_stable_entity_type_and_id_tie_breaks(): void
     {
         $service = new SyntheticNearbyRankingService;
-        $origin = new NearbyOrigin(31.5000, 74.3000);
-        $first = $this->candidate('campus', 'synthetic-campus-z', 'synthetic-inst-z', 31.5100, 74.3000);
-        $second = $this->candidate('campus', 'synthetic-campus-a', 'synthetic-inst-a', 31.4900, 74.3000);
+        $origin = new NearbyOrigin(0.5000, -0.5000);
+        $first = $this->candidate('campus', 'synthetic-campus-z', 'synthetic-inst-z', 0.5100, -0.5000);
+        $second = $this->candidate('campus', 'synthetic-campus-a', 'synthetic-inst-a', 0.4900, -0.5000);
 
         $forward = $service->rank($origin, [$first, $second]);
         $reverse = $service->rank($origin, [$second, $first]);
@@ -48,23 +48,23 @@ final class SyntheticNearbyRankingServiceTest extends TestCase
     public function test_it_excludes_candidates_that_fail_any_publication_quality_gate(): void
     {
         $service = new SyntheticNearbyRankingService;
-        $origin = new NearbyOrigin(31.5000, 74.3000);
-        $eligible = $this->candidate('institution', 'synthetic-inst-ok', 'synthetic-inst-ok', 31.5100, 74.3000);
+        $origin = new NearbyOrigin(0.5000, -0.5000);
+        $eligible = $this->candidate('institution', 'synthetic-inst-ok', 'synthetic-inst-ok', 0.5100, -0.5000);
 
         $candidates = [
             $eligible,
-            $this->candidate('institution', 'synthetic-no-auth', 'synthetic-no-auth', 31.5101, 74.3000, ['sourceAuthorized' => false]),
-            $this->candidate('institution', 'synthetic-private', 'synthetic-private', 31.5102, 74.3000, ['visibilityClass' => 'internal']),
-            $this->candidate('institution', 'synthetic-exact', 'synthetic-exact', 31.5103, 74.3000, ['precisionClass' => 'exact_restricted']),
-            $this->candidate('institution', 'synthetic-low', 'synthetic-low', 31.5104, 74.3000, ['confidenceClass' => 'low']),
-            $this->candidate('institution', 'synthetic-unknown', 'synthetic-unknown', 31.5105, 74.3000, ['confidenceClass' => 'unknown']),
-            $this->candidate('institution', 'synthetic-stale', 'synthetic-stale', 31.5106, 74.3000, ['verificationState' => 'stale']),
-            $this->candidate('institution', 'synthetic-conflict', 'synthetic-conflict', 31.5107, 74.3000, ['verificationState' => 'conflicted']),
-            $this->candidate('institution', 'synthetic-withdrawn', 'synthetic-withdrawn', 31.5108, 74.3000, ['verificationState' => 'withdrawn']),
-            $this->candidate('institution', 'synthetic-no-provenance', 'synthetic-no-provenance', 31.5109, 74.3000, ['provenanceReference' => '']),
-            $this->candidate('institution', 'synthetic-real-marker', 'synthetic-real-marker', 31.5110, 74.3000, ['provenanceReference' => 'source:unapproved']),
-            $this->candidate('institution', 'synthetic-unpublished', 'synthetic-unpublished', 31.5111, 74.3000, ['publicationEligible' => false]),
-            $this->candidate('institution', 'synthetic-deeni', 'synthetic-deeni', 31.5112, 74.3000, ['deeniMadaris' => true]),
+            $this->candidate('institution', 'synthetic-no-auth', 'synthetic-no-auth', 0.5101, -0.5000, ['sourceAuthorized' => false]),
+            $this->candidate('institution', 'synthetic-private', 'synthetic-private', 0.5102, -0.5000, ['visibilityClass' => 'internal']),
+            $this->candidate('institution', 'synthetic-exact', 'synthetic-exact', 0.5103, -0.5000, ['precisionClass' => 'exact_restricted']),
+            $this->candidate('institution', 'synthetic-low', 'synthetic-low', 0.5104, -0.5000, ['confidenceClass' => 'low']),
+            $this->candidate('institution', 'synthetic-unknown', 'synthetic-unknown', 0.5105, -0.5000, ['confidenceClass' => 'unknown']),
+            $this->candidate('institution', 'synthetic-stale', 'synthetic-stale', 0.5106, -0.5000, ['verificationState' => 'stale']),
+            $this->candidate('institution', 'synthetic-conflict', 'synthetic-conflict', 0.5107, -0.5000, ['verificationState' => 'conflicted']),
+            $this->candidate('institution', 'synthetic-withdrawn', 'synthetic-withdrawn', 0.5108, -0.5000, ['verificationState' => 'withdrawn']),
+            $this->candidate('institution', 'synthetic-no-provenance', 'synthetic-no-provenance', 0.5109, -0.5000, ['provenanceReference' => '']),
+            $this->candidate('institution', 'synthetic-real-marker', 'synthetic-real-marker', 0.5110, -0.5000, ['provenanceReference' => 'source:unapproved']),
+            $this->candidate('institution', 'synthetic-unpublished', 'synthetic-unpublished', 0.5111, -0.5000, ['publicationEligible' => false]),
+            $this->candidate('institution', 'synthetic-deeni', 'synthetic-deeni', 0.5112, -0.5000, ['deeniMadaris' => true]),
         ];
 
         $results = $service->rank($origin, $candidates);
@@ -75,13 +75,13 @@ final class SyntheticNearbyRankingServiceTest extends TestCase
     public function test_missing_or_invalid_candidate_coordinates_fail_closed(): void
     {
         $service = new SyntheticNearbyRankingService;
-        $origin = new NearbyOrigin(31.5000, 74.3000);
+        $origin = new NearbyOrigin(0.5000, -0.5000);
 
         $results = $service->rank($origin, [
-            $this->candidate('institution', 'synthetic-null', 'synthetic-null', null, 74.3),
-            $this->candidate('institution', 'synthetic-latitude', 'synthetic-latitude', 91.0, 74.3),
+            $this->candidate('institution', 'synthetic-null', 'synthetic-null', null, -0.5),
+            $this->candidate('institution', 'synthetic-latitude', 'synthetic-latitude', 91.0, -0.5),
             $this->candidate('institution', 'synthetic-longitude', 'synthetic-longitude', 31.5, 181.0),
-            $this->candidate('institution', 'synthetic-nan', 'synthetic-nan', NAN, 74.3),
+            $this->candidate('institution', 'synthetic-nan', 'synthetic-nan', NAN, -0.5),
         ]);
 
         $this->assertSame([], $results);
@@ -90,17 +90,17 @@ final class SyntheticNearbyRankingServiceTest extends TestCase
     public function test_missing_or_mismatched_subject_ownership_fails_closed(): void
     {
         $service = new SyntheticNearbyRankingService;
-        $origin = new NearbyOrigin(31.5000, 74.3000);
+        $origin = new NearbyOrigin(0.5000, -0.5000);
 
         $results = $service->rank($origin, [
-            $this->candidate('institution', 'synthetic-inst-a', null, 31.51, 74.3),
-            $this->candidate('institution', 'synthetic-inst-b', 'synthetic-inst-other', 31.51, 74.3),
-            $this->candidate('campus', 'synthetic-campus-a', 'synthetic-campus-a', 31.51, 74.3),
-            $this->candidate('campus', 'synthetic-unverified-owner', 'synthetic-inst-a', 31.51, 74.3, ['ownershipVerified' => false]),
-            $this->candidate('delivery_site', 'synthetic-site-a', null, 31.51, 74.3),
-            $this->candidate('programme', 'synthetic-programme-a', 'synthetic-inst-a', 31.51, 74.3),
-            $this->candidate('', 'synthetic-empty-type', 'synthetic-empty-type', 31.51, 74.3),
-            $this->candidate('campus', '', 'synthetic-inst-a', 31.51, 74.3),
+            $this->candidate('institution', 'synthetic-inst-a', null, 0.51, -0.5),
+            $this->candidate('institution', 'synthetic-inst-b', 'synthetic-inst-other', 0.51, -0.5),
+            $this->candidate('campus', 'synthetic-campus-a', 'synthetic-campus-a', 0.51, -0.5),
+            $this->candidate('campus', 'synthetic-unverified-owner', 'synthetic-inst-a', 0.51, -0.5, ['ownershipVerified' => false]),
+            $this->candidate('delivery_site', 'synthetic-site-a', null, 0.51, -0.5),
+            $this->candidate('programme', 'synthetic-programme-a', 'synthetic-inst-a', 0.51, -0.5),
+            $this->candidate('', 'synthetic-empty-type', 'synthetic-empty-type', 0.51, -0.5),
+            $this->candidate('campus', '', 'synthetic-inst-a', 0.51, -0.5),
         ]);
 
         $this->assertSame([], $results);
@@ -110,7 +110,7 @@ final class SyntheticNearbyRankingServiceTest extends TestCase
     {
         $this->expectException(InvalidArgumentException::class);
 
-        new NearbyOrigin(90.01, 74.3);
+        new NearbyOrigin(90.01, -0.5);
     }
 
     #[DataProvider('invalidOriginCoordinates')]
@@ -148,8 +148,8 @@ final class SyntheticNearbyRankingServiceTest extends TestCase
     public function test_entity_coordinate_is_not_inferred_from_parent_or_other_subject(): void
     {
         $service = new SyntheticNearbyRankingService;
-        $origin = new NearbyOrigin(31.5000, 74.3000);
-        $institution = $this->candidate('institution', 'synthetic-inst-parent', 'synthetic-inst-parent', 31.51, 74.3);
+        $origin = new NearbyOrigin(0.5000, -0.5000);
+        $institution = $this->candidate('institution', 'synthetic-inst-parent', 'synthetic-inst-parent', 0.51, -0.5);
 
         $results = $service->rank($origin, [$institution]);
 
