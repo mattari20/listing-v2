@@ -1,3 +1,7 @@
+## RCV-B10 — live source and AI activation — 2026-11-20
+
+- [RCV-B10 Live Source and AI Activation Gate Preflight](RCV-B10_LIVE_SOURCE_AND_AI_ACTIVATION_GATE_PREFLIGHT_2026-11-20.md) — repository-only reconciliation of source rights, retrieval methods, privacy, security, model/provider, cost/capacity, human governance and synthetic evaluation. GOV-04 remains research-only; no source/model/agent activation is authorized.
+
 ## RCV-B05 — language and accessibility — 2026-11-20
 
 - [RCV-B05 Language and Accessibility Scope and Acceptance Pack](RCV-B05_LANGUAGE_AND_ACCESSIBILITY_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner approved English/Urdu UI, original-approved-language facts, no automatic translation and session/URL language selection.
