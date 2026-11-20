@@ -1,3 +1,14 @@
+## M3-11 — LPS-24–LPS-28 five-agenda completion — 2026-11-20
+
+- [M3-11 LPS-24–LPS-28 Five-Agenda Completion and M3 Progress Reconciliation](M3-11_LPS24-LPS28_FIVE_AGENDA_COMPLETION_AND_M3_PROGRESS_RECONCILIATION_2026-11-20.md) — exact PR/head/CI/merge ledger, detailed GAP-01–GAP-06 and ten-gate updates, and overall M3 position.
+- [LPS-24 — GAP-02 Synthetic Payload Minimization and Log Boundary Tests](M3-11_LPS24_GAP02_SYNTHETIC_PAYLOAD_MINIMIZATION_LOG_BOUNDARY_TESTS_2026-11-20.md) — synthetic structured log-context boundary tests; explicitly does not sanitize log message text.
+- [LPS-25 — GAP-02 Persistence and Payload Call-Site Reconciliation](M3-11_LPS25_GAP02_PERSISTENCE_PAYLOAD_CALLSITE_RECONCILIATION_2026-11-20.md) — repository-only primary write/read/projection and configurable storage call-site map.
+- [LPS-26 — GAP-02 Synthetic Lifecycle Verification Matrix](M3-11_LPS26_GAP02_SYNTHETIC_LIFECYCLE_VERIFICATION_MATRIX_2026-11-20.md) — reconciles synthetic correction, suppression, withdrawal, rollback and saved-item coverage; adds suppressed-snapshot rollback regression.
+- [LPS-27 — GAP-01 Public Evidence Observation/Verification Disclosure](M3-11_LPS27_GAP01_PUBLIC_EVIDENCE_OBSERVATION_VERIFICATION_DISCLOSURE_2026-11-20.md) — bilingual observation-date clarification, without unsupported source attribution or verification claims.
+- [LPS-28 — GAP-04 Correction Operations Boundary Verification](M3-11_LPS28_GAP04_CORRECTION_OPERATIONS_BOUNDARY_VERIFICATION_2026-11-20.md) — authenticated correction boundary, synthetic test and no-public-intake guard; no service activation.
+
+**Programme result:** LPS-24–LPS-28 COMPLETE / MERGED / VERIFIED as repository/synthetic work only. GAP-01/02/04 remain partial/open; GAP-03/05/06 remain open; M3-11 gates unchanged; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
 ## LPS-18–LPS-22 — Five-agenda repository programme COMPLETE — 2026-11-20
 
 All five coordinated agendas are complete, merged and verified on main.
