@@ -1,3 +1,9 @@
+## M3-12 — student discovery, administration/editorial and browser UX verification — 2026-11-20
+
+- [M3-12 Agenda 04 — Student Discovery Journey Functional Verification](M3-12_A04_STUDENT_DISCOVERY_JOURNEY_FUNCTIONAL_VERIFICATION_2026-11-20.md) — repository-level verification of public search/filter/locality, approved profiles, offer-scoped admissions facts, temporary comparison and private saved items; broader guided journey, account lifecycle and applications remain partial/deferred.
+- [M3-12 Agenda 05 — Administration and Editorial Operations Verification](M3-12_A05_ADMINISTRATION_EDITORIAL_OPERATIONS_VERIFICATION_2026-11-20.md) — verifies synthetic backend governance, representative workflow and editorial separation; complete browser admin console, broad provider self-service and staffed operations are not established.
+- [M3-12 Agenda 06 — Browser Journey and User Experience Verification](M3-12_A06_BROWSER_JOURNEY_USER_EXPERIENCE_VERIFICATION_2026-11-20.md) — static template/localization/metadata review; actual browser, device, manual accessibility and human usability checks remain NOT PERFORMED.
+
 ## M3-12 — institute directory and management functional verification — 2026-11-20
 
 - [M3-12 Agenda 03 — Institute Directory and Management Functional Verification](M3-12_A03_INSTITUTE_DIRECTORY_MANAGEMENT_FUNCTIONAL_VERIFICATION_2026-11-20.md) — COMPLETE; PR #352 merged as `2d38e78408f7a3791ee77f9a931739e6d21d72ff`. Exact head `32fc97cdc4d2ebf938ff8910810800da73637203` passed PHP 8.5 CI #693 and documentation validation #1174. Browser, real-data, human and hosted acceptance remain outstanding.
