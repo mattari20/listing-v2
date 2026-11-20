@@ -1,3 +1,7 @@
+## M3-11 — LPS-14 GAP-02 data lifecycle framework — 2026-11-20
+
+- [LPS-14 — GAP-02 Data Lifecycle Inventory, Retention and Deletion Framework](M3-11_LPS14_GAP02_DATA_LIFECYCLE_INVENTORY_RETENTION_DELETION_FRAMEWORK_2026-11-20.md) — defines the data-surface inventory, lifecycle, evidence classifications, retention schedule and deletion/backup propagation requirements; framework only, GAP-02 remains open.
+
 ## M3-12 — Agendas 07–09 functional verification closeout — 2026-11-20
 
 - [M3-12 Agenda 07 — Functional Integration and Regression Evidence Consolidation](M3-12_A07_FUNCTIONAL_INTEGRATION_REGRESSION_EVIDENCE_CONSOLIDATION_2026-11-20.md) — maps the cross-feature synthetic test/workflow surface and exact-head CI evidence; both required workflows passed, with 282 test warnings retained as a quality follow-up.
