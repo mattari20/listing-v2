@@ -545,7 +545,7 @@ final class FieldDefinitionGovernanceService
         }
         if (in_array($definition['value_type'], self::VALUE_TYPES, true) === false ||
             in_array($definition['cardinality'], ['one', 'zero_or_one', 'many'], true) === false ||
-            in_array($definition['scope_key'], ['institution'], true) === false ||
+            in_array($definition['scope_key'], ['institution', 'programme'], true) === false ||
             in_array($definition['privacy_class'], ['public_eligible', 'editorial_restricted'], true) === false ||
             in_array($definition['visibility_class'], ['public_eligible', 'editorial_restricted', 'internal_only', 'restricted'], true) === false) {
             $this->reject('definition', 'Type, cardinality, scope, privacy or visibility is unsupported by the bounded I4 package.');
@@ -577,9 +577,10 @@ final class FieldDefinitionGovernanceService
         }
         $entityTypes = $definition['entity_types'] ?? null;
         $categories = $definition['provider_categories'] ?? null;
-        if (is_array($entityTypes) === false || $entityTypes !== ['institution'] ||
+        $expectedEntityTypes = $definition['scope_key'] === 'programme' ? ['programme'] : ['institution'];
+        if (is_array($entityTypes) === false || $entityTypes !== $expectedEntityTypes ||
             is_array($categories) === false || $categories === [] || count($categories) > 30) {
-            $this->reject('applicability', 'I4 supports explicit institution-only applicability and a bounded provider-category allowlist.');
+            $this->reject('applicability', 'Applicability must explicitly match the institution or programme scope and include a bounded provider-category allowlist.');
         }
         foreach ($categories as $category) {
             if (is_string($category) === false || preg_match('/^[a-z][a-z0-9_]{1,63}$/D', $category) !== 1 ||
