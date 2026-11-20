@@ -68,7 +68,16 @@ final class DirectorySeoMetadata
 
     private function hasOnlyLanguageQueryParameter(Request $request): bool
     {
-        return array_diff(array_keys($request->query()), ['lang']) === [];
+        $query = $request->query();
+        if (array_diff(array_keys($query), ['lang']) !== []) {
+            return false;
+        }
+
+        if (array_key_exists('lang', $query)) {
+            return is_string($query['lang']) && in_array($query['lang'], ['en', 'ur'], true);
+        }
+
+        return true;
     }
 
     /** @return array{robots: string, canonical: ?string, alternates: array<string, string>} */
