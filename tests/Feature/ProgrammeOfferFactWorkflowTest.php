@@ -107,6 +107,57 @@ class ProgrammeOfferFactWorkflowTest extends TestCase
         }
     }
 
+    public function test_expired_approved_offer_fact_remains_visible_as_expired_not_current(): void
+    {
+        [$programme, $offer] = $this->offer('synthetic-cycle-2025');
+        $evidence = $this->evidence('synthetic-expired-evidence-author');
+        $service = app(ProgrammeOfferFactWorkflowService::class);
+        $version = $service->submit(
+            $this->actor('synthetic-expired-submitter', ['submit_offer_fact']),
+            $offer,
+            'application_deadline',
+            'deadline',
+            'known',
+            ['date' => '2025-12-15'],
+            [$evidence],
+            now()->subHour()->toDateTimeString(),
+            '2025-01-01',
+            '2025-12-31',
+            'synthetic.deadline.v1',
+            1,
+            'synthetic-expired-submit'
+        );
+        $case = $service->openAdjudicationCase(
+            $this->actor('synthetic-expired-case-opener', ['open_adjudication']),
+            $version,
+            'synthetic-expired-case'
+        );
+        $decision = $service->decideAdjudication(
+            $this->actor('synthetic-expired-adjudicator', ['adjudicate_claim']),
+            $case,
+            'accepted',
+            'synthetic_acceptance',
+            'Synthetic expired deadline accepted for historical display.',
+            'synthetic-policy-v1'
+        );
+        $service->authorizePublication(
+            $this->actor('synthetic-expired-publisher', ['authorize_publication']),
+            $version,
+            $decision,
+            'directory',
+            'anonymous',
+            'synthetic-publication-v1',
+            'synthetic-expired-publication'
+        );
+
+        $offers = app(PublicProgrammeOfferFactsQueryService::class)->forProgramme($programme);
+
+        $this->assertCount(1, $offers);
+        $this->assertSame($offer, $offers[0]['id']);
+        $this->assertSame('expired', $offers[0]['facts'][0]['state']);
+        $this->assertSame('2025-12-15', $offers[0]['facts'][0]['value']['date']);
+    }
+
     public function test_stale_known_fact_cannot_be_published_as_current(): void
     {
         [, $offer] = $this->offer('synthetic-cycle-2027');

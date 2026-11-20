@@ -115,11 +115,10 @@ final class PublicProgrammeOfferFactsQueryService
             if ($row->valid_from !== null && $row->valid_from > now()->toDateString()) {
                 continue;
             }
-            if ($row->valid_to !== null && $row->valid_to < now()->toDateString()) {
-                continue;
-            }
-            $displayState = (string) $row->fact_state;
-            if ($row->fact_state === 'known' &&
+            $displayState = $row->valid_to !== null && $row->valid_to < now()->toDateString()
+                ? 'expired'
+                : (string) $row->fact_state;
+            if ($displayState !== 'expired' && $row->fact_state === 'known' &&
                 ($row->observed_at === null || $row->freshness_policy_key === null ||
                     $row->freshness_days === null || $row->freshness_policy_status !== 'approved' ||
                     ($row->freshness_policy_valid_from !== null && Carbon::parse($row->freshness_policy_valid_from)->greaterThan(now())) ||
