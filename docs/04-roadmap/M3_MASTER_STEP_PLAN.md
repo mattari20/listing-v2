@@ -1,3 +1,9 @@
+## LPS-16 — GAP-01 public evidence and verification transparency framework — 2026-11-20
+
+LPS-16 is complete as repository-only documentation in `M3-11_LPS16_GAP01_PUBLIC_EVIDENCE_SOURCE_ATTRIBUTION_VERIFICATION_TRANSPARENCY_FRAMEWORK_2026-11-20.md`. It defines field-level evidence provenance, truthful verification states, source-rights-linked attribution, risk-based freshness, conflict/dispute/correction/suppression handling, privacy-safe public projection, synthetic examples, future implementation acceptance criteria and stop conditions.
+
+**Disposition:** GAP-01 is DESIGNED / NOT IMPLEMENTED / OPEN. No UI/API/projection implementation, runtime tests, qualified review, source approval, real-data processing or public activation occurred or is authorized. LPS-15 source-rights requirements and LPS-14 lifecycle requirements remain prerequisites. All M3-11 gates remain unchanged; M3-11 remains BLOCKED / NOT ACCEPTED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
 ## Latest verified planning position — LPS-15 GAP-03 source-rights review preparation — 2026-11-20
 
 LPS-15 has completed the repository-only preparation pack for GAP-03: source/material taxonomy, source-specific rights register, rights/privacy/safeguarding checklist, decision states, no-go rules, reviewer evidence pack and qualified-review handoff. No source has been assessed or approved; no source access/contact/collection/copying/publication is authorized. GAP-03 remains OPEN pending source-specific evidence and qualified legal/privacy/safeguarding assessment. M3-11-02 and M3-11 remain BLOCKED / NOT ACCEPTED; overall M3 remains OPEN / PARTIALLY COMPLETE.
