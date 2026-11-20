@@ -43,12 +43,16 @@ final class PublicDirectoryTest extends TestCase
         $this->publishFact($first, 'display_name', 'Synthetic English Academy');
         $this->publishFact($first, 'overview', 'Approved source text remains in English.');
         $this->publishFact($second, 'display_name', 'Synthetic Urdu Comparison College');
+        $subject = $this->registryDefinition('institution_subject', ['filterable' => true]);
+        $this->publishFact($first, 'institution_subject', 'Physics', '2026-11-13 10:00:00', $subject);
 
         $this->get('/directory?lang=ur')
             ->assertOk()
             ->assertSee('<html lang="ur" dir="rtl">', false)
             ->assertSee('تعلیمی اداروں کی ڈائریکٹری')
             ->assertSee('نام یا شائع شدہ معلومات سے تلاش کریں')
+            ->assertSee('مضمون')
+            ->assertSee('Physics')
             ->assertSee('name="lang" value="ur"', false)
             ->assertSee('Synthetic English Academy');
 
