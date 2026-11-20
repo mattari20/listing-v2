@@ -1,7 +1,12 @@
+## RCV-B05 — language and accessibility — 2026-11-20
+
+- [RCV-B05 Language and Accessibility Scope and Acceptance Pack](04-roadmap/RCV-B05_LANGUAGE_AND_ACCESSIBILITY_SCOPE_ACCEPTANCE_2026-11-20.md) — next residual package; English/Urdu interface and RTL recommendation prepared; Product Owner language/content decision required before implementation.
+
 ## RCV-B04 — search and filter completeness — 2026-11-20
 
 - [RCV-B04 Search and Filter Completeness Scope and Acceptance Pack](04-roadmap/RCV-B04_SEARCH_AND_FILTER_COMPLETENESS_SCOPE_ACCEPTANCE_2026-11-20.md) — Product Owner-approved bounded scope for local/CI synthetic-only implementation.
-- [RCV-B04 Implementation Design](04-roadmap/RCV-B04_IMPLEMENTATION_DESIGN_2026-11-20.md) — grouped registry-backed filters, approved subject search, active-filter state, category facet semantics and exclusions; PR #324.
+- [RCV-B04 Implementation Design](04-roadmap/RCV-B04_IMPLEMENTATION_DESIGN_2026-11-20.md) — grouped registry-backed filters, approved subject search, active-filter state and category facet semantics; PR #324 merged.
+- [RCV-B04 Implementation Closeout](04-roadmap/RCV-B04_IMPLEMENTATION_CLOSEOUT_2026-11-20.md) — PR #324 feature implementation and PR #325 pagination regression both merged; exact-head checks and final synthetic test evidence.
 
 ## Latest M3-11-05 subfolder environment records — 18 November 2026
 
