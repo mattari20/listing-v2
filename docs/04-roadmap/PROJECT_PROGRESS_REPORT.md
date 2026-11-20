@@ -1,11 +1,12 @@
 ## M3 overall position — M3-12 Agendas 07–09 and repository verification closeout — 2026-11-20
 
-**Current verified baseline before this agenda package:** `106ee260f32b621d8688fd6b7446cc4dd0ea1ca3`.  
+**Baseline before this agenda package:** `106ee260f32b621d8688fd6b7446cc4dd0ea1ca3`.  
+**Current verified main after merge:** `f4ff01335df9d6fa55b29db05de442696cebcf68` (PR #357).  
 **Result:** M3-12 Agendas 01–09 are complete for the bounded repository-level verification scope. The overall M3 milestone is NOT CLOSED because M3-11 and the consolidated final M3 acceptance exercise remain open.
 
 ### M3-12 final three agendas
 
-1. **A07 — Functional Integration and Regression Evidence Consolidation:** current cross-feature test/workflow surface reconciled. Exact-head PHP 8.5 foundation CI and documentation validation passed for PR #355 and PR #356. Each PHP run reported 20 passed, 1,501 assertions and 282 warnings. Logs include repeated missing-`.env` file-read warnings; CI keeps `.env` absent as required by artifact hygiene. No warning-free claim is made. The CI also reports a Node.js 20 deprecation notice for the pinned checkout action.
+1. **A07 — Functional Integration and Regression Evidence Consolidation:** current cross-feature test/workflow surface reconciled. Exact-head PHP 8.5 foundation CI and documentation validation passed for PR #355, PR #356 and PR #357. PR #357 merged as `f4ff01335df9d6fa55b29db05de442696cebcf68`; exact head `4a39a72e1d650d3159914643e1d88dfbffaf6c65` passed PHP CI run #44683110984 and documentation validation run #44683110971. Each PHP run reported 20 passed, 1,501 assertions and 282 warnings. Logs include repeated missing-`.env` file-read warnings; CI keeps `.env` absent as required by artifact hygiene. No warning-free claim is made. The CI also reports a Node.js 20 deprecation notice for the pinned checkout action.
 2. **A08 — Accessibility and Usability Evidence Reconciliation:** current-main static templates, English/Urdu/RTL evidence and selected source-palette contrast pairs reconciled. Manual checklist still has nine NOT PERFORMED areas; no browser/device, screen-reader, participant or qualified independent assessment was performed. Draft PR #309 remains open/unmerged on an older base and its proposed test is not counted as current-main evidence.
 3. **A09 — Functional Readiness Closeout:** all nine M3-12 agendas reconciled. M3-12 is CLOSED for the bounded repository-level functional verification work package only. Full functional/operational/release readiness is PARTIAL / NOT ACCEPTED.
 
@@ -50,9 +51,7 @@ No new production/V1/Hostinger/hPanel or hosted access, live database, migration
 
 ## M3-12 Agendas 04–06 — exact-head delivery closeout — 2026-11-20
 
-Coordinated PR [#355](https://github.com/mattari20/listing-v2/pull/355) merged as `1a482ac94402470e08e2b17d7d4a48d3be2290a9`. Exact PR head `efe36f69a4c4c9ada7e65c47e26c65bff903d325` passed PHP 8.5 foundation CI [run #44681875232](https://github.com/mattari20/listing-v2/actions/runs/44681875232) and project documentation validation [run #44681875222](https://github.com/mattari20/listing-v2/actions/runs/44681875222). Synthetic suite: 20 passed, 1,501 assertions, 282 warnings; not warning-free. Verified current `main` equals the merge SHA. Agendas A04–A06 and their progress/catalogue/traceability updates are delivered. This closes the three bounded repository-review agendas only; M3-12 continues and M3-11 remains BLOCKED / NOT ACCEPTED.
-
-**Next agenda:** M3-12 Agenda 07 — Functional Integration and Regression Evidence Consolidation.
+Coordinated PR [#355](https://github.com/mattari20/listing-v2/pull/355) merged as `1a482ac94402470e08e2b17d7d4a48d3be2290a9`. Exact PR head `efe36f69a4c4c9ada7e65c47e26c65bff903d325` passed PHP 8.5 foundation CI [run #44681875232](https://github.com/mattari20/listing-v2/actions/runs/44681875232) and project documentation validation [run #44681875222](https://github.com/mattari20/listing-v2/actions/runs/44681875222). Synthetic suite: 20 passed, 1,501 assertions, 282 warnings; not warning-free. Verified current `main` equals the merge SHA. Agendas A04–A06 and their progress/catalogue/traceability updates were delivered by PR #355 and PR #356. This historical entry was superseded by the subsequent A07–A09 package: all nine M3-12 agendas are now complete for bounded repository verification, while M3-11 remains BLOCKED / NOT ACCEPTED.
 
 ---
 
@@ -64,9 +63,7 @@ Coordinated PR [#355](https://github.com/mattari20/listing-v2/pull/355) merged a
 2. **Agenda 05 — Administration and Editorial Operations:** verified provider/institution and catalogue services, university-representative API, field-definition lifecycle, editorial/adjudication/publication separation and synthetic moderation boundaries. Source/test inventory: UniversityRepresentativeWorkflowTest (13), EditorialReviewServiceTest (5), FieldDefinitionGovernanceTest (17), FieldDefinitionRegistryReaderTest (10), TypedFieldValueValidatorTest (15), ProviderInstitutionRelationshipTest (17), CampusProgrammeCatalogueTest (13), plus moderation boundary tests. Backend governance contracts pass source review; a complete browser admin console, broad provider self-service and staffed operations are not established.
 3. **Agenda 06 — Browser Journey and User Experience:** statically reviewed directory index/profile/comparison/saved-items Blade templates, English/Urdu catalogues, route handoffs, focus/semantic/responsive affordances and SEO/private-response metadata. Static code-level review passes; actual browser/device, keyboard, screen-reader, contrast, zoom/reflow, qualified accessibility and human usability reviews remain NOT PERFORMED.
 
-Evidence documents: `M3-12_A04_STUDENT_DISCOVERY_JOURNEY_FUNCTIONAL_VERIFICATION_2026-11-20.md`, `M3-12_A05_ADMINISTRATION_EDITORIAL_OPERATIONS_VERIFICATION_2026-11-20.md` and `M3-12_A06_BROWSER_JOURNEY_USER_EXPERIENCE_VERIFICATION_2026-11-20.md`. No new application/schema/database/hosting changes, test execution, browser session, real/source/student data, external services, deployment or spend occurred. Exact-head PHP 8.5 foundation CI and documentation validation remain pending for the delivery PR. M3-11 remains BLOCKED / NOT ACCEPTED; no production, pilot or public launch acceptance is implied.
-
-**Next agenda:** M3-12 Agenda 07 — Functional Integration and Regression Evidence Consolidation, focused on reconciling cross-journey test/CI evidence and residual gaps without duplicating feature work.
+Evidence documents: `M3-12_A04_STUDENT_DISCOVERY_JOURNEY_FUNCTIONAL_VERIFICATION_2026-11-20.md`, `M3-12_A05_ADMINISTRATION_EDITORIAL_OPERATIONS_VERIFICATION_2026-11-20.md` and `M3-12_A06_BROWSER_JOURNEY_USER_EXPERIENCE_VERIFICATION_2026-11-20.md`. No application/schema/database/hosting changes, browser session, real/source/student data, external services, deployment or spend occurred. The exact-head PHP 8.5 foundation CI and documentation validation subsequently passed on PR #355 (runs #44681875232 and #44681875222); delivery closeout was merged in PR #356. The later A07–A09 closeout supersedes this historical next-agenda note. M3-11 remains BLOCKED / NOT ACCEPTED; no production, pilot or public launch acceptance is implied.
 
 ---
 
