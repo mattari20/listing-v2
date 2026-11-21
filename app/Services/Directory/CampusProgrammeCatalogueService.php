@@ -295,6 +295,7 @@ final class CampusProgrammeCatalogueService
             ->join('public_projections as projections', 'projections.publication_snapshot_id', '=', 'snapshots.id')
             ->where('decisions.claim_version_id', $claimVersionId)
             ->where('decisions.decision', 'approved')
+            ->where('decisions.actor_class', 'human')
             ->where('decisions.surface', 'directory')
             ->where('decisions.audience', 'anonymous')
             ->whereColumn('snapshots.claim_version_id', 'decisions.claim_version_id')
