@@ -1,3 +1,11 @@
+## ADM-F — Programme, Qualification and Admission Offer Successor Materialization — 2026-11-21
+
+**Status: SOURCE AUDIT AND IMPLEMENTATION CONTRACT COMPLETE; CODE IMPLEMENTATION PENDING.** The focused audit is recorded in [ADM-F Programme, Qualification and Admission Offer Successor Materialization Audit](ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md). Current `CampusProgrammeCatalogueService::materializeAcceptedRecord` already supports exact-predecessor replacement for campus/delivery-site projections, but its programme, programme-qualification and programme-offer branches insert new rows rather than replacing an existing projection by exact predecessor claim-version ID. ADM-F defines the synthetic regression matrix and fail-closed implementation contract. Programme-offer facts remain a separate versioned workflow.
+
+**Current main baseline:** `be95a411862e795072c107708c2867d904ef5bb9` (PR #434). ADM-A through ADM-E are complete within bounded repository/synthetic scopes; ADM-E G01–G04 are complete. No code, schema, role, route or runtime behavior changed in this audit. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED; M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED. Existing no-production/V1/Hostinger/hosted access, synthetic-only, no-real/source/personal-data, no-external-AI/API, no-deployment/pilot/release and no-new-spend boundaries remain binding.
+
+---
+
 ## ADM-D — Evidence and Editorial Operations Workspace — 2026-11-21
 
 **Status: COMPLETE for the bounded university data-reviewer case-inspection and editorial-review surface.** PR [#422](https://github.com/mattari20/listing-v2/pull/422) merged as `4549f879532c53492a14fc09446bad0a6824778a` after exact-head FND-01 Foundation CI and Project documentation validation passed.
