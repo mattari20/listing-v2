@@ -3,7 +3,7 @@
 **Date:** 2026-11-21  
 **Baseline main:** `be95a411862e795072c107708c2867d904ef5bb9` (PR #434 profile-navigation integration)  
 **Agenda:** Administration and Institute Information Management Completion  
-**Status:** COMPLETE — implementation and synthetic regression tests merged-ready; exact-head CI passed.
+**Status:** COMPLETE — implementation and synthetic regression tests passed exact-head CI; merged in PR #437 as `fec6a4fa94ea902856baa76275c2a4369675f6d3`.
 
 ## 1. Purpose
 
@@ -96,4 +96,4 @@ Synthetic feature coverage was added in `tests/Feature/CatalogueSuccessorMateria
 
 Final exact-head validation passed on `f9b76270fb546f52f13d7008134adea3ee13141d`: FND-01 PHP 8.5 Foundation CI SUCCESS; Project documentation validation SUCCESS; 349 synthetic tests passed with 1,947 assertions. Composer audit, Pint, Laravel bootstrap/routes and repository artifact hygiene passed. The publication-order guard was exercised: an accepted but unpublished successor is rejected; after its approved directory/anonymous public projection exists, exact-predecessor materialization succeeds.
 
-**Disposition:** ADM-F implementation and synthetic regression coverage are present; exact-head validation and review remain pending. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+**Disposition:** ADM-F implementation and synthetic regression coverage are complete and merged in PR #437. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
