@@ -6,6 +6,7 @@ namespace Tests\Feature;
 
 use App\Models\RoleAssignment;
 use App\Models\User;
+use App\Services\Directory\AdministrationWorkspaceQueryService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
@@ -207,11 +208,110 @@ final class AdministrationWorkspaceTest extends TestCase
             ->assertSee($evidenceId)
             ->assertSee('synthetic_fixture')
             ->assertSee('proposal submitted')
+            ->assertSee('Unbounded / incomplete')
             ->assertDontSee('sha256:private-evidence-digest')
             ->assertDontSee('hidden-note')
             ->assertDontSee('hidden-history-note')
             ->assertHeader('Cache-Control', 'max-age=0, no-store, private')
             ->assertHeader('X-Robots-Tag', 'noindex, nofollow');
+    }
+
+    public function test_reviewer_evidence_authorization_states_are_explicit_and_private_metadata_stays_hidden(): void
+    {
+        $institution = $this->institution();
+        $reviewer = $this->user('authorization-state-reviewer@example.test');
+        $submitter = $this->user('authorization-state-submitter@example.test');
+        $this->assign($reviewer, 'data_reviewer', $institution);
+        $case = $this->case($institution, $submitter);
+        $now = now();
+        $states = [
+            'current' => ['status' => 'approved_for_defined_purpose_and_method', 'from' => $now->copy()->subDay(), 'to' => $now->copy()->addDay(), 'revoked' => null],
+            'expired' => ['status' => 'approved_for_defined_purpose_and_method', 'from' => $now->copy()->subDays(3), 'to' => $now->copy()->subDay(), 'revoked' => null],
+            'not_yet_valid' => ['status' => 'approved_for_defined_purpose_and_method', 'from' => $now->copy()->addDay(), 'to' => $now->copy()->addDays(2), 'revoked' => null],
+            'revoked' => ['status' => 'approved_for_defined_purpose_and_method', 'from' => $now->copy()->subDay(), 'to' => $now->copy()->addDay(), 'revoked' => $now->copy()->subHour()],
+            'not_approved' => ['status' => 'draft', 'from' => $now->copy()->subDay(), 'to' => $now->copy()->addDay(), 'revoked' => null],
+            'unbounded' => ['status' => 'approved_for_defined_purpose_and_method', 'from' => null, 'to' => null, 'revoked' => null],
+            'invalid_window' => ['status' => 'approved_for_defined_purpose_and_method', 'from' => $now->copy()->addDays(2), 'to' => $now->copy()->addDay(), 'revoked' => null],
+        ];
+
+        foreach ($states as $name => $state) {
+            $authorizationId = (string) str()->uuid();
+            $evidenceId = (string) str()->uuid();
+            DB::table('source_authorizations')->insert([
+                'id' => $authorizationId,
+                'source_family_id' => 'synthetic-only',
+                'status' => $state['status'],
+                'permitted_purposes' => json_encode(['private-purpose-must-not-leak'], JSON_THROW_ON_ERROR),
+                'permitted_methods' => json_encode(['private-method-must-not-leak'], JSON_THROW_ON_ERROR),
+                'territories' => json_encode(['synthetic'], JSON_THROW_ON_ERROR),
+                'permitted_scopes' => json_encode(['private_scope_must_not_leak' => true], JSON_THROW_ON_ERROR),
+                'valid_from' => $state['from'],
+                'valid_to' => $state['to'],
+                'revoked_at' => $state['revoked'],
+                'revocation_reason' => 'private-revocation-reason-must-not-leak',
+                'created_at' => $now,
+                'updated_at' => $now,
+            ]);
+            DB::table('evidence_references')->insert([
+                'id' => $evidenceId,
+                'source_authorization_id' => $authorizationId,
+                'reference_kind' => 'synthetic_'.$name,
+                'source_type' => 'synthetic',
+                'integrity_digest' => 'sha256-private-'.$name,
+                'status' => 'eligible_for_review',
+                'content_included' => false,
+                'observed_at' => $now,
+                'recorded_at' => $now,
+                'created_at' => $now,
+                'updated_at' => $now,
+            ]);
+            DB::table('claim_evidence_links')->insert([
+                'id' => (string) str()->uuid(),
+                'claim_version_id' => $case['claim_version_id'],
+                'evidence_reference_id' => $evidenceId,
+                'relationship_type' => 'supports',
+                'created_at' => $now,
+                'updated_at' => $now,
+            ]);
+            DB::table('audit_events')->insert([
+                'id' => (string) str()->uuid(),
+                'actor_class' => 'human',
+                'action' => 'evidence_reference_registered',
+                'target_type' => 'evidence_reference',
+                'target_id' => $evidenceId,
+                'reason_code' => 'synthetic_fixture',
+                'occurred_at' => $now,
+                'metadata' => json_encode(['actor_id' => 'synthetic-evidence-owner-'.$name, 'private_actor_note' => 'private-actor-must-not-leak'], JSON_THROW_ON_ERROR),
+                'created_at' => $now,
+                'updated_at' => $now,
+            ]);
+        }
+
+        $details = app(AdministrationWorkspaceQueryService::class)->editorialCaseDetails(
+            $case['id'],
+            'user:'.$reviewer->getKey()
+        );
+        $this->assertNotNull($details);
+        $byKind = collect($details['evidence'])->keyBy('reference_kind');
+        foreach ($states as $name => $_state) {
+            $this->assertArrayHasKey('synthetic_'.$name, $byKind);
+            $this->assertSame($name, $byKind['synthetic_'.$name]['authorization_window_state']);
+        }
+        $encoded = json_encode($details, JSON_THROW_ON_ERROR);
+        foreach (['private-purpose-must-not-leak', 'private-method-must-not-leak', 'private_scope_must_not_leak', 'private-revocation-reason-must-not-leak', 'private-actor-must-not-leak', 'sha256-private-'] as $secret) {
+            $this->assertStringNotContainsString($secret, $encoded);
+        }
+
+        $this->actingAs($reviewer)
+            ->get('/institutions/'.$institution.'/editorial-cases/'.$case['id'])
+            ->assertOk()
+            ->assertSee('Current')
+            ->assertSee('Expired')
+            ->assertSee('Not yet valid')
+            ->assertSee('Revoked')
+            ->assertSee('Not approved')
+            ->assertSee('Unbounded / incomplete')
+            ->assertSee('Invalid validity window');
     }
 
     public function test_case_detail_denies_submitter_and_evidence_contributor(): void
@@ -273,6 +373,25 @@ final class AdministrationWorkspaceTest extends TestCase
         $now = now();
         DB::table('editorial_review_cases')->where('id', $original['id'])->update(['status' => 'superseded']);
 
+        DB::table('directory_status_history')->insert([
+            'id' => (string) str()->uuid(),
+            'entity_id' => $institution,
+            'claim_version_id' => $original['claim_version_id'],
+            'editorial_review_case_id' => $original['id'],
+            'event_type' => 'review_completed',
+            'previous_status' => 'in_review',
+            'new_status' => 'changes_requested',
+            'actor_id' => 'private-reviewer-actor',
+            'actor_class' => 'human',
+            'reason_code' => 'synthetic_correction_required',
+            'idempotency_key' => 'correction-reason-'.str()->uuid(),
+            'fingerprint' => hash('sha256', $original['id']),
+            'metadata' => json_encode(['rationale' => 'private correction rationale must not be shown'], JSON_THROW_ON_ERROR),
+            'occurred_at' => $now,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+
         $claimId = (string) DB::table('claim_versions')
             ->where('id', $original['claim_version_id'])
             ->value('claim_id');
@@ -315,6 +434,9 @@ final class AdministrationWorkspaceTest extends TestCase
             ->assertSee('Correction history')
             ->assertSee('Version 1')
             ->assertSee('superseded')
+            ->assertSee('synthetic_correction_required')
+            ->assertSee('synthetic_value_correction')
+            ->assertDontSee('private correction rationale must not be shown')
             ->assertSee('Synthetic corrected workspace value');
     }
 

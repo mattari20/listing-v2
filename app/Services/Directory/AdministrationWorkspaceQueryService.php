@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\Directory;
 
+use Carbon\CarbonImmutable;
 use Illuminate\Support\Facades\DB;
 
 final class AdministrationWorkspaceQueryService
@@ -47,7 +48,7 @@ final class AdministrationWorkspaceQueryService
                 'cases.status',
                 'cases.created_at',
             ])
-            ->map(static fn ($row): array => [
+            ->map(fn ($row): array => [
                 'case_id' => (string) $row->id,
                 'institution_id' => (string) $row->entity_id,
                 'institution_name' => (string) $row->institution_name,
@@ -133,6 +134,7 @@ final class AdministrationWorkspaceQueryService
                 'versions.valid_to',
                 'versions.disposition',
                 'versions.supersedes_version_id',
+                'versions.correction_reason',
             ]);
 
         if ($case === null || ! in_array($case->status, ['submitted', 'in_review'], true)
@@ -142,6 +144,7 @@ final class AdministrationWorkspaceQueryService
             return null;
         }
 
+        $evaluatedAt = CarbonImmutable::now();
         $evidence = DB::table('claim_evidence_links as links')
             ->join('evidence_references as refs', 'refs.id', '=', 'links.evidence_reference_id')
             ->join('source_authorizations as authorizations', 'authorizations.id', '=', 'refs.source_authorization_id')
@@ -161,7 +164,7 @@ final class AdministrationWorkspaceQueryService
                 'authorizations.revoked_at as authorization_revoked_at',
                 'links.relationship_type',
             ])
-            ->map(static fn ($row): array => [
+            ->map(fn ($row): array => [
                 'reference_id' => (string) $row->id,
                 'reference_kind' => (string) $row->reference_kind,
                 'source_type' => (string) $row->source_type,
@@ -173,6 +176,7 @@ final class AdministrationWorkspaceQueryService
                 'authorization_valid_from' => $row->authorization_valid_from === null ? null : (string) $row->authorization_valid_from,
                 'authorization_valid_to' => $row->authorization_valid_to === null ? null : (string) $row->authorization_valid_to,
                 'authorization_revoked' => $row->authorization_revoked_at !== null,
+                'authorization_window_state' => $this->authorizationWindowState($row, $evaluatedAt),
                 'relationship_type' => (string) $row->relationship_type,
             ])
             ->all();
@@ -192,6 +196,7 @@ final class AdministrationWorkspaceQueryService
                     'versions.version_number',
                     'versions.disposition',
                     'versions.supersedes_version_id',
+                    'versions.correction_reason',
                     'prior_cases.id as case_id',
                     'prior_cases.status as case_status',
                     'prior_cases.created_at as case_created_at',
@@ -199,10 +204,18 @@ final class AdministrationWorkspaceQueryService
             if ($previous === null) {
                 break;
             }
+            $reviewReasonCode = $previous->case_id === null ? null : DB::table('directory_status_history')
+                ->where('editorial_review_case_id', $previous->case_id)
+                ->where('event_type', 'review_completed')
+                ->where('new_status', 'changes_requested')
+                ->orderByDesc('occurred_at')
+                ->value('reason_code');
             $correctionHistory[] = [
                 'claim_version_id' => (string) $previous->id,
                 'version_number' => (int) $previous->version_number,
                 'disposition' => (string) $previous->disposition,
+                'correction_reason' => $previous->correction_reason === null ? null : (string) $previous->correction_reason,
+                'review_reason_code' => is_string($reviewReasonCode) ? mb_substr($reviewReasonCode, 0, 80) : null,
                 'case_id' => $previous->case_id === null ? null : (string) $previous->case_id,
                 'case_status' => $previous->case_status === null ? null : (string) $previous->case_status,
                 'case_created_at' => $previous->case_created_at === null ? null : (string) $previous->case_created_at,
@@ -237,12 +250,45 @@ final class AdministrationWorkspaceQueryService
             'valid_from' => $case->valid_from === null ? null : (string) $case->valid_from,
             'valid_to' => $case->valid_to === null ? null : (string) $case->valid_to,
             'disposition' => (string) $case->disposition,
+            'correction_reason' => $case->correction_reason === null ? null : (string) $case->correction_reason,
             'submitted_at' => (string) $case->created_at,
             'updated_at' => (string) $case->updated_at,
             'evidence' => $evidence,
             'history' => $history,
             'correction_history' => $correctionHistory,
         ];
+    }
+
+    private function authorizationWindowState(object $row, CarbonImmutable $evaluatedAt): string
+    {
+        if ($row->authorization_revoked_at !== null) {
+            return 'revoked';
+        }
+        if ($row->authorization_status !== 'approved_for_defined_purpose_and_method') {
+            return 'not_approved';
+        }
+        if ($row->authorization_valid_from === null || $row->authorization_valid_to === null) {
+            return 'unbounded';
+        }
+
+        try {
+            $validFrom = CarbonImmutable::parse((string) $row->authorization_valid_from);
+            $validTo = CarbonImmutable::parse((string) $row->authorization_valid_to);
+        } catch (\Throwable) {
+            return 'invalid_window';
+        }
+
+        if ($validTo->lessThanOrEqualTo($validFrom)) {
+            return 'invalid_window';
+        }
+        if ($evaluatedAt->lessThan($validFrom)) {
+            return 'not_yet_valid';
+        }
+        if ($evaluatedAt->greaterThanOrEqualTo($validTo)) {
+            return 'expired';
+        }
+
+        return 'current';
     }
 
     private function isEvidenceContributor(string $claimVersionId, string $actorId): bool
