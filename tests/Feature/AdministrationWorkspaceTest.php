@@ -150,6 +150,174 @@ final class AdministrationWorkspaceTest extends TestCase
         $this->actingAs($revoked)->getJson('/workspace')->assertForbidden();
     }
 
+    public function test_reviewer_case_detail_is_scoped_and_never_exposes_raw_evidence_digest_or_audit_metadata(): void
+    {
+        $institution = $this->institution();
+        $reviewer = $this->user('detail-reviewer@example.test');
+        $submitter = $this->user('detail-submitter@example.test');
+        $this->assign($reviewer, 'data_reviewer', $institution);
+        $case = $this->case($institution, $submitter);
+        $authorizationId = (string) str()->uuid();
+        $evidenceId = (string) str()->uuid();
+        $now = now();
+
+        DB::table('source_authorizations')->insert([
+            'id' => $authorizationId, 'source_family_id' => 'synthetic-only',
+            'status' => 'approved_for_defined_purpose_and_method',
+            'permitted_purposes' => json_encode(['synthetic_test_only'], JSON_THROW_ON_ERROR),
+            'permitted_methods' => json_encode(['fixture_reference'], JSON_THROW_ON_ERROR),
+            'territories' => json_encode(['synthetic'], JSON_THROW_ON_ERROR),
+            'permitted_scopes' => json_encode(['processing' => true], JSON_THROW_ON_ERROR),
+            'valid_from' => null, 'valid_to' => null, 'revoked_at' => null, 'revocation_reason' => null,
+            'created_at' => $now, 'updated_at' => $now,
+        ]);
+        DB::table('evidence_references')->insert([
+            'id' => $evidenceId, 'source_authorization_id' => $authorizationId,
+            'reference_kind' => 'synthetic_fixture', 'source_type' => 'synthetic',
+            'integrity_digest' => 'sha256:private-evidence-digest',
+            'status' => 'eligible_for_review', 'content_included' => false,
+            'observed_at' => $now, 'recorded_at' => $now, 'created_at' => $now, 'updated_at' => $now,
+        ]);
+        DB::table('claim_evidence_links')->insert([
+            'id' => (string) str()->uuid(), 'claim_version_id' => $case['claim_version_id'],
+            'evidence_reference_id' => $evidenceId, 'relationship_type' => 'supports',
+            'created_at' => $now, 'updated_at' => $now,
+        ]);
+        DB::table('audit_events')->insert([
+            'id' => (string) str()->uuid(), 'actor_class' => 'human',
+            'action' => 'evidence_reference_registered', 'target_type' => 'evidence_reference',
+            'target_id' => $evidenceId, 'reason_code' => 'synthetic_fixture', 'occurred_at' => $now,
+            'metadata' => json_encode(['actor_id' => 'user:'.$submitter->getKey(), 'private_audit_note' => 'hidden-note'], JSON_THROW_ON_ERROR),
+            'created_at' => $now, 'updated_at' => $now,
+        ]);
+        DB::table('directory_status_history')->insert([
+            'id' => (string) str()->uuid(), 'entity_id' => $institution,
+            'claim_version_id' => $case['claim_version_id'], 'editorial_review_case_id' => $case['id'],
+            'event_type' => 'proposal_submitted', 'previous_status' => null, 'new_status' => 'submitted',
+            'actor_id' => 'user:'.$submitter->getKey(), 'actor_class' => 'human',
+            'reason_code' => 'synthetic_submission', 'idempotency_key' => 'history-'.str()->uuid(),
+            'fingerprint' => hash('sha256', $case['id']),
+            'metadata' => json_encode(['private_history_note' => 'hidden-history-note'], JSON_THROW_ON_ERROR),
+            'occurred_at' => $now, 'created_at' => $now, 'updated_at' => $now,
+        ]);
+
+        $this->actingAs($reviewer)
+            ->get('/institutions/'.$institution.'/editorial-cases/'.$case['id'])
+            ->assertOk()
+            ->assertSee($evidenceId)
+            ->assertSee('synthetic_fixture')
+            ->assertSee('proposal submitted')
+            ->assertDontSee('sha256:private-evidence-digest')
+            ->assertDontSee('hidden-note')
+            ->assertDontSee('hidden-history-note')
+            ->assertHeader('Cache-Control', 'max-age=0, no-store, private')
+            ->assertHeader('X-Robots-Tag', 'noindex, nofollow');
+    }
+
+    public function test_case_detail_denies_submitter_and_evidence_contributor(): void
+    {
+        $institution = $this->institution();
+        $reviewer = $this->user('contributor-reviewer@example.test');
+        $submitter = $this->user('case-owner@example.test');
+        $this->assign($reviewer, 'data_reviewer', $institution);
+        $case = $this->case($institution, $submitter);
+
+        $this->actingAs($submitter)
+            ->get('/institutions/'.$institution.'/editorial-cases/'.$case['id'])
+            ->assertForbidden();
+
+        $authorizationId = (string) str()->uuid();
+        $evidenceId = (string) str()->uuid();
+        $now = now();
+        DB::table('source_authorizations')->insert([
+            'id' => $authorizationId, 'source_family_id' => 'synthetic-only',
+            'status' => 'approved_for_defined_purpose_and_method',
+            'permitted_purposes' => json_encode(['synthetic_test_only'], JSON_THROW_ON_ERROR),
+            'permitted_methods' => json_encode(['fixture_reference'], JSON_THROW_ON_ERROR),
+            'territories' => json_encode(['synthetic'], JSON_THROW_ON_ERROR),
+            'permitted_scopes' => json_encode(['processing' => true], JSON_THROW_ON_ERROR),
+            'valid_from' => null, 'valid_to' => null, 'revoked_at' => null, 'revocation_reason' => null,
+            'created_at' => $now, 'updated_at' => $now,
+        ]);
+        DB::table('evidence_references')->insert([
+            'id' => $evidenceId, 'source_authorization_id' => $authorizationId,
+            'reference_kind' => 'synthetic_fixture', 'source_type' => 'synthetic',
+            'integrity_digest' => null, 'status' => 'eligible_for_review', 'content_included' => false,
+            'observed_at' => $now, 'recorded_at' => $now, 'created_at' => $now, 'updated_at' => $now,
+        ]);
+        DB::table('claim_evidence_links')->insert([
+            'id' => (string) str()->uuid(), 'claim_version_id' => $case['claim_version_id'],
+            'evidence_reference_id' => $evidenceId, 'relationship_type' => 'supports',
+            'created_at' => $now, 'updated_at' => $now,
+        ]);
+        DB::table('audit_events')->insert([
+            'id' => (string) str()->uuid(), 'actor_class' => 'human',
+            'action' => 'evidence_reference_registered', 'target_type' => 'evidence_reference',
+            'target_id' => $evidenceId, 'reason_code' => 'synthetic_fixture', 'occurred_at' => $now,
+            'metadata' => json_encode(['actor_id' => 'user:'.$reviewer->getKey()], JSON_THROW_ON_ERROR),
+            'created_at' => $now, 'updated_at' => $now,
+        ]);
+
+        $this->actingAs($reviewer)
+            ->get('/institutions/'.$institution.'/editorial-cases/'.$case['id'])
+            ->assertNotFound();
+    }
+
+    public function test_case_detail_displays_immutable_correction_version_history(): void
+    {
+        $institution = $this->institution();
+        $reviewer = $this->user('correction-reviewer@example.test');
+        $submitter = $this->user('correction-submitter@example.test');
+        $this->assign($reviewer, 'data_reviewer', $institution);
+        $original = $this->case($institution, $submitter);
+        $now = now();
+        DB::table('editorial_review_cases')->where('id', $original['id'])->update(['status' => 'superseded']);
+
+        $claimId = (string) DB::table('claim_versions')
+            ->where('id', $original['claim_version_id'])
+            ->value('claim_id');
+        $successorId = (string) str()->uuid();
+        DB::table('claim_versions')->insert([
+            'id' => $successorId,
+            'claim_id' => $claimId,
+            'version_number' => 2,
+            'value' => json_encode('Synthetic corrected workspace value', JSON_THROW_ON_ERROR),
+            'valid_from' => null,
+            'valid_to' => null,
+            'recorded_at' => $now,
+            'disposition' => 'proposed',
+            'supersedes_version_id' => $original['claim_version_id'],
+            'correction_reason' => 'synthetic_value_correction',
+            'field_definition_version_id' => null,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        $successorCaseId = (string) str()->uuid();
+        DB::table('editorial_review_cases')->insert([
+            'id' => $successorCaseId,
+            'entity_id' => $institution,
+            'claim_version_id' => $successorId,
+            'status' => 'submitted',
+            'submitted_by_actor_id' => 'user:'.$submitter->getKey(),
+            'reviewer_actor_id' => null,
+            'adjudication_case_id' => null,
+            'adjudication_decision_id' => null,
+            'publication_decision_id' => null,
+            'idempotency_key' => 'workspace-successor-'.str()->uuid(),
+            'fingerprint' => hash('sha256', $successorCaseId),
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+
+        $this->actingAs($reviewer)
+            ->get('/institutions/'.$institution.'/editorial-cases/'.$successorCaseId)
+            ->assertOk()
+            ->assertSee('Correction history')
+            ->assertSee('Version 1')
+            ->assertSee('superseded')
+            ->assertSee('Synthetic corrected workspace value');
+    }
+
     private function institution(): string
     {
         $id = (string) str()->uuid();
