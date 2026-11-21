@@ -1,16 +1,15 @@
-## Latest verified update — 21 November 2026 (M3 Phase A baseline reconciliation)
+## Latest verified update — 21 November 2026 (M3 Phase A complete; ADM-A architecture)
 
-- **Latest verified main:** `d560890f46d8c9d4329101824a99b26a86a27ee3` — PR [#415](https://github.com/mattari20/listing-v2/pull/415), programme-scoped field claims.
-- PRs [#407–#415](https://github.com/mattari20/listing-v2/pulls?q=is%3Apr+is%3Amerged) are merged. Each exact PR head has successful FND-01 Foundation CI and Project documentation validation runs. This includes PR #415; no warning-free test-suite claim is made by this statement.
-- The Product Owner's product-first direction is recorded in [PR #405](https://github.com/mattari20/listing-v2/pull/405). Product work remains agenda-led; PRs are delivery mechanisms.
-- The product increments in #406–#415 cover governed institute catalogue display, programme navigation, discovery guidance, programme comparison, admission/fee comparison, delivery locations, student-facing programme sections, completeness guidance, section-based comparisons and programme-scoped field claims.
-- **Administration gap audit:** the current `routes/web.php` contains public directory routes and authenticated institution-scoped claim/correction/editorial-review endpoints. The current representative controller returns JSON workflow outcomes and is limited to university representatives and synthetic source context. A complete browser-based administration dashboard is not present in the inspected route surface.
-- The administration gap is now documented as product work: a role-oriented admin workspace, generalized institute-provider management, evidence queues, editorial/adjudication workspace and operational audit views remain to be designed and implemented without bypassing existing authorization and publication governance.
-- **M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.** M3-12 remains closed only for bounded repository-level verification. M3-11 independent review, hosted isolation, recovery, operational readiness and release gates remain blocked as previously recorded.
-- No deployment, production/V1/Hostinger access, live database activity, real/source/personal data collection, external AI/API activation, paid service or new spend is authorized by this documentation update. Synthetic-only and all existing safety boundaries remain in force.
+- **Latest verified main at the start of ADM-A:** `633e57a19622cebfc4560a2fa8c671eb3c910d32` — PR [#416](https://github.com/mattari20/listing-v2/pull/416), Phase A baseline reconciliation and administration gap audit.
+- PR #416 passed exact-head FND-01 Foundation CI and Project documentation validation before merge.
+- Product PRs #407–#415 are merged; both required exact-head workflows passed on each PR head.
+- **Phase A is complete.** The [Administration Architecture Gap Audit](docs/04-roadmap/PRODUCT_ADMINISTRATION_ARCHITECTURE_GAP_AUDIT_2026-11-21.md) identifies the missing browser administration workspace and defines ADM-A through ADM-E.
+- **ADM-A architecture decision:** preserve the existing scoped role model; do not give global administrators catalogue publishing powers. Representatives submit evidence-backed proposals within their exact institution/provider scope; reviewers review independently; publishers retain separate publication authority; global administrators manage roles and read security audit only.
+- Current service methods include proposal, review, adjudication, approval, suppression and restoration, but the existing route/controller surface does not expose the complete workflow. The role-action map does not yet authorize every service capability (notably adjudication and explicit suppression/restoration), so these must be reconciled before implementing those UI actions.
+- **M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.** M3-11 independent review, hosted isolation, recovery, operational readiness and release gates remain blocked.
+- No production/V1/Hostinger access, live database activity, real/source/personal data, external AI/API, deployment, paid service or new spend is authorized. Synthetic-only and all existing safeguards remain in force.
 
-See the [M3 Master Step Plan](docs/04-roadmap/M3_MASTER_STEP_PLAN.md), [Project Progress Report](docs/04-roadmap/PROJECT_PROGRESS_REPORT.md), and [Administration Architecture Gap Audit](docs/04-roadmap/PRODUCT_ADMINISTRATION_ARCHITECTURE_GAP_AUDIT_2026-11-21.md).
-
+See the [M3 Project Progress Report](docs/04-roadmap/PROJECT_PROGRESS_REPORT.md), [Administration Architecture Gap Audit](docs/04-roadmap/PRODUCT_ADMINISTRATION_ARCHITECTURE_GAP_AUDIT_2026-11-21.md), and [ADM-A Authorization Architecture](docs/04-roadmap/ADM_A_ADMINISTRATION_AUTHORIZATION_ARCHITECTURE_2026-11-21.md).
 
 ---
 
