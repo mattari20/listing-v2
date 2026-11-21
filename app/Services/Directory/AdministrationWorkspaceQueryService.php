@@ -272,7 +272,7 @@ final class AdministrationWorkspaceQueryService
         try {
             $validFrom = CarbonImmutable::parse((string) $row->authorization_valid_from);
             $validTo = CarbonImmutable::parse((string) $row->authorization_valid_to);
-        } catch (\\Throwable) {
+        } catch (\Throwable) {
             return 'invalid_window';
         }
 
