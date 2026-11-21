@@ -255,8 +255,23 @@ final class PublicDirectoryQueryService
             ->whereIn('directory_entities.entity_type', array_keys(self::TYPE_LABELS))
             ->whereNotExists(function ($query): void {
                 $query->selectRaw('1')
-                    ->from('claim_versions as successor')
-                    ->whereColumn('successor.supersedes_version_id', 'claim_versions.id');
+                    ->from('claim_versions as later_versions')
+                    ->join('publication_snapshots as later_snapshots', 'later_snapshots.claim_version_id', '=', 'later_versions.id')
+                    ->join('publication_decisions as later_decisions', 'later_decisions.id', '=', 'later_snapshots.publication_decision_id')
+                    ->join('public_projections as later_projections', 'later_projections.publication_snapshot_id', '=', 'later_snapshots.id')
+                    ->whereColumn('later_versions.claim_id', 'claim_versions.claim_id')
+                    ->whereColumn('later_versions.version_number', '>', 'claim_versions.version_number')
+                    ->where('later_versions.disposition', 'accepted')
+                    ->where('later_decisions.decision', 'approved')
+                    ->whereColumn('later_decisions.claim_version_id', 'later_versions.id')
+                    ->whereColumn('later_decisions.surface', 'publication_decisions.surface')
+                    ->whereColumn('later_decisions.audience', 'publication_decisions.audience')
+                    ->whereIn('later_snapshots.status', ['projected', 'suppressed'])
+                    ->whereColumn('later_snapshots.surface', 'publication_snapshots.surface')
+                    ->whereColumn('later_snapshots.audience', 'publication_snapshots.audience')
+                    ->whereIn('later_projections.status', ['approved', 'suppressed'])
+                    ->whereColumn('later_projections.surface', 'public_projections.surface')
+                    ->whereColumn('later_projections.audience', 'public_projections.audience');
             })
             ->whereNotExists(function ($query): void {
                 $query->selectRaw('1')

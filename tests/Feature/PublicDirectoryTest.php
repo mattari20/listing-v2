@@ -494,26 +494,31 @@ final class PublicDirectoryTest extends TestCase
         $this->get('/directory/'.$entity)->assertNotFound();
     }
 
-    public function test_superseded_claim_version_is_not_returned_even_before_successor_publication(): void
+    public function test_accepted_public_projection_remains_visible_until_successor_is_accepted_and_published(): void
     {
         $entity = $this->createEntity();
         $published = $this->publishFact($entity, 'display_name', 'Synthetic Old Name');
-        app(PersistedGovernanceWorkflowService::class)->correctClaimVersion(
-            $this->actor('corrector', ['correct_claim']),
-            $published['version_id'],
-            ['value' => 'Synthetic New Name'],
-            [$published['evidence_id']],
-            '2026-11-14',
-            null,
-            'synthetic_correction',
-            'A successor version makes the prior public claim ineligible.',
-            'synthetic-public-correction'
+        $workflow = app(PersistedGovernanceWorkflowService::class);
+        $successor = $workflow->correctClaimVersion(
+            $this->actor('corrector', ['correct_claim']), $published['version_id'],
+            ['value' => 'Synthetic New Name'], [$published['evidence_id']],
+            '2026-11-14', null, 'synthetic_correction',
+            'A successor version is proposed for the synthetic public claim.', 'synthetic-public-correction'
         );
+        $this->assertDatabaseHas('public_projections', ['publication_snapshot_id' => $published['snapshot_id'], 'status' => 'approved']);
+        $this->get('/directory?q=Synthetic Old')->assertOk()->assertSee('Synthetic Old Name')->assertDontSee('Synthetic New Name');
+        $this->get('/directory/'.$entity)->assertOk()->assertSee('Synthetic Old Name');
 
-        $this->get('/directory?q=Synthetic')->assertOk()
-            ->assertDontSee('Synthetic Old Name')
-            ->assertDontSee('Synthetic New Name');
-        $this->get('/directory/'.$entity)->assertNotFound();
+        $caseId = $workflow->openAdjudicationCase($this->actor('successor-case-opener', ['open_adjudication']), $successor, 'synthetic-successor-adjudication-case');
+        $decisionId = $workflow->decideAdjudication($this->actor('successor-adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'The synthetic successor is accepted.', 'policy-v1');
+
+        // Acceptance alone does not replace an already published projection.
+        $this->get('/directory?q=Synthetic Old')->assertOk()->assertSee('Synthetic Old Name')->assertDontSee('Synthetic New Name');
+        $workflow->authorizePublication($this->actor('successor-publisher', ['authorize_publication']), $successor, $decisionId, 'directory', 'anonymous', 'policy-v1', 'synthetic-successor-publication');
+        $workflow->processOutbox();
+
+        $this->get('/directory?q=Synthetic New')->assertOk()->assertSee('Synthetic New Name')->assertDontSee('Synthetic Old Name');
+        $this->get('/directory/'.$entity)->assertOk()->assertSee('Synthetic New Name')->assertDontSee('Synthetic Old Name');
     }
 
     public function test_deeni_madaris_never_appears_in_results_facets_or_direct_profile(): void

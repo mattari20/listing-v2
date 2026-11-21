@@ -55,8 +55,23 @@ final class PublicProgrammeOfferFactsQueryService
             ->where('institutions.entity_type', '!=', 'deeni_madaris')
             ->whereNotExists(function ($query): void {
                 $query->selectRaw('1')
-                    ->from('programme_offer_fact_versions as successor')
-                    ->whereColumn('successor.supersedes_version_id', 'versions.id');
+                    ->from('programme_offer_fact_versions as later_versions')
+                    ->join('programme_offer_fact_publication_decisions as later_decisions', 'later_decisions.fact_version_id', '=', 'later_versions.id')
+                    ->join('programme_offer_fact_publication_snapshots as later_snapshots', 'later_snapshots.fact_version_id', '=', 'later_versions.id')
+                    ->join('programme_offer_fact_public_projections as later_projections', 'later_projections.publication_snapshot_id', '=', 'later_snapshots.id')
+                    ->whereColumn('later_versions.programme_offer_fact_id', 'facts.id')
+                    ->whereColumn('later_versions.version_number', '>', 'versions.version_number')
+                    ->where('later_versions.disposition', 'accepted')
+                    ->where('later_decisions.decision', 'approved')
+                    ->whereColumn('later_decisions.fact_version_id', 'later_versions.id')
+                    ->whereColumn('later_decisions.surface', 'publication_decisions.surface')
+                    ->whereColumn('later_decisions.audience', 'publication_decisions.audience')
+                    ->whereIn('later_snapshots.status', ['projected', 'suppressed'])
+                    ->whereColumn('later_snapshots.surface', 'snapshots.surface')
+                    ->whereColumn('later_snapshots.audience', 'snapshots.audience')
+                    ->whereIn('later_projections.status', ['approved', 'suppressed'])
+                    ->whereColumn('later_projections.surface', 'projections.surface')
+                    ->whereColumn('later_projections.audience', 'projections.audience');
             })
             ->whereNotExists(function ($query): void {
                 $query->selectRaw('1')

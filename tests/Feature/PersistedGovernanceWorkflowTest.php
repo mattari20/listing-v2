@@ -595,6 +595,53 @@ class PersistedGovernanceWorkflowTest extends TestCase
         $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Unbounded authorization must fail closed.', 'policy-v1');
     }
 
+    public function test_claim_correction_does_not_mutate_any_active_p02_projection(): void
+    {
+        $fixture = $this->fixture('programme');
+        $now = now();
+        $institution = (string) str()->uuid();
+        $campus = (string) str()->uuid();
+        $deliverySite = (string) str()->uuid();
+        $qualification = (string) str()->uuid();
+        $awardingBody = (string) str()->uuid();
+        foreach ([[$institution, 'institution'], [$campus, 'campus'], [$deliverySite, 'delivery_site'], [$qualification, 'qualification'], [$awardingBody, 'awarding_body']] as [$id, $type]) {
+            DB::table('directory_entities')->insert(['id' => $id, 'entity_type' => $type, 'label' => 'Synthetic '.$type, 'created_at' => $now, 'updated_at' => $now]);
+        }
+        DB::table('directory_campuses')->insert([
+            'entity_id' => $campus, 'institution_entity_id' => $institution, 'location_label' => 'Synthetic Campus',
+            'status' => 'active', 'claim_version_id' => $fixture['version'], 'created_at' => $now, 'updated_at' => $now,
+        ]);
+        DB::table('directory_delivery_sites')->insert([
+            'entity_id' => $deliverySite, 'institution_entity_id' => $institution, 'location_label' => 'Synthetic Delivery Site',
+            'status' => 'active', 'claim_version_id' => $fixture['version'], 'created_at' => $now, 'updated_at' => $now,
+        ]);
+        DB::table('programme_catalogue_entries')->insert([
+            'entity_id' => $fixture['entity'], 'institution_entity_id' => $institution, 'title' => 'Synthetic Programme',
+            'status' => 'active', 'claim_version_id' => $fixture['version'], 'created_at' => $now, 'updated_at' => $now,
+        ]);
+        DB::table('programme_qualification_links')->insert([
+            'id' => (string) str()->uuid(), 'programme_entity_id' => $fixture['entity'], 'qualification_entity_id' => $qualification,
+            'awarding_body_entity_id' => $awardingBody, 'status' => 'active', 'claim_version_id' => $fixture['version'],
+            'created_at' => $now, 'updated_at' => $now,
+        ]);
+        DB::table('programme_offers')->insert([
+            'id' => (string) str()->uuid(), 'programme_entity_id' => $fixture['entity'], 'delivery_location_entity_id' => $campus,
+            'admission_cycle' => 'synthetic-cycle', 'status' => 'active', 'claim_version_id' => $fixture['version'],
+            'created_at' => $now, 'updated_at' => $now,
+        ]);
+
+        $successor = (new PersistedGovernanceWorkflowService)->correctClaimVersion(
+            $this->actor('p02-correction-author', ['correct_claim']), $fixture['version'],
+            ['value' => 'Synthetic corrected catalogue claim'], [$fixture['evidence']],
+            '2026-11-21', null, 'synthetic_correction',
+            'Synthetic correction must not mutate accepted P02 projections.', 'p02-correction-projection-guard'
+        );
+        foreach (['directory_campuses', 'directory_delivery_sites', 'programme_catalogue_entries', 'programme_qualification_links', 'programme_offers'] as $table) {
+            $this->assertDatabaseHas($table, ['claim_version_id' => $fixture['version'], 'status' => 'active']);
+            $this->assertDatabaseMissing($table, ['claim_version_id' => $successor]);
+        }
+    }
+
     private function fixture(string $entityType = 'institution'): array
     {
         $now = now();
