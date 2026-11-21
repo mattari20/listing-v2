@@ -25,6 +25,28 @@ final class AccountSavedItemsTest extends TestCase
         $this->deleteJson('/account/saved-items/'.$entity)->assertUnauthorized();
     }
 
+    public function test_inactive_accounts_cannot_read_save_or_remove_saved_items_even_with_an_existing_session(): void
+    {
+        $inactive = $this->makeUser('inactive-saved-items@example.test');
+        $inactive->forceFill(['is_active' => false])->save();
+        $entity = (string) Str::uuid();
+
+        $this->actingAs($inactive)->getJson('/account/saved-items')->assertForbidden();
+        $this->actingAs($inactive)->postJson('/account/saved-items/'.$entity)->assertForbidden();
+        $this->actingAs($inactive)->deleteJson('/account/saved-items/'.$entity)->assertForbidden();
+    }
+
+    public function test_unverified_accounts_cannot_read_save_or_remove_saved_items_even_with_an_existing_session(): void
+    {
+        $unverified = $this->makeUser('unverified-saved-items@example.test');
+        $unverified->forceFill(['email_verified_at' => null])->save();
+        $entity = (string) Str::uuid();
+
+        $this->actingAs($unverified)->getJson('/account/saved-items')->assertForbidden();
+        $this->actingAs($unverified)->postJson('/account/saved-items/'.$entity)->assertForbidden();
+        $this->actingAs($unverified)->deleteJson('/account/saved-items/'.$entity)->assertForbidden();
+    }
+
     public function test_owner_can_save_view_and_remove_a_currently_published_entity_idempotently(): void
     {
         $this->seed(PrivatePreviewDirectorySeeder::class);

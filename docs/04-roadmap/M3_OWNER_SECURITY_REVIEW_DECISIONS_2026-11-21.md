@@ -40,22 +40,22 @@ The independent security assessment under M3-11-03 remains BLOCKED / NOT ACCEPTE
 
 The Product Owner accepted the recommended Option A: uploads must be disabled wherever they are not required; any retained in-scope upload capability must use server-side type/content and size validation, safe generated filenames, restricted storage and access, and prevention of executable or unsafe content.
 
-**Disposition:** POLICY RESOLVED; IMPLEMENTATION/APPLICABILITY EVIDENCE OPEN.
+**Disposition:** POLICY RESOLVED; NOT APPLICABLE TO THE INSPECTED REPOSITORY CANDIDATE.
 
-Establish from the exact pinned candidate's route and feature inventory whether any upload route or upload-capable workflow exists within M3 scope. If none exists, record this control as not applicable with route-inventory evidence. If uploads exist, verify the required controls against implementation and tests; otherwise disable the capability through an explicitly authorized change. No upload security pass is inferred from the owner response.
+The repository-only route/controller inventory at baseline `3209e8ec6ed8b73a9ba2720d5d4727d251012d9f` found only `routes/web.php` and `routes/console.php`, no API route file, and no upload route, upload controller action, file-input handling, or upload storage operation in the eight inspected HTTP controllers. The current candidate therefore has no evidenced upload capability to enable or validate. This does not establish anything about V1, hosted systems, or external environments, none of which were accessed. Any future upload feature must follow Option A before acceptance. See `M3_SECURITY_POLICY_IMPLEMENTATION_RECONCILIATION_2026-11-21.md`.
 
 ## 4. M3 status and next evidence
 
 - Product Owner internal security responses: RECORDED.
 - SEC-PO-07 owner-policy conflict: RESOLVED by the owner's revised Option A decision; implementation conformity still requires evidence.
 - Implementation status of each control: NOT ESTABLISHED by this questionnaire.
-- SEC-PO-11 owner policy: RESOLVED as Option A; implementation/applicability evidence remains OPEN.
+- SEC-PO-11 owner policy: RESOLVED as Option A; NOT APPLICABLE to the inspected repository candidate based on the route/controller inventory; future uploads remain subject to Option A.
 - Independent security assessment: NOT PERFORMED.
 - Exact candidate pin and independent test evidence: NOT PROVIDED by this record.
 - M3-11-03: BLOCKED / NOT ACCEPTED.
 - Overall M3: OPEN / PARTIALLY COMPLETE — NOT CLOSED.
 
-The next work is evidence-led reconciliation of SEC-PO-11 and the deny-by-default policy against the current repository implementation and existing test evidence, within the authorized local/repository-only scope. Any code change requires its own bounded implementation scope and CI validation. Independent assurance remains separate and cannot be replaced by this owner review.
+A bounded source reconciliation was recorded in `M3_SECURITY_POLICY_IMPLEMENTATION_RECONCILIATION_2026-11-21.md`. It also identified and prepared a focused guard for inactive/unverified already-authenticated accounts on saved-item routes, with synthetic feature tests. That change remains pending exact-head CI. The source review is not independent assurance. Independent assurance remains separate and cannot be replaced by this owner review.
 
 ## 5. Continuing restrictions
 

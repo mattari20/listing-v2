@@ -17,9 +17,10 @@ final class AccountSavedItemsController extends Controller
 {
     public function index(Request $request, PublicDirectoryQueryService $directory): Response
     {
+        $user = $this->authorizedUser($request);
         $locale = $this->applyLocale($request);
         $rows = SavedDirectoryItem::query()
-            ->where('user_id', $request->user()->getAuthIdentifier())
+            ->where('user_id', $user->getAuthIdentifier())
             ->orderByDesc('created_at')
             ->orderByDesc('id')
             ->get(['id', 'entity_id', 'created_at']);
@@ -45,10 +46,11 @@ final class AccountSavedItemsController extends Controller
 
     public function store(Request $request, string $entity, PublicDirectoryQueryService $directory): RedirectResponse
     {
+        $user = $this->authorizedUser($request);
         $this->applyLocale($request);
         abort_if($directory->find($entity) === null, 404);
 
-        $userId = $request->user()->getAuthIdentifier();
+        $userId = $user->getAuthIdentifier();
         $limit = $this->savedItemsLimit();
         $result = DB::transaction(function () use ($userId, $entity, $limit): string {
             User::query()->whereKey($userId)->lockForUpdate()->firstOrFail();
@@ -78,13 +80,22 @@ final class AccountSavedItemsController extends Controller
 
     public function destroy(Request $request, string $entity): RedirectResponse
     {
+        $user = $this->authorizedUser($request);
         $this->applyLocale($request);
         SavedDirectoryItem::query()
-            ->where('user_id', $request->user()->getAuthIdentifier())
+            ->where('user_id', $user->getAuthIdentifier())
             ->where('entity_id', $entity)
             ->delete();
 
         return back()->with('saved_items_status', __('directory.saved_item_removed'));
+    }
+
+    private function authorizedUser(Request $request): User
+    {
+        $user = $request->user();
+        abort_unless($user instanceof User && $user->is_active && $user->email_verified_at !== null, 403);
+
+        return $user;
     }
 
     private function savedItemsLimit(): int
