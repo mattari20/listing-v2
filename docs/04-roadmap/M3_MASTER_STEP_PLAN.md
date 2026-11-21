@@ -1,3 +1,17 @@
+## M3-FINAL — consolidated acceptance and closure reconciliation — 2026-11-21
+
+**Status: COMPLETE for repository-only reconciliation. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.**
+
+- ADM-A through ADM-G and product-wide institution/location/programme/offer integration are complete within their bounded synthetic repository scope.
+- M3-FINAL reconciles F01–F06 with the subsequent ADM-F/ADM-G work and preserves the recorded Product Owner decisions and all ten M3-11 gate dispositions.
+- Final acceptance report: [M3 Final Acceptance and Closure Reconciliation](M3_FINAL_ACCEPTANCE_RECONCILIATION_2026-11-21.md); merged in PR #439.
+- README status/link refreshed and reconciled in PRs #440 and #441.
+- M3-10 pilot readiness remains NOT ACCEPTED. M3-11 remains BLOCKED / NOT ACCEPTED. Qualified independent review, future human operations, hosted isolation, recovery/RPO/RTO, release candidate, go/no-go, execution and monitoring evidence remain outstanding.
+- No production/V1/Hostinger access, live database, real/source/personal data, external API/AI, deployment, pilot, public launch or new spend is authorized by this reconciliation.
+- This agenda closes the repository-only final acceptance exercise; it does not close overall M3 or promote any M3-11 gate.
+
+---
+
 ## M3 administration completion and integration checkpoint — 2026-11-21 (merged PR #437)
 
 - ADM-A through ADM-E: complete within bounded university/synthetic repository scope.
