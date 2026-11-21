@@ -177,6 +177,81 @@ final class InstitutionCampusWorkflowTest extends TestCase
         $this->assertDatabaseCount('public_projections', 0);
     }
 
+    public function test_proposed_campus_correction_preserves_accepted_projection_until_successor_materialization(): void
+    {
+        $institution = $this->institution();
+        $campus = (string) str()->uuid();
+        $claim = (string) str()->uuid();
+        $version = (string) str()->uuid();
+        $evidence = $this->evidence();
+        $now = now();
+        DB::table('directory_entities')->insert(['id' => $campus, 'entity_type' => 'campus', 'label' => 'Synthetic Original Campus', 'created_at' => $now, 'updated_at' => $now]);
+        DB::table('claims')->insert(['id' => $claim, 'subject_entity_id' => $campus, 'predicate' => 'campus', 'created_at' => $now, 'updated_at' => $now]);
+        DB::table('claim_versions')->insert([
+            'id' => $version, 'claim_id' => $claim, 'version_number' => 1,
+            'value' => json_encode(['institution_entity_id' => $institution, 'label' => 'Synthetic Original Campus', 'location_label' => 'Synthetic Original District'], JSON_THROW_ON_ERROR),
+            'valid_from' => '2026-11-01', 'valid_to' => null, 'recorded_at' => $now,
+            'disposition' => 'proposed', 'created_at' => $now, 'updated_at' => $now,
+        ]);
+        DB::table('claim_evidence_links')->insert([
+            'id' => (string) str()->uuid(), 'claim_version_id' => $version, 'evidence_reference_id' => $evidence,
+            'relationship_type' => 'supports', 'created_at' => $now, 'updated_at' => $now,
+        ]);
+
+        $workflow = app(\App\Services\Governance\PersistedGovernanceWorkflowService::class);
+        $initialCase = $workflow->openAdjudicationCase(
+            ['actor_id' => 'campus-initial-opener', 'actor_class' => 'human', 'capabilities' => ['open_adjudication']],
+            $version, 'campus-initial-adjudication'
+        );
+        $workflow->decideAdjudication(
+            ['actor_id' => 'campus-initial-adjudicator', 'actor_class' => 'human', 'capabilities' => ['adjudicate_claim']],
+            $initialCase, 'accepted', 'synthetic_acceptance', 'Initial synthetic campus claim accepted.', 'policy-v1'
+        );
+        $materializer = app(\App\Services\Directory\CampusProgrammeCatalogueService::class);
+        $materializer->materializeAcceptedRecord(
+            ['actor_id' => 'campus-initial-materializer', 'actor_class' => 'human', 'capabilities' => ['materialize_catalogue_record']],
+            $version, 'campus-initial-materialization'
+        );
+
+        $representative = $this->user('campus-projection-owner@example.test');
+        $this->assign($representative, $institution);
+        $this->actingAs($representative, 'web')->getJson("/institutions/{$institution}/information")
+            ->assertOk()->assertJsonPath('campuses.0.label', 'Synthetic Original Campus');
+
+        $successor = $workflow->correctClaimVersion(
+            ['actor_id' => 'campus-correction-author', 'actor_class' => 'human', 'capabilities' => ['correct_claim']],
+            $version,
+            ['institution_entity_id' => $institution, 'label' => 'Synthetic Corrected Campus', 'location_label' => 'Synthetic Corrected District'],
+            [$evidence], '2026-11-21', null, 'synthetic_value_correction',
+            'A proposed correction must not replace the accepted campus projection.', 'campus-projection-correction'
+        );
+        $this->assertDatabaseHas('directory_campuses', [
+            'entity_id' => $campus, 'claim_version_id' => $version, 'status' => 'active',
+            'location_label' => 'Synthetic Original District',
+        ]);
+        $this->actingAs($representative, 'web')->getJson("/institutions/{$institution}/information")
+            ->assertOk()->assertJsonPath('campuses.0.label', 'Synthetic Original Campus');
+
+        $successorCase = $workflow->openAdjudicationCase(
+            ['actor_id' => 'campus-successor-opener', 'actor_class' => 'human', 'capabilities' => ['open_adjudication']],
+            $successor, 'campus-successor-adjudication'
+        );
+        $workflow->decideAdjudication(
+            ['actor_id' => 'campus-successor-adjudicator', 'actor_class' => 'human', 'capabilities' => ['adjudicate_claim']],
+            $successorCase, 'accepted', 'synthetic_acceptance', 'Corrected synthetic campus claim accepted.', 'policy-v1'
+        );
+        $materializer->materializeAcceptedRecord(
+            ['actor_id' => 'campus-successor-materializer', 'actor_class' => 'human', 'capabilities' => ['materialize_catalogue_record']],
+            $successor, 'campus-successor-materialization'
+        );
+        $this->assertDatabaseHas('directory_campuses', [
+            'entity_id' => $campus, 'claim_version_id' => $successor, 'status' => 'active',
+            'location_label' => 'Synthetic Corrected District',
+        ]);
+        $this->actingAs($representative, 'web')->getJson("/institutions/{$institution}/information")
+            ->assertOk()->assertJsonPath('campuses.0.label', 'Synthetic Corrected Campus');
+    }
+
     public function test_private_information_endpoint_lists_only_accepted_current_campuses_and_delivery_sites(): void
     {
         $institution = $this->institution();
@@ -298,8 +373,8 @@ final class InstitutionCampusWorkflowTest extends TestCase
             'permitted_methods' => json_encode(['fixture_reference'], JSON_THROW_ON_ERROR),
             'territories' => json_encode(['synthetic'], JSON_THROW_ON_ERROR),
             'permitted_scopes' => json_encode(['processing' => true], JSON_THROW_ON_ERROR),
-            'valid_from' => null,
-            'valid_to' => null,
+            'valid_from' => $now->copy()->subDay(),
+            'valid_to' => $now->copy()->addDay(),
             'revoked_at' => null,
             'revocation_reason' => null,
             'created_at' => $now,
