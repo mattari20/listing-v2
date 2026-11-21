@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Tests\\Feature;
+namespace Tests\Feature;
 
-use App\\Services\\Directory\\CampusProgrammeCatalogueService;
-use App\\Services\\Governance\\PersistedGovernanceWorkflowService;
-use Illuminate\\Foundation\\Testing\\RefreshDatabase;
-use Illuminate\\Support\\Facades\\DB;
-use Illuminate\\Validation\\ValidationException;
-use Tests\\TestCase;
+use App\Services\Directory\CampusProgrammeCatalogueService;
+use App\Services\Governance\PersistedGovernanceWorkflowService;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Validation\ValidationException;
+use Tests\TestCase;
 
 final class CatalogueSuccessorMaterializationTest extends TestCase
 {
