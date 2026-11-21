@@ -1,15 +1,17 @@
-## Latest verified update — 21 November 2026 (M3 Phase A complete; ADM-A architecture)
+## Latest verified update — 21 November 2026 (ADM-B workspace implementation)
 
-- **Latest verified main at the start of ADM-A:** `633e57a19622cebfc4560a2fa8c671eb3c910d32` — PR [#416](https://github.com/mattari20/listing-v2/pull/416), Phase A baseline reconciliation and administration gap audit.
-- PR #416 passed exact-head FND-01 Foundation CI and Project documentation validation before merge.
-- Product PRs #407–#415 are merged; both required exact-head workflows passed on each PR head.
-- **Phase A is complete.** The [Administration Architecture Gap Audit](docs/04-roadmap/PRODUCT_ADMINISTRATION_ARCHITECTURE_GAP_AUDIT_2026-11-21.md) identifies the missing browser administration workspace and defines ADM-A through ADM-E.
-- **ADM-A architecture decision:** preserve the existing scoped role model; do not give global administrators catalogue publishing powers. Representatives submit evidence-backed proposals within their exact institution/provider scope; reviewers review independently; publishers retain separate publication authority; global administrators manage roles and read security audit only.
-- Current service methods include proposal, review, adjudication, approval, suppression and restoration, but the existing route/controller surface does not expose the complete workflow. The role-action map does not yet authorize every service capability (notably adjudication and explicit suppression/restoration), so these must be reconciled before implementing those UI actions.
+- **Latest verified main at ADM-B closeout:** `088a434f445c8b2aeb654e19654fddbe66d2a325` — PR [#418](https://github.com/mattari20/listing-v2/pull/418), scoped read-only administration workspace.
+- PR #418 passed exact-head FND-01 Foundation CI and Project documentation validation.
+- **Phase A, administration architecture gap audit and ADM-A are complete. ADM-B implementation is complete** for the first read-only university representative/reviewer workspace.
+- The private `/workspace` route uses active, verified accounts, active/non-revoked/unexpired institution-scoped role assignments and server-side `ScopedAuthorization`. Representatives see only their own submissions in assigned university scopes. Reviewers see only submitted cases in their assigned university scopes, excluding their own submissions and cases where they registered linked evidence.
+- The workspace is bilingual (English/Urdu), supports RTL, uses private no-store caching and `noindex, nofollow`, and exposes no state-changing, publication, adjudication, role-management, direct catalogue-editing or UGC actions.
+- Read-only persistence queries are isolated in `AdministrationWorkspaceQueryService`; controller orchestration does not write governance persistence.
+- **Current scope limitation:** this first workspace supports university institution representatives and data reviewers only. Provider-representative self-service and other institute categories remain future work; no complete general admin console or staffed operations are claimed.
+- Exact-head Foundation CI: passed. Project documentation validation: passed. Synthetic test suite: 23 passed, 1,717 assertions, 299 warnings; therefore not warning-free.
 - **M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.** M3-11 independent review, hosted isolation, recovery, operational readiness and release gates remain blocked.
 - No production/V1/Hostinger access, live database activity, real/source/personal data, external AI/API, deployment, paid service or new spend is authorized. Synthetic-only and all existing safeguards remain in force.
 
-See the [M3 Project Progress Report](docs/04-roadmap/PROJECT_PROGRESS_REPORT.md), [Administration Architecture Gap Audit](docs/04-roadmap/PRODUCT_ADMINISTRATION_ARCHITECTURE_GAP_AUDIT_2026-11-21.md), and [ADM-A Authorization Architecture](docs/04-roadmap/ADM_A_ADMINISTRATION_AUTHORIZATION_ARCHITECTURE_2026-11-21.md).
+See the [M3 Project Progress Report](docs/04-roadmap/PROJECT_PROGRESS_REPORT.md), [Administration Architecture Gap Audit](docs/04-roadmap/PRODUCT_ADMINISTRATION_ARCHITECTURE_GAP_AUDIT_2026-11-21.md), [ADM-A Authorization Architecture](docs/04-roadmap/ADM_A_ADMINISTRATION_AUTHORIZATION_ARCHITECTURE_2026-11-21.md), and [ADM-B Workspace Implementation Closeout](docs/04-roadmap/ADM_B_WORKSPACE_IMPLEMENTATION_CLOSEOUT_2026-11-21.md).
 
 ---
 

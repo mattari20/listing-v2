@@ -1,3 +1,26 @@
+## ADM-B — Role-aware read-only administration workspace — 2026-11-21
+
+**Status: COMPLETE for the first bounded workspace increment.** PR [#418](https://github.com/mattari20/listing-v2/pull/418) merged as `088a434f445c8b2aeb654e19654fddbe66d2a325` after exact-head FND-01 Foundation CI and Project documentation validation passed.
+
+Delivered:
+- Authenticated and throttled `GET /workspace`.
+- Active and verified human-account requirement.
+- Server-derived, active, non-revoked and unexpired role assignment checks, exact institution scope, and `ScopedAuthorization` confirmation.
+- Representative submissions limited to the authenticated submitter and assigned university institution scopes.
+- Reviewer queue limited to newly submitted cases within assigned university scopes, excluding self-submitted cases and cases with evidence registered by the reviewer.
+- Read-only database query service separated from controller orchestration.
+- English/Urdu labels, RTL direction, responsive page, skip link and visible keyboard focus.
+- Private no-store cache headers and `noindex, nofollow` crawler policy for the workspace.
+- Synthetic feature tests for authentication, verified/active accounts, unsupported roles, exact scope isolation, reviewer independence, evidence contributor exclusion, revoked/expired assignments and response headers.
+
+**Exact-head verification:** Foundation CI passed; Project documentation validation passed. Synthetic suite: 23 passed, 1,717 assertions, 299 warnings. Warnings remain and no warning-free test-suite claim is made.
+
+**Bounded limitations:** this is not a complete general admin console. It currently supports university institution representatives and data reviewers; provider representative workflows and other institute categories are not yet integrated. The page is read-only and has no case detail, review decision, adjudication, publication, suppression, restoration, role-management or direct-edit actions. Those remain separate agenda work.
+
+**Disposition:** ADM-B is complete within this bounded scope. Next: ADM-C — governed institution/campus information management design and implementation, preserving the existing field/evidence/editorial workflow. ADM-D will complete the evidence/editorial workspace and only then add separately authorized adjudication/publication surfaces. M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
+---
+
 ## ADM-A — Administration information architecture and authorization decision — 2026-11-21
 
 ADM-A records the role-aware administration architecture in `ADM_A_ADMINISTRATION_AUTHORIZATION_ARCHITECTURE_2026-11-21.md`.
