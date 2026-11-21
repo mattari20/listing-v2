@@ -506,6 +506,95 @@ class PersistedGovernanceWorkflowTest extends TestCase
         ]);
     }
 
+    public function test_adjudication_acceptance_rechecks_bounded_current_source_authorization(): void
+    {
+        $fixture = $this->fixture();
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'g01-current-authorization');
+
+        $decisionId = $service->decideAdjudication(
+            $this->actor('adjudicator', ['adjudicate_claim']),
+            $caseId,
+            'accepted',
+            'synthetic_acceptance',
+            'Accepted with current synthetic authorization.',
+            'policy-v1'
+        );
+
+        $this->assertDatabaseHas('adjudication_decisions', ['id' => $decisionId, 'outcome' => 'accepted']);
+    }
+
+    public function test_adjudication_acceptance_rejects_expired_source_authorization_without_state_change(): void
+    {
+        $fixture = $this->fixture();
+        DB::table('source_authorizations')->where('id', $fixture['authorization'])->update([
+            'valid_to' => now()->subSecond(),
+        ]);
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'g01-expired-authorization');
+
+        try {
+            $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Expired authorization must fail closed.', 'policy-v1');
+            $this->fail('Expired source authorization must not support acceptance.');
+        } catch (ValidationException) {
+            $this->assertDatabaseCount('adjudication_decisions', 0);
+            $this->assertDatabaseHas('adjudication_cases', ['id' => $caseId, 'status' => 'open']);
+            $this->assertDatabaseHas('claim_versions', ['id' => $fixture['version'], 'disposition' => 'proposed']);
+        }
+    }
+
+    public function test_adjudication_acceptance_rejects_revoked_source_authorization(): void
+    {
+        $fixture = $this->fixture();
+        DB::table('source_authorizations')->where('id', $fixture['authorization'])->update([
+            'revoked_at' => now()->subSecond(),
+        ]);
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'g01-revoked-authorization');
+
+        $this->expectException(ValidationException::class);
+        $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Revoked authorization must fail closed.', 'policy-v1');
+    }
+
+    public function test_adjudication_acceptance_rejects_unapproved_or_out_of_scope_authorization(): void
+    {
+        $fixture = $this->fixture();
+        DB::table('source_authorizations')->where('id', $fixture['authorization'])->update([
+            'permitted_scopes' => json_encode(['processing' => false, 'publication' => true]),
+        ]);
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'g01-out-of-scope-authorization');
+
+        $this->expectException(ValidationException::class);
+        $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Out-of-scope authorization must fail closed.', 'policy-v1');
+    }
+
+    public function test_adjudication_acceptance_rejects_incomplete_authorization_context(): void
+    {
+        $fixture = $this->fixture();
+        DB::table('source_authorizations')->where('id', $fixture['authorization'])->update([
+            'permitted_methods' => json_encode([]),
+        ]);
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'g01-incomplete-authorization');
+
+        $this->expectException(ValidationException::class);
+        $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Incomplete authorization context must fail closed.', 'policy-v1');
+    }
+
+    public function test_adjudication_acceptance_rejects_unbounded_source_authorization(): void
+    {
+        $fixture = $this->fixture();
+        DB::table('source_authorizations')->where('id', $fixture['authorization'])->update([
+            'valid_to' => null,
+        ]);
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer', ['open_adjudication']), $fixture['version'], 'g01-unbounded-authorization');
+
+        $this->expectException(ValidationException::class);
+        $service->decideAdjudication($this->actor('adjudicator', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Unbounded authorization must fail closed.', 'policy-v1');
+    }
+
     private function fixture(string $entityType = 'institution'): array
     {
         $now = now();
@@ -518,8 +607,12 @@ class PersistedGovernanceWorkflowTest extends TestCase
         DB::table('directory_entities')->insert(['id' => $entity, 'entity_type' => $entityType, 'label' => 'Synthetic Academy', 'created_at' => $now, 'updated_at' => $now]);
         DB::table('source_authorizations')->insert([
             'id' => $authorization, 'source_family_id' => 'synthetic-only', 'status' => 'approved_for_defined_purpose_and_method',
-            'permitted_purposes' => json_encode(['directory_publication']), 'permitted_methods' => json_encode(['approved_projection']),
-            'territories' => json_encode(['synthetic']), 'permitted_scopes' => json_encode(['publication' => true]),
+            'permitted_purposes' => json_encode(['synthetic_test_only', 'directory_publication']),
+            'permitted_methods' => json_encode(['fixture_reference', 'approved_projection']),
+            'territories' => json_encode(['synthetic']),
+            'permitted_scopes' => json_encode(['processing' => true, 'publication' => true]),
+            'valid_from' => $now->copy()->subDay(),
+            'valid_to' => $now->copy()->addDay(),
             'created_at' => $now, 'updated_at' => $now,
         ]);
         DB::table('evidence_references')->insert([
