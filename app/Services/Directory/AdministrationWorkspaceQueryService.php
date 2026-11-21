@@ -132,6 +132,7 @@ final class AdministrationWorkspaceQueryService
                 'versions.valid_from',
                 'versions.valid_to',
                 'versions.disposition',
+                'versions.supersedes_version_id',
             ]);
 
         if ($case === null || ! in_array($case->status, ['submitted', 'in_review'], true)
@@ -176,6 +177,39 @@ final class AdministrationWorkspaceQueryService
             ])
             ->all();
 
+        $correctionHistory = [];
+        $previousVersionId = $case->supersedes_version_id;
+        $visitedVersions = [];
+        while ($previousVersionId !== null && count($correctionHistory) < 10
+            && ! in_array((string) $previousVersionId, $visitedVersions, true)) {
+            $visitedVersions[] = (string) $previousVersionId;
+            $previous = DB::table('claim_versions as versions')
+                ->leftJoin('editorial_review_cases as prior_cases', 'prior_cases.claim_version_id', '=', 'versions.id')
+                ->where('versions.id', $previousVersionId)
+                ->orderByDesc('prior_cases.created_at')
+                ->first([
+                    'versions.id',
+                    'versions.version_number',
+                    'versions.disposition',
+                    'versions.supersedes_version_id',
+                    'prior_cases.id as case_id',
+                    'prior_cases.status as case_status',
+                    'prior_cases.created_at as case_created_at',
+                ]);
+            if ($previous === null) {
+                break;
+            }
+            $correctionHistory[] = [
+                'claim_version_id' => (string) $previous->id,
+                'version_number' => (int) $previous->version_number,
+                'disposition' => (string) $previous->disposition,
+                'case_id' => $previous->case_id === null ? null : (string) $previous->case_id,
+                'case_status' => $previous->case_status === null ? null : (string) $previous->case_status,
+                'case_created_at' => $previous->case_created_at === null ? null : (string) $previous->case_created_at,
+            ];
+            $previousVersionId = $previous->supersedes_version_id;
+        }
+
         $history = DB::table('directory_status_history')
             ->where('editorial_review_case_id', $caseId)
             ->orderBy('occurred_at')
@@ -207,6 +241,7 @@ final class AdministrationWorkspaceQueryService
             'updated_at' => (string) $case->updated_at,
             'evidence' => $evidence,
             'history' => $history,
+            'correction_history' => $correctionHistory,
         ];
     }
 

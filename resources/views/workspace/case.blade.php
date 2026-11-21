@@ -72,13 +72,26 @@
                         <td>{{ $evidence['reference_kind'] }}</td>
                         <td>{{ $evidence['source_type'] }}</td>
                         <td>{{ $evidence['evidence_status'] }}</td>
-                        <td>{{ $evidence['authorization_status'] }}<br>{{ $evidence['authorization_revoked'] ? ($locale === 'ur' ? 'منسوخ' : 'Revoked') : ($locale === 'ur' ? 'منسوخ نہیں' : 'Not revoked') }}</td>
+                        <td>{{ $evidence['authorization_status'] }}<br>{{ $evidence['authorization_revoked'] ? ($locale === 'ur' ? 'منسوخ' : 'Revoked') : ($locale === 'ur' ? 'منسوخ نہیں' : 'Not revoked') }}<br><span class="muted">{{ $evidence['authorization_valid_from'] ?? '—' }} → {{ $evidence['authorization_valid_to'] ?? '—' }}</span></td>
                         <td>{{ $evidence['content_included'] ? ($locale === 'ur' ? 'ہاں' : 'Yes') : ($locale === 'ur' ? 'نہیں' : 'No') }}</td>
                         <td>{{ $evidence['observed_at'] ?? '—' }}<br>{{ $evidence['recorded_at'] }}</td>
                     </tr>
                 @endforeach
                 </tbody>
             </table>
+        @endif
+    </section>
+
+    <section aria-labelledby="correction-history-heading">
+        <h2 id="correction-history-heading">{{ $locale === 'ur' ? 'درستگی کی سابقہ تاریخ' : 'Correction history' }}</h2>
+        @if ($case['correction_history'] === [])
+            <p>{{ $locale === 'ur' ? 'اس ورژن سے پہلے کوئی سابقہ ورژن منسلک نہیں۔' : 'This is the first recorded version in this correction chain.' }}</p>
+        @else
+            <ol>
+            @foreach ($case['correction_history'] as $version)
+                <li>{{ $locale === 'ur' ? 'ورژن' : 'Version' }} {{ $version['version_number'] }} — {{ $version['disposition'] }}; {{ $version['case_status'] ?? ($locale === 'ur' ? 'ادارتی کیس دستیاب نہیں' : 'No linked editorial case') }}; {{ $version['case_created_at'] ?? '—' }}</li>
+            @endforeach
+            </ol>
         @endif
     </section>
 

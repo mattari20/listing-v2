@@ -263,6 +263,62 @@ final class AdministrationWorkspaceTest extends TestCase
             ->assertNotFound();
     }
 
+
+    public function test_case_detail_displays_immutable_correction_version_history(): void
+    {
+        $institution = $this->institution();
+        $reviewer = $this->user('correction-reviewer@example.test');
+        $submitter = $this->user('correction-submitter@example.test');
+        $this->assign($reviewer, 'data_reviewer', $institution);
+        $original = $this->case($institution, $submitter);
+        $now = now();
+        DB::table('editorial_review_cases')->where('id', $original['id'])->update(['status' => 'superseded']);
+
+        $claimId = (string) DB::table('claim_versions')
+            ->where('id', $original['claim_version_id'])
+            ->value('claim_id');
+        $successorId = (string) str()->uuid();
+        DB::table('claim_versions')->insert([
+            'id' => $successorId,
+            'claim_id' => $claimId,
+            'version_number' => 2,
+            'value' => json_encode('Synthetic corrected workspace value', JSON_THROW_ON_ERROR),
+            'valid_from' => null,
+            'valid_to' => null,
+            'recorded_at' => $now,
+            'disposition' => 'proposed',
+            'supersedes_version_id' => $original['claim_version_id'],
+            'correction_reason' => 'synthetic_value_correction',
+            'field_definition_version_id' => null,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        $successorCaseId = (string) str()->uuid();
+        DB::table('editorial_review_cases')->insert([
+            'id' => $successorCaseId,
+            'entity_id' => $institution,
+            'claim_version_id' => $successorId,
+            'status' => 'submitted',
+            'submitted_by_actor_id' => 'user:'.$submitter->getKey(),
+            'reviewer_actor_id' => null,
+            'adjudication_case_id' => null,
+            'adjudication_decision_id' => null,
+            'publication_decision_id' => null,
+            'idempotency_key' => 'workspace-successor-'.str()->uuid(),
+            'fingerprint' => hash('sha256', $successorCaseId),
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+
+        $this->actingAs($reviewer)
+            ->get('/institutions/'.$institution.'/editorial-cases/'.$successorCaseId)
+            ->assertOk()
+            ->assertSee('Correction history')
+            ->assertSee('Version 1')
+            ->assertSee('superseded')
+            ->assertSee('Synthetic corrected workspace value');
+    }
+
     private function institution(): string
     {
         $id = (string) str()->uuid();
