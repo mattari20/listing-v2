@@ -874,3 +874,16 @@ C05 closes only the repository reconciliation agenda. M3-11-06 remains BLOCKED /
 - M3-11 gates remain: 01 scope closed; 02 independent legal/privacy/safeguarding review blocked; 03 internal repository review closed but independent security/accessibility blocked; 04 0/9 written human role acceptances; 05 0/18 isolation evidence; 06 0/14 recovery evidence and RPO/RTO unset; 07 candidate not started; 08 go/no-go not decided; 09 execution not authorized; 10 monitoring not started.
 - M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED. No candidate, pilot, deployment, production execution or public launch is authorized.
 - C06 is repository-only. Existing no-Hostinger/no-hosted/no-production/V1, synthetic-only, no-real/source/personal-data, no-external-AI/API, no-spend and no-scope-expansion restrictions remain binding.
+
+
+---
+
+## Remaining M3 roadmap — Step 01: Independent Review Readiness — 2026-11-21
+
+**Repository preparation: COMPLETE. Independent reviews: NOT COMMISSIONED / NOT PERFORMED. Gate 02 and independent Gate 03 assurance remain BLOCKED / NOT ACCEPTED.**
+
+- Step 01 reconciles the existing M3-11-02 legal/privacy/safeguarding packs (including LPS-20/LPS-29), the C01 reviewer handoff, the C02 security/accessibility pack, the M3-11-03 reviewer pack and the M3-12 A08/RCV-B05 manual accessibility evidence.
+- Readiness report: [M3 Remaining Roadmap Step 01 — Independent Review Readiness](M3_REMAINING_ROADMAP_STEP01_INDEPENDENT_REVIEW_READINESS_2026-11-21.md).
+- All documentary handoff packs are ready for Product Owner-led reviewer selection. No reviewer identity/competence/independence, engagement, independent report or Product Owner report disposition is evidenced.
+- The next required input is a Product Owner decision on qualified reviewer(s), exact workstream scopes, confidentiality/evidence channel and whether any fee/cost ceiling is approved. No contact, appointment, procurement, external engagement or spend is authorized by this repository-only step.
+- M3-11-02 / Gate 02 remains BLOCKED / NOT ACCEPTED; M3-11-03 independent security/accessibility assurance remains BLOCKED / NOT ACCEPTED. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
