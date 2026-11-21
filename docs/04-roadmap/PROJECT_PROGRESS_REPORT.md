@@ -1,3 +1,15 @@
+## ADM-A — Administration information architecture and authorization decision — 2026-11-21
+
+ADM-A records the role-aware administration architecture in `ADM_A_ADMINISTRATION_AUTHORIZATION_ARCHITECTURE_2026-11-21.md`.
+
+**Decision:** compose existing scoped authorization and domain services; do not create a generic super-admin content editor. Existing global administrator authority remains limited to role management and security audit. Provider/institution representatives submit within exact assigned scope; data reviewers review independently; publishers retain separate publication authority.
+
+**Important gap:** EditorialReviewService exposes service operations for adjudication, approval, suppression and restoration, but current role-action mapping and web routes do not yet provide complete, explicit authorization for those operations. ADM-B must not expose these actions until route-level and role/action mapping contracts are implemented and tested. Field-definition governance remains separately gated pending its own capability mapping.
+
+**Disposition:** ADM-A is complete as an architecture decision only. No application code or role permissions changed. Next agenda: ADM-B role-aware workspace shell and read-only queues. M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
+---
+
 ## Product-first development baseline and administration architecture gap audit — 2026-11-21
 
 ### Phase A — current baseline reconciliation: COMPLETE
