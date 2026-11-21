@@ -42,3 +42,9 @@ This decision:
 This closes the Product Owner's Q2 intended-audience choice only. It is not an independent safeguarding determination, legal opinion, PIA/DPIA, child-safety certification or implementation acceptance.
 
 M3-11-02 / Gate 02 remains **BLOCKED** pending qualified independent legal/privacy and child-safeguarding assessment and subsequent Product Owner disposition. Overall M3 remains **OPEN / PARTIALLY COMPLETE — NOT CLOSED**.
+
+## 6. Status — SUPERSEDED on 2026-11-21
+
+The Product Owner subsequently reversed this Option B decision and selected adult-only Option A (18+). See [Superseding Product Owner Decision Q2 — Adult-Only Audience and Access](M3-11-02_OWNER_DECISION_Q2_SUPERSEDING_ADULT_ONLY_AUDIENCE_2026-11-21.md).
+
+**This Option B decision is historical only and is not the current audience policy.** Do not use it as authorization or product direction. The current policy is adult-only; minors are not permitted to visit, access, use or create accounts on Listing V2. The current M3 no-real-child/student/guardian-data and synthetic-only restrictions remain in force.

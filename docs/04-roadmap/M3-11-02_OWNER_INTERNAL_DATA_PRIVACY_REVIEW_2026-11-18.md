@@ -395,3 +395,14 @@ This supersedes any earlier statement in the internal review that children/minor
 The eventual audience direction and current acceptance activity must remain distinct. Before any minor-facing access or participation is proposed, qualified independent legal/privacy and child-safeguarding assessment must determine applicable requirements, risks and necessary controls, followed by a separate explicit Product Owner decision and authorization. No public access, pilot, release, environment provisioning or real-data processing is authorized by Q2.
 
 **Gate effect:** Q2 closes the Product Owner's intended-audience choice only. M3-11-02 / Gate 02 remains BLOCKED pending qualified independent assessment and Product Owner disposition. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
+
+## 12. Superseding Product Owner Q2 audience decision — 2026-11-21
+
+The Product Owner reversed the earlier Q2 Option B choice and selected **Option A: adult-only intended audience and access (18+)**. The superseding decision is recorded in [M3-11-02 Owner Decision Q2 — Adult-Only Audience and Access](M3-11-02_OWNER_DECISION_Q2_SUPERSEDING_ADULT_ONLY_AUDIENCE_2026-11-21.md). The prior Option B record is historical and superseded.
+
+Minors are not an intended audience and are not permitted to visit, access, use or create accounts on Listing V2. This policy does not establish that the current application technically prevents a minor from opening a URL or making an unauthenticated request. No age-assurance mechanism is implemented or proven by this owner decision.
+
+Before any user-facing access is proposed, qualified independent legal/privacy and child-safeguarding review must assess a lawful, proportionate and privacy-preserving enforcement approach, including necessity and minimization of any age-assurance data. Any such mechanism and processing require separate Product Owner approval and scope authorization. Until then, no public/user access, pilot or launch is authorized.
+
+The earlier accepted data boundary remains unchanged: no real student, child or guardian personal data in current M3; synthetic/fictional fixtures only. No real account creation or participant activity is authorized. M3-11-02 / Gate 02 remains BLOCKED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.

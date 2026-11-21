@@ -127,3 +127,14 @@ The Product Owner selected **Option B: general student audience; minors may be a
 This supersedes the earlier statement that children/minors are not an intended audience. It does not change current-M3 restrictions: no real student/child/guardian personal data, synthetic fixtures only, no child/student accounts or profiles, no child-directed functionality activation, and no participant recruitment, contact, interviews, surveys or testing. No public access, pilot, release or hosted environment is authorized.
 
 A qualified independent legal/privacy and child-safeguarding reviewer must assess the implications of the eventual general student audience, including minors, before any minor-facing access or participation is proposed. M3-11-02 / Gate 02 remains BLOCKED pending that assessment and Product Owner disposition.
+
+
+## 10. Superseding Product Owner Q2 audience decision — 2026-11-21
+
+The Product Owner reversed the earlier Q2 Option B decision and selected **Option A: adult-only intended audience and access (18+)**. The superseding decision is recorded in [M3-11-02 Owner Decision Q2 — Adult-Only Audience and Access](M3-11-02_OWNER_DECISION_Q2_SUPERSEDING_ADULT_ONLY_AUDIENCE_2026-11-21.md). The earlier Option B record is historical and superseded.
+
+Current policy: minors are not an intended audience and are not permitted to visit, access, use or create accounts on Listing V2. This is a Product Owner policy decision, not proof that the current code technically blocks a minor from opening a URL or making an unauthenticated request. No age-assurance or age-verification mechanism is implemented or proven by this decision.
+
+Before any user-facing access is proposed, qualified independent legal/privacy and child-safeguarding review must assess lawful, proportionate and privacy-preserving enforcement of the 18+ restriction. Any age-assurance mechanism and associated personal-data processing require separate Product Owner approval, scope authorization and implementation evidence. Until then, no public/user access, pilot or launch is authorized.
+
+The current M3 boundary remains synthetic-only: no real student/child/guardian personal data, no real account creation or participant activity, no minor accounts or participation, no public access, no environment provisioning or release. Deeni Madaris remains default-OFF with zero public exposure. M3-11-02 / Gate 02 remains BLOCKED pending qualified independent review and Product Owner disposition.

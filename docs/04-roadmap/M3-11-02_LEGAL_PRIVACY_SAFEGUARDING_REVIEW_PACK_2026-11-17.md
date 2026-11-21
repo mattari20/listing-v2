@@ -177,3 +177,14 @@ The current M3 activity remains restricted: synthetic/fictional fixtures only; n
 The qualified independent reviewer must assess applicable age definitions and jurisdictional duties; foreseeable use and child-access risk; age-appropriate design; consent/guardian involvement where applicable; contact/grooming, harassment and location-association risks; reporting/escalation; operational roles/training; and objective controls required before any minor-facing access or participation. The reviewer must state evidence, assumptions, non-waivable blockers and an explicit outcome. No assumption is made that parental consent alone resolves all requirements.
 
 **Gate effect:** Q2 closes the owner audience choice only. It is not an independent safeguarding determination or authorization to serve minors. M3-11-02 / Gate 02 remains BLOCKED pending qualified independent legal/privacy and child-safeguarding assessment and Product Owner disposition.
+
+
+## 12. Superseding Product Owner Q2 audience decision — 2026-11-21
+
+The Product Owner reversed the earlier Q2 Option B choice and selected **Option A: adult-only intended audience and access (18+)**. The superseding decision is recorded in [M3-11-02 Owner Decision Q2 — Adult-Only Audience and Access](M3-11-02_OWNER_DECISION_Q2_SUPERSEDING_ADULT_ONLY_AUDIENCE_2026-11-21.md). The earlier Option B decision is historical and superseded.
+
+The current intended audience is adults aged 18 and over only. Minors are not permitted to visit, access, use or create accounts on Listing V2. The reviewer must assess the legal and safeguarding implications of this adult-only policy and the proportionate controls needed to enforce it. In particular, distinguish a policy prohibition from technical prevention: this decision does not prove that the current code blocks minors from opening a URL or making an unauthenticated request.
+
+Before any user-facing access is proposed, assess a lawful, proportionate and privacy-preserving age-assurance approach, including necessity, data minimization, false declarations, circumvention, evidence retention and risk of collecting excessive identity information. Any age-assurance implementation or associated personal-data processing requires separate Product Owner approval and scope authorization. No public/user access, pilot or launch is authorized pending required review and evidence.
+
+All current M3 restrictions remain: synthetic/fictional fixtures only; no real student/child/guardian data; no real account creation or participant activity; no hosted environment, V1/Hostinger/production access, external APIs/AI, new spend, deployment or release. Deeni Madaris remains default-OFF with zero public exposure. M3-11-02 / Gate 02 remains BLOCKED pending qualified independent assessment and Product Owner disposition.
