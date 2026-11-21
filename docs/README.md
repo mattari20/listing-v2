@@ -1,3 +1,11 @@
+## Current administration and integration agenda — 2026-11-21
+
+- [ADM-F Programme, Qualification and Admission Offer Successor Materialization Audit](04-roadmap/ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md) — source audit, implementation contract and code/test progress.
+- [ADM-G Administration Queue and Operational Handoff Integration](04-roadmap/ADM_G_ADMINISTRATION_QUEUE_AND_OPERATIONAL_HANDOFF_2026-11-21.md) — parent-scoped child queues, assigned review work and next-action guidance.
+- [M3 Product-Wide Integration Verification](04-roadmap/M3_PRODUCT_WIDE_INTEGRATION_VERIFICATION_2026-11-21.md) — institution, campus, programme, offer and offer-fact cross-module verification map.
+
+---
+
 ## ADM administration and institute information management — 2026-11-21
 
 - [ADM-F Programme, Qualification and Admission Offer Successor Materialization Audit](04-roadmap/ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md) — current-main source audit and exact-predecessor successor-materialization contract for programme, qualification-link and admission-offer projections.
