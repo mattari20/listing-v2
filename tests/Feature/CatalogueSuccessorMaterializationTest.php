@@ -279,7 +279,7 @@ final class CatalogueSuccessorMaterializationTest extends TestCase
             ->where('decisions.outcome', 'accepted')
             ->value('decisions.id');
         if (! is_string($decisionId) || $decisionId === '') {
-            throw new \\RuntimeException('An accepted synthetic adjudication decision is required before publication.');
+            throw new \RuntimeException('An accepted synthetic adjudication decision is required before publication.');
         }
 
         $workflow = app(PersistedGovernanceWorkflowService::class);
