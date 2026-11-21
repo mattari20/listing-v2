@@ -1,6 +1,6 @@
 ## Latest merged work — 21 November 2026 (ADM-F, ADM-G and product integration)
 
-- Latest verified main commit: `546ae42b7680322e8fc2e9a84efce85abc7bb0b0` — PR #439 final acceptance reconciliation merged after exact-head validation.
+- M3-FINAL acceptance reconciliation: PR #439 merged as `546ae42b7680322e8fc2e9a84efce85abc7bb0b0` after exact-head validation.
 - ADM-F now contains exact-predecessor successor replacement for programme, qualification-link and admission-offer catalogue projections, plus synthetic regression tests for stable identity, missing predecessor rejection and preservation of offer-fact identity.
 - ADM-G now includes parent-scoped campus/delivery-site representative and reviewer queues, assigned-only in-review visibility and role-specific next-action guidance, with synthetic regression coverage.
 - Product-wide integration source review is recorded in [M3 Product-Wide Integration Verification](docs/04-roadmap/M3_PRODUCT_WIDE_INTEGRATION_VERIFICATION_2026-11-21.md).
