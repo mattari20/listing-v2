@@ -74,7 +74,7 @@ ADM-E is not complete until all of the following are evidenced on exact tested h
 - [ ] Retry/idempotency and invalid transition tests prove no duplicate successor or inconsistent case state.
 - [x] Proposed/held/returned/disputed/superseded versions cannot mutate accepted projections — P02, public-directory and offer-fact visibility protections merged in PR #429.
 - [ ] Accepted projection mutation remains restricted to the separately authorized acceptance/materialization path.
-- [ ] Reviewer-safe evidence and correction history is tested for privacy minimization and incomplete metadata.
+- [x] Reviewer-safe evidence and correction history is tested for privacy minimization and incomplete metadata — explicit authorization-window states and safe correction reason codes merged in PR #431.
 - [ ] FND-01 Foundation CI and Project documentation validation pass on exact PR heads.
 - [ ] Closeout documentation records remaining limits and does not claim human operational readiness.
 
@@ -100,3 +100,10 @@ G02 is closed for the synthetic repository workflow. PR [#427](https://github.co
 ## 10. ADM-E-G03 implementation closeout — 2026-11-21
 
 G03 is closed for accepted-projection non-mutation and publication/materialization visibility behavior in the tested synthetic scopes. PR [#429](https://github.com/mattari20/listing-v2/pull/429) merged as `a85a183815d18bf01b96b31e904c4ae857211199` after exact-head PHP 8.5 Foundation CI and Project documentation validation passed. Claim correction no longer supersedes active P02 projection rows. Private campus information, public directory and programme-offer facts retain the prior accepted/published value while a successor is merely proposed or accepted-but-unpublished. The successor replaces it only after separate governed materialization/publication. Synthetic-only suite: 23 passed, 1,857 assertions, 319 warnings. Programme/qualification/offer successor materialization remains a separate limitation. See [ADM-E-G03 Closeout](ADM_E_G03_ACCEPTED_CATALOGUE_PROJECTION_PROTECTION_CLOSEOUT_2026-11-21.md). G04 remains open.
+
+
+## 11. ADM-E-G04 implementation closeout — 2026-11-21
+
+G04 is closed for reviewer-safe evidence-state and correction-history behavior in the synthetic repository scope. PR [#431](https://github.com/mattari20/listing-v2/pull/431) merged as `bf972ff1a67122f89577a93fbd2281e07f1574b0` after exact-head PHP 8.5 Foundation CI and Project documentation validation passed. Reviewer evidence now displays explicit current/expired/not-yet-valid/revoked/not-approved/unbounded/invalid-window classifications. Correction history exposes safe reason codes but not free-text rationale or raw metadata. The synthetic-only suite passed 23 tests, 1,890 assertions, with 320 warnings. See [ADM-E-G04 Closeout](ADM_E_G04_REVIEWER_SAFE_EVIDENCE_CORRECTION_HISTORY_CLOSEOUT_2026-11-21.md).
+
+**ADM-E G01–G04 are complete for the bounded repository/synthetic administration integration agenda.** This is not human operational acceptance or M3 closure. The remaining programme/qualification/offer successor-materialization limitation and outstanding CI warnings remain documented. M3-11 remains BLOCKED / NOT ACCEPTED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
