@@ -1,19 +1,21 @@
-## Latest verified update — 21 November 2026 (ADM-B workspace implementation)
+## Latest verified update — 21 November 2026 (ADM-C institution and campus workflow)
 
-- **Latest verified main at ADM-B closeout:** `088a434f445c8b2aeb654e19654fddbe66d2a325` — PR [#418](https://github.com/mattari20/listing-v2/pull/418), scoped read-only administration workspace.
-- PR #418 passed exact-head FND-01 Foundation CI and Project documentation validation.
-- **Phase A, administration architecture gap audit and ADM-A are complete. ADM-B implementation is complete** for the first read-only university representative/reviewer workspace.
-- The private `/workspace` route uses active, verified accounts, active/non-revoked/unexpired institution-scoped role assignments and server-side `ScopedAuthorization`. Representatives see only their own submissions in assigned university scopes. Reviewers see only submitted cases in their assigned university scopes, excluding their own submissions and cases where they registered linked evidence.
-- The workspace is bilingual (English/Urdu), supports RTL, uses private no-store caching and `noindex, nofollow`, and exposes no state-changing, publication, adjudication, role-management, direct catalogue-editing or UGC actions.
-- Read-only persistence queries are isolated in `AdministrationWorkspaceQueryService`; controller orchestration does not write governance persistence.
-- **Current scope limitation:** this first workspace supports university institution representatives and data reviewers only. Provider-representative self-service and other institute categories remain future work; no complete general admin console or staffed operations are claimed.
-- Exact-head Foundation CI: passed. Project documentation validation: passed. Synthetic test suite: 23 passed, 1,717 assertions, 299 warnings; therefore not warning-free.
+- **Latest verified main at ADM-C implementation closeout:** `68c09dc938b2b6238b8a2a90888f836bfe66ba58` — PR [#420](https://github.com/mattari20/listing-v2/pull/420), governed institution and campus information workflow.
+- PR #420 passed exact-head FND-01 Foundation CI and Project documentation validation.
+- **ADM-A architecture and ADM-B read-only workspace remain complete. ADM-C is complete** for the bounded university institution, campus and delivery-site proposal/correction workflow.
+- Authorised university institution representatives can read the current accepted campus/delivery-site projections and submit new campus or delivery-site information through exact active field-definition versions, evidence references, validity dates and idempotency keys.
+- The parent institution scope is derived from the authorised route; client-supplied parent IDs are prohibited. Campus/delivery-site field definitions must explicitly permit the entity type, provider category and scope. Parent institution fields are never inherited.
+- Returned campus/delivery-site claims can be corrected as immutable successor versions and returned to editorial review. Accepted projection updates require the successor to supersede the exact currently materialized claim version.
+- No submission automatically publishes. Human editorial review, adjudication and separate publication controls remain in force.
+- Exact-head Foundation CI: passed. Project documentation validation: passed. Synthetic suite: 23 passed, 1,775 assertions, 305 warnings; therefore not warning-free.
+- **Limitations:** no governed campus/delivery-site field definitions are activated by this agenda; they must already exist and be explicitly approved in the registry. The endpoints are JSON workflows, not a complete browser editing console. Other provider categories and institute types remain future work.
 - **M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.** M3-11 independent review, hosted isolation, recovery, operational readiness and release gates remain blocked.
 - No production/V1/Hostinger access, live database activity, real/source/personal data, external AI/API, deployment, paid service or new spend is authorized. Synthetic-only and all existing safeguards remain in force.
 
-See the [M3 Project Progress Report](docs/04-roadmap/PROJECT_PROGRESS_REPORT.md), [Administration Architecture Gap Audit](docs/04-roadmap/PRODUCT_ADMINISTRATION_ARCHITECTURE_GAP_AUDIT_2026-11-21.md), [ADM-A Authorization Architecture](docs/04-roadmap/ADM_A_ADMINISTRATION_AUTHORIZATION_ARCHITECTURE_2026-11-21.md), and [ADM-B Workspace Implementation Closeout](docs/04-roadmap/ADM_B_WORKSPACE_IMPLEMENTATION_CLOSEOUT_2026-11-21.md).
+See the [M3 Project Progress Report](docs/04-roadmap/PROJECT_PROGRESS_REPORT.md), [ADM-C Implementation Closeout](docs/04-roadmap/ADM_C_INSTITUTION_CAMPUS_WORKFLOW_CLOSEOUT_2026-11-21.md), and [ADM-B Workspace Closeout](docs/04-roadmap/ADM_B_WORKSPACE_IMPLEMENTATION_CLOSEOUT_2026-11-21.md).
 
 ---
+
 
 ## Latest verified update — 18 November 2026 (M3-11-05C subfolder database and private preview)
 
