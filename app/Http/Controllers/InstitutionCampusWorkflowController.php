@@ -22,7 +22,8 @@ final class InstitutionCampusWorkflowController extends Controller
         private readonly ProviderInstitutionRelationshipService $entities,
         private readonly FieldAwareClaimProposalService $proposals,
         private readonly InstitutionCampusInformationQueryService $informationQuery,
-    ) {}
+    ) {
+    }
 
     public function information(Request $request, string $institution): JsonResponse
     {

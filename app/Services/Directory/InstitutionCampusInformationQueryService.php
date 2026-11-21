@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services\Directory;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
 final class InstitutionCampusInformationQueryService
@@ -11,7 +12,7 @@ final class InstitutionCampusInformationQueryService
     /**
      * Return only accepted, current campus and delivery-site projections for one institution.
      *
-     * @return array{institution: array{id: string, label: string}, campuses: \Illuminate\Support\Collection, delivery_sites: \Illuminate\Support\Collection}
+     * @return array{institution: array{id: string, label: string}, campuses: Collection, delivery_sites: \Illuminate\Support\Collection}
      */
     public function forInstitution(string $institutionId): array
     {
