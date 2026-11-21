@@ -1,3 +1,15 @@
+## M3-C02 — Independent security and accessibility assessment pack — 2026-11-21
+
+**Repository-side assessment preparation: COMPLETE. Independent assessments: NOT PERFORMED / BLOCKED.**
+
+- C02 consolidates the existing LPS-18 hosted-isolation/independent-assurance framework, M3-12 A08 accessibility evidence reconciliation and RCV-B05 manual checklist into a two-track security/accessibility assessment pack.
+- Assessment pack: [M3-C02 Independent Security and Accessibility Assessment Pack](M3_C02_INDEPENDENT_SECURITY_ACCESSIBILITY_ASSESSMENT_PACK_2026-11-21.md).
+- Security and accessibility assessors are not appointed; no assessment, penetration test, manual browser/assistive-technology session or WCAG conformance conclusion is claimed. A08's nine manual areas remain NOT PERFORMED.
+- Any external assessor engagement, fee, hosted/dynamic test or other external activity requires separate exact-scope Product Owner authorization. Existing restrictions remain unchanged.
+- M3-11-03 remains BLOCKED for independent future security/accessibility assurance; M3-11 remains BLOCKED / NOT ACCEPTED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
+---
+
 ## M3-FINAL — consolidated acceptance and closure reconciliation — 2026-11-21
 
 **Status: COMPLETE for repository-only reconciliation. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.**
