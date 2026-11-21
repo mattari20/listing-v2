@@ -1,18 +1,18 @@
-## M3 administration completion and integration checkpoint — 2026-11-21
+## M3 administration completion and integration checkpoint — 2026-11-21 (merged PR #437)
 
 - ADM-A through ADM-E: complete within bounded university/synthetic repository scope.
 - ADM-F: COMPLETE within synthetic repository scope — exact-predecessor programme, qualification-link and admission-offer successor replacement; publication-before-materialization guard; stable offer/fact identity.
 - ADM-G: COMPLETE within synthetic repository scope — exact-parent child queues, assigned-only in-review work and role-specific next-action guidance.
 - Product-wide integration: COMPLETE for the bounded synthetic repository test scope — public institution/location/programme navigation reconciled with separately governed offer facts and stable catalogue successor identities.
-- Exact-head FND-01 and Project documentation validation passed on `f9b76270fb546f52f13d7008134adea3ee13141d`; 349 tests and 1,947 assertions passed. PHP formatting, Composer audit, route validation and repository artifact hygiene passed.
+- PR #437 merged as `fec6a4fa94ea902856baa76275c2a4369675f6d3`. Exact tested head `fe385b1faea1aabe380a6666e745e6004319a40b` passed FND-01 and Project documentation validation; 349 tests and 1,947 assertions passed. PHP formatting, Composer audit, route validation and repository artifact hygiene passed.
 - M3-10 pilot readiness remains NOT ACCEPTED. M3-11 remains BLOCKED / NOT ACCEPTED; independent review, human operations, hosted isolation, recovery and release gates remain open.
 - Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED. No production/V1/Hostinger/hosted access, deployment, pilot, public launch, new spend or external AI/API authority is created by this agenda.
 
 ---
 
-## Current M3 status and next product agenda — 2026-11-21
+## Historical checkpoint before ADM-F/ADM-G merge — 2026-11-21
 
-- Latest verified main baseline: `be95a411862e795072c107708c2867d904ef5bb9` (PR #434 profile-navigation integration).
+- Pre-ADM-F baseline: `be95a411862e795072c107708c2867d904ef5bb9` (PR #434 profile-navigation integration).
 - ADM-A–ADM-D: complete within bounded university/synthetic repository scope.
 - ADM-E G01–G04: complete within bounded synthetic repository scope (PRs #425, #427, #429 and #431; closeout records merged).
 - ADM-F: source audit and acceptance contract complete; exact-predecessor successor materialization for programme catalogue entries, qualification links and admission-offer catalogue records remains to implement and test.
