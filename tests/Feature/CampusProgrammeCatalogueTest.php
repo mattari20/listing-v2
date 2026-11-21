@@ -201,6 +201,136 @@ class CampusProgrammeCatalogueTest extends TestCase
         }
     }
 
+    public function test_accepted_campus_successor_updates_only_the_exact_current_projection(): void
+    {
+        $institution = $this->entity('institution');
+        $campus = $this->entity('campus', 'Synthetic Old Campus');
+        $priorVersion = $this->claim('campus', $campus, [
+            'institution_entity_id' => $institution,
+            'label' => 'Synthetic Old Campus',
+            'location_label' => 'Synthetic Old District',
+        ]);
+        app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord(
+            $this->actor('catalogue-manager'),
+            $priorVersion,
+            'campus-initial-materialization'
+        );
+
+        $claimId = (string) DB::table('claim_versions')->where('id', $priorVersion)->value('claim_id');
+        $nextVersion = (string) str()->uuid();
+        $evidenceId = (string) str()->uuid();
+        $authorizationId = (string) str()->uuid();
+        $caseId = (string) str()->uuid();
+        $now = now();
+
+        DB::table('source_authorizations')->insert([
+            'id' => $authorizationId,
+            'source_family_id' => 'synthetic-p02-only',
+            'status' => 'approved_for_defined_purpose_and_method',
+            'permitted_purposes' => json_encode(['synthetic_test_only']),
+            'permitted_methods' => json_encode(['fixture_reference']),
+            'territories' => json_encode(['synthetic']),
+            'permitted_scopes' => json_encode(['processing' => true]),
+            'valid_from' => now()->subDay(),
+            'valid_to' => now()->addDay(),
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        DB::table('evidence_references')->insert([
+            'id' => $evidenceId,
+            'source_authorization_id' => $authorizationId,
+            'reference_kind' => 'synthetic_fixture',
+            'source_type' => 'synthetic',
+            'integrity_digest' => 'synthetic-campus-successor',
+            'status' => 'eligible_for_review',
+            'content_included' => false,
+            'recorded_at' => $now,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        DB::table('audit_events')->insert([
+            'id' => (string) str()->uuid(),
+            'actor_class' => 'human',
+            'action' => 'evidence_reference_registered',
+            'target_type' => 'evidence_reference',
+            'target_id' => $evidenceId,
+            'reason_code' => 'synthetic_fixture',
+            'occurred_at' => $now,
+            'metadata' => json_encode(['actor_id' => 'synthetic-successor-evidence-author']),
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        DB::table('claim_evidence_links')->insert([
+            'id' => (string) str()->uuid(),
+            'claim_version_id' => $nextVersion,
+            'evidence_reference_id' => $evidenceId,
+            'relationship_type' => 'supports',
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        DB::table('claim_versions')->insert([
+            'id' => $nextVersion,
+            'claim_id' => $claimId,
+            'version_number' => 2,
+            'value' => json_encode([
+                'institution_entity_id' => $institution,
+                'label' => 'Synthetic New Campus',
+                'location_label' => 'Synthetic New District',
+            ]),
+            'valid_from' => null,
+            'valid_to' => null,
+            'recorded_at' => $now,
+            'disposition' => 'accepted',
+            'supersedes_version_id' => $priorVersion,
+            'correction_reason' => 'synthetic_campus_correction',
+            'field_definition_version_id' => null,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        DB::table('adjudication_cases')->insert([
+            'id' => $caseId,
+            'claim_version_id' => $nextVersion,
+            'status' => 'decided',
+            'opened_by_actor_id' => 'synthetic-successor-case-opener',
+            'case_kind' => 'correction',
+            'idempotency_key' => 'campus-successor-case-'.str()->uuid(),
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        DB::table('adjudication_decisions')->insert([
+            'id' => (string) str()->uuid(),
+            'adjudication_case_id' => $caseId,
+            'outcome' => 'accepted',
+            'actor_id' => 'synthetic-adjudicator',
+            'actor_class' => 'human',
+            'rationale_code' => 'synthetic_acceptance',
+            'rationale' => 'Synthetic campus successor accepted.',
+            'policy_version' => 'synthetic-policy-v1',
+            'decided_at' => $now,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+
+        app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord(
+            $this->actor('catalogue-manager'),
+            $nextVersion,
+            'campus-successor-materialization'
+        );
+
+        $this->assertDatabaseHas('directory_campuses', [
+            'entity_id' => $campus,
+            'institution_entity_id' => $institution,
+            'location_label' => 'Synthetic New District',
+            'claim_version_id' => $nextVersion,
+            'status' => 'active',
+        ]);
+        $this->assertDatabaseHas('directory_entities', [
+            'id' => $campus,
+            'label' => 'Synthetic New Campus',
+        ]);
+        $this->assertDatabaseCount('directory_campuses', 1);
+    }
+
     private function materialize(string $predicate, string $subject, array $value, string $key): string
     {
         $version = $this->claim($predicate, $subject, $value);
