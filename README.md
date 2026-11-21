@@ -1,3 +1,15 @@
+## Latest verified update — 21 November 2026 (ADM-E complete; ADM-F prepared)
+
+- **Latest verified main:** `be95a411862e795072c107708c2867d904ef5bb9` — PR #434 connects institution, campus and delivery-site public profiles and programme-offer location links.
+- **ADM-A through ADM-E:** complete within their bounded repository/synthetic scopes. ADM-E G01–G04 closeouts are recorded in the M3 Project Progress Report and ADM-E audit checkpoint.
+- **ADM-E verification:** decision-time evidence authorization, atomic correction/successor handoff, accepted-projection protection and reviewer-safe evidence/correction history are complete for synthetic repository scope. Programme/qualification/offer successor materialization remains a documented limitation.
+- **Next agenda ADM-F:** exact-predecessor successor materialization for programme catalogue entries, qualification links and admission-offer catalogue records. Scope audit and acceptance contract are recorded in [ADM-F Programme Successor Materialization Audit](docs/04-roadmap/ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md); implementation remains pending.
+- **Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.** M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED. No production/V1/Hostinger access, deployment, pilot, release or new spend is authorized.
+
+See the [M3 Project Progress Report](docs/04-roadmap/PROJECT_PROGRESS_REPORT.md), [ADM-E G04 Closeout](docs/04-roadmap/ADM_E_G04_REVIEWER_SAFE_EVIDENCE_CORRECTION_HISTORY_CLOSEOUT_2026-11-21.md), and [ADM-F Audit](docs/04-roadmap/ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md).
+
+---
+
 ## Latest verified update — 21 November 2026 (ADM-D evidence and editorial operations workspace)
 
 - **Latest verified main after ADM-D implementation:** `4549f879532c53492a14fc09446bad0a6824778a` — PR [#422](https://github.com/mattari20/listing-v2/pull/422), evidence and editorial case inspection workspace.
