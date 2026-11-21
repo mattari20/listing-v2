@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\DB;
 final class AdministrationWorkspaceQueryService
 {
     /**
-     * @param array<int, string> $scopeIds
-     * @return array<int, string>
+     * @param  array<int, string>  $scopeIds
+     * @return  array<int, string>
      */
     public function eligibleUniversityInstitutionIds(array $scopeIds): array
     {
@@ -29,8 +29,8 @@ final class AdministrationWorkspaceQueryService
     }
 
     /**
-     * @param array<int, string> $institutionIds
-     * @return array<int, array<string, mixed>>
+     * @param  array<int, string>  $institutionIds
+     * @return  array<int, array<string, mixed>>
      */
     public function representativeSubmissions(array $institutionIds, string $actorId): array
     {
