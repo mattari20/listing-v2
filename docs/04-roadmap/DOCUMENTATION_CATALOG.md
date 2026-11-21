@@ -1,3 +1,11 @@
+## ADM-F / ADM-G / product-wide integration — 2026-11-21
+
+- [ADM-F Programme, Qualification and Admission Offer Successor Materialization Audit](ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md) — implementation scope and successor replacement tests.
+- [ADM-G Administration Queue and Operational Handoff Integration](ADM_G_ADMINISTRATION_QUEUE_AND_OPERATIONAL_HANDOFF_2026-11-21.md) — parent-scoped representative/reviewer queues and next-action integration.
+- [M3 Product-Wide Integration Verification](M3_PRODUCT_WIDE_INTEGRATION_VERIFICATION_2026-11-21.md) — cross-module source and test coverage review; exact-head CI pending.
+
+---
+
 ## ADM administration and institute information management — 2026-11-21
 
 - [ADM-F Programme, Qualification and Admission Offer Successor Materialization Audit](ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md) — focused current-main audit and bounded synthetic implementation contract; no code change in the audit.
