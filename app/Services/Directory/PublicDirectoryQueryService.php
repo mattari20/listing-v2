@@ -15,6 +15,7 @@ final class PublicDirectoryQueryService
         'provider' => 'Provider',
         'institution' => 'Institution',
         'campus' => 'Campus',
+        'delivery_site' => 'Delivery site',
         'programme' => 'Programme',
         'qualification' => 'Qualification',
     ];
@@ -523,8 +524,11 @@ final class PublicDirectoryQueryService
             ->get(['id', 'programme_entity_id', 'delivery_location_entity_id', 'admission_cycle', 'claim_version_id', 'valid_from', 'valid_to']);
 
         $campusesByInstitution = [];
+        $deliverySitesByInstitution = [];
         $locationsByEntity = [];
         $locationInstitutionByEntity = [];
+        $locationTypeByEntity = [];
+        $locationCatalogueByEntity = [];
         foreach ($campusRows as $row) {
             $claimId = (string) $row->claim_version_id;
             $entityId = (string) $row->entity_id;
@@ -543,7 +547,32 @@ final class PublicDirectoryQueryService
             }
             $locationsByEntity[$entityId] = $profiles[$entityId]['name'];
             $locationInstitutionByEntity[$entityId] = (string) $row->institution_entity_id;
-            $campusesByInstitution[$row->institution_entity_id][] = ['name' => $profiles[$entityId]['name']];
+            $locationTypeByEntity[$entityId] = 'delivery_site';
+            $parentProfile = $profiles[(string) $row->institution_entity_id] ?? null;
+            if ($parentProfile !== null && $parentProfile['type'] === 'institution') {
+                $locationCatalogueByEntity[$entityId] = [
+                    'institution_entity_id' => (string) $row->institution_entity_id,
+                    'institution_name' => $parentProfile['name'],
+                ];
+            }
+            $deliverySitesByInstitution[$row->institution_entity_id][] = [
+                'id' => $entityId,
+                'name' => $profiles[$entityId]['name'],
+                'location_label' => $row->location_label,
+            ];
+            $locationTypeByEntity[$entityId] = 'campus';
+            $parentProfile = $profiles[(string) $row->institution_entity_id] ?? null;
+            if ($parentProfile !== null && $parentProfile['type'] === 'institution') {
+                $locationCatalogueByEntity[$entityId] = [
+                    'institution_entity_id' => (string) $row->institution_entity_id,
+                    'institution_name' => $parentProfile['name'],
+                ];
+            }
+            $campusesByInstitution[$row->institution_entity_id][] = [
+                'id' => $entityId,
+                'name' => $profiles[$entityId]['name'],
+                'location_label' => $row->location_label,
+            ];
         }
 
         foreach ($siteRows as $row) {
@@ -624,12 +653,17 @@ final class PublicDirectoryQueryService
                 'id' => (string) $row->id,
                 'admission_cycle' => (string) $row->admission_cycle,
                 'location' => $locationsByEntity[$locationId],
+                'location_entity_id' => $locationId,
+                'location_type' => $locationTypeByEntity[$locationId] ?? null,
             ];
         }
 
         foreach ($items as $index => $item) {
             if ($item['type'] === 'programme' && isset($programmeIndexes[$item['id']])) {
                 $items[$index]['programme_catalogue'] = $programmeIndexes[$item['id']];
+            }
+            if (isset($locationCatalogueByEntity[$item['id']])) {
+                $items[$index]['location_catalogue'] = $locationCatalogueByEntity[$item['id']];
             }
 
             if ($item['type'] !== 'institution') {
@@ -641,6 +675,7 @@ final class PublicDirectoryQueryService
             }
             $items[$index]['catalogue'] = [
                 'campuses' => $campusesByInstitution[$item['id']] ?? [],
+                'delivery_sites' => $deliverySitesByInstitution[$item['id']] ?? [],
                 'programmes' => $programmeItems,
             ];
         }
