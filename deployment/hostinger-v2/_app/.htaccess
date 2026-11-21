@@ -1,0 +1,13 @@
+# Place this file at public_html/institutes-v2/_app/.htaccess.
+# This is an HTTP access-control layer, not private filesystem isolation.
+# Hostinger must enforce this rule before any application source or secrets
+# are placed under _app/.
+
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+
+<IfModule mod_access_compat.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
