@@ -172,16 +172,29 @@ final class EditorialReviewService
     {
         $this->requireHuman($actor, 'edit_directory_proposal');
         $this->requireHuman($actor, 'correct_claim');
-        $case = $this->caseFor($caseId);
-        if ($case->status !== 'changes_requested' || $case->submitted_by_actor_id !== $actor['actor_id']) {
-            $this->reject('correction', 'Only the original submitter may edit a proposal returned for changes.');
-        }
-        $newVersion = app(PersistedGovernanceWorkflowService::class)->correctClaimVersion(
-            $actor, $case->claim_version_id, $value, $evidenceIds, $validFrom, $validTo,
-            $reasonCode, $rationale, $correctionKey
-        );
 
-        return $this->submit($actor, $case->entity_id, $newVersion, $submissionKey);
+        return DB::transaction(function () use (
+            $actor, $caseId, $value, $evidenceIds, $validFrom, $validTo,
+            $reasonCode, $rationale, $correctionKey, $submissionKey
+        ): string {
+            $case = $this->caseFor($caseId);
+            if (! in_array($case->status, ['changes_requested', 'superseded'], true) ||
+                $case->submitted_by_actor_id !== $actor['actor_id']) {
+                $this->reject('correction', 'Only the original submitter may correct a proposal returned for changes.');
+            }
+
+            $newVersion = app(PersistedGovernanceWorkflowService::class)->correctClaimVersion(
+                $actor, $case->claim_version_id, $value, $evidenceIds, $validFrom, $validTo,
+                $reasonCode, $rationale, $correctionKey
+            );
+            $successorCaseId = $this->submit($actor, $case->entity_id, $newVersion, $submissionKey);
+            $closeKey = 'editorial-correction-close:'.hash('sha256', json_encode([
+                $caseId, $newVersion, $correctionKey, $submissionKey,
+            ], JSON_THROW_ON_ERROR));
+            $this->supersedeAfterCorrection($actor, $caseId, $newVersion, $closeKey);
+
+            return $successorCaseId;
+        });
     }
 
     public function adjudicate(array $actor, string $caseId, string $adjudicationCaseId, string $outcome,

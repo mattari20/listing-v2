@@ -130,6 +130,134 @@ class EditorialReviewServiceTest extends TestCase
         $service->approve($this->actor('publisher', ['authorize_publication']), $case, 'directory', 'anonymous', 'policy-v1', 'approve-disputed');
     }
 
+    public function test_correction_request_successor_handoff_is_atomic_traceable_and_retry_safe(): void
+    {
+        $fixture = $this->fixture();
+        $service = new EditorialReviewService;
+        $submitter = $this->actor('correction-submitter', [
+            'submit_directory_proposal', 'edit_directory_proposal', 'correct_claim',
+        ]);
+        $case = $service->submit($submitter, $fixture['entity'], $fixture['version'], 'g02-original-submit');
+        $reviewer = $this->actor('correction-requester', ['review_directory_proposal']);
+        $service->startReview($reviewer, $case, 'g02-review-start');
+        $service->completeReview(
+            $reviewer,
+            $case,
+            'changes_requested',
+            'synthetic_correction_required',
+            'Please correct the synthetic institution display name and retain supporting evidence.',
+            'g02-review-request'
+        );
+
+        $requestHistory = DB::table('directory_status_history')
+            ->where('editorial_review_case_id', $case)
+            ->where('event_type', 'review_completed')
+            ->first();
+        $this->assertNotNull($requestHistory);
+        $this->assertSame(
+            'Please correct the synthetic institution display name and retain supporting evidence.',
+            json_decode((string) $requestHistory->metadata, true)['rationale'] ?? null
+        );
+
+        $arguments = [
+            $submitter,
+            $case,
+            ['value' => 'Synthetic Editorial Academy Corrected'],
+            [$fixture['evidence']],
+            '2026-11-21',
+            null,
+            'synthetic_correction',
+            'Corrected synthetic institution display name.',
+            'g02-correction-key',
+            'g02-successor-submit-key',
+        ];
+
+        try {
+            $failedArguments = array_slice($arguments, 0, 9);
+            $failedArguments[] = '';
+            $service->correctProposal(...$failedArguments);
+            $this->fail('A failed successor submission must roll back the claim successor and predecessor transition.');
+        } catch (ValidationException) {
+            $this->assertSame(1, DB::table('claim_versions')->count());
+            $this->assertSame(1, DB::table('editorial_review_cases')->count());
+            $this->assertDatabaseHas('editorial_review_cases', ['id' => $case, 'status' => 'changes_requested']);
+            $this->assertSame(0, DB::table('audit_events')->where('action', 'claim_version_corrected')->count());
+        }
+
+        $successorCase = $service->correctProposal(...$arguments);
+        $retryCase = $service->correctProposal(...$arguments);
+        $successorVersion = (string) DB::table('editorial_review_cases')->where('id', $successorCase)->value('claim_version_id');
+
+        $this->assertSame($successorCase, $retryCase);
+        $this->assertSame(2, DB::table('claim_versions')->count());
+        $this->assertSame(2, DB::table('editorial_review_cases')->count());
+        $this->assertDatabaseHas('editorial_review_cases', ['id' => $case, 'status' => 'superseded']);
+        $this->assertDatabaseHas('editorial_review_cases', [
+            'id' => $successorCase,
+            'claim_version_id' => $successorVersion,
+            'status' => 'submitted',
+        ]);
+        $supersession = DB::table('directory_status_history')
+            ->where('editorial_review_case_id', $case)
+            ->where('event_type', 'proposal_superseded_by_correction')
+            ->first();
+        $this->assertNotNull($supersession);
+        $this->assertSame($successorVersion, json_decode((string) $supersession->metadata, true)['successor_claim_version_id'] ?? null);
+
+        $nextReviewer = $this->actor('g02-successor-reviewer', ['review_directory_proposal']);
+        $service->startReview($nextReviewer, $successorCase, 'g02-successor-review-start');
+        $service->completeReview(
+            $nextReviewer,
+            $successorCase,
+            'ready_for_adjudication',
+            'synthetic_successor_review',
+            'The corrected synthetic proposal is ready for the next governed stage.',
+            'g02-successor-review-complete'
+        );
+        $this->assertDatabaseHas('editorial_review_cases', ['id' => $successorCase, 'status' => 'ready_for_adjudication']);
+
+        $changedArguments = $arguments;
+        $changedArguments[2] = ['value' => 'Different corrected value'];
+        $this->expectException(ValidationException::class);
+        $service->correctProposal(...$changedArguments);
+    }
+
+    public function test_correction_is_rejected_before_changes_are_requested_or_by_a_different_submitter(): void
+    {
+        $fixture = $this->fixture();
+        $service = new EditorialReviewService;
+        $submitter = $this->actor('g02-original-submitter', [
+            'submit_directory_proposal', 'edit_directory_proposal', 'correct_claim',
+        ]);
+        $case = $service->submit($submitter, $fixture['entity'], $fixture['version'], 'g02-invalid-state-submit');
+        $arguments = [
+            $submitter, $case, ['value' => 'Should not be saved'], [$fixture['evidence']],
+            '2026-11-21', null, 'synthetic_correction', 'Invalid early correction.',
+            'g02-invalid-state-correction', 'g02-invalid-state-successor',
+        ];
+
+        try {
+            $service->correctProposal(...$arguments);
+            $this->fail('A proposal cannot be corrected before a reviewer requests changes.');
+        } catch (ValidationException) {
+            $this->assertSame(1, DB::table('claim_versions')->count());
+        }
+
+        $reviewer = $this->actor('g02-invalid-state-reviewer', ['review_directory_proposal']);
+        $service->startReview($reviewer, $case, 'g02-invalid-state-review-start');
+        $service->completeReview(
+            $reviewer, $case, 'changes_requested', 'synthetic_correction_required',
+            'Correction is required for this synthetic proposal.', 'g02-invalid-state-review-complete'
+        );
+        $otherSubmitter = $this->actor('g02-other-submitter', [
+            'submit_directory_proposal', 'edit_directory_proposal', 'correct_claim',
+        ]);
+        $arguments[0] = $otherSubmitter;
+
+        $this->expectException(ValidationException::class);
+        $service->correctProposal(...$arguments);
+    }
+
     private function fixture(): array
     {
         $now = now();
@@ -168,7 +296,7 @@ class EditorialReviewServiceTest extends TestCase
             'relationship_type' => 'supports', 'created_at' => $now, 'updated_at' => $now,
         ]);
 
-        return ['entity' => $entity, 'version' => $version];
+        return ['entity' => $entity, 'version' => $version, 'evidence' => $evidence];
     }
 
     private function actor(string $id, array $capabilities, string $class = 'human'): array
