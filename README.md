@@ -1,12 +1,13 @@
 ## Latest merged work — 21 November 2026 (ADM-F, ADM-G and product integration)
 
-- Latest verified main commit: `fec6a4fa94ea902856baa76275c2a4369675f6d3` — PR #437 merged after exact-head validation.
+- Latest verified main commit: `546ae42b7680322e8fc2e9a84efce85abc7bb0b0` — PR #439 final acceptance reconciliation merged after exact-head validation.
 - ADM-F now contains exact-predecessor successor replacement for programme, qualification-link and admission-offer catalogue projections, plus synthetic regression tests for stable identity, missing predecessor rejection and preservation of offer-fact identity.
 - ADM-G now includes parent-scoped campus/delivery-site representative and reviewer queues, assigned-only in-review visibility and role-specific next-action guidance, with synthetic regression coverage.
 - Product-wide integration source review is recorded in [M3 Product-Wide Integration Verification](docs/04-roadmap/M3_PRODUCT_WIDE_INTEGRATION_VERIFICATION_2026-11-21.md).
 - ADM-F and ADM-G closeout records: [ADM-F audit](docs/04-roadmap/ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md), [ADM-G handoff](docs/04-roadmap/ADM_G_ADMINISTRATION_QUEUE_AND_OPERATIONAL_HANDOFF_2026-11-21.md).
 - **PR #437 merged:** `fec6a4fa94ea902856baa76275c2a4369675f6d3`. Exact tested head `fe385b1faea1aabe380a6666e745e6004319a40b` passed FND-01 PHP 8.5 Foundation CI and Project documentation validation; 349 synthetic tests passed with 1,947 assertions. PHP formatting, Composer audit, Laravel route validation and repository artifact hygiene passed. Post-merge main verified at the merge commit.
 - Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED. M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED. No production/V1/Hostinger access, deployment, pilot, release or new spend is authorized.
+- **M3-FINAL reconciliation:** [Final Acceptance and Closure Reconciliation](docs/04-roadmap/M3_FINAL_ACCEPTANCE_RECONCILIATION_2026-11-21.md) records the current milestone and ten-gate dispositions. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
 
 ---
 
