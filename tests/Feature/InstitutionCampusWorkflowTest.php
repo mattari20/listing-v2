@@ -238,10 +238,15 @@ final class InstitutionCampusWorkflowTest extends TestCase
             ['actor_id' => 'campus-successor-opener', 'actor_class' => 'human', 'capabilities' => ['open_adjudication']],
             $successor, 'campus-successor-adjudication'
         );
-        $workflow->decideAdjudication(
+        $successorDecision = $workflow->decideAdjudication(
             ['actor_id' => 'campus-successor-adjudicator', 'actor_class' => 'human', 'capabilities' => ['adjudicate_claim']],
             $successorCase, 'accepted', 'synthetic_acceptance', 'Corrected synthetic campus claim accepted.', 'policy-v1'
         );
+        $workflow->authorizePublication(
+            ['actor_id' => 'campus-successor-publisher', 'actor_class' => 'human', 'capabilities' => ['authorize_publication']],
+            $successor, $successorDecision, 'directory', 'anonymous', 'policy-v1', 'campus-successor-publication'
+        );
+        $workflow->processOutbox();
         $materializer->materializeAcceptedRecord(
             ['actor_id' => 'campus-successor-materializer', 'actor_class' => 'human', 'capabilities' => ['materialize_catalogue_record']],
             $successor, 'campus-successor-materialization'
