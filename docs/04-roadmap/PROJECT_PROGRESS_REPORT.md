@@ -1,3 +1,35 @@
+## ADM-D — Evidence and Editorial Operations Workspace — 2026-11-21
+
+**Status: COMPLETE for the bounded university data-reviewer case-inspection and editorial-review surface.** PR [#422](https://github.com/mattari20/listing-v2/pull/422) merged as `4549f879532c53492a14fc09446bad0a6824778a` after exact-head FND-01 Foundation CI and Project documentation validation passed.
+
+Delivered:
+- Private, authenticated and throttled `GET /institutions/{institution}/editorial-cases/{case}` route.
+- Exact university institution relationship check, active/verified human account, active/non-revoked/unexpired `data_reviewer` assignment for that exact institution, and server-side `ScopedAuthorization`.
+- Case eligibility rechecked at query time: submitters and linked-evidence contributors are excluded; a case in `in_review` is visible only to its assigned reviewer.
+- Reviewer-safe case details include the proposal field/value, claim-version number/disposition, validity dates and submission time.
+- Evidence-reference metadata includes reference kind, source type, evidence status, relationship, content-included flag, observation/recording timestamps, source-authorization status/validity and revocation indicator.
+- Evidence content/files, source URLs, integrity digests, authorization scope payloads, private actor IDs and raw audit metadata are not returned or rendered.
+- Editorial status history shows event, status transition, reason code, actor class and time, without exposing private actor IDs or arbitrary metadata.
+- Immutable correction lineage follows predecessor claim versions (bounded to ten levels) and shows prior version/disposition/case status without exposing prior audit payloads.
+- Reviewer-only forms reuse existing start-review and complete-review endpoints. The existing service enforces independent reviewer assignment and supported review outcomes.
+- Global crawler policy explicitly marks editorial case routes `noindex, nofollow`; responses are private/no-store.
+- Synthetic feature coverage verifies metadata minimization, privacy headers, submitter/evidence-contributor exclusion and correction lineage.
+
+**Exact-head verification:** final tested head `a5486e31eb3bed7b77c7c163314dfeb6b90d8109`; FND-01 Foundation CI run #802 passed; Project documentation validation run #1353 passed. PHP formatting, Laravel bootstrap/route validation and artifact hygiene passed. Synthetic suite: **23 passed, 1,797 assertions, 308 warnings**. Warnings remain; no warning-free claim is made.
+
+**Bounded limitations and deferred work:**
+- This does not constitute a complete administration console, independent human review operation, security/privacy/legal/accessibility certification or operational acceptance.
+- Current assignment model supports university data reviewers only.
+- The existing workspace queue currently lists direct university-institution cases; a unified work queue for campus/delivery-site child cases remains future work, even though the case-detail scope guard can resolve those parent relationships when addressed directly.
+- Evidence inspection is metadata-only. No original documents, attachments, source content, URLs or external systems can be inspected here.
+- Review start/completion are editorial workflow actions only. Adjudication, publication, suppression, restoration, role management and direct catalogue editing remain separate capabilities and are not exposed by this agenda.
+- No migration, field-definition activation, source acquisition, production/V1/Hostinger access, live database operation, real/source/personal data, external API/AI, deployment, pilot, paid service or new spend occurred.
+- Deeni Madaris remains default-OFF with zero public exposure.
+
+**Disposition:** ADM-D is complete within the bounded repository/synthetic scope. Next administration agenda: ADM-E — correction, quality and operational handoff integration (scope to be audited before implementation). Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
+---
+
 ## ADM-C — Governed institution and campus information management — 2026-11-21
 
 **Status: COMPLETE for the bounded university institution, campus and delivery-site workflow.** PR [#420](https://github.com/mattari20/listing-v2/pull/420) merged as `68c09dc938b2b6238b8a2a90888f836bfe66ba58` after exact-head FND-01 Foundation CI and Project documentation validation passed.
