@@ -161,7 +161,7 @@ final class FieldAwareClaimProposalService
 
         if (in_array($entity->entity_type, ['campus', 'delivery_site'], true) &&
             ($fieldKey !== $entity->entity_type || $governedInstitutionId === null ||
-                ($value['institution_entity_id'] ?? null) !== $governedInstitutionId)) {
+                (is_array($value) === false || ($value['institution_entity_id'] ?? null) !== $governedInstitutionId))) {
             $this->reject('scope', 'Campus and delivery-site claims require their exact field key and explicitly supplied parent institution scope.');
         }
 
@@ -251,7 +251,7 @@ final class FieldAwareClaimProposalService
                 $table = $scopeKey === 'campus' ? 'directory_campuses' : 'directory_delivery_sites';
                 $projection = DB::table($table)->where('entity_id', $subjectEntityId)->lockForUpdate()->first(['institution_entity_id']);
                 $lockedCategory = $parent === null ? null : $this->registry->providerCategoryForEntity($governedInstitutionId, true);
-                if ($parent === null || ($value['institution_entity_id'] ?? null) !== $governedInstitutionId ||
+                if ($parent === null || (is_array($value) === false || ($value['institution_entity_id'] ?? null) !== $governedInstitutionId) ||
                     ($projection !== null && (string) $projection->institution_entity_id !== $governedInstitutionId) ||
                     $lockedCategory !== $providerCategory) {
                     $this->reject('provider_category', 'The parent institution, location scope or governed provider category changed during proposal validation.');

@@ -159,7 +159,7 @@ final class FieldAwareClaimCorrectionService
                 ->where('field_definition_version_id', $prior->field_definition_version_id)
                 ->pluck('provider_category')->all();
 
-            if (in_array($entity->entity_type, ['campus', 'delivery_site'], true) && ($value['institution_entity_id'] ?? null) !== $parentInstitutionId) {
+            if (in_array($entity->entity_type, ['campus', 'delivery_site'], true) && (is_array($value) === false || ($value['institution_entity_id'] ?? null) !== $parentInstitutionId)) {
                 $this->reject('scope', 'A corrected location must retain its exact parent institution identity.');
             }
 

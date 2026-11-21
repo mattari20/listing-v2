@@ -59,14 +59,17 @@ Route::middleware('auth')->prefix('/institutions/{institution}')->group(function
         ->name('institutions.editorial-cases.review.complete');
 });
 
-Route::middleware(['auth', 'throttle:30,1'])->prefix('/institutions/{institution}')->where(['institution' => '[0-9a-fA-F-]{36}'])->group(function (): void {
+Route::middleware(['auth', 'throttle:30,1'])->prefix('/institutions/{institution}')->group(function (): void {
     Route::get('/information', [InstitutionCampusWorkflowController::class, 'information'])
+        ->whereUuid('institution')
         ->name('institutions.information');
     Route::post('/campuses', [InstitutionCampusWorkflowController::class, 'storeCampus'])
         ->middleware('throttle:20,1')
+        ->whereUuid('institution')
         ->name('institutions.campuses.store');
     Route::post('/delivery-sites', [InstitutionCampusWorkflowController::class, 'storeDeliverySite'])
         ->middleware('throttle:20,1')
+        ->whereUuid('institution')
         ->name('institutions.delivery-sites.store');
 });
 
