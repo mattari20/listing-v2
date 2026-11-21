@@ -36,7 +36,7 @@ final class InstitutionCampusInformationQueryService
 
     private function currentLocations(string $table, string $institutionId): Collection
     {
-        if (! in_array($table, ['directory_campuses', 'directory_delivery_sites'], true)) {
+        if (!in_array($table, ['directory_campuses', 'directory_delivery_sites'], true)) {
             throw new InvalidArgumentException('Unsupported institution location projection.');
         }
 

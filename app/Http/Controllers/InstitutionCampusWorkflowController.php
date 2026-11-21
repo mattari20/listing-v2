@@ -8,10 +8,10 @@ use App\Authorization\ScopedAuthorization;
 use App\Models\User;
 use App\Services\Directory\FieldAwareClaimProposalService;
 use App\Services\Directory\ProviderInstitutionRelationshipService;
+use App\Services\Directory\InstitutionCampusInformationQueryService;
 use App\Services\Directory\UniversityRepresentativeWorkflowService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use App\Services\Directory\InstitutionCampusInformationQueryService;
 use Illuminate\Support\Facades\DB;
 
 final class InstitutionCampusWorkflowController extends Controller
