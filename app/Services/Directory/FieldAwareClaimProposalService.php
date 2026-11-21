@@ -223,7 +223,7 @@ final class FieldAwareClaimProposalService
 
         return DB::transaction(function () use (
             $actor, $subjectEntityId, $fieldKey, $definitionVersion, $definition, $value,
-            $uniqueEvidenceIds, $sourceContext, $idempotencyKey, $validFrom, $validTo, $fingerprint, $providerCategory, $scopeKey
+            $uniqueEvidenceIds, $sourceContext, $idempotencyKey, $validFrom, $validTo, $fingerprint, $providerCategory, $scopeKey, $governedInstitutionId
         ): array {
             $prior = DB::table('audit_events')
                 ->where('action', 'field_aware_claim_proposed')
