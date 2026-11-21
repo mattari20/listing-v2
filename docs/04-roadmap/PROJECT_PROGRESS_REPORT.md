@@ -1,3 +1,28 @@
+## ADM-C — Governed institution and campus information management — 2026-11-21
+
+**Status: COMPLETE for the bounded university institution, campus and delivery-site workflow.** PR [#420](https://github.com/mattari20/listing-v2/pull/420) merged as `68c09dc938b2b6238b8a2a90888f836bfe66ba58` after exact-head FND-01 Foundation CI and Project documentation validation passed.
+
+Delivered:
+- Authenticated, institution-scoped `GET /institutions/{institution}/information` for current accepted campus and delivery-site projections.
+- Authenticated, throttled representative proposal routes for `POST /institutions/{institution}/campuses` and `POST /institutions/{institution}/delivery-sites`.
+- Campus/delivery-site identity registration and field-aware proposal submission are transactional.
+- Parent institution identity is derived from the authorised route; client-supplied `institution_entity_id` is prohibited.
+- Exact active field-definition version, explicit entity-type/provider-category/scope applicability, evidence references, validity dates and bounded idempotency are required.
+- The shared proposal and correction services support campus/delivery-site entities. The parent institution category is used only as governed provider-category context; parent institution field values are not inherited.
+- Returned campus/delivery-site proposals can be corrected as immutable successor claim versions and resubmitted to editorial review within the exact parent institution scope.
+- Editorial case access and correction scope checks now recognise campus/delivery-site cases only through their exact parent institution relationship.
+- Accepted projection materialization updates an existing campus/delivery-site row only when the accepted successor names the exact currently materialized predecessor version and preserves the parent institution.
+- Private information responses use no-store caching and `noindex, nofollow`.
+- Synthetic tests cover proposal, idempotency, exact parent scope, registry applicability, correction successors, private information access and accepted projection updates.
+
+**Exact-head verification:** Foundation CI passed; Project documentation validation passed. Synthetic suite: 23 passed, 1,775 assertions, 305 warnings. Warnings remain; no warning-free test-suite claim is made.
+
+**Bounded limitations:** ADM-C does not create or activate field definitions. A campus or delivery-site proposal is rejected unless an already-active, human-governed field-definition version explicitly permits the exact entity type, provider category and scope. The new endpoints are JSON workflows, not a complete browser-based editing console. Current role access remains limited to university institution representatives. School, college, academy, coaching and other provider-category workflows remain future work. No adjudication or publication controls were added.
+
+**Disposition:** ADM-C is complete within this bounded scope. Next agenda: ADM-D — evidence and editorial operations workspace, including safe evidence inspection and independent reviewer actions under explicit route-level authorization. M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
+---
+
 ## ADM-B — Role-aware read-only administration workspace — 2026-11-21
 
 **Status: COMPLETE for the first bounded workspace increment.** PR [#418](https://github.com/mattari20/listing-v2/pull/418) merged as `088a434f445c8b2aeb654e19654fddbe66d2a325` after exact-head FND-01 Foundation CI and Project documentation validation passed.
