@@ -196,7 +196,6 @@ final class PersistedGovernanceWorkflowService
             ]);
 
             DB::table('entity_relationships')->where('claim_version_id', $priorVersionId)->where('status', 'active')->update(['status' => 'superseded', 'updated_at' => $now]);
-            $this->updateP02ProjectionsForVersions([$priorVersionId], 'superseded', $now);
 
             foreach ($evidenceReferenceIds as $evidenceId) {
                 DB::table('claim_evidence_links')->insert([

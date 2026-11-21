@@ -46,11 +46,6 @@ final class InstitutionCampusInformationQueryService
             ->where('locations.institution_entity_id', $institutionId)
             ->where('locations.status', 'active')
             ->where('versions.disposition', 'accepted')
-            ->whereNotExists(function ($query): void {
-                $query->selectRaw('1')
-                    ->from('claim_versions as successor')
-                    ->whereColumn('successor.supersedes_version_id', 'versions.id');
-            })
             ->orderBy('entities.label')
             ->get([
                 'entities.id',
