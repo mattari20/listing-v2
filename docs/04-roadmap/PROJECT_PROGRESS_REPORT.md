@@ -57,13 +57,13 @@ Delivered:
 **Bounded limitations and deferred work:**
 - This does not constitute a complete administration console, independent human review operation, security/privacy/legal/accessibility certification or operational acceptance.
 - Current assignment model supports university data reviewers only.
-- The existing workspace queue currently lists direct university-institution cases; a unified work queue for campus/delivery-site child cases remains future work, even though the case-detail scope guard can resolve those parent relationships when addressed directly.
+- At the ADM-D closeout point, the workspace queue still listed direct university-institution cases only. This specific limitation was subsequently closed in ADM-G: the current reviewer and representative queues include campus/delivery-site child cases under the exact parent university scope, and assigned in-review work is surfaced only to its reviewer.
 - Evidence inspection is metadata-only. No original documents, attachments, source content, URLs or external systems can be inspected here.
 - Review start/completion are editorial workflow actions only. Adjudication, publication, suppression, restoration, role management and direct catalogue editing remain separate capabilities and are not exposed by this agenda.
 - No migration, field-definition activation, source acquisition, production/V1/Hostinger access, live database operation, real/source/personal data, external API/AI, deployment, pilot, paid service or new spend occurred.
 - Deeni Madaris remains default-OFF with zero public exposure.
 
-**Disposition:** ADM-D is complete within the bounded repository/synthetic scope. Next administration agenda: ADM-E — correction, quality and operational handoff integration (scope to be audited before implementation). Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+**Disposition:** ADM-D is complete within the bounded repository/synthetic scope. The subsequent ADM-E, ADM-F and ADM-G administration agendas are also complete within their bounded synthetic repository scopes and merged in PR #437. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
 
 ---
 
