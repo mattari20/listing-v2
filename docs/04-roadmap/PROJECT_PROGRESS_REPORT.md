@@ -1,3 +1,11 @@
+## ADM-E — Correction, Quality and Operational Handoff Audit — 2026-11-21
+
+**Status: SOURCE AUDIT COMPLETE; IMPLEMENTATION PENDING.** The focused current-main audit is recorded in [ADM-E Correction, Quality and Operational Handoff Audit](ADM_E_CORRECTION_QUALITY_OPERATIONAL_HANDOFF_AUDIT_2026-11-21.md). It confirms that proposal submission, immutable corrections, independent review, reviewer-safe evidence metadata and accepted campus/delivery-site projections exist, but queue integration and operational handoff remain incomplete.
+
+Key gaps: (1) reviewer queue excludes campus/delivery-site child cases; (2) assigned `in_review` cases are not surfaced in the landing queue; (3) representative workspace lacks a returned-correction/successor handoff; (4) evidence quality is shown per reference but not summarized at case level; (5) review completion does not re-evaluate evidence quality; (6) no unified role-scoped next-action view exists. The audit defines the bounded implementation contract and tests. No code, schema, permissions or runtime behavior changed. Synthetic-only, repository/CI-only restrictions remain binding.
+
+---
+
 ## ADM-C — Governed institution and campus information management — 2026-11-21
 
 **Status: COMPLETE for the bounded university institution, campus and delivery-site workflow.** PR [#420](https://github.com/mattari20/listing-v2/pull/420) merged as `68c09dc938b2b6238b8a2a90888f836bfe66ba58` after exact-head FND-01 Foundation CI and Project documentation validation passed.
