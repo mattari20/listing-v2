@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-21  
 **Baseline main:** `be95a411862e795072c107708c2867d904ef5bb9`  
-**Status:** COMPLETE — implementation and synthetic regression tests passed exact-head CI.
+**Status:** COMPLETE — implementation and synthetic regression tests passed exact-head CI; merged in PR #437 as `fec6a4fa94ea902856baa76275c2a4369675f6d3`.
 
 ## 1. Purpose
 
