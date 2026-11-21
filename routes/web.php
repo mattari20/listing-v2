@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountSavedItemsController;
 use App\Http\Controllers\AccountSessionController;
+use App\Http\Controllers\AdministrationWorkspaceController;
 use App\Http\Controllers\PublicDirectoryController;
 use App\Http\Controllers\UniversityRepresentativeWorkflowController;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,10 @@ Route::post('/account/session', [AccountSessionController::class, 'store'])
 Route::delete('/account/session', [AccountSessionController::class, 'destroy'])
     ->middleware('auth')
     ->name('account.session.destroy');
+
+Route::get('/workspace', [AdministrationWorkspaceController::class, 'index'])
+    ->middleware(['auth', 'throttle:30,1'])
+    ->name('workspace.index');
 
 Route::middleware(['auth', 'throttle:60,1'])->prefix('/account/saved-items')->name('account.saved-items.')->group(function (): void {
     Route::get('/', [AccountSavedItemsController::class, 'index'])->name('index');
