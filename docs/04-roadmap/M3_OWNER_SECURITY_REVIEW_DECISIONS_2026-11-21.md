@@ -28,7 +28,7 @@ The independent security assessment under M3-11-03 remains BLOCKED / NOT ACCEPTE
 | SEC-PO-08 | Dependency management | A | Maintain dependency lockfiles, review dependencies and address known security vulnerabilities before acceptance. |
 | SEC-PO-09 | Error handling | A | Present safe user-facing errors; keep protected diagnostic details in restricted logs. Do not expose secrets, internal paths, database details or stack traces to ordinary users. |
 | SEC-PO-10 | CSRF and cross-site actions | A | Protect state-changing browser requests using appropriate CSRF protection and secure cookie settings. |
-| SEC-PO-11 | File upload security | B | Owner selected allowing common file types without additional validation. This is not accepted as a safe upload control. See conditional applicability and unresolved issue below. |
+| SEC-PO-11 | File upload security | A — revised and confirmed 2026-11-21 | Secure, validated uploads only; disable uploads wherever they are not required. If an in-scope upload capability is retained, require server-side type/content and size validation, safe generated filenames, restricted storage and access, and prevention of executable or unsafe content. |
 | SEC-PO-12 | Secrets and configuration | A | Keep secrets outside source control, restrict access, use safe configuration and rotate exposed secrets. |
 | SEC-PO-13 | Login abuse protection | A | Apply rate limits, monitoring and appropriate temporary protections against repeated failed login attempts. |
 | SEC-PO-14 | Session security | A | Apply secure session handling, including regeneration after login, expiration and invalidation on logout. |
@@ -38,18 +38,18 @@ The independent security assessment under M3-11-03 remains BLOCKED / NOT ACCEPTE
 
 ### 3.1 SEC-PO-11 — File upload validation
 
-The selected Option B does not establish sufficient protection for an upload feature. If the pinned M3 candidate contains any file upload route or upload-capable workflow, allowing common file types without additional validation leaves unresolved risks involving spoofed file types, oversized files, unsafe filenames, executable content, storage exposure and unauthorized access.
+The Product Owner accepted the recommended Option A: uploads must be disabled wherever they are not required; any retained in-scope upload capability must use server-side type/content and size validation, safe generated filenames, restricted storage and access, and prevention of executable or unsafe content.
 
-**Disposition:** OPEN — CONDITIONAL BLOCKER.
+**Disposition:** POLICY RESOLVED; IMPLEMENTATION/APPLICABILITY EVIDENCE OPEN.
 
-First establish from the exact pinned candidate's route and feature inventory whether file upload capability exists within the M3 acceptance scope. If no such capability exists, record it as not applicable with route-inventory evidence. If it exists, the control must be revised to require, at minimum, server-side type/content and size validation, safe generated filenames, restricted storage and access, and prevention of executable or unsafe content. No upload security pass is inferred from the owner response.
+Establish from the exact pinned candidate's route and feature inventory whether any upload route or upload-capable workflow exists within M3 scope. If none exists, record this control as not applicable with route-inventory evidence. If uploads exist, verify the required controls against implementation and tests; otherwise disable the capability through an explicitly authorized change. No upload security pass is inferred from the owner response.
 
 ## 4. M3 status and next evidence
 
 - Product Owner internal security responses: RECORDED.
 - SEC-PO-07 owner-policy conflict: RESOLVED by the owner's revised Option A decision; implementation conformity still requires evidence.
 - Implementation status of each control: NOT ESTABLISHED by this questionnaire.
-- SEC-PO-11: OPEN pending applicability evidence and, if applicable, control revision.
+- SEC-PO-11 owner policy: RESOLVED as Option A; implementation/applicability evidence remains OPEN.
 - Independent security assessment: NOT PERFORMED.
 - Exact candidate pin and independent test evidence: NOT PROVIDED by this record.
 - M3-11-03: BLOCKED / NOT ACCEPTED.
