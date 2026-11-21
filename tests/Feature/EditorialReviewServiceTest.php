@@ -173,7 +173,9 @@ class EditorialReviewServiceTest extends TestCase
         ];
 
         try {
-            $service->correctProposal(...array_slice($arguments, 0, 9), '');
+            $failedArguments = array_slice($arguments, 0, 9);
+            $failedArguments[] = '';
+            $service->correctProposal(...$failedArguments);
             $this->fail('A failed successor submission must roll back the claim successor and predecessor transition.');
         } catch (ValidationException) {
             $this->assertSame(1, DB::table('claim_versions')->count());
