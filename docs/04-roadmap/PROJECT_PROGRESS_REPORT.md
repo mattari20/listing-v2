@@ -5,7 +5,7 @@
 ### ADM-F — catalogue successor materialization
 - Implemented exact-predecessor successor replacement for programme catalogue entries, programme-qualification links and admission-offer catalogue records.
 - Preserves programme entity IDs, qualification-link IDs and admission-offer IDs. Existing offer-fact identities remain attached to the stable offer ID.
-- Rejects stale/missing predecessor projections, cross-parent programme changes and natural-key conflicts. No migration was added.
+- Requires the successor's own approved directory/anonymous public projection before replacing the prior catalogue row, preserving the ADM-E-G03 publication-order invariant. Rejects stale/missing predecessor projections, cross-parent programme changes and natural-key conflicts. No migration was added.
 - Added synthetic feature coverage for programme, qualification-link and offer successor replacement, old projection retention, idempotent offer identity and missing predecessor rejection.
 
 ### ADM-G — administration queue and next-action integration
