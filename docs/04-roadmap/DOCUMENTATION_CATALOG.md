@@ -1,3 +1,11 @@
+## ADM administration and institute information management — 2026-11-21
+
+- [ADM-E Correction, Quality and Operational Handoff Audit](ADM_E_CORRECTION_QUALITY_OPERATIONAL_HANDOFF_AUDIT_2026-11-21.md) — current-main source audit and bounded implementation contract; no code change in this audit.
+- [ADM-D Evidence and Editorial Workspace Closeout](ADM_D_EVIDENCE_EDITORIAL_WORKSPACE_CLOSEOUT_2026-11-21.md) — bounded reviewer workspace closeout and limitations.
+- [ADM-C Institution and Campus Workflow Closeout](ADM_C_INSTITUTION_CAMPUS_WORKFLOW_CLOSEOUT_2026-11-21.md) — bounded campus and delivery-site workflow closeout.
+
+---
+
 ## M3-11 current-main evidence reconciliation — 2026-11-20
 
 - [M3-11 DP-02–DP-06 and Gate Evidence Current-Main Reconciliation](M3-11-02_OWNER_INTERNAL_DATA_PRIVACY_REVIEW_2026-11-18.md) — PRs #395–#398 reconcile current session, logging, audit metadata, route/output privacy and provider/lifecycle evidence; all remain bounded to repository/source evidence and partial dispositions.
