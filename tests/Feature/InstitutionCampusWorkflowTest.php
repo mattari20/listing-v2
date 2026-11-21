@@ -6,6 +6,8 @@ namespace Tests\Feature;
 
 use App\Models\RoleAssignment;
 use App\Models\User;
+use App\Services\Directory\CampusProgrammeCatalogueService;
+use App\Services\Governance\PersistedGovernanceWorkflowService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
@@ -198,7 +200,7 @@ final class InstitutionCampusWorkflowTest extends TestCase
             'relationship_type' => 'supports', 'created_at' => $now, 'updated_at' => $now,
         ]);
 
-        $workflow = app(\App\Services\Governance\PersistedGovernanceWorkflowService::class);
+        $workflow = app(PersistedGovernanceWorkflowService::class);
         $initialCase = $workflow->openAdjudicationCase(
             ['actor_id' => 'campus-initial-opener', 'actor_class' => 'human', 'capabilities' => ['open_adjudication']],
             $version, 'campus-initial-adjudication'
@@ -207,7 +209,7 @@ final class InstitutionCampusWorkflowTest extends TestCase
             ['actor_id' => 'campus-initial-adjudicator', 'actor_class' => 'human', 'capabilities' => ['adjudicate_claim']],
             $initialCase, 'accepted', 'synthetic_acceptance', 'Initial synthetic campus claim accepted.', 'policy-v1'
         );
-        $materializer = app(\App\Services\Directory\CampusProgrammeCatalogueService::class);
+        $materializer = app(CampusProgrammeCatalogueService::class);
         $materializer->materializeAcceptedRecord(
             ['actor_id' => 'campus-initial-materializer', 'actor_class' => 'human', 'capabilities' => ['materialize_catalogue_record']],
             $version, 'campus-initial-materialization'
