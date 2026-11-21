@@ -35,7 +35,7 @@ Institution discovery → institution profile → campus/delivery-site profile �
 
 ## 3. Cross-module invariants
 
-- A proposed or accepted-but-not-materialized successor does not replace the accepted catalogue projection.
+- A proposed or accepted-but-unpublished successor does not replace the accepted catalogue projection. A successor must have its own approved directory/anonymous publication projection before exact-predecessor materialization may replace the row.
 - Materialization requires a current accepted claim version, distinct human adjudicator/materializer, eligible supporting evidence and currently valid source authorization.
 - Catalogue offer identity correction preserves the offer ID so existing offer-fact identities remain attached.
 - Programme-offer fact correction remains within its separate fact-version/publication lifecycle.
