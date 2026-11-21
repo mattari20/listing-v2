@@ -92,6 +92,10 @@ final class CampusProgrammeCatalogueService
                 }
             }
 
+            if ($version->supersedes_version_id !== null) {
+                $this->requirePublishedSuccessorProjection($claimVersionId);
+            }
+
             $value = json_decode((string) $version->value, true);
             if (is_array($value) === false) {
                 throw ValidationException::withMessages(['claim_value' => 'Claim value must be a JSON object.']);
@@ -276,6 +280,36 @@ final class CampusProgrammeCatalogueService
 
             return $targetId;
         });
+    }
+
+    /**
+     * A successor must not replace a previously accepted catalogue projection
+     * until its own directory/anonymous publication has reached the public
+     * projection. This preserves the prior published value during the gap
+     * between adjudication and publication.
+     */
+    private function requirePublishedSuccessorProjection(string $claimVersionId): void
+    {
+        $published = DB::table('publication_decisions as decisions')
+            ->join('publication_snapshots as snapshots', 'snapshots.publication_decision_id', '=', 'decisions.id')
+            ->join('public_projections as projections', 'projections.publication_snapshot_id', '=', 'snapshots.id')
+            ->where('decisions.claim_version_id', $claimVersionId)
+            ->where('decisions.decision', 'approved')
+            ->where('decisions.surface', 'directory')
+            ->where('decisions.audience', 'anonymous')
+            ->whereColumn('snapshots.claim_version_id', 'decisions.claim_version_id')
+            ->where('snapshots.status', 'projected')
+            ->where('snapshots.surface', 'directory')
+            ->where('snapshots.audience', 'anonymous')
+            ->where('projections.status', 'approved')
+            ->where('projections.surface', 'directory')
+            ->where('projections.audience', 'anonymous')
+            ->where('projections.is_deeni_madaris', false)
+            ->exists();
+
+        if ($published === false) {
+            throw ValidationException::withMessages(['publication' => 'A successor catalogue projection requires its own approved directory publication and public projection before replacing the accepted predecessor.']);
+        }
     }
 
     private function materializeLocationProjection(string $table, string $entityId, string $institutionId, array $value, object $version, string $claimVersionId, mixed $now): void
