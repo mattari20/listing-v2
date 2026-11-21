@@ -2145,3 +2145,45 @@ Any future environment creation/access/configuration/hosted verification require
 **Repository preparation: COMPLETE. Technical recovery acceptance: BLOCKED / NOT ACCEPTED.** The existing M3-11-06 backup/restore/rollback plan and canonical REC-01–REC-14 evidence register were reconciled with the weekly-backup policy decision and LPS-18. Weekly automated backups remain accepted for the current development stage only; this is not proof of V2-only coverage or recoverability. The register remains **0/14 evidence items accepted**. RPO/RTO remain NOT SET / NOT MEASURED; retention/deletion, source/destination isolation, encryption/key custody, consistency/integrity, recovery ownership and restore verification remain unverified or unassigned. No backup, snapshot, database, storage or hosted resource was accessed; no restore, rollback, migration or rehearsal was performed. See [M3-C05 Backup and Recovery Readiness Reconciliation](M3_C05_BACKUP_AND_RECOVERY_READINESS_RECONCILIATION_2026-11-21.md).
 
 C05 closes only repository-side reconciliation. M3-11-06 remains BLOCKED / NOT ACCEPTED pending accepted V2-only environment isolation, written recovery/operations role acceptances, owner-approved measurable objectives and a separately authorized synthetic-only rehearsal with independent verification. M3-11 overall remains BLOCKED / NOT ACCEPTED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED. No release candidate, pilot, deployment, production/V1/Hostinger/hosted access, real/source/personal data, external AI/API or new spend is authorized.
+
+
+---
+
+## M3-C06 — Final M3 acceptance and residual gate reconciliation — 2026-11-21
+
+**Repository agenda: COMPLETE when merged and verified. Overall M3: OPEN / PARTIALLY COMPLETE — NOT CLOSED.**
+
+C06 reconciles C01–C05, the previous M3-FINAL F01–F06 acceptance exercise, the Option A / Option 1 private-acceptance boundary and the M3-11 ten-gate ledger. The C02 assessment pack from PR #444's stale, unmerged branch has been preserved in the current-main change; PR #444 is superseded and should be closed unmerged after this replacement is merged.
+
+### Final M3 position
+- M0–M2: ACCEPTED / CLOSED.
+- M3-00: ACCEPTED / CLOSED for planning deliverables.
+- M3-01: closed within recorded planning/authorization scope.
+- M3-02–M3-09: conditionally accepted within each bounded repository/synthetic/local/CI scope only.
+- M3-10: readiness preparation complete; PILOT NOT ACCEPTED.
+- M3-11: BLOCKED / NOT ACCEPTED.
+- M3-12: closed for A01–A09 repository verification only; no manual accessibility/usability, hosted or release acceptance.
+- ADM-A–ADM-G and product-wide integration: complete within bounded synthetic repository scope.
+- C01–C05: repository preparation/reconciliation complete; substantive external/human/hosted/recovery gates remain blocked.
+- C06: final repository reconciliation complete upon merge and exact-head verification.
+
+### M3-11 remaining ten gates
+| Gate | Current status | Remaining |
+|---|---|---|
+| 01 Scope/authority | CLOSED — scope definition only | Any scope change needs new owner decision |
+| 02 Legal/privacy/safeguarding | BLOCKED / NOT ACCEPTED | Qualified independent review and separate Product Owner disposition |
+| 03 Security/accessibility | Internal repository review CLOSED; independent assurance BLOCKED | Independent security assessment and manual accessibility assessment; no WCAG claim |
+| 04 Human operations | BLOCKED / NOT ACCEPTED | 0/9 written role acceptances; competence/coverage and human exercise absent |
+| 05 Environment isolation | BLOCKED / NOT ACCEPTED | 0/18 fully verified; target not accepted; hosted verification absent |
+| 06 Backup/recovery | BLOCKED / NOT ACCEPTED | 0/14 accepted; RPO/RTO unset/unmeasured; no restore evidence |
+| 07 Release candidate | NOT STARTED / BLOCKED | No candidate or candidate-specific verification; creation not authorized |
+| 08 Go/no-go | BLOCKED / NOT DECIDED | No complete candidate dossier or accountable decision |
+| 09 Execution | NOT AUTHORIZED | Separate exact-scope authorization required |
+| 10 Monitoring/closure | NOT STARTED | Requires authorized execution and actual evidence |
+
+### Next work and authorization
+The remaining work is dependency-ordered: qualified independent assessments and Product Owner dispositions; voluntary written human role acceptances; separately authorized V2-only isolation evidence; approved recovery objectives and separately authorized recovery evidence; then candidate creation, go/no-go, execution and monitoring under their own prerequisites and authorizations. None is authorized by C06.
+
+No Hostinger/hosted/V1/production access, live DB/migration/backup/restore, real/source/personal data, external API/AI, appointments/engagement, new spend, deployment, pilot or release occurred. No gate is promoted by documentation or CI.
+
+**Final disposition:** M3-C06 closes only the final repository reconciliation. M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.

@@ -860,3 +860,17 @@ Any future environment creation/access/configuration/hosted verification require
 **Repository preparation: COMPLETE. Technical recovery acceptance: BLOCKED / NOT ACCEPTED.** C05 reuses and reconciles the existing M3-11-06 recovery plan, REC-01–REC-14 evidence register, status/handoff and LPS-18 framework; no duplicate recovery procedure or register was created. The current-stage weekly automated backup cadence remains accepted as policy only. The canonical register remains **0/14 evidence items accepted**; RPO/RTO remain NOT SET / NOT MEASURED; retention, integrity, V2-only source/destination, recovery ownership and restore verification remain unverified or unassigned. No backup or snapshot was accessed/created/downloaded/changed/deleted; no restore, rollback, migration, hosted access or rehearsal was performed. See [M3-C05 Backup and Recovery Readiness Reconciliation](M3_C05_BACKUP_AND_RECOVERY_READINESS_RECONCILIATION_2026-11-21.md).
 
 C05 closes only the repository reconciliation agenda. M3-11-06 remains BLOCKED / NOT ACCEPTED pending accepted V2-only isolation, written human recovery roles, owner-approved measurable objectives and separately authorized synthetic-only recovery evidence. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED. Existing no-production/V1/Hostinger/hosted, no-real/source/personal-data, no-live-AI/API, no-pilot/deployment and no-new-spend restrictions remain binding.
+
+
+---
+
+## M3-C06 — Final M3 acceptance and residual gate reconciliation — 2026-11-21
+
+**Repository agenda: COMPLETE when merged and verified. Overall M3: OPEN / PARTIALLY COMPLETE — NOT CLOSED.**
+
+- Final reconciliation: [M3-C06 Final M3 Acceptance and Residual Gate Reconciliation](M3_C06_FINAL_M3_ACCEPTANCE_AND_RESIDUAL_GATE_RECONCILIATION_2026-11-21.md).
+- C01–C05 repository preparation/reconciliation is complete; this does not complete the human, independent, hosted, recovery or release evidence those agendas prepared for.
+- C02 assessment pack from unmerged/stale PR #444 is preserved as [M3-C02 Independent Security and Accessibility Assessment Pack](M3_C02_INDEPENDENT_SECURITY_ACCESSIBILITY_ASSESSMENT_PACK_2026-11-21.md) and reconciled to current main in C06. PR #444 is superseded by this preserved content and should be closed unmerged after C06 merge.
+- M3-11 gates remain: 01 scope closed; 02 independent legal/privacy/safeguarding review blocked; 03 internal repository review closed but independent security/accessibility blocked; 04 0/9 written human role acceptances; 05 0/18 isolation evidence; 06 0/14 recovery evidence and RPO/RTO unset; 07 candidate not started; 08 go/no-go not decided; 09 execution not authorized; 10 monitoring not started.
+- M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED. No candidate, pilot, deployment, production execution or public launch is authorized.
+- C06 is repository-only. Existing no-Hostinger/no-hosted/no-production/V1, synthetic-only, no-real/source/personal-data, no-external-AI/API, no-spend and no-scope-expansion restrictions remain binding.
