@@ -1,3 +1,15 @@
+## Latest verified work — 21 November 2026 (ADM-F/ADM-G implementation; integration review)
+
+- Current product baseline before this agenda: `be95a411862e795072c107708c2867d904ef5bb9` (PR #434 public institution/campus/delivery-site navigation).
+- ADM-F now contains exact-predecessor successor replacement for programme, qualification-link and admission-offer catalogue projections, plus synthetic regression tests for stable identity, missing predecessor rejection and preservation of offer-fact identity.
+- ADM-G now includes parent-scoped campus/delivery-site representative and reviewer queues, assigned-only in-review visibility and role-specific next-action guidance, with synthetic regression coverage.
+- Product-wide integration source review is recorded in [M3 Product-Wide Integration Verification](docs/04-roadmap/M3_PRODUCT_WIDE_INTEGRATION_VERIFICATION_2026-11-21.md).
+- ADM-F and ADM-G closeout records: [ADM-F audit](docs/04-roadmap/ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md), [ADM-G handoff](docs/04-roadmap/ADM_G_ADMINISTRATION_QUEUE_AND_OPERATIONAL_HANDOFF_2026-11-21.md).
+- **Validation is pending exact-head PHP 8.5 Foundation CI and Project documentation validation.** An earlier head failed Pint because the new ADM-F test file contained escaped namespace separators; the namespace was corrected and CI must be rerun on the updated head. No merge or pass claim until then.
+- Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED. M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED. No production/V1/Hostinger access, deployment, pilot, release or new spend is authorized.
+
+---
+
 ## Latest verified update — 21 November 2026 (ADM-E complete; ADM-F prepared)
 
 - **Latest verified main:** `be95a411862e795072c107708c2867d904ef5bb9` — PR #434 connects institution, campus and delivery-site public profiles and programme-offer location links.
