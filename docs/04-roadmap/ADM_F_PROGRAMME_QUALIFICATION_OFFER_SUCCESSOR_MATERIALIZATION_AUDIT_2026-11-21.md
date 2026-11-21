@@ -53,7 +53,7 @@ For each projection type:
 - Successor materialization is permitted only when exactly one existing projection is found by the predecessor claim-version ID, its entity/parent relationships match, and the successor's `supersedes_version_id` equals that exact predecessor.
 - Update the existing projection row in place and preserve its stable projection identity (especially programme-offer IDs referenced by offer facts).
 - Fail closed for missing, duplicate, mismatched, cross-institution or stale predecessor projections.
-- Keep the existing accepted projection unchanged until the successor has passed the existing human adjudication and materialization checks.
+- Keep the existing accepted/public projection unchanged until the successor has its own approved `directory` / `anonymous` publication snapshot and matching approved public projection; only then may exact-predecessor materialization replace the accepted catalogue row.
 - Preserve current idempotency: retrying the same materialization command returns the same projection identity; changed command reuse is rejected.
 - Keep programme-offer facts in their separate versioned fact workflow; do not rewrite fact history as a side effect of catalogue-offer identity correction.
 
@@ -62,7 +62,7 @@ For each projection type:
 - Initial programme, qualification-link and programme-offer materialization.
 - Exact predecessor successor replacement for each of the three projection types.
 - Stable row identity after successor materialization.
-- Old projection remains unchanged while the successor is proposed or accepted but not materialized.
+- Old projection remains unchanged while the successor is proposed, accepted-but-unpublished, or published-but-not-yet-materialized.
 - Missing predecessor projection rejects a successor; it must not create a replacement row.
 - Wrong predecessor, stale predecessor, duplicate predecessor match and wrong programme/institution reject without writes.
 - Offer delivery location must remain a campus/delivery site belonging to the programme's exact institution.
@@ -82,7 +82,7 @@ This agenda does not authorize adjudication/publication UI, alter role/action ma
 2. Successor replacement requires the exact currently materialized predecessor version.
 3. Stable projection IDs are preserved across successor replacement.
 4. Missing, stale, duplicate, cross-scope and mismatched predecessor cases fail closed without changing existing rows.
-5. Existing accepted/public projections remain unchanged before successor acceptance/materialization.
+5. Existing accepted/public projections remain unchanged until the successor has its own approved directory/anonymous public projection; publication must precede successor materialization.
 6. Offer fact relationships and their independent versioning remain intact.
 7. Synthetic feature coverage proves idempotency, rollback and no-publication-bypass invariants.
 8. Exact-head FND-01 Foundation CI and Project documentation validation pass; warnings are reported accurately.
@@ -90,7 +90,7 @@ This agenda does not authorize adjudication/publication UI, alter role/action ma
 
 ## 7. Implementation progress — 2026-11-21
 
-The current agenda branch now implements exact-predecessor successor replacement for programme, qualification-link and programme-offer catalogue projections in `CampusProgrammeCatalogueService`. It validates that the successor references the immediately preceding version of the same claim, updates the existing projection row in place, preserves stable projection IDs, rejects missing/stale/mismatched predecessors and rejects natural-key conflicts. No schema migration or new dependency was added.
+The current agenda branch now implements exact-predecessor successor replacement for programme, qualification-link and programme-offer catalogue projections in `CampusProgrammeCatalogueService`. It validates that the successor references the immediately preceding version of the same claim, requires the successor's own approved directory/anonymous publication snapshot and matching approved public projection before replacement, updates the existing projection row in place, preserves stable projection IDs, and rejects missing/stale/mismatched predecessors and natural-key conflicts. No schema migration or new dependency was added.
 
 Synthetic feature coverage was added in `tests/Feature/CatalogueSuccessorMaterializationTest.php` for programme, qualification-link and offer successor replacement, retention of the old projection before materialization, stable offer identity/fact identity and missing predecessor rejection.
 
