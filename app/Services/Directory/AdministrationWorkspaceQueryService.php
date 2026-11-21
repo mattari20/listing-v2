@@ -104,6 +104,112 @@ final class AdministrationWorkspaceQueryService
         return $queue;
     }
 
+    /**
+     * Return a reviewer-safe case projection. Evidence bodies, URLs, integrity
+     * digests, authorization scopes and private actor identifiers are excluded.
+     */
+    public function editorialCaseDetails(string $caseId, string $actorId): ?array
+    {
+        $case = DB::table('editorial_review_cases as cases')
+            ->join('directory_entities as entities', 'entities.id', '=', 'cases.entity_id')
+            ->join('claim_versions as versions', 'versions.id', '=', 'cases.claim_version_id')
+            ->join('claims', 'claims.id', '=', 'versions.claim_id')
+            ->where('cases.id', $caseId)
+            ->first([
+                'cases.id',
+                'cases.entity_id',
+                'entities.label as entity_label',
+                'entities.entity_type',
+                'cases.status',
+                'cases.submitted_by_actor_id',
+                'cases.reviewer_actor_id',
+                'cases.created_at',
+                'cases.updated_at',
+                'claims.predicate',
+                'versions.id as claim_version_id',
+                'versions.version_number',
+                'versions.value',
+                'versions.valid_from',
+                'versions.valid_to',
+                'versions.disposition',
+            ]);
+
+        if ($case === null || ! in_array($case->status, ['submitted', 'in_review'], true)
+            || $case->submitted_by_actor_id === $actorId
+            || ($case->status === 'in_review' && $case->reviewer_actor_id !== $actorId)
+            || $this->isEvidenceContributor((string) $case->claim_version_id, $actorId)) {
+            return null;
+        }
+
+        $evidence = DB::table('claim_evidence_links as links')
+            ->join('evidence_references as refs', 'refs.id', '=', 'links.evidence_reference_id')
+            ->join('source_authorizations as authorizations', 'authorizations.id', '=', 'refs.source_authorization_id')
+            ->where('links.claim_version_id', $case->claim_version_id)
+            ->orderBy('refs.recorded_at')
+            ->get([
+                'refs.id',
+                'refs.reference_kind',
+                'refs.source_type',
+                'refs.status as evidence_status',
+                'refs.content_included',
+                'refs.observed_at',
+                'refs.recorded_at',
+                'authorizations.status as authorization_status',
+                'authorizations.valid_from as authorization_valid_from',
+                'authorizations.valid_to as authorization_valid_to',
+                'authorizations.revoked_at as authorization_revoked_at',
+                'links.relationship_type',
+            ])
+            ->map(static fn ($row): array => [
+                'reference_id' => (string) $row->id,
+                'reference_kind' => (string) $row->reference_kind,
+                'source_type' => (string) $row->source_type,
+                'evidence_status' => (string) $row->evidence_status,
+                'content_included' => (bool) $row->content_included,
+                'observed_at' => $row->observed_at === null ? null : (string) $row->observed_at,
+                'recorded_at' => (string) $row->recorded_at,
+                'authorization_status' => (string) $row->authorization_status,
+                'authorization_valid_from' => $row->authorization_valid_from === null ? null : (string) $row->authorization_valid_from,
+                'authorization_valid_to' => $row->authorization_valid_to === null ? null : (string) $row->authorization_valid_to,
+                'authorization_revoked' => $row->authorization_revoked_at !== null,
+                'relationship_type' => (string) $row->relationship_type,
+            ])
+            ->all();
+
+        $history = DB::table('directory_status_history')
+            ->where('editorial_review_case_id', $caseId)
+            ->orderBy('occurred_at')
+            ->get(['event_type', 'previous_status', 'new_status', 'actor_class', 'reason_code', 'occurred_at'])
+            ->map(static fn ($row): array => [
+                'event_type' => (string) $row->event_type,
+                'previous_status' => $row->previous_status === null ? null : (string) $row->previous_status,
+                'new_status' => (string) $row->new_status,
+                'actor_class' => (string) $row->actor_class,
+                'reason_code' => (string) $row->reason_code,
+                'occurred_at' => (string) $row->occurred_at,
+            ])
+            ->all();
+
+        return [
+            'case_id' => (string) $case->id,
+            'entity_id' => (string) $case->entity_id,
+            'entity_label' => (string) $case->entity_label,
+            'entity_type' => (string) $case->entity_type,
+            'status' => (string) $case->status,
+            'predicate' => (string) $case->predicate,
+            'claim_version_id' => (string) $case->claim_version_id,
+            'version_number' => (int) $case->version_number,
+            'proposed_value' => json_decode((string) $case->value, true),
+            'valid_from' => $case->valid_from === null ? null : (string) $case->valid_from,
+            'valid_to' => $case->valid_to === null ? null : (string) $case->valid_to,
+            'disposition' => (string) $case->disposition,
+            'submitted_at' => (string) $case->created_at,
+            'updated_at' => (string) $case->updated_at,
+            'evidence' => $evidence,
+            'history' => $history,
+        ];
+    }
+
     private function isEvidenceContributor(string $claimVersionId, string $actorId): bool
     {
         $evidenceIds = DB::table('claim_evidence_links')

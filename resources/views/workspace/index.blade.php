@@ -78,6 +78,7 @@
                         </div>
                         <p>{{ $locale === 'ur' ? 'فیلڈ' : 'Field' }}: <code>{{ $case['predicate'] }}</code></p>
                         <p class="meta">{{ $locale === 'ur' ? 'ورژن' : 'Version' }} {{ $case['version_number'] }} · {{ $case['created_at'] }}</p>
+                        <p><a href="{{ route('institutions.editorial-cases.show', ['institution' => $case['institution_id'], 'case' => $case['case_id'], 'lang' => $locale]) }}">{{ $locale === 'ur' ? 'کیس اور شواہد دیکھیں' : 'Inspect case and evidence metadata' }}</a></p>
                     </article>
                 @endforeach
             @endif
