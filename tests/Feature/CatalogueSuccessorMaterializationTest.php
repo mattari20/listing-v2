@@ -42,11 +42,17 @@ final class CatalogueSuccessorMaterializationTest extends TestCase
             'level' => 'graduate',
         ], 'programme-successor');
 
-        $this->assertDatabaseHas('programme_catalogue_entries', [
-            'entity_id' => $programme,
-            'claim_version_id' => $initial,
-            'title' => 'Synthetic Programme Original',
-        ]);
+        try {
+            $materializer->materializeAcceptedRecord($this->actor('programme-materializer'), $successor, 'programme-materialize-successor');
+            $this->fail('An accepted but unpublished successor must not replace the prior catalogue projection.');
+        } catch (ValidationException) {
+            $this->assertDatabaseHas('programme_catalogue_entries', [
+                'entity_id' => $programme,
+                'claim_version_id' => $initial,
+                'title' => 'Synthetic Programme Original',
+            ]);
+        }
+        $this->publishAcceptedVersion($successor, 'programme-successor');
 
         $secondId = $materializer->materializeAcceptedRecord($this->actor('programme-materializer'), $successor, 'programme-materialize-successor');
         $this->assertSame($firstId, $secondId);
@@ -100,6 +106,7 @@ final class CatalogueSuccessorMaterializationTest extends TestCase
             'claim_version_id' => $initial,
             'qualification_entity_id' => $qualificationOne,
         ]);
+        $this->publishAcceptedVersion($successor, 'qualification-link-successor');
 
         $successorId = $materializer->materializeAcceptedRecord($this->actor('qualification-link-materializer'), $successor, 'qualification-link-materialize-successor');
         $this->assertSame($linkId, $successorId);
@@ -159,6 +166,7 @@ final class CatalogueSuccessorMaterializationTest extends TestCase
             'claim_version_id' => $initial,
             'admission_cycle' => 'Synthetic 2027 Intake',
         ]);
+        $this->publishAcceptedVersion($successor, 'offer-successor');
 
         $successorId = $materializer->materializeAcceptedRecord($this->actor('offer-materializer'), $successor, 'offer-materialize-successor');
         $this->assertSame($offerId, $successorId);
@@ -188,13 +196,26 @@ final class CatalogueSuccessorMaterializationTest extends TestCase
             'title' => 'Synthetic Successor Without Projection',
         ], 'missing-predecessor-successor');
 
+        $materializer = app(CampusProgrammeCatalogueService::class);
         try {
-            app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord(
+            $materializer->materializeAcceptedRecord(
                 $this->actor('missing-predecessor-materializer'),
                 $successor,
                 'missing-predecessor-materialize'
             );
-            $this->fail('A successor must not create a missing predecessor projection.');
+            $this->fail('An unpublished successor must not be materialized.');
+        } catch (ValidationException) {
+            $this->assertDatabaseCount('programme_catalogue_entries', 0);
+        }
+
+        $this->publishAcceptedVersion($successor, 'missing-predecessor-successor');
+        try {
+            $materializer->materializeAcceptedRecord(
+                $this->actor('missing-predecessor-materializer'),
+                $successor,
+                'missing-predecessor-materialize'
+            );
+            $this->fail('A published successor must not create a missing predecessor projection.');
         } catch (ValidationException) {
             $this->assertDatabaseCount('programme_catalogue_entries', 0);
         }
@@ -248,6 +269,30 @@ final class CatalogueSuccessorMaterializationTest extends TestCase
         );
 
         return $versionId;
+    }
+
+    private function publishAcceptedVersion(string $claimVersionId, string $prefix): void
+    {
+        $decisionId = DB::table('adjudication_decisions as decisions')
+            ->join('adjudication_cases as cases', 'cases.id', '=', 'decisions.adjudication_case_id')
+            ->where('cases.claim_version_id', $claimVersionId)
+            ->where('decisions.outcome', 'accepted')
+            ->value('decisions.id');
+        if (! is_string($decisionId) || $decisionId === '') {
+            throw new \\RuntimeException('An accepted synthetic adjudication decision is required before publication.');
+        }
+
+        $workflow = app(PersistedGovernanceWorkflowService::class);
+        $workflow->authorizePublication(
+            $this->actor($prefix.'-publisher', ['authorize_publication']),
+            $claimVersionId,
+            $decisionId,
+            'directory',
+            'anonymous',
+            'synthetic-policy-v1',
+            $prefix.'-publication'
+        );
+        $workflow->processOutbox();
     }
 
     private function correctAndAccept(string $priorVersionId, array $value, string $prefix): string
