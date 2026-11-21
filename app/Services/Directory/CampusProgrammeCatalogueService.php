@@ -95,22 +95,12 @@ final class CampusProgrammeCatalogueService
                 case 'campus':
                     $institution = $this->requireEntity($value['institution_entity_id'] ?? null, 'institution');
                     $this->assertDates($version->valid_from, $version->valid_to);
-                    DB::table('directory_campuses')->insert([
-                        'entity_id' => $targetId, 'institution_entity_id' => $institution,
-                        'location_label' => $this->nullableText($value['location_label'] ?? null),
-                        'status' => 'active', 'valid_from' => $version->valid_from, 'valid_to' => $version->valid_to,
-                        'claim_version_id' => $claimVersionId, 'created_at' => $now, 'updated_at' => $now,
-                    ]);
+                    $this->materializeLocationProjection('directory_campuses', $targetId, $institution, $value, $version, $claimVersionId, $now);
                     break;
                 case 'delivery_site':
                     $institution = $this->requireEntity($value['institution_entity_id'] ?? null, 'institution');
                     $this->assertDates($version->valid_from, $version->valid_to);
-                    DB::table('directory_delivery_sites')->insert([
-                        'entity_id' => $targetId, 'institution_entity_id' => $institution,
-                        'location_label' => $this->nullableText($value['location_label'] ?? null),
-                        'status' => 'active', 'valid_from' => $version->valid_from, 'valid_to' => $version->valid_to,
-                        'claim_version_id' => $claimVersionId, 'created_at' => $now, 'updated_at' => $now,
-                    ]);
+                    $this->materializeLocationProjection('directory_delivery_sites', $targetId, $institution, $value, $version, $claimVersionId, $now);
                     break;
                 case 'programme':
                     $title = trim((string) ($value['title'] ?? ''));
@@ -183,6 +173,57 @@ final class CampusProgrammeCatalogueService
 
             return $targetId;
         });
+    }
+
+    private function materializeLocationProjection(string $table, string $entityId, string $institutionId, array $value, object $version, string $claimVersionId, mixed $now): void
+    {
+        if (! in_array($table, ['directory_campuses', 'directory_delivery_sites'], true)) {
+            throw ValidationException::withMessages(['projection' => 'Unsupported location projection table.']);
+        }
+
+        $existing = DB::table($table)->where('entity_id', $entityId)->lockForUpdate()
+            ->first(['institution_entity_id', 'claim_version_id']);
+        if ($existing !== null) {
+            if ((string) $existing->institution_entity_id !== $institutionId ||
+                $version->supersedes_version_id === null ||
+                (string) $version->supersedes_version_id !== (string) $existing->claim_version_id) {
+                throw ValidationException::withMessages(['projection' => 'A location correction must supersede the exact currently materialized claim version and preserve its institution.']);
+            }
+
+            DB::table($table)->where('entity_id', $entityId)->update([
+                'institution_entity_id' => $institutionId,
+                'location_label' => $this->nullableText($value['location_label'] ?? null),
+                'status' => 'active',
+                'valid_from' => $version->valid_from,
+                'valid_to' => $version->valid_to,
+                'claim_version_id' => $claimVersionId,
+                'updated_at' => $now,
+            ]);
+        } else {
+            if ($version->supersedes_version_id !== null) {
+                throw ValidationException::withMessages(['projection' => 'A successor location claim cannot create a missing projection.']);
+            }
+
+            DB::table($table)->insert([
+                'entity_id' => $entityId,
+                'institution_entity_id' => $institutionId,
+                'location_label' => $this->nullableText($value['location_label'] ?? null),
+                'status' => 'active',
+                'valid_from' => $version->valid_from,
+                'valid_to' => $version->valid_to,
+                'claim_version_id' => $claimVersionId,
+                'created_at' => $now,
+                'updated_at' => $now,
+            ]);
+        }
+
+        $label = $this->nullableText($value['label'] ?? null);
+        if ($label !== null) {
+            DB::table('directory_entities')->where('id', $entityId)->update([
+                'label' => $label,
+                'updated_at' => $now,
+            ]);
+        }
     }
 
     private function requireEntity(mixed $id, string $type): string

@@ -26,19 +26,58 @@ final class UniversityRepresentativeWorkflowService
 
     public function claimVersionBelongsToInstitution(string $claimVersionId, string $institutionId): bool
     {
-        return DB::table('claim_versions')
+        $claim = DB::table('claim_versions')
             ->join('claims', 'claims.id', '=', 'claim_versions.claim_id')
+            ->join('directory_entities', 'directory_entities.id', '=', 'claims.subject_entity_id')
             ->where('claim_versions.id', $claimVersionId)
-            ->where('claims.subject_entity_id', $institutionId)
-            ->exists();
+            ->first(['claims.subject_entity_id', 'directory_entities.entity_type', 'claim_versions.value']);
+
+        if ($claim === null) {
+            return false;
+        }
+        if ((string) $claim->subject_entity_id === $institutionId) {
+            return true;
+        }
+        if (! in_array($claim->entity_type, ['campus', 'delivery_site'], true)) {
+            return false;
+        }
+
+        $table = $claim->entity_type === 'campus' ? 'directory_campuses' : 'directory_delivery_sites';
+        $projection = DB::table($table)->where('entity_id', $claim->subject_entity_id)->first(['institution_entity_id']);
+        $value = json_decode((string) $claim->value, true);
+        $parentId = $projection === null
+            ? (is_array($value) ? ($value['institution_entity_id'] ?? null) : null)
+            : (string) $projection->institution_entity_id;
+
+        return $parentId === $institutionId && is_array($value) && ($value['institution_entity_id'] ?? null) === $institutionId;
     }
 
     public function editorialCaseBelongsToInstitution(string $caseId, string $institutionId): bool
     {
-        return DB::table('editorial_review_cases')
-            ->where('id', $caseId)
-            ->where('entity_id', $institutionId)
-            ->exists();
+        $case = DB::table('editorial_review_cases as cases')
+            ->join('directory_entities', 'directory_entities.id', '=', 'cases.entity_id')
+            ->join('claim_versions', 'claim_versions.id', '=', 'cases.claim_version_id')
+            ->where('cases.id', $caseId)
+            ->first(['cases.entity_id', 'directory_entities.entity_type', 'claim_versions.value']);
+
+        if ($case === null) {
+            return false;
+        }
+        if ((string) $case->entity_id === $institutionId) {
+            return true;
+        }
+        if (! in_array($case->entity_type, ['campus', 'delivery_site'], true)) {
+            return false;
+        }
+
+        $table = $case->entity_type === 'campus' ? 'directory_campuses' : 'directory_delivery_sites';
+        $projection = DB::table($table)->where('entity_id', $case->entity_id)->first(['institution_entity_id']);
+        $value = json_decode((string) $case->value, true);
+        $parentId = $projection === null
+            ? (is_array($value) ? ($value['institution_entity_id'] ?? null) : null)
+            : (string) $projection->institution_entity_id;
+
+        return $parentId === $institutionId && is_array($value) && ($value['institution_entity_id'] ?? null) === $institutionId;
     }
 
     public function correctReturnedProposal(
@@ -73,8 +112,13 @@ final class UniversityRepresentativeWorkflowService
                 return null;
             }
 
+            $subjectEntityId = (string) DB::table('claims')
+                ->join('claim_versions', 'claim_versions.claim_id', '=', 'claims.id')
+                ->where('claim_versions.id', $claimVersionId)
+                ->value('claims.subject_entity_id');
+
             $returnedCase = DB::table('editorial_review_cases')
-                ->where('entity_id', $institutionId)
+                ->where('entity_id', $subjectEntityId)
                 ->where('claim_version_id', $claimVersionId)
                 ->where('submitted_by_actor_id', $actor['actor_id'])
                 ->whereIn('status', ['changes_requested', 'superseded'])

@@ -87,6 +87,7 @@ final class FieldAwareClaimCorrectionService
                     'claim_versions.disposition',
                     'claims.subject_entity_id',
                     'claims.predicate',
+                    'claim_versions.value',
                 ]);
 
             $alreadyCorrected = DB::table('audit_events')
@@ -103,11 +104,30 @@ final class FieldAwareClaimCorrectionService
                 ->where('id', $prior->subject_entity_id)
                 ->lockForUpdate()
                 ->first(['entity_type']);
-            if ($entity === null || ! in_array($entity->entity_type, ['institution', 'programme'], true)) {
-                $this->reject('subject', 'I5 field-aware correction supports explicitly governed institution and programme entities only.');
+            if ($entity === null || ! in_array($entity->entity_type, ['institution', 'programme', 'campus', 'delivery_site'], true)) {
+                $this->reject('subject', 'I5 field-aware correction supports explicitly governed institution, programme, campus and delivery-site entities only.');
             }
 
-            $providerCategory = $this->registry->providerCategoryForEntity($prior->subject_entity_id, true);
+            $parentInstitutionId = null;
+            if (in_array($entity->entity_type, ['campus', 'delivery_site'], true)) {
+                $table = $entity->entity_type === 'campus' ? 'directory_campuses' : 'directory_delivery_sites';
+                $projection = DB::table($table)->where('entity_id', $prior->subject_entity_id)->lockForUpdate()->first(['institution_entity_id']);
+                $priorValue = json_decode((string) $prior->value, true);
+                $parentInstitutionId = $projection === null
+                    ? (is_array($priorValue) ? ($priorValue['institution_entity_id'] ?? null) : null)
+                    : (string) $projection->institution_entity_id;
+                if (is_string($parentInstitutionId) === false || $parentInstitutionId === '' ||
+                    (is_array($priorValue) === false) || ($priorValue['institution_entity_id'] ?? null) !== $parentInstitutionId) {
+                    $this->reject('scope', 'A campus correction must retain its exact parent institution identity.');
+                }
+                $parent = DB::table('directory_entities')->where('id', $parentInstitutionId)->where('entity_type', 'institution')->lockForUpdate()->first(['id']);
+                if ($parent === null) {
+                    $this->reject('scope', 'The parent institution identity is not valid.');
+                }
+                $providerCategory = $this->registry->providerCategoryForEntity($parentInstitutionId, true);
+            } else {
+                $providerCategory = $this->registry->providerCategoryForEntity($prior->subject_entity_id, true);
+            }
             if (is_string($providerCategory) === false || $providerCategory === '') {
                 $this->reject('provider_category', 'A current human-governed provider category is required.');
             }
@@ -138,6 +158,10 @@ final class FieldAwareClaimCorrectionService
             $definition['provider_categories'] = DB::table('field_definition_version_provider_categories')
                 ->where('field_definition_version_id', $prior->field_definition_version_id)
                 ->pluck('provider_category')->all();
+
+            if (in_array($entity->entity_type, ['campus', 'delivery_site'], true) && (is_array($value) === false || ($value['institution_entity_id'] ?? null) !== $parentInstitutionId)) {
+                $this->reject('scope', 'A corrected location must retain its exact parent institution identity.');
+            }
 
             $validationContext = array_merge($validationContext, [
                 'entity_type' => (string) $entity->entity_type,
