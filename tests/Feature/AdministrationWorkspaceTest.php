@@ -150,99 +150,6 @@ final class AdministrationWorkspaceTest extends TestCase
         $this->actingAs($revoked)->getJson('/workspace')->assertForbidden();
     }
 
-    private function institution(): string
-    {
-        $id = (string) str()->uuid();
-        $now = now();
-        DB::table('directory_entities')->insert([
-            'id' => $id,
-            'entity_type' => 'institution',
-            'label' => 'Synthetic Workspace Institute '.str()->random(5),
-            'created_at' => $now,
-            'updated_at' => $now,
-        ]);
-        DB::table('directory_provider_category_assignments')->insert([
-            'entity_id' => $id,
-            'provider_category' => 'university',
-            'assigned_by_actor_id' => 'synthetic-taxonomy-steward',
-            'reason_code' => 'synthetic_assignment',
-            'idempotency_key' => 'workspace-category-'.str()->uuid(),
-            'fingerprint' => hash('sha256', $id),
-            'assigned_at' => $now,
-            'created_at' => $now,
-            'updated_at' => $now,
-        ]);
-
-        return $id;
-    }
-
-    private function user(string $email, bool $verified = true, bool $active = true): User
-    {
-        return User::query()->create([
-            'email' => $email,
-            'password' => 'synthetic-password',
-            'email_verified_at' => $verified ? now() : null,
-            'is_active' => $active,
-        ]);
-    }
-
-    private function assign(User $user, string $role, string $scopeId, string $scopeType = 'institution'): RoleAssignment
-    {
-        return RoleAssignment::query()->create([
-            'user_id' => $user->getKey(),
-            'role' => $role,
-            'scope_type' => $scopeType,
-            'scope_id' => $scopeId,
-        ]);
-    }
-
-    private function case(string $institution, User $submitter): array
-    {
-        $claimId = (string) str()->uuid();
-        $versionId = (string) str()->uuid();
-        $caseId = (string) str()->uuid();
-        $now = now();
-        DB::table('claims')->insert([
-            'id' => $claimId,
-            'subject_entity_id' => $institution,
-            'predicate' => 'institution_display_name',
-            'created_at' => $now,
-            'updated_at' => $now,
-        ]);
-        DB::table('claim_versions')->insert([
-            'id' => $versionId,
-            'claim_id' => $claimId,
-            'version_number' => 1,
-            'value' => json_encode('Synthetic workspace value', JSON_THROW_ON_ERROR),
-            'valid_from' => null,
-            'valid_to' => null,
-            'recorded_at' => $now,
-            'disposition' => 'proposed',
-            'supersedes_version_id' => null,
-            'correction_reason' => null,
-            'field_definition_version_id' => null,
-            'created_at' => $now,
-            'updated_at' => $now,
-        ]);
-        DB::table('editorial_review_cases')->insert([
-            'id' => $caseId,
-            'entity_id' => $institution,
-            'claim_version_id' => $versionId,
-            'status' => 'submitted',
-            'submitted_by_actor_id' => 'user:'.$submitter->getKey(),
-            'reviewer_actor_id' => null,
-            'adjudication_case_id' => null,
-            'adjudication_decision_id' => null,
-            'publication_decision_id' => null,
-            'idempotency_key' => 'workspace-case-'.str()->uuid(),
-            'fingerprint' => hash('sha256', $caseId),
-            'created_at' => $now,
-            'updated_at' => $now,
-        ]);
-
-        return ['id' => $caseId, 'claim_version_id' => $versionId];
-    }
-
     public function test_reviewer_case_detail_is_scoped_and_never_exposes_raw_evidence_digest_or_audit_metadata(): void
     {
         $institution = $this->institution();
@@ -356,4 +263,97 @@ final class AdministrationWorkspaceTest extends TestCase
             ->assertNotFound();
     }
 
+
+    private function institution(): string
+    {
+        $id = (string) str()->uuid();
+        $now = now();
+        DB::table('directory_entities')->insert([
+            'id' => $id,
+            'entity_type' => 'institution',
+            'label' => 'Synthetic Workspace Institute '.str()->random(5),
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        DB::table('directory_provider_category_assignments')->insert([
+            'entity_id' => $id,
+            'provider_category' => 'university',
+            'assigned_by_actor_id' => 'synthetic-taxonomy-steward',
+            'reason_code' => 'synthetic_assignment',
+            'idempotency_key' => 'workspace-category-'.str()->uuid(),
+            'fingerprint' => hash('sha256', $id),
+            'assigned_at' => $now,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+
+        return $id;
+    }
+
+    private function user(string $email, bool $verified = true, bool $active = true): User
+    {
+        return User::query()->create([
+            'email' => $email,
+            'password' => 'synthetic-password',
+            'email_verified_at' => $verified ? now() : null,
+            'is_active' => $active,
+        ]);
+    }
+
+    private function assign(User $user, string $role, string $scopeId, string $scopeType = 'institution'): RoleAssignment
+    {
+        return RoleAssignment::query()->create([
+            'user_id' => $user->getKey(),
+            'role' => $role,
+            'scope_type' => $scopeType,
+            'scope_id' => $scopeId,
+        ]);
+    }
+
+    private function case(string $institution, User $submitter): array
+    {
+        $claimId = (string) str()->uuid();
+        $versionId = (string) str()->uuid();
+        $caseId = (string) str()->uuid();
+        $now = now();
+        DB::table('claims')->insert([
+            'id' => $claimId,
+            'subject_entity_id' => $institution,
+            'predicate' => 'institution_display_name',
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        DB::table('claim_versions')->insert([
+            'id' => $versionId,
+            'claim_id' => $claimId,
+            'version_number' => 1,
+            'value' => json_encode('Synthetic workspace value', JSON_THROW_ON_ERROR),
+            'valid_from' => null,
+            'valid_to' => null,
+            'recorded_at' => $now,
+            'disposition' => 'proposed',
+            'supersedes_version_id' => null,
+            'correction_reason' => null,
+            'field_definition_version_id' => null,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        DB::table('editorial_review_cases')->insert([
+            'id' => $caseId,
+            'entity_id' => $institution,
+            'claim_version_id' => $versionId,
+            'status' => 'submitted',
+            'submitted_by_actor_id' => 'user:'.$submitter->getKey(),
+            'reviewer_actor_id' => null,
+            'adjudication_case_id' => null,
+            'adjudication_decision_id' => null,
+            'publication_decision_id' => null,
+            'idempotency_key' => 'workspace-case-'.str()->uuid(),
+            'fingerprint' => hash('sha256', $caseId),
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+
+        return ['id' => $caseId, 'claim_version_id' => $versionId];
+    }
 }
