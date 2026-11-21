@@ -341,7 +341,7 @@ final class CatalogueSuccessorMaterializationTest extends TestCase
         return $id;
     }
 
-    private function actor(string $id, array $capabilities = []): array
+    private function actor(string $id, array $capabilities = ['materialize_catalogue_record']): array
     {
         return [
             'actor_id' => $id,
