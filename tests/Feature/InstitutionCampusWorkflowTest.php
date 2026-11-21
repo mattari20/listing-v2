@@ -255,7 +255,7 @@ final class InstitutionCampusWorkflowTest extends TestCase
                 'properties' => [
                     'institution_entity_id' => ['type' => 'short_text', 'max_length' => 36],
                     'label' => ['type' => 'short_text', 'max_length' => 255],
-                    'location_label' => ['type' => 'short_text', 'max_length' => 5000],
+                    'location_label' => ['type' => 'short_text', 'max_length' => 500],
                 ],
             ], JSON_THROW_ON_ERROR),
             'presentation_metadata' => json_encode(['section_key' => 'campus', 'label_key' => 'synthetic.campus'], JSON_THROW_ON_ERROR),

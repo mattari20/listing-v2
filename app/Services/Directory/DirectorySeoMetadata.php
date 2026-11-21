@@ -32,7 +32,7 @@ final class DirectorySeoMetadata
 
     public function robotsDirective(Request $request): string
     {
-        if ($request->is('account/*') || $request->is('workspace')) {
+        if ($request->is('account/*') || $request->is('workspace') || $request->is('institutions/*/information')) {
             return 'noindex, nofollow';
         }
 

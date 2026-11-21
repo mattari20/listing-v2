@@ -11,6 +11,7 @@ use App\Services\Directory\ProviderInstitutionRelationshipService;
 use App\Services\Directory\UniversityRepresentativeWorkflowService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use App\Services\Directory\InstitutionCampusInformationQueryService;
 use Illuminate\Support\Facades\DB;
 
 final class InstitutionCampusWorkflowController extends Controller
@@ -20,62 +21,15 @@ final class InstitutionCampusWorkflowController extends Controller
         private readonly UniversityRepresentativeWorkflowService $workflow,
         private readonly ProviderInstitutionRelationshipService $entities,
         private readonly FieldAwareClaimProposalService $proposals,
+        private readonly InstitutionCampusInformationQueryService $informationQuery,
     ) {}
 
     public function information(Request $request, string $institution): JsonResponse
     {
         $this->assertAccess($request, $institution);
 
-        $entity = DB::table('directory_entities')
-            ->where('id', $institution)
-            ->where('entity_type', 'institution')
-            ->first(['id', 'label']);
-
-        $campuses = DB::table('directory_campuses as locations')
-            ->join('directory_entities as entities', 'entities.id', '=', 'locations.entity_id')
-            ->join('claim_versions as versions', 'versions.id', '=', 'locations.claim_version_id')
-            ->where('locations.institution_entity_id', $institution)
-            ->where('locations.status', 'active')
-            ->where('versions.disposition', 'accepted')
-            ->whereNotExists(function ($query): void {
-                $query->selectRaw('1')
-                    ->from('claim_versions as successor')
-                    ->whereColumn('successor.supersedes_version_id', 'versions.id');
-            })
-            ->orderBy('entities.label')
-            ->get([
-                'entities.id',
-                'entities.label',
-                'locations.location_label',
-                'locations.valid_from',
-                'locations.valid_to',
-            ]);
-
-        $deliverySites = DB::table('directory_delivery_sites as locations')
-            ->join('directory_entities as entities', 'entities.id', '=', 'locations.entity_id')
-            ->join('claim_versions as versions', 'versions.id', '=', 'locations.claim_version_id')
-            ->where('locations.institution_entity_id', $institution)
-            ->where('locations.status', 'active')
-            ->where('versions.disposition', 'accepted')
-            ->whereNotExists(function ($query): void {
-                $query->selectRaw('1')
-                    ->from('claim_versions as successor')
-                    ->whereColumn('successor.supersedes_version_id', 'versions.id');
-            })
-            ->orderBy('entities.label')
-            ->get([
-                'entities.id',
-                'entities.label',
-                'locations.location_label',
-                'locations.valid_from',
-                'locations.valid_to',
-            ]);
-
-        return response()->json([
-            'institution' => ['id' => (string) $entity->id, 'label' => (string) $entity->label],
-            'campuses' => $campuses,
-            'delivery_sites' => $deliverySites,
-        ])->header('Cache-Control', 'private, no-store, max-age=0')
+        return response()->json($this->informationQuery->forInstitution($institution))
+            ->header('Cache-Control', 'private, no-store, max-age=0')
             ->header('X-Robots-Tag', 'noindex, nofollow');
     }
 
