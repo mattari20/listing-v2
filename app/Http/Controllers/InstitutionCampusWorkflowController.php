@@ -16,13 +16,28 @@ use Illuminate\Support\Facades\DB;
 
 final class InstitutionCampusWorkflowController extends Controller
 {
+    private readonly ScopedAuthorization $authorization;
+
+    private readonly UniversityRepresentativeWorkflowService $workflow;
+
+    private readonly ProviderInstitutionRelationshipService $entities;
+
+    private readonly FieldAwareClaimProposalService $proposals;
+
+    private readonly InstitutionCampusInformationQueryService $informationQuery;
+
     public function __construct(
-        private readonly ScopedAuthorization $authorization,
-        private readonly UniversityRepresentativeWorkflowService $workflow,
-        private readonly ProviderInstitutionRelationshipService $entities,
-        private readonly FieldAwareClaimProposalService $proposals,
-        private readonly InstitutionCampusInformationQueryService $informationQuery,
+        ScopedAuthorization $authorization,
+        UniversityRepresentativeWorkflowService $workflow,
+        ProviderInstitutionRelationshipService $entities,
+        FieldAwareClaimProposalService $proposals,
+        InstitutionCampusInformationQueryService $informationQuery,
     ) {
+        $this->authorization = $authorization;
+        $this->workflow = $workflow;
+        $this->entities = $entities;
+        $this->proposals = $proposals;
+        $this->informationQuery = $informationQuery;
     }
 
     public function information(Request $request, string $institution): JsonResponse

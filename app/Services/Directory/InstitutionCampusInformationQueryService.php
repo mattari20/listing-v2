@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Services\Directory;
 
 use Illuminate\Support\Collection;
+use InvalidArgumentException;
 use Illuminate\Support\Facades\DB;
 
 final class InstitutionCampusInformationQueryService
@@ -12,7 +13,7 @@ final class InstitutionCampusInformationQueryService
     /**
      * Return only accepted, current campus and delivery-site projections for one institution.
      *
-     * @return array{institution: array{id: string, label: string}, campuses: Collection, delivery_sites: \Illuminate\Support\Collection}
+     * @return array{institution: array{id: string, label: string}, campuses: Collection, delivery_sites: Collection}
      */
     public function forInstitution(string $institutionId): array
     {
@@ -33,10 +34,10 @@ final class InstitutionCampusInformationQueryService
         ];
     }
 
-    private function currentLocations(string $table, string $institutionId): \Illuminate\Support\Collection
+    private function currentLocations(string $table, string $institutionId): Collection
     {
         if (! in_array($table, ['directory_campuses', 'directory_delivery_sites'], true)) {
-            throw new \InvalidArgumentException('Unsupported institution location projection.');
+            throw new InvalidArgumentException('Unsupported institution location projection.');
         }
 
         return DB::table($table.' as locations')
