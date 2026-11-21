@@ -98,6 +98,9 @@
 
     <section aria-labelledby="correction-history-heading">
         <h2 id="correction-history-heading">{{ $locale === 'ur' ? 'درستگی کی سابقہ تاریخ' : 'Correction history' }}</h2>
+        @if (! empty($case['correction_reason']))
+            <p class="muted">{{ $locale === 'ur' ? 'موجودہ درستگی کی وجہ' : 'Current correction reason' }}: {{ $case['correction_reason'] }}</p>
+        @endif
         @if ($case['correction_history'] === [])
             <p>{{ $locale === 'ur' ? 'اس ورژن سے پہلے کوئی سابقہ ورژن منسلک نہیں۔' : 'This is the first recorded version in this correction chain.' }}</p>
         @else

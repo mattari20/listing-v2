@@ -134,6 +134,7 @@ final class AdministrationWorkspaceQueryService
                 'versions.valid_to',
                 'versions.disposition',
                 'versions.supersedes_version_id',
+                'versions.correction_reason',
             ]);
 
         if ($case === null || ! in_array($case->status, ['submitted', 'in_review'], true)
@@ -163,7 +164,7 @@ final class AdministrationWorkspaceQueryService
                 'authorizations.revoked_at as authorization_revoked_at',
                 'links.relationship_type',
             ])
-            ->map(static fn ($row): array => [
+            ->map(fn ($row): array => [
                 'reference_id' => (string) $row->id,
                 'reference_kind' => (string) $row->reference_kind,
                 'source_type' => (string) $row->source_type,
@@ -249,6 +250,7 @@ final class AdministrationWorkspaceQueryService
             'valid_from' => $case->valid_from === null ? null : (string) $case->valid_from,
             'valid_to' => $case->valid_to === null ? null : (string) $case->valid_to,
             'disposition' => (string) $case->disposition,
+            'correction_reason' => $case->correction_reason === null ? null : (string) $case->correction_reason,
             'submitted_at' => (string) $case->created_at,
             'updated_at' => (string) $case->updated_at,
             'evidence' => $evidence,
