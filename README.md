@@ -1,3 +1,12 @@
+## Latest verified update — 21 November 2026 (ADM-E source audit)
+
+- ADM-A through ADM-D are complete within their bounded repository/synthetic scopes; ADM-D merged as PR #422, main `4549f879532c53492a14fc09446bad0a6824778a`.
+- ADM-E source audit is complete; its bounded implementation contract identifies child-entity reviewer queues, assigned in-review work, returned-correction handoff, case-level evidence-quality warnings and role-scoped next actions.
+- No ADM-E application code or runtime behavior has changed yet. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+- See [ADM-E Correction, Quality and Operational Handoff Audit](docs/04-roadmap/ADM_E_CORRECTION_QUALITY_OPERATIONAL_HANDOFF_AUDIT_2026-11-21.md) and [M3 Project Progress Report](docs/04-roadmap/PROJECT_PROGRESS_REPORT.md).
+
+---
+
 ## Latest verified update — 21 November 2026 (ADM-C institution and campus workflow)
 
 - **Latest verified main at ADM-C implementation closeout:** `68c09dc938b2b6238b8a2a90888f836bfe66ba58` — PR [#420](https://github.com/mattari20/listing-v2/pull/420), governed institution and campus information workflow.
