@@ -263,7 +263,6 @@ final class AdministrationWorkspaceTest extends TestCase
             ->assertNotFound();
     }
 
-
     public function test_case_detail_displays_immutable_correction_version_history(): void
     {
         $institution = $this->institution();
