@@ -411,10 +411,10 @@ class ProgrammeOfferFactWorkflowTest extends TestCase
         DB::table('source_authorizations')->insert([
             'id' => $authorization, 'source_family_id' => 'synthetic-rcv-b02',
             'status' => 'approved_for_defined_purpose_and_method',
-            'permitted_purposes' => json_encode(['directory_publication']),
-            'permitted_methods' => json_encode(['approved_projection']),
+            'permitted_purposes' => json_encode(['directory_publication', 'synthetic_test_only']),
+            'permitted_methods' => json_encode(['approved_projection', 'fixture_reference']),
             'territories' => json_encode(['synthetic']),
-            'permitted_scopes' => json_encode(['publication' => true]),
+            'permitted_scopes' => json_encode(['processing' => true, 'publication' => true]),
             'valid_from' => now()->subDay(), 'valid_to' => now()->addDay(),
             'revoked_at' => null, 'revocation_reason' => null,
             'created_at' => $now, 'updated_at' => $now,

@@ -141,8 +141,10 @@ class EditorialReviewServiceTest extends TestCase
         DB::table('directory_entities')->insert(['id' => $entity, 'entity_type' => 'institution', 'label' => 'Synthetic Editorial Academy', 'created_at' => $now, 'updated_at' => $now]);
         DB::table('source_authorizations')->insert([
             'id' => $authorization, 'source_family_id' => 'synthetic-only', 'status' => 'approved_for_defined_purpose_and_method',
-            'permitted_purposes' => json_encode(['directory_publication']), 'permitted_methods' => json_encode(['approved_projection']),
-            'territories' => json_encode(['synthetic']), 'permitted_scopes' => json_encode(['publication' => true]),
+            'permitted_purposes' => json_encode(['directory_publication', 'synthetic_test_only']), 'permitted_methods' => json_encode(['approved_projection', 'fixture_reference']),
+            'territories' => json_encode(['synthetic']), 'permitted_scopes' => json_encode(['processing' => true, 'publication' => true]),
+            'valid_from' => $now->copy()->subDay(),
+            'valid_to' => $now->copy()->addDay(),
             'created_at' => $now, 'updated_at' => $now,
         ]);
         DB::table('evidence_references')->insert([

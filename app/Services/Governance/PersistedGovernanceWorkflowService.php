@@ -61,11 +61,39 @@ final class PersistedGovernanceWorkflowService
             }
             $evidence = DB::table('claim_evidence_links')
                 ->join('evidence_references', 'evidence_references.id', '=', 'claim_evidence_links.evidence_reference_id')
+                ->join('source_authorizations', 'source_authorizations.id', '=', 'evidence_references.source_authorization_id')
                 ->where('claim_evidence_links.claim_version_id', $case->claim_version_id)
-                ->get(['evidence_references.status']);
-            $statuses = $evidence->pluck('status')->all();
-            if ($outcome === 'accepted' && ! (new GovernancePolicy)->canAcceptClaim($statuses)) {
-                $this->reject('evidence', 'Claim cannot be accepted without admissible evidence.');
+                ->get([
+                    'evidence_references.status as evidence_status',
+                    'evidence_references.source_type',
+                    'source_authorizations.*',
+                ]);
+            $statuses = $evidence->pluck('evidence_status')->all();
+            $policy = new GovernancePolicy;
+            if ($outcome === 'accepted') {
+                if (! $policy->canAcceptClaim($statuses)) {
+                    $this->reject('evidence', 'Claim cannot be accepted without admissible evidence.');
+                }
+
+                foreach ($evidence as $reference) {
+                    // Current ADM-E authority is synthetic-only. The evidence schema
+                    // does not persist per-reference purpose/method/territory context,
+                    // so never infer it for non-synthetic evidence.
+                    if ($reference->source_type !== 'synthetic' ||
+                        empty($reference->valid_from) || empty($reference->valid_to)) {
+                        $this->reject('authorization', 'Acceptance requires synthetic evidence with a bounded, resolvable source authorization.');
+                    }
+
+                    $authorization = (array) $reference;
+                    $decision = $policy->authorizeSourceAction($authorization, 'processing', [
+                        'purpose' => 'synthetic_test_only',
+                        'method' => 'fixture_reference',
+                        'territory' => 'synthetic',
+                    ]);
+                    if (($decision['allowed'] ?? false) !== true) {
+                        $this->reject('authorization', 'Evidence source authorization is missing, expired, revoked or outside the synthetic processing scope.');
+                    }
+                }
             }
             $evidenceActorIds = $this->evidenceActorIds($case->claim_version_id);
             foreach ($evidenceActorIds as $evidenceActorId) {
