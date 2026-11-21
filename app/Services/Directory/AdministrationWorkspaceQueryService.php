@@ -8,10 +8,6 @@ use Illuminate\Support\Facades\DB;
 
 final class AdministrationWorkspaceQueryService
 {
-    /**
-     * @param  array<int, string>  $scopeIds
-     * @return array<int, string>
-     */
     public function eligibleUniversityInstitutionIds(array $scopeIds): array
     {
         if ($scopeIds === []) {
@@ -28,10 +24,6 @@ final class AdministrationWorkspaceQueryService
             ->all();
     }
 
-    /**
-     * @param  array<int, string>  $institutionIds
-     * @return array<int, array<string, mixed>>
-     */
     public function representativeSubmissions(array $institutionIds, string $actorId): array
     {
         if ($institutionIds === []) {
@@ -67,10 +59,6 @@ final class AdministrationWorkspaceQueryService
             ->all();
     }
 
-    /**
-     * @param array<int, string> $institutionIds
-     * @return array<int, array<string, mixed>>
-     */
     public function reviewQueue(array $institutionIds, string $actorId): array
     {
         if ($institutionIds === []) {
