@@ -1,6 +1,6 @@
 ## ADM-F / ADM-G and product-wide integration — 2026-11-21
 
-**Status: COMPLETE — IMPLEMENTED, SYNTHETIC CI PASSED, READY FOR MERGE.**
+**Status: COMPLETE — IMPLEMENTED, SYNTHETIC CI PASSED, MERGED.** PR #437 merged as `fec6a4fa94ea902856baa76275c2a4369675f6d3`; post-merge main verified.
 
 ### ADM-F — catalogue successor materialization
 - Implemented exact-predecessor successor replacement for programme catalogue entries, programme-qualification links and admission-offer catalogue records.
@@ -27,9 +27,9 @@ Final exact-head validation passed on `f9b76270fb546f52f13d7008134adea3ee13141d`
 
 ---
 
-## ADM-F — Programme, Qualification and Admission Offer Successor Materialization — 2026-11-21
+## ADM-F — Initial source-audit checkpoint (historical; superseded by merged implementation above) — 2026-11-21
 
-**Status: SOURCE AUDIT AND IMPLEMENTATION CONTRACT COMPLETE; CODE IMPLEMENTATION PENDING.** The focused audit is recorded in [ADM-F Programme, Qualification and Admission Offer Successor Materialization Audit](ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md). Current `CampusProgrammeCatalogueService::materializeAcceptedRecord` already supports exact-predecessor replacement for campus/delivery-site projections, but its programme, programme-qualification and programme-offer branches insert new rows rather than replacing an existing projection by exact predecessor claim-version ID. ADM-F defines the synthetic regression matrix and fail-closed implementation contract. Programme-offer facts remain a separate versioned workflow.
+**Historical status at initial audit checkpoint:** implementation had not yet begun. This checkpoint is superseded by the completed and merged ADM-F implementation recorded above. The focused audit is recorded in [ADM-F Programme, Qualification and Admission Offer Successor Materialization Audit](ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md). Current `CampusProgrammeCatalogueService::materializeAcceptedRecord` already supports exact-predecessor replacement for campus/delivery-site projections, but its programme, programme-qualification and programme-offer branches insert new rows rather than replacing an existing projection by exact predecessor claim-version ID. ADM-F defines the synthetic regression matrix and fail-closed implementation contract. Programme-offer facts remain a separate versioned workflow.
 
 **Current main baseline:** `be95a411862e795072c107708c2867d904ef5bb9` (PR #434). ADM-A through ADM-E are complete within bounded repository/synthetic scopes; ADM-E G01–G04 are complete. No code, schema, role, route or runtime behavior changed in this audit. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED; M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED. Existing no-production/V1/Hostinger/hosted access, synthetic-only, no-real/source/personal-data, no-external-AI/API, no-deployment/pilot/release and no-new-spend boundaries remain binding.
 
@@ -57,13 +57,13 @@ Delivered:
 **Bounded limitations and deferred work:**
 - This does not constitute a complete administration console, independent human review operation, security/privacy/legal/accessibility certification or operational acceptance.
 - Current assignment model supports university data reviewers only.
-- The existing workspace queue currently lists direct university-institution cases; a unified work queue for campus/delivery-site child cases remains future work, even though the case-detail scope guard can resolve those parent relationships when addressed directly.
+- At the ADM-D closeout point, the workspace queue still listed direct university-institution cases only. This specific limitation was subsequently closed in ADM-G: the current reviewer and representative queues include campus/delivery-site child cases under the exact parent university scope, and assigned in-review work is surfaced only to its reviewer.
 - Evidence inspection is metadata-only. No original documents, attachments, source content, URLs or external systems can be inspected here.
 - Review start/completion are editorial workflow actions only. Adjudication, publication, suppression, restoration, role management and direct catalogue editing remain separate capabilities and are not exposed by this agenda.
 - No migration, field-definition activation, source acquisition, production/V1/Hostinger access, live database operation, real/source/personal data, external API/AI, deployment, pilot, paid service or new spend occurred.
 - Deeni Madaris remains default-OFF with zero public exposure.
 
-**Disposition:** ADM-D is complete within the bounded repository/synthetic scope. Next administration agenda: ADM-E — correction, quality and operational handoff integration (scope to be audited before implementation). Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+**Disposition:** ADM-D is complete within the bounded repository/synthetic scope. The subsequent ADM-E, ADM-F and ADM-G administration agendas are also complete within their bounded synthetic repository scopes and merged in PR #437. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
 
 ---
 

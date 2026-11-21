@@ -1,7 +1,7 @@
 # M3 Product-Wide Integration Verification — 2026-11-21
 
 **Baseline:** `be95a411862e795072c107708c2867d904ef5bb9`  
-**Working head:** `b2d167d9ccc7ff041ee84f8ca0234ea3947226fd`  
+**Merged main commit:** `fec6a4fa94ea902856baa76275c2a4369675f6d3`  
 **Status:** COMPLETE for the bounded synthetic repository integration scope; exact-head CI passed.
 
 ## 1. Journey under verification
@@ -53,4 +53,4 @@ Institution discovery → institution profile → campus/delivery-site profile �
 
 Final exact-head validation passed on `f9b76270fb546f52f13d7008134adea3ee13141d`: FND-01 PHP 8.5 Foundation CI SUCCESS; Project documentation validation SUCCESS; 349 synthetic tests passed with 1,947 assertions. The full integration regression suite, PHP formatting, Composer audit, Laravel bootstrap/routes and artifact hygiene passed. This does not replace human, legal, security, accessibility, operational, disaster-recovery or production acceptance.
 
-**Disposition:** Product-wide integration review and regression mapping are complete; exact-head automated verification remains pending. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+**Disposition:** Product-wide integration review and regression mapping are complete for the bounded synthetic repository scope and merged in PR #437. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.

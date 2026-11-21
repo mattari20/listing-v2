@@ -1,16 +1,16 @@
-## Latest verified work — 21 November 2026 (ADM-F/ADM-G implementation; integration review)
+## Latest merged work — 21 November 2026 (ADM-F, ADM-G and product integration)
 
-- Current product baseline before this agenda: `be95a411862e795072c107708c2867d904ef5bb9` (PR #434 public institution/campus/delivery-site navigation).
+- Latest verified main commit: `fec6a4fa94ea902856baa76275c2a4369675f6d3` — PR #437 merged after exact-head validation.
 - ADM-F now contains exact-predecessor successor replacement for programme, qualification-link and admission-offer catalogue projections, plus synthetic regression tests for stable identity, missing predecessor rejection and preservation of offer-fact identity.
 - ADM-G now includes parent-scoped campus/delivery-site representative and reviewer queues, assigned-only in-review visibility and role-specific next-action guidance, with synthetic regression coverage.
 - Product-wide integration source review is recorded in [M3 Product-Wide Integration Verification](docs/04-roadmap/M3_PRODUCT_WIDE_INTEGRATION_VERIFICATION_2026-11-21.md).
 - ADM-F and ADM-G closeout records: [ADM-F audit](docs/04-roadmap/ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md), [ADM-G handoff](docs/04-roadmap/ADM_G_ADMINISTRATION_QUEUE_AND_OPERATIONAL_HANDOFF_2026-11-21.md).
-- **Exact-head validation passed:** PHP 8.5 FND-01 Foundation CI and Project documentation validation both succeeded on `f9b76270fb546f52f13d7008134adea3ee13141d`; 349 synthetic tests passed with 1,947 assertions. PHP formatting, Composer audit, Laravel route validation and repository artifact hygiene also passed. See [PR #437](https://github.com/mattari20/listing-v2/pull/437).
+- **PR #437 merged:** `fec6a4fa94ea902856baa76275c2a4369675f6d3`. Exact tested head `fe385b1faea1aabe380a6666e745e6004319a40b` passed FND-01 PHP 8.5 Foundation CI and Project documentation validation; 349 synthetic tests passed with 1,947 assertions. PHP formatting, Composer audit, Laravel route validation and repository artifact hygiene passed. Post-merge main verified at the merge commit.
 - Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED. M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED. No production/V1/Hostinger access, deployment, pilot, release or new spend is authorized.
 
 ---
 
-## Latest verified update — 21 November 2026 (ADM-E complete; ADM-F prepared)
+## Historical checkpoint — 21 November 2026 (before ADM-F/ADM-G completion; superseded by merged update above)
 
 - **Latest verified main:** `be95a411862e795072c107708c2867d904ef5bb9` — PR #434 connects institution, campus and delivery-site public profiles and programme-offer location links.
 - **ADM-A through ADM-E:** complete within their bounded repository/synthetic scopes. ADM-E G01–G04 closeouts are recorded in the M3 Project Progress Report and ADM-E audit checkpoint.
