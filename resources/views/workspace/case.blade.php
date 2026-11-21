@@ -72,7 +72,21 @@
                         <td>{{ $evidence['reference_kind'] }}</td>
                         <td>{{ $evidence['source_type'] }}</td>
                         <td>{{ $evidence['evidence_status'] }}</td>
-                        <td>{{ $evidence['authorization_status'] }}<br>{{ $evidence['authorization_revoked'] ? ($locale === 'ur' ? 'منسوخ' : 'Revoked') : ($locale === 'ur' ? 'منسوخ نہیں' : 'Not revoked') }}<br><span class="muted">{{ $evidence['authorization_valid_from'] ?? '—' }} → {{ $evidence['authorization_valid_to'] ?? '—' }}</span></td>
+                        <td>
+                            {{ $evidence['authorization_status'] }}<br>
+                            {{ $evidence['authorization_revoked'] ? ($locale === 'ur' ? 'منسوخ' : 'Revoked') : ($locale === 'ur' ? 'منسوخ نہیں' : 'Not revoked') }}<br>
+                            <strong>{{ match ($evidence['authorization_window_state']) {
+                                'current' => $locale === 'ur' ? 'موجودہ' : 'Current',
+                                'expired' => $locale === 'ur' ? 'میعاد ختم' : 'Expired',
+                                'not_yet_valid' => $locale === 'ur' ? 'ابھی مؤثر نہیں' : 'Not yet valid',
+                                'revoked' => $locale === 'ur' ? 'منسوخ' : 'Revoked',
+                                'not_approved' => $locale === 'ur' ? 'منظور نہیں' : 'Not approved',
+                                'unbounded' => $locale === 'ur' ? 'مدت غیر متعین' : 'Unbounded / incomplete',
+                                'invalid_window' => $locale === 'ur' ? 'غلط مدت' : 'Invalid validity window',
+                                default => $locale === 'ur' ? 'نامعلوم' : 'Unknown',
+                            } }}</strong><br>
+                            <span class="muted">{{ $evidence['authorization_valid_from'] ?? '—' }} → {{ $evidence['authorization_valid_to'] ?? '—' }}</span>
+                        </td>
                         <td>{{ $evidence['content_included'] ? ($locale === 'ur' ? 'ہاں' : 'Yes') : ($locale === 'ur' ? 'نہیں' : 'No') }}</td>
                         <td>{{ $evidence['observed_at'] ?? '—' }}<br>{{ $evidence['recorded_at'] }}</td>
                     </tr>
@@ -89,7 +103,17 @@
         @else
             <ol>
             @foreach ($case['correction_history'] as $version)
-                <li>{{ $locale === 'ur' ? 'ورژن' : 'Version' }} {{ $version['version_number'] }} — {{ $version['disposition'] }}; {{ $version['case_status'] ?? ($locale === 'ur' ? 'ادارتی کیس دستیاب نہیں' : 'No linked editorial case') }}; {{ $version['case_created_at'] ?? '—' }}</li>
+                <li>
+                    {{ $locale === 'ur' ? 'ورژن' : 'Version' }} {{ $version['version_number'] }} — {{ $version['disposition'] }};
+                    {{ $version['case_status'] ?? ($locale === 'ur' ? 'ادارتی کیس دستیاب نہیں' : 'No linked editorial case') }};
+                    {{ $version['case_created_at'] ?? '—' }}
+                    @if (! empty($version['review_reason_code']))
+                        <span class="muted">{{ $locale === 'ur' ? 'نظرثانی کی وجہ' : 'Review reason' }}: {{ $version['review_reason_code'] }}</span>
+                    @endif
+                    @if (! empty($version['correction_reason']))
+                        <span class="muted">{{ $locale === 'ur' ? 'درستگی کی وجہ' : 'Correction reason' }}: {{ $version['correction_reason'] }}</span>
+                    @endif
+                </li>
             @endforeach
             </ol>
         @endif
