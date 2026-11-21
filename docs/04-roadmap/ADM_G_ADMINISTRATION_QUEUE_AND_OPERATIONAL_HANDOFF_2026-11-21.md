@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-21  
 **Baseline main:** `be95a411862e795072c107708c2867d904ef5bb9`  
-**Status:** Implementation and synthetic regression tests added; exact-head CI pending.
+**Status:** COMPLETE — implementation and synthetic regression tests passed exact-head CI.
 
 ## 1. Purpose
 
@@ -57,7 +57,7 @@ ADM-G closes the remaining role-scoped workspace integration gaps after ADM-E. I
 6. Private/no-store/noindex and existing route authorization invariants unchanged.
 7. Exact-head FND-01 PHP 8.5 Foundation CI and Project documentation validation pass.
 
-**Current verification:** Project documentation validation passed on an earlier head; FND-01 previously stopped at Pint due to a PHP namespace parse error in the new ADM-F test class. That test file was corrected. A fresh exact-head CI result is pending. No pass is claimed until the corrected head completes.
+**Final verification:** Exact-head FND-01 PHP 8.5 Foundation CI and Project documentation validation passed on `f9b76270fb546f52f13d7008134adea3ee13141d`; the complete synthetic suite passed 349 tests / 1,947 assertions. Pint, Composer audit, Laravel bootstrap/routes and repository artifact hygiene passed.
 
 ## 6. Scope and exclusions
 
