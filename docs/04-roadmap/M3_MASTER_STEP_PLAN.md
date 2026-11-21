@@ -914,3 +914,10 @@ Q5 closes the staffing-model decision only. It does not identify, verify, select
 Decision record: [M3 Q5 — Combined Independent Reviewer Staffing Model](M3_Q5_OWNER_DECISION_COMBINED_INDEPENDENT_REVIEWER_STAFFING_MODEL_2026-11-21.md).
 
 **Next agenda — Step 05: Discipline-by-discipline reviewer capability screening matrix.** Prepare objective minimum evidence, experience, independence/conflict checks, scope limits, deliverables and fail-closed outcomes separately for all three disciplines, using synthetic examples only. Do not populate real candidate assessments or contact anyone. Gate 02 and independent Gate 03 assurance remain BLOCKED / NOT ACCEPTED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
+
+## Remaining M3 roadmap — Step 05: Independent reviewer capability screening matrix — 2026-11-21
+
+**Status: DOCUMENTARY MATRIX COMPLETE; NO CANDIDATE SCREENED OR CONTACTED.** Step 05 operationalizes Q5 Option B with separate discipline-level screening for legal/privacy/child safeguarding, security and accessibility. It defines common identity, competence, experience, independence/conflict, scope, confidentiality, deliverable, availability and PKR 0 cost controls; discipline-specific evidence expectations; a combined-reviewer decision rule; a blank candidate-per-discipline register; and fail-closed stop conditions. See [M3 Remaining Roadmap Step 05 — Independent Reviewer Capability Screening Matrix](M3_REMAINING_ROADMAP_STEP05_INDEPENDENT_REVIEWER_CAPABILITY_SCREENING_MATRIX_2026-11-21.md).
+
+No real candidate data is populated. No reviewer has been verified, selected, contacted, appointed or engaged; no confidential evidence has been shared; no independent review has been performed. The next dependency is a separate Product Owner authorization for any candidate-screening activity, including permitted identity/competence/independence verification methods and any approved confidential channel. PKR 0/no-fee-only and all existing exclusions remain binding. Gate 02 and independent Gate 03 assurance remain BLOCKED / NOT ACCEPTED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
