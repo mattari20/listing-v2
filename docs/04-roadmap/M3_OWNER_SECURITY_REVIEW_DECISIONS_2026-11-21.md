@@ -55,7 +55,7 @@ The repository-only route/controller inventory at baseline `3209e8ec6ed8b73a9ba2
 - M3-11-03: BLOCKED / NOT ACCEPTED.
 - Overall M3: OPEN / PARTIALLY COMPLETE — NOT CLOSED.
 
-A bounded source reconciliation was recorded in `M3_SECURITY_POLICY_IMPLEMENTATION_RECONCILIATION_2026-11-21.md`. It also identified and prepared a focused guard for inactive/unverified already-authenticated accounts on saved-item routes, with synthetic feature tests. That change remains pending exact-head CI. The source review is not independent assurance. Independent assurance remains separate and cannot be replaced by this owner review.
+A bounded source reconciliation was recorded in `M3_SECURITY_POLICY_IMPLEMENTATION_RECONCILIATION_2026-11-21.md`. It also identified and prepared a focused guard for inactive/unverified already-authenticated accounts on saved-item routes, with synthetic feature tests. That change was merged in PR #452 at `e4aa631fda080a77e7da20905eff6a499a90f0a1`; exact-head PHP 8.5 foundation CI run #870 and project documentation validation run #1447 passed. The source review is not independent assurance. Independent assurance remains separate and cannot be replaced by this owner review.
 
 ## 5. Continuing restrictions
 
