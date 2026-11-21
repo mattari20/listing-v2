@@ -164,3 +164,16 @@ The Product Owner has additionally accepted Option A for the current M3 scope: n
 This does not reopen the completed ten-question owner review, authorize real-data processing or participant activity, or establish that all developer/reviewer metadata is non-personal. The earlier owner review's recognition of potentially identifying GitHub, commit, CI and reviewer metadata remains applicable.
 
 This scope decision is not an independent safeguarding applicability determination. A qualified child-safeguarding reviewer must still assess the eventual intended audience, foreseeable use, applicable child-specific obligations and controls. M3-11-02 remains BLOCKED pending the required qualified independent assessment and Product Owner disposition.
+
+
+## 11. Product Owner Q2 intended-audience decision — 2026-11-21
+
+The Product Owner selected **Option B: general student audience; minors may be among the intended users**. The decision is recorded in [M3-11-02 Owner Decision Q2 — General Student Audience](M3-11-02_OWNER_DECISION_Q2_GENERAL_STUDENT_AUDIENCE_2026-11-21.md).
+
+This supersedes the earlier statement that children/minors are not an intended audience. The review scope must therefore assess the eventual general student audience, including foreseeable access by minors, rather than assuming an adult-only audience.
+
+The current M3 activity remains restricted: synthetic/fictional fixtures only; no real student/child/guardian personal data; no child/student accounts, profiles, registration, messaging, direct contact, tracking or participant recruitment/contact/testing; no public access, pilot, hosted environment or release. Deeni Madaris remains default-OFF with zero public exposure. All no-production, no-V1/Hostinger, no-external-API/AI, no-new-spend and no-deployment restrictions remain in force.
+
+The qualified independent reviewer must assess applicable age definitions and jurisdictional duties; foreseeable use and child-access risk; age-appropriate design; consent/guardian involvement where applicable; contact/grooming, harassment and location-association risks; reporting/escalation; operational roles/training; and objective controls required before any minor-facing access or participation. The reviewer must state evidence, assumptions, non-waivable blockers and an explicit outcome. No assumption is made that parental consent alone resolves all requirements.
+
+**Gate effect:** Q2 closes the owner audience choice only. It is not an independent safeguarding determination or authorization to serve minors. M3-11-02 / Gate 02 remains BLOCKED pending qualified independent legal/privacy and child-safeguarding assessment and Product Owner disposition.

@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-18  
 **Review type:** AI-assisted repository/code/test inspection for Product Owner decision  
-**Status:** PRODUCT OWNER SCOPE DECISION RECORDED — SYNTHETIC-ONLY DEVELOPMENT; PUBLIC SOURCE REPOSITORY; NO CHILD DATA OR CHILD-DIRECTED SCOPE  
+**Status:** PRODUCT OWNER SCOPE DECISIONS RECORDED — GENERAL STUDENT AUDIENCE MAY INCLUDE MINORS; CURRENT M3 SYNTHETIC-ONLY; NO CHILD DATA OR PARTICIPATION  
 **Scope:** Public GitHub source-repository development and separate restricted/private acceptance target category; synthetic fixtures only; no production or live environment inspected  
 **Repository baseline inspected:** `main` at `5e68ac4ba70db0461a902832cb6ed483640b9a4c`
 
@@ -10,7 +10,7 @@
 
 This review checks repository evidence relevant to child/minor data, sensitive-data exposure, anonymous public directory projections and the Deeni Madaris default-OFF boundary. It is not a legal applicability determination, child-safeguarding assessment, privacy impact assessment, penetration test, accessibility audit or review of a running environment.
 
-The Product Owner's accepted boundary is: public GitHub source-repository development and local/GitHub CI, with the application acceptance environment remaining a separate restricted/private target category; synthetic/fictional fixtures only; no real students, institutions or personal records; no public launch or participant testing; Deeni Madaris excluded and default-OFF. No child, student, guardian or research participant is to be recruited, contacted or asked to test.
+The Product Owner's accepted boundary is: public GitHub source-repository development and local/GitHub CI, with the application acceptance environment remaining a separate restricted/private target category; synthetic/fictional fixtures only; no real students, institutions or personal records; no public launch or participant testing; Deeni Madaris excluded and default-OFF. The eventual intended audience is a general student audience that may include minors (Q2 Option B). This audience decision does not authorize current-M3 child/student accounts, data collection, contact or participant activity. No child, student, guardian or research participant is to be recruited, contacted or asked to test current M3.
 
 ## 2. Evidence inspected
 
@@ -69,8 +69,8 @@ No live data, external source, hosting environment, logs, backups, user account 
 
 The Product Owner has clarified and confirmed the current product boundary:
 
-- Children are not an intended audience for the current private V2 scope.
-- No child/student/guardian accounts, profiles, personal records, child-directed content, participation or child-related data collection are in scope or planned.
+- The eventual intended audience is a general student audience and may include minors (Product Owner Q2 Option B, 2026-11-21). This supersedes the earlier statement that children are not an intended audience.
+- This audience direction does not activate child/student/guardian accounts, profiles, personal records, child-directed features, participation or child-related data collection in current M3. Current M3 remains synthetic-only and excludes participant activity.
 - Child-related fields/capabilities previously identified as risks have been removed from the intended scope; no such capability may be reintroduced without a new, explicit scope decision.
 - Private acceptance remains fictional/synthetic-only. Generic institution/provider date, email and phone field types are not child data and may only carry fictional values in this private scope.
 - Deeni Madaris remains excluded and default-OFF with zero public exposure.
@@ -104,7 +104,7 @@ No assumption about these matters should be inferred from synthetic tests or the
 
 ## 7. Current gate status
 
-M3-11-02 remains IN PROGRESS for the wider privacy package. The Product Owner has explicitly excluded children and child-related data from the current product scope, so a child-data collection feature is not a pending product decision. The repository evidence is bounded to the inspected code/tests and does not establish target-specific privacy facts or complete every possible future data path.
+M3-11-02 remains IN PROGRESS for the wider privacy package. The Product Owner has selected a general student audience that may include minors, while explicitly excluding real child/student/guardian data and child participation from current M3. Whether and how any future minor-facing access can be safely and lawfully supported remains subject to qualified independent review and a separate explicit authorization. The repository evidence is bounded to the inspected code/tests and does not establish target-specific privacy facts or complete every possible future data path.
 
 No environment provisioning, real-data processing, participant activity, external service, spend, deployment, public pilot or launch is authorized. Deeni Madaris remains default-OFF with zero public exposure.
 
@@ -118,3 +118,12 @@ The GitHub source repository remains PUBLIC throughout development and WILL be c
 The inspected repository evidence remains bounded to the files, routes, tests and baseline identified in this review. No uninspected route, export, log, backup, runtime, hosted environment or future product surface is certified by this record.
 
 **Owner review status:** COMPLETE for the decisions recorded in the consolidated owner review. **Independent safeguarding/legal/privacy assessment:** not represented as completed by this owner exercise. Any gate that explicitly requires independent professional assessment remains evidence-dependent; the owner is not asked to repeat accepted scope decisions.
+
+
+## 9. Product Owner Q2 intended-audience decision — 2026-11-21
+
+The Product Owner selected **Option B: general student audience; minors may be among the intended users**. The decision is recorded in [M3-11-02 Owner Decision Q2 — General Student Audience](M3-11-02_OWNER_DECISION_Q2_GENERAL_STUDENT_AUDIENCE_2026-11-21.md).
+
+This supersedes the earlier statement that children/minors are not an intended audience. It does not change current-M3 restrictions: no real student/child/guardian personal data, synthetic fixtures only, no child/student accounts or profiles, no child-directed functionality activation, and no participant recruitment, contact, interviews, surveys or testing. No public access, pilot, release or hosted environment is authorized.
+
+A qualified independent legal/privacy and child-safeguarding reviewer must assess the implications of the eventual general student audience, including minors, before any minor-facing access or participation is proposed. M3-11-02 / Gate 02 remains BLOCKED pending that assessment and Product Owner disposition.

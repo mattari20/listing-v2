@@ -384,3 +384,14 @@ The existing ten-question owner exercise and Decisions 1–3 are not reopened. P
 This additional owner decision closes the current M3 scope question only. It does not constitute independent legal/privacy/safeguarding review, legal advice, a formal PIA/DPIA, or proof that every prompt, log, attachment, CI artifact or environment is free of personal data.
 
 **Gate status unchanged:** M3-11-02 / Gate 02 remains BLOCKED pending qualified independent legal/privacy and child-safeguarding assessment and Product Owner disposition. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
+
+## 11. Product Owner Q2 decision — intended student audience (2026-11-21)
+
+The Product Owner selected **Option B: general student audience; minors may be among the intended users**. See [M3-11-02 Owner Decision Q2 — General Student Audience](M3-11-02_OWNER_DECISION_Q2_GENERAL_STUDENT_AUDIENCE_2026-11-21.md).
+
+This supersedes any earlier statement in the internal review that children/minors are not an intended audience. It does not supersede the accepted Option A data boundary: no real student, child or guardian personal data in current M3; synthetic/fictional fixtures only. No child/student accounts, profiles, registration, messaging, direct contact, tracking or participant activity is activated or authorized in current M3.
+
+The eventual audience direction and current acceptance activity must remain distinct. Before any minor-facing access or participation is proposed, qualified independent legal/privacy and child-safeguarding assessment must determine applicable requirements, risks and necessary controls, followed by a separate explicit Product Owner decision and authorization. No public access, pilot, release, environment provisioning or real-data processing is authorized by Q2.
+
+**Gate effect:** Q2 closes the Product Owner's intended-audience choice only. M3-11-02 / Gate 02 remains BLOCKED pending qualified independent assessment and Product Owner disposition. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
