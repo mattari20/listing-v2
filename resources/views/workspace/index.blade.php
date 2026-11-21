@@ -50,7 +50,7 @@
                 <div class="empty"><p>{{ $locale === 'ur' ? 'ابھی کوئی جمع کردہ تجویز موجود نہیں۔' : 'You have no submitted proposals in your assigned institution scopes.' }}</p></div>
             @else
                 @foreach ($submissions as $submission)
-                    <article class="case">
+                    <article class="case" data-case-reference="{{ $submission['case_id'] }}">
                         <div class="topline">
                             <strong dir="auto">{{ $submission['institution_name'] }}</strong>
                             <span class="pill">{{ str_replace('_', ' ', $submission['status']) }}</span>
@@ -71,7 +71,7 @@
                 <div class="empty"><p>{{ $locale === 'ur' ? 'اس وقت جائزے کے لیے کوئی نئی تجویز موجود نہیں۔' : 'There are no new proposals available for your review.' }}</p></div>
             @else
                 @foreach ($reviewQueue as $case)
-                    <article class="case">
+                    <article class="case" data-case-reference="{{ $case['case_id'] }}">
                         <div class="topline">
                             <strong dir="auto">{{ $case['institution_name'] }}</strong>
                             <span class="pill">{{ $locale === 'ur' ? 'جمع شدہ' : 'Submitted' }}</span>
