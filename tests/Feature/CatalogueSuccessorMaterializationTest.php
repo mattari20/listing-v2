@@ -65,7 +65,7 @@ final class CatalogueSuccessorMaterializationTest extends TestCase
             'level' => 'graduate',
         ]);
         $this->assertSame($secondId, $materializer->materializeAcceptedRecord($this->actor('programme-materializer'), $successor, 'programme-materialize-successor'));
-        $this->assertDatabaseCount('public_projections', 0);
+        $this->assertDatabaseHas('public_projections', ['surface' => 'directory', 'audience' => 'anonymous', 'status' => 'approved']);
     }
 
     public function test_qualification_link_successor_preserves_link_identity_and_rejects_duplicate_natural_key(): void
