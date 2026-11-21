@@ -263,7 +263,6 @@ final class AdministrationWorkspaceTest extends TestCase
             ->assertNotFound();
     }
 
-
     private function institution(): string
     {
         $id = (string) str()->uuid();
