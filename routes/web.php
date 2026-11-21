@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\AccountSavedItemsController;
-use App\Http\Controllers\AdministrationWorkspaceController;
 use App\Http\Controllers\AccountSessionController;
+use App\Http\Controllers\AdministrationWorkspaceController;
 use App\Http\Controllers\PublicDirectoryController;
 use App\Http\Controllers\UniversityRepresentativeWorkflowController;
 use Illuminate\Support\Facades\Route;
