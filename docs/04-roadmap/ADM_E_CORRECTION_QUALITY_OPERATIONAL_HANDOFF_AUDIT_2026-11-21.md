@@ -72,7 +72,7 @@ ADM-E is not complete until all of the following are evidenced on exact tested h
 - [x] Decision-time evidence authorization freshness and revocation guard is explicit and fail-closed — implemented and merged in PR #425 for the synthetic-only governed context; real-source provenance remains outside scope.
 - [x] Correction-request → successor → superseded predecessor → successor review is covered by end-to-end synthetic tests — atomicity, retry, invalid-transition and rationale-lineage checks merged in PR #427.
 - [ ] Retry/idempotency and invalid transition tests prove no duplicate successor or inconsistent case state.
-- [ ] Proposed/held/returned/disputed/superseded versions cannot mutate accepted projections.
+- [x] Proposed/held/returned/disputed/superseded versions cannot mutate accepted projections — P02, public-directory and offer-fact visibility protections merged in PR #429.
 - [ ] Accepted projection mutation remains restricted to the separately authorized acceptance/materialization path.
 - [ ] Reviewer-safe evidence and correction history is tested for privacy minimization and incomplete metadata.
 - [ ] FND-01 Foundation CI and Project documentation validation pass on exact PR heads.
@@ -95,3 +95,8 @@ G01 is closed for the synthetic-only repository scope. PR [#425](https://github.
 ## 9. ADM-E-G02 implementation closeout — 2026-11-21
 
 G02 is closed for the synthetic repository workflow. PR [#427](https://github.com/mattari20/listing-v2/pull/427) merged as `781559d2174d216864f8d83a7b93bbe9ff131fbc` after exact-head PHP 8.5 Foundation CI and Project documentation validation passed. The general editorial correction method now atomically creates the immutable successor, submits its editorial case and supersedes the predecessor case. Tests cover reviewer rationale traceability, failed-submission rollback, exact successor lineage, same-command retry, changed-payload rejection, successor re-review and invalid-state/wrong-submitter denial. Synthetic-only suite: 23 passed, 1,822 assertions, 316 warnings. See [ADM-E-G02 Closeout](ADM_E_G02_CORRECTION_REQUEST_SUCCESSOR_HANDOFF_CLOSEOUT_2026-11-21.md). G03 and G04 remain open.
+
+
+## 10. ADM-E-G03 implementation closeout — 2026-11-21
+
+G03 is closed for accepted-projection non-mutation and publication/materialization visibility behavior in the tested synthetic scopes. PR [#429](https://github.com/mattari20/listing-v2/pull/429) merged as `a85a183815d18bf01b96b31e904c4ae857211199` after exact-head PHP 8.5 Foundation CI and Project documentation validation passed. Claim correction no longer supersedes active P02 projection rows. Private campus information, public directory and programme-offer facts retain the prior accepted/published value while a successor is merely proposed or accepted-but-unpublished. The successor replaces it only after separate governed materialization/publication. Synthetic-only suite: 23 passed, 1,857 assertions, 319 warnings. Programme/qualification/offer successor materialization remains a separate limitation. See [ADM-E-G03 Closeout](ADM_E_G03_ACCEPTED_CATALOGUE_PROJECTION_PROTECTION_CLOSEOUT_2026-11-21.md). G04 remains open.
