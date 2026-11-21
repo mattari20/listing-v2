@@ -24,7 +24,7 @@ The independent security assessment under M3-11-03 remains BLOCKED / NOT ACCEPTE
 | SEC-PO-04 | Administrative activity logging | A | Record important administrative actions with timestamps and responsible account identifiers, including account, permission, data-change and security events. Do not log passwords, secrets or unnecessary personal information. |
 | SEC-PO-05 | Secrets in logs and diagnostics | A | Exclude passwords, authentication tokens, secrets and session identifiers; redact sensitive values in diagnostic evidence. |
 | SEC-PO-06 | Network transport | A | Use HTTPS/TLS wherever network communication occurs; do not transmit credentials or sensitive data insecurely. |
-| SEC-PO-07 | Authorization default | B | Owner selected access being allowed unless a restriction is configured. This is a recorded preference, not an accepted security control. See mandatory unresolved issue below. |
+| SEC-PO-07 | Authorization default | A — revised and confirmed 2026-11-21 | Server-side deny-by-default: access is denied unless explicitly granted for the relevant role, action and resource scope. UI hiding alone is not authorization. |
 | SEC-PO-08 | Dependency management | A | Maintain dependency lockfiles, review dependencies and address known security vulnerabilities before acceptance. |
 | SEC-PO-09 | Error handling | A | Present safe user-facing errors; keep protected diagnostic details in restricted logs. Do not expose secrets, internal paths, database details or stack traces to ordinary users. |
 | SEC-PO-10 | CSRF and cross-site actions | A | Protect state-changing browser requests using appropriate CSRF protection and secure cookie settings. |
@@ -34,17 +34,9 @@ The independent security assessment under M3-11-03 remains BLOCKED / NOT ACCEPTE
 | SEC-PO-14 | Session security | A | Apply secure session handling, including regeneration after login, expiration and invalidation on logout. |
 | SEC-PO-15 | Input and output security | A | Validate inputs and use context-appropriate output encoding. |
 
-## 3. Mandatory unresolved security issues
+## 3. Remaining security issue
 
-### 3.1 SEC-PO-07 — Allow-unless-restricted authorization
-
-The selected Option B is weaker than server-side deny-by-default authorization and conflicts with the M3-11-03 independent security review pack, which expressly requires verification of server-side deny-by-default behavior and role/action/resource-scope authorization.
-
-**Disposition:** OPEN — BLOCKS SECURITY ACCEPTANCE.
-
-Before M3 security acceptance, the authorization policy must be reconciled to an explicit server-side deny-by-default model: access is denied unless a permission is affirmatively granted for the relevant role, action and resource scope. This record does not silently substitute that policy for the owner's selected answer. The owner decision must be revisited or a technically justified, independently assessed equivalent must be documented.
-
-### 3.2 SEC-PO-11 — File upload validation
+### 3.1 SEC-PO-11 — File upload validation
 
 The selected Option B does not establish sufficient protection for an upload feature. If the pinned M3 candidate contains any file upload route or upload-capable workflow, allowing common file types without additional validation leaves unresolved risks involving spoofed file types, oversized files, unsafe filenames, executable content, storage exposure and unauthorized access.
 
@@ -55,15 +47,15 @@ First establish from the exact pinned candidate's route and feature inventory wh
 ## 4. M3 status and next evidence
 
 - Product Owner internal security responses: RECORDED.
+- SEC-PO-07 owner-policy conflict: RESOLVED by the owner's revised Option A decision; implementation conformity still requires evidence.
 - Implementation status of each control: NOT ESTABLISHED by this questionnaire.
+- SEC-PO-11: OPEN pending applicability evidence and, if applicable, control revision.
 - Independent security assessment: NOT PERFORMED.
 - Exact candidate pin and independent test evidence: NOT PROVIDED by this record.
-- SEC-PO-07: OPEN; blocks security acceptance.
-- SEC-PO-11: OPEN pending applicability evidence and, if applicable, control revision.
 - M3-11-03: BLOCKED / NOT ACCEPTED.
 - Overall M3: OPEN / PARTIALLY COMPLETE — NOT CLOSED.
 
-The next work is evidence-led reconciliation of these two issues against the current repository implementation and existing test evidence, within the authorized local/repository-only scope. Any code change requires its own bounded implementation scope and CI validation. Independent assurance remains separate and cannot be replaced by this owner review.
+The next work is evidence-led reconciliation of SEC-PO-11 and the deny-by-default policy against the current repository implementation and existing test evidence, within the authorized local/repository-only scope. Any code change requires its own bounded implementation scope and CI validation. Independent assurance remains separate and cannot be replaced by this owner review.
 
 ## 5. Continuing restrictions
 
