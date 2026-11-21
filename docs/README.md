@@ -1,3 +1,11 @@
+## ADM administration and institute information management — 2026-11-21
+
+- [ADM-E Correction, Quality and Operational Handoff Audit](04-roadmap/ADM_E_CORRECTION_QUALITY_OPERATIONAL_HANDOFF_AUDIT_2026-11-21.md) — current-main source audit, confirmed queue/correction/evidence-quality/next-action gaps, bounded synthetic implementation contract and acceptance criteria.
+- [ADM-D Evidence and Editorial Workspace Closeout](04-roadmap/ADM_D_EVIDENCE_EDITORIAL_WORKSPACE_CLOSEOUT_2026-11-21.md) — reviewer-safe evidence metadata, correction lineage, independent review actions and bounded limitations.
+- [ADM-C Institution and Campus Workflow Closeout](04-roadmap/ADM_C_INSTITUTION_CAMPUS_WORKFLOW_CLOSEOUT_2026-11-21.md) — institution-scoped campus and delivery-site proposals, immutable corrections and accepted projections.
+
+---
+
 ## M3-11 — current gate evidence and qualified-review handoff — 2026-11-20
 
 - [M3-11 Product Owner Internal Data and Privacy Review](04-roadmap/M3-11-02_OWNER_INTERNAL_DATA_PRIVACY_REVIEW_2026-11-18.md) — current DP-02–DP-06 source/repository reconciliations, partial dispositions and remaining target-specific limitations; qualified independent assessment remains outstanding.
