@@ -46,8 +46,8 @@ final class PrivatePreviewDirectorySeeder extends Seeder
                 'permitted_methods' => json_encode(['approved_projection', 'fixture_reference'], JSON_THROW_ON_ERROR),
                 'territories' => json_encode(['synthetic'], JSON_THROW_ON_ERROR),
                 'permitted_scopes' => json_encode(['processing' => true, 'publication' => true], JSON_THROW_ON_ERROR),
-            'valid_from' => $now->copy()->subDay(),
-            'valid_to' => $now->copy()->addDay(),
+                'valid_from' => $now->copy()->subDay(),
+                'valid_to' => $now->copy()->addDay(),
                 'created_at' => $now,
                 'updated_at' => $now,
             ]);
