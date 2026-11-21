@@ -1,3 +1,15 @@
+## M3 administration completion and integration checkpoint — 2026-11-21
+
+- ADM-A through ADM-E: complete within bounded university/synthetic repository scope.
+- ADM-F: implementation added for exact-predecessor programme, qualification-link and admission-offer successor projection replacement; synthetic tests added. Exact-head CI pending.
+- ADM-G: implementation added for parent-scoped campus/delivery-site queues, assigned in-review work and role-specific next-action guidance; synthetic tests added. Exact-head CI pending.
+- Product-wide integration: source review and test mapping complete across public institution/location/programme navigation and separately governed offer facts; exact-head CI pending.
+- Earlier FND-01 run on `bac35029e38c052eae2f0f997e146dc59e66b442` failed at Pint due to malformed namespace separators in the new ADM-F test class. Fixed at `b2d167d9ccc7ff041ee84f8ca0234ea3947226fd`; rerun and final exact-head verification required.
+- M3-10 pilot readiness remains NOT ACCEPTED. M3-11 remains BLOCKED / NOT ACCEPTED; independent review, human operations, hosted isolation, recovery and release gates remain open.
+- Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED. No production/V1/Hostinger/hosted access, deployment, pilot, public launch, new spend or external AI/API authority is created by this agenda.
+
+---
+
 ## Current M3 status and next product agenda — 2026-11-21
 
 - Latest verified main baseline: `be95a411862e795072c107708c2867d904ef5bb9` (PR #434 profile-navigation integration).
