@@ -547,19 +547,6 @@ final class PublicDirectoryQueryService
             }
             $locationsByEntity[$entityId] = $profiles[$entityId]['name'];
             $locationInstitutionByEntity[$entityId] = (string) $row->institution_entity_id;
-            $locationTypeByEntity[$entityId] = 'delivery_site';
-            $parentProfile = $profiles[(string) $row->institution_entity_id] ?? null;
-            if ($parentProfile !== null && $parentProfile['type'] === 'institution') {
-                $locationCatalogueByEntity[$entityId] = [
-                    'institution_entity_id' => (string) $row->institution_entity_id,
-                    'institution_name' => $parentProfile['name'],
-                ];
-            }
-            $deliverySitesByInstitution[$row->institution_entity_id][] = [
-                'id' => $entityId,
-                'name' => $profiles[$entityId]['name'],
-                'location_label' => $row->location_label,
-            ];
             $locationTypeByEntity[$entityId] = 'campus';
             $parentProfile = $profiles[(string) $row->institution_entity_id] ?? null;
             if ($parentProfile !== null && $parentProfile['type'] === 'institution') {
@@ -593,6 +580,19 @@ final class PublicDirectoryQueryService
             }
             $locationsByEntity[$entityId] = $profiles[$entityId]['name'];
             $locationInstitutionByEntity[$entityId] = (string) $row->institution_entity_id;
+            $locationTypeByEntity[$entityId] = 'delivery_site';
+            $parentProfile = $profiles[(string) $row->institution_entity_id] ?? null;
+            if ($parentProfile !== null && $parentProfile['type'] === 'institution') {
+                $locationCatalogueByEntity[$entityId] = [
+                    'institution_entity_id' => (string) $row->institution_entity_id,
+                    'institution_name' => $parentProfile['name'],
+                ];
+            }
+            $deliverySitesByInstitution[$row->institution_entity_id][] = [
+                'id' => $entityId,
+                'name' => $profiles[$entityId]['name'],
+                'location_label' => $row->location_label,
+            ];
         }
 
         $programmesByInstitution = [];
