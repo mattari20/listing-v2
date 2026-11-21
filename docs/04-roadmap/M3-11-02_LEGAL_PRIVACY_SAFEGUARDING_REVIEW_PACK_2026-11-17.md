@@ -156,3 +156,11 @@ The Product Owner has completed the internal ten-question review exercise and ac
 The source repository is PUBLIC during development and WILL be changed to PRIVATE when development is complete under the binding Product Owner decision recorded on 2026-11-20. This is distinct from the separate restricted/private V2 acceptance-environment target. The reviewer must assess the actual public-source-repository development facts, including public commit and CI artifact exposure, while preserving all existing restrictions on public application access, real data, source activity, hosted environment, participant activity and production.
 
 **Current disposition:** owner internal decisions COMPLETE; this review pack remains prepared for any required qualified independent assessment; Gate 02 remains blocked pending the required assessment and Product Owner disposition. This status is not a request for the Product Owner to repeat already accepted decisions.
+
+## 10. Additional Product Owner scope decision — 2026-11-21
+
+The Product Owner has additionally accepted Option A for the current M3 scope: no real student, child or guardian personal data is collected or stored; synthetic/fictional data only. The decision is documented in [M3-11-02 Owner Decision — Child and Student Data Scope](M3-11-02_OWNER_DECISION_CHILD_STUDENT_DATA_SCOPE_2026-11-21.md).
+
+This does not reopen the completed ten-question owner review, authorize real-data processing or participant activity, or establish that all developer/reviewer metadata is non-personal. The earlier owner review's recognition of potentially identifying GitHub, commit, CI and reviewer metadata remains applicable.
+
+This scope decision is not an independent safeguarding applicability determination. A qualified child-safeguarding reviewer must still assess the eventual intended audience, foreseeable use, applicable child-specific obligations and controls. M3-11-02 remains BLOCKED pending the required qualified independent assessment and Product Owner disposition.
