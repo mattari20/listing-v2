@@ -43,13 +43,14 @@ final class FieldAwareClaimProposalService
         string $idempotencyKey,
         array $validationContext = [],
         ?string $validFrom = null,
-        ?string $validTo = null): array
+        ?string $validTo = null,
+        ?string $governedInstitutionId = null): array
     {
         $this->requireHumanCapability($actor, 'propose_field_value');
         $this->requireHumanCapability($actor, 'submit_directory_proposal');
 
         return $this->proposeWithActor($actor, $subjectEntityId, $fieldKey, $definitionVersion, $value,
-            $evidenceReferenceIds, $sourceContext, $scopeKey, $idempotencyKey, $validationContext, $validFrom, $validTo);
+            $evidenceReferenceIds, $sourceContext, $scopeKey, $idempotencyKey, $validationContext, $validFrom, $validTo, $governedInstitutionId);
     }
 
     /**
@@ -108,7 +109,8 @@ final class FieldAwareClaimProposalService
         string $idempotencyKey,
         array $validationContext = [],
         ?string $validFrom = null,
-        ?string $validTo = null): array
+        ?string $validTo = null,
+        ?string $governedInstitutionId = null): array
     {
         if ($idempotencyKey === '' || strlen($idempotencyKey) > 140 ||
             $evidenceReferenceIds === [] || $scopeKey === '') {
@@ -153,11 +155,31 @@ final class FieldAwareClaimProposalService
             $this->reject('subject', 'Claim subject does not exist.');
         }
 
-        if (! in_array($entity->entity_type, ['institution', 'programme'], true) || $scopeKey !== $entity->entity_type) {
-            $this->reject('scope', 'Field claims require an explicitly matching institution or programme entity and scope.');
+        if (! in_array($entity->entity_type, ['institution', 'programme', 'campus', 'delivery_site'], true) || $scopeKey !== $entity->entity_type) {
+            $this->reject('scope', 'Field claims require an explicitly matching governed institution, programme, campus or delivery-site entity and scope.');
         }
 
-        $providerCategory = $this->registry->providerCategoryForEntity($subjectEntityId);
+        if (in_array($entity->entity_type, ['campus', 'delivery_site'], true) &&
+            ($fieldKey !== $entity->entity_type || $governedInstitutionId === null ||
+                ($value['institution_entity_id'] ?? null) !== $governedInstitutionId)) {
+            $this->reject('scope', 'Campus and delivery-site claims require their exact field key and explicitly supplied parent institution scope.');
+        }
+
+        if (in_array($entity->entity_type, ['campus', 'delivery_site'], true)) {
+            $parent = DB::table('directory_entities')->where('id', $governedInstitutionId)->where('entity_type', 'institution')->first(['id']);
+            $table = $entity->entity_type === 'campus' ? 'directory_campuses' : 'directory_delivery_sites';
+            $projection = DB::table($table)->where('entity_id', $subjectEntityId)->first(['institution_entity_id']);
+            if ($parent === null || ($projection !== null && (string) $projection->institution_entity_id !== $governedInstitutionId)) {
+                $this->reject('scope', 'The location must belong to the exact authorised institution.');
+            }
+            $providerCategory = $this->registry->providerCategoryForEntity($governedInstitutionId);
+        } else {
+            if ($governedInstitutionId !== null) {
+                $this->reject('scope', 'Parent institution context is only accepted for campus and delivery-site claims.');
+            }
+            $providerCategory = $this->registry->providerCategoryForEntity($subjectEntityId);
+        }
+
         if ($providerCategory === null) {
             $this->reject('provider_category', 'A current human-governed institution category and, for programmes, an active accepted catalogue relationship are required.');
         }
@@ -221,9 +243,24 @@ final class FieldAwareClaimProposalService
             }
 
             $lockedEntity = DB::table('directory_entities')->where('id', $subjectEntityId)->lockForUpdate()->first(['entity_type']);
-            $lockedCategory = $this->registry->providerCategoryForEntity($subjectEntityId, true);
-            if ($lockedEntity === null || $lockedEntity->entity_type !== $scopeKey || $lockedCategory !== $providerCategory) {
-                $this->reject('provider_category', 'The entity scope, parent catalogue relationship or governed provider category changed during proposal validation; retry against the current assignment.');
+            if ($lockedEntity === null || $lockedEntity->entity_type !== $scopeKey) {
+                $this->reject('provider_category', 'The entity scope changed during proposal validation; retry against the current assignment.');
+            }
+            if (in_array($scopeKey, ['campus', 'delivery_site'], true)) {
+                $parent = DB::table('directory_entities')->where('id', $governedInstitutionId)->where('entity_type', 'institution')->lockForUpdate()->first(['id']);
+                $table = $scopeKey === 'campus' ? 'directory_campuses' : 'directory_delivery_sites';
+                $projection = DB::table($table)->where('entity_id', $subjectEntityId)->lockForUpdate()->first(['institution_entity_id']);
+                $lockedCategory = $parent === null ? null : $this->registry->providerCategoryForEntity($governedInstitutionId, true);
+                if ($parent === null || ($value['institution_entity_id'] ?? null) !== $governedInstitutionId ||
+                    ($projection !== null && (string) $projection->institution_entity_id !== $governedInstitutionId) ||
+                    $lockedCategory !== $providerCategory) {
+                    $this->reject('provider_category', 'The parent institution, location scope or governed provider category changed during proposal validation.');
+                }
+            } else {
+                $lockedCategory = $this->registry->providerCategoryForEntity($subjectEntityId, true);
+                if ($lockedCategory !== $providerCategory) {
+                    $this->reject('provider_category', 'The governed provider category changed during proposal validation.');
+                }
             }
             $currentApplicability = $this->registry->resolveApplicable(
                 $fieldKey, $definitionVersion, (string) $lockedEntity->entity_type, (string) $lockedCategory
