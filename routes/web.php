@@ -3,6 +3,7 @@
 use App\Http\Controllers\AccountSavedItemsController;
 use App\Http\Controllers\AccountSessionController;
 use App\Http\Controllers\AdministrationWorkspaceController;
+use App\Http\Controllers\InstitutionCampusWorkflowController;
 use App\Http\Controllers\PublicDirectoryController;
 use App\Http\Controllers\UniversityRepresentativeWorkflowController;
 use Illuminate\Support\Facades\Route;
@@ -56,6 +57,17 @@ Route::middleware('auth')->prefix('/institutions/{institution}')->group(function
         ->middleware('throttle:30,1')
         ->whereUuid('institution')
         ->name('institutions.editorial-cases.review.complete');
+});
+
+Route::middleware(['auth', 'throttle:30,1'])->prefix('/institutions/{institution}')->where(['institution' => '[0-9a-fA-F-]{36}'])->group(function (): void {
+    Route::get('/information', [InstitutionCampusWorkflowController::class, 'information'])
+        ->name('institutions.information');
+    Route::post('/campuses', [InstitutionCampusWorkflowController::class, 'storeCampus'])
+        ->middleware('throttle:20,1')
+        ->name('institutions.campuses.store');
+    Route::post('/delivery-sites', [InstitutionCampusWorkflowController::class, 'storeDeliverySite'])
+        ->middleware('throttle:20,1')
+        ->name('institutions.delivery-sites.store');
 });
 
 Route::get('/directory/compare', [PublicDirectoryController::class, 'compare'])
