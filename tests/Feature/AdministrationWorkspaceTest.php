@@ -136,6 +136,50 @@ final class AdministrationWorkspaceTest extends TestCase
         $this->actingAs($reviewer)->get('/workspace')->assertOk()->assertDontSee($case['id']);
     }
 
+    public function test_workspace_includes_exact_parent_scoped_child_cases_and_only_the_reviewers_assigned_in_review_work(): void
+    {
+        $institution = $this->institution();
+        $otherInstitution = $this->institution();
+        $reviewer = $this->user('child-queue-reviewer@example.test');
+        $submitter = $this->user('child-queue-submitter@example.test');
+        $otherReviewer = $this->user('child-queue-other-reviewer@example.test');
+        $this->assign($reviewer, 'data_reviewer', $institution);
+
+        $campusSubmitted = $this->childCase($institution, $submitter, 'campus', 'submitted');
+        $siteAssigned = $this->childCase($institution, $submitter, 'delivery_site', 'in_review', 'user:'.$reviewer->getKey());
+        $campusAssignedElsewhere = $this->childCase($institution, $submitter, 'campus', 'in_review', 'user:'.$otherReviewer->getKey());
+        $outsideScope = $this->childCase($otherInstitution, $submitter, 'delivery_site', 'submitted');
+        $mismatchedProjection = $this->childCase($institution, $submitter, 'campus', 'submitted', null, $otherInstitution);
+
+        $response = $this->actingAs($reviewer)->get('/workspace')->assertOk();
+        $response->assertSee($campusSubmitted['id']);
+        $response->assertSee($siteAssigned['id']);
+        $response->assertDontSee($campusAssignedElsewhere['id']);
+        $response->assertDontSee($outsideScope['id']);
+        $response->assertDontSee($mismatchedProjection['id']);
+        $response->assertSee('Start reviewing this submission');
+        $response->assertSee('Continue your assigned review');
+        $response->assertSee('Synthetic campus child');
+        $response->assertSee('Synthetic delivery_site child');
+    }
+
+    public function test_representative_workspace_surfaces_returned_campus_correction_next_action_in_parent_scope(): void
+    {
+        $institution = $this->institution();
+        $otherInstitution = $this->institution();
+        $representative = $this->user('child-correction-representative@example.test');
+        $this->assign($representative, 'institution_representative', $institution);
+        $returnedChildCase = $this->childCase($institution, $representative, 'campus', 'changes_requested');
+        $outsideChildCase = $this->childCase($otherInstitution, $representative, 'delivery_site', 'changes_requested');
+
+        $response = $this->actingAs($representative)->get('/workspace')->assertOk();
+        $response->assertSee($returnedChildCase['id']);
+        $response->assertDontSee($outsideChildCase['id']);
+        $response->assertSee('Correct and resubmit');
+        $response->assertSee('Synthetic campus child');
+        $response->assertSee('Parent institution');
+    }
+
     public function test_expired_or_revoked_scoped_assignments_do_not_grant_workspace_access(): void
     {
         $institution = $this->institution();
@@ -484,6 +528,85 @@ final class AdministrationWorkspaceTest extends TestCase
             'scope_type' => $scopeType,
             'scope_id' => $scopeId,
         ]);
+    }
+
+    private function childCase(
+        string $institution,
+        User $submitter,
+        string $entityType,
+        string $status,
+        ?string $reviewerActorId = null,
+        ?string $projectionInstitutionId = null,
+    ): array {
+        $entityId = (string) str()->uuid();
+        $claimId = (string) str()->uuid();
+        $versionId = (string) str()->uuid();
+        $caseId = (string) str()->uuid();
+        $now = now();
+        DB::table('directory_entities')->insert([
+            'id' => $entityId,
+            'entity_type' => $entityType,
+            'label' => 'Synthetic '.$entityType.' child '.substr($entityId, 0, 6),
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        DB::table('claims')->insert([
+            'id' => $claimId,
+            'subject_entity_id' => $entityId,
+            'predicate' => $entityType,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        DB::table('claim_versions')->insert([
+            'id' => $versionId,
+            'claim_id' => $claimId,
+            'version_number' => 1,
+            'value' => json_encode([
+                'institution_entity_id' => $institution,
+                'label' => 'Synthetic '.$entityType.' child',
+            ], JSON_THROW_ON_ERROR),
+            'valid_from' => null,
+            'valid_to' => null,
+            'recorded_at' => $now,
+            'disposition' => 'proposed',
+            'supersedes_version_id' => null,
+            'correction_reason' => null,
+            'field_definition_version_id' => null,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        DB::table('editorial_review_cases')->insert([
+            'id' => $caseId,
+            'entity_id' => $entityId,
+            'claim_version_id' => $versionId,
+            'status' => $status,
+            'submitted_by_actor_id' => 'user:'.$submitter->getKey(),
+            'reviewer_actor_id' => $reviewerActorId,
+            'adjudication_case_id' => null,
+            'adjudication_decision_id' => null,
+            'publication_decision_id' => null,
+            'idempotency_key' => 'workspace-child-case-'.str()->uuid(),
+            'fingerprint' => hash('sha256', $caseId),
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+
+        if ($projectionInstitutionId !== null) {
+            $table = $entityType === 'campus' ? 'directory_campuses' : 'directory_delivery_sites';
+            DB::table($table)->insert([
+                'entity_id' => $entityId,
+                'institution_entity_id' => $projectionInstitutionId,
+                'location_label' => 'Synthetic mismatch fixture',
+                'status' => 'active',
+                'valid_from' => null,
+                'valid_to' => null,
+                'claim_version_id' => $versionId,
+                'created_at' => $now,
+                'updated_at' => $now,
+            ]);
+        }
+
+        return ['id' => $caseId, 'entity_id' => $entityId, 'claim_version_id' => $versionId];
     }
 
     private function case(string $institution, User $submitter): array
