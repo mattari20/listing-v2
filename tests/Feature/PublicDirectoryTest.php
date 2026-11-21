@@ -97,7 +97,7 @@ final class PublicDirectoryTest extends TestCase
             ->assertDontSee('Synthetic Internal Label');
     }
 
-    public function test_institution_profile_shows_only_currently_published_governed_catalogue_records(): void
+    public function test_institution_profile_links_published_campuses_delivery_sites_programmes_and_offer_locations(): void
     {
         $institution = $this->createEntity('institution');
         $this->publishFact($institution, 'display_name', 'Synthetic Governed Institution');
@@ -113,6 +113,24 @@ final class PublicDirectoryTest extends TestCase
             'valid_from' => null,
             'valid_to' => null,
             'claim_version_id' => $campusClaim['version_id'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        $deliverySite = $this->createEntity('delivery_site');
+        $this->publishFact($deliverySite, 'display_name', 'Synthetic East Delivery Site');
+        $deliverySiteClaim = $this->publishFact($deliverySite, 'delivery_site', [
+            'institution_entity_id' => $institution,
+            'location_label' => 'Synthetic East District',
+        ]);
+        DB::table('directory_delivery_sites')->insert([
+            'entity_id' => $deliverySite,
+            'institution_entity_id' => $institution,
+            'location_label' => 'Synthetic East District',
+            'status' => 'active',
+            'valid_from' => null,
+            'valid_to' => null,
+            'claim_version_id' => $deliverySiteClaim['version_id'],
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -137,10 +155,13 @@ final class PublicDirectoryTest extends TestCase
             'updated_at' => now(),
         ]);
 
-        $offerClaim = $this->publishFact($programme, 'programme_offer', ['programme_entity_id' => $programme, 'delivery_location_entity_id' => $campus, 'admission_cycle' => 'Synthetic 2027 Intake']);
-        $offerId = (string) Str::uuid();
+        $offerClaim = $this->publishFact($programme, 'programme_offer', [
+            'programme_entity_id' => $programme,
+            'delivery_location_entity_id' => $campus,
+            'admission_cycle' => 'Synthetic 2027 Intake',
+        ]);
         DB::table('programme_offers')->insert([
-            'id' => $offerId,
+            'id' => (string) Str::uuid(),
             'programme_entity_id' => $programme,
             'delivery_location_entity_id' => $campus,
             'admission_cycle' => 'Synthetic 2027 Intake',
@@ -152,7 +173,11 @@ final class PublicDirectoryTest extends TestCase
             'updated_at' => now(),
         ]);
 
-        $suppressedClaim = $this->publishFact($programme, 'programme_offer', ['programme_entity_id' => $programme, 'delivery_location_entity_id' => $campus, 'admission_cycle' => 'Synthetic Suppressed Intake']);
+        $suppressedClaim = $this->publishFact($programme, 'programme_offer', [
+            'programme_entity_id' => $programme,
+            'delivery_location_entity_id' => $campus,
+            'admission_cycle' => 'Synthetic Suppressed Intake',
+        ]);
         DB::table('programme_offers')->insert([
             'id' => (string) Str::uuid(),
             'programme_entity_id' => $programme,
@@ -195,10 +220,16 @@ final class PublicDirectoryTest extends TestCase
             ->assertSee('Synthetic Governed Institution')
             ->assertSee('Campuses')
             ->assertSee('Synthetic North Campus')
+            ->assertSee(route('directory.show', ['entity' => $campus, 'lang' => 'en']), false)
+            ->assertSee('Delivery sites')
+            ->assertSee('Synthetic East Delivery Site')
+            ->assertSee('Synthetic East District')
+            ->assertSee(route('directory.show', ['entity' => $deliverySite, 'lang' => 'en']), false)
             ->assertSee('Programmes and admission offers')
             ->assertSee('Synthetic Computing Programme')
             ->assertSee(route('directory.show', ['entity' => $programme, 'lang' => 'en']), false)
             ->assertSee('Synthetic 2027 Intake')
+            ->assertSee(route('directory.show', ['entity' => $campus, 'lang' => 'en']), false)
             ->assertDontSee('Synthetic Suppressed Intake')
             ->assertDontSee('Synthetic Tampered Cycle');
 
@@ -211,7 +242,24 @@ final class PublicDirectoryTest extends TestCase
             ->assertSee('Synthetic Governed Institution')
             ->assertSee(route('directory.show', ['entity' => $institution, 'lang' => 'en']), false)
             ->assertSee('Admission offers')
-            ->assertSee('Synthetic North Campus');
+            ->assertSee('Synthetic North Campus')
+            ->assertSee(route('directory.show', ['entity' => $campus, 'lang' => 'en']), false);
+
+        $this->get('/directory/'.$campus)
+            ->assertOk()
+            ->assertSee('Institution')
+            ->assertSee('Synthetic Governed Institution')
+            ->assertSee(route('directory.show', ['entity' => $institution, 'lang' => 'en']), false);
+
+        $this->get('/directory/'.$deliverySite)
+            ->assertOk()
+            ->assertSee('Institution')
+            ->assertSee('Synthetic Governed Institution')
+            ->assertSee(route('directory.show', ['entity' => $institution, 'lang' => 'en']), false);
+
+        $this->get('/directory?type=delivery_site')
+            ->assertOk()
+            ->assertSee('Synthetic East Delivery Site');
     }
 
     public function test_urdu_interface_is_session_persistent_and_preserves_approved_source_language_facts(): void
