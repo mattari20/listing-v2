@@ -260,14 +260,6 @@ class CampusProgrammeCatalogueTest extends TestCase
             'created_at' => $now,
             'updated_at' => $now,
         ]);
-        DB::table('claim_evidence_links')->insert([
-            'id' => (string) str()->uuid(),
-            'claim_version_id' => $nextVersion,
-            'evidence_reference_id' => $evidenceId,
-            'relationship_type' => 'supports',
-            'created_at' => $now,
-            'updated_at' => $now,
-        ]);
         DB::table('claim_versions')->insert([
             'id' => $nextVersion,
             'claim_id' => $claimId,
@@ -284,6 +276,14 @@ class CampusProgrammeCatalogueTest extends TestCase
             'supersedes_version_id' => $priorVersion,
             'correction_reason' => 'synthetic_campus_correction',
             'field_definition_version_id' => null,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ]);
+        DB::table('claim_evidence_links')->insert([
+            'id' => (string) str()->uuid(),
+            'claim_version_id' => $nextVersion,
+            'evidence_reference_id' => $evidenceId,
+            'relationship_type' => 'supports',
             'created_at' => $now,
             'updated_at' => $now,
         ]);

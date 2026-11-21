@@ -94,7 +94,7 @@ final class InstitutionCampusWorkflowTest extends TestCase
         $this->assign($representative, $institution);
 
         $payload = $this->campusPayload($evidence);
-        $payload['value']['institution_entity_id'] = $otherInstitution;
+        $payload['institution_entity_id'] = $otherInstitution;
 
         $this->actingAs($representative, 'web')
             ->postJson("/institutions/{$institution}/campuses", $payload)
