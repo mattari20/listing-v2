@@ -372,3 +372,15 @@ The acceptance evidence must pin the exact target and configuration, provider te
 The following remain unknown and are not to be inferred: hosting provider and region; runtime environment variables; actual database, filesystem, cache, queue and logging destinations; provider legal roles and applicable terms/settings; subprocessor and cross-border paths; backup and export inventory; operator/reviewer/support access roster; retention/deletion propagation; and incident/breach handling in the actual environment.
 
 **Gate effect:** DP-06 source/configuration inventory is reconciled. The existing defer disposition remains in force. M3-11-05 stays BLOCKED / NOT ACCEPTED because no exact private acceptance environment, isolation evidence, access roster or target-specific lifecycle proof has been authorized or established. M3-11-02 / Gate 02 also remains blocked pending qualified independent review and the required exact-scope evidence. No earlier Product Owner decision is reopened or modified.
+
+## 10. Additional M3 Product Owner decision — child/student/guardian data boundary (2026-11-21)
+
+The Product Owner accepted Option A for the current M3 acceptance scope: **no real student, child or guardian personal data is collected or stored; synthetic/fictional data only.** The decision is recorded in [M3-11-02 Owner Decision — Child and Student Data Scope](M3-11-02_OWNER_DECISION_CHILD_STUDENT_DATA_SCOPE_2026-11-21.md).
+
+This is a scope-specific decision and does not claim that all project activity contains zero personal information. The already accepted 2026-11-20 internal review recognizes potentially identifying developer/reviewer metadata, including GitHub usernames, commit authorship, CI account metadata and reviewer identity/contact details. Those categories remain subject to minimization, confidentiality and repository visibility controls.
+
+The existing ten-question owner exercise and Decisions 1–3 are not reopened. Previously recorded positions on public institute information, official-channel verification, disputed/unverified information, correction/removal requests, child safeguards and future moderated reviews remain in force. Public UGC/reviews/ratings/reporting/moderation remain disabled in current M3 scope.
+
+This additional owner decision closes the current M3 scope question only. It does not constitute independent legal/privacy/safeguarding review, legal advice, a formal PIA/DPIA, or proof that every prompt, log, attachment, CI artifact or environment is free of personal data.
+
+**Gate status unchanged:** M3-11-02 / Gate 02 remains BLOCKED pending qualified independent legal/privacy and child-safeguarding assessment and Product Owner disposition. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
