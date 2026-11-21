@@ -93,6 +93,7 @@ final class InstitutionCampusWorkflowController extends Controller
     {
         $actor = $this->assertAccess($request, $institution);
         $validated = $request->validate([
+            'institution_entity_id' => ['prohibited'],
             'label' => ['required', 'string', 'min:1', 'max:255'],
             'location_label' => ['nullable', 'string', 'max:5000'],
             'definition_version' => ['required', 'integer', 'min:1'],
