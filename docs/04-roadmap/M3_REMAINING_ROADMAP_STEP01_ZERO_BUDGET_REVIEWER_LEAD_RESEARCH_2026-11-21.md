@@ -108,7 +108,7 @@ Do not send the complete private evidence bundle in an initial inquiry. Do not c
 - M3-11-03 independent assurance: **BLOCKED / NOT ACCEPTED**.
 - Overall M3: **OPEN / PARTIALLY COMPLETE — NOT CLOSED**.
 
-**Next step:** obtain permission for, and carry out, limited no-fee eligibility inquiries to the listed public channels. Do not share private evidence until a prospective reviewer is qualified, conflict-checked, accepts the PKR 0 condition and signs/accepts the confidentiality and scope terms. If no suitable reviewer volunteers, record the zero-budget constraint and keep the gates blocked rather than weakening the acceptance standard.
+**Next step:** carry out limited, non-confidential, no-fee eligibility inquiries to the listed public channels under the Product Owner's confirmed authorization. Do not share private evidence until a prospective reviewer is qualified, conflict-checked, accepts the PKR 0 condition and signs/accepts the confidentiality and scope terms. No outreach has yet been recorded in this repository. If no suitable reviewer volunteers, record the zero-budget constraint and keep the gates blocked rather than weakening the acceptance standard.
 
 ## 7. Scope and safety exclusions
 
