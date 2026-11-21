@@ -297,8 +297,9 @@ class CampusProgrammeCatalogueTest extends TestCase
             'created_at' => $now,
             'updated_at' => $now,
         ]);
+        $decisionId = (string) str()->uuid();
         DB::table('adjudication_decisions')->insert([
-            'id' => (string) str()->uuid(),
+            'id' => $decisionId,
             'adjudication_case_id' => $caseId,
             'outcome' => 'accepted',
             'actor_id' => 'synthetic-adjudicator',
@@ -310,6 +311,22 @@ class CampusProgrammeCatalogueTest extends TestCase
             'created_at' => $now,
             'updated_at' => $now,
         ]);
+        DB::table('source_authorizations')->where('id', $authorizationId)->update([
+            'permitted_purposes' => json_encode(['synthetic_test_only', 'directory_publication']),
+            'permitted_methods' => json_encode(['fixture_reference', 'approved_projection']),
+            'permitted_scopes' => json_encode(['acquisition' => true, 'retention' => true, 'processing' => true, 'reuse' => false, 'publication' => true]),
+        ]);
+        $workflow = app(PersistedGovernanceWorkflowService::class);
+        $workflow->authorizePublication(
+            ['actor_id' => 'synthetic-successor-publisher', 'actor_class' => 'human', 'capabilities' => ['authorize_publication']],
+            $nextVersion,
+            $decisionId,
+            'directory',
+            'anonymous',
+            'synthetic-policy-v1',
+            'campus-successor-publication'
+        );
+        $workflow->processOutbox();
 
         app(CampusProgrammeCatalogueService::class)->materializeAcceptedRecord(
             $this->actor('catalogue-manager'),

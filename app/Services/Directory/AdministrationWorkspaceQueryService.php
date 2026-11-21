@@ -31,33 +31,59 @@ final class AdministrationWorkspaceQueryService
             return [];
         }
 
-        return DB::table('editorial_review_cases as cases')
+        $cases = DB::table('editorial_review_cases as cases')
             ->join('directory_entities as entities', 'entities.id', '=', 'cases.entity_id')
             ->join('claim_versions as versions', 'versions.id', '=', 'cases.claim_version_id')
             ->join('claims', 'claims.id', '=', 'versions.claim_id')
-            ->whereIn('cases.entity_id', $institutionIds)
             ->where('cases.submitted_by_actor_id', $actorId)
+            ->where(function ($query) use ($institutionIds): void {
+                $query->whereIn('cases.entity_id', $institutionIds)
+                    ->orWhere(function ($childQuery) use ($institutionIds): void {
+                        $childQuery->whereIn('entities.entity_type', ['campus', 'delivery_site'])
+                            ->whereIn('versions.value->institution_entity_id', $institutionIds);
+                    });
+            })
             ->orderByDesc('cases.created_at')
             ->limit(50)
             ->get([
                 'cases.id',
                 'cases.entity_id',
-                'entities.label as institution_name',
+                'entities.entity_type',
+                'entities.label as entity_name',
+                'versions.value',
                 'claims.predicate',
                 'versions.version_number',
                 'cases.status',
                 'cases.created_at',
-            ])
-            ->map(fn ($row): array => [
-                'case_id' => (string) $row->id,
-                'institution_id' => (string) $row->entity_id,
-                'institution_name' => (string) $row->institution_name,
-                'predicate' => (string) $row->predicate,
-                'version_number' => (int) $row->version_number,
-                'status' => (string) $row->status,
-                'created_at' => (string) $row->created_at,
-            ])
-            ->all();
+            ]);
+
+        $submissions = [];
+        foreach ($cases as $case) {
+            $institutionId = $this->caseInstitutionScope(
+                (string) $case->entity_id,
+                (string) $case->entity_type,
+                $case->value,
+                $institutionIds,
+            );
+            if ($institutionId === null) {
+                continue;
+            }
+
+            $submissions[] = [
+                'case_id' => (string) $case->id,
+                'institution_id' => $institutionId,
+                'institution_name' => (string) DB::table('directory_entities')->where('id', $institutionId)->value('label'),
+                'entity_name' => (string) $case->entity_name,
+                'entity_type' => (string) $case->entity_type,
+                'predicate' => (string) $case->predicate,
+                'version_number' => (int) $case->version_number,
+                'status' => (string) $case->status,
+                'next_action' => $this->representativeNextAction((string) $case->status),
+                'created_at' => (string) $case->created_at,
+            ];
+        }
+
+        return $submissions;
     }
 
     public function reviewQueue(array $institutionIds, string $actorId): array
@@ -70,34 +96,58 @@ final class AdministrationWorkspaceQueryService
             ->join('directory_entities as entities', 'entities.id', '=', 'cases.entity_id')
             ->join('claim_versions as versions', 'versions.id', '=', 'cases.claim_version_id')
             ->join('claims', 'claims.id', '=', 'versions.claim_id')
-            ->whereIn('cases.entity_id', $institutionIds)
-            ->where('cases.status', 'submitted')
             ->where('cases.submitted_by_actor_id', '!=', $actorId)
+            ->where(function ($query) use ($actorId): void {
+                $query->where('cases.status', 'submitted')
+                    ->orWhere(function ($assignedQuery) use ($actorId): void {
+                        $assignedQuery->where('cases.status', 'in_review')
+                            ->where('cases.reviewer_actor_id', $actorId);
+                    });
+            })
+            ->where(function ($query) use ($institutionIds): void {
+                $query->whereIn('cases.entity_id', $institutionIds)
+                    ->orWhere(function ($childQuery) use ($institutionIds): void {
+                        $childQuery->whereIn('entities.entity_type', ['campus', 'delivery_site'])
+                            ->whereIn('versions.value->institution_entity_id', $institutionIds);
+                    });
+            })
             ->orderBy('cases.created_at')
             ->limit(100)
             ->get([
                 'cases.id',
                 'cases.entity_id',
-                'entities.label as institution_name',
+                'entities.entity_type',
+                'entities.label as entity_name',
+                'versions.value',
                 'claims.predicate',
                 'versions.id as claim_version_id',
                 'versions.version_number',
+                'cases.status',
                 'cases.created_at',
             ]);
 
         $queue = [];
         foreach ($cases as $case) {
-            if ($this->isEvidenceContributor((string) $case->claim_version_id, $actorId)) {
+            $institutionId = $this->caseInstitutionScope(
+                (string) $case->entity_id,
+                (string) $case->entity_type,
+                $case->value,
+                $institutionIds,
+            );
+            if ($institutionId === null || $this->isEvidenceContributor((string) $case->claim_version_id, $actorId)) {
                 continue;
             }
 
             $queue[] = [
                 'case_id' => (string) $case->id,
-                'institution_id' => (string) $case->entity_id,
-                'institution_name' => (string) $case->institution_name,
+                'institution_id' => $institutionId,
+                'institution_name' => (string) DB::table('directory_entities')->where('id', $institutionId)->value('label'),
+                'entity_name' => (string) $case->entity_name,
+                'entity_type' => (string) $case->entity_type,
                 'predicate' => (string) $case->predicate,
                 'version_number' => (int) $case->version_number,
-                'status' => 'submitted',
+                'status' => (string) $case->status,
+                'next_action' => $this->reviewerNextAction((string) $case->status),
                 'created_at' => (string) $case->created_at,
             ];
         }
@@ -257,6 +307,53 @@ final class AdministrationWorkspaceQueryService
             'history' => $history,
             'correction_history' => $correctionHistory,
         ];
+    }
+
+    /**
+     * Resolve only direct university institution cases or campus/delivery-site
+     * cases whose submitted parent identity agrees with any materialized parent.
+     */
+    private function caseInstitutionScope(string $entityId, string $entityType, mixed $encodedValue, array $institutionIds): ?string
+    {
+        if ($entityType === 'institution') {
+            return in_array($entityId, $institutionIds, true) ? $entityId : null;
+        }
+        if (! in_array($entityType, ['campus', 'delivery_site'], true)) {
+            return null;
+        }
+
+        $value = is_array($encodedValue) ? $encodedValue : json_decode((string) $encodedValue, true);
+        $parentId = is_array($value) ? ($value['institution_entity_id'] ?? null) : null;
+        if (! is_string($parentId) || ! in_array($parentId, $institutionIds, true)) {
+            return null;
+        }
+
+        $table = $entityType === 'campus' ? 'directory_campuses' : 'directory_delivery_sites';
+        $projectionParent = DB::table($table)->where('entity_id', $entityId)->value('institution_entity_id');
+        if ($projectionParent !== null && (string) $projectionParent !== $parentId) {
+            return null;
+        }
+
+        return $parentId;
+    }
+
+    private function representativeNextAction(string $status): string
+    {
+        return match ($status) {
+            'changes_requested' => 'correct_and_resubmit',
+            'superseded' => 'successor_submitted',
+            'submitted' => 'awaiting_editorial_review',
+            'in_review' => 'under_editorial_review',
+            'ready_for_adjudication' => 'awaiting_separate_adjudication',
+            'held' => 'held_for_follow_up',
+            'withdrawn' => 'withdrawn_no_action',
+            default => 'check_case_status',
+        };
+    }
+
+    private function reviewerNextAction(string $status): string
+    {
+        return $status === 'in_review' ? 'continue_assigned_review' : 'review_new_submission';
     }
 
     private function authorizationWindowState(object $row, CarbonImmutable $evaluatedAt): string

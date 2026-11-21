@@ -1,3 +1,40 @@
+## ADM-F / ADM-G and product-wide integration — 2026-11-21
+
+**Status: COMPLETE — IMPLEMENTED, SYNTHETIC CI PASSED, READY FOR MERGE.**
+
+### ADM-F — catalogue successor materialization
+- Implemented exact-predecessor successor replacement for programme catalogue entries, programme-qualification links and admission-offer catalogue records.
+- Preserves programme entity IDs, qualification-link IDs and admission-offer IDs. Existing offer-fact identities remain attached to the stable offer ID.
+- Requires the successor's own approved directory/anonymous public projection before replacing the prior catalogue row, preserving the ADM-E-G03 publication-order invariant. Rejects stale/missing predecessor projections, cross-parent programme changes and natural-key conflicts. No migration was added.
+- Added synthetic feature coverage for programme, qualification-link and offer successor replacement, old projection retention, idempotent offer identity and missing predecessor rejection.
+
+### ADM-G — administration queue and next-action integration
+- Representative and reviewer worklists now include campus/delivery-site child cases only under the exact parent university institution scope.
+- Reviewer queue includes new submissions and only `in_review` cases assigned to the current reviewer; submitter/evidence-contributor exclusions remain.
+- Workspace presents role-specific next actions, including correction/resubmission and assigned review continuation, in English and Urdu.
+- Added synthetic regression tests for parent scope, mismatched persisted parent, assignment ownership and representative correction handoff.
+
+### Product-wide integration verification
+- Audited institution → campus/delivery-site → programme → admission-offer navigation and the separate programme-offer fact publication workflow.
+- Existing public-directory tests cover published navigation, suppression and tampered catalogue mismatch. Offer-fact tests cover exact offer binding, zero fee values, freshness, correction, expiry, withdrawal and authorization revocation.
+- Added a stable-offer identity regression to ensure the offer-fact identity remains attached after catalogue-offer successor materialization.
+- Evidence and test mapping: [M3 Product-Wide Integration Verification](M3_PRODUCT_WIDE_INTEGRATION_VERIFICATION_2026-11-21.md).
+
+### Validation status
+Final exact-head validation passed on `f9b76270fb546f52f13d7008134adea3ee13141d`: FND-01 PHP 8.5 Foundation CI SUCCESS; Project documentation validation SUCCESS; 349 synthetic tests passed with 1,947 assertions; Composer audit, Pint formatting, Laravel bootstrap/route validation and repository artifact hygiene all passed. Earlier failures were corrected and are superseded by this final exact-head success. This is repository/synthetic verification only, not browser, production or hosted verification.
+
+**Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.** M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED. No real/source/personal data, production/V1/Hostinger access, live database, external API/AI, deployment, pilot, public release or new spend is authorized.
+
+---
+
+## ADM-F — Programme, Qualification and Admission Offer Successor Materialization — 2026-11-21
+
+**Status: SOURCE AUDIT AND IMPLEMENTATION CONTRACT COMPLETE; CODE IMPLEMENTATION PENDING.** The focused audit is recorded in [ADM-F Programme, Qualification and Admission Offer Successor Materialization Audit](ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md). Current `CampusProgrammeCatalogueService::materializeAcceptedRecord` already supports exact-predecessor replacement for campus/delivery-site projections, but its programme, programme-qualification and programme-offer branches insert new rows rather than replacing an existing projection by exact predecessor claim-version ID. ADM-F defines the synthetic regression matrix and fail-closed implementation contract. Programme-offer facts remain a separate versioned workflow.
+
+**Current main baseline:** `be95a411862e795072c107708c2867d904ef5bb9` (PR #434). ADM-A through ADM-E are complete within bounded repository/synthetic scopes; ADM-E G01–G04 are complete. No code, schema, role, route or runtime behavior changed in this audit. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED; M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED. Existing no-production/V1/Hostinger/hosted access, synthetic-only, no-real/source/personal-data, no-external-AI/API, no-deployment/pilot/release and no-new-spend boundaries remain binding.
+
+---
+
 ## ADM-D — Evidence and Editorial Operations Workspace — 2026-11-21
 
 **Status: COMPLETE for the bounded university data-reviewer case-inspection and editorial-review surface.** PR [#422](https://github.com/mattari20/listing-v2/pull/422) merged as `4549f879532c53492a14fc09446bad0a6824778a` after exact-head FND-01 Foundation CI and Project documentation validation passed.

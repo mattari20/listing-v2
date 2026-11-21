@@ -45,6 +45,18 @@ final class CampusProgrammeCatalogueService
             if ($version === null || $version->disposition !== 'accepted' || DB::table('claim_versions')->where('supersedes_version_id', $claimVersionId)->exists()) {
                 throw ValidationException::withMessages(['claim_version' => 'A current accepted claim version is required.']);
             }
+            if ($version->supersedes_version_id !== null) {
+                $predecessor = DB::table('claim_versions')
+                    ->where('id', $version->supersedes_version_id)
+                    ->lockForUpdate()
+                    ->first(['id', 'claim_id', 'version_number']);
+                if ($predecessor === null ||
+                    (string) $predecessor->claim_id !== (string) $version->claim_id ||
+                    (int) $version->version_number !== ((int) $predecessor->version_number + 1)) {
+                    throw ValidationException::withMessages(['claim_version' => 'A successor must reference the exact immediately preceding version of the same claim.']);
+                }
+            }
+
             $claim = DB::table('claims')->where('id', $version->claim_id)->first();
             if ($claim === null || isset(self::TYPES[$claim->predicate]) === false) {
                 throw ValidationException::withMessages(['claim' => 'Unsupported P02 catalogue claim predicate.']);
@@ -80,6 +92,10 @@ final class CampusProgrammeCatalogueService
                 }
             }
 
+            if ($version->supersedes_version_id !== null) {
+                $this->requirePublishedSuccessorProjection($claimVersionId);
+            }
+
             $value = json_decode((string) $version->value, true);
             if (is_array($value) === false) {
                 throw ValidationException::withMessages(['claim_value' => 'Claim value must be a JSON object.']);
@@ -108,13 +124,36 @@ final class CampusProgrammeCatalogueService
                         throw ValidationException::withMessages(['title' => 'A programme title of 1–255 characters is required.']);
                     }
                     $institution = $this->requireEntity($value['institution_entity_id'] ?? null, 'institution');
-                    DB::table('programme_catalogue_entries')->insert([
-                        'entity_id' => $targetId, 'institution_entity_id' => $institution, 'title' => $title,
-                        'description' => $this->nullableText($value['description'] ?? null),
-                        'level' => $this->nullableText($value['level'] ?? null),
-                        'status' => 'active', 'claim_version_id' => $claimVersionId,
-                        'created_at' => $now, 'updated_at' => $now,
-                    ]);
+                    $existing = DB::table('programme_catalogue_entries')
+                        ->where('entity_id', $targetId)
+                        ->lockForUpdate()
+                        ->first(['entity_id', 'institution_entity_id', 'claim_version_id']);
+                    if ($existing !== null) {
+                        if ((string) $existing->institution_entity_id !== $institution ||
+                            $version->supersedes_version_id === null ||
+                            (string) $version->supersedes_version_id !== (string) $existing->claim_version_id) {
+                            throw ValidationException::withMessages(['projection' => 'A programme correction must supersede the exact currently materialized version and preserve its institution.']);
+                        }
+                        DB::table('programme_catalogue_entries')->where('entity_id', $targetId)->update([
+                            'title' => $title,
+                            'description' => $this->nullableText($value['description'] ?? null),
+                            'level' => $this->nullableText($value['level'] ?? null),
+                            'status' => 'active',
+                            'claim_version_id' => $claimVersionId,
+                            'updated_at' => $now,
+                        ]);
+                    } else {
+                        if ($version->supersedes_version_id !== null) {
+                            throw ValidationException::withMessages(['projection' => 'A programme successor cannot create a missing predecessor projection.']);
+                        }
+                        DB::table('programme_catalogue_entries')->insert([
+                            'entity_id' => $targetId, 'institution_entity_id' => $institution, 'title' => $title,
+                            'description' => $this->nullableText($value['description'] ?? null),
+                            'level' => $this->nullableText($value['level'] ?? null),
+                            'status' => 'active', 'claim_version_id' => $claimVersionId,
+                            'created_at' => $now, 'updated_at' => $now,
+                        ]);
+                    }
                     break;
                 case 'programme_qualification':
                     $programme = $this->requireEntity($value['programme_entity_id'] ?? null, 'programme');
@@ -126,13 +165,46 @@ final class CampusProgrammeCatalogueService
                     }
                     $qualification = $this->requireEntity($value['qualification_entity_id'] ?? null, 'qualification');
                     $awarder = $this->requireEntity($value['awarding_body_entity_id'] ?? null, 'awarding_body');
-                    $id = (string) Str::uuid();
-                    DB::table('programme_qualification_links')->insert([
-                        'id' => $id, 'programme_entity_id' => $programme, 'qualification_entity_id' => $qualification,
-                        'awarding_body_entity_id' => $awarder, 'status' => 'active', 'claim_version_id' => $claimVersionId,
-                        'created_at' => $now, 'updated_at' => $now,
-                    ]);
-                    $targetId = $id;
+                    $existing = $version->supersedes_version_id === null
+                        ? null
+                        : DB::table('programme_qualification_links')
+                            ->where('claim_version_id', $version->supersedes_version_id)
+                            ->lockForUpdate()
+                            ->first(['id', 'programme_entity_id']);
+                    if ($version->supersedes_version_id !== null &&
+                        ($existing === null || (string) $existing->programme_entity_id !== $programme)) {
+                        throw ValidationException::withMessages(['projection' => 'A qualification-link successor must match its exact materialized predecessor and programme.']);
+                    }
+                    $conflict = DB::table('programme_qualification_links')
+                        ->where('programme_entity_id', $programme)
+                        ->where('qualification_entity_id', $qualification)
+                        ->where('awarding_body_entity_id', $awarder)
+                        ->when($existing !== null, fn ($query) => $query->where('id', '<>', $existing->id))
+                        ->exists();
+                    if ($conflict) {
+                        throw ValidationException::withMessages(['projection' => 'A qualification-link projection with the same identity already exists.']);
+                    }
+                    if ($existing !== null) {
+                        DB::table('programme_qualification_links')->where('id', $existing->id)->update([
+                            'qualification_entity_id' => $qualification,
+                            'awarding_body_entity_id' => $awarder,
+                            'status' => 'active',
+                            'claim_version_id' => $claimVersionId,
+                            'updated_at' => $now,
+                        ]);
+                        $targetId = (string) $existing->id;
+                    } else {
+                        if ($version->supersedes_version_id !== null) {
+                            throw ValidationException::withMessages(['projection' => 'A qualification-link successor cannot create a missing predecessor projection.']);
+                        }
+                        $id = (string) Str::uuid();
+                        DB::table('programme_qualification_links')->insert([
+                            'id' => $id, 'programme_entity_id' => $programme, 'qualification_entity_id' => $qualification,
+                            'awarding_body_entity_id' => $awarder, 'status' => 'active', 'claim_version_id' => $claimVersionId,
+                            'created_at' => $now, 'updated_at' => $now,
+                        ]);
+                        $targetId = $id;
+                    }
                     break;
                 case 'programme_offer':
                     $programme = $this->requireEntity($value['programme_entity_id'] ?? null, 'programme');
@@ -149,14 +221,49 @@ final class CampusProgrammeCatalogueService
                         throw ValidationException::withMessages(['admission_cycle' => 'An explicit admission cycle is required.']);
                     }
                     $this->assertDates($version->valid_from, $version->valid_to);
-                    $id = (string) Str::uuid();
-                    DB::table('programme_offers')->insert([
-                        'id' => $id, 'programme_entity_id' => $programme, 'delivery_location_entity_id' => $location,
-                        'admission_cycle' => $cycle, 'status' => 'active', 'valid_from' => $version->valid_from,
-                        'valid_to' => $version->valid_to, 'claim_version_id' => $claimVersionId,
-                        'created_at' => $now, 'updated_at' => $now,
-                    ]);
-                    $targetId = $id;
+                    $existing = $version->supersedes_version_id === null
+                        ? null
+                        : DB::table('programme_offers')
+                            ->where('claim_version_id', $version->supersedes_version_id)
+                            ->lockForUpdate()
+                            ->first(['id', 'programme_entity_id']);
+                    if ($version->supersedes_version_id !== null &&
+                        ($existing === null || (string) $existing->programme_entity_id !== $programme)) {
+                        throw ValidationException::withMessages(['projection' => 'An admission-offer successor must match its exact materialized predecessor and programme.']);
+                    }
+                    $conflict = DB::table('programme_offers')
+                        ->where('programme_entity_id', $programme)
+                        ->where('delivery_location_entity_id', $location)
+                        ->where('admission_cycle', $cycle)
+                        ->when($existing !== null, fn ($query) => $query->where('id', '<>', $existing->id))
+                        ->exists();
+                    if ($conflict) {
+                        throw ValidationException::withMessages(['projection' => 'An admission-offer projection with the same programme, location and cycle already exists.']);
+                    }
+                    if ($existing !== null) {
+                        DB::table('programme_offers')->where('id', $existing->id)->update([
+                            'delivery_location_entity_id' => $location,
+                            'admission_cycle' => $cycle,
+                            'status' => 'active',
+                            'valid_from' => $version->valid_from,
+                            'valid_to' => $version->valid_to,
+                            'claim_version_id' => $claimVersionId,
+                            'updated_at' => $now,
+                        ]);
+                        $targetId = (string) $existing->id;
+                    } else {
+                        if ($version->supersedes_version_id !== null) {
+                            throw ValidationException::withMessages(['projection' => 'An admission-offer successor cannot create a missing predecessor projection.']);
+                        }
+                        $id = (string) Str::uuid();
+                        DB::table('programme_offers')->insert([
+                            'id' => $id, 'programme_entity_id' => $programme, 'delivery_location_entity_id' => $location,
+                            'admission_cycle' => $cycle, 'status' => 'active', 'valid_from' => $version->valid_from,
+                            'valid_to' => $version->valid_to, 'claim_version_id' => $claimVersionId,
+                            'created_at' => $now, 'updated_at' => $now,
+                        ]);
+                        $targetId = $id;
+                    }
                     break;
                 default:
                     throw ValidationException::withMessages(['claim' => 'Unsupported P02 catalogue command.']);
@@ -173,6 +280,37 @@ final class CampusProgrammeCatalogueService
 
             return $targetId;
         });
+    }
+
+    /**
+     * A successor must not replace a previously accepted catalogue projection
+     * until its own directory/anonymous publication has reached the public
+     * projection. This preserves the prior published value during the gap
+     * between adjudication and publication.
+     */
+    private function requirePublishedSuccessorProjection(string $claimVersionId): void
+    {
+        $published = DB::table('publication_decisions as decisions')
+            ->join('publication_snapshots as snapshots', 'snapshots.publication_decision_id', '=', 'decisions.id')
+            ->join('public_projections as projections', 'projections.publication_snapshot_id', '=', 'snapshots.id')
+            ->where('decisions.claim_version_id', $claimVersionId)
+            ->where('decisions.decision', 'approved')
+            ->where('decisions.actor_class', 'human')
+            ->where('decisions.surface', 'directory')
+            ->where('decisions.audience', 'anonymous')
+            ->whereColumn('snapshots.claim_version_id', 'decisions.claim_version_id')
+            ->where('snapshots.status', 'projected')
+            ->where('snapshots.surface', 'directory')
+            ->where('snapshots.audience', 'anonymous')
+            ->where('projections.status', 'approved')
+            ->where('projections.surface', 'directory')
+            ->where('projections.audience', 'anonymous')
+            ->where('projections.is_deeni_madaris', false)
+            ->exists();
+
+        if ($published === false) {
+            throw ValidationException::withMessages(['publication' => 'A successor catalogue projection requires its own approved directory publication and public projection before replacing the accepted predecessor.']);
+        }
     }
 
     private function materializeLocationProjection(string $table, string $entityId, string $institutionId, array $value, object $version, string $claimVersionId, mixed $now): void

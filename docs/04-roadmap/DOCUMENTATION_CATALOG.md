@@ -1,3 +1,19 @@
+## ADM-F / ADM-G / product-wide integration — 2026-11-21
+
+- [ADM-F Programme, Qualification and Admission Offer Successor Materialization Audit](ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md) — implementation scope and successor replacement tests.
+- [ADM-G Administration Queue and Operational Handoff Integration](ADM_G_ADMINISTRATION_QUEUE_AND_OPERATIONAL_HANDOFF_2026-11-21.md) — parent-scoped representative/reviewer queues and next-action integration.
+- [M3 Product-Wide Integration Verification](M3_PRODUCT_WIDE_INTEGRATION_VERIFICATION_2026-11-21.md) — cross-module source and test coverage review; exact-head CI pending.
+
+---
+
+## ADM administration and institute information management — 2026-11-21
+
+- [ADM-F Programme, Qualification and Admission Offer Successor Materialization Audit](ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md) — focused current-main audit and bounded synthetic implementation contract; no code change in the audit.
+- [ADM-E G04 Reviewer-Safe Evidence and Correction History Closeout](ADM_E_G04_REVIEWER_SAFE_EVIDENCE_CORRECTION_HISTORY_CLOSEOUT_2026-11-21.md) — ADM-E final G04 evidence and completion disposition.
+- [ADM-E Audit Checkpoint](ADM_E_CORRECTION_QUALITY_OPERATIONAL_HANDOFF_AUDIT_2026-11-21.md) — lifecycle audit and G01–G04 closeout references.
+
+---
+
 ## M3-11 current-main evidence reconciliation — 2026-11-20
 
 - [M3-11 DP-02–DP-06 and Gate Evidence Current-Main Reconciliation](M3-11-02_OWNER_INTERNAL_DATA_PRIVACY_REVIEW_2026-11-18.md) — PRs #395–#398 reconcile current session, logging, audit metadata, route/output privacy and provider/lifecycle evidence; all remain bounded to repository/source evidence and partial dispositions.

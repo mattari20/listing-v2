@@ -1,3 +1,19 @@
+## Current administration and integration agenda — 2026-11-21
+
+- [ADM-F Programme, Qualification and Admission Offer Successor Materialization Audit](04-roadmap/ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md) — source audit, implementation contract and code/test progress.
+- [ADM-G Administration Queue and Operational Handoff Integration](04-roadmap/ADM_G_ADMINISTRATION_QUEUE_AND_OPERATIONAL_HANDOFF_2026-11-21.md) — parent-scoped child queues, assigned review work and next-action guidance.
+- [M3 Product-Wide Integration Verification](04-roadmap/M3_PRODUCT_WIDE_INTEGRATION_VERIFICATION_2026-11-21.md) — institution, campus, programme, offer and offer-fact cross-module verification map.
+
+---
+
+## ADM administration and institute information management — 2026-11-21
+
+- [ADM-F Programme, Qualification and Admission Offer Successor Materialization Audit](04-roadmap/ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md) — current-main source audit and exact-predecessor successor-materialization contract for programme, qualification-link and admission-offer projections.
+- [ADM-E G04 Reviewer-Safe Evidence and Correction History Closeout](04-roadmap/ADM_E_G04_REVIEWER_SAFE_EVIDENCE_CORRECTION_HISTORY_CLOSEOUT_2026-11-21.md) — explicit evidence authorization-window states and minimized correction history; ADM-E complete for bounded synthetic scope.
+- [ADM-D Evidence and Editorial Workspace Closeout](04-roadmap/ADM_D_EVIDENCE_EDITORIAL_WORKSPACE_CLOSEOUT_2026-11-21.md) — reviewer-safe evidence metadata, correction lineage and independent review actions.
+
+---
+
 ## M3-11 — current gate evidence and qualified-review handoff — 2026-11-20
 
 - [M3-11 Product Owner Internal Data and Privacy Review](04-roadmap/M3-11-02_OWNER_INTERNAL_DATA_PRIVACY_REVIEW_2026-11-18.md) — current DP-02–DP-06 source/repository reconciliations, partial dispositions and remaining target-specific limitations; qualified independent assessment remains outstanding.

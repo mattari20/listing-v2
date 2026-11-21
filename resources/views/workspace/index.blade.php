@@ -52,11 +52,35 @@
                 @foreach ($submissions as $submission)
                     <article class="case" data-case-reference="{{ $submission['case_id'] }}">
                         <div class="topline">
-                            <strong dir="auto">{{ $submission['institution_name'] }}</strong>
+                            <strong dir="auto">{{ $submission['entity_name'] }}</strong>
                             <span class="pill">{{ str_replace('_', ' ', $submission['status']) }}</span>
                         </div>
+                        @if ($submission['entity_type'] !== 'institution')
+                            <p class="meta">{{ $locale === 'ur' ? 'بنیادی ادارہ' : 'Parent institution' }}: {{ $submission['institution_name'] }}</p>
+                        @endif
                         <p>{{ $locale === 'ur' ? 'فیلڈ' : 'Field' }}: <code>{{ $submission['predicate'] }}</code></p>
                         <p class="meta">{{ $locale === 'ur' ? 'ورژن' : 'Version' }} {{ $submission['version_number'] }} · {{ $submission['created_at'] }}</p>
+                        <p class="meta"><strong>{{ $locale === 'ur' ? 'اگلا قدم' : 'Next step' }}:</strong>
+                            {{ $locale === 'ur' ? match ($submission['next_action']) {
+                                'correct_and_resubmit' => 'درستگی کرکے دوبارہ جمع کریں',
+                                'successor_submitted' => 'نیا ورژن جمع ہو چکا ہے',
+                                'awaiting_editorial_review' => 'ادارتی جائزے کا انتظار',
+                                'under_editorial_review' => 'ادارتی جائزہ جاری ہے',
+                                'awaiting_separate_adjudication' => 'الگ فیصلہ سازی کا انتظار',
+                                'held_for_follow_up' => 'مزید کارروائی کے لیے روکا گیا',
+                                'withdrawn_no_action' => 'واپس لے لیا گیا؛ کوئی کارروائی درکار نہیں',
+                                default => 'کیس کی موجودہ حالت دیکھیں',
+                            } : match ($submission['next_action']) {
+                                'correct_and_resubmit' => 'Correct and resubmit',
+                                'successor_submitted' => 'Successor version submitted',
+                                'awaiting_editorial_review' => 'Awaiting editorial review',
+                                'under_editorial_review' => 'Under editorial review',
+                                'awaiting_separate_adjudication' => 'Awaiting separate adjudication',
+                                'held_for_follow_up' => 'Held for follow-up',
+                                'withdrawn_no_action' => 'Withdrawn; no action required',
+                                default => 'Check case status',
+                            } }}
+                        </p>
                     </article>
                 @endforeach
             @endif
@@ -66,18 +90,24 @@
     @if ($reviewer)
         <section class="panel" aria-labelledby="review-heading">
             <h2 id="review-heading">{{ $locale === 'ur' ? 'ادارتی جائزے کی قطار' : 'Editorial review queue' }}</h2>
-            <p class="meta">{{ $locale === 'ur' ? 'صرف آپ کے مجاز اداروں کی نئی تجاویز دکھائی گئی ہیں۔ اپنی جمع کردہ تجاویز اور اپنے فراہم کردہ شواہد شامل نہیں ہیں۔' : 'Only new proposals in your assigned institution scopes are shown. Your own submissions and proposals with evidence you registered are excluded.' }}</p>
+            <p class="meta">{{ $locale === 'ur' ? 'نئی تجاویز اور صرف آپ کے سپرد کردہ جاری جائزے دکھائے گئے ہیں۔ اپنی جمع کردہ تجاویز اور اپنے فراہم کردہ شواہد شامل نہیں ہیں۔' : 'New submissions and only reviews currently assigned to you are shown. Your own submissions and proposals with evidence you registered are excluded.' }}</p>
             @if ($reviewQueue === [])
                 <div class="empty"><p>{{ $locale === 'ur' ? 'اس وقت جائزے کے لیے کوئی نئی تجویز موجود نہیں۔' : 'There are no new proposals available for your review.' }}</p></div>
             @else
                 @foreach ($reviewQueue as $case)
                     <article class="case" data-case-reference="{{ $case['case_id'] }}">
                         <div class="topline">
-                            <strong dir="auto">{{ $case['institution_name'] }}</strong>
-                            <span class="pill">{{ $locale === 'ur' ? 'جمع شدہ' : 'Submitted' }}</span>
+                            <strong dir="auto">{{ $case['entity_name'] }}</strong>
+                            <span class="pill">{{ $locale === 'ur' ? ($case['status'] === 'in_review' ? 'جائزے میں' : 'جمع شدہ') : ($case['status'] === 'in_review' ? 'In review' : 'Submitted') }}</span>
                         </div>
+                        @if ($case['entity_type'] !== 'institution')
+                            <p class="meta">{{ $locale === 'ur' ? 'بنیادی ادارہ' : 'Parent institution' }}: {{ $case['institution_name'] }}</p>
+                        @endif
                         <p>{{ $locale === 'ur' ? 'فیلڈ' : 'Field' }}: <code>{{ $case['predicate'] }}</code></p>
                         <p class="meta">{{ $locale === 'ur' ? 'ورژن' : 'Version' }} {{ $case['version_number'] }} · {{ $case['created_at'] }}</p>
+                        <p class="meta"><strong>{{ $locale === 'ur' ? 'اگلا قدم' : 'Next step' }}:</strong>
+                            {{ $locale === 'ur' ? ($case['status'] === 'in_review' ? 'اپنا سپرد کردہ جائزہ جاری رکھیں' : 'نئی تجویز کا جائزہ شروع کریں') : ($case['status'] === 'in_review' ? 'Continue your assigned review' : 'Start reviewing this submission') }}
+                        </p>
                         <p><a href="{{ route('institutions.editorial-cases.show', ['institution' => $case['institution_id'], 'case' => $case['case_id'], 'lang' => $locale]) }}">{{ $locale === 'ur' ? 'کیس اور شواہد دیکھیں' : 'Inspect case and evidence metadata' }}</a></p>
                     </article>
                 @endforeach

@@ -238,10 +238,15 @@ final class InstitutionCampusWorkflowTest extends TestCase
             ['actor_id' => 'campus-successor-opener', 'actor_class' => 'human', 'capabilities' => ['open_adjudication']],
             $successor, 'campus-successor-adjudication'
         );
-        $workflow->decideAdjudication(
+        $successorDecision = $workflow->decideAdjudication(
             ['actor_id' => 'campus-successor-adjudicator', 'actor_class' => 'human', 'capabilities' => ['adjudicate_claim']],
             $successorCase, 'accepted', 'synthetic_acceptance', 'Corrected synthetic campus claim accepted.', 'policy-v1'
         );
+        $workflow->authorizePublication(
+            ['actor_id' => 'campus-successor-publisher', 'actor_class' => 'human', 'capabilities' => ['authorize_publication']],
+            $successor, $successorDecision, 'directory', 'anonymous', 'policy-v1', 'campus-successor-publication'
+        );
+        $workflow->processOutbox();
         $materializer->materializeAcceptedRecord(
             ['actor_id' => 'campus-successor-materializer', 'actor_class' => 'human', 'capabilities' => ['materialize_catalogue_record']],
             $successor, 'campus-successor-materialization'
@@ -371,10 +376,10 @@ final class InstitutionCampusWorkflowTest extends TestCase
             'id' => $authorizationId,
             'source_family_id' => 'synthetic-only',
             'status' => 'approved_for_defined_purpose_and_method',
-            'permitted_purposes' => json_encode(['synthetic_test_only'], JSON_THROW_ON_ERROR),
-            'permitted_methods' => json_encode(['fixture_reference'], JSON_THROW_ON_ERROR),
+            'permitted_purposes' => json_encode(['synthetic_test_only', 'directory_publication'], JSON_THROW_ON_ERROR),
+            'permitted_methods' => json_encode(['fixture_reference', 'approved_projection'], JSON_THROW_ON_ERROR),
             'territories' => json_encode(['synthetic'], JSON_THROW_ON_ERROR),
-            'permitted_scopes' => json_encode(['processing' => true], JSON_THROW_ON_ERROR),
+            'permitted_scopes' => json_encode(['processing' => true, 'publication' => true], JSON_THROW_ON_ERROR),
             'valid_from' => $now->copy()->subDay(),
             'valid_to' => $now->copy()->addDay(),
             'revoked_at' => null,
