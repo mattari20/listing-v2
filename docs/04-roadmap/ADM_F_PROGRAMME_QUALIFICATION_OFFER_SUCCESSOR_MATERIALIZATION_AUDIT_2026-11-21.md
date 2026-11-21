@@ -3,7 +3,7 @@
 **Date:** 2026-11-21  
 **Baseline main:** `be95a411862e795072c107708c2867d904ef5bb9` (PR #434 profile-navigation integration)  
 **Agenda:** Administration and Institute Information Management Completion  
-**Status:** Focused source audit complete; bounded implementation contract defined. No application behavior changed by this audit.
+**Status:** Source audit and bounded contract complete; implementation and synthetic regression tests added; exact-head CI pending.
 
 ## 1. Purpose
 
@@ -88,4 +88,12 @@ This agenda does not authorize adjudication/publication UI, alter role/action ma
 8. Exact-head FND-01 Foundation CI and Project documentation validation pass; warnings are reported accurately.
 9. Closeout documentation distinguishes repository verification from human, legal, security, production and operational acceptance.
 
-**Disposition:** ADM-F source audit and bounded implementation contract are complete. Application implementation remains pending. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+## 7. Implementation progress — 2026-11-21
+
+The current agenda branch now implements exact-predecessor successor replacement for programme, qualification-link and programme-offer catalogue projections in `CampusProgrammeCatalogueService`. It validates that the successor references the immediately preceding version of the same claim, updates the existing projection row in place, preserves stable projection IDs, rejects missing/stale/mismatched predecessors and rejects natural-key conflicts. No schema migration or new dependency was added.
+
+Synthetic feature coverage was added in `tests/Feature/CatalogueSuccessorMaterializationTest.php` for programme, qualification-link and offer successor replacement, retention of the old projection before materialization, stable offer identity/fact identity and missing predecessor rejection.
+
+An earlier FND-01 run on `bac35029e38c052eae2f0f997e146dc59e66b442` failed at Pint because the new test file contained escaped PHP namespace separators. The namespace was corrected at `b2d167d9ccc7ff041ee84f8ca0234ea3947226fd`. Exact-head FND-01 and Project documentation validation must pass on the final agenda head before merge. No pass or merge is claimed yet.
+
+**Disposition:** ADM-F implementation and synthetic regression coverage are present; exact-head validation and review remain pending. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
