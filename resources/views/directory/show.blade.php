@@ -160,20 +160,35 @@
                     <h3>{{ __('directory.admission_offers_heading') }}</h3>
                     <ul>
                         @foreach ($profile['programme_catalogue']['offers'] as $catalogueOffer)
-                            <li dir="auto">{{ $catalogueOffer['admission_cycle'] }} — {{ $catalogueOffer['location'] }}</li>
+                            <li dir="auto">{{ $catalogueOffer['admission_cycle'] }} — <a href="{{ route('directory.show', ['entity' => $catalogueOffer['location_entity_id'], 'lang' => $locale]) }}">{{ $catalogueOffer['location'] }}</a></li>
                         @endforeach
                     </ul>
                 @endif
             </section>
         @endif
 
-        @if (!empty($profile['catalogue']['campuses']) || !empty($profile['catalogue']['programmes']))
+        @if (!empty($profile['catalogue']['campuses']) || !empty($profile['catalogue']['delivery_sites']) || !empty($profile['catalogue']['programmes']))
             <section aria-labelledby="campuses-heading">
                 @if (!empty($profile['catalogue']['campuses']))
                     <h2 id="campuses-heading">{{ __('directory.campuses_heading') }}</h2>
                     <ul>
                         @foreach ($profile['catalogue']['campuses'] as $campus)
-                            <li dir="auto">{{ $campus['name'] }}</li>
+                            <li dir="auto">
+                                <a href="{{ route('directory.show', ['entity' => $campus['id'], 'lang' => $locale]) }}">{{ $campus['name'] }}</a>
+                                @if (!empty($campus['location_label']))<span class="meta"> — {{ $campus['location_label'] }}</span>@endif
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
+
+                @if (!empty($profile['catalogue']['delivery_sites']))
+                    <h2 id="delivery-sites-heading">{{ __('directory.delivery_sites_heading') }}</h2>
+                    <ul>
+                        @foreach ($profile['catalogue']['delivery_sites'] as $site)
+                            <li dir="auto">
+                                <a href="{{ route('directory.show', ['entity' => $site['id'], 'lang' => $locale]) }}">{{ $site['name'] }}</a>
+                                @if (!empty($site['location_label']))<span class="meta"> — {{ $site['location_label'] }}</span>@endif
+                            </li>
                         @endforeach
                     </ul>
                 @endif
@@ -186,7 +201,7 @@
                             @if ($programme['offers'] !== [])
                                 <ul>
                                     @foreach ($programme['offers'] as $offer)
-                                        <li dir="auto">{{ $offer['admission_cycle'] }} — {{ $offer['location'] }}</li>
+                                        <li dir="auto">{{ $offer['admission_cycle'] }} — <a href="{{ route('directory.show', ['entity' => $offer['location_entity_id'], 'lang' => $locale]) }}">{{ $offer['location'] }}</a></li>
                                     @endforeach
                                 </ul>
                             @else
@@ -197,6 +212,13 @@
                 @endif
             </section>
         @endif
+        @if (!empty($profile['location_catalogue']))
+            <section aria-labelledby="location-institution-heading">
+                <h2 id="location-institution-heading">{{ __('directory.institution_label') }}</h2>
+                <p><a href="{{ route('directory.show', ['entity' => $profile['location_catalogue']['institution_entity_id'], 'lang' => $locale]) }}" dir="auto">{{ $profile['location_catalogue']['institution_name'] }}</a></p>
+            </section>
+        @endif
+
         @if (($profile['programme_offers'] ?? []) !== [])
             <section aria-labelledby="admissions-heading">
                 <h2 id="admissions-heading">{{ __('directory.admissions_info') }}</h2>
