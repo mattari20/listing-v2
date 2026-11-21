@@ -1,3 +1,51 @@
+## Product-first development baseline and administration architecture gap audit — 2026-11-21
+
+### Phase A — current baseline reconciliation: COMPLETE
+
+- Latest main at reconciliation: `d560890f46d8c9d4329101824a99b26a86a27ee3`, merged PR #415.
+- Product Owner product-first direction was recorded in PR #405.
+- Product delivery PRs #406–#415 are merged.
+- Exact PR-head GitHub Actions evidence was retrieved for PRs #407–#415. Both required workflows — FND-01 Foundation CI and Project documentation validation — completed successfully on each exact PR head. PR #406 is the preceding institute catalogue display increment and is included in the merged product sequence; its exact-head run evidence was not separately re-fetched in this reconciliation.
+- README was stale at PR #402 / commit `355d0d6...`; this update brings the top-level status forward to PR #415.
+- No new application code or tests were changed in Phase A.
+
+### Administration and institute-information architecture audit — initial source inventory
+
+Inspected current-main `routes/web.php`, `UniversityRepresentativeWorkflowController`, `UniversityRepresentativeWorkflowService`, and the feature test `UniversityRepresentativeWorkflowTest`, alongside the previously completed M3-12 A05 verification record.
+
+**Existing surface confirmed**
+- Public directory list, profile, compare and shortlist routes.
+- Authenticated account session and saved-item routes.
+- Authenticated institution-scoped endpoints for claim submission, correction, editorial review start and editorial review completion.
+- Representative workflow requires an active, verified human user with institution-scoped authorization; claim proposals carry evidence references and are submitted for editorial review.
+- Corrections are scoped to the institution and produce successor proposals for editorial review.
+- The representative controller supplies a synthetic-only source context and is not a general institute-management interface.
+- Existing domain services and governance contracts cover claims, field definitions, typed values, editorial review and catalogue relationships; these are backend building blocks, not a complete administration UI.
+
+**Confirmed product gaps**
+1. No role-oriented browser administration dashboard or admin navigation surface was identified in the inspected web route/controller/view inventory.
+2. Existing representative routes are university-specific; they do not establish complete school, college, academy or coaching-provider self-service.
+3. No integrated browser workspace was identified for institution/campus/programme editing, admission-offer maintenance, evidence queues, editorial adjudication, publication decisions, suppression or audit review.
+4. Existing API/service contracts do not establish staffed operational coverage, named role holders, support processes or SLAs.
+5. Browser-based end-to-end verification and actual role-holder usability testing remain outstanding.
+
+**Next product agenda**
+Build the Administration and Institute Information Management experience in controlled increments:
+- Admin information architecture and role/permission matrix, reusing current scoped authorization.
+- Institution and campus catalogue management.
+- Programme and admission-offer management with explicit institution/campus/programme/cycle scope.
+- Evidence-backed submission and correction workspace.
+- Editorial review, adjudication and publication controls with separation of duties and no direct-publish bypass.
+- Audit history, status visibility, validation feedback and bilingual responsive UX.
+- Synthetic feature tests, authorization tests, regression tests and later browser verification.
+
+**Safety and non-goals**
+Synthetic fixtures only. No real institute/student data, source collection, V1/production/Hostinger access, live database, deployment, external AI/API, new dependency, paid service or additional spend. Do not activate public UGC, complaint or appeal workflows as part of this admin agenda. Existing Deeni Madaris default-OFF and zero-public-exposure safeguards remain unchanged.
+
+**Disposition:** Phase A baseline reconciliation is complete. The administration audit is complete for the inspected source inventory and establishes a bounded implementation agenda; it does not claim an exhaustive repository-wide security review or operational acceptance. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
+---
+
 ## M3-11 DP-02–DP-06 and gate evidence current-main reconciliation — 2026-11-20
 
 PRs #395–#402 are merged and exact-head verified. The eight Foundation CI / documentation-validation pairs passed: #742/#1266, #743/#1268, #744/#1270, #745/#1272, #746/#1274, #747/#1276, #748/#1278 and #749/#1280. PR #403 then refreshed the README and merged as `fd21bfeacfa11cc85a1510fc41787f1f45b09c51`, with exact-head FND-01 CI #750 and documentation validation #1282 passed.
