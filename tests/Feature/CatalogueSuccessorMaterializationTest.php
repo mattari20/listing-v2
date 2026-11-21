@@ -117,6 +117,22 @@ final class CatalogueSuccessorMaterializationTest extends TestCase
             'qualification_entity_id' => $qualificationTwo,
             'awarding_body_entity_id' => $awarder,
         ]);
+
+        $duplicate = $this->acceptedVersion($programme, 'programme_qualification', [
+            'programme_entity_id' => $programme,
+            'qualification_entity_id' => $qualificationTwo,
+            'awarding_body_entity_id' => $awarder,
+        ], 'qualification-link-duplicate');
+        try {
+            $materializer->materializeAcceptedRecord($this->actor('qualification-link-duplicate-materializer'), $duplicate, 'qualification-link-duplicate-materialize');
+            $this->fail('A duplicate programme/qualification/awarding-body identity must not create another link.');
+        } catch (ValidationException) {
+            $this->assertDatabaseCount('programme_qualification_links', 1);
+            $this->assertDatabaseHas('programme_qualification_links', [
+                'id' => $linkId,
+                'claim_version_id' => $successor,
+            ]);
+        }
     }
 
     public function test_admission_offer_successor_preserves_offer_identity_and_existing_fact_relationship(): void
@@ -181,6 +197,22 @@ final class CatalogueSuccessorMaterializationTest extends TestCase
             'programme_offer_id' => $offerId,
             'fact_key' => 'application_fee',
         ]);
+
+        $duplicate = $this->acceptedVersion($programme, 'programme_offer', [
+            'programme_entity_id' => $programme,
+            'delivery_location_entity_id' => $campus,
+            'admission_cycle' => 'Synthetic 2028 Intake',
+        ], 'offer-duplicate');
+        try {
+            $materializer->materializeAcceptedRecord($this->actor('offer-duplicate-materializer'), $duplicate, 'offer-duplicate-materialize');
+            $this->fail('A duplicate programme/location/admission-cycle identity must not create another offer.');
+        } catch (ValidationException) {
+            $this->assertDatabaseCount('programme_offers', 1);
+            $this->assertDatabaseHas('programme_offer_facts', [
+                'id' => $factId,
+                'programme_offer_id' => $offerId,
+            ]);
+        }
     }
 
     public function test_successor_cannot_create_a_missing_predecessor_projection(): void
