@@ -2210,3 +2210,12 @@ The documentary packs are ready, but no qualified reviewer has been selected/ver
 ## M3 remaining roadmap — Step 04: Reviewer capability and separation decision — 2026-11-21
 
 Q4 Option A is accepted: legal/privacy/safeguarding first, security second, accessibility third. The no-fee-only ceiling remains PKR 0. No reviewer has been verified, selected, contacted or appointed. The next owner decision (Q5) is the reviewer staffing model: recommended separate qualified independent specialists for each discipline, with any combined reviewer permitted only if competence, relevant experience and independence are evidenced separately for every assigned discipline and each workstream receives its own conclusion. No candidate is presumed to qualify. No outreach, appointment, confidential evidence sharing, procurement or spending is authorized. Gate 02 and independent Gate 03 assurance remain blocked; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
+
+## M3 remaining roadmap — Step 04: Q5 reviewer staffing model — 2026-11-21
+
+**Product Owner Q5: ACCEPTED — OPTION B.** Combined reviewers are permitted only when competence, relevant experience and independence are evidenced separately for every assigned discipline: legal/privacy/child safeguarding, security and accessibility. Each discipline requires its own scope, evidence basis, limitations, findings and written conclusion. If a candidate fails or lacks evidence for any discipline, that discipline remains unreviewed or requires a separately qualified independent reviewer. No candidate is presumed qualified.
+
+Q5 closes the owner staffing-model decision only. It does not verify, select, contact, appoint or engage any reviewer. Existing public leads remain unverified. The PKR 0 / no-fee-only boundary remains; no outreach, expenses, procurement, confidential evidence sharing or spend is authorized. No gate is promoted. See [M3 Q5 Owner Decision](M3_Q5_OWNER_DECISION_COMBINED_INDEPENDENT_REVIEWER_STAFFING_MODEL_2026-11-21.md).
+
+**Next agenda: Step 05 — discipline-by-discipline reviewer capability screening matrix.** Prepare a synthetic-only documentary matrix of minimum qualifications, relevant experience, independence/conflict checks, scope boundaries, deliverables and fail-closed outcomes for each discipline. No real candidate assessment or outreach is authorized. Gate 02 and independent Gate 03 assurance remain BLOCKED / NOT ACCEPTED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
