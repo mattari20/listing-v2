@@ -48,7 +48,7 @@ A focused repository-only correction has been prepared on this agenda branch:
 - Add synthetic feature tests asserting that inactive and unverified authenticated sessions receive HTTP 403 for all three actions.
 - Preserve owner-only data scoping and existing behavior for active, verified users.
 
-The change is pending exact-head CI and review; no implementation acceptance is claimed until those checks pass.
+The bounded change was merged in PR #452 at `e4aa631fda080a77e7da20905eff6a499a90f0a1`. Exact-head PHP 8.5 foundation CI run #870 and project documentation validation run #1447 both passed. The synthetic test suite passed within run #870. This is repository-level verification only, not independent security acceptance.
 
 ## 4. Remaining evidence and limitations
 
