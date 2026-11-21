@@ -206,7 +206,7 @@ final class AdministrationWorkspaceTest extends TestCase
             ->assertOk()
             ->assertSee($evidenceId)
             ->assertSee('synthetic_fixture')
-            ->assertSee('proposal_submitted')
+            ->assertSee('proposal submitted')
             ->assertDontSee('sha256:private-evidence-digest')
             ->assertDontSee('hidden-note')
             ->assertDontSee('hidden-history-note')
