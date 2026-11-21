@@ -2115,3 +2115,10 @@ ADM-E-G01, G02 and G03 are CLOSED for their bounded synthetic repository scopes.
 Final G04 exact-head validation: PHP 8.5 Foundation CI and Project documentation validation passed; synthetic suite 23 passed, 1,890 assertions, 320 warnings. Warnings remain open. See [ADM-E G04 Closeout](ADM_E_G04_REVIEWER_SAFE_EVIDENCE_CORRECTION_HISTORY_CLOSEOUT_2026-11-21.md) and the ADM-E audit checkpoint for the full record.
 
 **Remaining limitations:** programme/qualification/offer successor materialization is not added by G03; G04 adds request-time classification, not background monitoring or automatic quarantine; no human reviewer staffing, tabletop, qualified legal/privacy/security/accessibility assessment or operational readiness acceptance is implied. No new production, deployment, pilot, real/source/personal-data or external-service authority is granted. M3-11 remains BLOCKED / NOT ACCEPTED and overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
+
+## M3-C02 — Independent security and accessibility assessment pack — 2026-11-21
+
+**Repository-side preparation: COMPLETE; independent assessment: NOT PERFORMED / BLOCKED.** C02 reconciles LPS-18, M3-12 A08 and the RCV-B05 manual checklist into a two-track assessment pack defining assessor competence/independence, exact scope, minimum security and accessibility coverage, report/evidence contract, findings severity/retest protocol and exclusions. See [M3-C02 Assessment Pack](M3_C02_INDEPENDENT_SECURITY_ACCESSIBILITY_ASSESSMENT_PACK_2026-11-21.md).
+
+No assessor is appointed; no independent security review, penetration test, manual browser/keyboard/screen-reader/assistive-technology session or WCAG conformance assessment has been performed. A08 records all nine manual accessibility areas as NOT PERFORMED. Any external engagement, fee, hosted/dynamic testing or external activity requires separate exact-scope Product Owner authorization. M3-11-03 remains BLOCKED for independent future assurance; M3-11 remains BLOCKED / NOT ACCEPTED; overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED. No existing restriction is relaxed.
