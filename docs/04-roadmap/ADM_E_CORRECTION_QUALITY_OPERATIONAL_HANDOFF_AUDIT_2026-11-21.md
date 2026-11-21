@@ -69,7 +69,7 @@ ADM-D deliberately returns metadata only and does not expose evidence bodies, so
 
 ADM-E is not complete until all of the following are evidenced on exact tested heads:
 
-- [ ] Decision-time evidence authorization freshness and revocation guard is explicit and fail-closed.
+- [x] Decision-time evidence authorization freshness and revocation guard is explicit and fail-closed — implemented and merged in PR #425 for the synthetic-only governed context; real-source provenance remains outside scope.
 - [ ] Correction-request → successor → superseded predecessor → successor review is covered by end-to-end synthetic tests.
 - [ ] Retry/idempotency and invalid transition tests prove no duplicate successor or inconsistent case state.
 - [ ] Proposed/held/returned/disputed/superseded versions cannot mutate accepted projections.
@@ -85,3 +85,8 @@ No adjudication/publication UI or route expansion; no public correction/complain
 ## 7. Disposition
 
 **ADM-E audit checkpoint: COMPLETE. ADM-E agenda: IN PROGRESS / NOT CLOSED.** G01–G04 remain remediation and verification work. No M3 gate is promoted by this audit. M3-11 remains BLOCKED / NOT ACCEPTED and overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
+
+
+## 8. ADM-E-G01 implementation closeout — 2026-11-21
+
+G01 is closed for the synthetic-only repository scope. PR [#425](https://github.com/mattari20/listing-v2/pull/425) merged as `cb896552d7a16af8fa0af6a5ddaa368584356cee` after exact-head PHP 8.5 Foundation CI and Project documentation validation passed. The decision-time acceptance path now checks evidence status and revalidates the linked source authorization for approval, revocation, bounded validity dates, processing permission, and the established synthetic purpose/method/territory context. The synthetic-only suite passed 23 tests with 1,805 assertions and 314 warnings. The schema still does not store per-reference purpose/method/territory context; therefore this implementation intentionally does not authorize acceptance of real-source evidence. See [ADM-E-G01 Closeout](ADM_E_G01_DECISION_TIME_EVIDENCE_AUTHORIZATION_CLOSEOUT_2026-11-21.md). G02–G04 remain open; ADM-E and M3 remain open.
