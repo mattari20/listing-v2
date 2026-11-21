@@ -1,19 +1,19 @@
-## Latest verified update — 21 November 2026 (ADM-C institution and campus workflow)
+## Latest verified update — 21 November 2026 (ADM-D evidence and editorial operations workspace)
 
-- **Latest verified main at ADM-C implementation closeout:** `68c09dc938b2b6238b8a2a90888f836bfe66ba58` — PR [#420](https://github.com/mattari20/listing-v2/pull/420), governed institution and campus information workflow.
-- PR #420 passed exact-head FND-01 Foundation CI and Project documentation validation.
-- **ADM-A architecture and ADM-B read-only workspace remain complete. ADM-C is complete** for the bounded university institution, campus and delivery-site proposal/correction workflow.
-- Authorised university institution representatives can read the current accepted campus/delivery-site projections and submit new campus or delivery-site information through exact active field-definition versions, evidence references, validity dates and idempotency keys.
-- The parent institution scope is derived from the authorised route; client-supplied parent IDs are prohibited. Campus/delivery-site field definitions must explicitly permit the entity type, provider category and scope. Parent institution fields are never inherited.
-- Returned campus/delivery-site claims can be corrected as immutable successor versions and returned to editorial review. Accepted projection updates require the successor to supersede the exact currently materialized claim version.
-- No submission automatically publishes. Human editorial review, adjudication and separate publication controls remain in force.
-- Exact-head Foundation CI: passed. Project documentation validation: passed. Synthetic suite: 23 passed, 1,775 assertions, 305 warnings; therefore not warning-free.
-- **Limitations:** no governed campus/delivery-site field definitions are activated by this agenda; they must already exist and be explicitly approved in the registry. The endpoints are JSON workflows, not a complete browser editing console. Other provider categories and institute types remain future work.
+- **Latest verified main after ADM-D implementation:** `4549f879532c53492a14fc09446bad0a6824778a` — PR [#422](https://github.com/mattari20/listing-v2/pull/422), evidence and editorial case inspection workspace.
+- PR #422 passed exact-head FND-01 Foundation CI and Project documentation validation before merge.
+- **ADM-A, ADM-B, ADM-C and ADM-D are complete** within their bounded repository/synthetic scopes.
+- The reviewer workspace now links eligible university-scope review cases to a private case-detail page showing proposal details, evidence-reference metadata, editorial status history and immutable predecessor-version history.
+- Access requires an active, verified account, an active/non-revoked/unexpired data-reviewer assignment for the exact university institution, and server-side `ScopedAuthorization`. The case must belong to that institution scope.
+- Submitters and evidence contributors cannot inspect or review their own case. A case already in review is visible only to its assigned reviewer. These checks are repeated server-side.
+- Evidence display is metadata-only: reference kind/type/status, relationship, observation/recording times and source-authorization status/validity/revocation. Evidence bodies/files, source URLs, integrity digests, private actor IDs and raw audit metadata are excluded.
+- Reviewers can start and record an editorial review through existing guarded workflow endpoints. Adjudication, publication, suppression, restoration and direct catalogue editing are not exposed.
+- Exact-head Foundation CI and Project documentation validation passed. Synthetic suite: **23 passed, 1,797 assertions, 308 warnings**; warnings remain.
+- **Limitations:** the workspace remains scoped to university data reviewers; the queue currently lists direct university-institution cases, not a complete cross-entity campus/delivery-site work queue. Case detail can resolve exact campus/delivery-site parent relationships when the case is addressed through its authorised institution route. No source content inspection or operational reviewer staffing is provided.
 - **M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.** M3-11 independent review, hosted isolation, recovery, operational readiness and release gates remain blocked.
 - No production/V1/Hostinger access, live database activity, real/source/personal data, external AI/API, deployment, paid service or new spend is authorized. Synthetic-only and all existing safeguards remain in force.
 
-See the [M3 Project Progress Report](docs/04-roadmap/PROJECT_PROGRESS_REPORT.md), [ADM-C Implementation Closeout](docs/04-roadmap/ADM_C_INSTITUTION_CAMPUS_WORKFLOW_CLOSEOUT_2026-11-21.md), and [ADM-B Workspace Closeout](docs/04-roadmap/ADM_B_WORKSPACE_IMPLEMENTATION_CLOSEOUT_2026-11-21.md).
-
+See the [M3 Project Progress Report](docs/04-roadmap/PROJECT_PROGRESS_REPORT.md), [ADM-D Implementation Closeout](docs/04-roadmap/ADM_D_EVIDENCE_EDITORIAL_WORKSPACE_CLOSEOUT_2026-11-21.md), [ADM-C Implementation Closeout](docs/04-roadmap/ADM_C_INSTITUTION_CAMPUS_WORKFLOW_CLOSEOUT_2026-11-21.md), and [ADM-B Workspace Closeout](docs/04-roadmap/ADM_B_WORKSPACE_IMPLEMENTATION_CLOSEOUT_2026-11-21.md).
 ---
 
 
