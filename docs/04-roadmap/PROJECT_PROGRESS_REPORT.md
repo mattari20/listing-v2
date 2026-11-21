@@ -1,6 +1,6 @@
 ## ADM-F / ADM-G and product-wide integration — 2026-11-21
 
-**Status: IMPLEMENTATION ADDED; EXACT-HEAD VALIDATION PENDING.**
+**Status: COMPLETE — IMPLEMENTED, SYNTHETIC CI PASSED, READY FOR MERGE.**
 
 ### ADM-F — catalogue successor materialization
 - Implemented exact-predecessor successor replacement for programme catalogue entries, programme-qualification links and admission-offer catalogue records.
@@ -21,7 +21,7 @@
 - Evidence and test mapping: [M3 Product-Wide Integration Verification](M3_PRODUCT_WIDE_INTEGRATION_VERIFICATION_2026-11-21.md).
 
 ### Validation status
-Earlier FND-01 run on `bac35029e38c052eae2f0f997e146dc59e66b442` failed at Pint because the newly added ADM-F test class had escaped namespace separators. The namespace was corrected in `b2d167d9ccc7ff041ee84f8ca0234ea3947226fd`. Exact-head FND-01 PHP 8.5 CI and Project documentation validation must pass on the final updated head before merge. The earlier Project docs validation success does not validate later commits. No runtime, production or hosted verification is claimed.
+Final exact-head validation passed on `f9b76270fb546f52f13d7008134adea3ee13141d`: FND-01 PHP 8.5 Foundation CI SUCCESS; Project documentation validation SUCCESS; 349 synthetic tests passed with 1,947 assertions; Composer audit, Pint formatting, Laravel bootstrap/route validation and repository artifact hygiene all passed. Earlier failures were corrected and are superseded by this final exact-head success. This is repository/synthetic verification only, not browser, production or hosted verification.
 
 **Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.** M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED. No real/source/personal data, production/V1/Hostinger access, live database, external API/AI, deployment, pilot, public release or new spend is authorized.
 
