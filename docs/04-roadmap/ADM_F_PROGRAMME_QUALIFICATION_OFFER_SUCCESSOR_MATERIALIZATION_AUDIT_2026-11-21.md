@@ -3,7 +3,7 @@
 **Date:** 2026-11-21  
 **Baseline main:** `be95a411862e795072c107708c2867d904ef5bb9` (PR #434 profile-navigation integration)  
 **Agenda:** Administration and Institute Information Management Completion  
-**Status:** Source audit and bounded contract complete; implementation and synthetic regression tests added; exact-head CI pending.
+**Status:** COMPLETE — implementation and synthetic regression tests merged-ready; exact-head CI passed.
 
 ## 1. Purpose
 
@@ -94,6 +94,6 @@ The current agenda branch now implements exact-predecessor successor replacement
 
 Synthetic feature coverage was added in `tests/Feature/CatalogueSuccessorMaterializationTest.php` for programme, qualification-link and offer successor replacement, retention of the old projection before materialization, stable offer identity/fact identity and missing predecessor rejection.
 
-An earlier FND-01 run on `bac35029e38c052eae2f0f997e146dc59e66b442` failed at Pint because the new test file contained escaped PHP namespace separators. The namespace was corrected at `b2d167d9ccc7ff041ee84f8ca0234ea3947226fd`. Exact-head FND-01 and Project documentation validation must pass on the final agenda head before merge. No pass or merge is claimed yet.
+Final exact-head validation passed on `f9b76270fb546f52f13d7008134adea3ee13141d`: FND-01 PHP 8.5 Foundation CI SUCCESS; Project documentation validation SUCCESS; 349 synthetic tests passed with 1,947 assertions. Composer audit, Pint, Laravel bootstrap/routes and repository artifact hygiene passed. The publication-order guard was exercised: an accepted but unpublished successor is rejected; after its approved directory/anonymous public projection exists, exact-predecessor materialization succeeds.
 
 **Disposition:** ADM-F implementation and synthetic regression coverage are present; exact-head validation and review remain pending. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
