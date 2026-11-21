@@ -1,3 +1,15 @@
+## ADM administration and institute information management — current position — 2026-11-21
+
+- ADM-A: architecture and authorization decision COMPLETE.
+- ADM-B: role-aware read-only workspace COMPLETE.
+- ADM-C: governed institution/campus/delivery-site workflow COMPLETE within university-only synthetic scope.
+- ADM-D: reviewer evidence/editorial workspace COMPLETE within university-only synthetic scope.
+- ADM-E: source audit and implementation contract COMPLETE; application implementation remains pending.
+- Next: implement ADM-E's queue, correction handoff, evidence-quality warning and next-action integration; then perform exact-head CI and documentation validation. Do not expose adjudication/publication or broaden provider categories.
+- Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED. M3-10 pilot readiness remains NOT ACCEPTED; M3-11 remains BLOCKED / NOT ACCEPTED. Production, V1, Hostinger, hosted access, deployment, pilot, public release and additional spend remain unauthorized.
+
+---
+
 ## Current M3 status and next eligible event — 2026-11-20
 
 Main is verified at `fd21bfeacfa11cc85a1510fc41787f1f45b09c51` (PR #403). PRs #395–#402 reconciled DP-02–DP-06 and M3-11-05–M3-11-08; all exact-head Foundation CI and documentation validation runs passed. PR #403 refreshed the README; FND-01 CI #750 and documentation validation #1282 passed.
