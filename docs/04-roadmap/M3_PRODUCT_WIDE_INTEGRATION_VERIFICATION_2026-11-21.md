@@ -2,7 +2,7 @@
 
 **Baseline:** `be95a411862e795072c107708c2867d904ef5bb9`  
 **Working head:** `b2d167d9ccc7ff041ee84f8ca0234ea3947226fd`  
-**Status:** Integration source review and cross-module test mapping complete; exact-head CI pending.
+**Status:** COMPLETE for the bounded synthetic repository integration scope; exact-head CI passed.
 
 ## 1. Journey under verification
 
@@ -51,6 +51,6 @@ Institution discovery → institution profile → campus/delivery-site profile �
 
 ## 5. Exact-head validation
 
-The corrected ADM-F test namespace was committed as `b2d167d9ccc7ff041ee84f8ca0234ea3947226fd`. Earlier FND-01 CI on `bac35029e38c052eae2f0f997e146dc59e66b442` failed at Pint because the newly added test file contained escaped namespace separators. That parse issue was corrected in the working head. A new exact-head FND-01 PHP 8.5 run and Project documentation validation result are required before any merge or completion claim.
+Final exact-head validation passed on `f9b76270fb546f52f13d7008134adea3ee13141d`: FND-01 PHP 8.5 Foundation CI SUCCESS; Project documentation validation SUCCESS; 349 synthetic tests passed with 1,947 assertions. The full integration regression suite, PHP formatting, Composer audit, Laravel bootstrap/routes and artifact hygiene passed. This does not replace human, legal, security, accessibility, operational, disaster-recovery or production acceptance.
 
 **Disposition:** Product-wide integration review and regression mapping are complete; exact-head automated verification remains pending. Overall M3 remains OPEN / PARTIALLY COMPLETE — NOT CLOSED.
