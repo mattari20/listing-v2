@@ -61,11 +61,50 @@ final class PersistedGovernanceWorkflowService
             }
             $evidence = DB::table('claim_evidence_links')
                 ->join('evidence_references', 'evidence_references.id', '=', 'claim_evidence_links.evidence_reference_id')
+                ->leftJoin('source_authorizations', 'source_authorizations.id', '=', 'evidence_references.source_authorization_id')
                 ->where('claim_evidence_links.claim_version_id', $case->claim_version_id)
-                ->get(['evidence_references.status']);
-            $statuses = $evidence->pluck('status')->all();
-            if ($outcome === 'accepted' && ! (new GovernancePolicy)->canAcceptClaim($statuses)) {
+                ->lockForUpdate()
+                ->get([
+                    'evidence_references.status as evidence_status',
+                    'source_authorizations.id as authorization_id',
+                    'source_authorizations.status as authorization_status',
+                    'source_authorizations.permitted_purposes',
+                    'source_authorizations.permitted_methods',
+                    'source_authorizations.territories',
+                    'source_authorizations.permitted_scopes',
+                    'source_authorizations.valid_from',
+                    'source_authorizations.valid_to',
+                    'source_authorizations.revoked_at',
+                ]);
+            $statuses = $evidence->pluck('evidence_status')->all();
+            $policy = new GovernancePolicy;
+            if ($outcome === 'accepted' && ! $policy->canAcceptClaim($statuses)) {
                 $this->reject('evidence', 'Claim cannot be accepted without admissible evidence.');
+            }
+            if ($outcome === 'accepted') {
+                foreach ($evidence as $reference) {
+                    if ($reference->authorization_id === null) {
+                        $this->reject('source_authorization', 'Evidence source authorization is missing.');
+                    }
+                    $authorization = [
+                        'status' => $reference->authorization_status,
+                        'permitted_purposes' => $reference->permitted_purposes,
+                        'permitted_methods' => $reference->permitted_methods,
+                        'territories' => $reference->territories,
+                        'permitted_scopes' => $reference->permitted_scopes,
+                        'valid_from' => $reference->valid_from,
+                        'valid_to' => $reference->valid_to,
+                        'revoked_at' => $reference->revoked_at,
+                    ];
+                    $scope = $policy->authorizeSourceAction($authorization, 'publication', [
+                        'purpose' => 'directory_publication',
+                        'method' => 'approved_projection',
+                        'territory' => 'synthetic',
+                    ]);
+                    if ($scope['allowed'] === false) {
+                        $this->reject('source_authorization', $scope['reason']);
+                    }
+                }
             }
             $evidenceActorIds = $this->evidenceActorIds($case->claim_version_id);
             foreach ($evidenceActorIds as $evidenceActorId) {

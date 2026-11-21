@@ -506,6 +506,76 @@ class PersistedGovernanceWorkflowTest extends TestCase
         ]);
     }
 
+    public function test_accepted_adjudication_rejects_expired_source_authorization_at_decision_time(): void
+    {
+        $fixture = $this->fixture();
+        DB::table('source_authorizations')->where('id', $fixture['authorization'])->update([
+            'valid_to' => now()->subSecond(),
+        ]);
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer-expired', ['open_adjudication']), $fixture['version'], 'case-expired-auth');
+
+        try {
+            $service->decideAdjudication($this->actor('adjudicator-expired', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Expired authorization must fail closed.', 'policy-v1');
+            $this->fail('Expired source authorization must block accepted adjudication.');
+        } catch (ValidationException) {
+            $this->assertDatabaseCount('adjudication_decisions', 0);
+            $this->assertDatabaseHas('adjudication_cases', ['id' => $caseId, 'status' => 'open']);
+            $this->assertDatabaseHas('claim_versions', ['id' => $fixture['version'], 'disposition' => 'proposed']);
+        }
+    }
+
+    public function test_accepted_adjudication_rejects_revoked_source_authorization_at_decision_time(): void
+    {
+        $fixture = $this->fixture();
+        DB::table('source_authorizations')->where('id', $fixture['authorization'])->update([
+            'status' => 'revoked',
+            'revoked_at' => now(),
+        ]);
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer-revoked', ['open_adjudication']), $fixture['version'], 'case-revoked-auth');
+
+        try {
+            $service->decideAdjudication($this->actor('adjudicator-revoked', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Revoked authorization must fail closed.', 'policy-v1');
+            $this->fail('Revoked source authorization must block accepted adjudication.');
+        } catch (ValidationException) {
+            $this->assertDatabaseCount('adjudication_decisions', 0);
+            $this->assertDatabaseHas('adjudication_cases', ['id' => $caseId, 'status' => 'open']);
+        }
+    }
+
+    public function test_accepted_adjudication_rejects_out_of_scope_source_authorization(): void
+    {
+        $fixture = $this->fixture();
+        DB::table('source_authorizations')->where('id', $fixture['authorization'])->update([
+            'permitted_scopes' => json_encode(['publication' => false]),
+        ]);
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer-scope', ['open_adjudication']), $fixture['version'], 'case-out-of-scope-auth');
+
+        try {
+            $service->decideAdjudication($this->actor('adjudicator-scope', ['adjudicate_claim']), $caseId, 'accepted', 'synthetic_acceptance', 'Out-of-scope authorization must fail closed.', 'policy-v1');
+            $this->fail('Out-of-scope source authorization must block accepted adjudication.');
+        } catch (ValidationException) {
+            $this->assertDatabaseCount('adjudication_decisions', 0);
+            $this->assertDatabaseHas('adjudication_cases', ['id' => $caseId, 'status' => 'open']);
+        }
+    }
+
+    public function test_non_acceptance_adjudication_outcomes_do_not_require_publication_scope(): void
+    {
+        $fixture = $this->fixture();
+        DB::table('source_authorizations')->where('id', $fixture['authorization'])->update([
+            'permitted_scopes' => json_encode(['publication' => false]),
+        ]);
+        $service = new PersistedGovernanceWorkflowService;
+        $caseId = $service->openAdjudicationCase($this->actor('reviewer-disputed-scope', ['open_adjudication']), $fixture['version'], 'case-disputed-scope');
+        $decisionId = $service->decideAdjudication($this->actor('adjudicator-disputed-scope', ['adjudicate_claim']), $caseId, 'disputed', 'synthetic_conflict', 'Disputed outcomes do not authorize publication.', 'policy-v1');
+
+        $this->assertDatabaseHas('adjudication_decisions', ['id' => $decisionId, 'outcome' => 'disputed']);
+        $this->assertDatabaseHas('claim_versions', ['id' => $fixture['version'], 'disposition' => 'disputed']);
+    }
+
     private function fixture(string $entityType = 'institution'): array
     {
         $now = now();
