@@ -296,7 +296,7 @@ class EditorialReviewServiceTest extends TestCase
             'relationship_type' => 'supports', 'created_at' => $now, 'updated_at' => $now,
         ]);
 
-        return ['entity' => $entity, 'version' => $version];
+        return ['entity' => $entity, 'version' => $version, 'evidence' => $evidence];
     }
 
     private function actor(string $id, array $capabilities, string $class = 'human'): array
