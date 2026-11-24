@@ -1,0 +1,36 @@
+# V2 repository-root web entry for Hostinger subfolder deployment.
+# The deployment directory is the repository root; Laravel's public document
+# files live in ./public. Keep private application directories inaccessible.
+
+Options -Indexes -MultiViews
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Do not expose repository metadata, dotfiles, or private Laravel sources.
+    RewriteRule (^|/)\.git(?:/|$) - [F,L,NC]
+    RewriteRule (^|/)\.github(?:/|$) - [F,L,NC]
+    RewriteRule (^|/)\.(?!well-known(?:/|$)) - [F,L]
+    RewriteRule ^(?:app|bootstrap|config|database|resources|routes|storage|tests|vendor|scripts|docs)(?:/|$) - [F,L,NC]
+
+    # Deny browser-originated /public URLs, but allow internal rewrites into public/.
+    RewriteCond %{THE_REQUEST} \s/+institutes-v2/public(?:/|\s|\?) [NC]
+    RewriteRule ^public/ - [F,L]
+    RewriteRule ^public/ - [L]
+
+    # Serve only files/directories that exist in Laravel's public tree.
+    RewriteCond %{DOCUMENT_ROOT}/institutes-v2/public/$1 -f [OR]
+    RewriteCond %{DOCUMENT_ROOT}/institutes-v2/public/$1 -d
+    RewriteRule ^(.*)$ public/$1 [L]
+
+    # Route the subfolder root and all remaining application requests to Laravel.
+    RewriteRule ^$ public/index.php [L]
+    RewriteRule ^ public/index.php [L]
+</IfModule>
+
+# Never serve environment files, Composer metadata, lockfiles or Artisan.
+<FilesMatch "^(?:\.env(?:\..*)?|composer\.(?:json|lock)|phpunit\.xml|artisan)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</FilesMatch>

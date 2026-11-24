@@ -1,0 +1,35 @@
+# Hostinger V2 subfolder public document root.
+# Publish this file at public_html/institutes-v2/.htaccess.
+# Publish the contents of Laravel's public/ directory beside this file.
+
+Options -Indexes -MultiViews
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /institutes-v2/
+
+    # Preserve authentication and CSRF headers for Laravel.
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    RewriteCond %{HTTP:X-XSRF-TOKEN} .
+    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-TOKEN}]
+
+    # Never expose the private application directory.
+    RewriteRule ^_app(?:/|$) - [F,L,NC]
+
+    # Deny hidden files, except the standard ACME well-known directory.
+    RewriteRule (^|/)\.(?!well-known(?:/|$)) - [F,L]
+
+    # Route all non-file, non-directory requests through the V2 front controller.
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# Deny direct requests to deployment and environment metadata.
+<FilesMatch "^(?:\.env(?:\..*)?|composer\.(?:json|lock)|phpunit\.xml|artisan)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+</FilesMatch>
