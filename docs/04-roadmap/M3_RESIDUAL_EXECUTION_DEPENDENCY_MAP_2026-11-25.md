@@ -48,3 +48,8 @@ Stop and do not perform any activity that would require V1 or production access,
 ## 6. Next practical handoff
 
 The next meaningful advancement is to receive qualified reviewer reports for A–C and actual role acceptance for D, while repository-only synthetic test work continues only where a demonstrable gap is identified. After these dependencies are closed, the Product Owner may separately authorize E/F within an exact bounded scope.
+
+
+## Product Owner scope amendment — 2026-11-25
+
+The Product Owner elects to remove the active requirement for external reviewer engagement and reports for legal/privacy/safeguarding, independent security, and independent accessibility (previous sequences A–C). No outreach, appointment, report, testing engagement, certification or assessment is to be pursued as part of the current project completion agenda. These are **deferred/out-of-current-scope**, not verified or passed: their underlying risks and applicability remain unassessed. This amendment does not make legal-compliance, security or accessibility conformance claims. Remaining agenda items are to be progressed separately, retaining their actual safety, evidence and authorization prerequisites. Release, production execution, public launch and deployment are not authorized by this amendment.
