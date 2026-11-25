@@ -1,3 +1,7 @@
+## Product Owner scope amendment — 2026-11-25 (external review workstreams)
+
+The Product Owner has directed that external reviewer engagement and reports for legal/privacy/safeguarding, independent security and independent accessibility (the prior M3-11 residual map sequences A–C) be removed from the active completion agenda and not pursued now. No emails/outreach, appointments or external assessments are planned. Record these workstreams as **DEFERRED / OUT OF CURRENT PROJECT COMPLETION SCOPE — NOT ASSESSED**, not as passed, verified, compliant, secure or accessibility-conformant. This scope decision does not establish legal applicability or eliminate underlying risk. Proceed with the remaining M3 agenda subject to its actual evidence and authorization boundaries; it does not authorize production, deployment, public launch or live activity.
+
 ## Latest authoritative position — M3 current-main evidence reconciliation (2026-11-20)
 
 **Latest verified main:** `fd21bfeacfa11cc85a1510fc41787f1f45b09c51` — PR #403, README status refresh. PR #403 exact-head FND-01 CI #750 and Project documentation validation #1282 passed before merge.
