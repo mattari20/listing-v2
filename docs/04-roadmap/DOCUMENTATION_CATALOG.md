@@ -1,3 +1,9 @@
+## Product Owner scope amendment — 2026-11-25
+
+- [M3 Residual Execution Dependency Map](M3_RESIDUAL_EXECUTION_DEPENDENCY_MAP_2026-11-25.md) — amended to defer sequences A–C (external legal/privacy/safeguarding, security and accessibility reviews) from active completion scope at Product Owner direction; explicitly not assessed or passed.
+
+---
+
 ## ADM-F / ADM-G / product-wide integration — 2026-11-21
 
 - [ADM-F Programme, Qualification and Admission Offer Successor Materialization Audit](ADM_F_PROGRAMME_QUALIFICATION_OFFER_SUCCESSOR_MATERIALIZATION_AUDIT_2026-11-21.md) — implementation scope and successor replacement tests.
