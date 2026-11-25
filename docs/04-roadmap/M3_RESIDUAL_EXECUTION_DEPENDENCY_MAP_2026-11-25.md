@@ -19,7 +19,7 @@
 | A | Legal/privacy/safeguarding assessment | Reviewer availability and review packet | Dated qualified findings, applicability, conditions, remediation and owner disposition | BLOCKED — external qualified review |
 | B | Independent security review | Exact source baseline; independent reviewer | Scope/method, findings, severity, remediation, retest, residual-risk disposition | BLOCKED — external review |
 | C | Accessibility review | Exact source baseline; qualified reviewer | Automated and manual evaluation (keyboard, screen reader, contrast, zoom/reflow), findings, retest | BLOCKED — qualified evaluation |
-| D | Operational roster for future hosted/release activity | Product Owner identifies real humans | Written role acceptance, competence, availability, coverage/deputy, escalation | DEFERRED; no names or acceptance invented |
+| D | Current product administration model | Product Owner decision | Owner + up to two Superadmins; other accounts are end users; future role/staffing mechanisms only if needed | CLOSED for current development agenda; operational roster is not required now |
 | E | Environment/isolation evidence | Exact target identity; explicit bounded authorization; accepted relevant human owners | V2-only resource inventory, access/secret boundary, ingress/egress and separation evidence | BLOCKED; no hosted access in this work |
 | F | Recovery exercise | E prerequisites; approved objectives and disposable synthetic target | Measured RPO/RTO, isolated restore and rollback evidence, independent verification | BLOCKED; no backup/restore executed |
 | G | Candidate pin and validation | A–F applicable gates closed, findings dispositioned | Exact artifact/commit, lock hashes, functional and qualified assessments, evidence index | NOT STARTED |
@@ -53,3 +53,8 @@ The next meaningful advancement is to receive qualified reviewer reports for A�
 ## Product Owner scope amendment — 2026-11-25
 
 The Product Owner elects to remove the active requirement for external reviewer engagement and reports for legal/privacy/safeguarding, independent security, and independent accessibility (previous sequences A–C). No outreach, appointment, report, testing engagement, certification or assessment is to be pursued as part of the current project completion agenda. These are **deferred/out-of-current-scope**, not verified or passed: their underlying risks and applicability remain unassessed. This amendment does not make legal-compliance, security or accessibility conformance claims. Remaining agenda items are to be progressed separately, retaining their actual safety, evidence and authorization prerequisites. Release, production execution, public launch and deployment are not authorized by this amendment.
+
+
+## Product Owner amendment — 2026-11-25 (Agenda D)
+
+The current product model is **Owner + up to two Superadmins**, with all other accounts as end users. Administrative expansion may be supported in future through permission-limited configuration. No separate future operational roster is required as a current completion prerequisite; if operational staffing or other role mechanisms become necessary, they will be scoped and built at that time. Agenda D is closed for current project completion. This is a product-scope decision, not evidence of deployed role enforcement or operational readiness.
