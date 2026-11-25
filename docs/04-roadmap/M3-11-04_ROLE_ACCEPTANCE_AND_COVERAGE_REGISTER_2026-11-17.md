@@ -49,3 +49,8 @@ A blank or partially completed statement is not acceptance. The repository must 
 - [ ] Product Owner accepts any residual coverage limitations.
 
 **Current result:** 0 of 9 roles accepted on the evidence available; all nine are UNASSIGNED / BLOCKED. This is a register state, not a claim that no capable people exist.
+
+
+## Product Owner amendment — 2026-11-25
+
+This nine-role register is retained as historical preparation only and is **not an active requirement** for current product completion. Current product admin model: Owner plus up to two Superadmins; all remaining accounts are end users. Future admin expansion may be implemented with limited permissions when needed. Any future operational roles (support, incident, recovery, etc.) will be considered only if a later authorized activity actually requires them. No role acceptance or appointment is implied.

@@ -51,3 +51,10 @@ Stop the current activity if any real personal/student/guardian data, public par
 - M3-11-04: **CLOSED FOR CURRENT REPOSITORY-ONLY INTERNAL DEVELOPMENT SCOPE; FUTURE HOSTED/RELEASE OPERATIONS GATE REMAINS OPEN**.
 
 This disposition narrows the applicability of the role register; it does not claim that operational readiness exists or waive future staffing, recovery, incident or release requirements.
+
+
+## Product Owner amendment — 2026-11-25: two-superadmin model
+
+The current product administration model is defined as **the Product Owner plus a maximum of two Superadmins (administrative accounts)**. The Product Owner is the owner; two Superadmin accounts are the current planned administrator capacity. The system may later allow controlled expansion or configuration of additional administrative accounts with permission limitations, but that extension is not required now. All other accounts are end users and must not receive administrative privileges by default. No broader operational roster, staffing matrix, deputies, support team, incident commander, privacy lead, security lead, safeguarding lead, release operator or recovery operator is required as a product-development agenda item; if an operational mechanism becomes necessary for a future activity, it will be designed and authorized at that time. This product-owner decision does not itself implement or verify the role/permission enforcement, appoint real people, authorize hosted/live operation, or waive applicable safeguards.
+
+**Disposition updated:** Current development/admin model: Owner + up to 2 Superadmins; other accounts end users. Future operational staffing: not a current project requirement; build/reconcile only if a future activity requires it.
